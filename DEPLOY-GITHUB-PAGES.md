@@ -1,66 +1,77 @@
-# GitHub Pages — forzaquotidiana.it
+# DNS Serverplan → GitHub Pages (forzaquotidiana.it)
 
-Repo: https://github.com/ginocapon/forzaquotidiana (privato)
+## IMPORTANTE — repo Private
 
-## 1. Attiva Pages su GitHub (2 minuti)
+GitHub **non attiva Pages** su repo **Private** con account gratuito.  
+Messaggio: *"Upgrade or make this repository public to enable Pages"*.
 
-1. Apri: https://github.com/ginocapon/forzaquotidiana/settings/pages  
-2. **Build and deployment**
-   - Source: **Deploy from a branch**
-   - Branch: **main** · cartella **/ (root)**
-3. Salva.
-4. Attendi 1–3 minuti: compare l’URL temporaneo  
-   `https://ginocapon.github.io/forzaquotidiana/` (solo finché non colleghi il dominio).
+**Soluzione consigliata (gratis):** rendi il repo **Public**  
+https://github.com/ginocapon/forzaquotidiana/settings  
+→ in fondo **Danger Zone** → **Change visibility** → Public  
 
-## 2. Dominio custom
+(Il sito è già pubblico sul web; il codice HTML non è segreto.)
 
-1. Sempre in **Settings → Pages → Custom domain**  
-2. Inserisci: **`www.forzaquotidiana.it`**  
-3. Attendi check DNS verde.
-4. Attiva **Enforce HTTPS** (compare dopo propagazione DNS).
+**Alternativa:** GitHub Pro a pagamento e resti Private.
 
-Il file `CNAME` in repo contiene già `www.forzaquotidiana.it`.
+---
 
-## 3. DNS su Serverplan (solo record web — non toccare MX email)
+## Dove vanno i DNS (non su GitHub)
 
-Nel pannello DNS del dominio **forzaquotidiana.it**:
+| Dove | Cosa inserisci |
+|------|----------------|
+| **Serverplan** (pannello DNS dominio) | Record A e CNAME (tabella sotto) |
+| **GitHub** Settings → Pages → Custom domain | Solo testo: `www.forzaquotidiana.it` |
 
-### Record obbligatorio per www
+GitHub **non** ha un campo per IP o record DNS — solo il nome dominio, **dopo** che Pages è attivo.
 
-| Tipo  | Nome | Valore              |
-|-------|------|---------------------|
-| CNAME | www  | ginocapon.github.io |
+---
 
-### Apex (forzaquotidiana.it senza www) — consigliato
+## Record DNS da inserire su Serverplan
 
-**Opzione A — Redirect** (più semplice): nel pannello Serverplan reindirizza  
-`forzaquotidiana.it` → `https://www.forzaquotidiana.it`
+Copia questi (standard ufficiale GitHub Pages):
 
-**Opzione B — Record A** (apex diretto su GitHub):
+### Sottodominio www (obbligatorio per iniziare)
 
-| Tipo | Nome | Valore           |
-|------|------|------------------|
-| A    | @    | 185.199.108.153  |
-| A    | @    | 185.199.109.153  |
-| A    | @    | 185.199.110.153  |
-| A    | @    | 185.199.111.153  |
+| Tipo | Host / Nome | Valore / Punta a | TTL |
+|------|-------------|------------------|-----|
+| **CNAME** | **www** | **ginocapon.github.io** | 3600 (o default) |
 
-Poi in GitHub Custom domain puoi usare `forzaquotidiana.it` e aggiornare `CNAME` in repo.
+### Dominio root forzaquotidiana.it (senza www)
 
-Propagazione DNS: da pochi minuti a 24–48 ore.
+| Tipo | Host / Nome | Valore | TTL |
+|------|-------------|--------|-----|
+| **A** | **@** (o vuoto) | **185.199.108.153** | 3600 |
+| **A** | **@** | **185.199.109.153** | 3600 |
+| **A** | **@** | **185.199.110.153** | 3600 |
+| **A** | **@** | **185.199.111.153** | 3600 |
 
-## 4. Dopo ogni modifica al sito
+Se Serverplan permette **solo un redirect** per `@`, usa:  
+`forzaquotidiana.it` → redirect 301 → `https://www.forzaquotidiana.it`  
+e tieni solo il CNAME `www`.
 
-```powershell
-cd c:\Users\Utente\progetti\forzaquotidiana
-git add .
-git commit -m "Aggiornamento sito"
-git push
-```
+---
 
-GitHub Pages si aggiorna da solo in 1–2 minuti.
+## Ordine operazioni (corretto)
 
-## 5. Verifica
+1. **Repo Public** (o Pro) → attiva Pages: branch **main**, cartella **/**  
+   https://github.com/ginocapon/forzaquotidiana/settings/pages  
 
-- https://www.forzaquotidiana.it/
-- https://ginocapon.github.io/forzaquotidiana/ (fallback)
+2. **Serverplan** → inserisci record DNS sopra (NON toccare MX email).
+
+3. **GitHub Pages** → Custom domain: `www.forzaquotidiana.it` → attendi check verde.
+
+4. Attiva **Enforce HTTPS**.
+
+5. Verifica: https://www.forzaquotidiana.it/
+
+Propagazione DNS: 15 min – 48 h.
+
+---
+
+## Cosa NON modificare su Serverplan
+
+- Record **MX** (email)
+- Record **mail.** / SPF se usi posta
+- Altri servizi già attivi sul dominio
+
+Solo record **A/CNAME** per il sito web.
