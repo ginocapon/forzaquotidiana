@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://www.forzaquotidiana.it/sitemap.xml
+Sitemap: https://forzaquotidiana.it/sitemap.xml
