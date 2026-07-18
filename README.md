@@ -21,5 +21,8 @@ python -m http.server 8765
 
 Alternare nel feed `/diario/` — mai un unico blocco freddo.
 
+## Schede allenamento
+Vedi **SKILL.md** — trimestre (3 mesi), figure SVG originali, log cardiaco Amazfit, statistiche mensili.
+
 ## Piano editoriale
 Vedi piano 12 mesi concordato (mese 13 = vendita schede PDF).
