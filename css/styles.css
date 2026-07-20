@@ -426,6 +426,22 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .disclaimer p { margin: 0; }
 
+.article-lead {
+  background: rgba(201, 120, 58, 0.08);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.article-author {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .faq details {
   margin-bottom: 0.75rem;
   padding: 0.85rem 1rem;

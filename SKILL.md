@@ -316,11 +316,13 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 
 ### Struttura articolo riflessione
 
-1. **Apertura scene-based** — giorno reale (sonno, orario palestra, ufficio), non tesi astratta.
-2. **Un problema umano** — es. bilanciare famiglia / lavoro / sport a 50+.
-3. **2–4 H2** con una sola idea ciascuno.
-4. **Takeaway concreti** (3 bullet max) — azioni, non slogans.
-5. **Chiusura identitaria** — target uomini maturi impegnati; niente coaching commerciale.
+1. **Box sintesi GEO** — prime 150 parole, frase dichiarativa auto-contenuta
+2. **Apertura scene-based** — giorno reale (sonno, orario palestra, ufficio)
+3. **10–15 H2/H3** — spesso come domanda (AEO); primo paragrafo = risposta 40–60 parole
+4. **≥ 2500 parole** utili (no riempimento)
+5. **FAQ** — min 5 domande + schema `FAQPage`
+6. **Takeaway concreti** (3 bullet max)
+7. **Chiusura identitaria** + bio autore E-E-A-T
 
 ### Voce
 
@@ -337,6 +339,108 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - Title + meta description unici; `og:image` = foto reale della sessione se c’è.
 - `BlogPosting` JSON-LD con `datePublished` / `dateModified`.
 - Voce in `diario/index.html`, `sitemap.xml`, `llms.txt`.
+
+---
+
+## 8. SEO · GEO · AEO · contenuti (da template operativo)
+
+> Riferimento esteso: `SKILL-SEO-GEO.md`. Regole **bloccanti** per ogni articolo diario.
+
+### Claim consentiti (Forza Quotidiana)
+
+| Dato | Valore verificabile |
+|------|---------------------|
+| Autore | Gino Capon, 57 anni |
+| Allenamento | Da 10+ anni, dilettante autentico |
+| Sito | forzaquotidiana.it |
+| Target | Uomini 40–65, vita impegnata |
+| Obiettivo sito | Diario + allenamento reale, non coaching commerciale |
+
+**Regola d’oro:** niente «miglior PT», percentuali risultati clienti, promesse estetiche. Solo dati e storie verificabili.
+
+### Regole operative sito
+
+1. Leggere il file prima di modificarlo
+2. **Mobile-first** (375px)
+3. URL pulite — canonical coerente, `sitemap.xml` aggiornata
+4. Dominio canonico: `https://forzaquotidiana.it` (apex, no www)
+5. Cache-busting CSS/JS: `?v=N` incrementato a ogni modifica
+6. WCAG AA — contrasto CTA ≥ 4,5:1
+7. No `loading="lazy"` su hero/LCP
+8. Commit solo se richiesto; push solo se esplicito
+
+### Title e meta (BLOCCANTE)
+
+| Campo | Target | Max |
+|-------|--------|-----|
+| `<title>` | ≤60 caratteri | 70 |
+| `meta description` | 120–155 caratteri | 160 |
+
+- Title, H1 e meta = **varianti diverse**
+- Verificare conteggio caratteri prima di pubblicare
+
+### Standard articolo diario (BLOCCANTE)
+
+| Requisito | Valore |
+|-----------|--------|
+| **Lunghezza minima** | **≥ 2500 parole** (salvo istruzione diversa esplicita) |
+| **H2/H3** | 10–15 sezioni |
+| **Box sintesi GEO** | Prime 150 parole — frase dichiarativa auto-contenuta |
+| **GEO sezioni** | Prime 2 righe di ogni H2 = frase dichiarativa con fatto |
+| **AEO** | H2 spesso in forma di domanda; primo paragrafo = risposta 40–60 parole |
+| **FAQ** | Min **5** domande visibili + schema `FAQPage` JSON-LD |
+| **Link interni** | Min 3 (es. `/chi-sono/`, `/diario/`, `/allenamenti/`, newsletter) |
+| **E-E-A-T** | Bio autore a fine articolo; link `/chi-sono/` |
+| **Schema** | `BlogPosting` + `FAQPage` (`@graph`) |
+| **Separazione** | **Nessun link** a pagine sessione/trimestre nel corpo (§5b) |
+
+### Checklist ogni nuova pagina
+
+- [ ] Title/meta §8 OK
+- [ ] H1 unico
+- [ ] Alt text immagini
+- [ ] Canonical + OG
+- [ ] JSON-LD BlogPosting (+ FAQPage se articolo)
+- [ ] ≥2500 parole (articoli diario)
+- [ ] Box sintesi + FAQ
+- [ ] 3+ link interni
+- [ ] `sitemap.xml` + `llms.txt`
+- [ ] `dateModified` aggiornato
+
+### GEO + AEO (sintesi)
+
+**GEO:** ogni sezione inizia con una frase che un motore generativo può citare da sola.  
+*Es.: «Gino Capon, 57 anni, allena 4 volte a settimana conciliando lavoro e famiglia — non come influencer, ma come dilettante documentato.»*
+
+**AEO:** H2 = domanda; risposta diretta sotto; FAQ schema allineato al testo visibile.
+
+### Search Console — venerdì
+
+Integrato in `SKILL-VENERDI.md`. URL chiave da ispezionare:
+
+```
+https://forzaquotidiana.it/
+https://forzaquotidiana.it/chi-sono/
+https://forzaquotidiana.it/diario/
+https://forzaquotidiana.it/allenamenti/
+https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/
+https://forzaquotidiana.it/diario/sport-lavoro-famiglia-a-57-anni/
+https://forzaquotidiana.it/diario/perche-forza-quotidiana/
+https://forzaquotidiana.it/allenamenti/newsletter/
+```
+
+### PAGE SCORE (priorità settimanale)
+
+| Etichetta | Azione |
+|-----------|--------|
+| **SOSTENERE** | Impressioni GSC, 0 click → rifare title/meta + sezione |
+| **GEO** | Manca FAQ/box sintesi → aggiungere |
+| **AGGIUNGERE** | Keyword gap → 1 articolo (anti-doppioni) |
+| **MANTENERE** | Winner → solo `dateModified` |
+
+### Cosa NON copiare (template Righetto)
+
+Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Supabase annunci.
 
 ---
 
