@@ -563,6 +563,10 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 0.35rem;
 }
 .exercise-card__meta strong { color: var(--accent); }
+.exercise-card__kg {
+  color: #e8dcc8;
+  font-weight: 600;
+}
 .exercise-card h3 {
   margin: 0 0 0.5rem;
   font-size: 1.02rem;
@@ -998,6 +1002,86 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.95rem;
 }
 .session-alert a { color: var(--accent); font-weight: 700; }
+
+/* Hub Allenamenti */
+.allenamenti-hero {
+  padding: 3rem 0 1.5rem;
+  background: linear-gradient(180deg, rgba(201, 120, 58, 0.08) 0%, transparent 100%);
+}
+.allenamenti-hero h1 {
+  max-width: 18ch;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.1;
+  margin: 0.5rem 0 1rem;
+}
+.allenamenti-hero .lead { max-width: 52ch; color: #ccc4b8; }
+
+.photo-mosaic {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 720px) {
+  .photo-mosaic {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .photo-mosaic__item--hero { grid-row: span 2; }
+  .photo-mosaic__item--wide { grid-column: span 2; }
+}
+.photo-mosaic__item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.photo-mosaic__item img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.photo-mosaic__item--hero img { min-height: 320px; }
+.photo-mosaic__item figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: #f2ece3;
+}
+
+.card--highlight {
+  border-color: rgba(201, 120, 58, 0.35);
+  background: rgba(201, 120, 58, 0.06);
+}
+.card--highlight .btn { margin-top: 0.75rem; }
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.breadcrumb a { color: var(--accent); }
+
+.session-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
 
 @media (max-width: 720px) {
   .nav-toggle { display: block; }

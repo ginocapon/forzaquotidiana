@@ -16,17 +16,15 @@ Esempio: Trimestre Giugno – Luglio – Agosto 2026
 **URL:** `/allenamenti/trimestre-[mese1]-[mese2]-[mese3]-[anno]/`  
 **Non** incollare PDF/foto di schede esterne. Tutto **HTML + SVG originali** del sito.
 
-### Sezioni obbligatorie (ordine)
+### Sezioni obbligatorie trimestre (ordine)
 
-1. Hero trimestre (periodo, obiettivi, peso/partenza)
-2. Intro emotiva + razionale (forza nella vita, non vetrina)
-3. Tre pilastri: Forza · Ricomposizione · Salute articolare
-4. **Monitoraggio cardiaco** (sezione fissa — vedi §3)
-5. Struttura settimanale (4 giorni)
-6. Schede giorno con **card esercizio** (SVG + esecuzione + serie/rep/recupero/RIR)
-7. Regole d'oro + guida RIR
-8. **Statistiche mensili** del trimestre (tabella riepilogo)
-9. Disclaimer (non PT/medico) + FAQ
+1. Hero trimestre (periodo, obiettivi, peso corporeo partenza)
+2. Intro emotiva + razionale
+3. Tre pilastri + organigramma (link a `/allenamenti/sessioni/`)
+4. Schede 1–4 con card esercizio (SVG, serie, **peso iniziale**, RIR)
+5. Statistiche mensili + regole + disclaimer
+
+I log sessione **non** vanno nel trimestre — solo in `/allenamenti/sessioni/`.
 
 ---
 
@@ -39,6 +37,7 @@ Ogni esercizio ha una card autonoma:
 | **Nome** | Nomenclatura italiana palestra |
 | **Muscoli** | Primario (accent) · secondario (muted) |
 | **Serie×Rep** | es. 4×8 |
+| **Peso iniziale** | es. 22 kg ×2 manubri · stack macchina · 8 kg kettlebell |
 | **Recupero** | es. 2' |
 | **RIR** | 0-2 fondamentali · 1-2 accessori |
 | **SVG** | Figura **originale** sito — mai foto stock incoerenti |
@@ -148,15 +147,16 @@ Calcolare solo da log pubblicati — celle vuote `—` se mese non ancora inizia
 
 Schema: **4×8** (salvo 3×8 / 3×8-10). RIR 0-2 multiarticolari.
 
-### Gerarchia pagina trimestre (ordine obbligatorio)
+### Gerarchia sezione Allenamenti (3 livelli — ordine obbligatorio)
 
-1. **Hero + organigramma** (`.org-chart`) — trimestre → Schede 1–4 → sessioni svolte (link anchor)
-2. **Schede di riferimento** `#scheda-1` … `#scheda-4` — template esercizi (SVG, serie, RIR)
-3. **Sessioni svolte** `#sessioni` — log per **data reale** + badge Scheda N + Amazfit + foto
-4. **Statistiche mensili** `#statistiche`
+1. **`/allenamenti/`** — Hub motivazionale: titolo energico, galleria foto Gino, link a trimestre e sessioni. Nessun log misto.
+2. **`/allenamenti/trimestre-[slug]/`** — Solo riferimento: Schede 1–4 con esercizi, serie, **pesi iniziali concordati**, SVG, statistiche mensili. **Niente** log sessioni inline.
+3. **`/allenamenti/sessioni/`** — Elenco cronologico di ogni giorno allenato.
+4. **`/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`** — Pagina singola sessione: data, Scheda N di riferimento, foto, note, `.hr-log` Amazfit.
 
-URL sessione dedicata (opzionale):  
-`/allenamenti/trimestre-[slug]/sessioni/YYYY-MM-DD-scheda-N/`
+Input sessione: **data + scheda N** (+ pesi se cambiano). Aggiornare la pagina sessione, non il trimestre.
+
+URL legacy `/allenamenti/YYYY-MM-DD/` → redirect alla pagina sessione canonica.
 
 Riflessioni blog → `/diario/` (separate). Link incrociati sessione ↔ riflessione.
 
@@ -227,7 +227,7 @@ Riferimenti di stile (armonizzare, non copiare): professionisti wellness/bodybui
 
 ### Checklist sessione + articolo (stesso giorno)
 
-- [ ] Log `.hr-log` in scheda trimestre (più recente in alto)
+- [ ] Log `.hr-log` in pagina sessione dedicata (non nel trimestre)
 - [ ] Pagina diario allenamento con foto + sintesi + correzione anomalie
 - [ ] Se c’è riflessione: pagina dedicata + link crociati al log
 - [ ] Catch Ball / esercizi nuovi: card opzionale in giorno scheda
