@@ -246,7 +246,7 @@
         'da parte dell&apos;hosting, come descritto nell&apos;informativa privacy ai sensi degli artt. 13-14 del GDPR.</p>' +
         '<ul class="cookie-modal__list">' +
           '<li><strong>Titolare:</strong> Gino Capon — La Forza Quotidiana</li>' +
-          '<li><strong>Contatto:</strong> <a href="mailto:info@forzaquotidiana.it">info@forzaquotidiana.it</a></li>' +
+          '<li><strong>Contatto:</strong> <a href="mailto:ginocapon@gmail.com">ginocapon@gmail.com</a></li>' +
           '<li><strong>Finalità:</strong> erogazione del sito, sicurezza, preferenze cookie</li>' +
           '<li><strong>Diritti:</strong> accesso, rettifica, cancellazione, limitazione, opposizione, reclamo al Garante</li>' +
         '</ul>' +
