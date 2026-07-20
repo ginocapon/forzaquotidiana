@@ -720,6 +720,12 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 -0.25rem 1.25rem;
   -webkit-overflow-scrolling: touch;
 }
+.amazfit-strip > .amazfit-card,
+.amazfit-strip > .phone-shot {
+  flex: 0 0 min(320px, 85vw);
+  scroll-snap-align: start;
+  margin-bottom: 0;
+}
 .amazfit-strip::-webkit-scrollbar { height: 6px; }
 .amazfit-strip::-webkit-scrollbar-thumb {
   background: rgba(201, 120, 58, 0.45);
@@ -861,6 +867,37 @@ img { max-width: 100%; height: auto; display: block; }
   background: rgba(0, 0, 0, 0.25);
   border-left: 3px solid var(--accent);
   border-radius: 0 10px 10px 0;
+}
+.metabolic-note--inline {
+  margin: 0.75rem 1rem 1rem;
+  border-radius: 10px;
+}
+
+.session-note {
+  margin: 0 0 1.5rem;
+  color: #ccc4b8;
+  font-size: 0.95rem;
+}
+
+.session-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.session-head {
+  margin-bottom: 1.5rem;
+}
+.session-head h1 { margin: 0.35rem 0; }
+.session-head .session-log__cal { margin: 0.35rem 0 0.75rem; }
+
+.session-photos {
+  margin: 2rem 0;
+}
+.session-photos h2 {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
 }
 
 .hr-log--elevated {

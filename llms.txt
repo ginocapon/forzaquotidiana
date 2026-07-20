@@ -5,7 +5,7 @@
 ## Sito
 - Home: https://forzaquotidiana.it/
 - Chi sono: https://forzaquotidiana.it/chi-sono/
-- Diario (riflessioni + allenamenti alternati): https://forzaquotidiana.it/diario/
+- Diario (riflessioni): https://forzaquotidiana.it/diario/
 - Allenamenti (hub foto + link): https://forzaquotidiana.it/allenamenti/
 - Sessioni svolte (log per data): https://forzaquotidiana.it/allenamenti/sessioni/
 - Trimestre Giu–Lug–Ago 2026 (schede 1–4, pesi iniziali): https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/
@@ -17,8 +17,8 @@ Gino Capon — allenamento da 10+ anni, target uomini 40–65, messaggio: discip
 
 ## Contenuto recente
 - 20/07/2026 Sessione: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-20-scheda-1/ (Scheda 1, Catch Ball, Amazfit)
-- 20/07/2026 Diario: https://forzaquotidiana.it/diario/2026-07-20-scheda-uno/
 - 20/07/2026 Riflessione: https://forzaquotidiana.it/diario/sport-lavoro-famiglia-a-57-anni/
+- 16/07/2026 Sessione Scheda 1: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-16-scheda-1/
 - 18/07/2026 Riflessione: https://forzaquotidiana.it/diario/perche-forza-quotidiana/
 
 ## Contenuto

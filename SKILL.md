@@ -89,7 +89,7 @@ Fonte dati: **Amazfit** (o equivalente) — solo valori reali, mai inventati.
 
 | Campo | Esempio | Note |
 |-------|---------|------|
-| `datetime` | 2026-07-17T15:24 | Data e ora inizio |
+| `datetime` | 2026-07-16T15:24 | Data e ora inizio |
 | `tipo` | Allenamento muscolare | |
 | `durata` | 01:09:50 | hh:mm:ss |
 | `gruppi` | 21 | Set totali |
@@ -158,7 +158,63 @@ Input sessione: **data + scheda N** (+ pesi se cambiano). Aggiornare la pagina s
 
 URL legacy `/allenamenti/YYYY-MM-DD/` → redirect alla pagina sessione canonica.
 
-Riflessioni blog → `/diario/` (separate). Link incrociati sessione ↔ riflessione.
+Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno» nel footer sessione se esiste articolo stesso giorno.
+
+### Formato pagina sessione (obbligatorio — sempre uguale)
+
+**URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
+**CSS:** `styles.css?v=8` (o versione corrente).
+
+#### Ordine sezioni (non invertire)
+
+| # | Blocco | Classe / elemento | Obbligatorio |
+|---|--------|-------------------|--------------|
+| 1 | Breadcrumb | `.breadcrumb` | Sì |
+| 2 | Intestazione | `.session-head` | Sì |
+| 3 | Nota sessione | `.session-note` | Se Gino lascia note |
+| 4 | Foto | `.session-photos` + `.collage--scatter` | Se ci sono foto |
+| 5 | Metabolico | `.metabolic-block` | Sì |
+| 6 | Footer nav | `.session-footer` | Sì |
+| 7 | Data aggiornamento | `<small>` | Sì |
+
+#### Intestazione `.session-head`
+
+```html
+<header class="session-head">
+  <p class="entry__meta"><span class="entry__type--all">Sessione</span> · <time datetime="YYYY-MM-DDTHH:MM">…</time></p>
+  <h1>DD mese YYYY — Scheda N</h1>
+  <p class="session-log__cal">giorno · gruppi muscolari</p>
+  <p>Scheda di riferimento: <a href="…/#scheda-N"><strong>Scheda N</strong> · trimestre Giu–Lug–Ago 2026</a></p>
+</header>
+```
+
+#### Blocco metabolico `.metabolic-block`
+
+1. **Titolo fisso:** `Dati metabolici · Amazfit`
+2. **Device:** `Amazfit Active 2 NFC · sync app Zepp · Allenamento muscolare`
+3. **Strip scorrevole** `.amazfit-strip` — sempre in questo ordine:
+   - `.phone-shot` — solo se c’è screenshot Zepp export
+   - `.amazfit-card` **Riepilogo** — griglia **6 celle fisse** (stesso ordine):
+     1. Tempo allenamento (`.amazfit-card__cell--highlight` se durata corretta)
+     2. Recupero tra set
+     3. FC media · bpm
+     4. FC max · bpm
+     5. Calorie · kcal
+     6. Carico allenamento
+   - Badge in header card: `N gruppi` (o `— gruppi` se manca)
+   - `.amazfit-card` **Zone + effetto** — se disponibili (zone `.hr-zones` + effetto `.hr-effects` nella stessa card)
+4. **Nota** `.metabolic-note` — opzionale (anomalie device, dati parziali)
+5. **Sintesi** `.hr-log.hr-log--elevated` — griglia **6 metriche fisse**:
+   Durata · FC media · FC max · Calorie · Carico · Gruppi
+
+Valori mancanti: `—`. Asterisco `*` se sovrastima device.
+
+#### Footer `.session-footer`
+
+Sempre: `← Tutte le sessioni` · `Scheda N di riferimento`  
+Opzionale stesso giorno: `Riflessione del giorno` → `/diario/[slug]/`
+
+**Non** usare stili inline su `.amazfit-card` nella strip — usare classi CSS condivise.
 
 ---
 
@@ -185,18 +241,26 @@ Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**
 
 ---
 
-## 5b. Editoriale blog — qualità articoli (riflessioni)
+## 5b. Editoriale Diario vs Allenamenti
 
-Riferimenti di stile (armonizzare, non copiare): professionisti wellness/bodybuilding natural che scrivono da **esperienza vissuta** — es. voce da professionista impegnato + padre di famiglia (linea Federico Boldrin: wellness come purposeful living sostenibile), e blog natural diretti senza hype (chiarezza, numeri, niente miracoli).
+**Separazione netta:**
+
+| Diario `/diario/` | Allenamenti `/allenamenti/` |
+|-------------------|----------------------------|
+| Solo **riflessioni** e articoli | Log sessioni, trimestre, Amazfit |
+| Momenti catartici, foto, racconti, anche scherzosi | Schede 1–4, pesi, dati metabolici |
+| **Nessun link** a pagine sessione/trimestre nel corpo articoli | Può linkare riflessioni del giorno |
+| Un solo pulsante generico → `/allenamenti/` | — |
+
+Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessione.
 
 ### Struttura articolo riflessione
 
 1. **Apertura scene-based** — giorno reale (sonno, orario palestra, ufficio), non tesi astratta.
 2. **Un problema umano** — es. bilanciare famiglia / lavoro / sport a 50+.
 3. **2–4 H2** con una sola idea ciascuno.
-4. **Bridge al log** — link all’allenamento del giorno / scheda trimestre.
-5. **Takeaway concreti** (3 bullet max) — azioni, non slogans.
-6. **Chiusura identitaria** — target uomini maturi impegnati; niente coaching commerciale.
+4. **Takeaway concreti** (3 bullet max) — azioni, non slogans.
+5. **Chiusura identitaria** — target uomini maturi impegnati; niente coaching commerciale.
 
 ### Voce
 
@@ -205,7 +269,8 @@ Riferimenti di stile (armonizzare, non copiare): professionisti wellness/bodybui
 | Prima persona onesta, età dichiarata | Motivazione da reel / emoji |
 | Sport = struttura di serenità mentale | Promesse estetico-competitive |
 | Settimana come unità di equilibrio | “Giornata perfetta” come standard |
-| Link reciproci diario ↔ scheda | Articolo isolato senza log |
+| Menzionare palestra senza linkare log | Link a `/allenamenti/sessioni/` o trimestre |
+| Pulsante «Vai agli Allenamenti» solo in `diario/index.html` | Log misti nel feed diario |
 
 ### SEO minimo articolo
 
@@ -228,11 +293,10 @@ Riferimenti di stile (armonizzare, non copiare): professionisti wellness/bodybui
 ### Checklist sessione + articolo (stesso giorno)
 
 - [ ] Log `.hr-log` in pagina sessione dedicata (non nel trimestre)
-- [ ] Pagina diario allenamento con foto + sintesi + correzione anomalie
-- [ ] Se c’è riflessione: pagina dedicata + link crociati al log
+- [ ] Se c’è riflessione: pagina in `/diario/` **senza link** al log sessione
 - [ ] Catch Ball / esercizi nuovi: card opzionale in giorno scheda
 - [ ] Statistiche mensili ricalcolate
-- [ ] Feed `diario/index.html` + sitemap + llms.txt
+- [ ] Feed `diario/index.html` (solo riflessioni) + sitemap + llms.txt
 
 ---
 
