@@ -1,0 +1,81 @@
+name: Venerdì — checklist Forza Quotidiana
+
+on:
+  schedule:
+    # Venerdì 07:00 UTC = 09:00 CEST
+    - cron: '0 7 * * 5'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  friday-checklist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verifica URL principali
+        id: probe
+        continue-on-error: true
+        run: |
+          ok=true
+          for url in \
+            "https://forzaquotidiana.it/" \
+            "https://forzaquotidiana.it/allenamenti/" \
+            "https://forzaquotidiana.it/allenamenti/newsletter/" \
+            "https://forzaquotidiana.it/diario/"; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$url" || echo "000")
+            echo "$url → $code"
+            [ "$code" = "200" ] || ok=false
+          done
+          echo "probe_ok=$ok" >> "$GITHUB_OUTPUT"
+
+      - name: Apri issue checklist venerdì
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const d = new Date().toISOString().slice(0, 10);
+            const probeOk = '${{ steps.probe.outputs.probe_ok }}' === 'true';
+            const title = `Venerdì Forza Quotidiana — checklist ${d}`;
+            const body = `## Checklist settimanale
+
+            **Probe sito:** ${probeOk ? 'ok' : 'verifica manuale consigliata'}
+
+            ### Newsletter (Foglio Google — NON GitHub)
+            - [ ] Apri [Foglio iscritti](https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit)
+            - [ ] Foglio **Iscritti**: nuovi iscritti questa settimana?
+            - [ ] Foglio **Accessi scheda**: quante aperture/stampe?
+            - [ ] Articolo diario nuovo? → \`inviaAggiornamentoATutti()\` su Apps Script
+            - [ ] Disiscrizioni (DISISCRIVIMI) rimosse dal foglio
+
+            ### Sito
+            - [ ] \`sitemap.xml\` e \`llms.txt\` aggiornati
+            - [ ] Sessione allenamento pubblicata (se allenato)
+            - [ ] Scheda A4 allineata al trimestre
+            - [ ] Aggiorna \`data/site-stats.json\` (solo conteggi, no email)
+
+            ### SKILL
+            - [ ] Leggi \`SKILL-VENERDI.md\` e applica migliorie a \`SKILL.md\` se serve
+
+            ---
+            *Issue automatica — chiudi quando completato.*`;
+
+            const { data: existing } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+            const dup = existing.find(i => i.title.startsWith('Venerdì Forza Quotidiana — checklist'));
+            if (dup) {
+              core.info('Issue venerdì già aperta — skip');
+              return;
+            }
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body
+            });

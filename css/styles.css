@@ -1378,6 +1378,54 @@ img { max-width: 100%; height: auto; display: block; }
 .scheda-pdf-promo h3 { margin: 0 0 0.35rem; }
 .scheda-pdf-promo p { margin: 0; max-width: 42rem; }
 
+.scheda-periodo-list { display: grid; gap: 1.25rem; margin: 1.5rem 0; }
+.scheda-periodo-card__head { margin-bottom: 0.75rem; }
+.scheda-periodo-card__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(201, 120, 58, 0.4);
+  border-radius: 4px;
+  padding: 0.15rem 0.45rem;
+  margin-bottom: 0.35rem;
+}
+.scheda-periodo-card h2 { margin: 0.25rem 0 0; font-size: 1.25rem; }
+.scheda-periodo-card__meta {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.88rem;
+}
+.scheda-periodo-card__meta div { display: flex; flex-wrap: wrap; gap: 0.35rem 0.5rem; }
+.scheda-periodo-card__meta dt {
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0;
+}
+.scheda-periodo-card__meta dd { margin: 0; }
+.scheda-periodo-card__desc { margin: 0 0 1rem; font-size: 0.92rem; }
+.scheda-periodo-card__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.scheda-a4__head-period {
+  text-align: center;
+  font-size: 7pt;
+  margin: 1mm 0;
+  line-height: 1.3;
+}
+.scheda-a4__badge {
+  display: inline-block;
+  font-size: 6pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid #c9783a;
+  border-radius: 2px;
+  padding: 0.2mm 1mm;
+  margin-right: 1mm;
+  vertical-align: middle;
+}
+
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; width: 100%; }

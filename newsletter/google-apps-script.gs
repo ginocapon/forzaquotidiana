@@ -25,6 +25,30 @@ function getSheet_() {
   return sh;
 }
 
+function getAccessiSheet_() {
+  var ss = SpreadsheetApp.openById(SHEET_ID);
+  var sh = ss.getSheetByName('Accessi scheda');
+  if (!sh) {
+    sh = ss.insertSheet('Accessi scheda');
+    sh.appendRow(['Data', 'Tipo', 'Note']);
+    sh.getRange(1, 1, 1, 3).setFontWeight('bold');
+  }
+  return sh;
+}
+
+function logAccesso_(tipo) {
+  getAccessiSheet_().appendRow([new Date(), tipo || 'scheda_apertura', '']);
+}
+
+function doGet(e) {
+  var p = e.parameter || {};
+  if (p.action === 'log') {
+    logAccesso_(p.tipo || 'scheda_apertura');
+    return ContentService.createTextOutput('ok').setMimeType(ContentService.MimeType.TEXT);
+  }
+  return ContentService.createTextOutput('Forza Quotidiana newsletter API').setMimeType(ContentService.MimeType.TEXT);
+}
+
 function doPost(e) {
   var p = e.parameter || {};
   if (p.website) {
@@ -65,6 +89,7 @@ function doPost(e) {
     );
   }
 
+  logAccesso_('iscrizione');
   return redirectAfterSubscribe_(email, next);
 }
 
@@ -137,4 +162,32 @@ function inviaAggiornamentoATutti() {
   }
 
   Logger.log('Email inviate: ' + inviati);
+}
+
+/** Ogni venerdì — Esegui manualmente o da trigger. Invia riepilogo a Gino. */
+function riepilogoVenerdi() {
+  var iscritti = getSheet_().getDataRange().getValues();
+  var nIscritti = Math.max(0, iscritti.length - 1);
+
+  var accessi = getAccessiSheet_().getDataRange().getValues();
+  var nAccessiSett = 0;
+  var now = new Date();
+  var weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+  for (var i = 1; i < accessi.length; i++) {
+    var d = accessi[i][0];
+    if (d instanceof Date && d >= weekAgo) nAccessiSett++;
+  }
+
+  var body =
+    'Riepilogo venerdì Forza Quotidiana\n\n' +
+    'Iscritti newsletter (totale): ' + nIscritti + '\n' +
+    'Accessi/stampe scheda (ultimi 7 gg): ' + nAccessiSett + '\n\n' +
+    'Foglio iscritti:\n' +
+    'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit\n\n' +
+    'Checklist:\n' +
+    '- Nuovo articolo diario questa settimana? → inviaAggiornamentoATutti()\n' +
+    '- Nuova sessione allenamento? → pagina in /allenamenti/sessioni/\n' +
+    '- Aggiorna sitemap.xml e llms.txt\n';
+
+  GmailApp.sendEmail(TitolareEmail, 'Forza Quotidiana — riepilogo venerdì', body);
 }

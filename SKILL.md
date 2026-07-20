@@ -248,25 +248,55 @@ Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**
 
 1. Link **Scarica scheda** da `/allenamenti/` o trimestre → `/allenamenti/newsletter/?from=schede-peso`
 2. Iscrizione (consenso privacy) → Google Apps Script + Gmail
-3. Redirect `/allenamenti/schede-peso/` — stampa PDF (`window.print()`)
+3. Redirect `/allenamenti/schede-peso/` — **1 foglio A4 orizzontale** (griglia 2×2)
 4. `localStorage` `fq_newsletter_ok` sblocca visite successive (stesso browser)
+
+### Scheda A4
+
+- 4 quadranti (Scheda 1–4) su **un solo foglio** orizzontale
+- Colonne: Esercizio · S×R · kg · Note + riga log per quadrante
+- Stampa: orizzontale, margini minimi, 100%
+
+### Database iscritti
+
+- **Email → solo Foglio Google** (mai su GitHub — repo pubblico)
+- Accessi/stampe → foglio **Accessi scheda** (Apps Script)
+- Conteggi anonimi → `data/site-stats.json`
+- Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail
 
 ### File
 
 | Path | Ruolo |
 |------|--------|
 | `/allenamenti/newsletter/` | Landing + form |
-| `/allenamenti/schede-peso/` | 4 schede + log vuoti · `css/schede-peso-print.css` |
+| `/allenamenti/schede-peso/` | Catalogo schede per periodo |
+| `/allenamenti/schede-peso/trimestre-…/` | Scheda A4 del periodo |
 | `js/newsletter.js` | Submit, gate, demo test |
+| `SKILL-VENERDI.md` | Checklist settimanale |
 
 ### Promozione
 
 - Box scheda in hub allenamenti + callout nel trimestre
 - Sezione newsletter in fondo a `/allenamenti/`
 
-### Nuovo trimestre
+### Nuovo trimestre / nuovo periodo
 
-- Aggiornare contenuto `/allenamenti/schede-peso/` (esercizi, pesi iniziali)
+Per ogni arco temporale creare:
+
+1. **Programma** → `/allenamenti/trimestre-[mesi]-[anno]/` (obiettivo nel titolo, es. *Ipertrofia natural*)
+2. **Scheda PDF A4** → `/allenamenti/schede-peso/trimestre-[mesi]-[anno]/`
+3. **Voce catalogo** in `/allenamenti/schede-peso/index.html` e sezione hub `/allenamenti/#schede-periodo`
+
+Ogni scheda deve indicare chiaramente:
+
+| Campo | Esempio Q3 2026 |
+|-------|-----------------|
+| **Obiettivo / tipo** | Ipertrofia natural |
+| **Periodo (date)** | 1 giu – 31 ago 2026 |
+| **Badge** | Q3 · 2026 |
+| **Focus** | Forza · ricomposizione · articolazioni |
+
+- Aggiornare contenuto scheda PDF (esercizi, pesi iniziali)
 - Inviare email agli iscritti quando il trimestre è online
 
 ---

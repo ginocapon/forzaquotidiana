@@ -1,8 +1,7 @@
-/* Scheda pesi — schermo + stampa PDF */
+/* Scheda pesi — 1 pagina A4 orizzontale */
 .schede-peso {
   background: #e8e4dc;
   color: #1a1a1a;
-  font-size: 11pt;
 }
 
 .schede-peso-toolbar {
@@ -19,130 +18,158 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.5rem 0.75rem;
 }
 .schede-peso-toolbar p { margin: 0; }
+.schede-peso-toolbar__tip { width: 100%; margin: 0; color: #aaa; }
 
-.scheda-print {
-  max-width: 210mm;
-  margin: 1.5rem auto 3rem;
-  padding: 12mm 14mm;
+/* Anteprima schermo ≈ A4 landscape */
+.scheda-a4 {
+  width: 297mm;
+  min-height: 210mm;
+  margin: 1rem auto 2rem;
+  padding: 5mm 6mm;
   background: #fff;
   box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 7pt;
+  line-height: 1.2;
 }
 
-.scheda-print__cover {
+.scheda-a4__head {
+  border-bottom: 1.5px solid #c9783a;
+  padding-bottom: 2mm;
+  margin-bottom: 2mm;
+}
+.scheda-a4__head-main {
+  font-size: 8.5pt;
+  font-weight: 600;
   text-align: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid #c9783a;
+  margin-bottom: 0.5mm;
 }
-.scheda-print__brand {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #666;
-  margin: 0 0 0.5rem;
+.scheda-a4__head-period {
+  text-align: center;
+  font-size: 7pt;
+  margin: 0 0 1mm;
+  line-height: 1.25;
 }
-.scheda-print__cover h1 {
-  font-size: 1.5rem;
-  margin: 0 0 0.35rem;
+.scheda-a4__badge {
+  display: inline-block;
+  font-size: 6pt;
+  font-weight: 700;
+  border: 1px solid #c9783a;
+  border-radius: 2px;
+  padding: 0.2mm 1mm;
+  margin-right: 1mm;
 }
-.scheda-print__hint {
-  font-size: 0.85rem;
-  color: #555;
-  margin: 0.5rem 0 1rem;
-}
-
-.scheda-print__meta {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-}
-.scheda-print__meta th,
-.scheda-print__meta td {
-  border: 1px solid #ccc;
-  padding: 0.35rem 0.5rem;
-  text-align: left;
-}
-.scheda-print__meta th {
-  background: #f5f0e8;
-  width: 22%;
-  font-weight: 600;
+.scheda-a4__head-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1mm 4mm;
+  font-size: 6.5pt;
+  color: #444;
 }
 
-.scheda-print__day {
-  margin-top: 1.25rem;
-  page-break-inside: avoid;
-}
-.scheda-print__day h2 {
-  font-size: 1.05rem;
-  margin: 0 0 0.5rem;
-  color: #8b4513;
-  border-left: 4px solid #c9783a;
-  padding-left: 0.5rem;
-}
-.scheda-print__day h3 {
-  font-size: 0.85rem;
-  margin: 0.75rem 0 0.35rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #666;
+.scheda-a4__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2.5mm;
+  height: calc(210mm - 5mm - 5mm - 12mm - 6mm);
 }
 
-.scheda-print__table,
-.scheda-print__log {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.82rem;
-  margin-bottom: 0.5rem;
-}
-.scheda-print__table th,
-.scheda-print__table td,
-.scheda-print__log th,
-.scheda-print__log td {
+.scheda-a4__quad {
   border: 1px solid #bbb;
-  padding: 0.35rem 0.4rem;
-  vertical-align: top;
+  border-radius: 2px;
+  padding: 1.5mm 2mm;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
-.scheda-print__table th,
-.scheda-print__log th {
+.scheda-a4__quad h2 {
+  font-size: 7pt;
+  margin: 0 0 1mm;
+  padding: 0.5mm 1mm;
   background: #f0ebe3;
+  color: #8b4513;
+  border-left: 2px solid #c9783a;
+}
+
+.scheda-a4__quad table {
+  width: 100%;
+  border-collapse: collapse;
+  flex: 1;
+  font-size: 6.5pt;
+}
+.scheda-a4__quad th,
+.scheda-a4__quad td {
+  border: 1px solid #ccc;
+  padding: 0.6mm 1mm;
+  vertical-align: middle;
+}
+.scheda-a4__quad th {
+  background: #faf7f2;
   font-weight: 600;
   text-align: left;
 }
-.scheda-print__table td:nth-child(3) { width: 14%; }
-.scheda-print__table td:nth-child(4) { width: 28%; min-height: 1.2em; }
-.scheda-print__log td { height: 1.4em; }
+.scheda-a4__quad td:nth-child(2) { width: 12%; white-space: nowrap; }
+.scheda-a4__quad td:nth-child(3) { width: 10%; }
+.scheda-a4__quad td:nth-child(4) { width: 22%; }
+.scheda-a4__filler {
+  border-color: #eee !important;
+  background: #fafafa;
+  height: 3.2mm;
+}
 
-.scheda-print__foot {
-  margin-top: 1.5rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #ddd;
-  font-size: 0.72rem;
+.scheda-a4__logline {
+  margin: 1mm 0 0;
+  font-size: 6pt;
+  color: #555;
+  border-top: 1px dashed #ddd;
+  padding-top: 0.5mm;
+}
+
+.scheda-a4__foot {
+  margin-top: 2mm;
+  font-size: 5.5pt;
   color: #888;
   text-align: center;
 }
 
 @media print {
+  @page {
+    size: A4 landscape;
+    margin: 5mm;
+  }
   .no-print { display: none !important; }
   .schede-peso { background: #fff; }
-  .scheda-print {
+  .scheda-a4 {
+    width: auto;
+    min-height: auto;
+    height: auto;
     margin: 0;
     padding: 0;
     box-shadow: none;
-    max-width: none;
+    page-break-after: avoid;
+    page-break-inside: avoid;
   }
-  .scheda-print__day {
-    page-break-after: always;
-  }
-  .scheda-print__day:last-of-type {
-    page-break-after: auto;
+  .scheda-a4__grid {
+    height: 178mm;
   }
 }
 
-@media (max-width: 640px) {
-  .scheda-print { margin: 0; padding: 1rem; }
-  .scheda-print__table { font-size: 0.72rem; }
+@media (max-width: 900px) {
+  .scheda-a4 {
+    width: 100%;
+    min-height: auto;
+    padding: 0.75rem;
+    font-size: 0.65rem;
+  }
+  .scheda-a4__grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .scheda-a4__quad table { font-size: 0.62rem; }
 }

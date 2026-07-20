@@ -64,13 +64,19 @@ L’iscritto risponde **DISISCRIVIMI** alla newsletter. Tu elimini la riga dal f
 
 1. Sul sito live: `/allenamenti/newsletter/` → iscrizione con una tua email secondaria
 2. Controlla foglio Google + casella di benvenuto
-3. Verifica redirect a `/allenamenti/schede-peso/` e stampa PDF
+3. Verifica redirect a `/allenamenti/schede-peso/` — **1 pagina A4 orizzontale**
+
+## Trigger venerdì (opzionale)
+
+script.google.com → **Trigger** → `riepilogoVenerdi` → ogni venerdì ore 09:00.
+
+Vedi `SKILL-VENERDI.md` e issue GitHub automatica ogni venerdì.
 
 **Demo senza script:** pulsante *accesso demo scheda* in fondo alla pagina newsletter.
 
 ## Reset test (browser)
 
 ```js
-localStorage.removeItem('fq_newsletter_ok');
-```
+localStorage.removeItem('fq_newsletter_ok');
+```
 
