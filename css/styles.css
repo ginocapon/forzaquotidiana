@@ -989,6 +989,16 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.9rem;
 }
 
+.session-alert {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  background: rgba(201, 120, 58, 0.12);
+  border: 1px solid rgba(201, 120, 58, 0.45);
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.session-alert a { color: var(--accent); font-weight: 700; }
+
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; width: 100%; }
