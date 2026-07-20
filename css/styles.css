@@ -648,7 +648,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hr-zones { display: grid; gap: 0.45rem; margin: 1rem 0; }
 .hr-zone {
   display: grid;
-  grid-template-columns: 7.5rem 1fr 3rem;
+  grid-template-columns: 7.5rem 1fr 2.5rem 3rem;
   gap: 0.5rem;
   align-items: center;
   font-size: 0.8rem;
@@ -689,6 +689,184 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hr-effect strong { display: block; font-size: 1.35rem; color: var(--accent); }
 .hr-effect span { font-size: 0.78rem; color: var(--muted); }
+
+/* Blocco metabolico sessione — stile Zepp/Amazfit */
+.metabolic-block {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(165deg, rgba(201, 120, 58, 0.07) 0%, var(--surface-2) 45%);
+  border: 1px solid rgba(201, 120, 58, 0.22);
+  border-radius: 20px;
+}
+.metabolic-block > h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+}
+.metabolic-block__device {
+  margin: 0 0 1.25rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.metabolic-block__device strong { color: var(--accent); }
+
+.amazfit-strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.25rem 0 1rem;
+  margin: 0 -0.25rem 1.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+.amazfit-strip::-webkit-scrollbar { height: 6px; }
+.amazfit-strip::-webkit-scrollbar-thumb {
+  background: rgba(201, 120, 58, 0.45);
+  border-radius: 999px;
+}
+.phone-shot {
+  flex: 0 0 min(280px, 78vw);
+  scroll-snap-align: start;
+  margin: 0;
+}
+.phone-shot__frame {
+  background: #0f0f0f;
+  border: 3px solid #2a2a2a;
+  border-radius: 22px;
+  padding: 0.45rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+}
+.phone-shot__frame img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+.phone-shot figcaption {
+  margin-top: 0.55rem;
+  font-size: 0.78rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.amazfit-card {
+  background: #141414;
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+.amazfit-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: #1c1c1c;
+  border-bottom: 1px solid #2e2e2e;
+}
+.amazfit-card__user {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #f2ece3;
+}
+.amazfit-card__meta {
+  font-size: 0.75rem;
+  color: #888;
+}
+.amazfit-card__badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: rgba(201, 120, 58, 0.15);
+  border: 1px solid rgba(201, 120, 58, 0.35);
+  border-radius: 999px;
+}
+.amazfit-card__title {
+  padding: 0.65rem 1rem 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #aaa;
+}
+.amazfit-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #2e2e2e;
+  margin: 0.5rem 0 0;
+}
+@media (min-width: 540px) {
+  .amazfit-card__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.amazfit-card__cell {
+  padding: 0.85rem 0.65rem;
+  background: #141414;
+  text-align: center;
+}
+.amazfit-card__cell strong {
+  display: block;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  color: #f5f0e8;
+  line-height: 1.2;
+}
+.amazfit-card__cell span {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #777;
+  line-height: 1.3;
+}
+.amazfit-card__cell--highlight {
+  background: rgba(201, 120, 58, 0.12);
+}
+.amazfit-card__cell--highlight strong { color: var(--accent); }
+
+.amazfit-card__zones { padding: 1rem; }
+.amazfit-card__zones h3,
+.amazfit-card__effects h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  font-weight: 600;
+}
+.amazfit-card__effects {
+  padding: 0 1rem 1rem;
+  border-top: 1px solid #2e2e2e;
+}
+
+.hr-zone__pct {
+  font-size: 0.72rem;
+  color: #888;
+  text-align: right;
+  min-width: 2.5rem;
+}
+
+.metabolic-note {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: #ccc4b8;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+
+.hr-log--elevated {
+  border-color: rgba(201, 120, 58, 0.25);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, var(--bg) 100%);
+}
 
 .month-stats-wrap { overflow-x: auto; margin: 1.5rem 0; }
 .month-stats {
