@@ -224,6 +224,7 @@ Opzionale stesso giorno: `Riflessione del giorno` → `/diario/[slug]/`
 - Disclaimer su ogni scheda: non PT, non medico.
 - Dati numerici: **solo da log reali** (Amazfit, bilancia, metriche).
 - **Privacy/GDPR:** banner cookie conforme Garante 2021, `/privacy/`, `/cookie/`, gate informativo su contenuti (`js/cookie-consent.js`). Email titolare: ginocapon@gmail.com
+- **Newsletter + scheda PDF:** Google Apps Script + Gmail (`ginocapon@gmail.com`) + Foglio Google. Setup: `NEWSLETTER-SETUP.md` · script in `newsletter/google-apps-script.gs`
 
 ### Anomalie device (obbligatorio)
 
@@ -238,6 +239,35 @@ Se Amazfit/Zepp gonfia durata (orologio lasciato acceso):
 ### Esercizi sperimentali
 
 Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**, nota “in prova”, link dal diario sessione. Non promuovere a fisso finché Gino non conferma ripetizione.
+
+---
+
+## 5a. Newsletter e scheda pesi PDF
+
+### Flusso
+
+1. Link **Scarica scheda** da `/allenamenti/` o trimestre → `/allenamenti/newsletter/?from=schede-peso`
+2. Iscrizione (consenso privacy) → Google Apps Script + Gmail
+3. Redirect `/allenamenti/schede-peso/` — stampa PDF (`window.print()`)
+4. `localStorage` `fq_newsletter_ok` sblocca visite successive (stesso browser)
+
+### File
+
+| Path | Ruolo |
+|------|--------|
+| `/allenamenti/newsletter/` | Landing + form |
+| `/allenamenti/schede-peso/` | 4 schede + log vuoti · `css/schede-peso-print.css` |
+| `js/newsletter.js` | Submit, gate, demo test |
+
+### Promozione
+
+- Box scheda in hub allenamenti + callout nel trimestre
+- Sezione newsletter in fondo a `/allenamenti/`
+
+### Nuovo trimestre
+
+- Aggiornare contenuto `/allenamenti/schede-peso/` (esercizi, pesi iniziali)
+- Inviare email agli iscritti quando il trimestre è online
 
 ---
 
@@ -289,6 +319,8 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] Tabella statistiche mensili aggiornata
 - [ ] `sitemap.xml` + voce Diario + `llms.txt`
 - [ ] `og:image` = hero sito o grafica trimestre SVG (non screenshot Amazfit con dati personali sensibili oltre ciò che Gino approva)
+- [ ] Scheda pesi PDF aggiornata in `/allenamenti/schede-peso/`
+- [ ] Email newsletter agli iscritti (funzione `inviaAggiornamentoATutti` in Apps Script)
 
 ### Checklist sessione + articolo (stesso giorno)
 

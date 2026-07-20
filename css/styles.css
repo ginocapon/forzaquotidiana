@@ -1298,6 +1298,86 @@ img { max-width: 100%; height: auto; display: block; }
   border: 0;
 }
 
+/* Newsletter + scheda pesi gate */
+.btn-block { display: block; width: 100%; text-align: center; }
+.btn-link {
+  background: none; border: none; padding: 0;
+  color: var(--accent); text-decoration: underline;
+  cursor: pointer; font: inherit;
+}
+.newsletter-hero { margin-bottom: 1.5rem; }
+.newsletter-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+@media (min-width: 768px) {
+  .newsletter-grid { grid-template-columns: 1fr 1fr; }
+}
+.newsletter-benefits ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+.newsletter-form { display: grid; gap: 0.85rem; }
+.newsletter-form__field span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+.newsletter-form__field input[type="text"],
+.newsletter-form__field input[type="email"] {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  background: rgba(0,0,0,0.25);
+  color: inherit;
+}
+.newsletter-form__check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.newsletter-form__check input { margin-top: 0.2rem; flex-shrink: 0; }
+.newsletter-form__hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.newsletter-form__note { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.78rem; }
+.newsletter-success {
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(201, 120, 58, 0.25);
+}
+.newsletter-error {
+  color: #e8a090;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+.newsletter-cta {
+  background: linear-gradient(135deg, rgba(201, 120, 58, 0.12), rgba(201, 120, 58, 0.04));
+  border: 1px solid rgba(201, 120, 58, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.newsletter-cta h2 { margin-top: 0; }
+.newsletter-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.scheda-pdf-promo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(201, 120, 58, 0.35);
+  border-radius: 12px;
+  background: rgba(201, 120, 58, 0.06);
+}
+.scheda-pdf-promo h3 { margin: 0 0 0.35rem; }
+.scheda-pdf-promo p { margin: 0; max-width: 42rem; }
+
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; width: 100%; }

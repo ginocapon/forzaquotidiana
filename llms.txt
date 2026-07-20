@@ -9,6 +9,8 @@
 - Allenamenti (hub foto + link): https://forzaquotidiana.it/allenamenti/
 - Sessioni svolte (log per data): https://forzaquotidiana.it/allenamenti/sessioni/
 - Trimestre Giu–Lug–Ago 2026 (schede 1–4, pesi iniziali): https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/
+- Newsletter + scheda pesi PDF (iscrizione gratuita): https://forzaquotidiana.it/allenamenti/newsletter/
+- Scheda pesi stampabile (dopo iscrizione): https://forzaquotidiana.it/allenamenti/schede-peso/
 - Privacy Policy: https://forzaquotidiana.it/privacy/
 - Cookie Policy: https://forzaquotidiana.it/cookie/
 
@@ -24,4 +26,4 @@ Gino Capon — allenamento da 10+ anni, target uomini 40–65, messaggio: discip
 ## Contenuto
 - Riflessioni personali (non nutrizione/medico professionale)
 - Log allenamento amatoriale con dati Amazfit reali
-- Prodotti digitali (schede PDF): previsti dal mese 13 del percorso editoriale
+- Prodotti digitali: scheda pesi PDF Q3 2026 (4 giornate, gate newsletter gratuita)

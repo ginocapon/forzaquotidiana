@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter gratuita + scheda pesi PDF | La Forza Quotidiana</title>
+<meta name="description" content="Iscriviti gratis alla newsletter di Gino Capon: nuove schede, articoli e la scheda pesi PDF Q3 2026 con spazio per annotazioni.">
+<link rel="canonical" href="https://forzaquotidiana.it/allenamenti/newsletter/">
+<meta property="og:url" content="https://forzaquotidiana.it/allenamenti/newsletter/">
+<meta property="og:title" content="Newsletter La Forza Quotidiana">
+<link rel="stylesheet" href="/css/styles.css?v=9">
+</head>
+<body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/">La Forza Quotidiana<small>Gino Capon</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principale">Menu</button>
+    <nav class="site-nav" id="nav-principale" aria-label="Principale">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/chi-sono/">Chi sono</a></li>
+        <li><a href="/diario/">Diario</a></li>
+        <li><a href="/allenamenti/" aria-current="page">Allenamenti</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto" class="section">
+  <div class="wrap prose prose--wide">
+    <nav class="breadcrumb" aria-label="Percorso">
+      <a href="/allenamenti/">Allenamenti</a> · Newsletter
+    </nav>
+
+    <div class="newsletter-hero">
+      <h1>Scheda pesi PDF + aggiornamenti gratuiti</h1>
+      <p class="lead">Iscriviti alla newsletter (zero costo). Ricevi una mail quando pubblico <strong>nuove schede</strong> o <strong>articoli</strong> — e subito puoi scaricare la scheda per annotare pesi e note, divisa per le <strong>4 giornate</strong> del trimestre.</p>
+    </div>
+
+    <div class="newsletter-grid">
+      <div class="newsletter-benefits card">
+        <h2>Cosa ricevi</h2>
+        <ul>
+          <li><strong>Scheda pesi PDF</strong> — 4 schede, colonne peso + annotazioni</li>
+          <li>Avviso quando esce un nuovo trimestre o articolo</li>
+          <li>Niente spam: solo ciò che pubblico sul sito</li>
+          <li>Disiscrizione in un click (in ogni email)</li>
+        </ul>
+      </div>
+
+      <div class="newsletter-form-wrap card card--highlight">
+        <h2>Iscriviti gratis</h2>
+        <form id="newsletter-form" class="newsletter-form" data-script-url="https://script.google.com/macros/s/AKfycbyDjAz0-hsD6oygnSb8DMPN4cb7LT_GuY1HVG7_cdoDOBlKKqu32LLa-2AJNzkxt-fYrw/exec" method="POST">
+          <input type="hidden" name="from" id="newsletter-from" value="sito">
+          <input type="hidden" name="next" id="newsletter-next" value="/allenamenti/schede-peso/">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="newsletter-form__hp" aria-hidden="true">
+          <label class="newsletter-form__field">
+            <span>Nome (opzionale)</span>
+            <input type="text" name="nome" autocomplete="name" placeholder="Gino">
+          </label>
+          <label class="newsletter-form__field">
+            <span>Email *</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="tua@email.it">
+          </label>
+          <label class="newsletter-form__check">
+            <input type="checkbox" name="privacy" required value="yes">
+            <span>Ho letto l&apos;<a href="/privacy/" target="_blank" rel="noopener">informativa privacy</a> e acconsento a ricevere la newsletter.</span>
+          </label>
+          <button type="submit" class="btn btn-primary btn-block">Iscriviti e scarica la scheda →</button>
+        </form>
+
+        <div id="newsletter-success" class="newsletter-success" hidden>
+          <p><strong>Iscrizione registrata.</strong> Reindirizzamento alla scheda PDF…</p>
+          <p>Email: <span id="newsletter-success-email"></span></p>
+          <p><a class="btn btn-primary" href="/allenamenti/schede-peso/">Apri scheda pesi ora →</a></p>
+        </div>
+
+        <p id="newsletter-error" class="newsletter-error" hidden role="alert"></p>
+
+        <p class="newsletter-form__note"><small>Lista gestita con la mia Gmail (Google Apps Script). Setup una tantum: <code>NEWSLETTER-SETUP.md</code>. Per provare il layout: <button type="button" class="btn-link" id="newsletter-demo">accesso demo scheda</button>.</small></p>
+      </div>
+    </div>
+
+    <p><a href="/allenamenti/">← Torna agli Allenamenti</a></p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>© <span id="y"></span> La Forza Quotidiana · Gino Capon</p></div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="/js/main.js?v=1" defer></script>
+<script src="/js/cookie-consent.js?v=1" defer></script>
+<script src="/js/newsletter.js?v=2" defer></script>
+</body>
+</html>
