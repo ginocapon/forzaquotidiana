@@ -152,7 +152,7 @@ Schema: **4×8** (salvo 3×8 / 3×8-10 indicati). RIR 0-2 multiarticolari.
 - Tono: professionale ma **dilettante autentico** — diario, non coaching commerciale.
 - Disclaimer su ogni scheda: non PT, non medico.
 - Dati numerici: **solo da log reali** (Amazfit, bilancia, metriche).
-- **Privacy/GDPR:** banner cookie conforme Garante 2021, `/privacy/`, `/cookie/`, gate informativo su contenuti (`js/cookie-consent.js`). Email titolare: info@forzaquotidiana.it
+- **Privacy/GDPR:** banner cookie conforme Garante 2021, `/privacy/`, `/cookie/`, gate informativo su contenuti (`js/cookie-consent.js`). Email titolare: ginocapon@gmail.com
 
 ---
 
