@@ -46,9 +46,16 @@ Propagazione: 15 min – 48 h.
 
 1. Serverplan → 4 record **A** su `@`
 2. GitHub → Custom domain **`forzaquotidiana.it`**
-3. `git push` (CNAME e canonical già aggiornati nel repo)
-4. Attendi check verde + **Enforce HTTPS**
-5. Apri: **https://forzaquotidiana.it/**
+3. GitHub → **Settings → Pages → Build and deployment → Source: GitHub Actions** (obbligatorio dal 20/07/2026)
+4. `git push` su `main` → workflow `.github/workflows/deploy-pages.yml` pubblica il sito
+5. Attendi check verde + **Enforce HTTPS**
+6. Apri: **https://forzaquotidiana.it/** (Ctrl+F5 se cache vecchia)
+
+### Se non vedi le modifiche online
+
+- Controlla **Actions** su GitHub: workflow «Deploy GitHub Pages» deve essere verde.
+- Se Pages usa ancora «Deploy from branch», passa a **GitHub Actions** come sopra.
+- Hard refresh: Ctrl+F5 (Windows) o svuota cache browser.
 
 ---
 
