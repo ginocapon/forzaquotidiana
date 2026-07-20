@@ -893,6 +893,102 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 4px;
 }
 
+/* Organigramma trimestre → schede → sessioni */
+.org-chart {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.org-chart__root { text-align: center; margin-bottom: 0.75rem; }
+.org-chart__connector {
+  width: 2px;
+  height: 1.25rem;
+  background: var(--line);
+  margin: 0 auto;
+}
+.org-chart__refs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .org-chart__refs { grid-template-columns: repeat(4, 1fr); }
+}
+.org-node {
+  display: block;
+  padding: 0.65rem 0.5rem;
+  text-align: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.3;
+  transition: border-color 0.15s;
+}
+.org-node:hover { border-color: var(--accent); }
+.org-node--root {
+  display: inline-block;
+  font-weight: 700;
+  border-color: var(--accent);
+  padding: 0.75rem 1.25rem;
+}
+.org-node--session {
+  text-align: left;
+  border-left: 3px solid var(--accent);
+}
+.org-node small { display: block; color: var(--muted); font-size: 0.72rem; margin-top: 0.2rem; }
+.org-chart__label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.org-chart__sessions { display: grid; gap: 0.5rem; }
+
+/* Sessione singola (data reale + scheda N) */
+.session-log {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  scroll-margin-top: 5rem;
+}
+.session-log__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.session-log__head time { font-weight: 700; font-size: 1.05rem; }
+.session-log__badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(201, 120, 58, 0.15);
+  color: var(--accent);
+  border: 1px solid rgba(201, 120, 58, 0.35);
+}
+.session-log__cal { font-size: 0.85rem; color: var(--muted); }
+.session-log__links {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
 @media (max-width: 720px) {
   .nav-toggle { display: block; }
   .site-nav { display: none; width: 100%; }

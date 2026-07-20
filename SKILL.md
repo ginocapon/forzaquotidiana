@@ -63,6 +63,7 @@ File simboli condivisi: inline `<symbol id="ex-*">` nella pagina trimestre.
 | `ex-adduttori` | Adduttori |
 | `ex-curl` | Curl Scott / martello |
 | `ex-squat` | Squat multipower |
+| `ex-catchball` | Catch Ball / kettlebell balistico |
 
 Muscoli evidenziati: `--muscle-hot` (#c9783a) primario, `--muscle-warm` (#8b7355) secondario.
 
@@ -134,16 +135,30 @@ Calcolare solo da log pubblicati — celle vuote `—` se mese non ancora inizia
 
 ---
 
-## 4. Split settimanale standard (trimestre 2026-Q3)
+## 4. Schede tipo del trimestre (2026-Q3)
 
-| Giorno | Focus |
+**Non legate al giorno del calendario.** Gino fa Scheda N quando può (martedì invece di lunedì, ecc.). Input sessione: **data + scheda N** (+ pesi se cambiano).
+
+| Scheda | Focus |
 |--------|-------|
-| **Lunedì** | Petto, spalle, dorsali (6 esercizi) |
-| **Mercoledì** | Gambe, bicipiti (6 esercizi) |
-| **Giovedì** | Spalle, dorsali (4 esercizi) |
-| **Sabato** | Gambe, petto, bicipiti (6 esercizi) |
+| **1** | Petto, spalle, dorsali (6 es.) + Catch Ball opzionale |
+| **2** | Gambe, bicipiti (6 es.) |
+| **3** | Spalle, dorsali (4 es.) |
+| **4** | Gambe, petto, bicipiti (6 es.) |
 
-Schema: **4×8** (salvo 3×8 / 3×8-10 indicati). RIR 0-2 multiarticolari.
+Schema: **4×8** (salvo 3×8 / 3×8-10). RIR 0-2 multiarticolari.
+
+### Gerarchia pagina trimestre (ordine obbligatorio)
+
+1. **Hero + organigramma** (`.org-chart`) — trimestre → Schede 1–4 → sessioni svolte (link anchor)
+2. **Schede di riferimento** `#scheda-1` … `#scheda-4` — template esercizi (SVG, serie, RIR)
+3. **Sessioni svolte** `#sessioni` — log per **data reale** + badge Scheda N + Amazfit + foto
+4. **Statistiche mensili** `#statistiche`
+
+URL sessione dedicata (opzionale):  
+`/allenamenti/trimestre-[slug]/sessioni/YYYY-MM-DD-scheda-N/`
+
+Riflessioni blog → `/diario/` (separate). Link incrociati sessione ↔ riflessione.
 
 ---
 
@@ -153,6 +168,50 @@ Schema: **4×8** (salvo 3×8 / 3×8-10 indicati). RIR 0-2 multiarticolari.
 - Disclaimer su ogni scheda: non PT, non medico.
 - Dati numerici: **solo da log reali** (Amazfit, bilancia, metriche).
 - **Privacy/GDPR:** banner cookie conforme Garante 2021, `/privacy/`, `/cookie/`, gate informativo su contenuti (`js/cookie-consent.js`). Email titolare: ginocapon@gmail.com
+
+### Anomalie device (obbligatorio)
+
+Se Amazfit/Zepp gonfia durata (orologio lasciato acceso):
+
+1. Pubblica **durata corretta** dichiarata da Gino (es. ~01:15:00).
+2. Conserva in nota i valori grezzi device (durata, intervalli set).
+3. **Non inventare** zone FC / effetto se contaminati dall’idle — ometti o marca `non affidabili`.
+4. Calorie e carico device: pubblicabili con asterisco *possibile sovrastima*.
+5. Attributo HTML: `data-duration-corrected="true"` sul `.hr-log`.
+
+### Esercizi sperimentali
+
+Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**, nota “in prova”, link dal diario sessione. Non promuovere a fisso finché Gino non conferma ripetizione.
+
+---
+
+## 5b. Editoriale blog — qualità articoli (riflessioni)
+
+Riferimenti di stile (armonizzare, non copiare): professionisti wellness/bodybuilding natural che scrivono da **esperienza vissuta** — es. voce da professionista impegnato + padre di famiglia (linea Federico Boldrin: wellness come purposeful living sostenibile), e blog natural diretti senza hype (chiarezza, numeri, niente miracoli).
+
+### Struttura articolo riflessione
+
+1. **Apertura scene-based** — giorno reale (sonno, orario palestra, ufficio), non tesi astratta.
+2. **Un problema umano** — es. bilanciare famiglia / lavoro / sport a 50+.
+3. **2–4 H2** con una sola idea ciascuno.
+4. **Bridge al log** — link all’allenamento del giorno / scheda trimestre.
+5. **Takeaway concreti** (3 bullet max) — azioni, non slogans.
+6. **Chiusura identitaria** — target uomini maturi impegnati; niente coaching commerciale.
+
+### Voce
+
+| Fare | Evitare |
+|------|---------|
+| Prima persona onesta, età dichiarata | Motivazione da reel / emoji |
+| Sport = struttura di serenità mentale | Promesse estetico-competitive |
+| Settimana come unità di equilibrio | “Giornata perfetta” come standard |
+| Link reciproci diario ↔ scheda | Articolo isolato senza log |
+
+### SEO minimo articolo
+
+- Title + meta description unici; `og:image` = foto reale della sessione se c’è.
+- `BlogPosting` JSON-LD con `datePublished` / `dateModified`.
+- Voce in `diario/index.html`, `sitemap.xml`, `llms.txt`.
 
 ---
 
@@ -165,6 +224,15 @@ Schema: **4×8** (salvo 3×8 / 3×8-10 indicati). RIR 0-2 multiarticolari.
 - [ ] Tabella statistiche mensili aggiornata
 - [ ] `sitemap.xml` + voce Diario + `llms.txt`
 - [ ] `og:image` = hero sito o grafica trimestre SVG (non screenshot Amazfit con dati personali sensibili oltre ciò che Gino approva)
+
+### Checklist sessione + articolo (stesso giorno)
+
+- [ ] Log `.hr-log` in scheda trimestre (più recente in alto)
+- [ ] Pagina diario allenamento con foto + sintesi + correzione anomalie
+- [ ] Se c’è riflessione: pagina dedicata + link crociati al log
+- [ ] Catch Ball / esercizi nuovi: card opzionale in giorno scheda
+- [ ] Statistiche mensili ricalcolate
+- [ ] Feed `diario/index.html` + sitemap + llms.txt
 
 ---
 
