@@ -944,6 +944,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
   padding: 0 1rem 1rem;
 }
+.perf-charts__lead {
   color: var(--muted);
   font-size: 0.9rem;
   margin: 0 0 1.25rem;
