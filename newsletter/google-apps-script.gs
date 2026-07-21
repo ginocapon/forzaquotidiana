@@ -19,6 +19,12 @@ var SHEET_ID = '1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA';
 var SITE = 'https://forzaquotidiana.it';
 var TitolareEmail = 'ginocapon@gmail.com';
 
+// Scheda corrente: pagina online + PDF allegato alla mail di benvenuto.
+// Ogni nuovo trimestre aggiorna queste due righe con la nuova cartella/PDF.
+var SCHEDA_URL = SITE + '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/';
+var SCHEDA_PDF_URL = SITE + '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf';
+var SCHEDA_PDF_NOME = 'Scheda-ForzaQuotidiana-Q3-2026.pdf';
+
 function selfUrl_() {
   return ScriptApp.getService().getUrl();
 }
@@ -124,8 +130,8 @@ function doGet(e) {
       inviaBenvenuto_(email, String(sh.getRange(r, 2).getValue()));
     }
     return htmlPage_('Iscrizione confermata',
-      'Grazie! La tua iscrizione è attiva. Riceverai una mail solo per nuove schede o articoli.',
-      SITE + '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/', 'Apri la scheda pesi');
+      'Grazie! La tua iscrizione è attiva. Ti ho inviato la scheda in PDF via email. Riceverai una mail solo per nuove schede o articoli.',
+      SCHEDA_URL + '?sub=1', 'Apri la scheda online');
   }
 
   if (p.action === 'unsub' && email && p.t === token_(email)) {
@@ -163,12 +169,26 @@ function inviaBenvenuto_(email, nome) {
     '<div style="font-family:Georgia,serif;max-width:560px;color:#222">' +
     '<p>' + saluto + '</p>' +
     '<p>Iscrizione confermata. Grazie per esserti unito a <strong>La Forza Quotidiana</strong>.</p>' +
-    '<p>Scarica la scheda pesi PDF (4 giornate, spazio per kg e note):</p>' +
-    '<p><a href="' + SITE + '/allenamenti/schede-peso/">Apri scheda pesi →</a></p>' +
+    '<p>Trovi la <strong>scheda pesi in PDF</strong> qui allegata (4 giornate, spazio per kg e note): stampala o compilala dal telefono.</p>' +
+    '<p>Preferisci usarla online? <a href="' + SCHEDA_URL + '?sub=1">Aprila qui →</a></p>' +
     '<p>Ti scriverò solo per nuove schede o articoli — niente spam.</p>' +
     footerUnsub_(unsubUrl) + '</div>';
-  GmailApp.sendEmail(email, 'Benvenuto — La Forza Quotidiana', '',
-    { htmlBody: html, name: 'La Forza Quotidiana' });
+
+  var options = { htmlBody: html, name: 'La Forza Quotidiana' };
+  var pdf = fetchSchedaPdf_();
+  if (pdf) options.attachments = [pdf];
+
+  GmailApp.sendEmail(email, 'Benvenuto + scheda pesi PDF — La Forza Quotidiana', '', options);
+}
+
+function fetchSchedaPdf_() {
+  try {
+    var resp = UrlFetchApp.fetch(SCHEDA_PDF_URL, { muteHttpExceptions: true });
+    if (resp.getResponseCode() === 200) {
+      return resp.getBlob().setName(SCHEDA_PDF_NOME);
+    }
+  } catch (e) { /* PDF non ancora caricato: invio mail senza allegato */ }
+  return null;
 }
 
 function footerUnsub_(unsubUrl) {
