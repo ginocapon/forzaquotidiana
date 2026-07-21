@@ -163,7 +163,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — sempre uguale)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=8` (o versione corrente).
+**CSS:** `styles.css?v=9` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Ordine sezioni (non invertire)
 
@@ -257,12 +257,15 @@ Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**
 - Colonne: Esercizio · S×R · kg · Note + riga log per quadrante
 - Stampa: orizzontale, margini minimi, 100%
 
-### Database iscritti
+### Database iscritti + consenso (GDPR)
 
 - **Email → solo Foglio Google** (mai su GitHub — repo pubblico)
-- Accessi/stampe → foglio **Accessi scheda** (Apps Script)
+- **Doppio opt-in:** iscrizione → stato `da confermare` → email conferma → click → `confermato`. Newsletter inviata **solo ai confermati**.
+- **Disiscrizione un click:** link `?action=unsub` in ogni email → stato `disiscritto`.
+- Colonne foglio Iscritti: Data · Nome · Email · Consenso · Origine · **Stato** · **Token**
+- Accessi/stampe → foglio **Accessi scheda** (Apps Script `doGet?action=log`)
 - Conteggi anonimi → `data/site-stats.json`
-- Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail
+- Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail (conta confermati/da confermare/disiscritti)
 
 ### File
 
@@ -400,12 +403,20 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] H1 unico
 - [ ] Alt text immagini
 - [ ] Canonical + OG
-- [ ] JSON-LD BlogPosting (+ FAQPage se articolo)
+- [ ] JSON-LD BlogPosting (+ FAQPage se articolo) + **BreadcrumbList**
 - [ ] ≥2500 parole (articoli diario)
 - [ ] Box sintesi + FAQ
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=9`)
+
+### Igiene tecnica (obbligatoria)
+
+- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=9`, `newsletter.js v=3`.
+- **`404.html`** presente in root (noindex, follow) — mantenere link a Home/Diario/Allenamenti.
+- **BreadcrumbList** su ogni pagina interna (Home → sezione → pagina).
+- Dominio canonico unico: `https://forzaquotidiana.it` (apex, no www).
 
 ### GEO + AEO (sintesi)
 

@@ -45,7 +45,7 @@
           <li><strong>Scheda pesi PDF</strong> — 4 schede, colonne peso + annotazioni</li>
           <li>Avviso quando esce un nuovo trimestre o articolo</li>
           <li>Niente spam: solo ciò che pubblico sul sito</li>
-          <li>Disiscrizione in un click (in ogni email)</li>
+          <li>Conferma via email (doppio opt-in) + disiscrizione in un click</li>
         </ul>
       </div>
 
@@ -71,8 +71,8 @@
         </form>
 
         <div id="newsletter-success" class="newsletter-success" hidden>
-          <p><strong>Iscrizione registrata.</strong> Reindirizzamento alla scheda PDF…</p>
-          <p>Email: <span id="newsletter-success-email"></span></p>
+          <p><strong>Quasi fatto!</strong> Ti ho inviato una mail: apri e clicca <em>Conferma iscrizione</em> per attivarla (doppio opt-in).</p>
+          <p>Intanto puoi già scaricare la scheda: <span id="newsletter-success-email"></span></p>
           <p><a class="btn btn-primary" href="/allenamenti/schede-peso/">Scegli scheda per periodo →</a></p>
         </div>
 
@@ -92,6 +92,6 @@
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=1" defer></script>
-<script src="/js/newsletter.js?v=2" defer></script>
+<script src="/js/newsletter.js?v=3" defer></script>
 </body>
 </html>

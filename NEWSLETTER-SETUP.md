@@ -39,13 +39,16 @@ data-script-url="https://script.google.com/macros/s/TUO_ID_QUI/exec"
 
 Fai commit + push su GitHub → il sito si aggiorna in pochi minuti.
 
-## Cosa succede quando qualcuno si iscrive
+## Cosa succede quando qualcuno si iscrive (doppio opt-in)
 
 1. Compila il form sul sito
-2. Apps Script salva email nel foglio **Iscritti**
-3. L’iscritto riceve email di **benvenuto** da Gmail (con link scheda PDF)
-4. Tu ricevi notifica su **ginocapon@gmail.com**
-5. Il visitatore torna al sito con la scheda PDF sbloccata
+2. Apps Script salva email nel foglio **Iscritti** con stato **da confermare**
+3. L’iscritto riceve email di **conferma** con pulsante *Conferma iscrizione*
+4. Al click → stato **confermato** + email di **benvenuto** (con link scheda PDF)
+5. Tu ricevi notifica su **ginocapon@gmail.com**
+6. Il visitatore può già scaricare la scheda; la newsletter però arriva **solo ai confermati**
+
+> IMPORTANTE: dopo aver incollato la nuova versione dello script rifai **Deploy → Gestisci distribuzioni → Modifica → Nuova versione**, altrimenti conferma e disiscrizione non funzionano.
 
 ## Inviare aggiornamenti (nuova scheda / articolo)
 
@@ -56,9 +59,9 @@ Fai commit + push su GitHub → il sito si aggiorna in pochi minuti.
 
 **Limite Gmail:** ~500 destinatari al giorno con account personale — più che sufficiente all’inizio.
 
-## Disiscrizioni
+## Disiscrizioni (automatica, un click)
 
-L’iscritto risponde **DISISCRIVIMI** alla newsletter. Tu elimini la riga dal foglio Google manualmente.
+Ogni email ha in fondo il link **Disiscriviti con un click**: al click lo script imposta lo stato **disiscritto** e quell’indirizzo non riceve più nulla. Nessuna azione manuale richiesta.
 
 ## Test
 
@@ -79,4 +82,4 @@ Vedi `SKILL-VENERDI.md` e issue GitHub automatica ogni venerdì.
 ```js
 localStorage.removeItem('fq_newsletter_ok');
 ```
-
+
