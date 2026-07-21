@@ -1,0 +1,90 @@
+{
+  "_nota": "Generato da tools/aggiorna-performance.mjs — medie solo su sessioni con export completo (durata + fc_media).",
+  "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "months": [
+    {
+      "month": "2026-06",
+      "label": "Giugno 2026",
+      "sessioni_totali": 0,
+      "sessioni_con_export": 0,
+      "durata_totale_sec": 0,
+      "durata_totale": "—",
+      "fc_media": null,
+      "calorie_totale": null,
+      "calorie_asterisk": false,
+      "carico_medio": null,
+      "carico_asterisk": false,
+      "gruppi_medio": null,
+      "sessioni_ids": []
+    },
+    {
+      "month": "2026-07",
+      "label": "Luglio 2026",
+      "sessioni_totali": 4,
+      "sessioni_con_export": 3,
+      "durata_totale_sec": 14018,
+      "durata_totale": "03:53:38",
+      "fc_media": 108,
+      "calorie_totale": 2144,
+      "calorie_asterisk": true,
+      "carico_medio": 98,
+      "carico_asterisk": true,
+      "gruppi_medio": 25,
+      "sessioni_ids": [
+        "2026-07-16-scheda-1",
+        "2026-07-17-scheda-2",
+        "2026-07-20-scheda-1",
+        "2026-07-21-scheda-2"
+      ]
+    },
+    {
+      "month": "2026-08",
+      "label": "Agosto 2026",
+      "sessioni_totali": 0,
+      "sessioni_con_export": 0,
+      "durata_totale_sec": 0,
+      "durata_totale": "—",
+      "fc_media": null,
+      "calorie_totale": null,
+      "calorie_asterisk": false,
+      "carico_medio": null,
+      "carico_asterisk": false,
+      "gruppi_medio": null,
+      "sessioni_ids": []
+    }
+  ],
+  "charts": {
+    "2026-07": {
+      "labels": [
+        "16 lug S1",
+        "20 lug S1*",
+        "21 lug S2"
+      ],
+      "durata_min": [
+        70,
+        75,
+        89
+      ],
+      "fc_media": [
+        115,
+        104,
+        105
+      ],
+      "calorie": [
+        564,
+        971,
+        609
+      ],
+      "carico": [
+        85,
+        163,
+        46
+      ],
+      "gruppi": [
+        21,
+        24,
+        30
+      ]
+    }
+  }
+}

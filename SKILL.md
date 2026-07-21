@@ -125,12 +125,15 @@ Gauge SVG semicircolare `.hr-effect-gauge`.
 ### Cronostoria e statistiche mensili
 
 - Sessioni ordinate **cronologicamente** (più recente in alto).
-- Tabella `.month-stats` per ogni mese del trimestre:
+- **Database:** `data/performance-sessions.json` (ogni sessione) + `data/performance-monthly.json` (medie e grafici).
+- **Skill dedicata:** `SKILL-PERFORMANCE.md` — flusso screenshot Zepp, JSON, grafici, checklist.
+- **Script:** `node tools/aggiorna-performance.mjs` dopo ogni aggiornamento sessioni.
+- Tabella `.month-stats` + grafici `#perf-charts` (JS: `performance-charts.js`) nel trimestre `#statistiche`.
 
-| Mese | Sessioni | Durata totale | FC media | Calorie | Carico medio |
-|------|----------|---------------|----------|---------|--------------|
+| Mese | Sessioni | Con export | Durata totale | FC media | Calorie | Carico medio | Gruppi ø |
+|------|----------|------------|---------------|----------|---------|--------------|----------|
 
-Calcolare solo da log pubblicati — celle vuote `—` se mese non ancora iniziato.
+Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle vuote `—` se mese non ancora iniziato.
 
 ---
 

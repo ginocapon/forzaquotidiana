@@ -937,6 +937,64 @@ img { max-width: 100%; height: auto; display: block; }
 .month-stats th {
   color: var(--muted);
   font-size: 0.72rem;
+}
+
+/* Grafici performance mensili */
+.amazfit-card__exec-list {
+  margin: 0;
+  padding: 0 1rem 1rem;
+}
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+.perf-charts__grid {
+  display: grid;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+@media (min-width: 720px) {
+  .perf-charts__grid { grid-template-columns: repeat(2, 1fr); }
+}
+.perf-chart {
+  background: var(--bg-elevated, rgba(20, 20, 20, 0.5));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+}
+.perf-chart h3 {
+  margin: 0 0 0.85rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.perf-bar {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr 3.5rem;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+  font-size: 0.78rem;
+}
+.perf-bar__label { color: var(--muted); }
+.perf-bar__track {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.perf-bar__track i {
+  display: block;
+  height: 100%;
+  width: var(--pct, 0%);
+  background: linear-gradient(90deg, var(--accent), #e8a86a);
+  border-radius: 4px;
+}
+.perf-bar__val {
+  text-align: right;
+  font-weight: 600;
+  color: var(--text);
+}
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
