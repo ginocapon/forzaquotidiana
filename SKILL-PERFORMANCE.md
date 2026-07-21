@@ -1,24 +1,62 @@
 # Performance Amazfit — skill operativa
 
-> **Quando usare:** ogni nuova sessione pubblicata con export Zepp; fine mese; aggiornamento grafici trimestre.
+> **Quando usare:** ogni nuova sessione pubblicata; Gino invia screenshot Zepp; fine mese; aggiornamento grafici trimestre.
 
 ## Obiettivo
 
-Uniformare **dati metabolici, zone FC, effetto allenamento e valutazione tecnica** su ogni pagina sessione. I numeri danno **autorità e competenza** al diario allenamenti — solo valori reali da Amazfit/Zepp, mai inventati.
+Ogni pagina sessione mostra **due livelli complementari**:
+
+1. **Impatto visivo** — screenshot originali app Zepp (grafici FC, zone, gauge, radar). Gino li considera fondamentali: «troppo belli per non metterli». Vanno **sempre** in pagina quando li fornisce.
+2. **Dati estratti + analisi** — tabelle HTML accessibili, JSON per statistiche mensili, nota interpretativa che spiega cosa significano i numeri.
+
+Solo valori reali da Amazfit/Zepp — mai inventati.
+
+## Input Gino (ogni allenamento)
+
+Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente 4 schermate:
+
+| Tipo | Suffisso file | Cosa mostra |
+|------|---------------|-------------|
+| Riepilogo | `-riepilogo.png` | Durata, recupero, FC media, kcal, carico, gruppi |
+| Grafico FC | `-fc-grafico.png` | Linea FC con picchi tra set e in chiusura |
+| Zone + effetto | `-zone-effetto.png` | 5 barre zone FC + gauge aerobico/anaerobico |
+| Tecnica | `-tecnica.png` | Radar consistenza, stabilità, continuità, ritmo, speed decay |
+
+**Minimo accettabile:** riepilogo + almeno uno tra grafico FC o zone. **Ideale:** tutti e 4.
 
 ## Flusso obbligatorio (ogni sessione)
 
-1. Gino invia **screenshot Zepp** (minimo: riepilogo; ideale: riepilogo + zone/effetto + grafico FC + valutazione tecnica se presente).
-2. Salva screenshot in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-[tipo].png`:
-   - `-riepilogo.png`
-   - `-zone-effetto.png` (opzionale se ricostruibile in HTML)
-   - `-fc-grafico.png` (opzionale)
-   - `-tecnica.png` (valutazione movimento / radar Zepp)
-3. Aggiorna **`data/performance-sessions.json`** — aggiungi o modifica la voce sessione con tutti i campi numerici.
-4. Compila la pagina sessione — blocco `.metabolic-block` completo (vedi sotto).
-5. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json`.
-6. Aggiorna **tabella + grafici** in `/allenamenti/trimestre-…/#statistiche` (o lascia che `performance-charts.js` legga il JSON).
-7. Aggiorna excerpt sessione in `/allenamenti/sessioni/` se cambiano metriche chiave.
+1. Gino invia screenshot Zepp.
+2. **Salva** in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-[tipo].png` (copia da assets con Node `fs.readFileSync` se PowerShell fallisce su file phantom).
+3. Aggiorna **`data/performance-sessions.json`** — voce sessione con tutti i campi numerici.
+4. Compila pagina sessione — blocco `.metabolic-block` (ordine sotto).
+5. Scrivi **`.metabolic-note`** — analisi 2–3 frasi (zona dominante, FC max, legame con esercizi).
+6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json`.
+7. Verifica tabella + grafici in trimestre `#statistiche`.
+8. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
+
+## Layout pagina sessione (ordine fisso)
+
+```
+.metabolic-block
+├── h2 + device
+├── .amazfit-gallery__lead          ← intro «export originali Zepp»
+├── .amazfit-gallery                ← 4 screenshot in griglia (PRIMA, tutto visibile)
+│   ├── .phone-shot riepilogo
+│   ├── .phone-shot fc-grafico
+│   ├── .phone-shot zone-effetto
+│   └── .phone-shot tecnica
+├── .amazfit-data                   ← tabelle HTML sotto la galleria
+│   ├── .amazfit-card riepilogo
+│   ├── .amazfit-card zone+effetto
+│   └── .amazfit-card--wide tecnica
+├── .metabolic-note                 ← analisi testuale
+└── .hr-log.hr-log--elevated        ← sintesi 6 metriche
+```
+
+**Regola layout:** griglia CSS — **no scroll orizzontale**. Tutti gli screenshot devono essere visibili senza scorrere.
+
+Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
 
 ## Campi JSON (`performance-sessions.json`)
 
@@ -67,52 +105,49 @@ Uniformare **dati metabolici, zone FC, effetto allenamento e valutazione tecnica
 }
 ```
 
-## Blocco HTML sessione (ordine strip)
+## Analisi `.metabolic-note` (obbligatoria)
 
-1. `.phone-shot` — screenshot riepilogo Zepp
-2. `.amazfit-card` riepilogo — 6 celle fisse (durata highlight, recupero, FC media, FC max, kcal, carico) + badge `N gruppi`
-3. `.amazfit-card` zone + effetto — barre `.hr-zones` + `.hr-effects`
-4. `.phone-shot` — screenshot grafico FC (se disponibile)
-5. `.phone-shot` — screenshot valutazione tecnica (se disponibile)
-6. `.amazfit-card` testo tecnica — 5 righe se non solo screenshot
-7. `.metabolic-note` — anomalie device
-8. `.hr-log.hr-log--elevated` — sintesi 6 metriche
+Breve paragrafo che interpreta i dati — esempio 21/07:
 
-Valori mancanti: `—`. Sovrastime device: asterisco `*` + nota.
+> Sessione gambe-bicipiti ~1h29 · dominanza zona intensiva (61%) coerente con pressa 140 kg e recuperi tra set. FC max 138 bpm in chiusura sessione.
+
+Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi FC se rilevanti.
 
 ## Statistiche mensili e grafici
 
 - **Fonte unica:** `data/performance-monthly.json` (generato dallo script).
 - **Medie:** solo sessioni con `durata_sec` + `fc_media` e senza `partial`.
-- **FC media mensile:** media **ponderata per durata** (non semplice media aritmetica).
-- **Tabella** `.month-stats` nel trimestre — aggiornare righe mese.
-- **Grafici** `#statistiche` — container `#perf-charts` popolato da `js/performance-charts.js` che legge il JSON.
-
-Tipi grafico (barre CSS, accessibili):
-
-| Grafico | Metrica | Unità |
-|---------|---------|-------|
-| Durata sessioni | `durata_min` | min |
-| FC media | `fc_media` | bpm |
-| Calorie | `calorie` | kcal |
-| Carico | `carico` | load |
-| Gruppi/set | `gruppi` | n |
+- **FC media mensile:** media **ponderata per durata**.
+- **Tabella** `.month-stats` nel trimestre.
+- **Grafici** `#perf-charts` via `js/performance-charts.js`.
 
 ## Checklist sessione
 
-- [ ] Screenshot salvati in `img/allenamenti/amazfit/`
+- [ ] Screenshot Zepp salvati in `img/allenamenti/amazfit/` (4 tipi se disponibili)
+- [ ] Galleria `.amazfit-gallery` con tutti gli screenshot in pagina
+- [ ] Dati estratti `.amazfit-data` compilati
+- [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
-- [ ] Pagina sessione con `.metabolic-block` completo
 - [ ] `node tools/aggiorna-performance.mjs` eseguito
 - [ ] Trimestre `#statistiche` coerente
 - [ ] `sitemap.xml` lastmod sessione
 
 ## Anomalie device
 
-Se orologio lasciato acceso (es. 20/07): vedi § Anomalie in `SKILL.md` — durata corretta, asterisco su kcal/carico, omettere zone se contaminate.
+Se orologio lasciato acceso (es. 20/07): vedi § Anomalie in `SKILL.md` — durata corretta, asterisco su kcal/carico, omettere zone se contaminate. Screenshot parziali ok con nota.
+
+## Copia screenshot da assets
+
+Su Windows i file in `.cursor/.../assets/` possono essere «phantom» (visibili in listing ma non copiabili con PowerShell). Usare Node:
+
+```js
+const fs = require('fs');
+const data = fs.readFileSync('path/to/assets/...png');
+fs.writeFileSync('img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-tipo.png', data);
+```
 
 ## Riferimenti
 
-- Layout HTML/CSS: `SKILL.md` §3 e § Formato pagina sessione
+- Layout HTML/CSS: `SKILL.md` § Formato pagina sessione
 - Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
-- Esempio con zone: `/allenamenti/sessioni/2026-07-16-scheda-1/`
+- CSS: `.amazfit-gallery`, `.amazfit-data`, `.phone-shot` in `styles.css?v=11`
