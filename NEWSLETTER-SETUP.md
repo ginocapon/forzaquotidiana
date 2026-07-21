@@ -77,7 +77,21 @@ Vedi `SKILL-VENERDI.md` e issue GitHub automatica ogni venerdì.
 
 **Demo senza script:** pulsante *accesso demo scheda* in fondo alla pagina newsletter.
 
-## Reset test (browser)
+## Reset test (ripartire da zero)
+
+### Foglio Google — cancella tutte le iscrizioni
+
+1. Apps Script → menu funzioni → **`resetTestIscritti`** → **▶ Esegui**
+2. Controlla **Registro esecuzioni**: deve dire *Reset OK*
+3. Nel [Foglio Google](https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit) restano solo le righe di intestazione (Iscritti + Accessi scheda)
+
+### Verifica allegato PDF (prima di testare le mail)
+
+1. Menu funzioni → **`testPdf`** → **▶ Esegui**
+2. Se chiede permessi → **Consenti** (servizio esterno)
+3. Registro: **`PDF OK: 84999 byte`** (circa) → l’allegato funzionerà
+
+### Browser — sblocco scheda locale
 
 ```js
 localStorage.removeItem('fq_newsletter_ok');

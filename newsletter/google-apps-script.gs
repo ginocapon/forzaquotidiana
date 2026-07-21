@@ -287,3 +287,24 @@ function riepilogoVenerdi() {
 
   GmailApp.sendEmail(TitolareEmail, 'Forza Quotidiana — riepilogo venerdì', body);
 }
+
+/* ---------- Test / reset (solo da editor Apps Script) ---------- */
+
+/** Svuota iscrizioni e log accessi per ripartire da zero con i test. Esegui manualmente dall'editor. */
+function resetTestIscritti() {
+  var sh = getSheet_();
+  var last = sh.getLastRow();
+  if (last > 1) sh.deleteRows(2, last - 1);
+
+  var acc = getAccessiSheet_();
+  var lastAcc = acc.getLastRow();
+  if (lastAcc > 1) acc.deleteRows(2, lastAcc - 1);
+
+  Logger.log('Reset OK: fogli Iscritti e Accessi scheda svuotati (restano solo le intestazioni).');
+}
+
+/** Verifica download PDF + permesso UrlFetch. Registro deve dire "PDF OK: … byte". */
+function testPdf() {
+  var pdf = fetchSchedaPdf_();
+  Logger.log(pdf ? ('PDF OK: ' + pdf.getBytes().length + ' byte') : 'PDF NON scaricato — autorizza permesso servizio esterno');
+}
