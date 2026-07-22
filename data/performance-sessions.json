@@ -52,6 +52,15 @@
       "carico": null,
       "duration_corrected": false,
       "partial": true,
+      "zones": {
+        "aerobica": { "pct": 9, "time": "11:53" },
+        "intensiva": { "pct": 44, "time": "57:13" },
+        "leggera": { "pct": 44, "time": "56:43" }
+      },
+      "effetto_aerobico": 2.5,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 1.6,
+      "effetto_anaerobico_label": "Basso",
       "note": "Solo zone FC ed effetto parziali — export riepilogo da completare"
     },
     {
