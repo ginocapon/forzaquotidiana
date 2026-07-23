@@ -17,7 +17,7 @@
 {"@type":"ListItem","position":3,"name":"Sessioni","item":"https://forzaquotidiana.it/allenamenti/sessioni/"},
 {"@type":"ListItem","position":4,"name":"21 luglio 2026 — Scheda 2","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-07-21-scheda-2/"}]}
 </script>
-<link rel="stylesheet" href="/css/styles.css?v=16">
+<link rel="stylesheet" href="/css/styles.css?v=17">
 </head>
 <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -36,23 +36,40 @@
   </div>
 </header>
 
-<main id="contenuto" class="section">
-  <div class="wrap prose prose--wide">
-    <nav class="breadcrumb" aria-label="Percorso">
-      <a href="/allenamenti/">Allenamenti</a> · <a href="/allenamenti/sessioni/">Sessioni</a> · 21 luglio 2026
-    </nav>
+<main id="contenuto">
+  <header class="session-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Percorso">
+        <a href="/allenamenti/">Allenamenti</a> · <a href="/allenamenti/sessioni/">Sessioni</a> · 21 luglio 2026
+      </nav>
+      <div class="session-hero__top">
+        <span class="session-hero__badge">Scheda 2</span>
+        <time class="session-hero__time" datetime="2026-07-21T15:38">21 luglio 2026 · ore 15:38 · martedì</time>
+      </div>
+      <h1>Gambe · bicipiti · tenace</h1>
+      <p class="session-hero__sub">Pressa 140 kg, extension al cedimento, Scott curvo — ~1h30 di ipertrofia controllata</p>
+      <dl class="session-kpis" aria-label="Metriche principali sessione">
+        <div class="session-kpis__item session-kpis__item--accent"><dt>Durata</dt><dd>01:28:48</dd></div>
+        <div class="session-kpis__item"><dt>FC media</dt><dd>105</dd></div>
+        <div class="session-kpis__item"><dt>FC max</dt><dd>138</dd></div>
+        <div class="session-kpis__item"><dt>Calorie</dt><dd>609</dd></div>
+        <div class="session-kpis__item"><dt>Carico</dt><dd>46</dd></div>
+        <div class="session-kpis__item"><dt>Gruppi</dt><dd>30</dd></div>
+      </dl>
+      <p class="session-hero__refs">Scheda di riferimento: <a href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-2"><strong>Scheda 2</strong> · trimestre Giu–Lug–Ago 2026</a> · Riflessione: <a href="/diario/gambe-bicipiti-tenaci-a-57-anni/">articolo diario</a></p>
+    </div>
+  </header>
 
-    <header class="session-head">
-      <p class="entry__meta"><span class="entry__type--all">Sessione</span> · <time datetime="2026-07-21T15:38">21 luglio 2026 · ore 15:38</time></p>
-      <h1>21 luglio 2026 — Scheda 2 · tenace</h1>
-      <p class="session-log__cal">Martedì · gambe · bicipiti · ~1h30 · ipertrofia senza cedimento cieco</p>
-      <p>Scheda di riferimento: <a href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-2"><strong>Scheda 2</strong> · trimestre Giu–Lug–Ago 2026</a> · Riflessione: <a href="/diario/gambe-bicipiti-tenaci-a-57-anni/">articolo diario</a></p>
-    </header>
+  <div class="wrap prose prose--wide session-body">
+    <section class="session-panel" aria-labelledby="nota-sessione">
+      <span class="session-panel__label" id="nota-sessione">Nota di Gino</span>
+      <p class="session-note">Focus parte bassa + bicipiti. Pressa pesante con eccentrica lenta, extension con cedimento controllato sulle prime serie e <em>wafer</em> (micro-serie) sulle seconde. Doktor PRIMO: carico alto ma <strong>senza cedimento</strong> sull&apos;ultima — per ipertrofia, non per bruciare il sistema nervoso. Scott curvo: due serie al limite, due submax.</p>
 
-    <p class="session-note">Focus parte bassa + bicipiti. Pressa pesante con eccentrica lenta, extension con cedimento controllato sulle prime serie e <em>wafer</em> (micro-serie) sulle seconde. Doktor PRIMO: carico alto ma <strong>senza cedimento</strong> sull&apos;ultima — per ipertrofia, non per bruciare il sistema nervoso. Scott curvo: due serie al limite, due submax.</p>
+    </section>
 
-    <section aria-labelledby="log-esercizi">
-      <h2 id="log-esercizi">Log esercizi · oggi</h2>
+    <section class="session-panel" aria-labelledby="log-esercizi">
+      <span class="session-panel__label">Log</span>
+      <h2 id="log-esercizi">Esercizi · oggi</h2>
       <div class="table-wrap">
         <table class="scheda-table">
           <thead>
@@ -101,7 +118,10 @@
       <p><small>Leg curl e stacco rumeno non eseguiti oggi — sostituiti da extension e focus pressa. Altre sessioni Scheda 2 possono differire.</small></p>
     </section>
 
-    <section class="session-photos" aria-labelledby="foto-sessione">
+    </section>
+
+    <section class="session-panel" aria-labelledby="foto-sessione">
+      <span class="session-panel__label">Galleria</span>
       <h2 id="foto-sessione">Foto sessione</h2>
       <div class="collage collage--scatter">
         <figure class="polaroid">
@@ -135,6 +155,9 @@
       </div>
     </section>
 
+    </section>
+
+    <section class="session-panel session-panel--metabolic">
     <section class="metabolic-block" aria-labelledby="metabolic-title">
       <h2 id="metabolic-title">Dati metabolici · Amazfit</h2>
       <p class="metabolic-block__device"><strong>Amazfit Active 2 NFC</strong> · sync app Zepp · Allenamento muscolare</p>
@@ -233,13 +256,14 @@
         </div>
       </article>
     </section>
+    </section>
 
-    <p class="session-footer">
-      <a href="/allenamenti/sessioni/">← Tutte le sessioni</a> ·
-      <a href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-2">Scheda 2 di riferimento</a> ·
+    <nav class="session-nav" aria-label="Navigazione sessione">
+      <a class="session-nav__primary" href="/allenamenti/sessioni/">← Tutte le sessioni</a>
+      <a href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-2">Scheda 2 di riferimento</a>
       <a href="/diario/gambe-bicipiti-tenaci-a-57-anni/">Riflessione del giorno</a>
-    </p>
-    <p><small>Ultimo aggiornamento: 21 luglio 2026</small></p>
+    </nav>
+    <p class="session-meta-footer">Ultimo aggiornamento: 21 luglio 2026</p>
   </div>
 </main>
 

@@ -216,24 +216,63 @@ URL legacy `/allenamenti/YYYY-MM-DD/` → redirect alla pagina sessione canonica
 
 Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno» nel footer sessione se esiste articolo stesso giorno.
 
-### Formato pagina sessione (obbligatorio — sempre uguale)
+### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=16` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=17` (o versione corrente — tieni tutte le pagine allineate).
 
-#### Ordine sezioni (non invertire)
+#### Struttura HTML (due zone)
 
-| # | Blocco | Classe / elemento | Obbligatorio |
-|---|--------|-------------------|--------------|
-| 1 | Breadcrumb | `.breadcrumb` | Sì |
-| 2 | Intestazione | `.session-head` | Sì |
-| 3 | Nota sessione | `.session-note` | Se Gino lascia note |
-| 4 | Foto / video | `.session-photos` + `.collage--scatter` | Se ci sono foto/video |
-| 5 | Metabolico | `.metabolic-block` | Sì |
-| 6 | Footer nav | `.session-footer` | Sì |
-| 7 | Data aggiornamento | `<small>` | Sì |
+1. **`.session-hero`** — banda in testa fuori da `.prose`: breadcrumb, badge Scheda N, data/ora, titolo, sottotitolo, **6 KPI** (`.session-kpis`), link scheda trimestre + diario.
+2. **`.session-body`** — contenuto in `.wrap.prose.prose--wide`: pannelli `.session-panel`, nav pill `.session-nav`, footer data.
 
-#### Blocco foto e video `.session-photos`
+#### Ordine sezioni nel body (non invertire)
+
+| # | Blocco | Classe | Obbligatorio |
+|---|--------|--------|--------------|
+| 1 | Nota Gino | `.session-panel` + `.session-note` | Se note disponibili |
+| 2 | Tecnica / figure guida | `.session-panel` | Se esercizio nuovo |
+| 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati |
+| 4 | Galleria | `.session-panel` + `.collage--scatter` | Se foto/video |
+| 5 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
+| 6 | Navigazione | `.session-nav` | Sì |
+| 7 | Data aggiornamento | `.session-meta-footer` | Sì |
+
+#### Hero `.session-hero` + KPI `.session-kpis`
+
+```html
+<main id="contenuto">
+  <header class="session-hero">
+    <div class="wrap">
+      <nav class="breadcrumb">…</nav>
+      <div class="session-hero__top">
+        <span class="session-hero__badge">Scheda N</span>
+        <time class="session-hero__time" datetime="YYYY-MM-DDTHH:MM">DD mese YYYY · ore HH:MM · giorno</time>
+      </div>
+      <h1>Gruppi muscolari · aggettivo sessione</h1>
+      <p class="session-hero__sub">Una riga di contesto</p>
+      <dl class="session-kpis" aria-label="Metriche principali sessione">
+        <div class="session-kpis__item session-kpis__item--accent"><dt>Durata</dt><dd>00:50:33</dd></div>
+        <!-- FC media, FC max, Calorie, Carico, Gruppi -->
+      </dl>
+      <p class="session-hero__refs">Scheda di riferimento: … · Riflessione: …</p>
+    </div>
+  </header>
+  <div class="wrap prose prose--wide session-body">…</div>
+</main>
+```
+
+- **6 KPI fissi** in hero (stessi della `.hr-log` finale).
+- Valori mancanti: `—`. Asterisco `*` se sovrastima device.
+
+#### Pannelli e navigazione
+
+- Ogni sezione body → `.session-panel` con `.session-panel__label` (Nota di Gino · Log · Galleria · Tecnica).
+- Metabolico → `.session-panel.session-panel--metabolic`.
+- Footer → `.session-nav` con pill (prima pill = `.session-nav__primary` «← Tutte le sessioni»).
+- Elenco `/allenamenti/sessioni/` → `.session-cards` / `.session-card` (non `.entry`).
+
+#### Blocco foto e video (dentro `.session-panel`)
 
 Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto reale della sessione (spogliatoio, palestra, dettagli attrezzi). Se Gino invia anche un **video** (es. l'esecuzione di un esercizio), va aggiunto come elemento in più nella stessa galleria, stesso standard:
 
@@ -253,15 +292,13 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 - **Aspect ratio:** verticale 9:16 (tipico WhatsApp) via CSS `.polaroid--video video { aspect-ratio: 9/16; }`; adattare se il video è orizzontale.
 - Stesso `figcaption` descrittivo delle foto, stesso stile polaroid (rotazione leggera, cornice crema).
 
-#### Intestazione `.session-head`
+#### Intestazione (deprecata: `.session-head`)
+
+**Usare `.session-hero` + `.session-kpis`** (vedi sopra). Il vecchio `.session-head` resta solo per retrocompatibilità — non usarlo in pagine nuove.
 
 ```html
-<header class="session-head">
-  <p class="entry__meta"><span class="entry__type--all">Sessione</span> · <time datetime="YYYY-MM-DDTHH:MM">…</time></p>
-  <h1>DD mese YYYY — Scheda N</h1>
-  <p class="session-log__cal">giorno · gruppi muscolari</p>
-  <p>Scheda di riferimento: <a href="…/#scheda-N"><strong>Scheda N</strong> · trimestre Giu–Lug–Ago 2026</a></p>
-</header>
+<!-- DEPRECATO — non usare -->
+<header class="session-head">…</header>
 ```
 
 #### Blocco metabolico `.metabolic-block`
@@ -302,10 +339,9 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 
 Valori mancanti: `—`. Asterisco `*` se sovrastima device. Sessioni senza screenshot: solo `.amazfit-data` + nota «export Zepp non disponibile».
 
-#### Footer `.session-footer`
+#### Footer (deprecato: `.session-footer`)
 
-Sempre: `← Tutte le sessioni` · `Scheda N di riferimento`  
-Opzionale stesso giorno: `Riflessione del giorno` → `/diario/[slug]/`
+**Usare `.session-nav`** (vedi sopra). `.session-footer` con link separati da `·` è deprecato.
 
 **Non** usare stili inline su `.amazfit-card` nella strip — usare classi CSS condivise.
 
@@ -518,7 +554,7 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=16`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=17`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
