@@ -144,12 +144,16 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
 
 | Scheda | Focus |
 |--------|-------|
-| **1** | Petto, spalle, dorsali (6 es.) + Catch Ball opzionale |
+| **1** | Petto, spalle, dorsali (6 es.) + Catch Ball opzionale **in chiusura** |
 | **2** | Gambe, bicipiti (6 es.) |
-| **3** | Spalle, dorsali (5 es.) + Clean Halo kettlebell |
+| **3** | Spalle, dorsali (5 es.) + Clean Halo kettlebell **in chiusura** |
 | **4** | Gambe, petto, bicipiti (6 es.) |
 
 Schema: **4×8** (salvo 3×8 / 3×8-10). RIR 0-2 multiarticolari.
+
+### Regola kettlebell (obbligatoria)
+
+Qualsiasi esercizio con **kettlebell** (Catch Ball, Clean Halo, futuri) va **sempre per ultimo** nella scheda del giorno — finisher in chiusura, dopo multiarticolari e isolamenti. Non aprire la sessione con kettlebell: il lavoro pesante resta fresco, la FC sale solo alla fine.
 
 ### Gerarchia sezione Allenamenti (3 livelli — ordine obbligatorio)
 
@@ -257,7 +261,7 @@ Se Amazfit/Zepp gonfia durata (orologio lasciato acceso):
 
 ### Esercizi sperimentali
 
-Nuovi movimenti (es. Catch Ball) → card in scheda giorno con tag **Opzionale**, nota “in prova”, link dal diario sessione. Non promuovere a fisso finché Gino non conferma ripetizione.
+Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura** scheda giorno, tag **Opzionale** o **Finisher**, nota “in prova” se applicabile. **Mai** in apertura sessione. Non promuovere a fisso finché Gino non conferma ripetizione.
 
 ---
 
