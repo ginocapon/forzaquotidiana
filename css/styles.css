@@ -1090,14 +1090,48 @@ img { max-width: 100%; height: auto; display: block; }
 .session-head h1 { margin: 0.35rem 0; }
 .session-head .session-log__cal { margin: 0.35rem 0 0.75rem; }
 
-/* Session page — layout professionale v2 */
-.session-hero {
-  background: linear-gradient(165deg, rgba(201, 120, 58, 0.11) 0%, rgba(12, 12, 12, 0) 60%);
-  border-bottom: 1px solid var(--line);
-  padding: 1.25rem 0 2rem;
+/* Session page — layout professionale v2 + sfondo velato */
+.session-page {
+  position: relative;
+}
+.session-hero,
+.session-list-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 120, 58, 0.18);
+  padding: 1.75rem 0 2.25rem;
   margin-bottom: 0;
 }
-.session-hero .breadcrumb { margin-bottom: 1rem; }
+.session-hero::before,
+.session-list-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/session-hero-bg.png") center 35% / cover no-repeat;
+  opacity: 0.42;
+  transform: scale(1.04);
+  z-index: 0;
+}
+.session-hero::after,
+.session-list-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.78) 42%, rgba(12, 12, 12, 0.55) 100%),
+    linear-gradient(180deg, rgba(201, 120, 58, 0.12) 0%, transparent 55%);
+  z-index: 1;
+}
+.session-hero .wrap,
+.session-list-hero .wrap {
+  position: relative;
+  z-index: 2;
+}
+.session-hero .breadcrumb,
+.session-list-hero .breadcrumb { margin-bottom: 1rem; }
+.session-hero .breadcrumb a,
+.session-list-hero .breadcrumb a { color: #e8c4a0; }
 .session-hero__top {
   display: flex;
   flex-wrap: wrap;
@@ -1122,10 +1156,12 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--muted);
   letter-spacing: 0.04em;
 }
-.session-hero h1 {
+.session-hero h1,
+.session-list-hero h1 {
   margin: 0 0 0.3rem;
   font-size: clamp(1.45rem, 3.8vw, 2.05rem);
   line-height: 1.12;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.65);
 }
 .session-hero__sub {
   margin: 0 0 1.15rem;
@@ -1146,8 +1182,10 @@ img { max-width: 100%; height: auto; display: block; }
   .session-kpis { grid-template-columns: repeat(6, 1fr); }
 }
 .session-kpis__item {
-  background: rgba(20, 20, 20, 0.85);
-  border: 1px solid var(--line);
+  background: rgba(8, 8, 8, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 0.6rem 0.5rem;
   text-align: center;
@@ -1168,8 +1206,8 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.2;
 }
 .session-kpis__item--accent {
-  border-color: rgba(201, 120, 58, 0.35);
-  background: rgba(201, 120, 58, 0.08);
+  border-color: rgba(201, 120, 58, 0.45);
+  background: rgba(201, 120, 58, 0.14);
 }
 .session-kpis__item--accent dd { color: #f0c090; }
 .session-hero__refs {
@@ -1179,14 +1217,30 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.5;
 }
 .session-body {
+  position: relative;
   padding: 1.75rem 0 2.5rem;
 }
+.session-page .session-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/session-hero-bg.png") center 60% / cover no-repeat;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.session-page .session-body > * {
+  position: relative;
+  z-index: 1;
+}
 .session-panel {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(16, 16, 16, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 1.2rem 1.3rem 1.4rem;
   margin-bottom: 1.15rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 .session-panel__label {
   display: block;
@@ -1324,10 +1378,40 @@ img { max-width: 100%; height: auto; display: block; }
   font-variant-numeric: tabular-nums;
 }
 .session-list-hero {
-  padding: 1.5rem 0 0.5rem;
+  padding: 1.75rem 0 1.25rem;
+}
+.session-list-hero .tagline {
+  color: #e8a86a;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
 }
 .session-list-hero h1 { margin: 0.35rem 0 0.5rem; }
-.session-list-hero p { max-width: 52ch; color: #ccc4b8; }
+.session-list-hero p { max-width: 52ch; color: #ddd6cc; }
+.session-page > .wrap {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+.session-page > .wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/session-hero-bg.png") center 55% / cover no-repeat;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.session-page > .wrap > * {
+  position: relative;
+  z-index: 1;
+}
+.session-page .session-card {
+  background: rgba(16, 16, 16, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, 0.07);
+}
 
 .session-photos {
   margin: 2rem 0;
