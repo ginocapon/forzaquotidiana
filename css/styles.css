@@ -292,6 +292,13 @@ img { max-width: 100%; height: auto; display: block; }
   background: #121212;
   display: block;
 }
+.polaroid--video video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
 .collage--guides {
   display: grid;
   grid-template-columns: 1fr;

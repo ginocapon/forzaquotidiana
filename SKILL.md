@@ -171,7 +171,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — sempre uguale)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=11` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=14` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Ordine sezioni (non invertire)
 
@@ -180,10 +180,30 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 | 1 | Breadcrumb | `.breadcrumb` | Sì |
 | 2 | Intestazione | `.session-head` | Sì |
 | 3 | Nota sessione | `.session-note` | Se Gino lascia note |
-| 4 | Foto | `.session-photos` + `.collage--scatter` | Se ci sono foto |
+| 4 | Foto / video | `.session-photos` + `.collage--scatter` | Se ci sono foto/video |
 | 5 | Metabolico | `.metabolic-block` | Sì |
 | 6 | Footer nav | `.session-footer` | Sì |
 | 7 | Data aggiornamento | `<small>` | Sì |
+
+#### Blocco foto e video `.session-photos`
+
+Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto reale della sessione (spogliatoio, palestra, dettagli attrezzi). Se Gino invia anche un **video** (es. l'esecuzione di un esercizio), va aggiunto come elemento in più nella stessa galleria, stesso standard:
+
+```html
+<figure class="polaroid polaroid--video">
+  <video controls playsinline preload="metadata" width="464" height="832" poster="/img/allenamenti/YYYY-MM-DD/nome-poster.jpg">
+    <source src="/img/allenamenti/YYYY-MM-DD/nome-video.mp4" type="video/mp4">
+    Il tuo browser non supporta il video. <a href="/img/allenamenti/YYYY-MM-DD/nome-video.mp4">Scarica il video</a>.
+  </video>
+  <figcaption>Esercizio · dettaglio breve</figcaption>
+</figure>
+```
+
+- **File:** salvato in `img/allenamenti/YYYY-MM-DD/` come `.mp4` (h264/aac — compatibile browser, niente conversioni extra se già in questo formato).
+- **Poster:** frame estratto via `ffmpeg -ss 00:00:02 -i video.mp4 -frames:v 1 -q:v 3 nome-poster.jpg` — evita riquadro nero prima del play.
+- **Attributi fissi:** `controls playsinline preload="metadata"` — mai `autoplay`.
+- **Aspect ratio:** verticale 9:16 (tipico WhatsApp) via CSS `.polaroid--video video { aspect-ratio: 9/16; }`; adattare se il video è orizzontale.
+- Stesso `figcaption` descrittivo delle foto, stesso stile polaroid (rotazione leggera, cornice crema).
 
 #### Intestazione `.session-head`
 
@@ -437,7 +457,7 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=9`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=14`)
 
 ### Igiene tecnica (obbligatoria)
 

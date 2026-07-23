@@ -114,6 +114,38 @@
         "rhythm": "Tempi coerenti, ritmo uniforme",
         "speed_decay": "Decadimento velocità ragionevole"
       }
+    },
+    {
+      "id": "2026-07-23-scheda-3",
+      "date": "2026-07-23",
+      "time": "12:18",
+      "datetime": "2026-07-23T12:18",
+      "scheda": 3,
+      "month": "2026-07",
+      "durata_sec": 3033,
+      "durata": "00:50:33",
+      "recupero_sec": 2215,
+      "recupero": "36:55",
+      "gruppi": 19,
+      "fc_media": 118,
+      "fc_max": 165,
+      "calorie": 428,
+      "carico": 146,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 6, "time": "03:17" },
+        "anaerobica": { "pct": 14, "time": "07:34" },
+        "aerobica": { "pct": 27, "time": "13:51" },
+        "intensiva": { "pct": 49, "time": "25:05" },
+        "leggera": { "pct": 1, "time": "00:44" }
+      },
+      "effetto_aerobico": 3.7,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 3.6,
+      "effetto_anaerobico_label": "Buono",
+      "tecnica": null
     }
   ]
 }
