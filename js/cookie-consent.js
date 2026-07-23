@@ -106,7 +106,7 @@
 
   function createBanner() {
     if (document.getElementById("fq-cookie-banner")) return;
-    var banner = document.createElement("aside");
+    var banner = document.createElement("div");
     banner.id = "fq-cookie-banner";
     banner.className = "cookie-banner";
     banner.setAttribute("role", "dialog");

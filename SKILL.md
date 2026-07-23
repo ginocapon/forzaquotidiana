@@ -171,7 +171,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — sempre uguale)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=14` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=15` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Ordine sezioni (non invertire)
 
@@ -229,8 +229,10 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
    | 1 | `-riepilogo.png` | Card riepilogo Zepp (durata, kcal, FC, carico) |
    | 2 | `-fc-grafico.png` | Grafico linea FC con picchi e valli |
    | 3 | `-zone-effetto.png` | Barre zone FC + gauge effetto aerobico/anaerobico |
-   | 4 | `-tecnica.png` | Radar valutazione movimento (se presente) |
+   | 4 | `-tecnica.png` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
    Ogni figura: `.phone-shot` + `.phone-shot__frame` + `figcaption` descrittiva.
+
+   **Regola agente (non dimenticare):** quando Gino manda gli screenshot Zepp, sono **sempre 4** (riepilogo, grafico FC, zone+effetto, **radar tecnica**). Se ne manca uno in chat, chiedere; se c’è, **pubblicarlo tutti e 4** — galleria + card testo tecnica + JSON `tecnica`. Non fermarsi a 3/4.
 5. **Dati estratti** `.amazfit-data` — griglia 2 colonne (desktop) con `.amazfit-card`:
    - **Riepilogo** — griglia **6 celle fisse** (stesso ordine):
      1. Tempo allenamento (`.amazfit-card__cell--highlight`)
@@ -246,7 +248,7 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 7. **Sintesi** `.hr-log.hr-log--elevated` — griglia **6 metriche fisse**:
    Durata · FC media · FC max · Calorie · Carico · Gruppi
 
-**Input Gino ad ogni sessione:** invia screenshot Zepp (WhatsApp/chat). L’agente li salva in `img/allenamenti/amazfit/`, compila galleria + dati + analisi.
+**Input Gino ad ogni sessione:** invia screenshot Zepp (WhatsApp/chat) — **4 schermate fisse**: riepilogo, grafico FC, zone+effetto, radar tecnica. L’agente li salva in `img/allenamenti/amazfit/`, compila galleria (tutti e 4) + dati + card tecnica + analisi. **Checklist rapida:** `[ ] riepilogo  [ ] fc-grafico  [ ] zone-effetto  [ ] tecnica`
 
 **Layout:** griglia visibile — **mai** scroll orizzontale che taglia i dati a destra. Vedi `SKILL-PERFORMANCE.md`.
 
@@ -267,7 +269,18 @@ Opzionale stesso giorno: `Riflessione del giorno` → `/diario/[slug]/`
 - Disclaimer su ogni scheda: non PT, non medico.
 - Dati numerici: **solo da log reali** (Amazfit, bilancia, metriche).
 - **Privacy/GDPR:** banner cookie conforme Garante 2021, `/privacy/`, `/cookie/`, gate informativo su contenuti (`js/cookie-consent.js`). Email titolare: ginocapon@gmail.com
+- **Banner cookie:** `<div role="dialog">` — **mai** `<aside role="dialog">` (conflitto ARIA, fallisce Navigazione agentica Lighthouse).
 - **Newsletter + scheda PDF:** Google Apps Script + Gmail (`ginocapon@gmail.com`) + Foglio Google. Setup: `NEWSLETTER-SETUP.md` · script in `newsletter/google-apps-script.gs`
+
+### Navigazione agentica (Lighthouse 13+)
+
+Punteggio frazionario **n/3** (non 0–100). Audit applicabili su sito statico:
+
+| Audit | Requisito |
+|-------|-----------|
+| Accessibility tree | Contrasto link `.prose a` ≥ 4.5:1 su sfondo scuro; colori `.amazfit-card__*` accessibili; ARIA validi (cookie banner) |
+| CLS | ≤ 0.1 (già ok) |
+| llms.txt | H1 + blockquote + link Markdown `[testo](url)` — **non** URL nudi |
 
 ### Anomalie device (obbligatorio)
 
@@ -457,7 +470,7 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=14`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=15`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 

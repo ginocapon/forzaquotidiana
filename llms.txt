@@ -1,35 +1,33 @@
-# La Forza Quotidiana — forzaquotidiana.it
+# La Forza Quotidiana
 
 > Diario di Gino Capon (57 anni): allenamento amatoriale, lavoro, costanza. Allenarsi per essere forti nella vita.
 
 ## Sito
-- Home: https://forzaquotidiana.it/
-- Chi sono: https://forzaquotidiana.it/chi-sono/
-- Diario (riflessioni): https://forzaquotidiana.it/diario/
-- Allenamenti (hub foto + link): https://forzaquotidiana.it/allenamenti/
-- Sessioni svolte (log per data): https://forzaquotidiana.it/allenamenti/sessioni/
-- Trimestre Giu–Lug–Ago 2026 (schede 1–4, pesi iniziali): https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/
-- Newsletter + scheda pesi PDF (iscrizione gratuita): https://forzaquotidiana.it/allenamenti/newsletter/
-- Schede pesi per periodo (catalogo): https://forzaquotidiana.it/allenamenti/schede-peso/
-- Scheda Q3 2026 Ipertrofia natural (1 A4): https://forzaquotidiana.it/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/
-- Privacy Policy: https://forzaquotidiana.it/privacy/
-- Cookie Policy: https://forzaquotidiana.it/cookie/
+- [Home](https://forzaquotidiana.it/)
+- [Chi sono](https://forzaquotidiana.it/chi-sono/)
+- [Diario riflessioni](https://forzaquotidiana.it/diario/)
+- [Allenamenti hub](https://forzaquotidiana.it/allenamenti/)
+- [Sessioni svolte](https://forzaquotidiana.it/allenamenti/sessioni/)
+- [Trimestre Giu–Lug–Ago 2026](https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/): schede 1–4, pesi iniziali
+- [Newsletter + scheda PDF](https://forzaquotidiana.it/allenamenti/newsletter/)
+- [Catalogo schede peso](https://forzaquotidiana.it/allenamenti/schede-peso/)
+- [Scheda Q3 2026 PDF](https://forzaquotidiana.it/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/)
+- [Privacy Policy](https://forzaquotidiana.it/privacy/)
+- [Cookie Policy](https://forzaquotidiana.it/cookie/)
 
 ## Autore
 Gino Capon — allenamento da 10+ anni, target uomini 40–65, messaggio: disciplina e forza psicofisica, non bodybuilding competitivo.
 
 ## Contenuto recente
-- 23/07/2026 Sessione: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-23-scheda-3/ (Scheda 3, 00:50:33, FC 118/165, 428 kcal, 19 gruppi, prime serie a cedimento poi wafer, Clean Halo kettlebell 8 kg finisher, video alzate laterali)
-- 23/07/2026 Riflessione: https://forzaquotidiana.it/diario/clean-halo-kettlebell-spalle-a-57-anni/
-- 22/07/2026 Riflessione: https://forzaquotidiana.it/diario/mare-sole-e-disconnessione-per-lo-sportivo/ (Mare, sole, digital detox per lo sportivo)
-- 21/07/2026 Sessione: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-21-scheda-2/ (Scheda 2, 01:28:48, FC 105, 609 kcal, 30 gruppi, tecnica Zepp)
-- 21/07/2026 Riflessione: https://forzaquotidiana.it/diario/gambe-bicipiti-tenaci-a-57-anni/
-- 20/07/2026 Sessione: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-20-scheda-1/ (Scheda 1, Catch Ball, Amazfit)
-- 20/07/2026 Riflessione: https://forzaquotidiana.it/diario/sport-lavoro-famiglia-a-57-anni/
-- 16/07/2026 Sessione Scheda 1: https://forzaquotidiana.it/allenamenti/sessioni/2026-07-16-scheda-1/
-- 18/07/2026 Riflessione: https://forzaquotidiana.it/diario/perche-forza-quotidiana/
+- [Sessione 23/07/2026 Scheda 3](https://forzaquotidiana.it/allenamenti/sessioni/2026-07-23-scheda-3/): 00:50:33, FC 118/165, 428 kcal, 19 gruppi, cedimento + wafer, Clean Halo finisher
+- [Riflessione 23/07 Clean Halo](https://forzaquotidiana.it/diario/clean-halo-kettlebell-spalle-a-57-anni/)
+- [Riflessione 22/07 Mare e digital detox](https://forzaquotidiana.it/diario/mare-sole-e-disconnessione-per-lo-sportivo/)
+- [Sessione 21/07/2026 Scheda 2](https://forzaquotidiana.it/allenamenti/sessioni/2026-07-21-scheda-2/): 01:28:48, FC 105, 609 kcal, 30 gruppi
+- [Riflessione 21/07 Gambe tenaci](https://forzaquotidiana.it/diario/gambe-bicipiti-tenaci-a-57-anni/)
+- [Sessione 20/07/2026 Scheda 1](https://forzaquotidiana.it/allenamenti/sessioni/2026-07-20-scheda-1/): Catch Ball, Amazfit
+- [Riflessione 20/07 Sport lavoro famiglia](https://forzaquotidiana.it/diario/sport-lavoro-famiglia-a-57-anni/)
+- [Sessione 16/07/2026 Scheda 1](https://forzaquotidiana.it/allenamenti/sessioni/2026-07-16-scheda-1/)
+- [Riflessione 18/07 Perché Forza Quotidiana](https://forzaquotidiana.it/diario/perche-forza-quotidiana/)
 
 ## Contenuto
-- Riflessioni personali (non nutrizione/medico professionale)
-- Log allenamento amatoriale con dati Amazfit reali
-- Prodotti digitali: scheda pesi PDF Q3 2026 (4 giornate, gate newsletter gratuita)
+Riflessioni personali (non nutrizione/medico professionale), log allenamento amatoriale con dati Amazfit reali, prodotti digitali: scheda pesi PDF Q3 2026 (4 giornate, gate newsletter gratuita).

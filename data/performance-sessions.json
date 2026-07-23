@@ -145,7 +145,13 @@
       "effetto_aerobico_label": "Buono",
       "effetto_anaerobico": 3.6,
       "effetto_anaerobico_label": "Buono",
-      "tecnica": null
+      "tecnica": {
+        "consistenza": "ROM per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili, lievi scosse",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti, ritmo uniforme",
+        "speed_decay": "Decadimento velocità ragionevole, buona efficacia"
+      }
     }
   ]
 }

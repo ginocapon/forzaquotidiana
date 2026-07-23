@@ -22,11 +22,13 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 | Zone + effetto | `-zone-effetto.png` | 5 barre zone FC + gauge aerobico/anaerobico |
 | Tecnica | `-tecnica.png` | Radar consistenza, stabilità, continuità, ritmo, speed decay |
 
-**Minimo accettabile:** riepilogo + almeno uno tra grafico FC o zone. **Ideale:** tutti e 4.
+**Standard fisso:** tutti e **4** screenshot vanno in pagina quando Gino li invia. Il radar tecnica (#4) è parte del pacchetto — **non ometterlo** se presente in chat.
+
+**Minimo accettabile** (solo se Gino non ha l’export): riepilogo + almeno uno tra grafico FC o zone. **Normale / obbligatorio:** tutti e 4.
 
 ## Flusso obbligatorio (ogni sessione)
 
-1. Gino invia screenshot Zepp.
+1. Gino invia screenshot Zepp (**4 schermate** — verificare che ci sia anche `-tecnica.png`).
 2. **Salva** in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-[tipo].png` (copia da assets con Node `fs.readFileSync` se PowerShell fallisce su file phantom).
 3. Aggiorna **`data/performance-sessions.json`** — voce sessione con tutti i campi numerici.
 4. Compila pagina sessione — blocco `.metabolic-block` (ordine sotto).
@@ -123,8 +125,9 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 
 ## Checklist sessione
 
-- [ ] Screenshot Zepp salvati in `img/allenamenti/amazfit/` (4 tipi se disponibili)
-- [ ] Galleria `.amazfit-gallery` con tutti gli screenshot in pagina
+- [ ] Screenshot Zepp salvati in `img/allenamenti/amazfit/` — **tutti e 4**: `-riepilogo`, `-fc-grafico`, `-zone-effetto`, `-tecnica`
+- [ ] Galleria `.amazfit-gallery` con **4** `.phone-shot` in pagina (incluso radar tecnica)
+- [ ] Card `.amazfit-card--wide` tecnica + oggetto `tecnica` in JSON
 - [ ] Dati estratti `.amazfit-data` compilati
 - [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
@@ -150,4 +153,4 @@ fs.writeFileSync('img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-tipo.png', data);
 
 - Layout HTML/CSS: `SKILL.md` § Formato pagina sessione
 - Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
-- CSS: `.amazfit-gallery`, `.amazfit-data`, `.phone-shot` in `styles.css?v=11`
+- CSS: `.amazfit-gallery`, `.amazfit-data`, `.phone-shot` in `styles.css?v=15`
