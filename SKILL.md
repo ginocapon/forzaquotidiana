@@ -219,7 +219,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=18` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=19` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -264,7 +264,8 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 
 - **6 KPI fissi** in hero (stessi della `.hr-log` finale).
 - Valori mancanti: `—`. Asterisco `*` se sovrastima device.
-- **Sfondo velato:** `<main class="session-page">` + foto `/img/allenamenti/session-hero-bg.png` via CSS (`::before` foto + `::after` gradiente scuro). Preload in `<head>`. Pannelli `.session-panel` con glass leggero sopra sfondo body al 7% opacità.
+- **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.png` (atleta Technogym). Preload in `<head>`.
+- **Sfondo velato altre pagine:** `<main class="page-veiled">` + `/img/allenamenti/page-bg-dumbbells.png` (manubri 30 kg). Hero band su `.allenamenti-hero`, `.diario-intro--smart`, `.trimestre-hero`. Home: sezioni sotto hero → `.page-veiled-band`. Non applicare a pagine stampa PDF né redirect.
 
 #### Pannelli e navigazione
 
@@ -555,7 +556,7 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=18`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=19`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 

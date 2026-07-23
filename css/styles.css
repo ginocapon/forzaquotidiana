@@ -1798,9 +1798,129 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .session-alert a { color: var(--accent); font-weight: 700; }
 
+/* Sfondo velato manubri — pagine senza hero foto */
+.page-veiled {
+  position: relative;
+  isolation: isolate;
+}
+.page-veiled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/page-bg-dumbbells.png") center 42% / cover no-repeat;
+  opacity: 0.11;
+  pointer-events: none;
+  z-index: 0;
+}
+.page-veiled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.5) 0%, rgba(12, 12, 12, 0.93) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-veiled > * {
+  position: relative;
+  z-index: 1;
+}
+.page-veiled .allenamenti-hero,
+.page-veiled .diario-intro--smart,
+.page-veiled .trimestre-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 120, 58, 0.16);
+  background: transparent;
+}
+.page-veiled .allenamenti-hero::before,
+.page-veiled .diario-intro--smart::before,
+.page-veiled .trimestre-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/page-bg-dumbbells.png") center 48% / cover no-repeat;
+  opacity: 0.4;
+  transform: scale(1.04);
+  z-index: 0;
+}
+.page-veiled .allenamenti-hero::after,
+.page-veiled .diario-intro--smart::after,
+.page-veiled .trimestre-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(12, 12, 12, 0.9) 0%, rgba(12, 12, 12, 0.72) 45%, rgba(12, 12, 12, 0.58) 100%),
+    linear-gradient(180deg, rgba(201, 120, 58, 0.11) 0%, transparent 58%);
+  z-index: 1;
+}
+.page-veiled .allenamenti-hero .wrap,
+.page-veiled .diario-intro--smart .wrap,
+.page-veiled .trimestre-hero .wrap {
+  position: relative;
+  z-index: 2;
+}
+.page-veiled .allenamenti-hero h1,
+.page-veiled .diario-intro--smart h1,
+.page-veiled .trimestre-hero h1 {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+.page-veiled .card,
+.page-veiled .diario-list__link,
+.page-veiled .hub-card,
+.page-veiled .scheda-periodo-card,
+.page-veiled .newsletter-cta {
+  background: rgba(16, 16, 16, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.page-veiled .prose {
+  background: rgba(14, 14, 14, 0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem 1.35rem;
+}
+.page-veiled .trimestre-hero .prose {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.page-veiled-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.page-veiled-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/img/allenamenti/page-bg-dumbbells.png") center 50% / cover no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.page-veiled-band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 12, 12, 0.78);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-veiled-band > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
 /* Hub Allenamenti */
 .allenamenti-hero {
-  padding: 3rem 0 1.5rem;
+  padding: 3rem 0 1.75rem;
   background: linear-gradient(180deg, rgba(201, 120, 58, 0.08) 0%, transparent 100%);
 }
 .allenamenti-hero h1 {
