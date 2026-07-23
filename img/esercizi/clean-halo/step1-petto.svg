@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<title id="title">Clean Halo passo 1 — kettlebell al petto</title>
+<desc id="desc">Figura originale La Forza Quotidiana: atleta in posizione goblet con kettlebell al centro del petto, palestra stilizzata.</desc>
+<style>
+  .bg{fill:#121212}.floor{fill:#1a1a1a;stroke:#2e2e2e;stroke-width:1}.line{stroke:#2a2a2a;stroke-width:1;fill:none}
+  .wall{fill:#181818}.mirror{fill:#243038;stroke:#3a4a55;stroke-width:2}.rack{stroke:#333;stroke-width:3;fill:none;stroke-linecap:round}
+  .skin{fill:#ddd4c8}.shirt{fill:#2f2f2f}.shorts{fill:#c9783a}.shoe{fill:#222}
+  .muscle{fill:#c9783a;opacity:.85}.kb{fill:#3d3d3d;stroke:#555;stroke-width:1.5}.kb-hot{fill:#c9783a;opacity:.35}
+  .label{fill:#f2ece3;font:600 14px system-ui,sans-serif}.sublabel{fill:#999;font:400 11px system-ui,sans-serif}
+  .badge{fill:rgba(201,120,58,.15);stroke:#c9783a;stroke-width:1}
+</style>
+<rect class="bg" width="480" height="360"/>
+<rect class="wall" x="0" y="0" width="480" height="200"/>
+<rect class="mirror" x="140" y="36" width="200" height="100" rx="4"/>
+<path class="floor" d="M60 200 L420 200 L480 360 L0 360 Z"/>
+<path class="line" d="M120 240 H360 M80 280 H400 M40 320 H440"/>
+<path class="rack" d="M72 80 V200 M72 120 H48 M72 160 H48"/>
+<path class="rack" d="M408 80 V200 M408 120 H432 M408 160 H432"/>
+<ellipse class="skin" cx="240" cy="118" rx="22" ry="26"/>
+<rect class="shirt" x="210" y="142" width="60" height="72" rx="10"/>
+<path class="muscle" d="M218 148 Q240 162 262 148 L258 188 Q240 198 222 188 Z"/>
+<rect class="shorts" x="214" y="210" width="52" height="28" rx="6"/>
+<rect class="shoe" x="218" y="268" width="20" height="10" rx="3"/>
+<rect class="shoe" x="242" y="268" width="20" height="10" rx="3"/>
+<path fill="none" stroke="#ddd4c8" stroke-width="14" stroke-linecap="round" d="M188 152 Q176 180 182 210"/>
+<path fill="none" stroke="#ddd4c8" stroke-width="14" stroke-linecap="round" d="M292 152 Q304 180 298 210"/>
+<ellipse class="kb" cx="240" cy="178" rx="26" ry="32"/>
+<ellipse class="kb-hot" cx="240" cy="178" rx="18" ry="22"/>
+<path class="kb" d="M228 148 Q240 132 252 148" fill="none" stroke="#666" stroke-width="5" stroke-linecap="round"/>
+<rect class="badge" x="24" y="24" width="56" height="28" rx="14"/>
+<text class="label" x="52" y="43" text-anchor="middle">1</text>
+<text class="label" x="240" y="32" text-anchor="middle">Clean al petto</text>
+<text class="sublabel" x="240" y="50" text-anchor="middle">Goblet · gomiti stretti · polsi neutri · 8 kg</text>
+<text class="sublabel" x="240" y="340" text-anchor="middle">La Forza Quotidiana · figura originale SVG</text>
+</svg>

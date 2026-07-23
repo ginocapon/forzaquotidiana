@@ -63,6 +63,7 @@ File simboli condivisi: inline `<symbol id="ex-*">` nella pagina trimestre.
 | `ex-curl` | Curl Scott / martello |
 | `ex-squat` | Squat multipower |
 | `ex-catchball` | Catch Ball / kettlebell balistico |
+| `ex-halo` | Clean Halo / rotazione kettlebell attorno alla testa |
 
 Muscoli evidenziati: `--muscle-hot` (#c9783a) primario, `--muscle-warm` (#8b7355) secondario.
 
@@ -145,7 +146,7 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
 |--------|-------|
 | **1** | Petto, spalle, dorsali (6 es.) + Catch Ball opzionale |
 | **2** | Gambe, bicipiti (6 es.) |
-| **3** | Spalle, dorsali (4 es.) |
+| **3** | Spalle, dorsali (5 es.) + Clean Halo kettlebell |
 | **4** | Gambe, petto, bicipiti (6 es.) |
 
 Schema: **4×8** (salvo 3×8 / 3×8-10). RIR 0-2 multiarticolari.

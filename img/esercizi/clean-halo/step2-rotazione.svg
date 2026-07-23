@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title desc">
+<title id="title">Clean Halo passo 2 — rotazione attorno alla testa</title>
+<desc id="desc">Figura originale La Forza Quotidiana: halo frontale con traiettoria circolare attorno al cranio.</desc>
+<style>
+  .bg{fill:#121212}.floor{fill:#1a1a1a;stroke:#2e2e2e;stroke-width:1}.line{stroke:#2a2a2a;stroke-width:1;fill:none}
+  .wall{fill:#181818}.mirror{fill:#243038;stroke:#3a4a55;stroke-width:2}.rack{stroke:#333;stroke-width:3;fill:none;stroke-linecap:round}
+  .skin{fill:#ddd4c8}.shirt{fill:#2f2f2f}.shorts{fill:#c9783a}.shoe{fill:#222}
+  .muscle{fill:#c9783a;opacity:.85}.kb{fill:#3d3d3d;stroke:#555;stroke-width:1.5}.kb-hot{fill:#c9783a;opacity:.35}
+  .arc{fill:none;stroke:#c9783a;stroke-width:2.5;stroke-dasharray:8 6;opacity:.9}
+  .arrow{fill:#c9783a}.label{fill:#f2ece3;font:600 14px system-ui,sans-serif}.sublabel{fill:#999;font:400 11px system-ui,sans-serif}
+  .badge{fill:rgba(201,120,58,.15);stroke:#c9783a;stroke-width:1}
+</style>
+<rect class="bg" width="480" height="360"/>
+<rect class="wall" x="0" y="0" width="480" height="200"/>
+<rect class="mirror" x="140" y="36" width="200" height="100" rx="4"/>
+<path class="floor" d="M60 200 L420 200 L480 360 L0 360 Z"/>
+<path class="line" d="M120 240 H360 M80 280 H400"/>
+<path class="rack" d="M72 80 V200 M408 80 V200"/>
+<ellipse class="skin" cx="228" cy="116" rx="21" ry="25"/>
+<rect class="shirt" x="200" y="138" width="58" height="70" rx="10" transform="rotate(-4 229 173)"/>
+<path class="muscle" d="M208 144 Q228 158 248 142 L244 182 Q228 192 212 182 Z"/>
+<rect class="shorts" x="204" y="206" width="50" height="26" rx="6"/>
+<rect class="shoe" x="208" y="262" width="18" height="10" rx="3"/>
+<rect class="shoe" x="232" y="264" width="18" height="10" rx="3"/>
+<path fill="none" stroke="#ddd4c8" stroke-width="13" stroke-linecap="round" d="M192 150 Q170 175 178 205"/>
+<path fill="none" stroke="#ddd4c8" stroke-width="13" stroke-linecap="round" d="M268 148 Q310 120 318 92"/>
+<ellipse class="kb" cx="312" cy="108" rx="24" ry="28" transform="rotate(18 312 108)"/>
+<ellipse class="kb-hot" cx="312" cy="108" rx="16" ry="20" transform="rotate(18 312 108)"/>
+<path class="kb" d="M302 82 Q312 68 322 82" fill="none" stroke="#666" stroke-width="4" stroke-linecap="round"/>
+<path class="arc" d="M288 88 A 52 52 0 1 1 168 108"/>
+<polygon class="arrow" points="172,104 160,98 164,112"/>
+<rect class="badge" x="24" y="24" width="56" height="28" rx="14"/>
+<text class="label" x="52" y="43" text-anchor="middle">2</text>
+<text class="label" x="240" y="32" text-anchor="middle">Halo · rotazione frontale</text>
+<text class="sublabel" x="240" y="50" text-anchor="middle">Cerchio vicino al cranio · 10 rep orario · core attivo</text>
+<text class="sublabel" x="240" y="340" text-anchor="middle">La Forza Quotidiana · figura originale SVG</text>
+</svg>
