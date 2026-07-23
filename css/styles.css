@@ -234,6 +234,114 @@ img { max-width: 100%; height: auto; display: block; }
 
 .diario-feed { display: grid; gap: 1.75rem; }
 
+/* Diario smart — lista compatta e tap-friendly */
+.diario-intro--smart { padding-block: 2.5rem 1.5rem; }
+.diario-intro--smart .lead { max-width: 42ch; margin-bottom: 0; }
+.diario-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+.diario-list__link {
+  display: block;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, background 0.15s;
+}
+.diario-list__link:hover {
+  border-color: rgba(201, 120, 58, 0.45);
+  background: rgba(201, 120, 58, 0.04);
+}
+.diario-list__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+.diario-list__meta time { color: #e8a86a; }
+.diario-list__title {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+.diario-list__excerpt {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Hub allenamenti — card con illustrazione sezione */
+.hub-cards {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .hub-cards { grid-template-columns: repeat(3, 1fr); }
+}
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.hub-card:hover {
+  border-color: rgba(201, 120, 58, 0.5);
+  transform: translateY(-2px);
+}
+.hub-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #0a0a0a;
+}
+.hub-card__body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; }
+.hub-card__label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #e8a86a;
+  font-weight: 600;
+}
+.hub-card h3 { margin: 0.4rem 0 0.45rem; font-size: 1.12rem; }
+.hub-card p { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.45; }
+.hub-card__cta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #e8a86a;
+}
+
+.dedicatio--ginevra {
+  background: rgba(201, 120, 58, 0.06);
+  border: 1px solid rgba(201, 120, 58, 0.2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.dedicatio--ginevra p { margin: 0 0 0.65rem; }
+.dedicatio--ginevra p:last-child { margin-bottom: 0; font-style: italic; color: var(--muted); }
+
 .entry {
   display: grid;
   gap: 1rem;

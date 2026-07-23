@@ -4,7 +4,55 @@
 
 ---
 
-## 1. Struttura editoriale trimestre
+## 0. Anima del sito — dedicato a Ginevra
+
+**La Forza Quotidiana** è un **lascito per Ginevra**, unica figlia di Gino. Non è bodybuilding da vetrina né coaching commerciale.
+
+### Messaggio centrale (sempre coerente)
+
+- Papà **sempre presente**, alla ricerca di **equilibrio** tra lavoro, famiglia e sport.
+- Lo **sport è il mezzo** per trovare la propria strada e misurarsi quotidianamente con avversità e difficoltà.
+- Il culturismo amatoriale è **fatto di sacrifici** ed è **molto impegnativo** — va detto senza romanticismi.
+- Il sito documenta un percorso **reale**, non perfetto.
+
+### Nome in copy
+
+Usare **Ginevra** esplicitamente in home, chi-sono, dedicatio e intro diario — non solo «mia figlia» generico.
+
+### Due mondi separati (navigazione chiara)
+
+| Sezione | Contenuto | Tono |
+|---------|-----------|------|
+| **`/diario/`** | Riflessioni, vita, equilibrio, famiglia | Umano, lascito |
+| **`/allenamenti/`** | Trimestre, sessioni, dati Amazfit | Disciplina, log |
+
+---
+
+## 0b. Hub Allenamenti — tre blocchi visivi
+
+La pagina `/allenamenti/` deve essere **immediata**: tre card con illustrazione + testo breve.
+
+| Blocco | Link | Immagine hub | Cosa comunica |
+|--------|------|--------------|---------------|
+| Trimestre | `/allenamenti/trimestre-…/` | `img/allenamenti/hub/trimestre.png` | Schede 1–4 di riferimento, programma |
+| Sessioni svolte | `/allenamenti/sessioni/` | `img/allenamenti/hub/sessioni.png` | Log per data, Amazfit, foto |
+| Diario | `/diario/` | `img/allenamenti/hub/diario.png` | Riflessioni separate dai numeri |
+
+**Markup:** `.hub-cards` > `a.hub-card` con `.hub-card__img`, `.hub-card__label`, `h3`, `p`, `.hub-card__cta`.
+
+**Illustrazioni:** generate o aggiornate dall’agente — stile editoriale scuro, accento `#c9783a`, 16:9, **no volti reali**. File fissi in `img/allenamenti/hub/`.
+
+---
+
+## 0c. Diario — navigazione smart
+
+Il diario deve restare **semplice e fruibile**:
+
+- Intro corta: titolo «Pensieri e vita», menzione Ginevra, link ad Allenamenti.
+- Elenco **`.diario-list`**: una riga per articolo (data · titolo · excerpt), tap-friendly, niente muri di testo in indice.
+- **Non** mischiare log palestra nell’indice diario.
+
+---
 
 Ogni scheda copre **3 mesi** con titolo impattante:
 
@@ -171,7 +219,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — sempre uguale)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=15` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=16` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Ordine sezioni (non invertire)
 
@@ -470,7 +518,7 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=15`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=16`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
