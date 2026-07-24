@@ -152,6 +152,46 @@
         "rhythm": "Tempi coerenti, ritmo uniforme",
         "speed_decay": "Decadimento velocità ragionevole, buona efficacia"
       }
+    },
+    {
+      "id": "2026-07-24-scheda-4",
+      "date": "2026-07-24",
+      "time": "12:25",
+      "datetime": "2026-07-24T12:25",
+      "scheda": 4,
+      "month": "2026-07",
+      "durata_sec": 6990,
+      "durata": "01:56:30",
+      "durata_device": "01:56:30",
+      "recupero_sec": 3092,
+      "recupero": "51:32",
+      "gruppi": 22,
+      "fc_media": 107,
+      "fc_max": 147,
+      "calorie": 823,
+      "carico": 69,
+      "duration_corrected": false,
+      "calorie_asterisk": true,
+      "carico_asterisk": true,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:03" },
+        "anaerobica": { "pct": 3, "time": "04:15" },
+        "aerobica": { "pct": 21, "time": "25:31" },
+        "intensiva": { "pct": 49, "time": "57:12" },
+        "leggera": { "pct": 25, "time": "29:22" }
+      },
+      "effetto_aerobico": 2.9,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 2.9,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "ROM molto uniforme — punte radar alte",
+        "stability": "Movimenti molto stabili",
+        "continuity": "Fluidi, pause minori",
+        "rhythm": "Tempi coerenti",
+        "speed_decay": "Decadimento velocità contenuto"
+      },
+      "note_device": "Orologio lasciato acceso fino a casa — durata e kcal sovrastimate"
     }
   ]
 }
