@@ -1,23 +1,15 @@
-/* La Forza Quotidiana — v20 · Warm Athletic Light */
+/* La Forza Quotidiana — v1 */
 :root {
-  --bg: #f5f0e8;
-  --surface: #ffffff;
-  --surface-2: #efe9df;
-  --text: #1c1814;
-  --muted: #6b6258;
-  --text-soft: #4a433c;
+  --bg: #0c0c0c;
+  --surface: #161616;
+  --surface-2: #1f1f1f;
+  --text: #f4efe6;
+  --muted: #a39a90;
   --accent: #c9783a;
-  --accent-soft: rgba(201, 120, 58, 0.14);
+  --accent-soft: rgba(201, 120, 58, 0.18);
   --cta-bg: #1e3a52;
   --cta-hover: #163047;
-  --line: rgba(28, 24, 20, 0.12);
-  --veil: 28, 24, 20;
-  --surface-glass: rgba(255, 255, 255, 0.9);
-  --surface-glass-border: rgba(28, 24, 20, 0.08);
-  --theme-diario: #d4a574;
-  --theme-programma: #c9783a;
-  --theme-sessioni: #2d5a7b;
-  --theme-pdf: #6b8f71;
+  --line: rgba(244, 239, 230, 0.12);
   --max: 1120px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
@@ -58,11 +50,9 @@ img { max-width: 100%; height: auto; display: block; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245, 240, 232, 0.94);
+  background: rgba(12, 12, 12, 0.92);
   border-bottom: 1px solid var(--line);
-  box-shadow: 0 1px 14px rgba(28, 24, 20, 0.06);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: none;
 }
 .site-header .wrap {
   display: flex;
@@ -132,7 +122,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(28,24,20,0.78) 8%, rgba(28,24,20,0.22) 55%, rgba(28,24,20,0.38) 100%);
+  background: linear-gradient(to top, rgba(12,12,12,0.95) 8%, rgba(12,12,12,0.35) 55%, rgba(12,12,12,0.55) 100%);
 }
 .hero__content {
   position: relative;
@@ -148,7 +138,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero .lead {
   max-width: 42ch;
-  color: #f4efe6;
+  color: #ddd5c9;
   margin: 0 0 1.5rem;
 }
 .hero .tagline {
@@ -182,14 +172,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--text);
   border: 1px solid var(--line);
 }
-.hero .btn-ghost {
-  color: #f4efe6;
-  border-color: rgba(244, 239, 230, 0.42);
-}
-.hero .btn-ghost:hover {
-  background: rgba(244, 239, 230, 0.1);
-  color: #fff;
-}
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 .section { padding: 3.5rem 0; }
@@ -198,7 +180,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: clamp(1.35rem, 3vw, 1.85rem);
   margin: 0 0 1rem;
 }
-.section p { color: var(--text-soft); }
+.section p { color: #ddd5c9; }
 
 .dedicatio {
   border-left: 3px solid var(--accent);
@@ -206,7 +188,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 2rem 0;
   font-family: var(--font-serif);
   font-style: italic;
-  color: var(--text-soft);
+  color: #e8e0d4;
 }
 
 .grid-3 {
@@ -267,17 +249,14 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 1rem 1.15rem;
   border-radius: 14px;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--theme-diario);
   background: var(--surface);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s, background 0.15s;
 }
 .diario-list__link:hover {
-  border-color: rgba(212, 165, 116, 0.55);
-  border-left-color: var(--theme-diario);
-  background: rgba(212, 165, 116, 0.06);
-  box-shadow: 0 4px 18px rgba(28, 24, 20, 0.06);
+  border-color: rgba(201, 120, 58, 0.45);
+  background: rgba(201, 120, 58, 0.04);
 }
 .diario-list__meta {
   display: flex;
@@ -289,7 +268,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--muted);
   margin-bottom: 0.35rem;
 }
-.diario-list__meta time { color: var(--theme-diario); }
+.diario-list__meta time { color: #e8a86a; }
 .diario-list__title {
   margin: 0 0 0.3rem;
   font-size: 1.05rem;
@@ -324,23 +303,22 @@ img { max-width: 100%; height: auto; display: block; }
   transition: border-color 0.15s, transform 0.15s;
 }
 .hub-card:hover {
-  border-color: rgba(201, 120, 58, 0.4);
+  border-color: rgba(201, 120, 58, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(28, 24, 20, 0.08);
 }
 .hub-card__img {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  background: var(--surface-2);
+  background: #0a0a0a;
 }
 .hub-card__body { padding: 1.1rem 1.25rem 1.35rem; flex: 1; }
 .hub-card__label {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--theme-programma);
+  color: #e8a86a;
   font-weight: 600;
 }
 .hub-card h3 { margin: 0.4rem 0 0.45rem; font-size: 1.12rem; }
@@ -350,7 +328,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 0.9rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--theme-programma);
+  color: #e8a86a;
 }
 
 .dedicatio--ginevra {
@@ -373,8 +351,8 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--surface);
 }
 .entry--riflessione {
-  border-color: rgba(212, 165, 116, 0.45);
-  background: linear-gradient(135deg, #faf6f0 0%, #f0e8dc 100%);
+  border-color: rgba(139, 115, 85, 0.35);
+  background: linear-gradient(135deg, #181614 0%, #121212 100%);
 }
 .entry--allenamento {
   border-color: rgba(201, 120, 58, 0.35);
@@ -397,7 +375,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .entry h2 a { color: inherit; text-decoration: none; }
 .entry h2 a:hover { color: var(--accent); }
-.entry__excerpt { margin: 0; color: var(--text-soft); font-size: 0.95rem; }
+.entry__excerpt { margin: 0; color: #ccc4b8; font-size: 0.95rem; }
 
 /* Foto sparpagliate / polaroid */
 .collage {
@@ -419,7 +397,7 @@ img { max-width: 100%; height: auto; display: block; }
 .polaroid--guide img {
   aspect-ratio: 4 / 3;
   object-fit: contain;
-  background: var(--surface-2);
+  background: #121212;
   display: block;
 }
 .polaroid--video video {
@@ -485,11 +463,11 @@ img { max-width: 100%; height: auto; display: block; }
 .prose h2 { margin-top: 2rem; }
 .prose h3 { margin-top: 1.5rem; font-size: 1.1rem; }
 .prose a {
-  color: var(--accent);
+  color: #e8a86a;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.prose a:hover { color: #a85f28; }
+.prose a:hover { color: #f0c090; }
 
 .scheda-tagline {
   color: var(--accent);
@@ -500,7 +478,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .scheda-pillars { margin: 1.25rem 0 2rem; }
-.scheda-pillars .card p { color: var(--text-soft); }
+.scheda-pillars .card p { color: #ccc4b8; }
 
 .scheda-full {
   margin: 2rem 0;
@@ -556,7 +534,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .scheda-rules {
   padding-left: 1.25rem;
-  color: var(--text-soft);
+  color: #ddd5c9;
 }
 .scheda-rules li { margin-bottom: 0.5rem; }
 
@@ -578,13 +556,13 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   color: var(--accent);
 }
-.rir-scale dd { margin: 0; color: var(--text-soft); font-size: 0.92rem; }
+.rir-scale dd { margin: 0; color: #ccc4b8; font-size: 0.92rem; }
 
 .disclaimer {
   margin: 2rem 0;
   padding: 1rem 1.15rem;
-  background: rgba(30, 58, 82, 0.08);
-  border: 1px solid rgba(30, 58, 82, 0.22);
+  background: rgba(30, 58, 82, 0.35);
+  border: 1px solid rgba(30, 58, 82, 0.6);
   border-radius: 12px;
   font-size: 0.92rem;
 }
@@ -601,7 +579,7 @@ img { max-width: 100%; height: auto; display: block; }
 .article-author {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(255,255,255,0.1);
   font-size: 0.9rem;
   color: var(--muted);
 }
@@ -718,10 +696,8 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 1rem;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--theme-programma);
   border-radius: 16px;
   align-items: start;
-  box-shadow: 0 2px 12px rgba(28, 24, 20, 0.04);
 }
 .exercise-card__fig {
   width: 88px;
@@ -746,7 +722,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .exercise-card__meta strong { color: var(--accent); }
 .exercise-card__kg {
-  color: var(--text);
+  color: #e8dcc8;
   font-weight: 600;
 }
 .exercise-card h3 {
@@ -764,25 +740,25 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.88rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
 }
 .exercise-card__exec li { margin-bottom: 0.35rem; }
 
 /* SVG muscoli */
 .muscle-hot { fill: #c9783a; }
 .muscle-warm { fill: #8b7355; opacity: 0.85; }
-.muscle-base { fill: none; stroke: rgba(28, 24, 20, 0.22); stroke-width: 1.2; }
+.muscle-base { fill: none; stroke: rgba(244,239,230,0.35); stroke-width: 1.2; }
 
 /* Monitoraggio cardiaco */
 .hr-section {
   margin: 3rem 0;
   padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(30,58,82,0.08) 0%, var(--surface) 100%);
-  border: 1px solid rgba(30, 58, 82, 0.18);
+  background: linear-gradient(135deg, rgba(30,58,82,0.25) 0%, var(--surface) 100%);
+  border: 1px solid rgba(30, 58, 82, 0.45);
   border-radius: 18px;
 }
 .hr-section h2 { margin-top: 0; }
-.hr-section__intro { color: var(--text-soft); font-size: 0.95rem; max-width: 65ch; }
+.hr-section__intro { color: #ccc4b8; font-size: 0.95rem; max-width: 65ch; }
 
 .hr-log {
   margin: 1.25rem 0;
@@ -854,7 +830,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hr-zone--aer i { --zone-color: #5cb85c; }
 .hr-zone--int i { --zone-color: #5bc0de; }
 .hr-zone--leg i { --zone-color: #9b7bb8; }
-.hr-zone__time { text-align: right; color: var(--text-soft); font-variant-numeric: tabular-nums; }
+.hr-zone__time { text-align: right; color: #ccc4b8; font-variant-numeric: tabular-nums; }
 
 .hr-effects {
   display: grid;
@@ -1085,9 +1061,9 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 1rem 0 0;
   padding: 0.75rem 1rem;
   font-size: 0.88rem;
-  color: var(--text-soft);
-  background: rgba(45, 90, 123, 0.06);
-  border-left: 3px solid var(--theme-sessioni);
+  color: #ccc4b8;
+  background: rgba(0, 0, 0, 0.25);
+  border-left: 3px solid var(--accent);
   border-radius: 0 10px 10px 0;
 }
 .metabolic-note--inline {
@@ -1097,7 +1073,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .session-note {
   margin: 0 0 1.5rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
   font-size: 0.95rem;
 }
 
@@ -1133,7 +1109,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background: url("/img/allenamenti/session-hero-bg.png") center 35% / cover no-repeat;
-  opacity: 0.55;
+  opacity: 0.42;
   transform: scale(1.04);
   z-index: 0;
 }
@@ -1143,8 +1119,8 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(245, 240, 232, 0.9) 0%, rgba(245, 240, 232, 0.78) 42%, rgba(245, 240, 232, 0.62) 100%),
-    linear-gradient(180deg, rgba(45, 90, 123, 0.1) 0%, transparent 55%);
+    linear-gradient(115deg, rgba(12, 12, 12, 0.92) 0%, rgba(12, 12, 12, 0.78) 42%, rgba(12, 12, 12, 0.55) 100%),
+    linear-gradient(180deg, rgba(201, 120, 58, 0.12) 0%, transparent 55%);
   z-index: 1;
 }
 .session-hero .wrap,
@@ -1155,7 +1131,7 @@ img { max-width: 100%; height: auto; display: block; }
 .session-hero .breadcrumb,
 .session-list-hero .breadcrumb { margin-bottom: 1rem; }
 .session-hero .breadcrumb a,
-.session-list-hero .breadcrumb a { color: var(--theme-sessioni); }
+.session-list-hero .breadcrumb a { color: #e8c4a0; }
 .session-hero__top {
   display: flex;
   flex-wrap: wrap;
@@ -1170,9 +1146,9 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: #fff;
-  background: var(--theme-sessioni);
-  border: 1px solid rgba(45, 90, 123, 0.35);
+  color: #f0c090;
+  background: rgba(201, 120, 58, 0.18);
+  border: 1px solid rgba(201, 120, 58, 0.38);
   border-radius: 999px;
 }
 .session-hero__time {
@@ -1185,11 +1161,11 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 0.3rem;
   font-size: clamp(1.45rem, 3.8vw, 2.05rem);
   line-height: 1.12;
-  text-shadow: 0 1px 16px rgba(255, 255, 255, 0.65);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.65);
 }
 .session-hero__sub {
   margin: 0 0 1.15rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
   font-size: 0.94rem;
   max-width: 52ch;
 }
@@ -1206,37 +1182,38 @@ img { max-width: 100%; height: auto; display: block; }
   .session-kpis { grid-template-columns: repeat(6, 1fr); }
 }
 .session-kpis__item {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(8, 8, 8, 0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 0.6rem 0.5rem;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(28, 24, 20, 0.05);
 }
 .session-kpis__item dt {
   font-size: 0.58rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: var(--muted);
+  color: #9a9a9a;
   margin-bottom: 0.15rem;
 }
 .session-kpis__item dd {
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--text);
+  color: #f5f0e8;
   font-variant-numeric: tabular-nums;
   line-height: 1.2;
 }
 .session-kpis__item--accent {
-  border-color: rgba(45, 90, 123, 0.35);
-  background: rgba(45, 90, 123, 0.08);
+  border-color: rgba(201, 120, 58, 0.45);
+  background: rgba(201, 120, 58, 0.14);
 }
-.session-kpis__item--accent dd { color: var(--theme-sessioni); }
+.session-kpis__item--accent dd { color: #f0c090; }
 .session-hero__refs {
   margin: 0;
   font-size: 0.86rem;
-  color: var(--muted);
+  color: #b8b0a4;
   line-height: 1.5;
 }
 .session-body {
@@ -1256,19 +1233,21 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 1;
 }
 .session-panel {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(16, 16, 16, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 1.2rem 1.3rem 1.4rem;
   margin-bottom: 1.15rem;
-  box-shadow: 0 4px 20px rgba(28, 24, 20, 0.06);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 .session-panel__label {
   display: block;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.11em;
-  color: var(--theme-sessioni);
+  color: #e8a86a;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
@@ -1289,8 +1268,8 @@ img { max-width: 100%; height: auto; display: block; }
 .session-panel--metabolic {
   padding: 0;
   overflow: hidden;
-  background: var(--surface);
-  border-color: rgba(45, 90, 123, 0.22);
+  background: #111;
+  border-color: rgba(201, 120, 58, 0.22);
 }
 .session-panel--metabolic .metabolic-block {
   margin: 0;
@@ -1314,7 +1293,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0.5rem 0.95rem;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--theme-sessioni);
+  color: #e8a86a;
   text-decoration: none;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -1322,9 +1301,9 @@ img { max-width: 100%; height: auto; display: block; }
   transition: border-color 0.15s, background 0.15s;
 }
 .session-nav a.session-nav__primary {
-  background: rgba(45, 90, 123, 0.1);
-  border-color: rgba(45, 90, 123, 0.35);
-  color: var(--theme-sessioni);
+  background: rgba(201, 120, 58, 0.14);
+  border-color: rgba(201, 120, 58, 0.38);
+  color: #f0c090;
 }
 .session-meta-footer {
   margin-top: 1.5rem;
@@ -1345,17 +1324,15 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 1rem 1.1rem;
   border-radius: 14px;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--theme-sessioni);
   background: var(--surface);
   text-decoration: none;
   color: inherit;
   transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
 }
 .session-card:hover {
-  border-color: rgba(45, 90, 123, 0.35);
-  border-left-color: var(--theme-sessioni);
+  border-color: rgba(201, 120, 58, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(28, 24, 20, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
 }
 .session-card__badge {
   display: flex;
@@ -1363,11 +1340,11 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: center;
   aspect-ratio: 1;
   border-radius: 12px;
-  background: rgba(45, 90, 123, 0.1);
-  border: 1px solid rgba(45, 90, 123, 0.22);
+  background: rgba(201, 120, 58, 0.12);
+  border: 1px solid rgba(201, 120, 58, 0.28);
   font-size: 0.68rem;
   font-weight: 800;
-  color: var(--theme-sessioni);
+  color: #e8a86a;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.15;
@@ -1381,7 +1358,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .session-card__meta {
   font-size: 0.74rem;
-  color: var(--theme-sessioni);
+  color: #e8a86a;
   margin-bottom: 0.3rem;
   letter-spacing: 0.03em;
 }
@@ -1397,14 +1374,14 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 0.35rem 0.85rem;
   margin-top: 0.45rem;
   font-size: 0.72rem;
-  color: var(--muted);
+  color: #888;
   font-variant-numeric: tabular-nums;
 }
 .session-list-hero {
   padding: 1.75rem 0 1.25rem;
 }
 .session-list-hero .tagline {
-  color: var(--theme-sessioni);
+  color: #e8a86a;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-size: 0.72rem;
@@ -1412,7 +1389,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-bottom: 0.35rem;
 }
 .session-list-hero h1 { margin: 0.35rem 0 0.5rem; }
-.session-list-hero p { max-width: 52ch; color: var(--text-soft); }
+.session-list-hero p { max-width: 52ch; color: #ddd6cc; }
 .session-page > .wrap {
   position: relative;
   padding-bottom: 2.5rem;
@@ -1430,9 +1407,10 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 1;
 }
 .session-page .session-card {
-  background: var(--surface);
-  border-color: var(--line);
-  border-left: 3px solid var(--theme-sessioni);
+  background: rgba(16, 16, 16, 0.9);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: rgba(255, 255, 255, 0.07);
 }
 
 .session-photos {
@@ -1444,8 +1422,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hr-log--elevated {
-  border-color: rgba(45, 90, 123, 0.22);
-  background: linear-gradient(180deg, rgba(45, 90, 123, 0.06) 0%, var(--bg) 100%);
+  border-color: rgba(201, 120, 58, 0.25);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, var(--bg) 100%);
 }
 
 .month-stats-wrap { overflow-x: auto; margin: 1.5rem 0; }
@@ -1464,8 +1442,6 @@ img { max-width: 100%; height: auto; display: block; }
 .month-stats th {
   color: var(--muted);
   font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* Grafici performance mensili */
@@ -1487,7 +1463,7 @@ img { max-width: 100%; height: auto; display: block; }
   .perf-charts__grid { grid-template-columns: repeat(2, 1fr); }
 }
 .perf-chart {
-  background: var(--surface);
+  background: var(--bg-elevated, rgba(20, 20, 20, 0.5));
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 1rem 1.1rem;
@@ -1509,7 +1485,7 @@ img { max-width: 100%; height: auto; display: block; }
 .perf-bar__label { color: var(--muted); }
 .perf-bar__track {
   height: 8px;
-  background: rgba(28, 24, 20, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -1525,7 +1501,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
   color: var(--text);
 }
-.month-stats td:last-child { color: var(--text-soft); }
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.month-stats td:last-child { color: #ccc4b8; }
 
 .scheda-full { display: none; }
 
@@ -1535,7 +1514,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--muted);
   font-size: 0.88rem;
 }
-.site-footer a { color: var(--text-soft); }
+.site-footer a { color: #ccc4b8; }
 
 /* ——— GDPR / Cookie ——— */
 .footer-legal {
@@ -1547,7 +1526,7 @@ img { max-width: 100%; height: auto; display: block; }
   border: none;
   padding: 0;
   font: inherit;
-  color: var(--text-soft);
+  color: #ccc4b8;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -1558,9 +1537,8 @@ img { max-width: 100%; height: auto; display: block; }
   inset-inline: 0;
   bottom: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(12, 12, 12, 0.97);
   border-top: 1px solid var(--line);
-  box-shadow: 0 -4px 24px rgba(28, 24, 20, 0.08);
   padding: 1rem 0;
   transform: translateY(100%);
   transition: transform 0.35s ease;
@@ -1577,7 +1555,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
   flex: 1 1 280px;
   font-size: 0.88rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
   max-width: 720px;
 }
 .cookie-banner__text a { color: var(--accent); }
@@ -1622,7 +1600,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0.75rem 0;
   padding-left: 1.15rem;
   font-size: 0.9rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
 }
 .cookie-modal__legal { font-size: 0.85rem; margin: 0.75rem 0; }
 .cookie-modal__actions {
@@ -1665,11 +1643,11 @@ img { max-width: 100%; height: auto; display: block; }
 .privacy-content-notice {
   margin-bottom: 1.5rem;
   padding: 0.75rem 1rem;
-  background: rgba(30, 58, 82, 0.08);
-  border: 1px solid rgba(30, 58, 82, 0.18);
+  background: rgba(30, 58, 82, 0.3);
+  border: 1px solid rgba(30, 58, 82, 0.5);
   border-radius: 12px;
   font-size: 0.85rem;
-  color: var(--text-soft);
+  color: #ccc4b8;
 }
 .privacy-content-notice p { margin: 0; }
 .privacy-content-notice a { color: var(--accent); }
@@ -1830,7 +1808,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background: url("/img/allenamenti/page-bg-dumbbells.png") center 42% / cover no-repeat;
-  opacity: 0.16;
+  opacity: 0.11;
   pointer-events: none;
   z-index: 0;
 }
@@ -1838,7 +1816,7 @@ img { max-width: 100%; height: auto; display: block; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(245, 240, 232, 0.45) 0%, rgba(245, 240, 232, 0.92) 70%);
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.5) 0%, rgba(12, 12, 12, 0.93) 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -1862,7 +1840,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background: url("/img/allenamenti/page-bg-dumbbells.png") center 48% / cover no-repeat;
-  opacity: 0.5;
+  opacity: 0.4;
   transform: scale(1.04);
   z-index: 0;
 }
@@ -1873,8 +1851,8 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(245, 240, 232, 0.9) 0%, rgba(245, 240, 232, 0.75) 45%, rgba(245, 240, 232, 0.6) 100%),
-    linear-gradient(180deg, rgba(201, 120, 58, 0.1) 0%, transparent 58%);
+    linear-gradient(115deg, rgba(12, 12, 12, 0.9) 0%, rgba(12, 12, 12, 0.72) 45%, rgba(12, 12, 12, 0.58) 100%),
+    linear-gradient(180deg, rgba(201, 120, 58, 0.11) 0%, transparent 58%);
   z-index: 1;
 }
 .page-veiled .allenamenti-hero .wrap,
@@ -1886,27 +1864,24 @@ img { max-width: 100%; height: auto; display: block; }
 .page-veiled .allenamenti-hero h1,
 .page-veiled .diario-intro--smart h1,
 .page-veiled .trimestre-hero h1 {
-  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.55);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
 }
 .page-veiled .card,
 .page-veiled .diario-list__link,
 .page-veiled .hub-card,
 .page-veiled .scheda-periodo-card,
 .page-veiled .newsletter-cta {
-  background: var(--surface-glass);
+  background: rgba(16, 16, 16, 0.88);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border-color: var(--surface-glass-border);
-  box-shadow: 0 4px 18px rgba(28, 24, 20, 0.05);
 }
 .page-veiled .prose {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(14, 14, 14, 0.72);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid var(--surface-glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 1.5rem 1.35rem;
-  box-shadow: 0 4px 18px rgba(28, 24, 20, 0.04);
 }
 .page-veiled .trimestre-hero .prose {
   background: transparent;
@@ -1926,7 +1901,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: absolute;
   inset: 0;
   background: url("/img/allenamenti/page-bg-dumbbells.png") center 50% / cover no-repeat;
-  opacity: 0.14;
+  opacity: 0.12;
   pointer-events: none;
   z-index: 0;
 }
@@ -1934,7 +1909,7 @@ img { max-width: 100%; height: auto; display: block; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(245, 240, 232, 0.72);
+  background: rgba(12, 12, 12, 0.78);
   pointer-events: none;
   z-index: 0;
 }
@@ -1954,7 +1929,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.1;
   margin: 0.5rem 0 1rem;
 }
-.allenamenti-hero .lead { max-width: 52ch; color: var(--text-soft); }
+.allenamenti-hero .lead { max-width: 52ch; color: #ccc4b8; }
 
 .photo-mosaic {
   display: grid;
@@ -1996,46 +1971,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .card--highlight {
   border-color: rgba(201, 120, 58, 0.35);
-  background: rgba(201, 120, 58, 0.08);
+  background: rgba(201, 120, 58, 0.06);
 }
 .card--highlight .btn { margin-top: 0.75rem; }
-
-/* Identità colore per sezione */
-.hub-card--diario { border-top: 3px solid var(--theme-diario); }
-.hub-card--diario .hub-card__label,
-.hub-card--diario .hub-card__cta { color: var(--theme-diario); }
-.hub-card--diario:hover { border-top-color: var(--theme-diario); }
-
-.hub-card--programma { border-top: 3px solid var(--theme-programma); }
-.hub-card--programma .hub-card__label,
-.hub-card--programma .hub-card__cta { color: var(--theme-programma); }
-
-.hub-card--sessioni { border-top: 3px solid var(--theme-sessioni); }
-.hub-card--sessioni .hub-card__label,
-.hub-card--sessioni .hub-card__cta { color: var(--theme-sessioni); }
-.hub-card--sessioni:hover { border-top-color: var(--theme-sessioni); }
-
-.hub-card--pdf,
-.hub-card--schede { border-top: 3px solid var(--theme-pdf); }
-.hub-card--pdf .hub-card__label,
-.hub-card--pdf .hub-card__cta,
-.hub-card--schede .hub-card__label,
-.hub-card--schede .hub-card__cta { color: var(--theme-pdf); }
-
-.scheda-periodo-card {
-  border-left: 3px solid var(--theme-pdf);
-}
-
-.page-veiled .diario-intro--smart::after {
-  background:
-    linear-gradient(115deg, rgba(245, 240, 232, 0.9) 0%, rgba(245, 240, 232, 0.75) 45%, rgba(245, 240, 232, 0.6) 100%),
-    linear-gradient(180deg, rgba(212, 165, 116, 0.12) 0%, transparent 58%);
-}
-.page-veiled .trimestre-hero::after {
-  background:
-    linear-gradient(115deg, rgba(245, 240, 232, 0.9) 0%, rgba(245, 240, 232, 0.75) 45%, rgba(245, 240, 232, 0.6) 100%),
-    linear-gradient(180deg, rgba(201, 120, 58, 0.12) 0%, transparent 58%);
-}
 
 .breadcrumb {
   font-size: 0.85rem;
@@ -2088,9 +2026,9 @@ img { max-width: 100%; height: auto; display: block; }
 .newsletter-form__field input[type="email"] {
   width: 100%;
   padding: 0.55rem 0.65rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 6px;
-  background: var(--surface);
+  background: rgba(0,0,0,0.25);
   color: inherit;
 }
 .newsletter-form__check {
@@ -2147,8 +2085,8 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--theme-pdf);
-  border: 1px solid rgba(107, 143, 113, 0.45);
+  color: var(--accent);
+  border: 1px solid rgba(201, 120, 58, 0.4);
   border-radius: 4px;
   padding: 0.15rem 0.45rem;
   margin-bottom: 0.35rem;
