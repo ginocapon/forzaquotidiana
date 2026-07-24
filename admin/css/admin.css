@@ -211,3 +211,117 @@
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* Macrociclo dashboard */
+.admin-macrociclo-head {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.admin-macrociclo-head h2 { margin: 0 0 0.5rem; }
+.admin-macrociclo-desc { color: var(--muted); max-width: 65ch; }
+
+.admin-timeline { display: grid; gap: 1.5rem; }
+
+.admin-fase {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  scroll-margin-top: 5rem;
+}
+.admin-fase__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+.admin-fase__num {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.admin-fase h3 { margin: 0.15rem 0; font-size: 1.15rem; }
+.admin-fase__dates { margin: 0; font-size: 0.85rem; color: var(--muted); }
+.admin-fase__obiettivo { margin: 0; font-size: 0.9rem; color: #ccc4b8; max-width: 28rem; }
+
+.admin-sessioni-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .admin-sessioni-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .admin-sessioni-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.admin-sessione-card {
+  display: block;
+  padding: 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.admin-sessione-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.admin-sessione-card__key {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.admin-sessione-card strong { display: block; font-size: 0.88rem; line-height: 1.3; margin-bottom: 0.35rem; }
+.admin-sessione-card p { margin: 0 0 0.25rem; font-size: 0.8rem; color: var(--muted); }
+.admin-sessione-card__main { color: #ccc4b8 !important; font-size: 0.78rem !important; }
+.admin-sessione-card__cta { font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+
+/* Pagina sessione */
+.admin-breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+.admin-breadcrumb a { color: var(--accent); }
+.admin-session-head { margin-bottom: 1.5rem; }
+.admin-session-head h1 { margin: 0.25rem 0 0.5rem; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.admin-session-table { font-size: 0.88rem; }
+.admin-session-table .admin-peso { font-weight: 700; color: #e8dcc8; white-space: nowrap; }
+.admin-row--prog { background: rgba(201, 120, 58, 0.08); }
+.admin-log-box {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+}
+.admin-log-box h2 { margin: 0 0 0.5rem; font-size: 1rem; }
+.admin-session-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 1.5rem 0;
+}
+.admin-session-nav a {
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.admin-session-nav a.is-active,
+.admin-session-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.admin-back { margin-top: 1rem; }
+.admin-back a { color: var(--accent); }
