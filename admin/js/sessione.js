@@ -51,6 +51,11 @@
     head.innerHTML = "<p class=\"tagline\">" + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + " · RIR " + fase.rir + "</p><h1>" + sessionKey.toUpperCase() + " — " + s.nome + "</h1><p class=\"lead\">" + fase.obiettivo + "</p>";
     root.appendChild(head);
 
+    var actions = el("div", { className: "admin-session-actions no-print" });
+    var pdfUrl = "/admin/sessione/pdf/?ciclo=" + encodeURIComponent(faseId) + "&sessione=" + sessionKey;
+    actions.innerHTML = "<a class=\"btn btn-primary\" href=\"" + pdfUrl + "\" target=\"_blank\" rel=\"noopener\">Scarica PDF · scheda palestra</a>";
+    root.appendChild(actions);
+
     var tableWrap = el("div", { className: "table-wrap" });
     var table = el("table", { className: "scheda-table admin-session-table" });
     table.innerHTML = "<thead><tr><th>#</th><th>Esercizio</th><th>Gruppo</th><th>S×R</th><th>Peso</th><th>Rec</th><th>RIR</th><th>Tecnica</th><th>Note</th></tr></thead>";

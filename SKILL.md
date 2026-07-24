@@ -645,6 +645,7 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 |---------|------|
 | Dashboard sessioni | `/admin/` |
 | Scheda singola sessione | `/admin/sessione/?ciclo=<id>&sessione=a1\|b1\|a2\|b2` |
+| **PDF scheda sessione** | `/admin/sessione/pdf/?ciclo=<id>&sessione=a1` — A4 verticale, sidebar log |
 | Teoria mesocicli | `/admin/prototipi/periodizzazione/` |
 | Schede pratiche | `/admin/prototipi/periodizzazione/schede/` |
 | PDF stampabili | `/admin/prototipi/periodizzazione/pdf/` |
@@ -734,7 +735,22 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 4. **Progressione:** quando 2 sessioni consecutive al limite superiore reps con RIR target → +2,5–5 kg sul movimento *.
 5. **Log reale** resta in `/allenamenti/sessioni/` — l’admin è prototipo/mappa, non sostituisce il log.
 
-### 8.8 Checklist nuovo macrociclo admin
+### 8.8 PDF scheda sessione (palestra)
+
+Ogni sessione A1–B2 ha un **PDF dedicato** con:
+
+- **Intestazione:** macrociclo, nome fase/ciclo, periodo date, RIR, obiettivo
+- **Colonna principale:** esercizio + SVG + gruppi muscolari + note tecniche sintetiche (setup, movimento, errori)
+- **Sidebar destra:** spazi per data/durata/RPE + per ogni esercizio righe **S1–Sn kg/rep** e campo **Note**
+
+**Path:** `/admin/sessione/pdf/?ciclo=<id-fase>&sessione=a1`  
+**Dati tecnici:** `admin/data/esercizi-catalogo.json`  
+**CSS print:** `admin/css/admin-pdf-sessione.css`  
+**Pulsante:** su pagina sessione e badge «PDF» su ogni card dashboard
+
+Stampa: **A4 verticale**, margini standard, «Salva come PDF» dal browser.
+
+### 8.9 Checklist nuovo macrociclo admin
 
 - [ ] Aggiornare date e durate in `admin/data/macrociclo-2026-2027.json` (o rigenerare con `tools/genera-macrociclo.mjs`)
 - [ ] Allineare `periodizzazioneAnnuale` in `admin/data/mesocicli.json`
@@ -743,7 +759,7 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 - [ ] Ogni sessione apre tabella peso/serie/RIR in `/admin/sessione/`
 - [ ] Aggiornare questa sezione §8 se cambiano le linee guida
 
-### 8.9 Errori da evitare
+### 8.10 Errori da evitare
 
 | Errore | Perché è sbagliato |
 |--------|-------------------|

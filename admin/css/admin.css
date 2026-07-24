@@ -260,9 +260,37 @@
   .admin-sessioni-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
+.admin-sessione-card-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.admin-sessione-card-pdf {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(201, 120, 58, 0.35);
+  z-index: 2;
+}
+.admin-sessione-card-pdf:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
 .admin-sessione-card {
   display: block;
+  flex: 1;
   padding: 1rem;
+  padding-right: 2.5rem;
   background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: 12px;

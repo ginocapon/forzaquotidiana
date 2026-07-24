@@ -53,12 +53,21 @@
       ["a1", "b1", "a2", "b2"].forEach(function (key) {
         var s = fase.sessioni[key];
         if (!s) return;
+        var wrap = el("div", { className: "admin-sessione-card-wrap" });
         var link = el("a", {
           className: "admin-sessione-card",
           href: "/admin/sessione/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=" + key
         });
         link.innerHTML = "<span class=\"admin-sessione-card__key\">" + key.toUpperCase() + "</span><strong>" + s.nome + "</strong><p>" + s.esercizi.length + " esercizi</p><p class=\"admin-sessione-card__main\">" + sessionSummary(s) + "</p><span class=\"admin-sessione-card__cta\">Apri scheda →</span>";
-        grid.appendChild(link);
+        wrap.appendChild(link);
+        wrap.appendChild(el("a", {
+          className: "admin-sessione-card-pdf",
+          href: "/admin/sessione/pdf/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=" + key,
+          target: "_blank",
+          rel: "noopener",
+          text: "PDF"
+        }));
+        grid.appendChild(wrap);
       });
       block.appendChild(grid);
       timeline.appendChild(block);

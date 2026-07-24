@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF scheda sessione | Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/css/styles.css?v=19">
+<link rel="stylesheet" href="/admin/css/admin-pdf-sessione.css?v=1">
+</head>
+<body class="admin-pdf-page">
+<div class="admin-pdf-toolbar no-print">
+  <div class="admin-pdf-toolbar__inner">
+    <p><strong>Scheda sessione · PDF stampabile</strong></p>
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" id="pdf-print-btn">Stampa / Salva PDF</button>
+      <a class="btn btn-ghost" id="pdf-back-link" href="/admin/">Torna alla scheda</a>
+      <a class="btn btn-ghost" href="/admin/">Dashboard</a>
+    </div>
+    <p class="admin-pdf-toolbar__tip"><small>Stampa in <strong>verticale (A4)</strong> · margini standard · sidebar destra per pesi e note</small></p>
+  </div>
+</div>
+
+<div id="pdf-root"><p style="text-align:center;padding:2rem">Caricamento PDF…</p></div>
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <symbol id="fig-press-incl" viewBox="0 0 80 80"><rect class="muscle-base" x="8" y="48" width="64" height="8" rx="2"/><ellipse class="muscle-base" cx="40" cy="38" rx="14" ry="10"/><path class="muscle-hot" d="M26 32h28v12H26z"/><path class="muscle-warm" d="M30 24h20v8H30z"/></symbol>
+  <symbol id="fig-croci" viewBox="0 0 80 80"><rect class="muscle-base" x="10" y="50" width="60" height="6" rx="2"/><path class="muscle-hot" d="M28 36c0-8 24-8 24 0v8H28z"/></symbol>
+  <symbol id="fig-lento" viewBox="0 0 80 80"><rect class="muscle-base" x="22" y="52" width="36" height="6" rx="2"/><circle class="muscle-base" cx="40" cy="22" r="8"/><path class="muscle-hot" d="M28 28h24v14H28z"/></symbol>
+  <symbol id="fig-alzate" viewBox="0 0 80 80"><circle class="muscle-base" cx="40" cy="18" r="7"/><path class="muscle-hot" d="M14 32h12v6H14zM54 32h12v6H54z"/></symbol>
+  <symbol id="fig-lat" viewBox="0 0 80 80"><rect class="muscle-base" x="30" y="8" width="20" height="10" rx="2"/><path class="muscle-hot" d="M24 28h32v22H24z"/></symbol>
+  <symbol id="fig-rematore" viewBox="0 0 80 80"><path class="muscle-hot" d="M26 30h28v18H26z"/></symbol>
+  <symbol id="fig-trazioni" viewBox="0 0 80 80"><rect class="muscle-base" x="10" y="12" width="60" height="6" rx="2"/><path class="muscle-hot" d="M24 26h32v24H24z"/></symbol>
+  <symbol id="fig-pressa" viewBox="0 0 80 80"><path class="muscle-hot" d="M28 32h24v24H28z"/></symbol>
+  <symbol id="fig-legext" viewBox="0 0 80 80"><path class="muscle-hot" d="M30 28h20v26H30z"/></symbol>
+  <symbol id="fig-legcurl" viewBox="0 0 80 80"><path class="muscle-hot" d="M48 34c8 8 8 16 0 20-10 4-18-4-18-12s8-16 18-8z"/></symbol>
+  <symbol id="fig-rdl" viewBox="0 0 80 80"><path class="muscle-hot" d="M28 32h24v8c-4 14-8 22-12 28H28c4-8 8-16 0-28z"/></symbol>
+  <symbol id="fig-curl" viewBox="0 0 80 80"><path class="muscle-hot" d="M22 38c10-12 26-12 36 0-8 10-20 10-36 0z"/></symbol>
+  <symbol id="fig-curl-mart" viewBox="0 0 80 80"><path class="muscle-hot" d="M18 40c12-10 32-10 44 0"/></symbol>
+  <symbol id="fig-squat" viewBox="0 0 80 80"><path class="muscle-hot" d="M28 36h24v12c-6 10-14 16-24 16s-18-6-24-16v-12z"/></symbol>
+  <symbol id="fig-chest" viewBox="0 0 80 80"><path class="muscle-hot" d="M26 30h28v18H26z"/></symbol>
+  <symbol id="fig-polpacci" viewBox="0 0 80 80"><path class="muscle-hot" d="M32 48h8v18h-8zM40 48h8v18h-8z"/></symbol>
+  <symbol id="fig-catchball" viewBox="0 0 80 80"><path class="muscle-hot" d="M34 22h12v28H34z"/><circle class="muscle-base" cx="40" cy="14" r="5"/></symbol>
+  <symbol id="fig-halo" viewBox="0 0 80 80"><circle class="muscle-base" cx="40" cy="22" r="7"/><path class="muscle-hot" d="M18 26c6-4 14-6 22-6s16 2 22 6"/></symbol>
+</svg>
+
+<script>
+(function () {
+  var p = new URLSearchParams(location.search);
+  var back = document.getElementById("pdf-back-link");
+  if (back && p.get("ciclo")) {
+    back.href = "/admin/sessione/?ciclo=" + encodeURIComponent(p.get("ciclo")) + "&sessione=" + (p.get("sessione") || "a1");
+    back.textContent = "Scheda online";
+  }
+})();
+</script>
+<script src="/admin/js/sessione-pdf.js?v=1" defer></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+/**
+ * PDF scheda sessione — layout stampabile con sidebar log
+ */
+(function () {
+  "use strict";
+
+  var MACRO_URL = "/admin/data/macrociclo-2026-2027.json";
+  var CATALOGO_URL = "/admin/data/esercizi-catalogo.json";
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        if (k === "className") node.className = attrs[k];
+        else if (k === "html") node.innerHTML = attrs[k];
+        else if (k === "text") node.textContent = attrs.text;
+        else node.setAttribute(k, attrs[k]);
+      });
+    }
+    (children || []).forEach(function (c) {
+      if (typeof c === "string") node.appendChild(document.createTextNode(c));
+      else if (c) node.appendChild(c);
+    });
+    return node;
+  }
+
+  function formatDate(iso) {
+    return new Date(iso + "T12:00:00").toLocaleDateString("it-IT", {
+      day: "numeric", month: "short", year: "numeric"
+    });
+  }
+
+  function findFase(data, id) {
+    return data.fasi.find(function (f) { return f.id === id; });
+  }
+
+  function figureSvg(figId) {
+    var wrap = el("div", { className: "ex-pdf-row__fig" });
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 80 80");
+    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#" + (figId || "fig-press-incl"));
+    svg.appendChild(use);
+    wrap.appendChild(svg);
+    return wrap;
+  }
+
+  function buildExerciseLog(ex) {
+    var log = el("div", { className: "ex-pdf-log" });
+    log.appendChild(el("p", { className: "ex-pdf-log__label", text: "Log" }));
+    var sets = el("div", { className: "ex-pdf-log__sets" });
+    var n = Math.min(ex.serie || 4, 6);
+    for (var s = 1; s <= n; s++) {
+      var row = el("div", { className: "ex-pdf-log__set" });
+      row.innerHTML = "<span>S" + s + "</span><span class=\"ex-pdf-log__set-line\"></span><span>rep</span>";
+      sets.appendChild(row);
+    }
+    log.appendChild(sets);
+    var note = el("div", { className: "ex-pdf-log__note" });
+    note.innerHTML = "Note<div class=\"ex-pdf-log__note-line\"></div>";
+    log.appendChild(note);
+    return log;
+  }
+
+  function renderPdf(macro, catalogo, faseId, sessionKey, root) {
+    var fase = findFase(macro, faseId);
+    if (!fase || !fase.sessioni[sessionKey]) {
+      root.innerHTML = "<p>Sessione non trovata.</p>";
+      return;
+    }
+    var s = fase.sessioni[sessionKey];
+    root.innerHTML = "";
+
+    document.title = "PDF · " + sessionKey.toUpperCase() + " · " + fase.nome + " | Admin";
+
+    var article = el("article", { className: "scheda-sessione-pdf" });
+
+    var head = el("header", { className: "scheda-sessione-pdf__head" });
+    head.innerHTML =
+      "<p class=\"scheda-sessione-pdf__brand\">La Forza Quotidiana · Gino Capon</p>" +
+      "<h1>" + sessionKey.toUpperCase() + " — " + s.nome + "</h1>" +
+      "<div class=\"scheda-sessione-pdf__meta\">" +
+      "<span><span class=\"scheda-sessione-pdf__badge\">" + fase.nome + "</span></span>" +
+      "<span><strong>Periodo:</strong> " + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + "</span>" +
+      "<span><strong>Settimane:</strong> " + fase.settimane + "</span>" +
+      "<span><strong>RIR:</strong> " + fase.rir + "</span>" +
+      "<span><strong>Macrociclo:</strong> " + formatDate(macro.macrociclo.inizio) + " – " + formatDate(macro.macrociclo.fine) + "</span>" +
+      "</div>" +
+      "<p class=\"scheda-sessione-pdf__obiettivo\">" + fase.obiettivo + "</p>";
+    article.appendChild(head);
+
+    var main = el("div", { className: "scheda-sessione-pdf__main" });
+    var sessionBar = el("div", { className: "scheda-sessione-pdf__session-bar" });
+    sessionBar.innerHTML =
+      "<span><strong>Data:</strong> ___/___/___</span>" +
+      "<span><strong>Durata:</strong> _______</span>" +
+      "<span><strong>RPE medio:</strong> ___</span>" +
+      "<span><strong>Note sessione:</strong> _______________________</span>";
+    main.appendChild(sessionBar);
+
+    s.esercizi.forEach(function (ex) {
+      var cat = catalogo[ex.nome] || {};
+      var row = el("div", { className: "ex-pdf-row" + (ex.progressione ? " ex-pdf-row--prog" : "") });
+
+      row.appendChild(figureSvg(cat.figura));
+
+      var body = el("div");
+      var nameLine = el("p", { className: "ex-pdf-row__name" });
+      nameLine.textContent = ex.nome;
+      if (ex.progressione) {
+        var badge = el("span", { className: "ex-pdf-row__prog", text: " · Progressione" });
+        nameLine.appendChild(badge);
+      }
+      body.appendChild(nameLine);
+
+      body.appendChild(el("p", {
+        className: "ex-pdf-row__muscles",
+        html: "<strong>Primario:</strong> " + (cat.primario || ex.gruppo) +
+          (cat.secondario ? " · <strong>Secondario:</strong> " + cat.secondario : "")
+      }));
+
+      body.appendChild(el("div", {
+        className: "ex-pdf-row__params",
+        html: "<span><strong>" + ex.serie + "×" + ex.ripetizioni + "</strong></span>" +
+          "<span class=\"target-kg\">Target: " + ex.peso + "</span>" +
+          "<span>Rec " + ex.recupero + "</span>" +
+          "<span>RIR " + ex.rir + "</span>" +
+          (ex.tecnica ? "<span>" + ex.tecnica + "</span>" : "")
+      }));
+
+      var tech = el("ul", { className: "ex-pdf-row__tech" });
+      if (cat.setup) tech.appendChild(el("li", { html: "<strong>Setup:</strong> " + cat.setup }));
+      if (cat.movimento) tech.appendChild(el("li", { html: "<strong>Movimento:</strong> " + cat.movimento }));
+      if (cat.errori) tech.appendChild(el("li", { html: "<strong>Evita:</strong> " + cat.errori }));
+      if (ex.note) tech.appendChild(el("li", { html: "<strong>Nota scheda:</strong> " + ex.note }));
+      body.appendChild(tech);
+
+      row.appendChild(body);
+      row.appendChild(buildExerciseLog(ex));
+      main.appendChild(row);
+    });
+    article.appendChild(main);
+
+    article.appendChild(el("footer", {
+      className: "scheda-sessione-pdf__foot",
+      text: "forzaquotidiana.it/admin · " + fase.nome + " · " + sessionKey.toUpperCase() + " · uso personale"
+    }));
+
+    root.appendChild(article);
+  }
+
+  function init() {
+    var root = document.getElementById("pdf-root");
+    if (!root) return;
+
+    var params = new URLSearchParams(window.location.search);
+    var faseId = params.get("ciclo");
+    var sessionKey = (params.get("sessione") || "a1").toLowerCase();
+
+    if (!faseId) {
+      root.innerHTML = "<p>Parametro ciclo mancante. <a href=\"/admin/\">Dashboard</a></p>";
+      return;
+    }
+
+    Promise.all([
+      fetch(MACRO_URL).then(function (r) { return r.json(); }),
+      fetch(CATALOGO_URL).then(function (r) { return r.json(); })
+    ])
+      .then(function (res) { renderPdf(res[0], res[1], faseId, sessionKey, root); })
+      .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
+
+    var printBtn = document.getElementById("pdf-print-btn");
+    if (printBtn) {
+      printBtn.addEventListener("click", function () { window.print(); });
+    }
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();

@@ -1,0 +1,162 @@
+{
+  "Panca inclinata con manubri": {
+    "figura": "fig-press-incl",
+    "primario": "Petto alto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Panca 30–45°, scapole addotte, piedi a terra.",
+    "movimento": "Discesa ai manubri al petto alto, gomiti ~45°, spinta senza far toccare i pesi.",
+    "errori": "Inclinazione eccessiva; manubri che si scontrano in alto."
+  },
+  "Croci ai cavi": {
+    "figura": "fig-croci",
+    "primario": "Petto",
+    "secondario": "Deltoidi anteriori",
+    "setup": "Un passo avanti, gomiti leggermente flessi, petto alto.",
+    "movimento": "Arco di adduzione fino al petto, squeeze 1 sec, eccentrica controllata.",
+    "errori": "Slancio col busto; gomiti che si estendono."
+  },
+  "Lento avanti con bilanciere": {
+    "figura": "fig-lento",
+    "primario": "Deltoidi",
+    "secondario": "Tricipiti",
+    "setup": "Seduto, schiena appoggiata, core attivo.",
+    "movimento": "Spinta sopra la testa senza inarcare il basso schiena; discesa fino alle orecchie.",
+    "errori": "Inarcamento lombare; lock aggressivo in alto."
+  },
+  "Alzate laterali con manubri": {
+    "figura": "fig-alzate",
+    "primario": "Deltoidi laterali",
+    "secondario": "Trapezi superiori",
+    "setup": "Gomiti leggermente flessi, polsi neutri.",
+    "movimento": "Alza fino all'altezza spalle, discesa lenta senza slancio.",
+    "errori": "Oltre le spalle; dondolio del busto."
+  },
+  "Lat machine presa larga": {
+    "figura": "fig-lat",
+    "primario": "Gran dorsale",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Cosce bloccate, presa larga, petto alto.",
+    "movimento": "Tira la sbarra al petto alto, gomiti verso il basso; risalita controllata.",
+    "errori": "Slancio col busto; tirare solo con le braccia."
+  },
+  "Rematore con bilanciere": {
+    "figura": "fig-rematore",
+    "primario": "Dorsali, romboidi",
+    "secondario": "Bicipiti",
+    "setup": "Busto ~45°, schiena neutra, core contratto.",
+    "movimento": "Tira all'ombelico, squeeze scapole; eccentrica 2 sec.",
+    "errori": "Cat back; slancio con il busto."
+  },
+  "Rematore con bilanciere / Trazioni": {
+    "figura": "fig-trazioni",
+    "primario": "Dorsali",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Alterna rematore e trazioni tra le sessioni.",
+    "movimento": "Trazione: petto verso la sbarra, gomiti indietro; rematore come sopra.",
+    "errori": "Kipping; ROM incompleto."
+  },
+  "Catch Ball": {
+    "figura": "fig-catchball",
+    "primario": "Spalle, core",
+    "secondario": "Grip, sistema nervoso",
+    "setup": "Kettlebell 8 kg, finisher in chiusura sessione A1.",
+    "movimento": "Movimento balistico unilaterale 15 rep/braccio, rec <1 min.",
+    "errori": "Metterlo all'inizio; carico eccessivo."
+  },
+  "Polpacci al multipower (drop set)": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower, piedi sulla pedana, ginocchia quasi estese.",
+    "movimento": "4×25 drop 140→110→80 kg senza pausa tra i cali.",
+    "errori": "ROM incompleto; rimbalzo in basso."
+  },
+  "Pressa a 45°": {
+    "figura": "fig-pressa",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Piedi larghezza spalle sulla pressa, schiena appoggiata.",
+    "movimento": "2×10 @140 kg + 2×10 @120 kg, eccentrica lenta.",
+    "errori": "Bloccare le ginocchia in alto; stacco del bacino."
+  },
+  "Leg extension": {
+    "figura": "fig-legext",
+    "primario": "Quadricipiti",
+    "secondario": "—",
+    "setup": "Seduto, perno allineato al ginocchio.",
+    "movimento": "2 serie a cedimento + 2 tempo/wafer a 55 kg.",
+    "errori": "Slancio in concentrica; iperestensione."
+  },
+  "Doktor (affondo bulgaro guidato)": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Macchina Doktor PRIMO, piede posteriore appoggiato.",
+    "movimento": "60→50 kg, contrazione forte, stop prima del cedimento.",
+    "errori": "Cedimento eccessivo; ginocchio che collassa."
+  },
+  "Curl su panca Scott": {
+    "figura": "fig-curl",
+    "primario": "Bicipiti",
+    "secondario": "Brachiale",
+    "setup": "Braccia sul supporto, ascelle al bordo.",
+    "movimento": "2×8 @35 kg ced. + 2×8 @30 kg wafer.",
+    "errori": "Sollevare i gomiti dal supporto."
+  },
+  "Leg curl seduto": {
+    "figura": "fig-legcurl",
+    "primario": "Femorali",
+    "secondario": "—",
+    "setup": "Seduto, perno al ginocchio, busto fermo.",
+    "movimento": "Flessione completa, squeeze 1 sec, eccentrica controllata.",
+    "errori": "Sollevare il bacino; ROM parziale."
+  },
+  "Clean Halo con kettlebell": {
+    "figura": "fig-halo",
+    "primario": "Deltoidi, cuffia",
+    "secondario": "Core, trapezi",
+    "setup": "Kettlebell 8 kg, finisher A2 — sempre ultimo esercizio.",
+    "movimento": "Clean al petto, halo lento 10 rep/senso, core attivo.",
+    "errori": "Movimento troppo veloce; carico eccessivo."
+  },
+  "Polpacci al multipower": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "—",
+    "setup": "Superset con squat, multipower Technogym.",
+    "movimento": "4×8 @80 kg, pausa in stretch e squeeze.",
+    "errori": "Rimbalzo; carico che compromette la forma."
+  },
+  "Squat al multipower": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Barra sui trapezi, piedi leggermente avanti.",
+    "movimento": "2×8 @60 kg ced. + 2×8 @55 kg RIR ~2.",
+    "errori": "Ginocchia che collassano; profondità inconsistente."
+  },
+  "Stacco omega (trap bar)": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Schiena, trapezi",
+    "setup": "Trap bar, schiena neutra, hip hinge.",
+    "movimento": "Spinta col bacino, barra vicino alle gambe; priorità postura.",
+    "errori": "Schiena arrotondata; barra lontana dalle tibie."
+  },
+  "Chest press alla macchina": {
+    "figura": "fig-chest",
+    "primario": "Petto",
+    "secondario": "Deltoidi, tricipiti",
+    "setup": "Sedile regolato, scapole addotte.",
+    "movimento": "4×8 controllate, no lock aggressivo in alto.",
+    "errori": "Stacco spalle; slancio."
+  },
+  "Curl martello con manubri": {
+    "figura": "fig-curl-mart",
+    "primario": "Bicipiti, brachiale",
+    "secondario": "Avambraccio",
+    "setup": "Presa neutra, gomiti fermi.",
+    "movimento": "4×6 alternato o simultaneo, no dondolio.",
+    "errori": "Slancio col busto; gomiti che avanzano."
+  }
+}
