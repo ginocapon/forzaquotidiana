@@ -14,75 +14,75 @@
   "periodizzazioneAnnuale": [
     {
       "successione": 1,
-      "ciclo": "ricondizionamento",
-      "durata": "2-3 settimane",
-      "obiettivo": "Ripristino tolleranza allenamento (se necessario post-pausa)",
-      "motivo": "Opzionale — solo se si riprende dopo >3 settimane di stop o infortunio",
+      "ciclo": "adattamento-anatomico",
+      "durata": "4 settimane",
+      "obiettivo": "Transizione post-trimestre Q3 — tessuti e pattern motori",
+      "motivo": "Base obbligatoria prima dell'accumulo ipertrofico",
       "deload": false
     },
     {
       "successione": 2,
-      "ciclo": "adattamento-anatomico",
-      "durata": "3-4 settimane",
-      "obiettivo": "Preparazione tessuti e pattern motori",
-      "motivo": "Base fondamentale per ogni macrociclo — non saltare",
+      "ciclo": "ipertrofia-classica",
+      "durata": "10 settimane",
+      "obiettivo": "Accumulo ipertrofico principale (8-12 rep)",
+      "motivo": "Blocco lungo — coerente con Nippard/Israetel per intermedi che progrediscono",
       "deload": false
     },
     {
       "successione": 3,
-      "ciclo": "ipertrofia-classica",
-      "durata": "4-6 settimane",
-      "obiettivo": "Accumulo ipertrofico principale",
-      "motivo": "Blocco di volume ottimale nel range 8-12 reps",
-      "deload": false
-    },
-    {
-      "successione": 4,
-      "ciclo": "ipertrofia-alto-volume",
-      "durata": "4 settimane",
-      "obiettivo": "Massimizzazione volume (MRV)",
-      "motivo": "Saturazione fibre muscolari prima della transizione",
+      "ciclo": "deload",
+      "durata": "1 settimana",
+      "obiettivo": "Scarico fatica post-10 settimane",
+      "motivo": "Deload obbligatorio — volume −40%",
       "deload": true
     },
     {
-      "successione": 5,
-      "ciclo": "ipertrofia-tensione-meccanica",
-      "durata": "4 settimane",
-      "obiettivo": "Ipertrofia miofibrillare e forza relativa",
-      "motivo": "Transizione verso carichi più elevati",
+      "successione": 4,
+      "ciclo": "tensione-forza",
+      "durata": "8 settimane",
+      "obiettivo": "Tensione meccanica (4 sett.) + forza (4 sett.) in un unico blocco",
+      "motivo": "Evita cambi schema ogni mese — transizione graduale verso carichi alti",
       "deload": false
     },
     {
+      "successione": 5,
+      "ciclo": "deload",
+      "durata": "1 settimana",
+      "obiettivo": "Recupero post-blocco forza",
+      "motivo": "Reset prima del secondo accumulo ipertrofico",
+      "deload": true
+    },
+    {
       "successione": 6,
-      "ciclo": "forza",
-      "durata": "3-4 settimane",
-      "obiettivo": "Sviluppo forza massimale",
-      "motivo": "Consolidamento massa in capacità di forza",
+      "ciclo": "ipertrofia-classica-ii",
+      "durata": "10 settimane",
+      "obiettivo": "Secondo blocco ipertrofico con carichi +2,5 kg",
+      "motivo": "Ripetere schema vincente del trimestre estivo per 10 settimane",
       "deload": false
     },
     {
       "successione": 7,
-      "ciclo": "intensificazione",
-      "durata": "2-3 settimane",
-      "obiettivo": "Picco performance e stimolo massimale",
-      "motivo": "Realizzazione del macrociclo — massimo sforzo controllato",
-      "deload": true
+      "ciclo": "ipertrofia-alto-volume",
+      "durata": "6 settimane",
+      "obiettivo": "Saturazione volume (+1 serie multiarticolari)",
+      "motivo": "Ultimo push ipertrofico prima dell'estate",
+      "deload": false
     },
     {
       "successione": 8,
       "ciclo": "deload",
       "durata": "1 settimana",
-      "obiettivo": "Recupero e supercompensazione",
-      "motivo": "Obbligatorio dopo intensificazione — reset fatica sistemica",
+      "obiettivo": "Deload pre-estate",
+      "motivo": "Scarico prima del mantenimento estivo",
       "deload": true
     },
     {
       "successione": 9,
-      "ciclo": "ipertrofia-metabolica",
-      "durata": "2-3 settimane",
-      "obiettivo": "Variety block — pump e densità capillare",
-      "motivo": "Opzionale nel secondo semestre o in fase di cut per mantenere stimolo",
-      "deload": true
+      "ciclo": "ricondizionamento",
+      "durata": "11 settimane",
+      "obiettivo": "Mantenimento e transizione fine macrociclo",
+      "motivo": "Carichi moderati, 10-12 rep — prepara macrociclo successivo",
+      "deload": false
     }
   ],
   "eserciziBase": {

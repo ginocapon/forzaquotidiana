@@ -632,3 +632,124 @@ Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Su
 | Q4 2026 | Set–Ott–Nov | `trimestre-settembre-ottobre-novembre-2026` |
 
 Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
+
+---
+
+## 8. Admin — Periodizzazione e macrociclo
+
+> **Quando caricare:** nuovo macrociclo annuale, modifica fasi, pesi ipotizzati, prototipi admin, rigenerazione `macrociclo-2026-2027.json`.
+
+### 8.1 Area admin (non pubblica)
+
+| Risorsa | Path |
+|---------|------|
+| Dashboard sessioni | `/admin/` |
+| Scheda singola sessione | `/admin/sessione/?ciclo=<id>&sessione=a1\|b1\|a2\|b2` |
+| Teoria mesocicli | `/admin/prototipi/periodizzazione/` |
+| Schede pratiche | `/admin/prototipi/periodizzazione/schede/` |
+| PDF stampabili | `/admin/prototipi/periodizzazione/pdf/` |
+| Dati macrociclo Gino | `admin/data/macrociclo-2026-2027.json` |
+| Teoria generica mesocicli | `admin/data/mesocicli.json` |
+| Rigenera macrociclo | `node tools/genera-macrociclo.mjs` |
+
+- `noindex` + `robots.txt` → `Disallow: /admin/`
+- **Non** linkare dall’hub pubblico `/allenamenti/`
+- Password admin: da implementare in seguito
+
+### 8.2 Gerarchia periodizzazione
+
+```
+MACROCICLO  = anno intero (~52 settimane)
+MESOCICLO   = singola fase (6–10 sett. ipertrofia per Gino)
+MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
+```
+
+**Regola d’oro per Gino Capon (57 anni, natural, ~10 anni palestra):** cambiare schema ogni **2–3 mesi**, non ogni mese. Il trimestre Q3 2026 (12 settimane stessa scheda) è il modello corretto.
+
+### 8.3 Linee guida da fonti americane (sintesi)
+
+| Fonte | Mesociclo ipertrofia | Note |
+|-------|---------------------|------|
+| **Mike Israetel** (Renaissance Periodization) | 4–8 sett. (+ deload) | Principianti fino a 8–12 sett.; avanzati 3–6 sett. Sweet spot molti: 4–6 sett. accumulo |
+| **Eric Helms** (3DMJ) | 4–8 sett. | Deload/diet break ogni 4–8 sett.; progressione graduale |
+| **Jeff Nippard** | 4–8 sett. (intermedi) | «Se progredisci, continua 8–12 sett.»; programmi con blocchi da 6–8 sett. |
+
+**Adattamento per Gino:** profilo **intermedio maturo** → mesocicli ipertrofia **8–10 settimane**, deload ogni **10–11 settimane** di accumulo, blocco forza/tensione **6–8 settimane** unificato.
+
+### 8.4 Split settimanale A1–B2 (invariato tutto l’anno)
+
+| Sessione | Origine scheda Q3 | Focus | Progressione (*) |
+|----------|-------------------|-------|------------------|
+| **A1** | Scheda 1 | Petto · Schiena · Spalle | Panca inclinata manubri |
+| **B1** | Scheda 2 | Gambe accosciata · Braccia | Doktor / pressa |
+| **A2** | Scheda 3 | Schiena · Spalle · Petto | Rematore / lento avanti |
+| **B2** | Scheda 4 | Gambe anca · Braccia | Stacco omega |
+
+\* = esercizio principale con progressione a carico fisso e schema RIR.
+
+**Finisher kettlebell (regola fissa):** Catch Ball in A1, Clean Halo in A2 — **sempre ultimo esercizio**, mai all’inizio.
+
+### 8.5 Macrociclo 2026–2027 (52 settimane)
+
+**Inizio:** 1 settembre 2026 · **Fine:** 31 agosto 2027 · **Peso partenza:** 67,0 kg
+
+| # | Fase | Durata | Periodo | Obiettivo |
+|---|------|--------|---------|-----------|
+| 1 | Adattamento anatomico | 4 sett. | Set 2026 | Transizione da Q3, RIR 2–3 |
+| 2 | Ipertrofia classica | **10 sett.** | Ott–Dic 2026 | Accumulo principale 8–12 rep |
+| 3 | Deload | 1 sett. | Fine dic | Volume −40% |
+| 4 | Tensione + Forza | **8 sett.** | Dic–Feb 2027 | 4 sett. tensione → 4 sett. forza |
+| 5 | Deload | 1 sett. | Metà feb | Recupero post-forza |
+| 6 | Ipertrofia classica II | **10 sett.** | Feb–Apr 2027 | Secondo blocco, +2,5 kg fondamentali |
+| 7 | Ipertrofia alto volume | **6 sett.** | Apr–Giu 2027 | +1 serie multiarticolari |
+| 8 | Deload | 1 sett. | Inizio giu | Pre-estate |
+| 9 | Ricondizionamento | **11 sett.** | Giu–Ago 2027 | Mantenimento 10–12 rep |
+
+**Totale:** 9 fasi · 52 settimane · 3 deload
+
+### 8.6 Pesi base (da trimestre Giu–Lug–Ago 2026)
+
+Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log sessioni reali.
+
+| Sessione | Esercizio | Peso riferimento |
+|----------|-----------|------------------|
+| B1 | Pressa 45° | 140 / 120 kg |
+| B1 | Leg extension | 65 / 55 kg |
+| B1 | Doktor PRIMO | 60 → 50 kg |
+| B1 | Curl Scott | 35 / 30 kg |
+| B1 | Polpacci drop | 140→110→80 kg |
+| B2 | Squat multipower | 60 / 55 kg |
+| B2 | Stacco omega | 60 kg |
+| B2 | Chest press | 70 kg |
+| B2 | Leg curl | 45 kg |
+| B2 | Polpacci multipower | 80 kg |
+| B2 | Curl martello | 18 kg/manubrio |
+| A1/A2 | Catch Ball / Clean Halo | 8 kg kettlebell |
+
+### 8.7 Regole modifica mesociclo
+
+1. **Non accorciare** un mesociclo ipertrofico sotto 6 settimane per Gino senza motivo (infortunio, viaggio lungo).
+2. **Deload** dopo ogni 10–11 settimane di lavoro duro — non saltare.
+3. **Stessi esercizi** per tutta la fase; cambia solo serie/reps/RIR/peso.
+4. **Progressione:** quando 2 sessioni consecutive al limite superiore reps con RIR target → +2,5–5 kg sul movimento *.
+5. **Log reale** resta in `/allenamenti/sessioni/` — l’admin è prototipo/mappa, non sostituisce il log.
+
+### 8.8 Checklist nuovo macrociclo admin
+
+- [ ] Aggiornare date e durate in `admin/data/macrociclo-2026-2027.json` (o rigenerare con `tools/genera-macrociclo.mjs`)
+- [ ] Allineare `periodizzazioneAnnuale` in `admin/data/mesocicli.json`
+- [ ] Verificare pesi da ultimo trimestre / ultime sessioni loggate
+- [ ] Dashboard `/admin/` mostra tutte le fasi con link A1–B2
+- [ ] Ogni sessione apre tabella peso/serie/RIR in `/admin/sessione/`
+- [ ] Aggiornare questa sezione §8 se cambiano le linee guida
+
+### 8.9 Errori da evitare
+
+| Errore | Perché è sbagliato |
+|--------|-------------------|
+| Cambiare scheda ogni 4 settimane | Troppo frequente per un natural 57 anni che progredisce ancora |
+| Saltare il deload | Fatica accumulata maschera i guadagni (Israetel) |
+| 16 micro-fasi in un anno | Troppi cambi schema — confusione e zero adattamento |
+| Copiare mesocicli da atleti avanzati giovani | Recovery diversa; servono blocchi più lunghi |
+| Pubblicare `/admin/` nel sitemap | Area riservata, solo prototipi interni |
+
