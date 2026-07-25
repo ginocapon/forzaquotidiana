@@ -168,26 +168,24 @@ a.session-card:hover {
   transform: translateY(-2px);
 }
 
-/* Home — cometa sognante (solo index, vedi js/comet.js) */
+/* Home — cometa elicoidale sull'hero (solo index, vedi js/comet.js) */
 .home-main {
   position: relative;
   isolation: isolate;
 }
+.hero__media { z-index: 0; }
+.hero__overlay { z-index: 1; }
 .comet-sky {
-  position: fixed;
+  position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 50;
+  z-index: 2;
   overflow: hidden;
   mix-blend-mode: screen;
 }
-@media (max-width: 767px) {
-  .comet-sky {
-    z-index: 45;
-  }
-}
+.hero__content { z-index: 3; }
 
 .site-header {
   position: sticky;
@@ -269,7 +267,7 @@ a.session-card:hover {
 }
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 3rem 0 2.5rem;
 }
 .hero h1 {
