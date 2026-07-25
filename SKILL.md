@@ -513,6 +513,22 @@ Ogni scheda deve indicare chiaramente:
 
 Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessione.
 
+### URL articoli diario (SEO · GEO — BLOCCANTE)
+
+Slug **corto, descrittivo, unico** — niente doppioni semantici con articoli esistenti.
+
+| Regola | Esempio |
+|--------|---------|
+| Pattern | `/diario/[tema-chiave]-[contesto]-57-anni/` oppure `/diario/[tema-chiave]-57-anni/` se già chiaro |
+| Parole | italiano, minuscole, trattini, keyword naturali (no stopword in eccesso) |
+| Lunghezza | **3–6 token** dopo `/diario/` — efficacia > verbosità |
+| Anti-doppione | Prima di pubblicare: cercare slug e H1 simili in `/diario/`; un angolo nuovo per tema vicino |
+| Età | `57-anni` quando rilevante per E-E-A-T (come gli altri articoli) |
+| Data | Non obbligatoria nello slug (va in `datePublished` e nel feed) |
+
+**Esempi validi:** `allenare-pensieri-positivi-57-anni` · `mare-sole-e-disconnessione-per-lo-sportivo`  
+**Evitare:** URL generiche (`articolo-1`), slug duplicati (`pensieri-positivi` se esiste già tema social), inglesi misti senza motivo.
+
 ### Struttura articolo riflessione
 
 1. **Box sintesi GEO** — prime 150 parole, frase dichiarativa auto-contenuta
