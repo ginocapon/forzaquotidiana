@@ -374,7 +374,11 @@ a.session-card:hover {
 
 /* Diario smart — lista compatta e tap-friendly */
 .diario-intro--smart { padding-block: 2.5rem 1.5rem; }
-.diario-intro--smart .lead { max-width: 42ch; margin-bottom: 0; }
+.chi-sono-intro--smart { padding-block: 2.5rem 1.25rem; }
+.diario-intro--smart .lead,
+.portrait-intro__copy .lead { max-width: 42ch; margin-bottom: 0; }
+.portrait-intro__copy h1 { margin: 0 0 0.85rem; }
+.portrait-intro__copy p:last-child { margin-bottom: 0; }
 .diario-list {
   list-style: none;
   padding: 0;
@@ -519,19 +523,25 @@ a.session-card:hover {
   display: table;
   clear: both;
 }
-.diario-intro__grid {
+.portrait-intro__grid {
   display: grid;
   gap: 1.35rem 1.75rem;
   align-items: center;
 }
 @media (min-width: 720px) {
-  .diario-intro__grid {
+  .portrait-intro__grid {
     grid-template-columns: minmax(168px, 228px) 1fr;
   }
+}
+.diario-intro__grid { display: grid; gap: 1.35rem 1.75rem; align-items: center; }
+@media (min-width: 720px) {
+  .diario-intro__grid { grid-template-columns: minmax(168px, 228px) 1fr; }
 }
 .portrait-authority--intro {
   justify-self: center;
   width: min(100%, 228px);
+  position: relative;
+  z-index: 2;
 }
 @media (max-width: 719px) {
   .portrait-authority--aside {
@@ -2006,6 +2016,7 @@ a.session-card:hover {
   z-index: 1;
 }
 .page-veiled .allenamenti-hero,
+.page-veiled .chi-sono-intro--smart,
 .page-veiled .diario-intro--smart,
 .page-veiled .trimestre-hero {
   position: relative;
@@ -2015,6 +2026,7 @@ a.session-card:hover {
   background: transparent;
 }
 .page-veiled .allenamenti-hero::before,
+.page-veiled .chi-sono-intro--smart::before,
 .page-veiled .diario-intro--smart::before,
 .page-veiled .trimestre-hero::before {
   content: "";
@@ -2026,6 +2038,7 @@ a.session-card:hover {
   z-index: 0;
 }
 .page-veiled .allenamenti-hero::after,
+.page-veiled .chi-sono-intro--smart::after,
 .page-veiled .diario-intro--smart::after,
 .page-veiled .trimestre-hero::after {
   content: "";
@@ -2037,12 +2050,14 @@ a.session-card:hover {
   z-index: 1;
 }
 .page-veiled .allenamenti-hero .wrap,
+.page-veiled .chi-sono-intro--smart .wrap,
 .page-veiled .diario-intro--smart .wrap,
 .page-veiled .trimestre-hero .wrap {
   position: relative;
   z-index: 2;
 }
 .page-veiled .allenamenti-hero h1,
+.page-veiled .chi-sono-intro--smart h1,
 .page-veiled .diario-intro--smart h1,
 .page-veiled .trimestre-hero h1 {
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
