@@ -289,6 +289,63 @@ a.session-card:hover {
   margin-bottom: 0.75rem;
 }
 
+/* Ritratto Chi sono / Diario — stesso hero della home */
+.hero--portrait {
+  min-height: min(64vh, 600px);
+}
+.hero--portrait .hero__media img {
+  object-position: center 16%;
+}
+.hero--portrait .hero__content {
+  position: relative;
+  isolation: isolate;
+  max-width: 40rem;
+  margin-bottom: 0.35rem;
+  padding: 1.5rem 1.35rem 1.65rem;
+  background: rgba(14, 12, 10, 0.74);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid var(--panel-border-mid);
+  border-top-color: var(--panel-border-light);
+  border-bottom-color: var(--panel-border-dark);
+  border-radius: 16px;
+  box-shadow: var(--panel-shadow);
+}
+.hero--portrait .hero__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px var(--panel-border-gold),
+    inset 0 1px 0 rgba(255, 220, 160, 0.08);
+}
+.hero--portrait .hero__content h1 {
+  max-width: none;
+}
+.hero--portrait .hero__content p {
+  color: #e8e0d4;
+  margin: 0 0 1rem;
+}
+.hero--portrait .hero__content p:last-child {
+  margin-bottom: 0;
+}
+.hero--portrait .hero__content .lead {
+  max-width: 42ch;
+  color: #ddd5c9;
+}
+.hero--portrait .hero__content a {
+  color: #f0c090;
+}
+.hero__caption {
+  margin: 0 0 0.65rem;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -485,154 +542,6 @@ a.session-card:hover {
 .dedicatio--ginevra p { margin: 0 0 0.65rem; }
 .dedicatio--ginevra p:last-child { margin-bottom: 0; font-style: italic; color: var(--muted); }
 
-/* Ritratto hero — chi-sono e diario (stile home: foto visibile ma sfumata) */
-.portrait-hero {
-  position: relative;
-  min-height: min(62vh, 580px);
-  display: grid;
-  align-items: end;
-  overflow: hidden;
-  isolation: isolate;
-  padding: 0;
-  background: #0c0c0c;
-  border-bottom: 1px solid rgba(201, 120, 58, 0.14);
-  box-shadow: inset 0 -1px 0 rgba(255, 220, 160, 0.05);
-}
-.portrait-hero__media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.portrait-hero__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(
-    ellipse 92% 86% at 50% 32%,
-    transparent 42%,
-    rgba(12, 12, 12, 0.22) 72%,
-    rgba(12, 12, 12, 0.48) 100%
-  );
-  pointer-events: none;
-}
-.portrait-hero__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  opacity: 1;
-  transform: scale(1.03);
-}
-.portrait-hero__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(12, 12, 12, 0.95) 8%,
-    rgba(12, 12, 12, 0.35) 55%,
-    rgba(12, 12, 12, 0.55) 100%
-  );
-}
-.portrait-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  box-shadow:
-    inset 0 0 0 1px rgba(212, 168, 100, 0.1),
-    inset 0 1px 0 rgba(255, 220, 160, 0.05);
-}
-.portrait-hero__content {
-  position: relative;
-  z-index: 3;
-  margin: 0 0 2rem;
-  padding: 1.65rem 1.35rem;
-  max-width: 40rem;
-  background: rgba(14, 12, 10, 0.78);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid var(--panel-border-mid);
-  border-top-color: var(--panel-border-light);
-  border-bottom-color: var(--panel-border-dark);
-  border-radius: 16px;
-  box-shadow: var(--panel-shadow);
-}
-.portrait-hero__content::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: 2;
-  box-shadow:
-    inset 0 0 0 1px var(--panel-border-gold),
-    inset 0 1px 0 rgba(255, 220, 160, 0.08);
-}
-.portrait-hero__content > * {
-  position: relative;
-  z-index: 1;
-}
-.portrait-hero__content h1 {
-  font-size: clamp(1.75rem, 4.5vw, 2.45rem);
-  line-height: 1.12;
-  margin: 0 0 0.85rem;
-  font-weight: 800;
-}
-.portrait-hero__content p {
-  margin: 0 0 1rem;
-  color: #e8e0d4;
-}
-.portrait-hero__content p:last-child { margin-bottom: 0; }
-.portrait-hero__content .lead {
-  max-width: 42ch;
-  color: #ddd5c9;
-}
-.portrait-hero__content .tagline {
-  color: var(--accent);
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 0.55rem;
-}
-.portrait-hero__content a {
-  color: #f0c090;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.portrait-hero__content a:hover { color: #f8d4a8; }
-.portrait-hero__caption {
-  margin: 0 0 0.7rem;
-  font-size: 0.76rem;
-  font-style: italic;
-  color: var(--muted);
-  line-height: 1.4;
-}
-@media (max-width: 719px) {
-  .portrait-hero {
-    min-height: min(68vh, 620px);
-    align-items: end;
-  }
-  .portrait-hero__media img {
-    object-position: center 14%;
-  }
-  .portrait-hero__overlay {
-    background: linear-gradient(
-      to top,
-      rgba(12, 12, 12, 0.96) 0%,
-      rgba(12, 12, 12, 0.62) 38%,
-      rgba(12, 12, 12, 0.38) 62%,
-      rgba(12, 12, 12, 0.58) 100%
-    );
-  }
-  .portrait-hero__content {
-    max-width: none;
-    margin-bottom: 1.5rem;
-    padding: 1.35rem 1.15rem;
-  }
-}
 
 /* Ritratto autorevolezza — legacy / aside (SKILL.md §0.2) */
 .portrait-authority {
