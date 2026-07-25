@@ -1,39 +1,4 @@
-/* Admin — La Forza Quotidiana (tema scuro isolato dal sito pubblico) */
-.admin-page {
-  --bg: #0c0c0c;
-  --surface: #161616;
-  --surface-2: #1f1f1f;
-  --text: #f4efe6;
-  --muted: #a39a90;
-  --text-soft: #ccc4b8;
-  --line: rgba(244, 239, 230, 0.12);
-  --surface-glass: rgba(16, 16, 16, 0.88);
-  --surface-glass-border: rgba(255, 255, 255, 0.06);
-  color: var(--text);
-  background: var(--bg);
-}
-.admin-page .site-header {
-  background: rgba(12, 12, 12, 0.92);
-  box-shadow: none;
-}
-.admin-page .page-veiled::after {
-  background: linear-gradient(180deg, rgba(12, 12, 12, 0.5) 0%, rgba(12, 12, 12, 0.93) 70%);
-}
-.admin-page .page-veiled::before { opacity: 0.11; }
-.admin-page .page-veiled .card,
-.admin-page .page-veiled .hub-card,
-.admin-page .page-veiled .scheda-periodo-card,
-.admin-page .page-veiled .newsletter-cta {
-  background: var(--surface-glass);
-  border-color: var(--surface-glass-border);
-  box-shadow: none;
-}
-.admin-page .page-veiled .prose {
-  background: rgba(14, 14, 14, 0.72);
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: none;
-}
-
+/* Admin — La Forza Quotidiana */
 .admin-page .admin-header { border-bottom-color: rgba(201, 120, 58, 0.35); }
 
 .admin-hero {
