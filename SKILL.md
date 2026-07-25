@@ -55,7 +55,7 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
 2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
-4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=23**).
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=24**).
 
 #### Cometa hero (solo `/` — sopra la foto)
 
@@ -65,6 +65,15 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 - Script: `js/comet.js` **solo** in `index.html`
 - Canvas ancorato all'hero (`position: absolute`), `mix-blend-mode: screen`
 - Rispetta `prefers-reduced-motion`
+
+#### Ritratto autorevolezza — chi-sono e diario
+
+Foto reale Gino **fuori palestra** (camicia, contesto professionale) con bordi sfumati — classe `.portrait-authority`.
+
+- File: `img/chi-sono/gino-affari.jpg`
+- Pagine: `/chi-sono/` (float a destra in `.prose--with-portrait`) e `/diario/` (intro `.diario-intro__grid`)
+- Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
+- Tono: autorevolezza — non solo palestra, anche uomo d'affari
 
 ---
 
@@ -259,7 +268,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=23` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=24` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -596,11 +605,11 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=23`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=24`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
-- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=23`, `newsletter.js v=3`.
+- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=24`, `newsletter.js v=3`.
 - **`404.html`** presente in root (noindex, follow) — mantenere link a Home/Diario/Allenamenti.
 - **BreadcrumbList** su ogni pagina interna (Home → sezione → pagina).
 - Dominio canonico unico: `https://forzaquotidiana.it` (apex, no www).

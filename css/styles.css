@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v23 · Dark + Panel Relief Gold */
+/* La Forza Quotidiana — v24 · Dark + Panel Relief Gold */
 :root {
   --bg: #0c0c0c;
   --surface: #161616;
@@ -485,6 +485,62 @@ a.session-card:hover {
 .dedicatio--ginevra > * { position: relative; z-index: 1; }
 .dedicatio--ginevra p { margin: 0 0 0.65rem; }
 .dedicatio--ginevra p:last-child { margin-bottom: 0; font-style: italic; color: var(--muted); }
+
+/* Ritratto autorevolezza — chi-sono e diario (SKILL.md §0.2) */
+.portrait-authority {
+  margin: 0;
+}
+.portrait-authority img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 4px;
+  -webkit-mask-image: radial-gradient(ellipse 94% 92% at 50% 38%, #000 50%, transparent 100%);
+  mask-image: radial-gradient(ellipse 94% 92% at 50% 38%, #000 50%, transparent 100%);
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.5));
+}
+.portrait-authority figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.76rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+  text-align: center;
+}
+.portrait-authority--aside {
+  float: right;
+  width: min(42%, 252px);
+  margin: 0.1rem 0 1.15rem 1.65rem;
+}
+.prose--with-portrait::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.diario-intro__grid {
+  display: grid;
+  gap: 1.35rem 1.75rem;
+  align-items: center;
+}
+@media (min-width: 720px) {
+  .diario-intro__grid {
+    grid-template-columns: minmax(168px, 228px) 1fr;
+  }
+}
+.portrait-authority--intro {
+  justify-self: center;
+  width: min(100%, 228px);
+}
+@media (max-width: 719px) {
+  .portrait-authority--aside {
+    float: none;
+    width: min(72%, 220px);
+    margin: 0 auto 1.35rem;
+  }
+  .portrait-authority--aside figcaption { text-align: center; }
+}
 
 .entry {
   display: grid;
