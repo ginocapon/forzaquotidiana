@@ -71,7 +71,7 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 Foto reale Gino **fuori palestra** (camicia, contesto professionale) con bordi sfumati — classe `.portrait-authority`.
 
 - File: `img/chi-sono/gino-affari.png`
-- Pagine: `/chi-sono/` (float a destra in `.prose--with-portrait`) e `/diario/` (intro `.diario-intro__grid`)
+- Pagine: `/chi-sono/` e `/diario/` — intro a griglia `.portrait-intro__grid` con `.portrait-authority--intro` (bordi sfumati via mask)
 - Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
 - Tono: autorevolezza — non solo palestra, anche uomo d'affari
 
