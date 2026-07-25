@@ -185,7 +185,6 @@ a.session-card:hover {
   overflow: hidden;
   mix-blend-mode: screen;
 }
-.hero__content { z-index: 3; }
 
 .site-header {
   position: sticky;
