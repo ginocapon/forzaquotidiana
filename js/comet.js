@@ -9,50 +9,22 @@
   var ctx = canvas.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
   var particles = [];
-  var pathPoints = [];
   var w = 0;
   var h = 0;
   var last = performance.now();
   var head = { x: 0, y: 0, px: 0, py: 0 };
-  var pathT = 0;
-  var pathSpeed = 0.0001;
-  var wobblePhase = Math.random() * Math.PI * 2;
-
-  function buildGinevraPath() {
-    var oc = document.createElement("canvas");
-    var octx = oc.getContext("2d");
-    var fontSize = Math.min(w * 0.26, h * 0.19, 108);
-    var font = "italic " + fontSize + 'px Georgia, "Times New Roman", serif';
-    octx.font = font;
-    var text = "Ginevra";
-    var tw = octx.measureText(text).width;
-    oc.width = Math.ceil(tw + fontSize * 0.8);
-    oc.height = Math.ceil(fontSize * 1.55);
-    octx.font = font;
-    octx.fillStyle = "#fff";
-    octx.textBaseline = "middle";
-    octx.fillText(text, fontSize * 0.3, oc.height / 2);
-    var data = octx.getImageData(0, 0, oc.width, oc.height).data;
-    var raw = [];
-    var step = 2;
-    for (var x = 0; x < oc.width; x += step) {
-      var ys = [];
-      for (var y = 0; y < oc.height; y++) {
-        if (data[(y * oc.width + x) * 4 + 3] > 90) ys.push(y);
-      }
-      if (ys.length) {
-        raw.push({ x: x, y: ys[Math.floor(ys.length / 2)] });
-      }
-    }
-    if (raw.length < 10) return [];
-
-    var scale = Math.min(1, (w * 0.78) / oc.width);
-    var ox = w * 0.5 - (oc.width * scale) * 0.5;
-    var oy = h * 0.2;
-    return raw.map(function (p) {
-      return { x: ox + p.x * scale, y: oy + p.y * scale };
-    });
-  }
+  var helix = {
+    angle: Math.random() * Math.PI * 2,
+    cx: 0.5,
+    cy: 0.28,
+    radiusX: 0.2,
+    radiusY: 0.1,
+    wobble: 0.32,
+    speed: 0.0011,
+    dir: 1,
+    tiltPhase: Math.random() * Math.PI * 2
+  };
+  var nextShift = 0;
 
   function resize() {
     var rect = hero.getBoundingClientRect();
@@ -63,23 +35,24 @@
     canvas.width = Math.floor(w * dpr);
     canvas.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    pathPoints = buildGinevraPath();
-    if (pathPoints.length && !head.x) {
-      head.x = pathPoints[0].x;
-      head.y = pathPoints[0].y;
+    if (!head.x) {
+      head.x = w * helix.cx;
+      head.y = h * helix.cy;
       head.px = head.x;
       head.py = head.y;
     }
   }
 
-  function samplePath(t) {
-    if (!pathPoints.length) return { x: w * 0.5, y: h * 0.25 };
-    var idx = t * (pathPoints.length - 1);
-    var i = Math.floor(idx);
-    var f = idx - i;
-    var a = pathPoints[i];
-    var b = pathPoints[Math.min(i + 1, pathPoints.length - 1)];
-    return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
+  function shiftHelix(now) {
+    helix.dir = Math.random() < 0.4 ? -helix.dir : helix.dir;
+    helix.cx = 0.32 + Math.random() * 0.36;
+    helix.cy = 0.18 + Math.random() * 0.16;
+    helix.radiusX = 0.14 + Math.random() * 0.14;
+    helix.radiusY = 0.06 + Math.random() * 0.08;
+    helix.wobble = 0.22 + Math.random() * 0.22;
+    helix.speed = 0.00085 + Math.random() * 0.00055;
+    helix.tiltPhase = Math.random() * Math.PI * 2;
+    nextShift = now + 7000 + Math.random() * 9000;
   }
 
   function emitDust(x, y, vx, vy, amount, spread, lifeBase) {
@@ -89,13 +62,13 @@
       particles.push({
         x: x + Math.cos(a) * r,
         y: y + Math.sin(a) * r,
-        vx: vx * 0.03 + (Math.random() - 0.5) * 0.22,
-        vy: vy * 0.03 + (Math.random() - 0.5) * 0.22,
+        vx: vx * 0.04 + (Math.random() - 0.5) * 0.3,
+        vy: vy * 0.04 + (Math.random() - 0.5) * 0.3,
         life: 0,
-        maxLife: lifeBase + Math.random() * 4400,
-        size: 0.4 + Math.random() * 1.8,
-        gold: Math.random() < 0.55,
-        twinkle: Math.random() < 0.07
+        maxLife: lifeBase + Math.random() * 2860,
+        size: 0.35 + Math.random() * 1.5,
+        gold: Math.random() < 0.5,
+        twinkle: Math.random() < 0.04
       });
     }
   }
@@ -114,34 +87,40 @@
     ctx.restore();
   }
 
-  function update(dt) {
-    if (!pathPoints.length) return;
+  function update(dt, now) {
+    if (!nextShift) nextShift = now + 5000;
+    if (now >= nextShift) shiftHelix(now);
 
-    pathT += pathSpeed * dt;
-    if (pathT >= 1) pathT -= 1;
+    helix.angle += helix.speed * helix.dir * dt;
+    var t = helix.angle;
+    var nx = helix.cx * w + Math.cos(t) * helix.radiusX * w;
+    var ny = helix.cy * h
+      + Math.sin(t) * helix.radiusY * h
+      + Math.sin(t * 2.15 + helix.tiltPhase) * helix.wobble * helix.radiusY * h;
 
-    wobblePhase += dt * 0.0016;
-    var pos = samplePath(pathT);
-    var wobble = Math.sin(wobblePhase) * 2.2;
+    var topLimit = h * 0.52;
+    var sidePad = w * 0.06;
+    nx = Math.max(sidePad, Math.min(w - sidePad, nx));
+    ny = Math.max(h * 0.08, Math.min(topLimit, ny));
 
     head.px = head.x;
     head.py = head.y;
-    head.x = pos.x + wobble * 0.35;
-    head.y = pos.y + Math.cos(wobblePhase * 1.3) * 1.6;
+    head.x = nx;
+    head.y = ny;
 
     var vx = head.x - head.px;
     var vy = head.y - head.py;
 
-    emitDust(head.x, head.y, vx, vy, 5, 10, 5600);
-    emitDust(head.x, head.y, vx, vy, 3, 20, 7200);
+    emitDust(head.x, head.y, vx, vy, 2, 9, 3640);
+    emitDust(head.x, head.y, vx, vy, 1, 16, 4680);
 
     for (var i = particles.length - 1; i >= 0; i--) {
       var p = particles[i];
       p.life += dt;
-      p.x += p.vx * dt * 0.04;
-      p.y += p.vy * dt * 0.04;
-      p.vx *= 0.999;
-      p.vy *= 0.999;
+      p.x += p.vx * dt * 0.048;
+      p.y += p.vy * dt * 0.048;
+      p.vx *= 0.9988;
+      p.vy *= 0.9988;
       if (p.life >= p.maxLife) particles.splice(i, 1);
     }
   }
@@ -171,10 +150,10 @@
     for (var i = 0; i < particles.length; i++) {
       var p = particles[i];
       var t = p.life / p.maxLife;
-      var alpha = Math.pow(1 - t, 0.75) * 0.92;
-      if (alpha <= 0.015) continue;
+      var alpha = Math.pow(1 - t, 1.2) * 0.88;
+      if (alpha <= 0.02) continue;
 
-      if (p.twinkle && alpha > 0.2) {
+      if (p.twinkle && alpha > 0.25) {
         drawTwinkle(p.x, p.y, p.size * 2.2, alpha * 0.85);
       }
 
@@ -183,7 +162,7 @@
       var b = p.gold ? 132 : 218;
       ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size * (1 - t * 0.22), 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.size * (1 - t * 0.3), 0, Math.PI * 2);
       ctx.fill();
     }
 
@@ -193,7 +172,7 @@
   function loop(now) {
     var dt = Math.min(40, now - last);
     last = now;
-    update(dt);
+    update(dt, now);
     draw();
     requestAnimationFrame(loop);
   }

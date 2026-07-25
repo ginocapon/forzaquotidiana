@@ -59,7 +59,7 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 
 #### Cometa hero (solo `/` — sopra la foto)
 
-Cometa con **nucleo piccolo** e **scia di polvere stellare** (particelle bianche/dorate + scintille). Traccia continuamente **«Ginevra» in corsivo** (Georgia italic) nella parte alta dell'hero, sopra la foto. Scia ~2× più lunga, dissoluzione ~50% più lenta.
+Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bianche/dorate + scintille). Si muove in **ellissi casuali** che cambiano forma e diametro nella parte alta dell'hero (zona foto). Scia ~30% più lunga, dissoluzione ~20% più lenta.
 
 - Markup: `<canvas class="comet-sky" id="comet-sky">` **dentro** `.hero` (sopra overlay, sotto `.hero__content`)
 - Script: `js/comet.js` **solo** in `index.html`
