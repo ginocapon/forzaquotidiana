@@ -97,6 +97,7 @@ function doPost(e) {
       'da confermare', tok
     ]);
     inviaConferma_(email, nome, tok);
+    inviaSchedaPdf_(email, nome);
     GmailApp.sendEmail(TitolareEmail, 'Nuova iscrizione (da confermare) — ' + email,
       'Nome: ' + (nome || '—') + '\nEmail: ' + email + '\nData: ' + new Date());
   } else {
@@ -105,6 +106,9 @@ function doPost(e) {
       sh.getRange(rowIdx, 6).setValue('da confermare');
       sh.getRange(rowIdx, 7).setValue(tok);
       inviaConferma_(email, nome, tok);
+      inviaSchedaPdf_(email, nome);
+    } else {
+      inviaSchedaPdf_(email, nome);
     }
   }
 
@@ -152,33 +156,76 @@ function inviaConferma_(email, nome, tok) {
   var saluto = nome ? 'Ciao ' + nome + ',' : 'Ciao,';
   var confirmUrl = selfUrl_() + '?action=confirm&e=' + encodeURIComponent(email) + '&t=' + tok;
   var html =
-    '<div style="font-family:Georgia,serif;max-width:560px;color:#222">' +
-    '<p>' + saluto + '</p>' +
-    '<p>Conferma la tua iscrizione alla newsletter de <strong>La Forza Quotidiana</strong> con un click:</p>' +
-    '<p><a href="' + confirmUrl + '" style="background:#c9783a;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none">Conferma iscrizione</a></p>' +
-    '<p>Se non hai richiesto tu l\'iscrizione, ignora questa email: senza conferma non riceverai nulla.</p>' +
-    '<p style="color:#666;font-size:12px">Gino Capon · forzaquotidiana.it</p></div>';
-  GmailApp.sendEmail(email, 'Conferma la tua iscrizione — La Forza Quotidiana', '',
+  emailWrap_(
+    '<p style="margin:0 0 12px">' + saluto + '</p>' +
+    '<p style="margin:0 0 14px">Grazie per l&apos;iscrizione a <strong>La Forza Quotidiana</strong>.</p>' +
+    '<p style="margin:0 0 14px">Ti ho appena inviato la <strong>scheda pesi in PDF</strong> in un&apos;altra email — controlla anche lo spam. È il foglio nero e oro con spazio per i tuoi kg e le note.</p>' +
+    '<p style="margin:0 0 16px">Per ricevere gli aggiornamenti futuri, conferma l&apos;iscrizione con un click:</p>' +
+  emailButton_(confirmUrl, 'Conferma iscrizione') +
+    '<p style="margin:16px 0 0;color:#a89f92;font-size:12px">Se non hai richiesto tu l&apos;iscrizione, ignora questa email: senza conferma non riceverai altre comunicazioni.</p>'
+  );
+  GmailApp.sendEmail(email, 'Conferma iscrizione + scheda PDF inviata — La Forza Quotidiana', '',
     { htmlBody: html, name: 'La Forza Quotidiana' });
+}
+
+function inviaSchedaPdf_(email, nome) {
+  var saluto = nome ? 'Ciao ' + nome + ',' : 'Ciao,';
+  var html =
+  emailWrap_(
+    '<p style="margin:0 0 12px">' + saluto + '</p>' +
+    '<p style="margin:0 0 14px">Ecco la tua <strong>scheda pesi Q3 2026</strong> in allegato — 4 giornate su un foglio A4 orizzontale, tema nero e oro.</p>' +
+    '<p style="margin:0 0 14px">Compila le colonne <strong>kg</strong> e <strong>Note</strong> con i tuoi carichi. Non copiare i pesi di Gino: trova i tuoi, in sicurezza.</p>' +
+  emailButton_(SCHEDA_URL + '?sub=1', 'Apri scheda online') +
+    '<p style="margin:14px 0 0;color:#a89f92;font-size:12px">Preferisci stampare? Apri l&apos;allegato PDF e stampa in orizzontale con <em>Stampa sfondi</em> attivo.</p>'
+  );
+
+  var options = { htmlBody: html, name: 'La Forza Quotidiana' };
+  var pdf = fetchSchedaPdf_();
+  if (pdf) {
+    options.attachments = [pdf];
+  } else {
+    html = emailWrap_(
+      '<p style="margin:0 0 12px">' + saluto + '</p>' +
+      '<p style="margin:0 0 14px">La scheda PDF non è al momento scaricabile dal server. Usa il link qui sotto per aprirla online e salvarla come PDF dal browser.</p>' +
+      emailButton_(SCHEDA_URL + '?sub=1', 'Apri scheda online')
+    );
+    options.htmlBody = html;
+    GmailApp.sendEmail(TitolareEmail, 'ATTENZIONE: PDF scheda non scaricato per ' + email,
+      'fetchSchedaPdf_ ha restituito null. Controlla SCHEDA_PDF_URL e permessi UrlFetch.');
+  }
+
+  GmailApp.sendEmail(email, 'La tua scheda pesi PDF — La Forza Quotidiana', '', options);
 }
 
 function inviaBenvenuto_(email, nome) {
   var saluto = nome ? 'Ciao ' + nome + ',' : 'Ciao,';
   var unsubUrl = selfUrl_() + '?action=unsub&e=' + encodeURIComponent(email) + '&t=' + token_(email);
   var html =
-    '<div style="font-family:Georgia,serif;max-width:560px;color:#222">' +
-    '<p>' + saluto + '</p>' +
-    '<p>Iscrizione confermata. Grazie per esserti unito a <strong>La Forza Quotidiana</strong>.</p>' +
-    '<p>Trovi la <strong>scheda pesi in PDF</strong> qui allegata (4 giornate, spazio per kg e note): stampala o compilala dal telefono.</p>' +
-    '<p>Preferisci usarla online? <a href="' + SCHEDA_URL + '?sub=1">Aprila qui →</a></p>' +
-    '<p>Ti scriverò solo per nuove schede o articoli — niente spam.</p>' +
-    footerUnsub_(unsubUrl) + '</div>';
+  emailWrap_(
+    '<p style="margin:0 0 12px">' + saluto + '</p>' +
+    '<p style="margin:0 0 14px">Iscrizione <strong>confermata</strong>. Da oggi riceverai una mail solo quando pubblico nuove schede o articoli — niente spam.</p>' +
+    '<p style="margin:0 0 14px">La scheda pesi ti è già stata inviata via email. Se non la trovi, controlla lo spam o scaricala di nuovo qui:</p>' +
+  emailButton_(SCHEDA_URL + '?sub=1', 'Apri scheda online') +
+    footerUnsub_(unsubUrl)
+  );
 
-  var options = { htmlBody: html, name: 'La Forza Quotidiana' };
-  var pdf = fetchSchedaPdf_();
-  if (pdf) options.attachments = [pdf];
+  GmailApp.sendEmail(email, 'Iscrizione attiva — La Forza Quotidiana', '', {
+    htmlBody: html,
+    name: 'La Forza Quotidiana'
+  });
+}
 
-  GmailApp.sendEmail(email, 'Benvenuto + scheda pesi PDF — La Forza Quotidiana', '', options);
+function emailWrap_(body) {
+  return '<div style="background:#0a0a0a;padding:24px 12px;font-family:Georgia,serif">' +
+    '<div style="max-width:560px;margin:0 auto;background:linear-gradient(155deg,#141210,#0a0a0a);color:#f4efe6;border:1px solid rgba(212,165,116,0.35);border-radius:10px;padding:22px 20px">' +
+    '<p style="margin:0 0 16px;text-align:center;color:#e8c98a;font-size:13px;letter-spacing:0.08em;text-transform:uppercase">La Forza Quotidiana</p>' +
+    body +
+    '<p style="margin:20px 0 0;color:#7a7268;font-size:11px;text-align:center">Gino Capon · forzaquotidiana.it</p>' +
+    '</div></div>';
+}
+
+function emailButton_(url, label) {
+  return '<p style="margin:0 0 4px;text-align:center"><a href="' + url + '" style="display:inline-block;background:linear-gradient(180deg,#e8c98a,#c9783a);color:#1a1208;padding:11px 20px;border-radius:6px;text-decoration:none;font-weight:700;font-family:Segoe UI,Arial,sans-serif;font-size:14px">' + label + '</a></p>';
 }
 
 function fetchSchedaPdf_() {
@@ -220,9 +267,10 @@ function redirectAfterSubscribe_(email, next) {
   var url = SITE + sanitizeNext_(next) + '?sub=1&e=' + encodeURIComponent(email || '');
   return HtmlService.createHtmlOutput(
     '<!DOCTYPE html><html lang="it"><head><meta charset="utf-8">' +
-    '<meta http-equiv="refresh" content="0;url=' + url + '"></head><body>' +
-    '<p>Controlla la tua email per confermare. Reindirizzamento…</p>' +
-    '<p><a href="' + url + '">Continua</a></p></body></html>'
+    '<meta http-equiv="refresh" content="0;url=' + url + '"></head>' +
+    '<body style="font-family:system-ui,Arial;background:#0a0a0a;color:#f4efe6;text-align:center;padding:3rem 1rem">' +
+    '<p>Ti ho inviato la <strong>scheda PDF</strong> via email. Controlla la posta (anche spam) e conferma l&apos;iscrizione dal link ricevuto.</p>' +
+    '<p><a href="' + url + '" style="color:#e8c98a">Continua sul sito →</a></p></body></html>'
   ).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
 

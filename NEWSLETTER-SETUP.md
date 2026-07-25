@@ -41,12 +41,13 @@ Fai commit + push su GitHub → il sito si aggiorna in pochi minuti.
 
 ## Cosa succede quando qualcuno si iscrive (doppio opt-in)
 
-1. Compila il form sul sito
+1. Compila il form sul sito con nome ed email
 2. Apps Script salva email nel foglio **Iscritti** con stato **da confermare**
-3. L’iscritto riceve email di **conferma** con pulsante *Conferma iscrizione*
-4. Al click → stato **confermato** + email di **benvenuto** (con link scheda PDF)
-5. Tu ricevi notifica su **ginocapon@gmail.com**
-6. Il visitatore può già scaricare la scheda; la newsletter però arriva **solo ai confermati**
+3. L’iscritto riceve **subito** la **scheda PDF in allegato** (tema nero e oro, colonne kg + note da compilare)
+4. Riceve anche email di **conferma** con pulsante *Conferma iscrizione* (per attivare gli aggiornamenti futuri)
+5. Al click sulla conferma → stato **confermato** + email di benvenuto
+6. Tu ricevi notifica su **ginocapon@gmail.com**
+7. Il visitatore viene reindirizzato alla scheda online; può anche scaricare di nuovo dal sito
 
 > IMPORTANTE: dopo aver incollato la nuova versione dello script rifai **Deploy → Gestisci distribuzioni → Modifica → Nuova versione**, altrimenti conferma e disiscrizione non funzionano.
 
@@ -66,8 +67,9 @@ Ogni email ha in fondo il link **Disiscriviti con un click**: al click lo script
 ## Test
 
 1. Sul sito live: `/allenamenti/newsletter/` → iscrizione con una tua email secondaria
-2. Controlla foglio Google + casella di benvenuto
-3. Verifica redirect a `/allenamenti/schede-peso/` — **1 pagina A4 orizzontale**
+2. Controlla foglio Google + **due email** (scheda PDF + conferma)
+3. In Apps Script esegui `testPdf` — deve loggare `PDF OK: … byte`
+4. Verifica redirect a `/allenamenti/schede-peso/` — scheda nera e oro, 1 pagina A4 orizzontale
 
 ## Trigger venerdì (opzionale)
 
