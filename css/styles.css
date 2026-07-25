@@ -2099,9 +2099,9 @@ a.session-card:hover {
 }
 
 .card--highlight {
-  background: linear-gradient(168deg, rgba(32, 24, 18, 0.98) 0%, rgba(20, 16, 12, 0.95) 100%);
-  border-color: rgba(201, 120, 58, 0.42);
-  border-top-color: rgba(232, 168, 106, 0.26);
+  background: linear-gradient(168deg, rgba(38, 28, 18, 0.99) 0%, rgba(22, 18, 12, 0.96) 100%);
+  border-color: rgba(212, 168, 100, 0.38);
+  border-top-color: rgba(255, 228, 175, 0.4);
 }
 .card--highlight .btn { margin-top: 0.75rem; }
 
