@@ -501,33 +501,36 @@ a.session-card:hover {
   position: absolute;
   inset: 0;
 }
+.portrait-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 88% 78% at 58% 28%, transparent 8%, rgba(12, 12, 12, 0.45) 58%, rgba(12, 12, 12, 0.88) 100%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.35) 0%, transparent 38%, rgba(12, 12, 12, 0.5) 100%);
+  pointer-events: none;
+}
 .portrait-hero__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 62% 20%;
-  opacity: 0.88;
-  transform: scale(1.02);
+  object-position: 58% 18%;
+  opacity: 0.52;
+  transform: scale(1.04);
+  filter: saturate(0.82) brightness(0.78);
 }
 .portrait-hero__overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(
-      105deg,
-      rgba(12, 12, 12, 0.97) 0%,
-      rgba(12, 12, 12, 0.9) 24%,
-      rgba(12, 12, 12, 0.62) 48%,
-      rgba(12, 12, 12, 0.28) 72%,
-      rgba(12, 12, 12, 0.42) 100%
-    ),
-    linear-gradient(
-      to top,
-      rgba(12, 12, 12, 0.94) 6%,
-      rgba(12, 12, 12, 0.38) 52%,
-      rgba(12, 12, 12, 0.52) 100%
-    );
+  background: linear-gradient(
+    to top,
+    rgba(12, 12, 12, 0.96) 6%,
+    rgba(12, 12, 12, 0.72) 42%,
+    rgba(12, 12, 12, 0.58) 68%,
+    rgba(12, 12, 12, 0.72) 100%
+  );
 }
 .portrait-hero::after {
   content: "";
@@ -542,24 +545,43 @@ a.session-card:hover {
 .portrait-hero__content {
   position: relative;
   z-index: 3;
-  padding: 2.75rem 0 2.35rem;
+  margin: 0 0 2rem;
+  padding: 1.65rem 1.35rem;
   max-width: 40rem;
+  background: var(--panel-bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid var(--panel-border-mid);
+  border-top-color: var(--panel-border-light);
+  border-bottom-color: var(--panel-border-dark);
+  border-radius: 16px;
+  box-shadow: var(--panel-shadow);
+}
+.portrait-hero__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow:
+    inset 0 0 0 1px var(--panel-border-gold),
+    inset 0 1px 0 rgba(255, 220, 160, 0.08);
+}
+.portrait-hero__content > * {
+  position: relative;
+  z-index: 1;
 }
 .portrait-hero__content h1 {
   font-size: clamp(1.75rem, 4.5vw, 2.45rem);
   line-height: 1.12;
   margin: 0 0 0.85rem;
   font-weight: 800;
-  text-shadow:
-    0 2px 18px rgba(0, 0, 0, 0.78),
-    0 1px 3px rgba(0, 0, 0, 0.92);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 .portrait-hero__content p {
   margin: 0 0 1rem;
   color: #e8e0d4;
-  text-shadow:
-    0 1px 12px rgba(0, 0, 0, 0.82),
-    0 1px 2px rgba(0, 0, 0, 0.88);
 }
 .portrait-hero__content p:last-child { margin-bottom: 0; }
 .portrait-hero__content .lead {
@@ -572,43 +594,47 @@ a.session-card:hover {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0 0 0.55rem;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85);
 }
 .portrait-hero__content a {
   color: #f0c090;
   text-decoration: underline;
   text-underline-offset: 2px;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.9);
 }
 .portrait-hero__content a:hover { color: #f8d4a8; }
 .portrait-hero__caption {
   margin: 0 0 0.7rem;
   font-size: 0.76rem;
   font-style: italic;
-  color: rgba(232, 224, 212, 0.8);
+  color: var(--muted);
   line-height: 1.4;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
 }
 @media (max-width: 719px) {
   .portrait-hero {
-    min-height: min(62vh, 580px);
+    min-height: min(58vh, 560px);
+    align-items: end;
   }
   .portrait-hero__media img {
-    object-position: center 18%;
+    object-position: center 16%;
+    opacity: 0.46;
+  }
+  .portrait-hero__media::after {
+    background:
+      radial-gradient(ellipse 95% 82% at 50% 22%, transparent 4%, rgba(12, 12, 12, 0.55) 52%, rgba(12, 12, 12, 0.92) 100%),
+      linear-gradient(to top, rgba(12, 12, 12, 0.55) 0%, rgba(12, 12, 12, 0.82) 100%);
   }
   .portrait-hero__overlay {
-    background:
-      linear-gradient(
-        to top,
-        rgba(12, 12, 12, 0.96) 8%,
-        rgba(12, 12, 12, 0.78) 38%,
-        rgba(12, 12, 12, 0.42) 68%,
-        rgba(12, 12, 12, 0.55) 100%
-      );
+    background: linear-gradient(
+      to top,
+      rgba(12, 12, 12, 0.98) 0%,
+      rgba(12, 12, 12, 0.9) 32%,
+      rgba(12, 12, 12, 0.78) 58%,
+      rgba(12, 12, 12, 0.82) 100%
+    );
   }
   .portrait-hero__content {
     max-width: none;
-    padding: 2.25rem 0 2rem;
+    margin-bottom: 1.5rem;
+    padding: 1.35rem 1.15rem;
   }
 }
 
