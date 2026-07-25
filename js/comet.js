@@ -17,11 +17,21 @@
   var w = 0;
   var h = 0;
   var last = performance.now();
+  var isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  function viewportSize() {
+    var vv = window.visualViewport;
+    return {
+      w: vv ? vv.width : window.innerWidth,
+      h: vv ? vv.height : window.innerHeight
+    };
+  }
 
   function resize() {
-    var rect = main.getBoundingClientRect();
-    w = rect.width;
-    h = rect.height;
+    var size = viewportSize();
+    w = size.w;
+    h = size.h;
+    isMobile = window.matchMedia("(max-width: 767px)").matches;
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     canvas.width = Math.floor(w * dpr);
@@ -31,11 +41,14 @@
       head.x = w * (0.2 + Math.random() * 0.6);
       head.y = h * (0.15 + Math.random() * 0.35);
       pickTarget();
+    } else {
+      head.x = Math.max(48, Math.min(w - 48, head.x));
+      head.y = Math.max(48, Math.min(h - 48, head.y));
     }
   }
 
   function pickTarget() {
-    var pad = Math.min(120, w * 0.08, h * 0.08);
+    var pad = Math.min(isMobile ? 56 : 120, w * 0.1, h * 0.1);
     target.x = pad + Math.random() * (w - pad * 2);
     target.y = pad + Math.random() * (h - pad * 2);
   }
@@ -45,7 +58,7 @@
     var dy = target.y - head.y;
     var dist = Math.hypot(dx, dy) || 1;
 
-    if (dist < 70 + Math.random() * 40) {
+    if (dist < (isMobile ? 55 : 70) + Math.random() * 40) {
       pickTarget();
       dx = target.x - head.x;
       dy = target.y - head.y;
@@ -54,7 +67,7 @@
 
     var nx = dx / dist;
     var ny = dy / dist;
-    var baseSpeed = 0.055 + Math.random() * 0.018;
+    var baseSpeed = (isMobile ? 0.062 : 0.055) + Math.random() * 0.018;
 
     slitherPhase += dt * 0.0022;
     wanderPhase += dt * 0.0011;
@@ -70,7 +83,7 @@
     head.x += head.vx * dt;
     head.y += head.vy * dt;
 
-    var margin = 56;
+    var margin = isMobile ? 40 : 56;
     if (head.x < margin || head.x > w - margin) {
       head.vx *= -0.6;
       head.x = Math.max(margin, Math.min(w - margin, head.x));
@@ -94,6 +107,8 @@
     if (trail.length < 2) return;
 
     var now = performance.now();
+    var glowR = isMobile ? 58 : 52;
+    var trailBoost = isMobile ? 1.12 : 1;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
 
@@ -101,8 +116,8 @@
       var a = trail[i - 1];
       var b = trail[i];
       var age = (now - b.t) / TRAIL_MS;
-      var alpha = Math.pow(1 - age, 1.6) * 0.82;
-      var width = 3 + (1 - age) * 18;
+      var alpha = Math.pow(1 - age, 1.6) * 0.88 * trailBoost;
+      var width = (3 + (1 - age) * 18) * (isMobile ? 1.08 : 1);
 
       var grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
       grad.addColorStop(0, "rgba(255, 210, 140, " + (alpha * 0.25) + ")");
@@ -116,7 +131,6 @@
       ctx.stroke();
     }
 
-    var glowR = 52;
     var glow = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, glowR);
     glow.addColorStop(0, "rgba(255, 252, 235, 0.98)");
     glow.addColorStop(0.12, "rgba(255, 228, 165, 0.62)");
@@ -127,18 +141,18 @@
     ctx.arc(head.x, head.y, glowR, 0, Math.PI * 2);
     ctx.fill();
 
-    var halo = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 14);
+    var halo = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, isMobile ? 16 : 14);
     halo.addColorStop(0, "rgba(255, 255, 250, 1)");
     halo.addColorStop(0.45, "rgba(255, 235, 190, 0.85)");
     halo.addColorStop(1, "rgba(255, 210, 140, 0)");
     ctx.fillStyle = halo;
     ctx.beginPath();
-    ctx.arc(head.x, head.y, 14, 0, Math.PI * 2);
+    ctx.arc(head.x, head.y, isMobile ? 16 : 14, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "rgba(255, 255, 252, 1)";
     ctx.beginPath();
-    ctx.arc(head.x, head.y, 5.5, 0, Math.PI * 2);
+    ctx.arc(head.x, head.y, isMobile ? 6 : 5.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -152,5 +166,9 @@
 
   resize();
   window.addEventListener("resize", resize);
+  window.addEventListener("orientationchange", resize);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", resize);
+  }
   requestAnimationFrame(loop);
 })();

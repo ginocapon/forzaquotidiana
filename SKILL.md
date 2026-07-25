@@ -63,6 +63,8 @@ Effetto atmosferico **sognante** sulla home: stella cometa con scia dorata lunga
 
 - Markup: `<main id="contenuto" class="home-main">` + `<canvas class="comet-sky" id="comet-sky" aria-hidden="true">`
 - Script: `js/comet.js` **solo** in `index.html`
+- Canvas **fixed** su viewport (visibile anche scrollando su mobile) con `mix-blend-mode: screen`
+- `visualViewport` + `orientationchange` per ridimensionamento mobile
 - Rispetta `prefers-reduced-motion`: nessuna animazione se l’utente la disattiva
 - **Non** replicare su altre pagine — è un segno simbolico per la home
 
