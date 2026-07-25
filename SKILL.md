@@ -33,10 +33,11 @@ Usare **Ginevra** esplicitamente in home, chi-sono, dedicatio e intro diario —
 #### Principio
 
 - Sfondo: gradiente scuro `--panel-bg` (non piatto `#161616`).
-- Bordo: luce in alto (`--panel-border-light`), ombra in basso (`--panel-border-dark`).
-- Rilievo: `box-shadow` con highlight interno + ombra esterna (`--panel-shadow`).
-- Luce: pseudo `::before` con `--panel-highlight` (riflesso superiore).
+- Bordo: **dorato discreto** — luce in alto (`--panel-border-light`), media (`--panel-border-mid`), ombra in basso (`--panel-border-dark`), anello interno `--panel-border-gold` via `::after`.
+- Rilievo: `box-shadow` con highlight interno dorato + ombra esterna (`--panel-shadow`).
+- Luce: pseudo `::before` con `--panel-highlight` (riflesso superiore ambrato).
 - Hover (link-card): `--panel-shadow-hover` + `translateY(-2px)`.
+- Spessore bordo: **1.5px** (non 1px piatto).
 
 #### Classi già coperte in `css/styles.css` (non reinventare)
 
@@ -54,7 +55,16 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
 2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
-4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=22**).
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=23**).
+
+#### Cometa home (solo `/`)
+
+Effetto atmosferico **sognante** sulla home: stella cometa con scia dorata lunga (~4,5 s) che si muove in modo quasi casuale su tutta la pagina.
+
+- Markup: `<main id="contenuto" class="home-main">` + `<canvas class="comet-sky" id="comet-sky" aria-hidden="true">`
+- Script: `js/comet.js` **solo** in `index.html`
+- Rispetta `prefers-reduced-motion`: nessuna animazione se l’utente la disattiva
+- **Non** replicare su altre pagine — è un segno simbolico per la home
 
 ---
 
@@ -249,7 +259,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=22` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=23` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -586,11 +596,11 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=22`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=23`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
-- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=22`, `newsletter.js v=3`.
+- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=23`, `newsletter.js v=3`.
 - **`404.html`** presente in root (noindex, follow) — mantenere link a Home/Diario/Allenamenti.
 - **BreadcrumbList** su ogni pagina interna (Home → sezione → pagina).
 - Dominio canonico unico: `https://forzaquotidiana.it` (apex, no www).

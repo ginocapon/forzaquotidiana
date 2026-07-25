@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://forzaquotidiana.it/img/hero/gino-locker-disciplina.png">
 <meta name="theme-color" content="#0c0c0c">
 <link rel="preload" as="image" href="/img/hero/gino-locker-disciplina.png">
-<link rel="stylesheet" href="/css/styles.css?v=22">
+<link rel="stylesheet" href="/css/styles.css?v=23">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -78,7 +78,8 @@
   </div>
 </header>
 
-<main id="contenuto">
+<main id="contenuto" class="home-main">
+  <canvas class="comet-sky" id="comet-sky" aria-hidden="true"></canvas>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__media">
       <img src="/img/hero/gino-locker-disciplina.png" alt="Gino Capon in spogliatoio palestra, luce calda, cartello Disciplina Focus Risultati" width="1080" height="1620">
@@ -169,6 +170,7 @@
   </div>
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="/js/comet.js?v=1" defer></script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
 </body>
