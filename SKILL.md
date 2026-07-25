@@ -71,7 +71,7 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 Foto reale Gino **fuori palestra** — stesso markup hero della home: `.hero.hero--portrait` + `.hero__overlay` (sfumatura) + testo in pannello vetro.
 
 - File: `img/chi-sono/gino-affari.png`
-- Pagine: `/chi-sono/` e `/diario/` — hero fuori da `.page-veiled` (il velo manubri solo sul contenuto sotto)
+- Pagine: `/chi-sono/` e `/diario/` — `.hero.hero--portrait` come home: foto visibile in alto (volto), titoli bianchi sopra l'immagine con ombra, overlay sfumato; testo lungo sotto nel contenuto
 - Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
 - Tono: autorevolezza — non solo palestra, anche uomo d'affari
 
