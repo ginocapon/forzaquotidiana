@@ -1,6 +1,6 @@
 /**
  * Copia ritratto professionale da /opt/cursor/artifacts/assets/
- * a img/chi-sono/gino-affari.jpg (upload da mobile in chat).
+ * a img/chi-sono/gino-affari.png (upload da mobile in chat).
  *
  * Uso: node tools/copia-ritratto-affari.mjs
  */
@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO = dirname(__dirname);
 const ASSETS = "/opt/cursor/artifacts/assets";
 const destDir = join(REPO, "img", "chi-sono");
-const dest = join(destDir, "gino-affari.jpg");
+const dest = join(destDir, "gino-affari.png");
 
 if (!existsSync(ASSETS)) {
   console.error("Cartella assets non trovata:", ASSETS);
