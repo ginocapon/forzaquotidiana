@@ -57,16 +57,14 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
 4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=23**).
 
-#### Cometa home (solo `/`)
+#### Cometa hero (solo `/` — sopra la foto)
 
-Effetto atmosferico **sognante** sulla home: stella cometa con scia dorata lunga (~4,5 s) che si muove in modo quasi casuale su tutta la pagina.
+Cometa con **nucleo piccolo** e **scia di polvere stellare** (particelle bianche/dorate + scintille). Si muove in **spirale elicoidale** solo nella **parte alta dell'hero** (zona foto), non su tutta la home. Ogni 7–16 s cambia leggermente centro, raggio e senso di rotazione.
 
-- Markup: `<main id="contenuto" class="home-main">` + `<canvas class="comet-sky" id="comet-sky" aria-hidden="true">`
+- Markup: `<canvas class="comet-sky" id="comet-sky">` **dentro** `.hero` (sopra overlay, sotto `.hero__content`)
 - Script: `js/comet.js` **solo** in `index.html`
-- Canvas **fixed** su viewport (visibile anche scrollando su mobile) con `mix-blend-mode: screen`
-- `visualViewport` + `orientationchange` per ridimensionamento mobile
-- Rispetta `prefers-reduced-motion`: nessuna animazione se l’utente la disattiva
-- **Non** replicare su altre pagine — è un segno simbolico per la home
+- Canvas ancorato all'hero (`position: absolute`), `mix-blend-mode: screen`
+- Rispetta `prefers-reduced-motion`
 
 ---
 

@@ -2,164 +2,178 @@
   var canvas = document.getElementById("comet-sky");
   if (!canvas) return;
 
-  var main = document.getElementById("contenuto");
-  if (!main || !main.classList.contains("home-main")) return;
+  var hero = canvas.closest(".hero");
+  if (!hero) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   var ctx = canvas.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var trail = [];
-  var TRAIL_MS = 4500;
-  var head = { x: 0, y: 0, vx: 0, vy: 0 };
-  var target = { x: 0, y: 0 };
-  var slitherPhase = Math.random() * Math.PI * 2;
-  var wanderPhase = Math.random() * Math.PI * 2;
+  var particles = [];
   var w = 0;
   var h = 0;
   var last = performance.now();
-  var isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-  function viewportSize() {
-    var vv = window.visualViewport;
-    return {
-      w: vv ? vv.width : window.innerWidth,
-      h: vv ? vv.height : window.innerHeight
-    };
-  }
+  var head = { x: 0, y: 0, px: 0, py: 0 };
+  var helix = {
+    angle: Math.random() * Math.PI * 2,
+    cx: 0.5,
+    cy: 0.28,
+    radiusX: 0.2,
+    radiusY: 0.1,
+    wobble: 0.32,
+    speed: 0.0011,
+    dir: 1,
+    tiltPhase: Math.random() * Math.PI * 2
+  };
+  var nextShift = 0;
 
   function resize() {
-    var size = viewportSize();
-    w = size.w;
-    h = size.h;
-    isMobile = window.matchMedia("(max-width: 767px)").matches;
+    var rect = hero.getBoundingClientRect();
+    w = rect.width;
+    h = rect.height;
     canvas.style.width = w + "px";
     canvas.style.height = h + "px";
     canvas.width = Math.floor(w * dpr);
     canvas.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (!head.x) {
-      head.x = w * (0.2 + Math.random() * 0.6);
-      head.y = h * (0.15 + Math.random() * 0.35);
-      pickTarget();
-    } else {
-      head.x = Math.max(48, Math.min(w - 48, head.x));
-      head.y = Math.max(48, Math.min(h - 48, head.y));
+      head.x = w * helix.cx;
+      head.y = h * helix.cy;
+      head.px = head.x;
+      head.py = head.y;
     }
   }
 
-  function pickTarget() {
-    var pad = Math.min(isMobile ? 56 : 120, w * 0.1, h * 0.1);
-    target.x = pad + Math.random() * (w - pad * 2);
-    target.y = pad + Math.random() * (h - pad * 2);
+  function shiftHelix(now) {
+    helix.dir = Math.random() < 0.4 ? -helix.dir : helix.dir;
+    helix.cx = 0.32 + Math.random() * 0.36;
+    helix.cy = 0.18 + Math.random() * 0.16;
+    helix.radiusX = 0.14 + Math.random() * 0.14;
+    helix.radiusY = 0.06 + Math.random() * 0.08;
+    helix.wobble = 0.22 + Math.random() * 0.22;
+    helix.speed = 0.00085 + Math.random() * 0.00055;
+    helix.tiltPhase = Math.random() * Math.PI * 2;
+    nextShift = now + 7000 + Math.random() * 9000;
   }
 
-  function update(dt) {
-    var dx = target.x - head.x;
-    var dy = target.y - head.y;
-    var dist = Math.hypot(dx, dy) || 1;
-
-    if (dist < (isMobile ? 55 : 70) + Math.random() * 40) {
-      pickTarget();
-      dx = target.x - head.x;
-      dy = target.y - head.y;
-      dist = Math.hypot(dx, dy) || 1;
-    }
-
-    var nx = dx / dist;
-    var ny = dy / dist;
-    var baseSpeed = (isMobile ? 0.062 : 0.055) + Math.random() * 0.018;
-
-    slitherPhase += dt * 0.0022;
-    wanderPhase += dt * 0.0011;
-    var slither = Math.sin(slitherPhase) * 2.4 + Math.sin(slitherPhase * 2.3) * 0.9;
-    var wander = Math.cos(wanderPhase * 1.7) * 1.6;
-
-    var steerX = nx * baseSpeed + (-ny * slither + nx * wander) * 0.012;
-    var steerY = ny * baseSpeed + (nx * slither + ny * wander) * 0.012;
-
-    head.vx += (steerX - head.vx) * 0.04;
-    head.vy += (steerY - head.vy) * 0.04;
-
-    head.x += head.vx * dt;
-    head.y += head.vy * dt;
-
-    var margin = isMobile ? 40 : 56;
-    if (head.x < margin || head.x > w - margin) {
-      head.vx *= -0.6;
-      head.x = Math.max(margin, Math.min(w - margin, head.x));
-      pickTarget();
-    }
-    if (head.y < margin || head.y > h - margin) {
-      head.vy *= -0.6;
-      head.y = Math.max(margin, Math.min(h - margin, head.y));
-      pickTarget();
-    }
-
-    var now = performance.now();
-    trail.push({ x: head.x, y: head.y, t: now });
-    while (trail.length && now - trail[0].t > TRAIL_MS) {
-      trail.shift();
+  function emitDust(x, y, vx, vy, amount, spread, lifeBase) {
+    for (var i = 0; i < amount; i++) {
+      var a = Math.random() * Math.PI * 2;
+      var r = Math.random() * spread;
+      particles.push({
+        x: x + Math.cos(a) * r,
+        y: y + Math.sin(a) * r,
+        vx: vx * 0.04 + (Math.random() - 0.5) * 0.35,
+        vy: vy * 0.04 + (Math.random() - 0.5) * 0.35,
+        life: 0,
+        maxLife: lifeBase + Math.random() * 2200,
+        size: 0.4 + Math.random() * 1.8,
+        gold: Math.random() < 0.55,
+        twinkle: Math.random() < 0.07
+      });
     }
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    if (trail.length < 2) return;
-
-    var now = performance.now();
-    var glowR = isMobile ? 58 : 52;
-    var trailBoost = isMobile ? 1.12 : 1;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-
-    for (var i = 1; i < trail.length; i++) {
-      var a = trail[i - 1];
-      var b = trail[i];
-      var age = (now - b.t) / TRAIL_MS;
-      var alpha = Math.pow(1 - age, 1.6) * 0.88 * trailBoost;
-      var width = (3 + (1 - age) * 18) * (isMobile ? 1.08 : 1);
-
-      var grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-      grad.addColorStop(0, "rgba(255, 210, 140, " + (alpha * 0.25) + ")");
-      grad.addColorStop(0.5, "rgba(255, 228, 170, " + (alpha * 0.55) + ")");
-      grad.addColorStop(1, "rgba(255, 245, 210, " + alpha + ")");
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = width;
-      ctx.beginPath();
-      ctx.moveTo(a.x, a.y);
-      ctx.lineTo(b.x, b.y);
-      ctx.stroke();
-    }
-
-    var glow = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, glowR);
-    glow.addColorStop(0, "rgba(255, 252, 235, 0.98)");
-    glow.addColorStop(0.12, "rgba(255, 228, 165, 0.62)");
-    glow.addColorStop(0.38, "rgba(201, 160, 90, 0.22)");
-    glow.addColorStop(1, "rgba(201, 120, 58, 0)");
-    ctx.fillStyle = glow;
+  function drawTwinkle(x, y, size, alpha) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.strokeStyle = "rgba(255, 245, 210, " + alpha + ")";
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(head.x, head.y, glowR, 0, Math.PI * 2);
-    ctx.fill();
+    ctx.moveTo(-size, 0);
+    ctx.lineTo(size, 0);
+    ctx.moveTo(0, -size);
+    ctx.lineTo(0, size);
+    ctx.stroke();
+    ctx.restore();
+  }
 
-    var halo = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, isMobile ? 16 : 14);
-    halo.addColorStop(0, "rgba(255, 255, 250, 1)");
-    halo.addColorStop(0.45, "rgba(255, 235, 190, 0.85)");
-    halo.addColorStop(1, "rgba(255, 210, 140, 0)");
-    ctx.fillStyle = halo;
+  function update(dt, now) {
+    if (!nextShift) nextShift = now + 5000;
+    if (now >= nextShift) shiftHelix(now);
+
+    helix.angle += helix.speed * helix.dir * dt;
+    var t = helix.angle;
+    var nx = helix.cx * w + Math.cos(t) * helix.radiusX * w;
+    var ny = helix.cy * h
+      + Math.sin(t) * helix.radiusY * h
+      + Math.sin(t * 2.15 + helix.tiltPhase) * helix.wobble * helix.radiusY * h;
+
+    var topLimit = h * 0.52;
+    var sidePad = w * 0.06;
+    nx = Math.max(sidePad, Math.min(w - sidePad, nx));
+    ny = Math.max(h * 0.08, Math.min(topLimit, ny));
+
+    head.px = head.x;
+    head.py = head.y;
+    head.x = nx;
+    head.y = ny;
+
+    var vx = head.x - head.px;
+    var vy = head.y - head.py;
+
+    emitDust(head.x, head.y, vx, vy, 4, 10, 2800);
+    emitDust(head.x, head.y, vx, vy, 2, 18, 3600);
+
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.life += dt;
+      p.x += p.vx * dt * 0.06;
+      p.y += p.vy * dt * 0.06;
+      p.vx *= 0.998;
+      p.vy *= 0.998;
+      if (p.life >= p.maxLife) particles.splice(i, 1);
+    }
+  }
+
+  function drawNucleus() {
+    var coreR = 2.6;
+    var auraR = 11;
+
+    var aura = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, auraR);
+    aura.addColorStop(0, "rgba(255, 252, 238, 0.95)");
+    aura.addColorStop(0.35, "rgba(255, 228, 165, 0.45)");
+    aura.addColorStop(0.7, "rgba(201, 160, 90, 0.12)");
+    aura.addColorStop(1, "rgba(201, 120, 58, 0)");
+    ctx.fillStyle = aura;
     ctx.beginPath();
-    ctx.arc(head.x, head.y, isMobile ? 16 : 14, 0, Math.PI * 2);
+    ctx.arc(head.x, head.y, auraR, 0, Math.PI * 2);
     ctx.fill();
 
     ctx.fillStyle = "rgba(255, 255, 252, 1)";
     ctx.beginPath();
-    ctx.arc(head.x, head.y, isMobile ? 6 : 5.5, 0, Math.PI * 2);
+    ctx.arc(head.x, head.y, coreR, 0, Math.PI * 2);
     ctx.fill();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+
+    for (var i = 0; i < particles.length; i++) {
+      var p = particles[i];
+      var t = p.life / p.maxLife;
+      var alpha = Math.pow(1 - t, 1.5) * 0.92;
+      if (alpha <= 0.02) continue;
+
+      if (p.twinkle && alpha > 0.25) {
+        drawTwinkle(p.x, p.y, p.size * 2.2, alpha * 0.85);
+      }
+
+      var r = 255;
+      var g = p.gold ? 218 : 244;
+      var b = p.gold ? 132 : 218;
+      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * (1 - t * 0.35), 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    drawNucleus();
   }
 
   function loop(now) {
     var dt = Math.min(40, now - last);
     last = now;
-    update(dt);
+    update(dt, now);
     draw();
     requestAnimationFrame(loop);
   }
