@@ -820,6 +820,32 @@ a.session-card:hover {
   font-size: 0.95rem;
   line-height: 1.55;
 }
+.prose .article-figure,
+.prose figure {
+  margin: 1.75rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--panel-border-mid);
+  border-top-color: var(--panel-border-light);
+  border-bottom-color: var(--panel-border-dark);
+  box-shadow: var(--panel-shadow);
+  background: var(--panel-bg);
+}
+.prose .article-figure img,
+.prose figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.prose .article-figure figcaption,
+.prose figure figcaption {
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--muted);
+  text-align: center;
+  border-top: 1px solid rgba(201, 120, 58, 0.12);
+}
 .article-author {
   margin-top: 2rem;
   padding-top: 1rem;
