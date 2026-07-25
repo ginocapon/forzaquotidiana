@@ -26,6 +26,36 @@ Usare **Ginevra** esplicitamente in home, chi-sono, dedicatio e intro diario —
 | **`/diario/`** | Riflessioni, vita, equilibrio, famiglia | Umano, lascito |
 | **`/allenamenti/`** | Trimestre, sessioni, dati Amazfit | Disciplina, log |
 
+### 0.1 Estetica riquadri — Panel Relief 3D (obbligatoria)
+
+**Tema scuro attivo.** Ogni riquadro/contenitore del sito pubblico deve usare il sistema **Panel Relief**: bordi ad alto contrasto + rilievo 3D con luce dall’alto.
+
+#### Principio
+
+- Sfondo: gradiente scuro `--panel-bg` (non piatto `#161616`).
+- Bordo: luce in alto (`--panel-border-light`), ombra in basso (`--panel-border-dark`).
+- Rilievo: `box-shadow` con highlight interno + ombra esterna (`--panel-shadow`).
+- Luce: pseudo `::before` con `--panel-highlight` (riflesso superiore).
+- Hover (link-card): `--panel-shadow-hover` + `translateY(-2px)`.
+
+#### Classi già coperte in `css/styles.css` (non reinventare)
+
+`.card` · `.hub-card` · `.diario-list__link` · `.entry` · `.exercise-card` · `.session-panel` · `.session-card` · `.session-kpis__item` · `.amazfit-card` · `.newsletter-cta` · `.scheda-pdf-promo` · `.photo-mosaic__item` · `.cookie-modal__panel` · `.page-veiled .prose`
+
+Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** estendere il blocco condiviso in `styles.css` (stesso blocco «Panel relief»).
+
+#### Varianti accent (opzionali)
+
+- `.card--highlight` · `.entry--riflessione` · `.entry--allenamento` · `.session-panel--metabolic` · `.session-kpis__item--accent` → mantengono il rilievo ma con tinta arancio/ambra sui bordi.
+- Pagine velate (`.page-veiled`): usare `--panel-bg-glass` + `backdrop-filter`.
+
+#### Regole agente
+
+1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
+2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
+3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=22**).
+
 ---
 
 ## 0b. Hub Allenamenti — tre blocchi visivi
@@ -219,7 +249,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=19` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=22` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -556,11 +586,11 @@ Non pubblicare log allenamento sotto `/diario/`. URL legacy → redirect a sessi
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=19`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=22`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
-- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=9`, `newsletter.js v=3`.
+- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=22`, `newsletter.js v=3`.
 - **`404.html`** presente in root (noindex, follow) — mantenere link a Home/Diario/Allenamenti.
 - **BreadcrumbList** su ogni pagina interna (Home → sezione → pagina).
 - Dominio canonico unico: `https://forzaquotidiana.it` (apex, no www).
