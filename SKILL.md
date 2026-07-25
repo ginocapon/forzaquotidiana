@@ -68,10 +68,10 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 
 #### Ritratto autorevolezza — chi-sono e diario
 
-Foto reale Gino **fuori palestra** (camicia, contesto professionale), sfumata come hero home — classe `.portrait-hero`.
+Foto reale Gino **fuori palestra** — stesso markup hero della home: `.hero.hero--portrait` + `.hero__overlay` (sfumatura) + testo in pannello vetro.
 
 - File: `img/chi-sono/gino-affari.png`
-- Pagine: `/chi-sono/` e `/diario/` — **entrambe** con banda `.portrait-hero`: foto sfumata sullo sfondo, overlay scuro, testo in pannello vetro con rilievo 3D leggero
+- Pagine: `/chi-sono/` e `/diario/` — hero fuori da `.page-veiled` (il velo manubri solo sul contenuto sotto)
 - Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
 - Tono: autorevolezza — non solo palestra, anche uomo d'affari
 
@@ -314,7 +314,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 - **6 KPI fissi** in hero (stessi della `.hr-log` finale).
 - Valori mancanti: `—`. Asterisco `*` se sovrastima device.
 - **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.png` (atleta Technogym). Preload in `<head>`.
-- **Sfondo velato altre pagine:** `<main class="page-veiled">` + `/img/allenamenti/page-bg-dumbbells.png` (manubri 30 kg). Hero band su `.allenamenti-hero`, `.trimestre-hero`; ritratto sfumato su `.portrait-hero` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`. Non applicare a pagine stampa PDF né redirect.
+- **Sfondo velato altre pagine:** `<main class="page-veiled">` o `<div class="page-veiled">` sotto l'hero + `/img/allenamenti/page-bg-dumbbells.png`. Hero band su `.allenamenti-hero`, `.trimestre-hero`, `.hero--portrait` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`.
 
 #### Pannelli e navigazione
 
