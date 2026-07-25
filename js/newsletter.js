@@ -1,10 +1,10 @@
 /**
  * Newsletter gate — La Forza Quotidiana
  * Backend: Google Apps Script + Gmail (ginocapon@gmail.com)
- * Configura data-script-url in allenamenti/newsletter/index.html
  */
 (function () {
   var STORAGE_KEY = "fq_newsletter_ok";
+  var NEWSLETTER_PATH = "/allenamenti/newsletter/";
   var form = document.getElementById("newsletter-form");
   var success = document.getElementById("newsletter-success");
   var errorBox = document.getElementById("newsletter-error");
@@ -33,6 +33,22 @@
     }
   }
 
+  function newsletterUrlFor(next) {
+    var path = next || window.location.pathname;
+    return NEWSLETTER_PATH + "?from=schede-peso&next=" + encodeURIComponent(path);
+  }
+
+  function gatePdfLink(anchor) {
+    if (!anchor || isSubscribed()) return;
+    var href = anchor.getAttribute("href") || "";
+    if (href.indexOf("schede-peso") === -1 || href.indexOf(".pdf") === -1) return;
+    anchor.addEventListener("click", function (ev) {
+      if (isSubscribed()) return;
+      ev.preventDefault();
+      window.location.href = newsletterUrlFor(href);
+    });
+  }
+
   function consumeReturnParams() {
     var params = new URLSearchParams(window.location.search);
     if (params.get("sub") !== "1") return false;
@@ -57,14 +73,14 @@
 
   window.fqNewsletter = {
     isSubscribed: isSubscribed,
-    markSubscribed: markSubscribed
+    markSubscribed: markSubscribed,
+    newsletterUrlFor: newsletterUrlFor
   };
 
   consumeReturnParams();
 
   if (document.body.dataset.newsletterGate === "schede-peso" && !isSubscribed()) {
-    var next = encodeURIComponent(window.location.pathname);
-    window.location.replace("/allenamenti/newsletter/?from=schede-peso&next=" + next);
+    window.location.replace(newsletterUrlFor(window.location.pathname));
     return;
   }
 
@@ -80,7 +96,10 @@
     errorBox.textContent = err;
   }
 
-  if (!form) return;
+  if (!form) {
+    document.querySelectorAll('a[href*="schede-peso"][href$=".pdf"]').forEach(gatePdfLink);
+    return;
+  }
 
   var nextInput = document.getElementById("newsletter-next");
   if (nextInput) {
@@ -108,6 +127,8 @@
     form.method = "POST";
   });
 
+  document.querySelectorAll('a[href*="schede-peso"][href$=".pdf"]').forEach(gatePdfLink);
+
   var demoBtn = document.getElementById("newsletter-demo");
   if (demoBtn) {
     demoBtn.addEventListener("click", function () {
@@ -118,4 +139,3 @@
     });
   }
 })();
-

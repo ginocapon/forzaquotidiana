@@ -26,8 +26,20 @@ const CHROME_CANDIDATES = [
 ];
 
 function findChrome() {
-  for (const p of CHROME_CANDIDATES) if (existsSync(p)) return p;
-  throw new Error("Chrome/Edge non trovati.");
+  var env = process.env.PUPPETEER_EXECUTABLE_PATH || process.env.CHROME_PATH;
+  if (env && existsSync(env)) return env;
+
+  var unix = [
+    "/usr/local/bin/google-chrome",
+    "/usr/bin/google-chrome",
+    "/usr/bin/chromium",
+    "/usr/bin/chromium-browser",
+    "/snap/bin/chromium",
+  ];
+  for (var u of unix) if (existsSync(u)) return u;
+
+  for (var p of CHROME_CANDIDATES) if (existsSync(p)) return p;
+  throw new Error("Chrome/Edge non trovati. Imposta PUPPETEER_EXECUTABLE_PATH.");
 }
 
 async function main() {
