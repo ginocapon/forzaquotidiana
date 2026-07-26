@@ -698,6 +698,7 @@ Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Su
 - [ ] SVG verificati per ogni esercizio
 - [ ] Almeno 1 log cardiaco se disponibile
 - [ ] Tabella statistiche mensili aggiornata
+- [ ] Sezione `#sintesi-allenamenti` (modulo TSB) coerente con ultime sessioni
 - [ ] `sitemap.xml` + voce Diario + `llms.txt`
 - [ ] `og:image` = hero sito o grafica trimestre SVG (non screenshot Amazfit con dati personali sensibili oltre ciò che Gino approva)
 - [ ] Scheda pesi PDF aggiornata in `/allenamenti/schede-peso/`
