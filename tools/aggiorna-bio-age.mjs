@@ -1,6 +1,7 @@
 /**
  * Calcola età biologica da export Zepp/Amazfit (performance + CTL).
- * Modello conservativo: profilo storico + bonus trimestre maturato nel tempo.
+ * Modello bilanciato: profilo storico + bonus trimestre, allineato a come ci si sente
+ * allenandosi con costanza (non clinico, non da atleta d'élite).
  * Esegui dopo aggiornamento sessioni: node tools/aggiorna-bio-age.mjs
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
@@ -15,12 +16,14 @@ const OUT_PATH = join(REPO, "data/biological-age.json");
 
 const CHRONO_AGE = 57;
 const TRIMESTRE_START = "2026-06-01";
-/** 10+ anni palestra dilettante — già meglio di un pari sedentario, non da atleta */
-const PROFILE_OFFSET = 1.2;
-/** Bonus massimo dal trimestre documentato (con 12+ sessioni complete) */
-const MAX_TRIMESTRE_OFFSET = 1.5;
-/** Sessioni complete necessarie per fiducia piena nel dato */
-const MATURITY_SESSIONS = 12;
+/** 10+ anni palestra — corpo già abituato, si sente più giovane del cronologico */
+const PROFILE_OFFSET = 2;
+/** Bonus massimo dal trimestre documentato (con 8+ sessioni complete) */
+const MAX_TRIMESTRE_OFFSET = 2.5;
+/** Tetto totale realistico per dilettante maturo attivo */
+const MAX_TOTAL_OFFSET = 4;
+/** Sessioni complete per fiducia piena nel dato trimestrale */
+const MATURITY_SESSIONS = 8;
 
 function round1(n) {
   return Math.round(n * 10) / 10;
@@ -53,15 +56,15 @@ function maturityFactor(completeSessions) {
 }
 
 function trimestreOffsetRaw({ ctl, avgAerobic, avgHr, sessionCount, techniqueAvg }) {
-  const ctlPart = Math.min(0.8, Math.max(0, (ctl - 25) * 0.045));
+  const ctlPart = Math.min(1.1, Math.max(0, (ctl - 22) * 0.065));
   const aerobicPart = avgAerobic != null
-    ? Math.min(0.35, Math.max(0, (avgAerobic - 2.5) * 0.23))
+    ? Math.min(0.55, Math.max(0, (avgAerobic - 2) * 0.4))
     : 0;
   const hrPart = avgHr != null
-    ? Math.min(0.25, Math.max(0, (115 - avgHr) * 0.025))
+    ? Math.min(0.45, Math.max(0, (116 - avgHr) * 0.04))
     : 0;
-  const consistencyPart = Math.min(0.35, (sessionCount / 8) * 0.35);
-  const techniquePart = Math.min(0.15, techniqueAvg * 0.15);
+  const consistencyPart = Math.min(0.5, (sessionCount / 10) * 0.5);
+  const techniquePart = Math.min(0.25, techniqueAvg * 0.25);
 
   return Math.min(
     MAX_TRIMESTRE_OFFSET,
@@ -72,25 +75,27 @@ function trimestreOffsetRaw({ ctl, avgAerobic, avgHr, sessionCount, techniqueAvg
 function computeOffset(metrics) {
   const maturity = maturityFactor(metrics.completeSessions);
   const trimestre = trimestreOffsetRaw(metrics) * maturity;
+  const total = Math.min(MAX_TOTAL_OFFSET, PROFILE_OFFSET + trimestre);
+
   return {
     profile: PROFILE_OFFSET,
     trimestre: round1(trimestre),
-    total: round1(PROFILE_OFFSET + trimestre),
+    total: round1(total),
     maturity: round1(maturity),
     breakdown: {
-      ctl: round1(Math.min(0.8, Math.max(0, (metrics.ctl - 25) * 0.045)) * maturity),
+      ctl: round1(Math.min(1.1, Math.max(0, (metrics.ctl - 22) * 0.065)) * maturity),
       aerobico: round1(
         (metrics.avgAerobic != null
-          ? Math.min(0.35, Math.max(0, (metrics.avgAerobic - 2.5) * 0.23))
+          ? Math.min(0.55, Math.max(0, (metrics.avgAerobic - 2) * 0.4))
           : 0) * maturity
       ),
       fc: round1(
         (metrics.avgHr != null
-          ? Math.min(0.25, Math.max(0, (115 - metrics.avgHr) * 0.025))
+          ? Math.min(0.45, Math.max(0, (116 - metrics.avgHr) * 0.04))
           : 0) * maturity
       ),
-      costanza: round1(Math.min(0.35, (metrics.sessionCount / 8) * 0.35) * maturity),
-      tecnica: round1(Math.min(0.15, metrics.techniqueAvg * 0.15) * maturity),
+      costanza: round1(Math.min(0.5, (metrics.sessionCount / 10) * 0.5) * maturity),
+      tecnica: round1(Math.min(0.25, metrics.techniqueAvg * 0.25) * maturity),
     },
   };
 }
@@ -153,7 +158,7 @@ const timelinePoints = [{
   age: baselineAge,
   offset: PROFILE_OFFSET,
   sessions: 0,
-  note: "Profilo: 10+ anni palestra, trimestre non ancora documentato",
+  note: "Profilo: 10+ anni palestra — già più giovane del cronologico",
 }];
 
 for (const date of sessionDates) {
@@ -176,18 +181,19 @@ const currentAge = round1(CHRONO_AGE - currentOffset.total);
 const delta = round1(CHRONO_AGE - currentAge);
 
 const out = {
-  _nota: "Età biologica stimata (conservativa): profilo 10+ anni palestra (−1,2 aa) + bonus trimestre da CTL/FC/effetto aerobico/costanza/tecnica, scalato fino a 12 sessioni complete. Non è dato clinico. node tools/aggiorna-bio-age.mjs",
+  _nota: "Età biologica stimata (bilanciata): profilo 10+ anni palestra (−2 aa) + bonus trimestre da Zepp, scalato a 8 sessioni. Riflette costanza e sensazione di benessere, non dato clinico. node tools/aggiorna-bio-age.mjs",
   trimestre: sessionsRaw.trimestre,
   updated: today,
   chronological_age: CHRONO_AGE,
   biological_age: currentAge,
   offset_years: currentOffset.total,
   delta_vs_chrono: delta,
-  trend: delta >= 1.5 ? "in miglioramento" : delta >= 0.8 ? "positiva" : "in costruzione",
+  trend: delta >= 2.5 ? "in miglioramento" : delta >= 1.5 ? "positiva" : "in costruzione",
   methodology: {
     profile_offset: PROFILE_OFFSET,
-    profile_note: "10+ anni di allenamento dilettante documentato",
+    profile_note: "10+ anni palestra — corpo abituato all'allenamento",
     max_trimestre_offset: MAX_TRIMESTRE_OFFSET,
+    max_total_offset: MAX_TOTAL_OFFSET,
     maturity_sessions: MATURITY_SESSIONS,
     maturity_pct: currentOffset.maturity,
   },
