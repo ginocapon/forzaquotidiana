@@ -1,0 +1,60 @@
+{
+  "_nota": "Età biologica stimata da CTL Zepp, FC, effetto aerobico, costanza e tecnica. Non è dato clinico. node tools/aggiorna-bio-age.mjs",
+  "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "updated": "2026-07-26",
+  "chronological_age": 57,
+  "biological_age": 52.2,
+  "offset_years": 4.817614668690987,
+  "delta_vs_chrono": 4.8,
+  "trend": "in miglioramento",
+  "components": {
+    "ctl": 33.4,
+    "fc_media_pesata": 109,
+    "effetto_aerobico_medio": 3,
+    "sessioni_documentate": 5,
+    "settimane_attive": 3
+  },
+  "timeline": [
+    {
+      "date": "2026-06-01",
+      "age": 57.4,
+      "offset": 0,
+      "sessions": 0
+    },
+    {
+      "date": "2026-07-16",
+      "age": 55.8,
+      "offset": 1.2,
+      "sessions": 1,
+      "ctl": 11.4
+    },
+    {
+      "date": "2026-07-20",
+      "age": 55.1,
+      "offset": 1.9,
+      "sessions": 2,
+      "ctl": 12.2
+    },
+    {
+      "date": "2026-07-21",
+      "age": 54.2,
+      "offset": 2.8,
+      "sessions": 3,
+      "ctl": 13
+    },
+    {
+      "date": "2026-07-23",
+      "age": 53.9,
+      "offset": 3.1,
+      "sessions": 4,
+      "ctl": 15.8
+    },
+    {
+      "date": "2026-07-24",
+      "age": 52,
+      "offset": 5,
+      "sessions": 5,
+      "ctl": 35
+    }
+  ]
+}
