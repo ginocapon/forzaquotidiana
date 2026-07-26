@@ -17,7 +17,7 @@
 {"@type":"ListItem","position":2,"name":"Allenamenti","item":"https://forzaquotidiana.it/allenamenti/"},
 {"@type":"ListItem","position":3,"name":"Trimestre Giu-Lug-Ago 2026","item":"https://forzaquotidiana.it/allenamenti/trimestre-giugno-luglio-agosto-2026/"}]}
 </script>
-<link rel="stylesheet" href="/css/styles.css?v=32">
+<link rel="stylesheet" href="/css/styles.css?v=33">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -549,6 +549,11 @@
       </div>
       <p><small>* Calorie/carico luglio includono sessione 20/07 con possibile sovrastima device (orologio idle). FC media ponderata per durata. Sessione 17/07 serale ancora parziale.</small></p>
 
+
+      <h2 id="modulo-tsb">Modulo allenamento · fitness e fatica (TSB)</h2>
+      <p>Visione d&apos;insieme del trimestre — CTL fitness (blu), ATL fatica (rosso), barre = carico giornaliero Zepp. Le date evidenziate sono le sessioni registrate.</p>
+      <div class="tsb-module" data-training-load="overview" aria-live="polite"></div>
+
       <div id="perf-charts" class="perf-charts" aria-label="Grafici performance mensili"></div>
 
       <h2>Regole d&apos;oro</h2>
@@ -575,6 +580,7 @@
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
+<script src="/js/training-load-chart.js?v=1" defer></script>
 <script src="/js/performance-charts.js?v=1" defer></script>
 </body>
 </html>

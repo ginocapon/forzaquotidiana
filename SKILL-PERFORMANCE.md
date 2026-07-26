@@ -21,8 +21,11 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 | Grafico FC | `-fc-grafico.png` | Linea FC con picchi tra set e in chiusura |
 | Zone + effetto | `-zone-effetto.png` | 5 barre zone FC + gauge aerobico/anaerobico |
 | Tecnica | `-tecnica.png` | Radar consistenza, stabilità, continuità, ritmo, speed decay |
+| Modulo TSB (opz.) | `-tsb-grafico.png` | Fitness CTL, fatica ATL, stato riposo — se Gino lo invia |
 
-**Standard fisso:** tutti e **4** screenshot vanno in pagina quando Gino li invia. Il radar tecnica (#4) è parte del pacchetto — **non ometterlo** se presente in chat.
+**Standard fisso:** tutti e **4** screenshot metabolici vanno in pagina quando Gino li invia. Il radar tecnica (#4) è parte del pacchetto — **non ometterlo** se presente in chat.
+
+**Modulo TSB:** oltre agli screenshot, ogni pagina sessione mostra il **grafico TSB** (fitness/fatica/riposo) con focus sulla data dell’allenamento — vedi § Modulo TSB sotto. Se Gino invia anche lo screenshot Zepp del modulo, salvarlo come `-tsb-grafico.png` e aggiungerlo in galleria o accanto al grafico.
 
 **Minimo accettabile** (solo se Gino non ha l’export): riepilogo + almeno uno tra grafico FC o zone. **Normale / obbligatorio:** tutti e 4.
 
@@ -34,8 +37,9 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 4. Compila pagina sessione — blocco `.metabolic-block` (ordine sotto).
 5. Scrivi **`.metabolic-note`** — analisi 2–3 frasi (zona dominante, FC max, legame con esercizi).
 6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json`.
-7. Verifica tabella + grafici in trimestre `#statistiche`.
-8. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
+7. Esegui **`node tools/aggiorna-training-load.mjs`** → rigenera `data/training-load.json` (CTL/ATL/TSB).
+8. Verifica tabella + grafici in trimestre `#statistiche` + modulo TSB.
+9. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
 
 ## Layout pagina sessione (ordine fisso)
 
@@ -57,6 +61,31 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 ```
 
 **Regola layout:** griglia CSS — **no scroll orizzontale**. Tutti gli screenshot devono essere visibili senza scorrere.
+
+## Modulo TSB — fitness, fatica, riposo (obbligatorio)
+
+Zepp calcola **CTL** (fitness), **ATL** (fatica) e **TSB** (Training Stress Balance = CTL − ATL). Stati tipici: **Rilassato · Energetico · Bilanciato · Ottimale**.
+
+| Dove | Cosa |
+|------|------|
+| **Ogni pagina sessione** | Sezione `.session-panel--tsb` **prima** del blocco metabolico — grafico con focus sulla **data** dell’allenamento + testo stato fatica/riposo quel giorno |
+| **Trimestre `#statistiche`** | Vista `overview` — panoramica completa con tutte le date di sessione evidenziate |
+
+**Implementazione:**
+- Dati: `data/training-load.json` (generato da `node tools/aggiorna-training-load.mjs`)
+- JS: `js/training-load-chart.js` — `data-training-load="YYYY-MM-DD"` o `overview`
+- Override Zepp verificati in `training-load.json` → `overrides` (es. snapshot 24/07 da screenshot)
+
+**HTML sessione (obbligatorio):**
+
+```html
+<section class="session-panel session-panel--tsb" aria-labelledby="tsb-modulo">
+  <span class="session-panel__label" id="tsb-modulo">Fitness · fatica · riposo</span>
+  <div class="tsb-module" data-training-load="YYYY-MM-DD" aria-live="polite"></div>
+</section>
+```
+
+Script: `<script src="/js/training-load-chart.js?v=1" defer></script>`
 
 Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
 
@@ -132,6 +161,8 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
 - [ ] `node tools/aggiorna-performance.mjs` eseguito
+- [ ] `node tools/aggiorna-training-load.mjs` eseguito
+- [ ] Modulo TSB in pagina sessione + trimestre `#statistiche`
 - [ ] Trimestre `#statistiche` coerente
 - [ ] `sitemap.xml` lastmod sessione
 

@@ -1877,6 +1877,8 @@ a.session-card:hover {
 .month-stats th {
   color: var(--muted);
   font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Grafici performance mensili */
@@ -1936,9 +1938,132 @@ a.session-card:hover {
   font-weight: 600;
   color: var(--text);
 }
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+
+/* Modulo TSB — fitness / fatica / riposo (Zepp) */
+.tsb-module {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid rgba(201, 120, 58, 0.22);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(18, 18, 22, 0.95) 0%, rgba(12, 12, 16, 0.98) 100%);
 }
+.tsb-module__head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 720px) {
+  .tsb-module__head {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}
+.tsb-module__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.tsb-module__abbr { color: var(--muted); font-weight: 500; }
+.tsb-module__status {
+  margin: 0.35rem 0 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+.tsb-module__status strong {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.tsb-module__status--rilassato { color: #6fcf97; }
+.tsb-module__status--energetico { color: #7dd3c0; }
+.tsb-module__status--bilanciato { color: #6eb5f0; }
+.tsb-module__status--ottimale { color: #4a7fd4; }
+.tsb-module__kpis {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  font-size: 0.78rem;
+}
+@media (min-width: 480px) {
+  .tsb-module__kpis { grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem; }
+}
+.tsb-module__kpi dt {
+  color: var(--muted);
+  margin: 0;
+  font-weight: 500;
+}
+.tsb-module__kpi dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.tsb-kpi--fatigue dd { color: #e85d5d; }
+.tsb-kpi--fitness dd { color: #5eb0f5; }
+.tsb-module__chart-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.75rem;
+  align-items: stretch;
+}
+.tsb-module__zones {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.62rem;
+  line-height: 1.1;
+  text-align: right;
+  padding: 0.25rem 0;
+  min-width: 4.5rem;
+}
+.tsb-zone {
+  padding: 0.2rem 0.35rem;
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.75);
+}
+.tsb-zone--rilassato { background: linear-gradient(90deg, transparent, rgba(111, 207, 151, 0.35)); }
+.tsb-zone--energetico { background: linear-gradient(90deg, transparent, rgba(125, 211, 192, 0.3)); }
+.tsb-zone--bilanciato { background: linear-gradient(90deg, transparent, rgba(110, 181, 240, 0.35)); }
+.tsb-zone--ottimale { background: linear-gradient(90deg, transparent, rgba(74, 127, 212, 0.4)); }
+.tsb-module__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.tsb-bar { fill: rgba(255, 255, 255, 0.07); }
+.tsb-line { fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.tsb-line--atl { stroke: #e85d5d; }
+.tsb-line--ctl { stroke: #5eb0f5; }
+.tsb-focus-line { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; stroke-dasharray: 4 3; }
+.tsb-dot { stroke: #121214; stroke-width: 1.5; }
+.tsb-dot--atl { fill: #e85d5d; }
+.tsb-dot--ctl { fill: #5eb0f5; }
+.tsb-session-marker {
+  fill: #fff;
+  stroke: #e85d5d;
+  stroke-width: 1.5;
+  opacity: 0.85;
+}
+.tsb-session-marker.is-active {
+  fill: #e85d5d;
+  stroke: #fff;
+  opacity: 1;
+}
+.tsb-axis-y,
+.tsb-axis-x {
+  fill: var(--muted);
+  font-size: 9px;
+  font-family: var(--font, system-ui, sans-serif);
+}
+.tsb-module__session-note {
+  margin: 1rem 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.tsb-module__session-note strong { color: var(--text); }
+.tsb-module__fallback { color: var(--muted); margin: 0; }
+.session-panel--tsb .session-panel__label { color: #6eb5f0; }
+
 .month-stats td:last-child { color: #ccc4b8; }
 
 .scheda-full { display: none; }

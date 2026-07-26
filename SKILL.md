@@ -285,9 +285,10 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 | 2 | Tecnica / figure guida | `.session-panel` | Se esercizio nuovo |
 | 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati |
 | 4 | Galleria | `.session-panel` + `.collage--scatter` | Se foto/video |
-| 5 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
-| 6 | Navigazione | `.session-nav` | Sì |
-| 7 | Data aggiornamento | `.session-meta-footer` | Sì |
+| 5 | **TSB fitness/fatica** | `.session-panel.session-panel--tsb` | Sì |
+| 6 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
+| 7 | Navigazione | `.session-nav` | Sì |
+| 8 | Data aggiornamento | `.session-meta-footer` | Sì |
 
 #### Hero `.session-hero` + KPI `.session-kpis`
 
@@ -324,6 +325,19 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 - Metabolico → `.session-panel.session-panel--metabolic`.
 - Footer → `.session-nav` con pill (prima pill = `.session-nav__primary` «← Tutte le sessioni»).
 - Elenco `/allenamenti/sessioni/` → `.session-cards` / `.session-card` (non `.entry`).
+
+#### Modulo TSB (fitness · fatica · riposo) — obbligatorio
+
+Prima del blocco metabolico, ogni pagina sessione include il **grafico TSB** Zepp (CTL/ATL) con evidenziazione dello stato **nel giorno dell’allenamento**. Trimestre: vista panoramica in `#statistiche`. Dettaglio operativo: `SKILL-PERFORMANCE.md` § Modulo TSB.
+
+```html
+<section class="session-panel session-panel--tsb" aria-labelledby="tsb-modulo">
+  <span class="session-panel__label" id="tsb-modulo">Fitness · fatica · riposo</span>
+  <div class="tsb-module" data-training-load="YYYY-MM-DD" aria-live="polite"></div>
+</section>
+```
+
+Script: `js/training-load-chart.js` · dati: `data/training-load.json` · tool: `node tools/aggiorna-training-load.mjs`
 
 #### Blocco foto e video (dentro `.session-panel`)
 
