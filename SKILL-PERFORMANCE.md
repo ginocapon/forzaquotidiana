@@ -123,6 +123,14 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - **Tabella** `.month-stats` nel trimestre.
 - **Grafici** `#perf-charts` via `js/performance-charts.js`.
 
+## Bilancio TSB (CTL / ATL)
+
+- **Fonte:** `data/performance-tsb.json` (generato da `tools/calcola-tsb.mjs`, anche via `aggiorna-performance.mjs`).
+- **Calcolo:** CTL (42 gg) e ATL (7 gg) da `carico` Zepp; TSB = CTL − ATL. Ancoraggio valori assoluti su export Zepp del 24/07.
+- **Trimestre:** sezione `#sintesi-allenamenti` con `data-mode="trimestre"`.
+- **Sessioni:** blocco «Sintesi carico» con `data-session-id="YYYY-MM-DD-scheda-N"` + analisi testuale per data in `calcola-tsb.mjs` → `ANALISI`.
+- **JS:** `js/tsb-module.js` — grafico SVG + KPI + testo.
+
 ## Checklist sessione
 
 - [ ] Screenshot Zepp salvati in `img/allenamenti/amazfit/` — **tutti e 4**: `-riepilogo`, `-fc-grafico`, `-zone-effetto`, `-tecnica`
@@ -131,8 +139,8 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - [ ] Dati estratti `.amazfit-data` compilati
 - [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
-- [ ] `node tools/aggiorna-performance.mjs` eseguito
-- [ ] Trimestre `#statistiche` coerente
+- [ ] `node tools/aggiorna-performance.mjs` eseguito (rigenera anche `performance-tsb.json`)
+- [ ] Trimestre `#sintesi-allenamenti` e `#statistiche` coerenti
 - [ ] `sitemap.xml` lastmod sessione
 
 ## Anomalie device

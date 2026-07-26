@@ -1,0 +1,399 @@
+{
+  "_nota": "Generato da tools/calcola-tsb.mjs — CTL (42 gg) e ATL (7 gg) da carico Zepp; TSB = CTL − ATL. Ancoraggio valori assoluti su export Zepp 24/07.",
+  "anchor": {
+    "date": "2026-07-24",
+    "ctl": 35,
+    "atl": 40
+  },
+  "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "range": {
+    "start": "2026-06-25",
+    "end": "2026-07-31"
+  },
+  "sintesi": {
+    "titolo": "Sintesi luglio 2026 — blocco di rientro",
+    "testo": "Dopo il calo di inizio luglio (poca attività registrata), il grafico mostra un cluster di sessioni dal 16 al 24: fitness (CTL) che risale gradualmente, affaticamento (ATL) che reagisce più in fretta. Al 24/07 il TSB è -5 («Bilanciato»): fase produttiva, non overtraining. Curve calibrate sul carico Zepp delle sessioni pubblicate e ancorate allo screenshot del 24/07; l'app include anche attività non loggate sul sito.",
+    "ctl": 35,
+    "atl": 40,
+    "tsb": -5,
+    "zone": "Bilanciato"
+  },
+  "series": [
+    {
+      "date": "2026-06-25",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-06-26",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-06-27",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-06-28",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-06-29",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-06-30",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-01",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-02",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-03",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-04",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-05",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-06",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-07",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-08",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-09",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-10",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-11",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-12",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-13",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-14",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-15",
+      "load": 0,
+      "ctl": 23.8,
+      "atl": -8,
+      "tsb": 31.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-16",
+      "load": 85,
+      "ctl": 25.8,
+      "atl": 4.1,
+      "tsb": 21.7,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-17",
+      "load": 0,
+      "ctl": 25.8,
+      "atl": 2.4,
+      "tsb": 23.4,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-18",
+      "load": 0,
+      "ctl": 25.7,
+      "atl": 0.9,
+      "tsb": 24.8,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-19",
+      "load": 0,
+      "ctl": 25.7,
+      "atl": -0.4,
+      "tsb": 26.1,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-20",
+      "load": 163,
+      "ctl": 29.5,
+      "atl": 21.8,
+      "tsb": 7.7,
+      "zone": "Energetico"
+    },
+    {
+      "date": "2026-07-21",
+      "load": 46,
+      "ctl": 30.5,
+      "atl": 24.1,
+      "tsb": 6.4,
+      "zone": "Energetico"
+    },
+    {
+      "date": "2026-07-22",
+      "load": 0,
+      "ctl": 30.3,
+      "atl": 19.6,
+      "tsb": 10.7,
+      "zone": "Energetico"
+    },
+    {
+      "date": "2026-07-23",
+      "load": 146,
+      "ctl": 33.6,
+      "atl": 36.5,
+      "tsb": -2.9,
+      "zone": "Bilanciato"
+    },
+    {
+      "date": "2026-07-24",
+      "load": 69,
+      "ctl": 35,
+      "atl": 40,
+      "tsb": -5,
+      "zone": "Bilanciato"
+    },
+    {
+      "date": "2026-07-25",
+      "load": 0,
+      "ctl": 34.8,
+      "atl": 33.1,
+      "tsb": 1.7,
+      "zone": "Bilanciato"
+    },
+    {
+      "date": "2026-07-26",
+      "load": 0,
+      "ctl": 34.5,
+      "atl": 27.3,
+      "tsb": 7.2,
+      "zone": "Energetico"
+    },
+    {
+      "date": "2026-07-27",
+      "load": 0,
+      "ctl": 34.3,
+      "atl": 22.2,
+      "tsb": 12.1,
+      "zone": "Energetico"
+    },
+    {
+      "date": "2026-07-28",
+      "load": 0,
+      "ctl": 34,
+      "atl": 17.9,
+      "tsb": 16.1,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-29",
+      "load": 0,
+      "ctl": 33.8,
+      "atl": 14.2,
+      "tsb": 19.6,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-30",
+      "load": 0,
+      "ctl": 33.5,
+      "atl": 11,
+      "tsb": 22.5,
+      "zone": "Rilassato"
+    },
+    {
+      "date": "2026-07-31",
+      "load": 0,
+      "ctl": 33.3,
+      "atl": 8.3,
+      "tsb": 25,
+      "zone": "Rilassato"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "2026-07-16-scheda-1",
+      "date": "2026-07-16",
+      "scheda": 1,
+      "partial": false,
+      "carico": 85,
+      "ctl": 25.8,
+      "atl": 4.1,
+      "tsb": 21.7,
+      "zone": "Rilassato",
+      "titolo": "Riavvio dopo la pausa",
+      "analisi": "Prima sessione documentata del trimestre: carico 85, FC media 115 e zona intensiva al 48%. Il TSB è ancora in territorio neutro — stai ricostruendo la forma dopo il calo di inizio luglio visibile nel grafico. Buona base per le sessioni successive."
+    },
+    {
+      "id": "2026-07-17-scheda-2",
+      "date": "2026-07-17",
+      "scheda": 2,
+      "partial": true,
+      "carico": null,
+      "ctl": 25.8,
+      "atl": 2.4,
+      "tsb": 23.4,
+      "zone": "Rilassato",
+      "titolo": "Serale senza export completo",
+      "analisi": "Sessione serale con solo zone FC parziali — il carico non è nel JSON, quindi il grafico sottostima leggermente lo stimolo di quel giorno. Il trend generale resta valido: stai rientrando in ritmo con allenamenti ravvicinati."
+    },
+    {
+      "id": "2026-07-20-scheda-1",
+      "date": "2026-07-20",
+      "scheda": 1,
+      "partial": false,
+      "carico": 163,
+      "ctl": 29.5,
+      "atl": 21.8,
+      "tsb": 7.7,
+      "zone": "Energetico",
+      "titolo": "Picco di carico della settimana",
+      "analisi": "Carico device 163* (con possibile inflazione da orologio idle) — giornata che spinge l'affaticamento (ATL) verso l'alto. FC media contenuta (104) ma durata lunga e 24 gruppi: volume alto su petto-dorsali-spalle. Il TSB scende: fase di accumulo."
+    },
+    {
+      "id": "2026-07-21-scheda-2",
+      "date": "2026-07-21",
+      "scheda": 2,
+      "partial": false,
+      "carico": 46,
+      "ctl": 30.5,
+      "atl": 24.1,
+      "tsb": 6.4,
+      "zone": "Energetico",
+      "titolo": "Volume lungo, carico moderato",
+      "analisi": "Quasi 90 minuti e 30 gruppi, ma carico Zepp solo 46 — sessione lunga con intensità distribuita (61% zona intensiva, FC max 138). L'ATL sale per il tempo in sala più che per il picco cardiaco. Recupero utile prima del mercoledì intenso."
+    },
+    {
+      "id": "2026-07-23-scheda-3",
+      "date": "2026-07-23",
+      "scheda": 3,
+      "partial": false,
+      "carico": 146,
+      "ctl": 33.6,
+      "atl": 36.5,
+      "tsb": -2.9,
+      "zone": "Bilanciato",
+      "titolo": "Giorno più stressante del blocco",
+      "analisi": "Carico 146, FC media 118 e max 165 — picco reale della settimana. Cedimenti su spalle e dorsali, Clean Halo in chiusura. Effetto aerobico e anaerobico «Buono». È questa sessione che spinge di più l'ATL verso il venerdì."
+    },
+    {
+      "id": "2026-07-24-scheda-4",
+      "date": "2026-07-24",
+      "scheda": 4,
+      "partial": false,
+      "carico": 69,
+      "ctl": 35,
+      "atl": 40,
+      "tsb": -5,
+      "zone": "Bilanciato",
+      "titolo": "Bilanciato · perfettibile",
+      "analisi": "TSB in zona «Bilanciato»: affaticamento (ATL) leggermente sopra la forma (CTL), coerente con 5 sessioni in 9 giorni. Carico device 69* più basso del mercoledì, ma gambe al cedimento e stacco omega contano nel volume. Tecnica radar alta — stimolo produttivo senza esagerare."
+    }
+  ]
+}

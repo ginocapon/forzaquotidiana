@@ -3,6 +3,7 @@
  * Uso: node tools/aggiorna-performance.mjs
  */
 import { readFileSync, writeFileSync } from "node:fs";
+import { execSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -93,3 +94,5 @@ const out = {
 
 writeFileSync(monthlyPath, JSON.stringify(out, null, 2) + "\n");
 console.log("OK ->", monthlyPath);
+
+execSync("node tools/calcola-tsb.mjs", { cwd: REPO, stdio: "inherit" });
