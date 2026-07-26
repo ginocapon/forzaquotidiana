@@ -33,9 +33,11 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 3. Aggiorna **`data/performance-sessions.json`** — voce sessione con tutti i campi numerici.
 4. Compila pagina sessione — blocco `.metabolic-block` (ordine sotto).
 5. Scrivi **`.metabolic-note`** — analisi 2–3 frasi (zona dominante, FC max, legame con esercizi).
-6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json`.
-7. Verifica tabella + grafici in trimestre `#statistiche`.
-8. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
+6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json` e `data/performance-tsb.json`.
+7. Aggiungi/aggiorna voce in **`ANALISI`** (`tools/calcola-tsb.mjs`) — titolo + testo per la data.
+8. In pagina sessione: blocco **Sintesi carico** (`.tsb-module` + `data-session-id`) e script `tsb-module.js`.
+9. Verifica `#sintesi-allenamenti` e `#statistiche` nel trimestre.
+10. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
 
 ## Layout pagina sessione (ordine fisso)
 
@@ -54,11 +56,15 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 │   └── .amazfit-card--wide tecnica
 ├── .metabolic-note                 ← analisi testuale
 └── .hr-log.hr-log--elevated        ← sintesi 6 metriche
+
+.session-panel (dopo metabolico)
+├── h2 «Bilancio allenamento · TSB»
+└── .tsb-module[data-session-id]    ← grafico + KPI + analisi per data
 ```
 
 **Regola layout:** griglia CSS — **no scroll orizzontale**. Tutti gli screenshot devono essere visibili senza scorrere.
 
-Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
+Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/` (metabolico + TSB).
 
 ## Campi JSON (`performance-sessions.json`)
 
@@ -123,6 +129,31 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - **Tabella** `.month-stats` nel trimestre.
 - **Grafici** `#perf-charts` via `js/performance-charts.js`.
 
+## Bilancio TSB (CTL / ATL)
+
+- **Fonte:** `data/performance-tsb.json` (generato da `tools/calcola-tsb.mjs`, anche via `aggiorna-performance.mjs`).
+- **Calcolo:** CTL (42 gg) e ATL (7 gg) da `carico` Zepp; TSB = CTL − ATL. Ancoraggio valori assoluti su export Zepp del 24/07 (`ZEPP_ANCHOR` in `calcola-tsb.mjs`).
+- **Zone:** Rilassato · Energetico · Bilanciato · Ottimale (soglie in `zoneLabel()` nello script).
+- **Trimestre:** sezione `#sintesi-allenamenti` con `<div class="tsb-module" data-mode="trimestre">` + script `tsb-module.js`.
+- **Sessioni:** blocco «Sintesi carico» con `data-session-id="YYYY-MM-DD-scheda-N"` + analisi testuale per data in `calcola-tsb.mjs` → oggetto `ANALISI`.
+- **JS:** `js/tsb-module.js` — grafico SVG + KPI (TSB, ATL, CTL) + testo.
+
+### Nuova sessione — passi TSB
+
+1. Compilare `carico` in `performance-sessions.json` (anche con asterisco se device gonfiato).
+2. Aggiungere in `ANALISI` (stessa chiave `id` sessione):
+
+```javascript
+"2026-07-24-scheda-4": {
+  titolo: "Bilanciato · perfettibile",
+  testo: "TSB in zona Bilanciato: affaticamento leggermente sopra la forma…",
+},
+```
+
+3. Eseguire `node tools/aggiorna-performance.mjs`.
+4. Copiare blocco HTML TSB nella pagina sessione (vedi `SKILL.md` § Blocco sintesi carico TSB).
+5. Se export Zepp fornisce CTL/ATL verificati: aggiornare `ZEPP_ANCHOR` in `calcola-tsb.mjs`.
+
 ## Checklist sessione
 
 - [ ] Screenshot Zepp salvati in `img/allenamenti/amazfit/` — **tutti e 4**: `-riepilogo`, `-fc-grafico`, `-zone-effetto`, `-tecnica`
@@ -131,8 +162,10 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - [ ] Dati estratti `.amazfit-data` compilati
 - [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
-- [ ] `node tools/aggiorna-performance.mjs` eseguito
-- [ ] Trimestre `#statistiche` coerente
+- [ ] Voce in `ANALISI` (`tools/calcola-tsb.mjs`) — titolo + testo per data
+- [ ] Blocco `.tsb-module` in pagina sessione + `tsb-module.js`
+- [ ] `node tools/aggiorna-performance.mjs` eseguito (rigenera anche `performance-tsb.json`)
+- [ ] Trimestre `#sintesi-allenamenti` e `#statistiche` coerenti
 - [ ] `sitemap.xml` lastmod sessione
 
 ## Anomalie device

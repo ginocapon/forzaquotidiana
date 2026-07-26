@@ -1877,6 +1877,8 @@ a.session-card:hover {
 .month-stats th {
   color: var(--muted);
   font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Grafici performance mensili */
@@ -1936,10 +1938,108 @@ a.session-card:hover {
   font-weight: 600;
   color: var(--text);
 }
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
 .month-stats td:last-child { color: #ccc4b8; }
+
+/* Modulo TSB — bilancio allenamento CTL / ATL */
+.tsb-module {
+  margin: 0.5rem 0 0;
+}
+.tsb-module__kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+@media (max-width: 560px) {
+  .tsb-module__kpis { grid-template-columns: 1fr; }
+}
+.tsb-kpi {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+}
+.tsb-kpi--primary {
+  border-color: rgba(100, 149, 237, 0.45);
+  background: rgba(60, 90, 150, 0.15);
+}
+.tsb-kpi__label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+.tsb-kpi__val {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.tsb-kpi__zone {
+  display: inline-block;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  color: #8eb4e8;
+  font-weight: 600;
+}
+.tsb-chart {
+  background: rgba(10, 14, 22, 0.65);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+.tsb-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.tsb-zone { opacity: 0.22; }
+.tsb-zone--rilassato { fill: #3d8b5a; }
+.tsb-zone--energetico { fill: #4a8fb8; }
+.tsb-zone--bilanciato { fill: #2f5f9e; }
+.tsb-zone--ottimale { fill: #1a3558; }
+.tsb-zone__label {
+  fill: rgba(255, 255, 255, 0.55);
+  font-size: 9px;
+  text-anchor: end;
+}
+.tsb-bar { fill: rgba(180, 180, 180, 0.35); }
+.tsb-line { stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.tsb-line--ctl { stroke: #4a9eff; }
+.tsb-line--atl { stroke: #e85d5d; }
+.tsb-dot--ctl { fill: #4a9eff; }
+.tsb-dot--atl { fill: #e85d5d; }
+.tsb-focus { stroke: rgba(255, 255, 255, 0.35); stroke-width: 1; stroke-dasharray: 4 3; }
+.tsb-grid { stroke: rgba(255, 255, 255, 0.06); stroke-width: 1; }
+.tsb-axis { fill: var(--muted); font-size: 9px; }
+.tsb-axis--x { text-anchor: middle; }
+.tsb-module__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.tsb-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+.tsb-swatch--ctl { background: #4a9eff; }
+.tsb-swatch--atl { background: #e85d5d; }
+.tsb-swatch--load { background: rgba(180, 180, 180, 0.5); }
+.tsb-module__copy h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--accent);
+}
+.tsb-module__copy p { margin: 0 0 0.65rem; }
+.tsb-module__note { color: var(--muted); font-size: 0.82rem; }
 
 .scheda-full { display: none; }
 

@@ -225,10 +225,11 @@ Gauge SVG semicircolare `.hr-effect-gauge`.
 ### Cronostoria e statistiche mensili
 
 - Sessioni ordinate **cronologicamente** (più recente in alto).
-- **Database:** `data/performance-sessions.json` (ogni sessione) + `data/performance-monthly.json` (medie e grafici).
-- **Skill dedicata:** `SKILL-PERFORMANCE.md` — flusso screenshot Zepp, JSON, grafici, checklist.
-- **Script:** `node tools/aggiorna-performance.mjs` dopo ogni aggiornamento sessioni.
-- Tabella `.month-stats` + grafici `#perf-charts` (JS: `performance-charts.js`) nel trimestre `#statistiche`.
+- **Database:** `data/performance-sessions.json` (ogni sessione) + `data/performance-monthly.json` (medie e grafici) + `data/performance-tsb.json` (bilancio CTL/ATL/TSB).
+- **Skill dedicata:** `SKILL-PERFORMANCE.md` — flusso screenshot Zepp, JSON, grafici, TSB, checklist.
+- **Script:** `node tools/aggiorna-performance.mjs` dopo ogni aggiornamento sessioni (rigenera anche `performance-tsb.json` via `calcola-tsb.mjs`).
+- Trimestre: sezione `#sintesi-allenamenti` (modulo TSB) + tabella `.month-stats` + grafici `#perf-charts` (JS: `performance-charts.js`) in `#statistiche`.
+- Ogni pagina sessione: blocco **Sintesi carico · TSB** (`js/tsb-module.js`) con analisi per data.
 
 | Mese | Sessioni | Con export | Durata totale | FC media | Calorie | Carico medio | Gruppi ø |
 |------|----------|------------|---------------|----------|---------|--------------|----------|
@@ -270,7 +271,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=32` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=33` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -286,8 +287,9 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 | 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati |
 | 4 | Galleria | `.session-panel` + `.collage--scatter` | Se foto/video |
 | 5 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
-| 6 | Navigazione | `.session-nav` | Sì |
-| 7 | Data aggiornamento | `.session-meta-footer` | Sì |
+| 6 | Sintesi carico TSB | `.session-panel` + `.tsb-module` | Sì |
+| 7 | Navigazione | `.session-nav` | Sì |
+| 8 | Data aggiornamento | `.session-meta-footer` | Sì |
 
 #### Hero `.session-hero` + KPI `.session-kpis`
 
@@ -389,6 +391,26 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 **Input Gino ad ogni sessione:** invia screenshot Zepp (WhatsApp/chat) — **4 schermate fisse**: riepilogo, grafico FC, zone+effetto, radar tecnica. L’agente li salva in `img/allenamenti/amazfit/`, compila galleria (tutti e 4) + dati + card tecnica + analisi. **Checklist rapida:** `[ ] riepilogo  [ ] fc-grafico  [ ] zone-effetto  [ ] tecnica`
 
 **Layout:** griglia visibile — **mai** scroll orizzontale che taglia i dati a destra. Vedi `SKILL-PERFORMANCE.md`.
+
+#### Blocco sintesi carico TSB (dopo metabolico, prima di `.session-nav`)
+
+Grafico cumulativo su **tutte** le sessioni pubblicate — con evidenziazione della data corrente e analisi testuale specifica.
+
+```html
+<section class="session-panel" aria-labelledby="tsb-sintesi">
+  <span class="session-panel__label">Sintesi carico</span>
+  <h2 id="tsb-sintesi">Bilancio allenamento · TSB</h2>
+  <div class="tsb-module" data-session-id="YYYY-MM-DD-scheda-N"></div>
+</section>
+```
+
+Script in fondo pagina (dopo `cookie-consent.js`):
+
+```html
+<script src="/js/tsb-module.js?v=1" defer></script>
+```
+
+**Manutenzione:** ad ogni nuova sessione aggiungere voce in `ANALISI` dentro `tools/calcola-tsb.mjs` (titolo + testo interpretativo). Dettaglio calcolo in `SKILL-PERFORMANCE.md` § Bilancio TSB.
 
 Valori mancanti: `—`. Asterisco `*` se sovrastima device. Sessioni senza screenshot: solo `.amazfit-data` + nota «export Zepp non disponibile».
 
@@ -676,6 +698,7 @@ Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Su
 - [ ] SVG verificati per ogni esercizio
 - [ ] Almeno 1 log cardiaco se disponibile
 - [ ] Tabella statistiche mensili aggiornata
+- [ ] Sezione `#sintesi-allenamenti` (modulo TSB) coerente con ultime sessioni
 - [ ] `sitemap.xml` + voce Diario + `llms.txt`
 - [ ] `og:image` = hero sito o grafica trimestre SVG (non screenshot Amazfit con dati personali sensibili oltre ciò che Gino approva)
 - [ ] Scheda pesi PDF aggiornata in `/allenamenti/schede-peso/`
@@ -684,6 +707,7 @@ Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Su
 ### Checklist sessione + articolo (stesso giorno)
 
 - [ ] Log `.hr-log` in pagina sessione dedicata (non nel trimestre)
+- [ ] Blocco **Sintesi carico · TSB** con `data-session-id` corretto + voce in `ANALISI` (`calcola-tsb.mjs`)
 - [ ] Se c’è riflessione: pagina in `/diario/` **senza link** al log sessione
 - [ ] Catch Ball / esercizi nuovi: card opzionale in giorno scheda
 - [ ] Statistiche mensili ricalcolate
