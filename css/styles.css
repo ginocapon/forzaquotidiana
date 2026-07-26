@@ -1946,6 +1946,24 @@ a.session-card:hover {
   border: 1px solid rgba(201, 120, 58, 0.22);
   border-radius: 12px;
   background: linear-gradient(145deg, rgba(18, 18, 22, 0.95) 0%, rgba(12, 12, 16, 0.98) 100%);
+  min-height: 12rem;
+}
+.tsb-module__placeholder {
+  color: var(--muted);
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+}
+.tsb-module__placeholder strong {
+  color: #6eb5f0;
+  font-size: 1.15rem;
+}
+.trimestre-tsb-jump {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+}
+.trimestre-tsb-jump a {
+  color: var(--accent);
+  font-weight: 600;
 }
 .tsb-module__head {
   display: grid;
