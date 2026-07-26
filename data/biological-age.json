@@ -1,17 +1,18 @@
 {
-  "_nota": "Età biologica stimata (bilanciata): profilo 10+ anni palestra (−2 aa) + bonus trimestre da Zepp, scalato a 8 sessioni. Riflette costanza e sensazione di benessere, non dato clinico. node tools/aggiorna-bio-age.mjs",
+  "_nota": "Età biologica stimata: profilo forza 10+ anni (−3 aa) + componente forza Zepp + bonus trimestre. Per lifter maturo forte, non dato clinico. node tools/aggiorna-bio-age.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
   "updated": "2026-07-26",
   "chronological_age": 57,
-  "biological_age": 53.8,
-  "offset_years": 3.2,
-  "delta_vs_chrono": 3.2,
+  "biological_age": 51.9,
+  "offset_years": 5.1,
+  "delta_vs_chrono": 5.1,
   "trend": "in miglioramento",
   "methodology": {
-    "profile_offset": 2,
-    "profile_note": "10+ anni palestra — corpo abituato all'allenamento",
-    "max_trimestre_offset": 2.5,
-    "max_total_offset": 4,
+    "profile_offset": 3,
+    "profile_note": "10+ anni palestra, forza sopra media anche vs trentenni in sala",
+    "strength_offset": 1,
+    "max_trimestre_offset": 2.2,
+    "max_total_offset": 6.5,
     "maturity_sessions": 8,
     "maturity_pct": 0.6
   },
@@ -19,60 +20,62 @@
     "ctl": 33.4,
     "fc_media_pesata": 109,
     "effetto_aerobico_medio": 3,
+    "effetto_anaerobico_medio": 2.8,
     "sessioni_documentate": 5,
     "sessioni_complete": 5,
     "breakdown_anni": {
-      "ctl": 0.5,
-      "aerobico": 0.3,
+      "forza_anaerobica": 0.3,
+      "ctl": 0.4,
+      "aerobico": 0.2,
       "fc": 0.2,
-      "costanza": 0.2,
+      "costanza": 0.1,
       "tecnica": 0.2
     }
   },
   "timeline": [
     {
       "date": "2026-06-01",
-      "age": 55,
-      "offset": 2,
+      "age": 54,
+      "offset": 3,
       "sessions": 0,
-      "note": "Profilo: 10+ anni palestra — già più giovane del cronologico"
+      "note": "Profilo: 10+ anni forza in palestra"
     },
     {
       "date": "2026-07-16",
-      "age": 54.9,
-      "offset": 2.1,
+      "age": 53,
+      "offset": 4,
       "sessions": 1,
       "ctl": 11.4,
       "maturity": 0.1
     },
     {
       "date": "2026-07-20",
-      "age": 54.8,
-      "offset": 2.2,
+      "age": 52.9,
+      "offset": 4.1,
       "sessions": 2,
       "ctl": 12.2,
       "maturity": 0.3
     },
     {
       "date": "2026-07-21",
-      "age": 54.6,
-      "offset": 2.4,
+      "age": 53,
+      "offset": 4,
       "sessions": 3,
       "ctl": 13,
       "maturity": 0.4
     },
     {
       "date": "2026-07-23",
-      "age": 54.4,
-      "offset": 2.6,
+      "age": 52.5,
+      "offset": 4.5,
       "sessions": 4,
       "ctl": 15.8,
       "maturity": 0.5
     },
     {
       "date": "2026-07-24",
-      "age": 53.7,
-      "offset": 3.3,
+      "age": 51.8,
+      "offset": 5.2,
       "sessions": 5,
       "ctl": 35,
       "maturity": 0.6
