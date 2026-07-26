@@ -7,17 +7,27 @@
   var roots = document.querySelectorAll("[data-training-load]");
   if (!roots.length) return;
 
+  // Grafico già pre-renderizzato in HTML — non sostituire
+  var needsFetch = [];
+  roots.forEach(function (root) {
+    if (root.classList.contains("tsb-module--static") && root.querySelector(".tsb-module__svg")) return;
+    needsFetch.push(root);
+  });
+  if (!needsFetch.length) return;
+
   fetch("/data/training-load.json")
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      roots.forEach(function (root) {
+      needsFetch.forEach(function (root) {
         var mode = root.getAttribute("data-training-load");
         renderModule(root, data, mode);
       });
     })
     .catch(function () {
-      roots.forEach(function (root) {
-        root.innerHTML = "<p class=\"tsb-module__fallback\"><small>Modulo TSB non disponibile.</small></p>";
+      needsFetch.forEach(function (root) {
+        if (!root.querySelector(".tsb-module__svg")) {
+          root.innerHTML = "<p class=\"tsb-module__fallback\"><small>Modulo TSB non disponibile.</small></p>";
+        }
       });
     });
 

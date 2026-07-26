@@ -66,28 +66,34 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 
 Zepp calcola **CTL** (fitness), **ATL** (fatica) e **TSB** (Training Stress Balance = CTL − ATL). Stati tipici: **Rilassato · Energetico · Bilanciato · Ottimale**.
 
+**Regola bloccante:** il **grafico** (linee CTL/ATL, barre carico, legenda zone) deve essere **sempre visibile** in HTML — SVG pre-renderizzato, **non** solo testo o solo JS. Il giudizio della singola giornata viene **sotto** il grafico.
+
 | Dove | Cosa |
 |------|------|
-| **Ogni pagina sessione** | Sezione `.session-panel--tsb` **prima** del blocco metabolico — grafico con focus sulla **data** dell’allenamento + testo stato fatica/riposo quel giorno |
-| **Trimestre `#statistiche`** | Vista `overview` — panoramica completa con tutte le date di sessione evidenziate |
+| **Ogni pagina sessione** | Sezione `.session-panel--tsb` in testa — **grafico SVG** + focus data allenamento + giudizio giornata |
+| **Trimestre — ogni Scheda 1–4** | **Grafico SVG** sotto l’intestazione scheda (focus ultima sessione di quel tipo) |
+| **Trimestre `#modulo-tsb`** | Vista `overview` — panoramica completa |
 
 **Implementazione:**
-- Dati: `data/training-load.json` (generato da `node tools/aggiorna-training-load.mjs`)
-- JS: `js/training-load-chart.js` — `data-training-load="YYYY-MM-DD"` o `overview`
-- Override Zepp verificati in `training-load.json` → `overrides` (es. snapshot 24/07 da screenshot)
+- Dati: `data/training-load.json` (`node tools/aggiorna-training-load.mjs`)
+- Renderer: `tools/tsb-render.mjs` → SVG statico in pagina
+- Iniezione: `node tools/inietta-tsb-pagine.mjs` (anche automatico dopo aggiorna-training-load)
+- JS opzionale: `js/training-load-chart.js` — solo se il grafico statico manca
+- Override Zepp in `training-load.json` → `overrides`
 
-**HTML sessione (obbligatorio):**
+**HTML sessione (obbligatorio — grafico già dentro):**
 
 ```html
-<section class="session-panel session-panel--tsb" aria-labelledby="tsb-modulo">
-  <span class="session-panel__label" id="tsb-modulo">Fitness · fatica · riposo</span>
-  <div class="tsb-module" data-training-load="YYYY-MM-DD" aria-live="polite"></div>
+<!-- TSB-START -->
+<section class="session-panel session-panel--tsb" …>
+  <div class="tsb-module tsb-module--static" data-training-load="YYYY-MM-DD">
+    … SVG grafico CTL/ATL + KPI + giudizio …
+  </div>
 </section>
+<!-- TSB-END -->
 ```
 
-Script: `<script src="/js/training-load-chart.js?v=1" defer></script>`
-
-Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
+Dopo ogni nuova sessione: `node tools/aggiorna-training-load.mjs` (rigenera JSON + pagine).
 
 ## Campi JSON (`performance-sessions.json`)
 
@@ -161,8 +167,8 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 - [ ] Analisi `.metabolic-note` scritta
 - [ ] Voce in `performance-sessions.json`
 - [ ] `node tools/aggiorna-performance.mjs` eseguito
-- [ ] `node tools/aggiorna-training-load.mjs` eseguito
-- [ ] Modulo TSB in pagina sessione + trimestre `#statistiche`
+- [ ] `node tools/aggiorna-training-load.mjs` eseguito (rigenera anche grafici statici)
+- [ ] **Grafico SVG TSB visibile** in sessione + Scheda 1–4 trimestre + `#modulo-tsb`
 - [ ] Trimestre `#statistiche` coerente
 - [ ] `sitemap.xml` lastmod sessione
 

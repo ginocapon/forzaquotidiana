@@ -137,6 +137,9 @@ const out = {
 writeFileSync(LOAD_PATH, JSON.stringify(out, null, 2) + "\n");
 console.log("training-load.json aggiornato —", timeline.length, "giorni,", Object.keys(snapshots).length, "snapshot sessione.");
 
+// Rigenera grafici statici nelle pagine
+import("./inietta-tsb-pagine.mjs").catch((e) => console.warn("inietta-tsb:", e.message));
+
 function round(n) {
   return Math.round(n * 10) / 10;
 }

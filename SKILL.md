@@ -270,7 +270,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=32` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=35` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -328,16 +328,15 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 
 #### Modulo TSB (fitness · fatica · riposo) — obbligatorio
 
-Prima del blocco metabolico, ogni pagina sessione include il **grafico TSB** Zepp (CTL/ATL) con evidenziazione dello stato **nel giorno dell’allenamento**. Trimestre: vista panoramica in `#statistiche`. Dettaglio operativo: `SKILL-PERFORMANCE.md` § Modulo TSB.
+Ogni pagina sessione e ogni **Scheda 1–4** nel trimestre includono il **grafico TSB** (CTL/ATL, barre carico, zone) **sempre visibile** come SVG statico in HTML — non solo il giudizio testuale del giorno. Riepilogo trimestrale in `#modulo-tsb`. Dettaglio: `SKILL-PERFORMANCE.md` § Modulo TSB.
+
+Dopo ogni sessione: `node tools/aggiorna-training-load.mjs` (aggiorna JSON + rigenera grafici nelle pagine).
 
 ```html
-<section class="session-panel session-panel--tsb" aria-labelledby="tsb-modulo">
-  <span class="session-panel__label" id="tsb-modulo">Fitness · fatica · riposo</span>
-  <div class="tsb-module" data-training-load="YYYY-MM-DD" aria-live="polite"></div>
-</section>
+<!-- TSB-START --> … grafico SVG + giudizio giornata … <!-- TSB-END -->
 ```
 
-Script: `js/training-load-chart.js` · dati: `data/training-load.json` · tool: `node tools/aggiorna-training-load.mjs`
+Tools: `tools/tsb-render.mjs` · `tools/inietta-tsb-pagine.mjs` · dati: `data/training-load.json`
 
 #### Blocco foto e video (dentro `.session-panel`)
 
@@ -637,7 +636,7 @@ Slug **corto, descrittivo, unico** — niente doppioni semantici con articoli es
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=32`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=35`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 

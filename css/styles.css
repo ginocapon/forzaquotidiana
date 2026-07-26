@@ -2038,6 +2038,14 @@ a.session-card:hover {
   border-radius: 3px;
   color: rgba(255, 255, 255, 0.75);
 }
+.tsb-zone__title {
+  font-size: 0.58rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+  display: block;
+}
 .tsb-zone--rilassato { background: linear-gradient(90deg, transparent, rgba(111, 207, 151, 0.35)); }
 .tsb-zone--energetico { background: linear-gradient(90deg, transparent, rgba(125, 211, 192, 0.3)); }
 .tsb-zone--bilanciato { background: linear-gradient(90deg, transparent, rgba(110, 181, 240, 0.35)); }
@@ -2079,6 +2087,23 @@ a.session-card:hover {
   line-height: 1.55;
 }
 .tsb-module__session-note strong { color: var(--text); }
+.tsb-module__legend {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+.tsb-legend--atl { color: #e85d5d; }
+.tsb-legend--ctl { color: #5eb0f5; }
+.tsb-legend--bar { color: rgba(255, 255, 255, 0.45); }
+.tsb-module--trimestre {
+  margin: 1.25rem 0 1.75rem;
+}
+.tsb-module--static .tsb-module__svg {
+  min-height: 200px;
+}
 .tsb-module__fallback { color: var(--muted); margin: 0; }
 .session-panel--tsb .session-panel__label { color: #6eb5f0; }
 
