@@ -1,8 +1,14 @@
 /**
- * Calcola età biologica da export Zepp/Amazfit + profilo forza reale.
- * Pensato per dilettante maturo con anni di palestra e forza sopra la media
- * (anche rispetto a molti trentenni in sala).
- * Esegui dopo aggiornamento sessioni: node tools/aggiorna-bio-age.mjs
+ * Età biologica — modello a crediti da dati Zepp reali.
+ *
+ * Pilastri (tetto totale −5,8 aa):
+ *   1. Storia palestra (10+ anni)     max −2,5
+ *   2. Fitness CTL (Zepp verificato)  max −1,4
+ *   3. Cardio (FC + aerobico)         max −1,0
+ *   4. Forza (anaerobico, carico, vol) max −1,6
+ *   5. Trimestre documentato          max −0,9 (scala con sessioni/12)
+ *
+ * node tools/aggiorna-bio-age.mjs
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -16,18 +22,28 @@ const OUT_PATH = join(REPO, "data/biological-age.json");
 
 const CHRONO_AGE = 57;
 const TRIMESTRE_START = "2026-06-01";
-/** 10+ anni palestra con forza consolidata — già molto sotto il cronologico */
-const PROFILE_OFFSET = 3;
-/** Bonus forza da carico, anaerobico e volume (sopra media sala) */
-const MAX_STRENGTH_OFFSET = 1.4;
-/** Bonus trimestre documentato (con 8+ sessioni complete) */
-const MAX_TRIMESTRE_OFFSET = 2.2;
-/** Tetto totale per lifter maturo forte e costante */
-const MAX_TOTAL_OFFSET = 6.5;
-const MATURITY_SESSIONS = 8;
+const TRAINING_YEARS = 10;
+const MATURITY_SESSIONS = 12;
+
+const CAPS = {
+  total: 5.8,
+  storia: 2.5,
+  ctl: 1.4,
+  cardio: 1.0,
+  forza: 1.6,
+  trimestre: 0.9,
+};
 
 function round1(n) {
   return Math.round(n * 10) / 10;
+}
+
+function clamp(v, min, max) {
+  return Math.min(max, Math.max(min, v));
+}
+
+function avgOf(list) {
+  return list.length ? list.reduce((a, b) => a + b, 0) / list.length : null;
 }
 
 function sessionLoad(s) {
@@ -52,93 +68,30 @@ function techniqueScore(s) {
   return Math.min(1, score);
 }
 
-function maturityFactor(completeSessions) {
-  return Math.min(1, completeSessions / MATURITY_SESSIONS);
+/** CTL Zepp verificato (override) o ultimo snapshot sessione, non proiezione decaduta */
+function verifiedCtl(loadData, endDate) {
+  const overrides = loadData.overrides || {};
+  const overrideDates = Object.keys(overrides)
+    .filter((d) => d <= endDate)
+    .sort();
+  if (overrideDates.length) {
+    return overrides[overrideDates[overrideDates.length - 1]].ctl;
+  }
+  const snapshots = loadData.snapshots || {};
+  const snapDates = Object.keys(snapshots)
+    .filter((d) => d <= endDate)
+    .sort();
+  if (snapDates.length) {
+    return snapshots[snapDates[snapDates.length - 1]].ctl;
+  }
+  const timeline = (loadData.timeline || []).filter((d) => d.date <= endDate);
+  const last = timeline[timeline.length - 1];
+  return last?.ctl ?? loadData.baseline?.ctl ?? 28;
 }
 
-function avgOf(list) {
-  return list.length ? list.reduce((a, b) => a + b, 0) / list.length : null;
-}
-
-function strengthOffsetRaw(complete) {
-  const anaerobic = complete
-    .map((s) => s.effetto_anaerobico)
-    .filter((v) => v != null);
-  const loads = complete.map((s) => sessionLoad(s)).filter((v) => v != null);
-  const gruppi = complete.map((s) => s.gruppi).filter((v) => v != null);
-
-  const anaerobicAvg = avgOf(anaerobic);
-  const loadAvg = avgOf(loads);
-  const gruppiAvg = avgOf(gruppi);
-
-  const anaerobicPart = anaerobicAvg != null
-    ? Math.min(0.55, Math.max(0, (anaerobicAvg - 2.2) * 0.5))
-    : 0;
-  const loadPart = loadAvg != null
-    ? Math.min(0.5, Math.max(0, (loadAvg - 45) * 0.012))
-    : 0;
-  const volumePart = gruppiAvg != null
-    ? Math.min(0.35, Math.max(0, (gruppiAvg - 16) * 0.035))
-    : 0;
-
-  return Math.min(MAX_STRENGTH_OFFSET, anaerobicPart + loadPart + volumePart);
-}
-
-function trimestreOffsetRaw({ ctl, avgAerobic, avgHr, sessionCount, techniqueAvg }) {
-  const ctlPart = Math.min(1, Math.max(0, (ctl - 22) * 0.06));
-  const aerobicPart = avgAerobic != null
-    ? Math.min(0.5, Math.max(0, (avgAerobic - 2) * 0.38))
-    : 0;
-  const hrPart = avgHr != null
-    ? Math.min(0.4, Math.max(0, (116 - avgHr) * 0.035))
-    : 0;
-  const consistencyPart = Math.min(0.45, (sessionCount / 10) * 0.45);
-  const techniquePart = Math.min(0.25, techniqueAvg * 0.25);
-
-  return Math.min(
-    MAX_TRIMESTRE_OFFSET,
-    ctlPart + aerobicPart + hrPart + consistencyPart + techniquePart
-  );
-}
-
-function computeOffset(metrics, completeSessions) {
-  const maturity = maturityFactor(metrics.completeSessions);
-  const strength = strengthOffsetRaw(completeSessions);
-  const trimestre = trimestreOffsetRaw(metrics) * maturity;
-  const total = Math.min(MAX_TOTAL_OFFSET, PROFILE_OFFSET + strength + trimestre);
-
-  return {
-    profile: PROFILE_OFFSET,
-    strength: round1(strength),
-    trimestre: round1(trimestre),
-    total: round1(total),
-    maturity: round1(maturity),
-    breakdown: {
-      forza_anaerobica: round1(
-        (avgOf(completeSessions.map((s) => s.effetto_anaerobico).filter((v) => v != null)) != null
-          ? Math.min(0.55, Math.max(0, (avgOf(completeSessions.map((s) => s.effetto_anaerobico).filter((v) => v != null)) - 2.2) * 0.5))
-          : 0)
-      ),
-      ctl: round1(Math.min(1, Math.max(0, (metrics.ctl - 22) * 0.06)) * maturity),
-      aerobico: round1(
-        (metrics.avgAerobic != null
-          ? Math.min(0.5, Math.max(0, (metrics.avgAerobic - 2) * 0.38))
-          : 0) * maturity
-      ),
-      fc: round1(
-        (metrics.avgHr != null
-          ? Math.min(0.4, Math.max(0, (116 - metrics.avgHr) * 0.035))
-          : 0) * maturity
-      ),
-      costanza: round1(Math.min(0.45, (metrics.sessionCount / 10) * 0.45) * maturity),
-      tecnica: round1(Math.min(0.25, metrics.techniqueAvg * 0.25) * maturity),
-    },
-  };
-}
-
-function metricsUpTo(sessions, loadData, endDate) {
+function collectMetrics(sessions, loadData, endDate) {
   const complete = sessions.filter((s) => isComplete(s) && s.date <= endDate);
-  const partialCount = sessions.filter((s) => !s.partial && s.date <= endDate).length;
+  const documented = sessions.filter((s) => !s.partial && s.date <= endDate).length;
 
   let fcWeighted = 0;
   let fcWeight = 0;
@@ -147,6 +100,10 @@ function metricsUpTo(sessions, loadData, endDate) {
   let techniqueSum = 0;
   let techniqueCount = 0;
 
+  const anaerobic = [];
+  const loads = [];
+  const gruppi = [];
+
   for (const s of complete) {
     fcWeighted += s.fc_media * s.durata_sec;
     fcWeight += s.durata_sec;
@@ -154,36 +111,91 @@ function metricsUpTo(sessions, loadData, endDate) {
       aerobicSum += s.effetto_aerobico;
       aerobicCount += 1;
     }
+    if (s.effetto_anaerobico != null) anaerobic.push(s.effetto_anaerobico);
+    const load = sessionLoad(s);
+    if (load != null) loads.push(load);
+    if (s.gruppi != null) gruppi.push(s.gruppi);
     if (s.tecnica) {
       techniqueSum += techniqueScore(s);
       techniqueCount += 1;
     }
   }
 
-  const timeline = (loadData.timeline || []).filter((d) => d.date <= endDate);
-  const lastPoint = timeline[timeline.length - 1];
-  const ctl = lastPoint?.ctl ?? loadData.baseline?.ctl ?? 28;
-
   return {
-    ctl,
+    ctl: verifiedCtl(loadData, endDate),
     avgHr: fcWeight ? fcWeighted / fcWeight : null,
     avgAerobic: aerobicCount ? aerobicSum / aerobicCount : null,
-    sessionCount: partialCount,
+    avgAnaerobic: avgOf(anaerobic),
+    peakAnaerobic: anaerobic.length ? Math.max(...anaerobic) : null,
+    avgLoad: avgOf(loads),
+    avgGruppi: avgOf(gruppi),
     completeSessions: complete.length,
+    documentedSessions: documented,
     techniqueAvg: techniqueCount ? techniqueSum / techniqueCount : 0,
-    complete,
+  };
+}
+
+function computeCredits(m) {
+  const storia = clamp(TRAINING_YEARS * 0.25, 0, CAPS.storia);
+
+  const ctl = clamp((m.ctl - 22) * 0.07, 0, CAPS.ctl);
+
+  const hrPart = m.avgHr != null ? clamp((120 - m.avgHr) * 0.04, 0, 0.55) : 0;
+  const aerobicPart = m.avgAerobic != null
+    ? clamp((m.avgAerobic - 2.5) * 0.5, 0, 0.45)
+    : 0;
+  const cardio = clamp(hrPart + aerobicPart, 0, CAPS.cardio);
+
+  const anaerobicAvgPart = m.avgAnaerobic != null
+    ? clamp((m.avgAnaerobic - 2.2) * 0.4, 0, 0.55)
+    : 0;
+  const anaerobicPeakPart = m.peakAnaerobic != null
+    ? clamp((m.peakAnaerobic - 2.5) * 0.35, 0, 0.5)
+    : 0;
+  const loadPart = m.avgLoad != null
+    ? clamp((m.avgLoad - 50) * 0.015, 0, 0.35)
+    : 0;
+  const volumePart = m.avgGruppi != null
+    ? clamp((m.avgGruppi - 18) * 0.04, 0, 0.25)
+    : 0;
+  const forza = clamp(anaerobicAvgPart + anaerobicPeakPart + loadPart + volumePart, 0, CAPS.forza);
+
+  const maturity = clamp(m.completeSessions / MATURITY_SESSIONS, 0, 1);
+  const trimestre = clamp((m.documentedSessions / MATURITY_SESSIONS) * CAPS.trimestre * maturity, 0, CAPS.trimestre);
+
+  const raw = storia + ctl + cardio + forza + trimestre;
+  const total = round1(clamp(raw, 0, CAPS.total));
+
+  return {
+    storia: round1(storia),
+    ctl: round1(ctl),
+    cardio: round1(cardio),
+    forza: round1(forza),
+    trimestre: round1(trimestre),
+    total,
+    maturity: round1(maturity),
+    raw_inputs: {
+      ctl_zepp: round1(m.ctl),
+      fc_media_pesata: m.avgHr != null ? Math.round(m.avgHr) : null,
+      effetto_aerobico_medio: m.avgAerobic != null ? round1(m.avgAerobic) : null,
+      effetto_anaerobico_medio: m.avgAnaerobic != null ? round1(m.avgAnaerobic) : null,
+      effetto_anaerobico_picco: m.peakAnaerobic != null ? round1(m.peakAnaerobic) : null,
+      carico_medio: m.avgLoad != null ? Math.round(m.avgLoad) : null,
+      gruppi_medi: m.avgGruppi != null ? Math.round(m.avgGruppi) : null,
+      sessioni_complete: m.completeSessions,
+      sessioni_documentate: m.documentedSessions,
+      tecnica_media: m.techniqueAvg > 0 ? round1(m.techniqueAvg) : null,
+    },
   };
 }
 
 const sessionsRaw = JSON.parse(readFileSync(SESSIONS_PATH, "utf8"));
 const sessions = sessionsRaw.sessions || [];
 
-let loadData = { baseline: { ctl: 28 }, timeline: [] };
+let loadData = { baseline: { ctl: 28 }, timeline: [], overrides: {}, snapshots: {} };
 if (existsSync(LOAD_PATH)) {
   loadData = JSON.parse(readFileSync(LOAD_PATH, "utf8"));
 }
-
-const baselineAge = round1(CHRONO_AGE - PROFILE_OFFSET);
 
 const sessionDates = sessions
   .filter((s) => !s.partial && sessionLoad(s) != null)
@@ -192,66 +204,66 @@ const sessionDates = sessions
 
 const timelinePoints = [{
   date: TRIMESTRE_START,
-  age: baselineAge,
-  offset: PROFILE_OFFSET,
-  sessions: 0,
-  note: "Profilo: 10+ anni forza in palestra",
+  ...(() => {
+    const c = computeCredits(collectMetrics(sessions, loadData, TRIMESTRE_START));
+    return {
+      age: round1(CHRONO_AGE - c.total),
+      offset: c.total,
+      sessions: 0,
+      ctl: verifiedCtl(loadData, TRIMESTRE_START),
+      note: "Profilo 10+ anni palestra, trimestre Q3 non ancora documentato",
+    };
+  })(),
 }];
 
 for (const date of sessionDates) {
-  const m = metricsUpTo(sessions, loadData, date);
-  const offset = computeOffset(m, m.complete);
+  const m = collectMetrics(sessions, loadData, date);
+  const credits = computeCredits(m);
   timelinePoints.push({
     date,
-    age: round1(CHRONO_AGE - offset.total),
-    offset: offset.total,
-    sessions: m.sessionCount,
-    ctl: round1(m.ctl),
-    maturity: offset.maturity,
+    age: round1(CHRONO_AGE - credits.total),
+    offset: credits.total,
+    sessions: m.documentedSessions,
+    ctl: m.ctl,
+    maturity: credits.maturity,
   });
 }
 
 const today = new Date().toISOString().slice(0, 10);
-const currentMetrics = metricsUpTo(sessions, loadData, today);
-const currentOffset = computeOffset(currentMetrics, currentMetrics.complete);
-const currentAge = round1(CHRONO_AGE - currentOffset.total);
+const currentMetrics = collectMetrics(sessions, loadData, today);
+const currentCredits = computeCredits(currentMetrics);
+const currentAge = round1(CHRONO_AGE - currentCredits.total);
 const delta = round1(CHRONO_AGE - currentAge);
 
 const out = {
-  _nota: "Età biologica stimata: profilo forza 10+ anni (−3 aa) + componente forza Zepp + bonus trimestre. Per lifter maturo forte, non dato clinico. node tools/aggiorna-bio-age.mjs",
+  _nota: "Età biologica da crediti Zepp verificati + profilo 10+ anni palestra. Non dato clinico. node tools/aggiorna-bio-age.mjs",
   trimestre: sessionsRaw.trimestre,
   updated: today,
   chronological_age: CHRONO_AGE,
   biological_age: currentAge,
-  offset_years: currentOffset.total,
+  offset_years: currentCredits.total,
   delta_vs_chrono: delta,
-  trend: delta >= 4 ? "in miglioramento" : delta >= 2.5 ? "positiva" : "in costruzione",
+  trend: delta >= 4.5 ? "in miglioramento" : delta >= 2.5 ? "positiva" : "in costruzione",
   methodology: {
-    profile_offset: PROFILE_OFFSET,
-    profile_note: "10+ anni palestra, forza sopra media anche vs trentenni in sala",
-    strength_offset: currentOffset.strength,
-    max_trimestre_offset: MAX_TRIMESTRE_OFFSET,
-    max_total_offset: MAX_TOTAL_OFFSET,
-    maturity_sessions: MATURITY_SESSIONS,
-    maturity_pct: currentOffset.maturity,
+    modello: "crediti per pilastro",
+    max_offset_totale: CAPS.total,
+    ctl_fonte: "Zepp verificato (override/snapshot), non proiezione decaduta",
+    maturita_sessioni: MATURITY_SESSIONS,
+    maturita_pct: currentCredits.maturity,
   },
-  components: {
-    ctl: round1(currentMetrics.ctl),
-    fc_media_pesata: currentMetrics.avgHr != null ? Math.round(currentMetrics.avgHr) : null,
-    effetto_aerobico_medio: currentMetrics.avgAerobic != null ? round1(currentMetrics.avgAerobic) : null,
-    effetto_anaerobico_medio: avgOf(
-      currentMetrics.complete.map((s) => s.effetto_anaerobico).filter((v) => v != null)
-    ) != null
-      ? round1(avgOf(currentMetrics.complete.map((s) => s.effetto_anaerobico).filter((v) => v != null)))
-      : null,
-    sessioni_documentate: currentMetrics.sessionCount,
-    sessioni_complete: currentMetrics.completeSessions,
-    breakdown_anni: currentOffset.breakdown,
+  crediti_anni: {
+    storia_palestra: currentCredits.storia,
+    fitness_ctl: currentCredits.ctl,
+    cardio: currentCredits.cardio,
+    forza: currentCredits.forza,
+    trimestre_documentato: currentCredits.trimestre,
   },
+  dati_zepp: currentCredits.raw_inputs,
   timeline: timelinePoints,
 };
 
 writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + "\n");
 console.log(`OK -> ${OUT_PATH}`);
-console.log(`Età biologica: ${currentAge} anni (cronologica ${CHRONO_AGE}, −${delta} anni)`);
-console.log(`  Profilo forza: −${PROFILE_OFFSET} | Forza Zepp: −${currentOffset.strength} | Trimestre: −${currentOffset.trimestre}`);
+console.log(`Età biologica: ${currentAge} anni (−${delta} vs ${CHRONO_AGE})`);
+console.log(`  Storia ${currentCredits.storia} | CTL ${currentCredits.ctl} | Cardio ${currentCredits.cardio} | Forza ${currentCredits.forza} | Trimestre ${currentCredits.trimestre}`);
+console.log(`  CTL Zepp usato: ${currentCredits.raw_inputs.ctl_zepp}`);

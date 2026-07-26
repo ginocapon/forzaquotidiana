@@ -1,49 +1,51 @@
 {
-  "_nota": "Età biologica stimata: profilo forza 10+ anni (−3 aa) + componente forza Zepp + bonus trimestre. Per lifter maturo forte, non dato clinico. node tools/aggiorna-bio-age.mjs",
+  "_nota": "Età biologica da crediti Zepp verificati + profilo 10+ anni palestra. Non dato clinico. node tools/aggiorna-bio-age.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
   "updated": "2026-07-26",
   "chronological_age": 57,
-  "biological_age": 51.9,
-  "offset_years": 5.1,
-  "delta_vs_chrono": 5.1,
+  "biological_age": 51.6,
+  "offset_years": 5.4,
+  "delta_vs_chrono": 5.4,
   "trend": "in miglioramento",
   "methodology": {
-    "profile_offset": 3,
-    "profile_note": "10+ anni palestra, forza sopra media anche vs trentenni in sala",
-    "strength_offset": 1,
-    "max_trimestre_offset": 2.2,
-    "max_total_offset": 6.5,
-    "maturity_sessions": 8,
-    "maturity_pct": 0.6
+    "modello": "crediti per pilastro",
+    "max_offset_totale": 5.8,
+    "ctl_fonte": "Zepp verificato (override/snapshot), non proiezione decaduta",
+    "maturita_sessioni": 12,
+    "maturita_pct": 0.4
   },
-  "components": {
-    "ctl": 33.4,
+  "crediti_anni": {
+    "storia_palestra": 2.5,
+    "fitness_ctl": 0.9,
+    "cardio": 0.7,
+    "forza": 1.2,
+    "trimestre_documentato": 0.2
+  },
+  "dati_zepp": {
+    "ctl_zepp": 35,
     "fc_media_pesata": 109,
     "effetto_aerobico_medio": 3,
     "effetto_anaerobico_medio": 2.8,
-    "sessioni_documentate": 5,
+    "effetto_anaerobico_picco": 3.6,
+    "carico_medio": 83,
+    "gruppi_medi": 23,
     "sessioni_complete": 5,
-    "breakdown_anni": {
-      "forza_anaerobica": 0.3,
-      "ctl": 0.4,
-      "aerobico": 0.2,
-      "fc": 0.2,
-      "costanza": 0.1,
-      "tecnica": 0.2
-    }
+    "sessioni_documentate": 5,
+    "tecnica_media": 1
   },
   "timeline": [
     {
       "date": "2026-06-01",
-      "age": 54,
-      "offset": 3,
+      "age": 54.1,
+      "offset": 2.9,
       "sessions": 0,
-      "note": "Profilo: 10+ anni forza in palestra"
+      "ctl": 27.3,
+      "note": "Profilo 10+ anni palestra, trimestre Q3 non ancora documentato"
     },
     {
       "date": "2026-07-16",
-      "age": 53,
-      "offset": 4,
+      "age": 53.3,
+      "offset": 3.7,
       "sessions": 1,
       "ctl": 11.4,
       "maturity": 0.1
@@ -54,15 +56,15 @@
       "offset": 4.1,
       "sessions": 2,
       "ctl": 12.2,
-      "maturity": 0.3
+      "maturity": 0.2
     },
     {
       "date": "2026-07-21",
-      "age": 53,
-      "offset": 4,
+      "age": 53.2,
+      "offset": 3.8,
       "sessions": 3,
       "ctl": 13,
-      "maturity": 0.4
+      "maturity": 0.3
     },
     {
       "date": "2026-07-23",
@@ -70,15 +72,15 @@
       "offset": 4.5,
       "sessions": 4,
       "ctl": 15.8,
-      "maturity": 0.5
+      "maturity": 0.3
     },
     {
       "date": "2026-07-24",
-      "age": 51.8,
-      "offset": 5.2,
+      "age": 51.6,
+      "offset": 5.4,
       "sessions": 5,
       "ctl": 35,
-      "maturity": 0.6
+      "maturity": 0.4
     }
   ]
 }
