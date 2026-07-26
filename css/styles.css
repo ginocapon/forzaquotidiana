@@ -1,14 +1,27 @@
-/* La Forza Quotidiana — v24 · Dark + Panel Relief Gold */
+/* La Forza Quotidiana — v32 · Dark + Panel Relief Gold + Landing Premium */
 :root {
   --bg: #0c0c0c;
   --surface: #161616;
   --surface-2: #1f1f1f;
   --text: #f4efe6;
+  --text-secondary: #ddd5c9;
   --muted: #a39a90;
   --accent: #c9783a;
+  --color-primary: #c9783a;
+  --color-accent-warm: #f0c090;
+  --color-accent-trust: #1e3a52;
+  --color-bg: #0c0c0c;
+  --color-surface: #161616;
   --accent-soft: rgba(201, 120, 58, 0.18);
   --cta-bg: #1e3a52;
   --cta-hover: #163047;
+  --hero-gradient: linear-gradient(
+    to top,
+    rgba(12, 12, 12, 0.96) 8%,
+    rgba(12, 12, 12, 0.42) 48%,
+    rgba(201, 120, 58, 0.12) 72%,
+    rgba(12, 12, 12, 0.55) 100%
+  );
   --line: rgba(244, 239, 230, 0.22);
   --max: 1120px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -73,6 +86,8 @@ img { max-width: 100%; height: auto; display: block; }
 .panel-raised,
 .card,
 .hub-card,
+.benefit-card,
+.proof-stat,
 .diario-list__link,
 .entry,
 .exercise-card,
@@ -97,6 +112,8 @@ img { max-width: 100%; height: auto; display: block; }
 .panel-raised::after,
 .card::after,
 .hub-card::after,
+.benefit-card::after,
+.proof-stat::after,
 .diario-list__link::after,
 .entry::after,
 .exercise-card::after,
@@ -122,6 +139,8 @@ img { max-width: 100%; height: auto; display: block; }
 .panel-raised::before,
 .card::before,
 .hub-card::before,
+.benefit-card::before,
+.proof-stat::before,
 .diario-list__link::before,
 .entry::before,
 .exercise-card::before,
@@ -144,6 +163,8 @@ img { max-width: 100%; height: auto; display: block; }
 .panel-raised > *,
 .card > *,
 .hub-card > *,
+.benefit-card > *,
+.proof-stat > *,
 .diario-list__link > *,
 .entry > *,
 .exercise-card > *,
@@ -262,7 +283,7 @@ a.session-card:hover {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(12,12,12,0.95) 8%, rgba(12,12,12,0.35) 55%, rgba(12,12,12,0.55) 100%);
+  background: var(--hero-gradient);
 }
 .hero__content {
   position: relative;
@@ -371,6 +392,165 @@ a.session-card:hover {
   border: 1px solid var(--line);
 }
 .btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.65rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.hero__trust::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: rgba(201, 120, 58, 0.22);
+  color: var(--color-accent-warm);
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Landing premium — architettura scroll (SKILL-LANDING.md §1) */
+.landing-pain__grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 640px) {
+  .landing-pain__grid { grid-template-columns: repeat(3, 1fr); }
+}
+.landing-pain__item {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(201, 120, 58, 0.06);
+  border-radius: 0 10px 10px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.landing-pain__item strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.landing-solution__lead {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--text-secondary);
+  max-width: 52ch;
+  margin: 0 0 1.5rem;
+  line-height: 1.55;
+}
+
+.landing-benefits .hub-cards { margin-top: 1.5rem; }
+
+.benefit-card {
+  padding: 1.35rem 1.5rem;
+  border-radius: 12px;
+}
+.benefit-card__icon {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.benefit-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.benefit-card p {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.benefit-card a {
+  color: var(--color-accent-warm);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.benefit-card a:hover { text-decoration: underline; }
+
+.landing-proof__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 640px) {
+  .landing-proof__stats { grid-template-columns: repeat(4, 1fr); }
+}
+.proof-stat {
+  text-align: center;
+  padding: 1.35rem 1rem;
+  border-radius: 12px;
+}
+.proof-stat__value {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  color: var(--color-accent-warm);
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+.proof-stat__label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.landing-offer .newsletter-cta { margin-top: 0; }
+
+.landing-proof .grid-3 { margin-top: 1.5rem; }
+
+.landing-cta-final {
+  padding: 3.5rem 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201, 120, 58, 0.14) 0%, transparent 70%),
+    linear-gradient(180deg, #0a0a0a 0%, #0c0c0c 100%);
+  text-align: center;
+}
+.landing-cta-final h2 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin: 0 0 0.75rem;
+  max-width: 20ch;
+  margin-inline: auto;
+}
+.landing-cta-final p {
+  color: var(--text-secondary);
+  max-width: 42ch;
+  margin: 0 auto 1.5rem;
+}
+.allenamenti-hero .hero__trust {
+  margin-top: 1rem;
+  justify-content: flex-start;
+}
+
+.landing-section-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
 
 .section { padding: 3.5rem 0; }
 .section--tight { padding: 2.5rem 0; }
@@ -2113,6 +2293,8 @@ a.session-card:hover {
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
 }
 .page-veiled .card,
+.page-veiled .benefit-card,
+.page-veiled .proof-stat,
 .page-veiled .diario-list__link,
 .page-veiled .hub-card,
 .page-veiled .scheda-periodo-card,

@@ -1,6 +1,8 @@
 # SKILL — La Forza Quotidiana · Schede allenamento
 
 > **Quando caricare:** nuova scheda trimestrale, log sessione, statistiche mensili, pagina allenamento nel sito.
+>
+> **Landing premium (architettura · colori · hero copy):** `SKILL-LANDING.md`
 
 ---
 
@@ -41,7 +43,7 @@ Usare **Ginevra** esplicitamente in home, chi-sono, dedicatio e intro diario —
 
 #### Classi già coperte in `css/styles.css` (non reinventare)
 
-`.card` · `.hub-card` · `.diario-list__link` · `.entry` · `.exercise-card` · `.session-panel` · `.session-card` · `.session-kpis__item` · `.amazfit-card` · `.newsletter-cta` · `.scheda-pdf-promo` · `.photo-mosaic__item` · `.cookie-modal__panel` · `.page-veiled .prose`
+`.card` · `.hub-card` · `.benefit-card` · `.proof-stat` · `.diario-list__link` · `.entry` · `.exercise-card` · `.session-panel` · `.session-card` · `.session-kpis__item` · `.amazfit-card` · `.newsletter-cta` · `.scheda-pdf-promo` · `.photo-mosaic__item` · `.cookie-modal__panel` · `.page-veiled .prose`
 
 Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** estendere il blocco condiviso in `styles.css` (stesso blocco «Panel relief»).
 
@@ -55,7 +57,7 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
 2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
-4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=24**).
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=32**).
 
 #### Cometa hero (solo `/` — sopra la foto)
 
@@ -268,7 +270,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
-**CSS:** `styles.css?v=24` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=32` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
@@ -621,11 +623,11 @@ Slug **corto, descrittivo, unico** — niente doppioni semantici con articoli es
 - [ ] 3+ link interni
 - [ ] `sitemap.xml` + `llms.txt`
 - [ ] `dateModified` aggiornato
-- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=24`, `cookie-consent.js?v=2`)
+- [ ] **`?v=N` CSS/JS uniforme** su tutte le pagine (attuale: `styles.css?v=32`, `cookie-consent.js?v=2`)
 
 ### Igiene tecnica (obbligatoria)
 
-- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=24`, `newsletter.js v=3`.
+- **Cache-busting coerente:** quando cambi `css/styles.css` o un JS, incrementa `?v=N` **su tutte le pagine insieme** (non lasciare pagine a versioni vecchie). Versione corrente: CSS `v=32`, `newsletter.js v=3`.
 - **`404.html`** presente in root (noindex, follow) — mantenere link a Home/Diario/Allenamenti.
 - **BreadcrumbList** su ogni pagina interna (Home → sezione → pagina).
 - Dominio canonico unico: `https://forzaquotidiana.it` (apex, no www).
