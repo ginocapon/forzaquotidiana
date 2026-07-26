@@ -419,6 +419,44 @@ a.session-card:hover {
   flex-shrink: 0;
 }
 
+.hero__bio-age {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.5rem;
+  margin: 0.85rem 0 0;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(94, 176, 245, 0.1);
+  border: 1px solid rgba(110, 181, 240, 0.28);
+  font-size: 0.92rem;
+  color: #b8daf5;
+  letter-spacing: 0.02em;
+  max-width: max-content;
+}
+.hero__bio-age[hidden] { display: none; }
+.bio-age__label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8ec8f5;
+}
+.bio-age__value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #6eb5f0;
+}
+.bio-age__delta {
+  font-size: 0.78rem;
+  color: #8ec8f5;
+}
+.bio-age__trend {
+  font-size: 0.76rem;
+  color: #7ec0f2;
+  font-style: italic;
+}
+.bio-age--unavailable { display: none !important; }
+
 /* Landing premium — architettura scroll (SKILL-LANDING.md §1) */
 .landing-pain__grid {
   display: grid;
@@ -494,7 +532,10 @@ a.session-card:hover {
   margin-top: 1.5rem;
 }
 @media (min-width: 640px) {
-  .landing-proof__stats { grid-template-columns: repeat(4, 1fr); }
+  .landing-proof__stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .landing-proof__stats { grid-template-columns: repeat(5, 1fr); }
 }
 .proof-stat {
   text-align: center;
@@ -514,6 +555,12 @@ a.session-card:hover {
   color: var(--muted);
   line-height: 1.35;
   letter-spacing: 0.02em;
+}
+.proof-stat--bio-age .proof-stat__value {
+  color: #6eb5f0;
+}
+.proof-stat--bio-age .proof-stat__label {
+  color: #8ec8f5;
 }
 
 .landing-offer .newsletter-cta { margin-top: 0; }
