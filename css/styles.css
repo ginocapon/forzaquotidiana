@@ -97,6 +97,7 @@ img { max-width: 100%; height: auto; display: block; }
 .amazfit-card,
 .newsletter-cta,
 .scheda-pdf-promo,
+.month-hub-card,
 .cookie-modal__panel,
 .photo-mosaic__item {
   position: relative;
@@ -125,6 +126,7 @@ img { max-width: 100%; height: auto; display: block; }
 .scheda-pdf-promo::after,
 .cookie-modal__panel::after,
 .photo-mosaic__item::after,
+.month-hub-card::after,
 .dedicatio--ginevra::after {
   content: "";
   position: absolute;
@@ -151,7 +153,8 @@ img { max-width: 100%; height: auto; display: block; }
 .newsletter-cta::before,
 .scheda-pdf-promo::before,
 .cookie-modal__panel::before,
-.photo-mosaic__item::before {
+.photo-mosaic__item::before,
+.month-hub-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -175,7 +178,8 @@ img { max-width: 100%; height: auto; display: block; }
 .newsletter-cta > *,
 .scheda-pdf-promo > *,
 .cookie-modal__panel > *,
-.photo-mosaic__item > * {
+.photo-mosaic__item > *,
+.month-hub-card > * {
   position: relative;
   z-index: 1;
 }
@@ -263,42 +267,112 @@ a.session-card:hover {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: var(--text); }
 
-/* Trafiletto — barra laterale per riconoscere le sezioni */
-.trafiletto {
-  position: relative;
-  padding-left: 0.9rem;
+/* Montature sezione — bordi 3D oro / argento / rosso sui riquadri */
+.mount--oro,
+.theme-diario .diario-list__link,
+.theme-diario .entry,
+.theme-diario .card,
+.theme-diario .newsletter-cta {
+  border-top-color: rgba(255, 218, 140, 0.44);
+  border-color: rgba(212, 168, 85, 0.34);
+  border-bottom-color: rgba(0, 0, 0, 0.72);
 }
-.trafiletto::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.12em;
-  bottom: 0.12em;
-  width: 3px;
-  border-radius: 2px;
-  background: currentColor;
-  opacity: 0.85;
+.mount--oro::after,
+.theme-diario .diario-list__link::after,
+.theme-diario .entry::after,
+.theme-diario .card::after,
+.theme-diario .newsletter-cta::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 168, 85, 0.26),
+    inset 0 1px 0 rgba(255, 218, 140, 0.14);
 }
-.trafiletto--oro { color: #d4a855; }
-.trafiletto--argento { color: #b0bcc8; }
-.trafiletto--rosso { color: #e07060; }
+a.mount--oro:hover,
+.theme-diario a.diario-list__link:hover {
+  border-top-color: rgba(255, 228, 175, 0.52);
+  border-color: rgba(212, 168, 85, 0.46);
+}
 
-/* Nav — trafiletto leggero sui link di sezione */
-.site-nav .nav-link {
-  position: relative;
-  padding-left: 0.55rem;
-  border-left: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+.mount--argento,
+.theme-chi-sono .card,
+.theme-chi-sono .dedicatio--ginevra {
+  border-top-color: rgba(220, 228, 236, 0.38);
+  border-color: rgba(176, 188, 200, 0.3);
+  border-bottom-color: rgba(0, 0, 0, 0.72);
 }
-.site-nav .nav-link--oro { border-left-color: rgba(212, 168, 85, 0.55); }
-.site-nav .nav-link--argento { border-left-color: rgba(176, 188, 200, 0.55); }
-.site-nav .nav-link--rosso { border-left-color: rgba(224, 112, 96, 0.55); }
-.site-nav .nav-link--oro:hover,
-.site-nav .nav-link--oro[aria-current="page"] { color: #e8c078; border-left-color: #d4a855; }
-.site-nav .nav-link--argento:hover,
-.site-nav .nav-link--argento[aria-current="page"] { color: #c8d4de; border-left-color: #b0bcc8; }
-.site-nav .nav-link--rosso:hover,
-.site-nav .nav-link--rosso[aria-current="page"] { color: #f08878; border-left-color: #e07060; }
+.mount--argento::after,
+.theme-chi-sono .card::after,
+.theme-chi-sono .dedicatio--ginevra::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(176, 188, 200, 0.22),
+    inset 0 1px 0 rgba(220, 228, 236, 0.12);
+}
+a.mount--argento:hover {
+  border-top-color: rgba(232, 238, 244, 0.46);
+  border-color: rgba(176, 188, 200, 0.42);
+}
+
+.mount--rosso,
+.theme-allenamenti .hub-card:not(.mount--oro):not(.mount--argento),
+.theme-allenamenti .session-card,
+.theme-allenamenti .session-panel,
+.theme-allenamenti .amazfit-card,
+.theme-allenamenti .month-hub-card,
+.theme-allenamenti .scheda-periodo-card,
+.theme-allenamenti .exercise-card,
+.theme-allenamenti .card,
+.theme-allenamenti .newsletter-cta,
+.theme-allenamenti .session-kpis__item {
+  border-top-color: rgba(255, 150, 130, 0.4);
+  border-color: rgba(224, 112, 96, 0.32);
+  border-bottom-color: rgba(0, 0, 0, 0.72);
+}
+.mount--rosso::after,
+.theme-allenamenti .hub-card:not(.mount--oro):not(.mount--argento)::after,
+.theme-allenamenti .session-card::after,
+.theme-allenamenti .session-panel::after,
+.theme-allenamenti .amazfit-card::after,
+.theme-allenamenti .month-hub-card::after,
+.theme-allenamenti .scheda-periodo-card::after,
+.theme-allenamenti .exercise-card::after,
+.theme-allenamenti .card::after,
+.theme-allenamenti .newsletter-cta::after,
+.theme-allenamenti .session-kpis__item::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(224, 112, 96, 0.24),
+    inset 0 1px 0 rgba(255, 150, 130, 0.12);
+}
+a.mount--rosso:hover,
+.theme-allenamenti a.hub-card:not(.mount--oro):not(.mount--argento):hover,
+.theme-allenamenti a.session-card:hover {
+  border-top-color: rgba(255, 170, 150, 0.48);
+  border-color: rgba(224, 112, 96, 0.44);
+}
+
+.hub-card.mount--oro .hub-card__label { color: #d4a855; }
+.hub-card.mount--argento .hub-card__label { color: #b0bcc8; }
+.hub-card.mount--rosso .hub-card__label { color: #e07060; }
+
+.theme-diario .entry__type--rif,
+.theme-diario .diario-month-group__title { color: #d4a855; }
+.theme-chi-sono .tagline { color: #b0bcc8; }
+.theme-allenamenti .tagline,
+.theme-allenamenti .session-month-group__title,
+.theme-allenamenti .entry__type--all { color: #e07060; }
+.theme-allenamenti .month-hub-foot a,
+.theme-allenamenti .session-month-group__meta a { color: #e88a78; }
+
+.theme-diario .article-lead {
+  border-left-color: #d4a855;
+  background: rgba(212, 168, 85, 0.1);
+}
+.theme-diario .article-figure,
+.theme-diario figure {
+  border-top-color: rgba(255, 218, 140, 0.44);
+  border-color: rgba(212, 168, 85, 0.34);
+}
+.theme-chi-sono .dedicatio--ginevra {
+  border-left-color: #b0bcc8;
+}
 
 /* Raggruppamento mensile — hub e liste */
 .month-hub-grid {
@@ -314,14 +388,11 @@ a.session-card:hover {
   padding: 1rem 1.15rem;
   text-decoration: none;
   color: var(--text);
-  border-radius: var(--radius, 10px);
-  background: var(--panel-bg);
-  border: 1px solid var(--line);
+  border-radius: 12px;
   transition: border-color 0.15s, transform 0.15s;
 }
 .month-hub-card:hover {
-  border-color: rgba(224, 112, 96, 0.45);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 .month-hub-card__label {
   display: block;
@@ -841,19 +912,9 @@ a.session-card:hover {
   color: #e8a86a;
   font-weight: 600;
 }
-.hub-card__label.trafiletto {
-  display: inline-block;
-  padding-left: 0.6rem;
-  margin-bottom: 0.15rem;
-}
-.hub-card__label.trafiletto::before {
-  width: 2px;
-  top: 0.1em;
-  bottom: 0.1em;
-}
-.hub-card__label.trafiletto--oro { color: #d4a855; }
-.hub-card__label.trafiletto--argento { color: #b0bcc8; }
-.hub-card__label.trafiletto--rosso { color: #e07060; }
+.hub-card.mount--oro .hub-card__label { color: #d4a855; }
+.hub-card.mount--argento .hub-card__label { color: #b0bcc8; }
+.hub-card.mount--rosso .hub-card__label { color: #e07060; }
 
 .hub-card h3 { margin: 0.4rem 0 0.45rem; font-size: 1.12rem; }
 .hub-card p { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.45; }
@@ -958,19 +1019,8 @@ a.session-card:hover {
   text-transform: uppercase;
   color: var(--muted);
 }
-.entry__type--rif { color: #c4a882; }
-.entry__type--all { color: var(--accent); }
-.entry__meta .trafiletto,
-.entry__type.trafiletto {
-  display: inline-block;
-  padding-left: 0.65rem;
-  vertical-align: baseline;
-}
-.entry__meta .trafiletto::before {
-  top: 0.15em;
-  bottom: 0.15em;
-  width: 2px;
-}
+.entry__type--rif { color: #d4a855; }
+.entry__type--all { color: #e07060; }
 
 .entry h2 {
   margin: 0;
