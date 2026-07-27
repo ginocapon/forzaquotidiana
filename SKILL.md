@@ -122,6 +122,8 @@ Esempio: Trimestre Giugno – Luglio – Agosto 2026
 3. Tre pilastri + organigramma (link a `/allenamenti/sessioni/`)
 4. Schede 1–4 con card esercizio (SVG, serie, **peso iniziale**, RIR)
 5. Statistiche mensili + regole + disclaimer
+6. **Confronto metabolico** (`#confronto-metabolico`) — sessioni Zepp + lettura scientifica
+7. **Progressione pesi** (`#progressione-pesi`) — grafici per multi-articolare da `data/exercise-progress.json`
 
 I log sessione **non** vanno nel trimestre — solo in `/allenamenti/sessioni/`.
 
@@ -138,6 +140,7 @@ Ogni esercizio ha una card autonoma:
 | **Serie×Rep** | es. 4×8 |
 | **Peso iniziale** | es. 22 kg ×2 manubri · stack macchina · 8 kg kettlebell |
 | **Recupero** | es. 2' |
+| **TUT** | Tempo di esecuzione — es. `4s rientro`, `ecc 4s`, `3-1-2` (eccentrica-pausa-concentrica) |
 | **RIR** | 0-2 fondamentali · 1-2 accessori |
 | **SVG** | Figura **originale** sito — mai foto stock incoerenti |
 | **Esecuzione** | 3-5 bullet: setup, movimento, errori da evitare, respirazione |
@@ -235,6 +238,39 @@ Gauge SVG semicircolare `.hr-effect-gauge`.
 
 Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle vuote `—` se mese non ancora iniziato.
 
+### Progressione pesi per esercizio (archivio)
+
+**Non** è un report generale — è un archivio per **multi-articolari principali** con grafico dedicato.
+
+| File | Ruolo |
+|------|-------|
+| `data/exercise-progress.json` | Fonte dati: peso, serie, TUT, data per esercizio |
+| `js/exercise-progress-charts.js` | Grafici nel trimestre `#progressione-pesi` |
+| Trimestre `#progressione-pesi` | UI pubblica |
+
+**Esercizi tracciati (Q3 2026):** panca inclinata manubri, lat machine, pressa 45°, Scott, polpacci multipower, stacco omega, squat multipower, alzate laterali seduto.
+
+**Schema voce:**
+
+```json
+{
+  "date": "2026-07-27",
+  "session_id": "2026-07-27-scheda-1",
+  "serie": 10,
+  "peso_kg": 20,
+  "peso_secondario_kg": 16,
+  "serie_label": "2×6-7 @ 20 + 8× @ 16",
+  "tut": "4s rientro",
+  "note": "..."
+}
+```
+
+**Regole:** aggiornare dopo ogni sessione con pesi annotati; indicare sempre serie primarie; asse X = data, asse Y = peso (kg) + numero serie.
+
+### Confronto metabolico sessioni
+
+Sezione `#confronto-metabolico` nel trimestre: tabella comparativa da `performance-sessions.json` (JS: `metabolic-comparison.js`) + analisi testuale con riferimenti scientifici. Confrontare solo sessioni con export Zepp completo (zone + effetto).
+
 ---
 
 ## 4. Schede tipo del trimestre (2026-Q3)
@@ -283,7 +319,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 |---|--------|--------|--------------|
 | 1 | Nota Gino | `.session-panel` + `.session-note` | Se note disponibili |
 | 2 | Tecnica / figure guida | `.session-panel` | Se esercizio nuovo |
-| 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati |
+| 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati — colonne: Esercizio · Serie×Rep · kg · **TUT** · Note |
 | 4 | Galleria | `.session-panel` + `.collage--scatter` | Se foto/video |
 | 5 | **TSB fitness/fatica** | `.session-panel.session-panel--tsb` | Sì |
 | 6 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
