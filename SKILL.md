@@ -124,6 +124,7 @@ Esempio: Trimestre Giugno – Luglio – Agosto 2026
 5. Statistiche mensili + regole + disclaimer
 6. **Confronto metabolico** (`#confronto-metabolico`) — sessioni Zepp + lettura scientifica
 7. **Progressione pesi** (`#progressione-pesi`) — grafici per multi-articolare da `data/exercise-progress.json`
+8. **Progressione gruppi** (`#progressione-gruppi`) — stesso archivio, vista per gruppo muscolare
 
 I log sessione **non** vanno nel trimestre — solo in `/allenamenti/sessioni/`.
 
@@ -140,7 +141,7 @@ Ogni esercizio ha una card autonoma:
 | **Serie×Rep** | es. 4×8 |
 | **Peso iniziale** | es. 22 kg ×2 manubri · stack macchina · 8 kg kettlebell |
 | **Recupero** | es. 2' |
-| **TUT** | Tempo di esecuzione — es. `4s rientro`, `ecc 4s`, `3-1-2` (eccentrica-pausa-concentrica) |
+| **TUT** | Tempo di esecuzione — es. `4s rientro`, `ecc 4s`, `3-1-2` (eccentrica-pausa-concentrica). Obbligatorio in card trimestre, log sessione e PDF. |
 | **RIR** | 0-2 fondamentali · 1-2 accessori |
 | **SVG** | Figura **originale** sito — mai foto stock incoerenti |
 | **Esecuzione** | 3-5 bullet: setup, movimento, errori da evitare, respirazione |
@@ -240,17 +241,26 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
 
 ### Progressione pesi per esercizio (archivio)
 
-**Non** è un report generale — è un archivio per **multi-articolari principali** con grafico dedicato.
+**Non** è un report generale — è un **archivio** dei momenti di peso registrati in sessione, con grafico dedicato per ogni multi-articolare principale e vista aggregata per gruppo muscolare.
 
 | File | Ruolo |
 |------|-------|
-| `data/exercise-progress.json` | Fonte dati: peso, serie, TUT, data per esercizio |
-| `js/exercise-progress-charts.js` | Grafici nel trimestre `#progressione-pesi` |
-| Trimestre `#progressione-pesi` | UI pubblica |
+| `data/exercise-progress.json` | Fonte dati: peso, serie, TUT, data, gruppo per esercizio |
+| `js/exercise-progress-charts.js` | Grafici nel trimestre `#progressione-pesi` e `#progressione-gruppi` |
+| Trimestre `#progressione-pesi` | Grafico per singolo esercizio |
+| Trimestre `#progressione-gruppi` | Grafico per gruppo muscolare (Petto, Dorsali, Gambe, …) |
 
 **Esercizi tracciati (Q3 2026):** panca inclinata manubri, lat machine, pressa 45°, Scott, polpacci multipower, stacco omega, squat multipower, alzate laterali seduto.
 
-**Schema voce:**
+**Regole archivio:**
+- Aggiornare **dopo ogni sessione** in cui Gino comunica i pesi (WhatsApp/chat) — non inventare valori.
+- Indicare sempre le **serie primarie** in `serie_label` (es. `2×6-7 @ 20 + 8× @ 16`).
+- Campo `started` per esercizio = prima data in cui quel movimento è stato registrato nell'archivio.
+- Campo `started` globale nel JSON = inizio registrazione trimestre.
+- **Asse X:** data esecuzione · **Asse Y:** peso primario (kg) + numero serie (barre separate).
+- Solo **multi-articolari principali** — no accessori isolati (croci, leg curl, ecc.) salvo promozione esplicita.
+
+**Schema voce `entries[]`:**
 
 ```json
 {
@@ -261,11 +271,35 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
   "peso_secondario_kg": 16,
   "serie_label": "2×6-7 @ 20 + 8× @ 16",
   "tut": "4s rientro",
-  "note": "..."
+  "note": "TUT aumentato — rientro 4 sec tra le ripetizioni"
 }
 ```
 
-**Regole:** aggiornare dopo ogni sessione con pesi annotati; indicare sempre serie primarie; asse X = data, asse Y = peso (kg) + numero serie.
+**Checklist agente — momento di peso:**
+1. Ricevi pesi da Gino → aggiungi voce in `exercise-progress.json` per ogni multi-articolare annotato.
+2. Aggiorna tabella `.scheda-table` nella pagina sessione (colonne: Esercizio · Serie×Rep · kg · **TUT** · Note).
+3. Verifica che i grafici trimestre (`#progressione-pesi`, `#progressione-gruppi`) riflettano i nuovi dati.
+4. `node tools/aggiorna-exercise-progress.mjs` per validare il JSON.
+
+### Tempo di esecuzione (TUT) — obbligatorio ovunque
+
+Il **tempo di esecuzione** (TUT = Time Under Tension) va indicato in **tutte** le schede e nei log sessione. Nelle schede usare la dicitura **TUT**; nelle note sessione si può scrivere anche «tempo di esecuzione».
+
+| Dove | Formato | Esempi |
+|------|---------|--------|
+| Card esercizio trimestre | `· TUT …` nella riga meta | `TUT 4s rientro` · `TUT 3-1-2` · `TUT ecc lenta` |
+| Log sessione `.scheda-table` | Colonna **TUT** dedicata | `4s rientro` · `ecc 2s` · `3-1-2` |
+| PDF schede A4 | Colonna **TUT** | Abbreviare se serve: `4s/1s` · `sq 3s` |
+| `exercise-progress.json` | Campo `tut` per voce | Quando diverso dallo standard |
+
+**Valori tipici Q3 2026:**
+- Panca inclinata manubri: `4s rientro` (focus corrente)
+- Pressa 45°: `ecc lenta`
+- Leg extension: `4s su / 1s giù`
+- Multi-articolari standard: `3-1-2` (eccentrica-pausa-concentrica)
+- Rematore: `ecc 2s`
+- Kettlebell finisher: `esplosivo` o `continuo`
+- Doktor: `squeeze 3s`
 
 ### Confronto metabolico sessioni
 
@@ -496,7 +530,7 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 ### Scheda A4
 
 - 4 quadranti (Scheda 1–4) su **un solo foglio** orizzontale
-- Colonne: Esercizio · S×R · kg · Note + riga log per quadrante
+- Colonne: Esercizio · S×R · kg · **TUT** · Note + riga log per quadrante
 - Stampa: orizzontale, margini minimi, 100%
 
 ### Database iscritti + consenso (GDPR)

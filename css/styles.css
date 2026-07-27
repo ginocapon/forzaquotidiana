@@ -2868,6 +2868,31 @@ a.session-card:hover {
 .ex-progress-legend--weight { color: #6eb5f0; }
 .ex-progress-legend--series { color: #c9783a; }
 
+/* Progressione per gruppo muscolare */
+.ex-progress--groups { margin-top: 0.5rem; }
+.ex-progress-chart--group h3 { border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+.ex-progress-group__exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+.ex-progress-group__exercise h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.ex-progress-group__exercise h4 small {
+  font-weight: 400;
+  color: var(--muted);
+}
+.ex-progress-chart__plot--compact .ex-progress-point {
+  font-size: 0.78rem;
+}
+@media (min-width: 900px) {
+  .ex-progress__grid--groups { grid-template-columns: 1fr; }
+}
+
 /* Confronto metabolico */
 .metabolic-compare-table { margin-top: 1rem; }
 .metabolic-compare-table a { color: var(--color-accent-warm); }
