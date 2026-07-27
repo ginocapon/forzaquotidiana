@@ -254,7 +254,7 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
 
 **Regole archivio:**
 - Aggiornare **dopo ogni sessione** in cui Gino comunica i pesi (WhatsApp/chat) — non inventare valori.
-- Indicare sempre le **serie primarie** in `serie_label` (es. `2×6-7 @ 20 + 8× @ 16`).
+- Indicare sempre le **serie primarie** in `serie_label` (es. `prime 6-7 @ 30 + 2× @ 26`).
 - Campo `started` per esercizio = prima data in cui quel movimento è stato registrato nell'archivio.
 - Campo `started` globale nel JSON = inizio registrazione trimestre.
 - **Asse X:** data esecuzione · **Asse Y:** peso primario (kg) + numero serie (barre separate).
@@ -267,9 +267,9 @@ Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle 
   "date": "2026-07-27",
   "session_id": "2026-07-27-scheda-1",
   "serie": 10,
-  "peso_kg": 20,
-  "peso_secondario_kg": 16,
-  "serie_label": "2×6-7 @ 20 + 8× @ 16",
+  "peso_kg": 30,
+  "peso_secondario_kg": 26,
+  "serie_label": "prime 6-7 @ 30 + 2× @ 26",
   "tut": "4s rientro",
   "note": "TUT aumentato — rientro 4 sec tra le ripetizioni"
 }
