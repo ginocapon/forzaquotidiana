@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v41 · Dark + Panel Relief Gold + Section themes */
+/* La Forza Quotidiana — v42 · Dark + Panel Relief Gold + Section themes */
 :root {
   --bg: #0c0c0c;
   --surface: #161616;
@@ -277,9 +277,9 @@ body.theme-diario {
   --mount-inset-top: rgba(255, 218, 140, 0.14);
   --mount-hover-top: rgba(255, 228, 175, 0.52);
   --mount-hover-mid: rgba(212, 168, 85, 0.46);
-  --theme-veil: rgba(212, 168, 85, 0.038);
-  --theme-veil-strong: rgba(212, 168, 85, 0.055);
-  --theme-veil-hero: rgba(212, 168, 85, 0.09);
+  --theme-veil: rgba(212, 168, 85, 0.06);
+  --theme-veil-strong: rgba(212, 168, 85, 0.09);
+  --theme-veil-hero: rgba(212, 168, 85, 0.14);
   --theme-accent: #d4a855;
   --theme-accent-link: #e8c070;
   --theme-accent-soft: rgba(212, 168, 85, 0.1);
@@ -585,7 +585,7 @@ body.theme-allenamenti a.month-hub-card:hover {
   border-color: var(--mount-hover-mid);
 }
 
-.hub-card.mount--oro .hub-card__label { color: #d4a855; }
+.hub-card.mount--oro .hub-card__label { color: #c8d4e0; }
 .hub-card.mount--argento .hub-card__label { color: #b0bcc8; }
 .hub-card.mount--rosso .hub-card__label { color: #e07060; }
 
@@ -1226,6 +1226,27 @@ body.theme-allenamenti .disclaimer {
   padding: 1.1rem 1.25rem 1.35rem;
   flex: 1;
 }
+.hub-card.mount--oro .hub-card__body,
+.hub-card.mount--argento .hub-card__body {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(176, 188, 200, 0.34) 0%,
+      rgba(140, 152, 168, 0.18) 38%,
+      rgba(22, 24, 28, 0.96) 72%,
+      rgba(12, 12, 14, 0.99) 100%
+    );
+}
+.hub-card.mount--rosso .hub-card__body {
+  background:
+    linear-gradient(
+      165deg,
+      rgba(224, 112, 96, 0.38) 0%,
+      rgba(180, 80, 65, 0.2) 38%,
+      rgba(28, 16, 14, 0.96) 72%,
+      rgba(14, 10, 10, 0.99) 100%
+    );
+}
 .hub-card__body::before {
   content: "";
   position: absolute;
@@ -1233,17 +1254,14 @@ body.theme-allenamenti .disclaimer {
   pointer-events: none;
   z-index: 0;
   border-radius: 0 0 14px 14px;
+  opacity: 0.85;
 }
 .hub-card.mount--oro .hub-card__body::before,
 .hub-card.mount--argento .hub-card__body::before {
-  background:
-    linear-gradient(180deg, rgba(176, 188, 200, 0.16) 0%, rgba(176, 188, 200, 0.05) 55%, transparent 100%),
-    linear-gradient(168deg, rgba(28, 30, 34, 0.92) 0%, rgba(14, 14, 16, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(220, 228, 236, 0.14) 0%, transparent 62%);
 }
 .hub-card.mount--rosso .hub-card__body::before {
-  background:
-    linear-gradient(180deg, rgba(224, 112, 96, 0.2) 0%, rgba(224, 112, 96, 0.07) 55%, transparent 100%),
-    linear-gradient(168deg, rgba(34, 22, 20, 0.92) 0%, rgba(16, 12, 12, 0.98) 100%);
+  background: linear-gradient(180deg, rgba(255, 160, 140, 0.16) 0%, transparent 62%);
 }
 .hub-card__body > * {
   position: relative;
@@ -1256,7 +1274,7 @@ body.theme-allenamenti .disclaimer {
   color: #e8a86a;
   font-weight: 600;
 }
-.hub-card.mount--oro .hub-card__label { color: #d4a855; }
+.hub-card.mount--oro .hub-card__label { color: #c8d4e0; }
 .hub-card.mount--argento .hub-card__label { color: #b0bcc8; }
 .hub-card.mount--rosso .hub-card__label { color: #e07060; }
 
