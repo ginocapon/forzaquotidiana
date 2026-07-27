@@ -2782,3 +2782,93 @@ a.session-card:hover {
   .site-nav ul { flex-direction: column; padding: 0.5rem 0 0; }
   .site-header .wrap { flex-wrap: wrap; }
 }
+
+/* Progressione pesi — trimestre #progressione-pesi */
+.ex-progress__lead { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.25rem; }
+.ex-progress__grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+@media (min-width: 720px) {
+  .ex-progress__grid { grid-template-columns: repeat(2, 1fr); }
+}
+.ex-progress-chart {
+  padding: 1.15rem 1.25rem;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.ex-progress-chart h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+.ex-progress-chart h3 small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-top: 0.2rem;
+}
+.ex-progress-chart__plot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.ex-progress-point {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  font-size: 0.82rem;
+}
+.ex-progress-point__date {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.ex-progress-point__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.ex-progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.1rem;
+}
+.ex-progress-bar i {
+  display: block;
+  height: 0.55rem;
+  width: calc(var(--pct, 0) * 1%);
+  min-width: 4px;
+  max-width: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.ex-progress-bar em {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.ex-progress-bar--weight i { background: #6eb5f0; }
+.ex-progress-bar--series i { background: #c9783a; }
+.ex-progress-point__label,
+.ex-progress-point__tut {
+  grid-column: 2;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.ex-progress-chart__legend {
+  margin: 0.75rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.ex-progress-legend--weight { color: #6eb5f0; }
+.ex-progress-legend--series { color: #c9783a; }
+
+/* Confronto metabolico */
+.metabolic-compare-table { margin-top: 1rem; }
+.metabolic-compare-table a { color: var(--color-accent-warm); }
+

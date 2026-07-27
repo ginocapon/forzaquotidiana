@@ -1,0 +1,173 @@
+{
+  "_nota": "Archivio progressi pesi — solo multi-articolari principali. Aggiornare a ogni sessione con pesi registrati. node tools/aggiorna-exercise-progress.mjs (futuro) o edit manuale.",
+  "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "started": "2026-07-21",
+  "exercises": [
+    {
+      "id": "press-inclinata-manubri",
+      "nome": "Panca inclinata manubri",
+      "gruppo": "Petto",
+      "scheda": 1,
+      "tipo": "multi-articolare",
+      "started": "2026-07-27",
+      "entries": [
+        {
+          "date": "2026-07-27",
+          "session_id": "2026-07-27-scheda-1",
+          "serie": 10,
+          "peso_kg": 20,
+          "peso_secondario_kg": 16,
+          "serie_label": "2×6-7 @ 20 + 8× @ 16",
+          "tut": "4s rientro",
+          "note": "TUT aumentato — rientro 4 sec tra le ripetizioni"
+        }
+      ]
+    },
+    {
+      "id": "lat-machine",
+      "nome": "Lat machine / lat pulldown",
+      "gruppo": "Dorsali",
+      "scheda": 1,
+      "tipo": "multi-articolare",
+      "started": "2026-07-27",
+      "entries": [
+        {
+          "date": "2026-07-27",
+          "session_id": "2026-07-27-scheda-1",
+          "serie": 4,
+          "peso_kg": 45,
+          "serie_label": "wafer",
+          "tut": null,
+          "note": "Eseguito in wafer — 45 kg confermati"
+        }
+      ]
+    },
+    {
+      "id": "pressa-45",
+      "nome": "Pressa 45°",
+      "gruppo": "Gambe",
+      "scheda": 2,
+      "tipo": "multi-articolare",
+      "started": "2026-07-21",
+      "entries": [
+        {
+          "date": "2026-07-21",
+          "session_id": "2026-07-21-scheda-2",
+          "serie": 4,
+          "peso_kg": 140,
+          "peso_secondario_kg": 120,
+          "serie_label": "2×10 + 2×10",
+          "tut": "ecc lenta",
+          "note": "Technogym — eccentrica lenta"
+        }
+      ]
+    },
+    {
+      "id": "scott-multi",
+      "nome": "Panca Scott (multi / bil. curvo)",
+      "gruppo": "Bicipiti",
+      "scheda": 2,
+      "tipo": "multi-articolare",
+      "started": "2026-07-21",
+      "entries": [
+        {
+          "date": "2026-07-21",
+          "session_id": "2026-07-21-scheda-2",
+          "serie": 4,
+          "peso_kg": 35,
+          "peso_secondario_kg": 30,
+          "serie_label": "2×8 + 2×8",
+          "tut": null,
+          "note": "Prime 2 al cedimento, poi submax"
+        }
+      ]
+    },
+    {
+      "id": "polpacci-multipower",
+      "nome": "Polpacci multipower",
+      "gruppo": "Polpacci",
+      "scheda": 2,
+      "tipo": "multi-articolare",
+      "started": "2026-07-21",
+      "entries": [
+        {
+          "date": "2026-07-21",
+          "session_id": "2026-07-21-scheda-2",
+          "serie": 4,
+          "peso_kg": 140,
+          "peso_secondario_kg": 80,
+          "serie_label": "drop 140→110→80",
+          "tut": null,
+          "note": "25 rep totali drop set"
+        },
+        {
+          "date": "2026-07-24",
+          "session_id": "2026-07-24-scheda-4",
+          "serie": 4,
+          "peso_kg": 80,
+          "serie_label": "4×8",
+          "tut": null,
+          "note": "Multipower Technogym superset"
+        }
+      ]
+    },
+    {
+      "id": "stacco-omega",
+      "nome": "Stacco bil. omega / trap",
+      "gruppo": "Posteriori",
+      "scheda": 4,
+      "tipo": "multi-articolare",
+      "started": "2026-07-24",
+      "entries": [
+        {
+          "date": "2026-07-24",
+          "session_id": "2026-07-24-scheda-4",
+          "serie": 3,
+          "peso_kg": 60,
+          "serie_label": "3×8",
+          "tut": null,
+          "note": "Video postura in sessione"
+        }
+      ]
+    },
+    {
+      "id": "squat-multipower",
+      "nome": "Squat al multipower",
+      "gruppo": "Gambe",
+      "scheda": 4,
+      "tipo": "multi-articolare",
+      "started": "2026-07-24",
+      "entries": [
+        {
+          "date": "2026-07-24",
+          "session_id": "2026-07-24-scheda-4",
+          "serie": 4,
+          "peso_kg": 60,
+          "peso_secondario_kg": 55,
+          "serie_label": "4×8",
+          "tut": null,
+          "note": "2× ced. @ 60 · 2× RIR ~2 @ 55"
+        }
+      ]
+    },
+    {
+      "id": "alzate-laterali",
+      "nome": "Alzate laterali seduto",
+      "gruppo": "Spalle",
+      "scheda": 3,
+      "tipo": "multi-articolare",
+      "started": "2026-07-23",
+      "entries": [
+        {
+          "date": "2026-07-23",
+          "session_id": "2026-07-23-scheda-3",
+          "serie": 3,
+          "peso_kg": null,
+          "serie_label": "ced. + wafer",
+          "tut": null,
+          "note": "Carico aumentato — peso esatto non annotato, priorità sensazione"
+        }
+      ]
+    }
+  ]
+}

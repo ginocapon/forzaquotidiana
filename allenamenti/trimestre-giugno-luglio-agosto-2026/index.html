@@ -81,6 +81,8 @@
         <a href="#scheda-2">Scheda 2</a>
         <a href="#scheda-3">Scheda 3</a>
         <a href="#scheda-4">Scheda 4</a>
+        <a href="#confronto-metabolico">Metabolismo</a>
+        <a href="#progressione-pesi">Progressione</a>
         <a href="#statistiche">Statistiche</a>
         <a href="/allenamenti/sessioni/">Sessioni →</a>
         <a href="/allenamenti/schede-peso/">Schede PDF →</a>
@@ -542,6 +544,39 @@
     </div>
   </section>
 
+  <section class="section" id="confronto-metabolico">
+    <div class="wrap prose prose--wide">
+      <h2>Confronto metabolico — quattro sessioni Zepp</h2>
+      <p>Confronto tra le sessioni con export Amazfit completo (zone FC + effetto aerobico/anaerobico): <strong>16, 21, 23 e 24 luglio 2026</strong>. Non è referto medico — è lettura dei dati device incrociata con letteratura su allenamento di forza negli adulti maturi.</p>
+
+      <div id="metabolic-compare-table" aria-live="polite"></div>
+
+      <h3>Cosa dicono i numeri — opinione da dati scientifici</h3>
+      <p><strong>1. Zona intensiva dominante (48–61%)</strong> — In tutte e quattro le sessioni la FC resta prevalentemente nella zona «intensiva» Zepp (97–113 bpm nel tuo profilo). È coerente con l&apos;ipertrofia: tra un set e l&apos;altro il cuore non torna in recupero completo, ma non resta a lungo in anaerobica pura. La letteratura sul resistance training negli over-50 descrive FC tipicamente tra il <strong>50–70% della FC massima</strong> durante il lavoro, con picchi tra i set — il tuo range 105–118 bpm (FC max device 138–165) rientra in quel quadro.</p>
+
+      <p><strong>2. Effetto aerobico «Medio–Buono» (2,4–3,7)</strong> — Lo Zepp stima un contributo aerobico non trascurabile anche in sessioni di forza. Meta-analisi su adulti over-50 (<a href="https://link.springer.com/article/10.1007/s40520-019-01124-7" rel="noopener noreferrer" target="_blank">combined training, 2019</a>) mostra che allenare forza e capacità aerobica nella stessa fase di vita migliora VO₂peak e funzionalità. Non stai «solo sollevando pesi»: il volume (21–30 gruppi) mantiene un carico cardiovascolare utile, soprattutto nelle gambe (Scheda 2 e 4).</p>
+
+      <p><strong>3. Effetto anaerobico variabile (1,8–3,6)</strong> — Il picco del 23/07 (3,6 anaerobico + 6% VO₂ max) coincide con sessione più corta ma più densa: cedimento su spalle, FC max 165. La Scheda 3 chiede più intensità neurologica; il metabolismo risponde con più tempo in zone alte. La 21/07 (gambe) ha anaerobico più basso (1,8) ma durata maggiore — classico profilo «volume metabolico» vs «picco neuromuscolare».</p>
+
+      <p><strong>4. FC media e economia</strong> — FC media 105–118 bpm per sessioni da 50 min a quasi 2 ore. A parità di sforzo percepito, la 21/07 (gambe, FC 105) è la più «economica»; la 23/07 (FC 118) la più costosa. Per un uomo di 57 anni che si allena da 10+ anni, mantenere FC media sotto il 120 in ipertrofia indica buona tolleranza al volume — in linea con raccomandazioni di <strong>90–120 min/settimana di forza</strong> associate a minore rischio cardiovascolare e neurologico (<a href="https://www.sciencedaily.com/releases/2026/06/260611024609.htm" rel="noopener noreferrer" target="_blank">studio 2026 su mortalità e resistance training</a>).</p>
+
+      <p><strong>5. Mitocondri e longevità (contesto, non diagnosi)</strong> — Il lavoro in zona aerobica/intensiva durante il sollevamento non replica il «Zone 2» puro della corsa, ma contribuisce comunque allo stimolo metabolico. Ricerche su endurance e salute mitocondriale (<a href="https://www.gethealthspan.com/research/article/zone-2-endurance-training-longevity-mitochondrial-health" rel="noopener noreferrer" target="_blank">Zone 2 e longevità</a>) suggeriscono che adulti maturi allenati mantengono funzione mitocondriale migliore dei pari sedentari. Il tuo profilo — costanza, FC controllata, effetto aerobico regolare — va in quella direzione, anche senza cardio dedicato.</p>
+
+      <aside class="disclaimer" role="note">
+        <p><strong>Sintesi.</strong> Il metabolismo in queste quattro sessioni alterna fasi di carico cardiovascolare moderato (zona intensiva) a picchi anaerobici quando alzi densità o cedimento. Non è metabolismo da maratoneta né da powerlifter puro: è il profilo tipico dell&apos;ipertrofia natural matura — e i dati Zepp lo documentano bene. Per confronti clinici servirebbero esami ematici e test da laboratorio; qui restiamo su ciò che l&apos;orologio misura.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="progressione-pesi">
+    <div class="wrap prose prose--wide">
+      <h2>Progressione pesi — multi-articolari</h2>
+      <p>Archivio dei carichi usati nelle sessioni documentate — <strong>non</strong> un report generale, ma un grafico per ogni esercizio fondamentale. Asse X: data · Asse Y: peso primario (kg) e numero di serie. Si aggiorna a mano dopo ogni sessione con pesi annotati.</p>
+      <p><small>Esercizi tracciati: panca inclinata manubri, lat machine, pressa 45°, Scott, polpacci multipower, stacco omega, squat multipower, alzate laterali.</small></p>
+      <div id="exercise-progress-charts" class="ex-progress" aria-label="Grafici progressione pesi"></div>
+    </div>
+  </section>
+
   <section class="section" id="statistiche">
     <div class="wrap prose prose--wide">
       <p class="trimestre-tsb-jump"><a href="#modulo-tsb">↓ Modulo fitness e fatica (TSB)</a> · grafico CTL/ATL con date di allenamento evidenziate</p>
@@ -607,5 +642,7 @@
 <script src="/js/cookie-consent.js?v=2" defer></script>
 <script src="/js/training-load-chart.js?v=2" defer></script>
 <script src="/js/performance-charts.js?v=1" defer></script>
+<script src="/js/metabolic-comparison.js?v=1" defer></script>
+<script src="/js/exercise-progress-charts.js?v=1" defer></script>
 </body>
 </html>
