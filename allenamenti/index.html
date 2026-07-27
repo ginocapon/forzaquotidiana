@@ -26,9 +26,9 @@
     <nav class="site-nav" id="nav-principale" aria-label="Principale">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/chi-sono/">Chi sono</a></li>
-        <li><a href="/diario/">Diario</a></li>
-        <li><a href="/allenamenti/" aria-current="page">Allenamenti</a></li>
+        <li><a class="nav-link nav-link--argento" href="/chi-sono/">Chi sono</a></li>
+        <li><a class="nav-link nav-link--oro" href="/diario/">Diario</a></li>
+        <li><a class="nav-link nav-link--rosso" href="/allenamenti/" aria-current="page">Allenamenti</a></li>
       </ul>
     </nav>
   </div>
@@ -37,10 +37,32 @@
 <main id="contenuto" class="page-veiled">
   <section class="allenamenti-hero">
     <div class="wrap">
-      <p class="tagline">Allenamenti</p>
-      <h1>Tre blocchi, tutto chiaro</h1>
-      <p class="lead">Programma di riferimento, sessioni giorno per giorno, diario separato — disciplina documentata per <strong>Ginevra</strong>.</p>
+      <p class="tagline trafiletto trafiletto--rosso">Allenamenti</p>
+      <h1>Trimestre, mesi e sessioni</h1>
+      <p class="lead">Programma trimestrale di riferimento, statistiche per mese, log giornaliero — disciplina documentata per <strong>Ginevra</strong>.</p>
       <p class="hero__trust">6+ sessioni loggate · export Zepp originali · schede PDF gratis</p>
+    </div>
+  </section>
+
+  <section class="section" id="per-mese">
+    <div class="wrap">
+      <h2 class="trafiletto trafiletto--rosso">Per mese · 2026</h2>
+      <p class="month-hub-intro">Raggruppamento per confronti mensili e trimestrali. Le schede tipo restano trimestrali; qui trovi TSB, performance e sessioni del mese.</p>
+      <div class="month-hub-grid">
+        <a class="month-hub-card is-empty" href="#">
+          <span class="month-hub-card__label">Giugno 2026</span>
+          <span class="month-hub-card__meta">Nessuna sessione loggata · trimestre in avvio</span>
+        </a>
+        <a class="month-hub-card" href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#mese-luglio-2026">
+          <span class="month-hub-card__label">Luglio 2026</span>
+          <span class="month-hub-card__meta">6 sessioni · TSB CTL/ATL · grafici performance</span>
+        </a>
+        <a class="month-hub-card is-empty" href="#">
+          <span class="month-hub-card__label">Agosto 2026</span>
+          <span class="month-hub-card__meta">In arrivo — trimestre Q3</span>
+        </a>
+      </div>
+      <p class="month-hub-foot"><a href="/allenamenti/trimestre-giugno-luglio-agosto-2026/#statistiche-mensili">Statistiche mensili trimestre →</a> · <a href="/allenamenti/sessioni/#luglio-2026">Sessioni luglio →</a></p>
     </div>
   </section>
 
@@ -51,7 +73,7 @@
         <a class="hub-card" href="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
           <img class="hub-card__img" src="/img/allenamenti/hub/trimestre.png" alt="Illustrazione: scheda trimestrale con Schede 1-4, programma di riferimento" width="640" height="360" loading="eager">
           <div class="hub-card__body">
-            <span class="hub-card__label">Programma</span>
+            <span class="hub-card__label trafiletto trafiletto--rosso">Programma</span>
             <h3>Trimestre · Schede 1–4</h3>
             <p>Il modello del trimestre: esercizi, serie, pesi iniziali concordati. Non è il log del giorno — è la mappa.</p>
             <span class="hub-card__cta">Apri trimestre Giu–Lug–Ago 2026 →</span>
@@ -60,7 +82,7 @@
         <a class="hub-card" href="/allenamenti/sessioni/">
           <img class="hub-card__img" src="/img/allenamenti/hub/sessioni.png" alt="Illustrazione: timeline sessioni con smartwatch e dati Amazfit" width="640" height="360" loading="eager">
           <div class="hub-card__body">
-            <span class="hub-card__label">Log</span>
+            <span class="hub-card__label trafiletto trafiletto--rosso">Log</span>
             <h3>Sessioni svolte</h3>
             <p>Ogni giorno in palestra: data, scheda N, foto, video, export Zepp e note. Una pagina per sessione.</p>
             <span class="hub-card__cta">Vedi tutte le sessioni →</span>
@@ -69,7 +91,7 @@
         <a class="hub-card" href="/diario/">
           <img class="hub-card__img" src="/img/allenamenti/hub/diario.png" alt="Illustrazione: diario personale con penna e quaderno, riflessioni di vita" width="640" height="360" loading="lazy">
           <div class="hub-card__body">
-            <span class="hub-card__label">Riflessioni</span>
+            <span class="hub-card__label trafiletto trafiletto--oro">Riflessioni</span>
             <h3>Diario</h3>
             <p>Pensieri, equilibrio, famiglia — separati dai numeri. Il lato umano del percorso, dedicato a Ginevra.</p>
             <span class="hub-card__cta">Apri il diario →</span>

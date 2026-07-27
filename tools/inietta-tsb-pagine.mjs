@@ -1,5 +1,5 @@
 /**
- * Inietta modulo TSB con grafico SVG statico in sessioni + trimestre
+ * Inietta modulo TSB con grafico SVG statico in sessioni + trimestre (overview + mensile)
  * node tools/inietta-tsb-pagine.mjs
  */
 import { readFileSync, writeFileSync } from "node:fs";
@@ -21,6 +21,7 @@ const SESSION_PAGES = [
   { file: "allenamenti/sessioni/2026-07-21-scheda-2/index.html", date: "2026-07-21" },
   { file: "allenamenti/sessioni/2026-07-23-scheda-3/index.html", date: "2026-07-23" },
   { file: "allenamenti/sessioni/2026-07-24-scheda-4/index.html", date: "2026-07-24" },
+  { file: "allenamenti/sessioni/2026-07-27-scheda-1/index.html", date: "2026-07-27" },
 ];
 
 const SCHEDA_FOCUS = {
@@ -28,6 +29,13 @@ const SCHEDA_FOCUS = {
   2: "2026-07-21",
   3: "2026-07-23",
   4: "2026-07-24",
+};
+
+const MONTH_KEYS = ["2026-06", "2026-07", "2026-08"];
+const MONTH_ANCHORS = {
+  "2026-06": "mese-giugno-2026",
+  "2026-07": "mese-luglio-2026",
+  "2026-08": "mese-agosto-2026",
 };
 
 function replaceBetween(html, startMarker, endMarker, replacement) {
@@ -58,13 +66,35 @@ function upsertTsbPanel(html, date) {
   );
 }
 
+function renderMonthPanel(monthKey) {
+  const anchor = MONTH_ANCHORS[monthKey] || `mese-${monthKey}`;
+  const inner = renderTsbModule(data, `month-${monthKey}`, `trim-month-${monthKey}`);
+  const labels = {
+    "2026-06": "Giugno 2026",
+    "2026-07": "Luglio 2026",
+    "2026-08": "Agosto 2026",
+  };
+  const label = labels[monthKey] || monthKey;
+
+  return `
+      <article class="month-panel" id="${anchor}" data-month="${monthKey}">
+        <h3 class="month-panel__title">${label}</h3>
+        <div class="tsb-module tsb-module--static tsb-module--month" data-training-load="month-${monthKey}" aria-live="polite">${inner}</div>
+        <div class="perf-charts" data-perf-month="${monthKey}" aria-label="Grafici performance ${label}"></div>
+      </article>
+`;
+}
+
 function ensureScript(html) {
-  let out = html.replace("/css/styles.css?v=34", "/css/styles.css?v=35");
-  if (!out.includes("styles.css?v=35") && out.includes("styles.css?v=")) {
-    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=35");
+  let out = html.replace("/css/styles.css?v=34", "/css/styles.css?v=37");
+  if (!out.includes("styles.css?v=37") && out.includes("styles.css?v=")) {
+    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=37");
   }
   if (out.includes("training-load-chart.js")) {
-    out = out.replace(/training-load-chart\.js\?v=\d+/, "training-load-chart.js?v=2");
+    out = out.replace(/training-load-chart\.js\?v=\d+/, "training-load-chart.js?v=3");
+  }
+  if (out.includes("performance-charts.js")) {
+    out = out.replace(/performance-charts\.js\?v=\d+/, "performance-charts.js?v=2");
   }
   return out;
 }
@@ -84,16 +114,50 @@ let trim = readFileSync(trimPath, "utf8");
 const overviewInner = renderTsbModule(data, "overview", "trim-overview");
 const overviewBlock = `
       <h2 id="modulo-tsb">Modulo allenamento · fitness e fatica (TSB)</h2>
-      <p>Riepilogo trimestrale — il <strong>grafico</strong> CTL/ATL è sempre visibile; sotto, il giudizio delle singole giornate di allenamento nelle schede tipo.</p>
+      <p>Riepilogo trimestrale — il <strong>grafico</strong> CTL/ATL è sempre visibile; sotto, i moduli mensili con focus su ogni mese del trimestre.</p>
       <div class="tsb-module tsb-module--static" data-training-load="overview" aria-live="polite">${overviewInner}</div>
 `;
 
 if (trim.includes("<!-- TSB-TRIM-START -->")) {
   trim = replaceBetween(trim, "<!-- TSB-TRIM-START -->", "<!-- TSB-TRIM-END -->", "\n" + overviewBlock + "\n");
+} else if (trim.includes("OVERVIEW_INJECT")) {
+  trim = trim.replace(
+    '<div class="tsb-module tsb-module--static" data-training-load="overview" aria-live="polite">OVERVIEW_INJECT</div>',
+    `<div class="tsb-module tsb-module--static" data-training-load="overview" aria-live="polite">${overviewInner}</div>`
+  );
 } else {
   trim = trim.replace(
-    /<h2 id="modulo-tsb">[\s\S]*?<div class="tsb-module[\s\S]*?<\/div>\s*/,
+    /<h2 id="modulo-tsb">[\s\S]*?<div class="tsb-module[\s\S]*?<\/div>\s*(?=<div class="tsb-module|<div id="perf-charts|<h2>Regole)/,
     overviewBlock + "\n"
+  );
+}
+
+// Rimuovi markup TSB duplicato/corrotto dopo overview
+trim = trim.replace(
+  /(<div class="tsb-module tsb-module--static" data-training-load="overview"[\s\S]*?<\/div>)\s*(<div class="tsb-module__kpis">[\s\S]*?<\/div>\s*<\/div><div class="tsb-module__chart-wrap">[\s\S]*?<\/div>)/,
+  "$1"
+);
+
+const monthPanels = MONTH_KEYS.map((mk) => renderMonthPanel(mk)).join("");
+const monthBlock = `
+      <h2 id="statistiche-mensili">Statistiche per mese</h2>
+      <p>Ogni mese del trimestre ha il proprio modulo TSB e i grafici performance — base per confronti mensili e trimestrali. Le schede tipo restano trimestrali; qui raggruppiamo solo i log e le metriche.</p>
+      <nav class="month-nav" aria-label="Mesi del trimestre">
+        <a href="#mese-giugno-2026">Giugno</a>
+        <a href="#mese-luglio-2026">Luglio</a>
+        <a href="#mese-agosto-2026">Agosto</a>
+      </nav>
+      <div class="month-panels">
+${monthPanels}
+      </div>
+`;
+
+if (trim.includes("<!-- MONTH-PANELS-START -->")) {
+  trim = replaceBetween(trim, "<!-- MONTH-PANELS-START -->", "<!-- MONTH-PANELS-END -->", "\n" + monthBlock + "\n");
+} else {
+  trim = trim.replace(
+    /<div id="perf-charts"[\s\S]*?<\/div>\s*/,
+  `<!-- MONTH-PANELS-START -->${monthBlock}<!-- MONTH-PANELS-END -->\n`
   );
 }
 
@@ -116,8 +180,8 @@ trim = ensureScript(trim);
 if (!trim.includes("training-load-chart.js")) {
   trim = trim.replace(
     '<script src="/js/performance-charts.js',
-    '<script src="/js/training-load-chart.js?v=2" defer></script>\n<script src="/js/performance-charts.js'
+    '<script src="/js/training-load-chart.js?v=3" defer></script>\n<script src="/js/performance-charts.js'
   );
 }
 writeFileSync(trimPath, trim);
-console.log("trimestre overview OK");
+console.log("trimestre overview + mesi OK");

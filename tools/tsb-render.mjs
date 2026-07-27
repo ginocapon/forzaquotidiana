@@ -49,6 +49,56 @@ function sliceTimeline(timeline, focusDate, windowDays) {
   };
 }
 
+/** Vista mensile: mese calendario + ~14 gg prima per contesto (come Zepp) */
+function sliceMonthTimeline(timeline, monthKey, sessions, overrides = {}, paddingDays = 14) {
+  const [year, month] = monthKey.split("-").map(Number);
+  const monthStart = new Date(year, month - 1, 1);
+  const monthEnd = new Date(year, month, 0);
+  const windowStart = new Date(monthStart);
+  windowStart.setDate(windowStart.getDate() - paddingDays);
+
+  const pad = (n) => String(n).padStart(2, "0");
+  const startIso = `${windowStart.getFullYear()}-${pad(windowStart.getMonth() + 1)}-${pad(windowStart.getDate())}`;
+  const endIso = `${year}-${pad(month)}-${pad(monthEnd.getDate())}`;
+
+  const points = timeline.filter((p) => p.date >= startIso && p.date <= endIso);
+  if (!points.length) {
+    return { points: [], focusIndex: -1, focusPoint: null, focusDate: null };
+  }
+
+  const monthPrefix = `${year}-${pad(month)}`;
+  const sessionInMonth = (sessions || [])
+    .filter((s) => s.date && s.date.startsWith(monthPrefix))
+    .map((s) => s.date);
+  const overrideInMonth = Object.keys(overrides)
+    .filter((d) => d.startsWith(monthPrefix))
+    .sort();
+  const daysInMonth = points
+    .filter((p) => p.date.startsWith(monthPrefix))
+    .map((p) => p.date);
+
+  let candidates = [...new Set([...overrideInMonth, ...sessionInMonth])].sort();
+  if (!candidates.length) candidates = daysInMonth.sort();
+  const focusDate = candidates.length
+    ? candidates[candidates.length - 1]
+    : points[points.length - 1].date;
+
+  const focusIndex = points.findIndex((p) => p.date === focusDate);
+  return {
+    points,
+    focusIndex,
+    focusPoint: focusIndex >= 0 ? points[focusIndex] : null,
+    focusDate,
+  };
+}
+
+function parseMode(mode) {
+  if (!mode || mode === "overview") return { type: "overview" };
+  if (mode.startsWith("month-")) return { type: "month", monthKey: mode.slice(6) };
+  if (/^\d{4}-\d{2}$/.test(mode)) return { type: "month", monthKey: mode };
+  return { type: "date", focusDate: mode };
+}
+
 function linePath(points, key, xFn, yFn) {
   return points
     .map((p, i) => `${i === 0 ? "M" : "L"}${xFn(i)} ${yFn(p[key])}`)
@@ -145,26 +195,52 @@ function kpi(label, value, cls) {
   return `<div class="tsb-module__kpi ${cls}"><dt>${esc(label)}</dt><dd>${esc(String(value))}</dd></div>`;
 }
 
+const MONTH_LABELS = {
+  "01": "gennaio", "02": "febbraio", "03": "marzo", "04": "aprile",
+  "05": "maggio", "06": "giugno", "07": "luglio", "08": "agosto",
+  "09": "settembre", "10": "ottobre", "11": "novembre", "12": "dicembre",
+};
+
+function monthLabel(monthKey) {
+  const [y, m] = monthKey.split("-");
+  return `${MONTH_LABELS[m] || m} ${y}`;
+}
+
 /**
  * @param {object} data - training-load.json
- * @param {string|null} mode - "overview" o YYYY-MM-DD
+ * @param {string|null} mode - "overview", "month-YYYY-MM", YYYY-MM-DD
  * @param {string} uid - id univoco per gradienti SVG
  */
 export function renderTsbModule(data, mode, uid = "tsb0") {
-  const focusDate = mode === "overview" ? null : mode;
-  const snapshot = focusDate && data.snapshots[focusDate] ? data.snapshots[focusDate] : null;
+  const parsed = parseMode(mode);
   const timeline = data.timeline || [];
   if (!timeline.length) return "<p class=\"tsb-module__fallback\"><small>Modulo TSB non disponibile.</small></p>";
 
-  const windowDays = focusDate ? 42 : timeline.length;
-  const slice = sliceTimeline(timeline, focusDate, windowDays);
+  let slice;
+  let focusDate = null;
+  let chartFocusDate = null;
+
+  if (parsed.type === "overview") {
+    slice = sliceTimeline(timeline, null, timeline.length);
+  } else if (parsed.type === "month") {
+    slice = sliceMonthTimeline(timeline, parsed.monthKey, data.sessions || [], data.overrides || {});
+    focusDate = slice.focusDate;
+    chartFocusDate = focusDate;
+  } else {
+    focusDate = parsed.focusDate;
+    slice = sliceTimeline(timeline, focusDate, 42);
+    chartFocusDate = focusDate;
+  }
+
+  const snapshot = focusDate && data.snapshots[focusDate] ? data.snapshots[focusDate] : null;
   const display = snapshot || slice.focusPoint || slice.points[slice.points.length - 1];
   const statusClass = statusId(display.status);
 
   let html = '<div class="tsb-module__head">';
   html += '<div class="tsb-module__title-block">';
   html += `<h3 class="tsb-module__title">Modulo di allenamento <span class="tsb-module__abbr">(TSB)</span>`;
-  if (focusDate) html += ` · ${esc(formatItalianDate(focusDate))}`;
+  if (parsed.type === "month") html += ` · ${esc(monthLabel(parsed.monthKey))}`;
+  else if (focusDate) html += ` · ${esc(formatItalianDate(focusDate))}`;
   html += "</h3>";
   html += `<p class="tsb-module__status tsb-module__status--${statusClass}">`;
   html += `<strong>${esc(formatTsb(display.tsb))}</strong> ${esc(display.status)}`;
@@ -181,18 +257,24 @@ export function renderTsbModule(data, mode, uid = "tsb0") {
     html += `<span class="tsb-zone tsb-zone--${z.id}">${esc(z.label)}</span>`;
   });
   html += "</div>";
-  html += renderSvg(slice, focusDate, data.sessions || [], uid);
+  html += renderSvg(slice, chartFocusDate, data.sessions || [], uid);
   html += "</div>";
 
   html += '<p class="tsb-module__legend"><span class="tsb-legend tsb-legend--atl">● Fatica ATL</span> <span class="tsb-legend tsb-legend--ctl">● Fitness CTL</span> <span class="tsb-legend tsb-legend--bar">▮ Carico giornaliero</span></p>';
 
-  if (focusDate && snapshot) {
+  if (parsed.type === "month" && focusDate) {
+    html += '<p class="tsb-module__session-note">';
+    html += `Riepilogo <strong>${esc(monthLabel(parsed.monthKey))}</strong> — valori al <strong>${esc(formatItalianDate(focusDate))}</strong>: `;
+    html += `<strong>${esc(display.status)}</strong> (TSB ${esc(formatTsb(display.tsb))}). `;
+    html += esc(sessionInterpretation(display));
+    html += "</p>";
+  } else if (focusDate && snapshot) {
     html += '<p class="tsb-module__session-note">';
     html += `Giudizio del <strong>${esc(formatItalianDate(focusDate))}</strong>: `;
     html += `<strong>${esc(display.status)}</strong> (TSB ${esc(formatTsb(display.tsb))}). `;
     html += esc(sessionInterpretation(display));
     html += "</p>";
-  } else if (!focusDate) {
+  } else if (parsed.type === "overview") {
     html += '<p class="tsb-module__session-note">Panoramica trimestre — pallini = sessioni registrate. Grafico sempre visibile; valori da carico Zepp/Amazfit.</p>';
   }
 
