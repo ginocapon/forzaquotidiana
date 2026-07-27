@@ -267,7 +267,9 @@ a.session-card:hover {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: var(--text); }
 
-/* Montature sezione — oro (Diario) / argento (Chi sono) / rosso (Allenamenti) */
+/* Montature sezione — oro (Diario) / argento (Chi sono) / rosso (Allenamenti)
+   Diario: body.theme-diario su ogni pagina /diario/** → profili oro
+   Chi sono: body.theme-chi-sono su /chi-sono/** → profili argento */
 .mount--oro,
 body.theme-diario {
   --mount-top: rgba(255, 218, 140, 0.44);
@@ -377,6 +379,7 @@ body.theme-chi-sono :is(
   .disclaimer,
   .metabolic-block,
   .session-log,
+  .dedicatio,
   .dedicatio--ginevra
 ),
 body.theme-allenamenti :is(
@@ -457,6 +460,7 @@ body.theme-chi-sono :is(
   .disclaimer,
   .metabolic-block,
   .session-log,
+  .dedicatio,
   .dedicatio--ginevra
 )::after,
 body.theme-allenamenti :is(
@@ -620,8 +624,57 @@ body.theme-diario .prose figure {
   border-color: var(--mount-mid);
 }
 
+body.theme-chi-sono .dedicatio,
 body.theme-chi-sono .dedicatio--ginevra {
   border-left-color: var(--theme-accent);
+}
+
+body.theme-chi-sono .dedicatio--ginevra {
+  background: linear-gradient(168deg, rgba(34, 38, 44, 0.98) 0%, rgba(20, 22, 28, 0.95) 100%);
+  border: 1.5px solid rgba(176, 188, 200, 0.3);
+  border-top-color: rgba(220, 228, 236, 0.38);
+  border-left: 3px solid #b0bcc8;
+}
+
+body.theme-chi-sono .dedicatio--ginevra::before {
+  background: linear-gradient(180deg, rgba(220, 228, 236, 0.12) 0%, rgba(176, 188, 200, 0.04) 32%, transparent 58%);
+}
+
+body.theme-chi-sono .page-veiled .prose {
+  background: linear-gradient(168deg, rgba(32, 36, 42, 0.96) 0%, rgba(18, 20, 24, 0.92) 100%);
+}
+
+body.theme-chi-sono .prose a {
+  color: var(--theme-accent-link);
+}
+
+body.theme-chi-sono .prose a:hover {
+  color: #dce4ec;
+}
+
+body.theme-chi-sono .prose h2 {
+  border-bottom: 1px solid rgba(176, 188, 200, 0.22);
+  padding-bottom: 0.35rem;
+}
+
+body.theme-chi-sono .prose figure,
+body.theme-chi-sono figure {
+  border-top-color: var(--mount-top);
+  border-color: var(--mount-mid);
+}
+
+body.theme-chi-sono .btn-ghost {
+  border-color: rgba(176, 188, 200, 0.35);
+  color: var(--theme-accent-link);
+}
+
+body.theme-chi-sono .btn-ghost:hover {
+  border-color: rgba(176, 188, 200, 0.55);
+  background: rgba(176, 188, 200, 0.08);
+}
+
+body.theme-chi-sono .disclaimer {
+  background: rgba(176, 188, 200, 0.08);
 }
 
 body.theme-diario .hero--portrait .hero__overlay,
@@ -676,10 +729,6 @@ body.theme-allenamenti .page-veiled .trimestre-hero .prose::after {
 
 body.theme-diario .dedicatio {
   border-left-color: var(--theme-accent);
-}
-
-body.theme-chi-sono .disclaimer {
-  background: rgba(176, 188, 200, 0.08);
 }
 
 body.theme-allenamenti .disclaimer {
