@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v32 · Dark + Panel Relief Gold + Landing Premium */
+/* La Forza Quotidiana — v40 · Dark + Panel Relief Gold + Section themes */
 :root {
   --bg: #0c0c0c;
   --surface: #161616;
@@ -267,111 +267,427 @@ a.session-card:hover {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: var(--text); }
 
-/* Montature sezione — bordi 3D oro / argento / rosso sui riquadri */
+/* Montature sezione — oro (Diario) / argento (Chi sono) / rosso (Allenamenti) */
 .mount--oro,
-.theme-diario .diario-list__link,
-.theme-diario .entry,
-.theme-diario .card,
-.theme-diario .newsletter-cta {
-  border-top-color: rgba(255, 218, 140, 0.44);
-  border-color: rgba(212, 168, 85, 0.34);
-  border-bottom-color: rgba(0, 0, 0, 0.72);
-}
-.mount--oro::after,
-.theme-diario .diario-list__link::after,
-.theme-diario .entry::after,
-.theme-diario .card::after,
-.theme-diario .newsletter-cta::after {
-  box-shadow:
-    inset 0 0 0 1px rgba(212, 168, 85, 0.26),
-    inset 0 1px 0 rgba(255, 218, 140, 0.14);
-}
-a.mount--oro:hover,
-.theme-diario a.diario-list__link:hover {
-  border-top-color: rgba(255, 228, 175, 0.52);
-  border-color: rgba(212, 168, 85, 0.46);
+body.theme-diario {
+  --mount-top: rgba(255, 218, 140, 0.44);
+  --mount-mid: rgba(212, 168, 85, 0.34);
+  --mount-bottom: rgba(0, 0, 0, 0.72);
+  --mount-inset: rgba(212, 168, 85, 0.26);
+  --mount-inset-top: rgba(255, 218, 140, 0.14);
+  --mount-hover-top: rgba(255, 228, 175, 0.52);
+  --mount-hover-mid: rgba(212, 168, 85, 0.46);
+  --theme-veil: rgba(212, 168, 85, 0.038);
+  --theme-veil-strong: rgba(212, 168, 85, 0.055);
+  --theme-veil-hero: rgba(212, 168, 85, 0.09);
+  --theme-accent: #d4a855;
+  --theme-accent-link: #e8c070;
+  --theme-accent-soft: rgba(212, 168, 85, 0.1);
+  --theme-dayline: rgba(212, 168, 85, 0.35);
 }
 
 .mount--argento,
-.theme-chi-sono .card,
-.theme-chi-sono .dedicatio--ginevra {
-  border-top-color: rgba(220, 228, 236, 0.38);
-  border-color: rgba(176, 188, 200, 0.3);
-  border-bottom-color: rgba(0, 0, 0, 0.72);
-}
-.mount--argento::after,
-.theme-chi-sono .card::after,
-.theme-chi-sono .dedicatio--ginevra::after {
-  box-shadow:
-    inset 0 0 0 1px rgba(176, 188, 200, 0.22),
-    inset 0 1px 0 rgba(220, 228, 236, 0.12);
-}
-a.mount--argento:hover {
-  border-top-color: rgba(232, 238, 244, 0.46);
-  border-color: rgba(176, 188, 200, 0.42);
+body.theme-chi-sono {
+  --mount-top: rgba(220, 228, 236, 0.38);
+  --mount-mid: rgba(176, 188, 200, 0.3);
+  --mount-bottom: rgba(0, 0, 0, 0.72);
+  --mount-inset: rgba(176, 188, 200, 0.22);
+  --mount-inset-top: rgba(220, 228, 236, 0.12);
+  --mount-hover-top: rgba(232, 238, 244, 0.46);
+  --mount-hover-mid: rgba(176, 188, 200, 0.42);
+  --theme-veil: rgba(176, 188, 200, 0.032);
+  --theme-veil-strong: rgba(176, 188, 200, 0.048);
+  --theme-veil-hero: rgba(176, 188, 200, 0.085);
+  --theme-accent: #b0bcc8;
+  --theme-accent-link: #c8d4e0;
+  --theme-accent-soft: rgba(176, 188, 200, 0.1);
+  --theme-dayline: rgba(176, 188, 200, 0.32);
 }
 
 .mount--rosso,
-.theme-allenamenti .hub-card:not(.mount--oro):not(.mount--argento),
-.theme-allenamenti .session-card,
-.theme-allenamenti .session-panel,
-.theme-allenamenti .amazfit-card,
-.theme-allenamenti .month-hub-card,
-.theme-allenamenti .scheda-periodo-card,
-.theme-allenamenti .exercise-card,
-.theme-allenamenti .card,
-.theme-allenamenti .newsletter-cta,
-.theme-allenamenti .session-kpis__item {
-  border-top-color: rgba(255, 150, 130, 0.4);
-  border-color: rgba(224, 112, 96, 0.32);
-  border-bottom-color: rgba(0, 0, 0, 0.72);
+body.theme-allenamenti {
+  --mount-top: rgba(255, 150, 130, 0.4);
+  --mount-mid: rgba(224, 112, 96, 0.32);
+  --mount-bottom: rgba(0, 0, 0, 0.72);
+  --mount-inset: rgba(224, 112, 96, 0.24);
+  --mount-inset-top: rgba(255, 150, 130, 0.12);
+  --mount-hover-top: rgba(255, 170, 150, 0.48);
+  --mount-hover-mid: rgba(224, 112, 96, 0.44);
+  --theme-veil: rgba(224, 112, 96, 0.048);
+  --theme-veil-strong: rgba(224, 112, 96, 0.068);
+  --theme-veil-hero: rgba(224, 112, 96, 0.11);
+  --theme-accent: #e07060;
+  --theme-accent-link: #e88a78;
+  --theme-accent-soft: rgba(224, 112, 96, 0.1);
+  --theme-dayline: rgba(224, 112, 96, 0.38);
 }
-.mount--rosso::after,
-.theme-allenamenti .hub-card:not(.mount--oro):not(.mount--argento)::after,
-.theme-allenamenti .session-card::after,
-.theme-allenamenti .session-panel::after,
-.theme-allenamenti .amazfit-card::after,
-.theme-allenamenti .month-hub-card::after,
-.theme-allenamenti .scheda-periodo-card::after,
-.theme-allenamenti .exercise-card::after,
-.theme-allenamenti .card::after,
-.theme-allenamenti .newsletter-cta::after,
-.theme-allenamenti .session-kpis__item::after {
+
+body.theme-diario,
+body.theme-chi-sono,
+body.theme-allenamenti {
+  background:
+    radial-gradient(ellipse 120% 70% at 50% -8%, var(--theme-veil-strong) 0%, transparent 58%),
+    linear-gradient(180deg, var(--theme-veil) 0%, transparent 52%),
+    var(--bg);
+}
+
+body.theme-diario :is(
+  .panel-raised,
+  .card,
+  .hub-card,
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+),
+body.theme-chi-sono :is(
+  .panel-raised,
+  .card,
+  .hub-card,
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+),
+body.theme-allenamenti :is(
+  .panel-raised,
+  .card,
+  .hub-card:not(.mount--oro):not(.mount--argento),
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+),
+.mount--oro,
+.mount--argento,
+.mount--rosso {
+  border-top-color: var(--mount-top);
+  border-color: var(--mount-mid);
+  border-bottom-color: var(--mount-bottom);
+}
+
+body.theme-diario :is(
+  .panel-raised,
+  .card,
+  .hub-card,
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+)::after,
+body.theme-chi-sono :is(
+  .panel-raised,
+  .card,
+  .hub-card,
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+)::after,
+body.theme-allenamenti :is(
+  .panel-raised,
+  .card,
+  .hub-card:not(.mount--oro):not(.mount--argento),
+  .benefit-card,
+  .proof-stat,
+  .diario-list__link,
+  .entry,
+  .exercise-card,
+  .session-panel,
+  .session-card,
+  .session-kpis__item,
+  .amazfit-card,
+  .newsletter-cta,
+  .scheda-pdf-promo,
+  .month-hub-card,
+  .photo-mosaic__item,
+  .prose,
+  .tsb-module,
+  .disclaimer,
+  .metabolic-block,
+  .session-log,
+  .dedicatio--ginevra
+)::after,
+.mount--oro::after,
+.mount--argento::after,
+.mount--rosso::after {
   box-shadow:
-    inset 0 0 0 1px rgba(224, 112, 96, 0.24),
-    inset 0 1px 0 rgba(255, 150, 130, 0.12);
+    inset 0 0 0 1px var(--mount-inset),
+    inset 0 1px 0 var(--mount-inset-top);
 }
+
+body.theme-diario .tsb-module::after,
+body.theme-chi-sono .tsb-module::after,
+body.theme-allenamenti .tsb-module::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.theme-diario .disclaimer::after,
+body.theme-chi-sono .disclaimer::after,
+body.theme-allenamenti .disclaimer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.theme-diario .prose::after,
+body.theme-chi-sono .prose::after,
+body.theme-allenamenti .prose::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.theme-diario .session-log::after,
+body.theme-chi-sono .session-log::after,
+body.theme-allenamenti .session-log::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.theme-diario .metabolic-block::after,
+body.theme-chi-sono .metabolic-block::after,
+body.theme-allenamenti .metabolic-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.theme-diario .tsb-module,
+body.theme-chi-sono .tsb-module,
+body.theme-allenamenti .tsb-module,
+body.theme-diario .disclaimer,
+body.theme-chi-sono .disclaimer,
+body.theme-allenamenti .disclaimer,
+body.theme-diario .session-log,
+body.theme-chi-sono .session-log,
+body.theme-allenamenti .session-log,
+body.theme-diario .metabolic-block,
+body.theme-chi-sono .metabolic-block,
+body.theme-allenamenti .metabolic-block {
+  position: relative;
+  isolation: isolate;
+}
+
+a.mount--oro:hover,
+body.theme-diario a.diario-list__link:hover,
+body.theme-diario a.hub-card:hover,
+body.theme-diario a.entry:hover {
+  border-top-color: var(--mount-hover-top);
+  border-color: var(--mount-hover-mid);
+}
+
+a.mount--argento:hover,
+body.theme-chi-sono a.hub-card:hover,
+body.theme-chi-sono a.card:hover {
+  border-top-color: var(--mount-hover-top);
+  border-color: var(--mount-hover-mid);
+}
+
 a.mount--rosso:hover,
-.theme-allenamenti a.hub-card:not(.mount--oro):not(.mount--argento):hover,
-.theme-allenamenti a.session-card:hover {
-  border-top-color: rgba(255, 170, 150, 0.48);
-  border-color: rgba(224, 112, 96, 0.44);
+body.theme-allenamenti a.hub-card:not(.mount--oro):not(.mount--argento):hover,
+body.theme-allenamenti a.session-card:hover,
+body.theme-allenamenti a.month-hub-card:hover {
+  border-top-color: var(--mount-hover-top);
+  border-color: var(--mount-hover-mid);
 }
 
 .hub-card.mount--oro .hub-card__label { color: #d4a855; }
 .hub-card.mount--argento .hub-card__label { color: #b0bcc8; }
 .hub-card.mount--rosso .hub-card__label { color: #e07060; }
 
-.theme-diario .entry__type--rif,
-.theme-diario .diario-month-group__title { color: #d4a855; }
-.theme-chi-sono .tagline { color: #b0bcc8; }
-.theme-allenamenti .tagline,
-.theme-allenamenti .session-month-group__title,
-.theme-allenamenti .entry__type--all { color: #e07060; }
-.theme-allenamenti .month-hub-foot a,
-.theme-allenamenti .session-month-group__meta a { color: #e88a78; }
+body.theme-diario .entry__type--rif,
+body.theme-diario .diario-month-group__title,
+body.theme-diario .tagline { color: var(--theme-accent); }
 
-.theme-diario .article-lead {
-  border-left-color: #d4a855;
-  background: rgba(212, 168, 85, 0.1);
+body.theme-chi-sono .tagline { color: var(--theme-accent); }
+
+body.theme-allenamenti .tagline,
+body.theme-allenamenti .session-month-group__title,
+body.theme-allenamenti .entry__type--all,
+body.theme-allenamenti .day-block__tag { color: var(--theme-accent); }
+
+body.theme-allenamenti .month-hub-foot a,
+body.theme-allenamenti .session-month-group__meta a { color: var(--theme-accent-link); }
+
+body.theme-allenamenti .day-block__head {
+  border-bottom-color: var(--theme-dayline);
 }
-.theme-diario .article-figure,
-.theme-diario figure {
-  border-top-color: rgba(255, 218, 140, 0.44);
-  border-color: rgba(212, 168, 85, 0.34);
+
+body.theme-diario .article-lead {
+  border-left-color: var(--theme-accent);
+  background: var(--theme-accent-soft);
 }
-.theme-chi-sono .dedicatio--ginevra {
-  border-left-color: #b0bcc8;
+
+body.theme-diario .article-figure,
+body.theme-diario figure,
+body.theme-diario .prose .article-figure,
+body.theme-diario .prose figure {
+  border-top-color: var(--mount-top);
+  border-color: var(--mount-mid);
+}
+
+body.theme-chi-sono .dedicatio--ginevra {
+  border-left-color: var(--theme-accent);
+}
+
+body.theme-diario .hero--portrait .hero__overlay,
+body.theme-chi-sono .hero--portrait .hero__overlay {
+  background:
+    linear-gradient(
+      to top,
+      rgba(12, 12, 12, 0.95) 6%,
+      rgba(12, 12, 12, 0.55) 38%,
+      rgba(12, 12, 12, 0.28) 58%,
+      rgba(12, 12, 12, 0.42) 100%
+    ),
+    linear-gradient(180deg, var(--theme-veil-hero) 0%, transparent 72%);
+}
+
+body.theme-diario .page-veiled::after,
+body.theme-chi-sono .page-veiled::after,
+body.theme-allenamenti .page-veiled::after {
+  background:
+    linear-gradient(180deg, rgba(12, 12, 12, 0.5) 0%, rgba(12, 12, 12, 0.93) 70%),
+    linear-gradient(180deg, var(--theme-veil-hero) 0%, transparent 55%);
+}
+
+body.theme-allenamenti .page-veiled .allenamenti-hero::after,
+body.theme-allenamenti .page-veiled .trimestre-hero::after {
+  background:
+    linear-gradient(115deg, rgba(12, 12, 12, 0.9) 0%, rgba(12, 12, 12, 0.72) 45%, rgba(12, 12, 12, 0.58) 100%),
+    linear-gradient(180deg, var(--theme-veil-hero) 0%, transparent 58%);
+}
+
+body.theme-allenamenti .allenamenti-hero {
+  background: linear-gradient(180deg, var(--theme-veil-hero) 0%, transparent 100%);
+}
+
+body.theme-diario .page-veiled .trimestre-hero .prose,
+body.theme-chi-sono .page-veiled .trimestre-hero .prose,
+body.theme-allenamenti .page-veiled .trimestre-hero .prose {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+body.theme-diario .page-veiled .trimestre-hero .prose::after,
+body.theme-chi-sono .page-veiled .trimestre-hero .prose::after,
+body.theme-allenamenti .page-veiled .trimestre-hero .prose::after {
+  content: none;
+}
+
+body.theme-diario .dedicatio {
+  border-left-color: var(--theme-accent);
+}
+
+body.theme-chi-sono .disclaimer {
+  background: rgba(176, 188, 200, 0.08);
+}
+
+body.theme-diario .disclaimer {
+  background: rgba(212, 168, 85, 0.08);
+}
+
+body.theme-allenamenti .disclaimer {
+  background: rgba(224, 112, 96, 0.08);
 }
 
 /* Raggruppamento mensile — hub e liste */
@@ -2735,12 +3051,18 @@ a.mount--rosso:hover,
 .page-veiled .hub-card,
 .page-veiled .scheda-periodo-card,
 .page-veiled .newsletter-cta,
-.page-veiled .session-card {
+.page-veiled .session-card,
+.page-veiled .tsb-module,
+.page-veiled .disclaimer,
+.page-veiled .metabolic-block,
+.page-veiled .session-log {
   background: var(--panel-bg-glass);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
 .page-veiled .prose {
+  position: relative;
+  isolation: isolate;
   background: var(--panel-bg-glass);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
