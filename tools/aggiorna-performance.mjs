@@ -1,5 +1,6 @@
 /**
  * Ricalcola data/performance-monthly.json da performance-sessions.json.
+ * Raggruppa per mese (YYYY-MM) e anno per confronti trimestrali/annuali.
  * Uso: node tools/aggiorna-performance.mjs
  */
 import { readFileSync, writeFileSync } from "node:fs";
@@ -10,6 +11,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO = dirname(__dirname);
 const sessionsPath = join(REPO, "data", "performance-sessions.json");
 const monthlyPath = join(REPO, "data", "performance-monthly.json");
+
+const MONTH_NAMES = [
+  "", "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
+  "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
+];
 
 function secToHms(sec) {
   if (!sec) return "—";
@@ -26,6 +32,11 @@ function fmtDateIt(id) {
   return `${d} ${names[parseInt(m, 10)]} S${id.slice(-1)}`;
 }
 
+function monthLabel(mk) {
+  const [y, m] = mk.split("-");
+  return `${MONTH_NAMES[parseInt(m, 10)]} ${y}`;
+}
+
 const data = JSON.parse(readFileSync(sessionsPath, "utf8"));
 const byMonth = {};
 
@@ -35,12 +46,27 @@ for (const s of data.sessions) {
   byMonth[m].push(s);
 }
 
-const monthKeys = ["2026-06", "2026-07", "2026-08"];
-const labels = { "2026-06": "Giugno 2026", "2026-07": "Luglio 2026", "2026-08": "Agosto 2026" };
+// Mesi del trimestre corrente + tutti i mesi con sessioni (per archivio futuro)
+const trimestreMonths = [];
+const trimMatch = data.trimestre?.match(/trimestre-(\w+)-(\w+)-(\w+)-(\d{4})/);
+if (trimMatch) {
+  const monthMap = {
+    gennaio: "01", febbraio: "02", marzo: "03", aprile: "04",
+    maggio: "05", giugno: "06", luglio: "07", agosto: "08",
+    settembre: "09", ottobre: "10", novembre: "11", dicembre: "12",
+  };
+  const year = trimMatch[4];
+  for (let i = 1; i <= 3; i++) {
+    const mm = monthMap[trimMatch[i]];
+    if (mm) trimestreMonths.push(`${year}-${mm}`);
+  }
+}
+
+const allMonthKeys = [...new Set([...trimestreMonths, ...Object.keys(byMonth)])].sort();
 const months = [];
 const charts = {};
 
-for (const mk of monthKeys) {
+for (const mk of allMonthKeys) {
   const list = byMonth[mk] || [];
   const complete = list.filter((s) => s.durata_sec && s.fc_media != null && !s.partial);
   const durSec = complete.reduce((a, s) => a + s.durata_sec, 0);
@@ -58,7 +84,7 @@ for (const mk of monthKeys) {
 
   months.push({
     month: mk,
-    label: labels[mk],
+    label: monthLabel(mk),
     sessioni_totali: list.length,
     sessioni_con_export: complete.length,
     durata_totale_sec: durSec || 0,
@@ -70,6 +96,7 @@ for (const mk of monthKeys) {
     carico_asterisk: caricoAsterisk,
     gruppi_medio: gruppiList.length ? Math.round(gruppiList.reduce((a, b) => a + b, 0) / gruppiList.length) : null,
     sessioni_ids: list.map((s) => s.id),
+    in_trimestre: trimestreMonths.includes(mk),
   });
 
   if (complete.length) {
@@ -84,11 +111,21 @@ for (const mk of monthKeys) {
   }
 }
 
+// Raggruppamento per anno — base per confronti annuali
+const years = {};
+for (const mk of allMonthKeys) {
+  const y = mk.slice(0, 4);
+  if (!years[y]) years[y] = { year: y, label: y, months: [] };
+  years[y].months.push(mk);
+}
+
 const out = {
-  _nota: "Generato da tools/aggiorna-performance.mjs — medie solo su sessioni con export completo (durata + fc_media).",
+  _nota: "Generato da tools/aggiorna-performance.mjs — medie solo su sessioni con export completo (durata + fc_media). Raggruppamento mese/anno per confronti.",
   trimestre: data.trimestre,
+  trimestre_months: trimestreMonths,
   months,
   charts,
+  years,
 };
 
 writeFileSync(monthlyPath, JSON.stringify(out, null, 2) + "\n");

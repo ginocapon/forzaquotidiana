@@ -1928,6 +1928,44 @@ a.session-card:hover {
   letter-spacing: 0.05em;
 }
 
+/* Raggruppamento mensile trimestre */
+.month-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.9rem;
+}
+.month-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.month-nav a:hover { border-color: var(--accent); }
+.month-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 1.5rem 0;
+}
+.month-panel {
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+}
+.month-panel__title {
+  margin: 0 0 1rem;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+.tsb-module--month { margin-bottom: 1rem; }
+.perf-charts__empty {
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+  font-size: 0.88rem;
+}
+
 /* Grafici performance mensili */
 .amazfit-card__exec-list {
   margin: 0;

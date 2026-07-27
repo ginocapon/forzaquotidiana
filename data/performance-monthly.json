@@ -1,10 +1,15 @@
 {
-  "_nota": "Generato da tools/aggiorna-performance.mjs — medie solo su sessioni con export completo (durata + fc_media).",
+  "_nota": "Generato da tools/aggiorna-performance.mjs — medie solo su sessioni con export completo (durata + fc_media). Raggruppamento mese/anno per confronti.",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "trimestre_months": [
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
   "months": [
     {
       "month": "2026-06",
-      "label": "Giugno 2026",
+      "label": "giugno 2026",
       "sessioni_totali": 0,
       "sessioni_con_export": 0,
       "durata_totale_sec": 0,
@@ -15,11 +20,12 @@
       "carico_medio": null,
       "carico_asterisk": false,
       "gruppi_medio": null,
-      "sessioni_ids": []
+      "sessioni_ids": [],
+      "in_trimestre": true
     },
     {
       "month": "2026-07",
-      "label": "Luglio 2026",
+      "label": "luglio 2026",
       "sessioni_totali": 6,
       "sessioni_con_export": 5,
       "durata_totale_sec": 24041,
@@ -37,11 +43,12 @@
         "2026-07-21-scheda-2",
         "2026-07-23-scheda-3",
         "2026-07-24-scheda-4"
-      ]
+      ],
+      "in_trimestre": true
     },
     {
       "month": "2026-08",
-      "label": "Agosto 2026",
+      "label": "agosto 2026",
       "sessioni_totali": 0,
       "sessioni_con_export": 0,
       "durata_totale_sec": 0,
@@ -52,7 +59,8 @@
       "carico_medio": null,
       "carico_asterisk": false,
       "gruppi_medio": null,
-      "sessioni_ids": []
+      "sessioni_ids": [],
+      "in_trimestre": true
     }
   ],
   "charts": {
@@ -98,6 +106,17 @@
         30,
         19,
         22
+      ]
+    }
+  },
+  "years": {
+    "2026": {
+      "year": "2026",
+      "label": "2026",
+      "months": [
+        "2026-06",
+        "2026-07",
+        "2026-08"
       ]
     }
   }

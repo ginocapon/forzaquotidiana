@@ -1,24 +1,53 @@
 /**
  * Grafici performance mensili — legge data/performance-monthly.json
- * Usato in /allenamenti/trimestre-…/#statistiche
+ * Un blocco per mese (data-perf-month) in trimestre #statistiche
  */
 (function () {
-  var root = document.getElementById("perf-charts");
-  if (!root) return;
+  var roots = document.querySelectorAll("[data-perf-month]");
+  if (!roots.length) {
+    var legacy = document.getElementById("perf-charts");
+    if (legacy) roots = [legacy];
+    else return;
+  }
 
   fetch("/data/performance-monthly.json")
     .then(function (r) { return r.json(); })
-    .then(render)
+    .then(function (data) {
+      roots.forEach(function (root) {
+        var monthKey = root.getAttribute("data-perf-month");
+        if (monthKey) renderMonth(root, data, monthKey);
+        else renderFirst(root, data);
+      });
+    })
     .catch(function () {
-      root.innerHTML = "<p><small>Grafici performance non disponibili.</small></p>";
+      roots.forEach(function (root) {
+        root.innerHTML = "<p><small>Grafici performance non disponibili.</small></p>";
+      });
     });
 
-  function render(data) {
+  function renderMonth(root, data, monthKey) {
+    var month = data.months.find(function (m) { return m.month === monthKey; });
+    if (!month || month.sessioni_con_export === 0) {
+      root.innerHTML = "<p class=\"perf-charts__empty\"><small>Nessuna sessione con export completo in " + esc(month ? month.label : monthKey) + ".</small></p>";
+      return;
+    }
+    var chart = data.charts[monthKey];
+    if (!chart) {
+      root.innerHTML = "<p class=\"perf-charts__empty\"><small>Grafici non disponibili.</small></p>";
+      return;
+    }
+    root.innerHTML = buildCharts(month, chart);
+  }
+
+  function renderFirst(root, data) {
     var month = data.months.find(function (m) { return m.sessioni_con_export > 0; });
     if (!month) return;
     var chart = data.charts[month.month];
     if (!chart) return;
+    root.innerHTML = buildCharts(month, chart);
+  }
 
+  function buildCharts(month, chart) {
     var blocks = [
       { title: "Durata sessioni (min)", key: "durata_min", unit: "min", max: Math.max.apply(null, chart.durata_min) },
       { title: "FC media", key: "fc_media", unit: "bpm", max: Math.max.apply(null, chart.fc_media) },
@@ -43,7 +72,7 @@
     });
 
     html += '</div>';
-    root.innerHTML = html;
+    return html;
   }
 
   function esc(s) {
