@@ -419,6 +419,31 @@ a.session-card:hover {
   flex-shrink: 0;
 }
 
+.hero__daily {
+  max-width: 38ch;
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--panel-bg-glass, rgba(22, 22, 22, 0.72));
+  backdrop-filter: blur(8px);
+}
+.hero__daily[hidden] { display: none; }
+.hero__daily-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.hero__daily-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e8dfd3;
+  font-style: italic;
+}
+
 .hero__bio-age {
   display: flex;
   flex-wrap: wrap;

@@ -194,6 +194,44 @@
         "speed_decay": "Decadimento velocità contenuto"
       },
       "note_device": "Orologio lasciato acceso fino a casa — durata e kcal sovrastimate"
+    },
+    {
+      "id": "2026-07-27-scheda-1",
+      "date": "2026-07-27",
+      "time": "12:22",
+      "datetime": "2026-07-27T12:22",
+      "scheda": 1,
+      "month": "2026-07",
+      "durata_sec": 4940,
+      "durata": "01:22:20",
+      "recupero_sec": 3522,
+      "recupero": "58:42",
+      "gruppi": 25,
+      "fc_media": 118,
+      "fc_max": 148,
+      "calorie": 693,
+      "carico": 120,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 13, "time": "11:08" },
+        "aerobica": { "pct": 52, "time": "43:08" },
+        "intensiva": { "pct": 31, "time": "25:36" },
+        "leggera": { "pct": 2, "time": "02:25" }
+      },
+      "effetto_aerobico": 3.4,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 2.9,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "ROM molto uniforme — punte radar alte",
+        "stability": "Movimenti molto stabili",
+        "continuity": "Buona continuità con pause minori",
+        "rhythm": "Ritmo molto coerente — metrica più alta del radar",
+        "speed_decay": "Decadimento velocità da migliorare — coerente con focus TUT controllato"
+      }
     }
   ]
 }
