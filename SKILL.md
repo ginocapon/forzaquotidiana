@@ -450,12 +450,27 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 
 ## 5a. Newsletter e scheda pesi PDF
 
-### Flusso
+### Modello scheda ↔ mail ↔ newsletter
 
-1. Link **Scarica scheda** da `/allenamenti/` o trimestre → `/allenamenti/newsletter/?from=schede-peso`
+| Canale | Ruolo |
+|--------|--------|
+| **Scheda online + PDF** | Pubblici e gratuiti — scaricabili da `/allenamenti/schede-peso/` senza iscrizione |
+| **Newsletter** | Avviso email quando esce un nuovo periodo o articolo; PDF in allegato al lancio |
+| **Correlazione** | Stesso contenuto su sito e mail; la newsletter **non** è obbligatoria per accedere al PDF |
+
+### Flusso iscrizione
+
+1. Link **Newsletter** da `/allenamenti/` o banner sulla scheda
 2. Iscrizione (consenso privacy) → Google Apps Script + Gmail
-3. Redirect `/allenamenti/schede-peso/` — **1 foglio A4 orizzontale** (griglia 2×2)
-4. `localStorage` `fq_newsletter_ok` sblocca visite successive (stesso browser)
+3. Doppio opt-in → email benvenuto con PDF allegato (cortesia)
+4. `localStorage` `fq_newsletter_ok` ricorda lo stato sulla pagina newsletter (non gate PDF)
+
+### Flusso nuovo periodo (trimestre o ciclo)
+
+1. Creare programma + scheda HTML + generare PDF
+2. Aggiornare catalogo `/allenamenti/schede-peso/` e `data/schede-periodo.json`
+3. Aggiornare `SCHEDA_*` in `newsletter/google-apps-script.gs`
+4. Eseguire `inviaNuovaSchedaATutti()` per inviare PDF agli iscritti confermati
 
 ### Scheda A4
 
@@ -480,7 +495,7 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 | `/allenamenti/newsletter/` | Landing + form |
 | `/allenamenti/schede-peso/` | Catalogo schede per periodo |
 | `/allenamenti/schede-peso/trimestre-…/` | Scheda A4 del periodo |
-| `js/newsletter.js` | Submit, gate, demo test |
+| `js/newsletter.js` | Submit form, stato iscrizione locale |
 | `SKILL-VENERDI.md` | Checklist settimanale |
 
 ### Promozione
@@ -495,11 +510,12 @@ Per ogni arco temporale creare:
 1. **Programma** → `/allenamenti/trimestre-[mesi]-[anno]/` (obiettivo nel titolo, es. *Ipertrofia natural*)
 2. **Scheda PDF A4** → `/allenamenti/schede-peso/trimestre-[mesi]-[anno]/`
 3. **Voce catalogo** in `/allenamenti/schede-peso/index.html` e sezione hub `/allenamenti/#schede-periodo`
-4. **Generare il PDF allegato alla newsletter** (lo faccio io, non l'utente):
+4. **Generare il PDF** (lo faccio io, non l'utente):
    - Dopo il push della pagina scheda: `node tools/genera-pdf-scheda.mjs <slug> scheda-forza-quotidiana-<periodo>.pdf`
-   - Produce **A4 orizzontale, 1 pagina** (Puppeteer + Chrome, apre la pagina con `?sub=1` per superare il gate)
+   - Produce **A4 orizzontale, 1 pagina** (Puppeteer + Chrome, pagina pubblica)
    - Committare il PDF nella cartella della scheda
-   - Aggiornare in `newsletter/google-apps-script.gs` le variabili `SCHEDA_URL`, `SCHEDA_PDF_URL`, `SCHEDA_PDF_NOME` → poi ricordare all'utente di **ripubblicare** lo script
+   - Aggiornare in `newsletter/google-apps-script.gs` le variabili `SCHEDA_URL`, `SCHEDA_PDF_URL`, `SCHEDA_PDF_NOME`
+   - Eseguire `inviaNuovaSchedaATutti()` per avvisare gli iscritti → poi ricordare all'utente di **ripubblicare** lo script se modificato
 
 Ogni scheda deve indicare chiaramente:
 

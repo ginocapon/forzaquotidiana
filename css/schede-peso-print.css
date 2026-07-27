@@ -1,6 +1,6 @@
-/* Scheda pesi — 1 pagina A4 orizzontale */
+/* Scheda pesi — 1 pagina A4 orizzontale, stampa professionale */
 .schede-peso {
-  background: #e8e4dc;
+  background: #ddd8cf;
   color: #1a1a1a;
 }
 
@@ -23,53 +23,89 @@
 .schede-peso-toolbar p { margin: 0; }
 .schede-peso-toolbar__tip { width: 100%; margin: 0; color: #aaa; }
 
+.schede-peso-banner {
+  background: linear-gradient(135deg, #1a1510 0%, #2a2218 100%);
+  color: #f4efe6;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(201, 120, 58, 0.35);
+}
+.schede-peso-banner__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  font-size: 0.88rem;
+}
+.schede-peso-banner p { margin: 0; color: #d8cfc0; }
+.schede-peso-banner a { color: #e8a96a; }
+
 /* Anteprima schermo ≈ A4 landscape */
 .scheda-a4 {
   width: 297mm;
   min-height: 210mm;
   margin: 1rem auto 2rem;
-  padding: 5mm 6mm;
+  padding: 4.5mm 5.5mm;
   background: #fff;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.14);
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
   font-size: 7pt;
   line-height: 1.2;
+  position: relative;
 }
 
 .scheda-a4__head {
-  border-bottom: 1.5px solid #c9783a;
+  border-bottom: 2px solid #c9783a;
   padding-bottom: 2mm;
-  margin-bottom: 2mm;
+  margin-bottom: 2.5mm;
+}
+.scheda-a4__head-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3mm;
+  margin-bottom: 1mm;
 }
 .scheda-a4__head-main {
-  font-size: 8.5pt;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 0.5mm;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+}
+.scheda-a4__head-site {
+  font-size: 6pt;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 .scheda-a4__head-period {
   text-align: center;
-  font-size: 7pt;
-  margin: 0 0 1mm;
-  line-height: 1.25;
+  font-size: 7.2pt;
+  margin: 0 0 1.5mm;
+  line-height: 1.3;
 }
 .scheda-a4__badge {
   display: inline-block;
   font-size: 6pt;
   font-weight: 700;
-  border: 1px solid #c9783a;
+  background: #c9783a;
+  color: #fff;
   border-radius: 2px;
-  padding: 0.2mm 1mm;
+  padding: 0.3mm 1.2mm;
   margin-right: 1mm;
+  vertical-align: middle;
 }
 .scheda-a4__head-meta {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1mm 4mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1mm 3mm;
   font-size: 6.5pt;
   color: #444;
+  background: #faf7f2;
+  border: 1px solid #e8e0d4;
+  border-radius: 2px;
+  padding: 1mm 2mm;
 }
 
 .scheda-a4__grid {
@@ -77,24 +113,26 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 2.5mm;
-  height: calc(210mm - 5mm - 5mm - 12mm - 6mm);
+  height: calc(210mm - 5mm - 5mm - 14mm - 6mm);
 }
 
 .scheda-a4__quad {
-  border: 1px solid #bbb;
-  border-radius: 2px;
+  border: 1px solid #b8b0a4;
+  border-radius: 3px;
   padding: 1.5mm 2mm;
   display: flex;
   flex-direction: column;
   min-height: 0;
+  background: #fff;
 }
 .scheda-a4__quad h2 {
   font-size: 7pt;
   margin: 0 0 1mm;
-  padding: 0.5mm 1mm;
-  background: #f0ebe3;
-  color: #8b4513;
-  border-left: 2px solid #c9783a;
+  padding: 0.6mm 1.2mm;
+  background: linear-gradient(90deg, #f5efe6 0%, #faf7f2 100%);
+  color: #6b3f1f;
+  border-left: 3px solid #c9783a;
+  font-weight: 700;
 }
 
 .scheda-a4__quad table {
@@ -105,14 +143,18 @@
 }
 .scheda-a4__quad th,
 .scheda-a4__quad td {
-  border: 1px solid #ccc;
-  padding: 0.6mm 1mm;
+  border: 1px solid #d4cdc2;
+  padding: 0.65mm 1mm;
   vertical-align: middle;
 }
 .scheda-a4__quad th {
-  background: #faf7f2;
+  background: #f0ebe3;
   font-weight: 600;
   text-align: left;
+  color: #444;
+  font-size: 6pt;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 .scheda-a4__quad td:nth-child(2) { width: 12%; white-space: nowrap; }
 .scheda-a4__quad td:nth-child(3) { width: 10%; }
@@ -127,15 +169,24 @@
   margin: 1mm 0 0;
   font-size: 6pt;
   color: #555;
-  border-top: 1px dashed #ddd;
-  padding-top: 0.5mm;
+  border-top: 1px dashed #ccc;
+  padding-top: 0.6mm;
 }
 
 .scheda-a4__foot {
   margin-top: 2mm;
+  padding-top: 1mm;
+  border-top: 1px solid #e0d8cc;
   font-size: 5.5pt;
   color: #888;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2mm;
+}
+.scheda-a4__foot-brand {
+  font-weight: 600;
+  color: #a06830;
 }
 
 @media print {
@@ -170,6 +221,9 @@
   .scheda-a4__grid {
     grid-template-columns: 1fr;
     height: auto;
+  }
+  .scheda-a4__head-meta {
+    grid-template-columns: 1fr 1fr;
   }
   .scheda-a4__quad table { font-size: 0.62rem; }
 }
