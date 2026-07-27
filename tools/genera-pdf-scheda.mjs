@@ -7,7 +7,7 @@
  *   node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf
  *
  * Il PDF viene salvato in allenamenti/schede-peso/<slug>/<nome-file.pdf>.
- * La pagina viene aperta con ?sub=1 per superare il gate newsletter.
+ * La pagina viene aperta senza gate (scheda pubblica).
  */
 import puppeteer from "puppeteer-core";
 import { existsSync } from "node:fs";
@@ -19,6 +19,10 @@ const REPO = dirname(__dirname);
 const SITE = "https://forzaquotidiana.it";
 
 const CHROME_CANDIDATES = [
+  "/usr/bin/google-chrome-stable",
+  "/usr/bin/google-chrome",
+  "/usr/bin/chromium",
+  "/usr/bin/chromium-browser",
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
@@ -42,8 +46,8 @@ async function main() {
   const outPath = join(schedaDir, outName);
 
   const url = mode === "--local"
-    ? "file:///" + join(schedaDir, "index.html").replace(/\\/g, "/") + "?sub=1"
-    : `${SITE}/allenamenti/schede-peso/${slug}/?sub=1`;
+    ? "file:///" + join(schedaDir, "index.html").replace(/\\/g, "/")
+    : `${SITE}/allenamenti/schede-peso/${slug}/`;
 
   console.log("Rendering:", url);
   const browser = await puppeteer.launch({

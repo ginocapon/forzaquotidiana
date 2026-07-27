@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter gratuita + scheda pesi PDF | La Forza Quotidiana</title>
-<meta name="description" content="Iscriviti gratis alla newsletter di Gino Capon: nuove schede, articoli e la scheda pesi PDF Q3 2026 con spazio per annotazioni.">
+<title>Newsletter · schede e aggiornamenti | La Forza Quotidiana</title>
+<meta name="description" content="Iscriviti gratis alla newsletter di Gino Capon: ricevi via email le nuove schede pesi PDF e gli articoli del diario. Le schede sono sempre scaricabili liberamente dal sito.">
 <link rel="canonical" href="https://forzaquotidiana.it/allenamenti/newsletter/">
 <meta property="og:url" content="https://forzaquotidiana.it/allenamenti/newsletter/">
 <meta property="og:title" content="Newsletter La Forza Quotidiana">
@@ -34,26 +34,28 @@
     </nav>
 
     <div class="newsletter-hero">
-      <h1>Scheda pesi PDF + aggiornamenti gratuiti</h1>
-      <p class="lead">Iscriviti alla newsletter (zero costo). Ricevi una mail quando pubblico <strong>nuove schede</strong> o <strong>articoli</strong> — e subito puoi scaricare la scheda per annotare pesi e note, divisa per le <strong>4 giornate</strong> del trimestre.</p>
+      <h1>Newsletter: nuove schede e aggiornamenti via email</h1>
+      <p class="lead">Le <strong>schede pesi PDF</strong> sono <strong>sempre gratuite e pubbliche</strong> sul sito — puoi scaricarle quando vuoi, senza iscriverti. La newsletter serve per <strong>ricevere una mail</strong> quando pubblico un nuovo periodo di allenamento o un articolo del diario.</p>
     </div>
 
     <div class="newsletter-grid">
       <div class="newsletter-benefits card">
-        <h2>Cosa ricevi</h2>
+        <h2>Cosa ricevi (solo se ti iscrivi)</h2>
         <ul>
-          <li><strong>Scheda pesi PDF</strong> — 4 schede, colonne peso + annotazioni</li>
-          <li>Avviso quando esce un nuovo trimestre o articolo</li>
-          <li>Niente spam: solo ciò che pubblico sul sito</li>
-          <li>Conferma via email (doppio opt-in) + disiscrizione in un click</li>
+          <li><strong>Avviso email</strong> quando esce una nuova scheda trimestrale (o un nuovo ciclo)</li>
+          <li><strong>PDF in allegato</strong> nella mail di lancio — comodo per stampare o archiviare</li>
+          <li>Notifica quando pubblico un articolo sul <a href="/diario/">Diario</a></li>
+          <li>Niente spam: solo ciò che esce sul sito</li>
+          <li>Doppio opt-in + disiscrizione in un click</li>
         </ul>
+        <p class="newsletter-benefits__note"><small>Non vuoi la mail? Vai direttamente al <a href="/allenamenti/schede-peso/">catalogo schede PDF</a>.</small></p>
       </div>
 
       <div class="newsletter-form-wrap card card--highlight">
         <h2>Iscriviti gratis</h2>
         <form id="newsletter-form" class="newsletter-form" data-script-url="https://script.google.com/macros/s/AKfycbyDjAz0-hsD6oygnSb8DMPN4cb7LT_GuY1HVG7_cdoDOBlKKqu32LLa-2AJNzkxt-fYrw/exec" method="POST">
           <input type="hidden" name="from" id="newsletter-from" value="sito">
-          <input type="hidden" name="next" id="newsletter-next" value="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/">
+          <input type="hidden" name="next" id="newsletter-next" value="/allenamenti/newsletter/">
           <input type="text" name="website" tabindex="-1" autocomplete="off" class="newsletter-form__hp" aria-hidden="true">
           <label class="newsletter-form__field">
             <span>Nome (opzionale)</span>
@@ -67,23 +69,33 @@
             <input type="checkbox" name="privacy" required value="yes">
             <span>Ho letto l&apos;<a href="/privacy/" target="_blank" rel="noopener">informativa privacy</a> e acconsento a ricevere la newsletter.</span>
           </label>
-          <button type="submit" class="btn btn-primary btn-block">Iscriviti e scarica la scheda →</button>
+          <button type="submit" class="btn btn-primary btn-block">Iscriviti alla newsletter →</button>
         </form>
 
         <div id="newsletter-success" class="newsletter-success" hidden>
-          <p><strong>Quasi fatto!</strong> Ti ho inviato una mail: apri e clicca <em>Conferma iscrizione</em> per attivarla (doppio opt-in).</p>
-          <p>Intanto puoi già scaricare la scheda: <span id="newsletter-success-email"></span></p>
+          <p><strong>Quasi fatto!</strong> Controlla la casella <span id="newsletter-success-email"></span> e clicca <em>Conferma iscrizione</em> (doppio opt-in).</p>
+          <p>Dopo la conferma riceverai la scheda attuale in allegato e un avviso ogni volta che ne pubblico una nuova.</p>
           <p class="btn-row">
-            <a class="btn btn-primary" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf" download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica PDF Q3 2026</a>
-            <a class="btn btn-ghost" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/">Apri scheda online</a>
+            <a class="btn btn-primary" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf" download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica subito PDF Q3 2026</a>
+            <a class="btn btn-ghost" href="/allenamenti/schede-peso/">Catalogo schede</a>
           </p>
         </div>
 
         <p id="newsletter-error" class="newsletter-error" hidden role="alert"></p>
 
-        <p class="newsletter-form__note"><small>Lista gestita con la mia Gmail (Google Apps Script). Setup una tantum: <code>NEWSLETTER-SETUP.md</code>. Per provare il layout: <button type="button" class="btn-link" id="newsletter-demo">accesso demo scheda</button>.</small></p>
+        <p class="newsletter-form__note"><small>Lista gestita con Gmail (Google Apps Script). Setup: <code>NEWSLETTER-SETUP.md</code>.</small></p>
       </div>
     </div>
+
+    <section class="newsletter-schede-preview card">
+      <h2>Scheda attuale (sempre pubblica)</h2>
+      <p><strong>Q3 · 2026 — Ipertrofia natural</strong> · 1 giu – 31 ago 2026 · 4 giornate su un foglio A4 orizzontale.</p>
+      <div class="newsletter-cta__actions">
+        <a class="btn btn-primary" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf" download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica PDF</a>
+        <a class="btn btn-ghost" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/">Apri scheda online</a>
+        <a class="btn btn-ghost" href="/allenamenti/trimestre-giugno-luglio-agosto-2026/">Programma trimestre</a>
+      </div>
+    </section>
 
     <p><a href="/allenamenti/">← Torna agli Allenamenti</a></p>
   </div>
@@ -95,6 +107,6 @@
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
-<script src="/js/newsletter.js?v=3" defer></script>
+<script src="/js/newsletter.js?v=4" defer></script>
 </body>
 </html>

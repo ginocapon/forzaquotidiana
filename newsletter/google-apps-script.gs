@@ -19,8 +19,8 @@ var SHEET_ID = '1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA';
 var SITE = 'https://forzaquotidiana.it';
 var TitolareEmail = 'ginocapon@gmail.com';
 
-// Scheda corrente: pagina online + PDF allegato alla mail di benvenuto.
-// Ogni nuovo trimestre aggiorna queste due righe con la nuova cartella/PDF.
+// Scheda corrente: pagina online + PDF pubblico + allegato mail di lancio newsletter.
+// Ogni nuovo trimestre/ciclo aggiorna queste variabili e lancia inviaNuovaSchedaATutti().
 var SCHEDA_URL = SITE + '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/';
 var SCHEDA_PDF_URL = SITE + '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf';
 var SCHEDA_PDF_NOME = 'Scheda-ForzaQuotidiana-Q3-2026.pdf';
@@ -130,8 +130,8 @@ function doGet(e) {
       inviaBenvenuto_(email, String(sh.getRange(r, 2).getValue()));
     }
     return htmlPage_('Iscrizione confermata',
-      'Grazie! La tua iscrizione è attiva. Ti ho inviato la scheda in PDF via email. Riceverai una mail solo per nuove schede o articoli.',
-      SCHEDA_URL + '?sub=1', 'Apri la scheda online');
+      'Grazie! La tua iscrizione è attiva. Ti ho inviato la scheda attuale in PDF via email. Riceverai un avviso ogni volta che pubblico una nuova scheda o un articolo.',
+      SCHEDA_URL, 'Apri la scheda online');
   }
 
   if (p.action === 'unsub' && email && p.t === token_(email)) {
@@ -169,9 +169,9 @@ function inviaBenvenuto_(email, nome) {
     '<div style="font-family:Georgia,serif;max-width:560px;color:#222">' +
     '<p>' + saluto + '</p>' +
     '<p>Iscrizione confermata. Grazie per esserti unito a <strong>La Forza Quotidiana</strong>.</p>' +
-    '<p>Trovi la <strong>scheda pesi in PDF</strong> qui allegata (4 giornate, spazio per kg e note): stampala o compilala dal telefono.</p>' +
-    '<p>Preferisci usarla online? <a href="' + SCHEDA_URL + '?sub=1">Aprila qui →</a></p>' +
-    '<p>Ti scriverò solo per nuove schede o articoli — niente spam.</p>' +
+    '<p>Le schede PDF sono sempre disponibili sul sito; in allegato trovi quella del periodo attuale (<strong>4 giornate</strong>, spazio per kg e note).</p>' +
+    '<p>Preferisci usarla online? <a href="' + SCHEDA_URL + '">Aprila qui →</a></p>' +
+    '<p>Ti scriverò quando pubblico una <strong>nuova scheda</strong> o un <strong>articolo</strong> — niente spam.</p>' +
     footerUnsub_(unsubUrl) + '</div>';
 
   var options = { htmlBody: html, name: 'La Forza Quotidiana' };
@@ -217,7 +217,7 @@ function sanitizeNext_(next) {
 }
 
 function redirectAfterSubscribe_(email, next) {
-  var url = SITE + sanitizeNext_(next) + '?sub=1&e=' + encodeURIComponent(email || '');
+  var url = SITE + '/allenamenti/newsletter/?sub=1&e=' + encodeURIComponent(email || '');
   return HtmlService.createHtmlOutput(
     '<!DOCTYPE html><html lang="it"><head><meta charset="utf-8">' +
     '<meta http-equiv="refresh" content="0;url=' + url + '"></head><body>' +
@@ -233,6 +233,40 @@ function redirectError_(msg) {
 }
 
 /* ---------- Invio newsletter (solo confermati) ---------- */
+
+/**
+ * Lancio nuova scheda: invia PDF in allegato a tutti gli iscritti confermati.
+ * Aggiorna prima SCHEDA_URL, SCHEDA_PDF_URL, SCHEDA_PDF_NOME e il testo sotto.
+ */
+function inviaNuovaSchedaATutti() {
+  var oggetto = 'Nuova scheda pesi — La Forza Quotidiana';
+  var titoloScheda = 'Ipertrofia natural · Q3 2026';
+  var sh = getSheet_();
+  var rows = sh.getDataRange().getValues();
+  var inviati = 0;
+  var pdf = fetchSchedaPdf_();
+
+  for (var i = 1; i < rows.length; i++) {
+    var email = String(rows[i][2]).trim();
+    var stato = String(rows[i][5]);
+    if (!email || email.indexOf('@') === -1 || stato !== 'confermato') continue;
+    var unsubUrl = selfUrl_() + '?action=unsub&e=' + encodeURIComponent(email) + '&t=' + token_(email);
+    var html =
+      '<div style="font-family:Georgia,serif;max-width:560px;color:#222">' +
+      '<p>Ciao,</p>' +
+      '<p>Ho pubblicato una nuova <strong>scheda pesi PDF</strong>: <em>' + titoloScheda + '</em>.</p>' +
+      '<p>La trovi in allegato (4 giornate su un foglio A4 orizzontale) oppure online: <a href="' + SCHEDA_URL + '">apri scheda →</a></p>' +
+      '<p>Le schede restano sempre gratuite sul sito — questa mail è solo per chi vuole ricevere l&apos;avviso.</p>' +
+      footerUnsub_(unsubUrl) + '</div>';
+
+    var options = { htmlBody: html, name: 'La Forza Quotidiana' };
+    if (pdf) options.attachments = [pdf];
+    GmailApp.sendEmail(email, oggetto, '', options);
+    inviati++;
+    Utilities.sleep(1200);
+  }
+  Logger.log('Schede inviate: ' + inviati);
+}
 
 function inviaAggiornamentoATutti() {
   var oggetto = 'Forza Quotidiana — novità sul sito';
@@ -283,7 +317,7 @@ function riepilogoVenerdi() {
     'Disiscritti: ' + disiscritti + '\n' +
     'Accessi/stampe scheda (7 gg): ' + nAccessi + '\n\n' +
     'Foglio: https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit\n\n' +
-    'Checklist: nuovo articolo? → inviaAggiornamentoATutti() · aggiorna sitemap.xml e llms.txt';
+    'Checklist: nuova scheda? → inviaNuovaSchedaATutti() · nuovo articolo? → inviaAggiornamentoATutti() · aggiorna sitemap.xml e llms.txt';
 
   GmailApp.sendEmail(TitolareEmail, 'Forza Quotidiana — riepilogo venerdì', body);
 }

@@ -2712,6 +2712,9 @@ a.session-card:hover {
 }
 .newsletter-cta h2 { margin-top: 0; }
 .newsletter-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.newsletter-benefits__note { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.88rem; }
+.newsletter-schede-preview { margin-top: 1.5rem; }
+.newsletter-schede-preview h2 { margin-top: 0; }
 .scheda-pdf-promo {
   display: flex;
   flex-wrap: wrap;

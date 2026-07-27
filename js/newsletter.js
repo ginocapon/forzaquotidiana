@@ -1,7 +1,10 @@
 /**
- * Newsletter gate — La Forza Quotidiana
+ * Newsletter — La Forza Quotidiana
  * Backend: Google Apps Script + Gmail (ginocapon@gmail.com)
  * Configura data-script-url in allenamenti/newsletter/index.html
+ *
+ * Le schede PDF sono pubbliche: la newsletter avvisa quando esce un nuovo periodo
+ * e invia il PDF agli iscritti confermati (vedi google-apps-script.gs).
  */
 (function () {
   var STORAGE_KEY = "fq_newsletter_ok";
@@ -62,12 +65,6 @@
 
   consumeReturnParams();
 
-  if (document.body.dataset.newsletterGate === "schede-peso" && !isSubscribed()) {
-    var next = encodeURIComponent(window.location.pathname);
-    window.location.replace("/allenamenti/newsletter/?from=schede-peso&next=" + next);
-    return;
-  }
-
   if (isSubscribed() && form && success && success.hidden) {
     form.hidden = true;
     success.hidden = false;
@@ -84,7 +81,7 @@
 
   var nextInput = document.getElementById("newsletter-next");
   if (nextInput) {
-    nextInput.value = params.get("next") || "/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/";
+    nextInput.value = params.get("next") || "/allenamenti/newsletter/";
   }
 
   var fromInput = document.getElementById("newsletter-from");
@@ -99,7 +96,7 @@
       if (errorBox) {
         errorBox.hidden = false;
         errorBox.textContent =
-          "Modulo non ancora collegato a Gmail. Segui NEWSLETTER-SETUP.md — oppure usa accesso demo in fondo pagina.";
+          "Modulo non ancora collegato a Gmail. Segui NEWSLETTER-SETUP.md.";
       }
       return;
     }
@@ -107,15 +104,4 @@
     form.action = scriptUrl;
     form.method = "POST";
   });
-
-  var demoBtn = document.getElementById("newsletter-demo");
-  if (demoBtn) {
-    demoBtn.addEventListener("click", function () {
-      markSubscribed("demo@forzaquotidiana.it");
-      showSuccess("demo@forzaquotidiana.it");
-      var next = params.get("next") || "/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/";
-      window.location.href = next;
-    });
-  }
 })();
-

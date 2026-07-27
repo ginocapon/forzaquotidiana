@@ -40,7 +40,7 @@ description: >-
 
 - [ ] `sitemap.xml` — URL nuovi aggiunti?
 - [ ] `llms.txt` — contenuti recenti?
-- [ ] Link rotti: homepage → allenamenti → newsletter → scheda PDF
+- [ ] Link rotti: homepage → allenamenti → schede PDF (pubbliche) → newsletter
 - [ ] Privacy/cookie coerenti se hai aggiunto form o tracking
 - [ ] GitHub Pages deploy ok (ultimo push su `main`)
 
@@ -107,7 +107,8 @@ Dopo ogni modifica a `google-apps-script.gs`: **Deploy → Gestisci distribuzion
 
 ## Apps Script — nuove funzioni da incollare
 
-Se il tuo script online è vecchio, aggiungi da repo `newsletter/google-apps-script.gs`:
+Se il tuo script online è vecchio, aggiorna da repo `newsletter/google-apps-script.gs`:
 - `doGet` — log accessi scheda
 - `getAccessiSheet_` / `logAccesso_`
+- `inviaNuovaSchedaATutti` — lancio nuova scheda con PDF allegato
 - `riepilogoVenerdi`
