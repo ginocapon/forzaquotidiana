@@ -14,10 +14,10 @@
         {
           "date": "2026-07-27",
           "session_id": "2026-07-27-scheda-1",
-          "serie": 10,
-          "peso_kg": 20,
-          "peso_secondario_kg": 16,
-          "serie_label": "2×6-7 @ 20 + 8× @ 16",
+          "serie": 4,
+          "peso_kg": 30,
+          "peso_secondario_kg": 26,
+          "serie_label": "prime 6-7 @ 30 + 2× @ 26",
           "tut": "4s rientro",
           "note": "TUT aumentato — rientro 4 sec tra le ripetizioni"
         }
