@@ -8,10 +8,25 @@
 <meta name="description" content="Guida pratica: un anno di allenamento in 4 fasi. Perché funzionano i cicli, come si costruiscono e che benefici reali aspettarti.">
 <link rel="stylesheet" href="/css/styles.css?v=45">
 <link rel="stylesheet" href="/admin/css/admin.css?v=4">
+<link rel="stylesheet" href="/admin/css/admin-perio-print.css?v=1">
 </head>
 <body class="admin-page" data-perio-mode="theory">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
-<header class="site-header admin-header">
+
+<div class="perio-print-toolbar no-print">
+  <div class="wrap perio-print-toolbar__inner">
+    <p><strong>Guida periodizzazione annuale</strong> · PDF A4</p>
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" id="perio-print-btn">Stampa / Salva PDF</button>
+      <a class="btn btn-ghost" href="/admin/prototipi/periodizzazione/schede/">Schede</a>
+      <a class="btn btn-ghost" href="/admin/prototipi/periodizzazione/pdf/">PDF sessioni</a>
+      <a class="btn btn-ghost" href="/admin/">Dashboard</a>
+    </div>
+    <p class="perio-print-toolbar__tip"><small>Stampa in <strong>verticale (A4)</strong> · margini ~12 mm · attiva «Grafica di sfondo» se vuoi i riquadri · scala 100%</small></p>
+  </div>
+</div>
+
+<header class="site-header admin-header no-print">
   <div class="wrap">
     <a class="logo" href="/admin/">Admin<small>La Forza Quotidiana</small></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-admin">Menu</button>
@@ -31,12 +46,15 @@
       <p class="tagline">Teoria · 1 anno · 4 fasi</p>
       <h1>Periodizzazione annuale, spiegata bene</h1>
       <p class="lead">Non è un manuale da fisiologo. È la mappa di <strong>un anno</strong> di palestra: perché i cicli esistono, come si costruiscono e che vantaggi concreti ti danno se li segui.</p>
-      <nav class="perio-nav" aria-label="Sezioni periodizzazione">
+      <p class="perio-print-cta no-print">
+        <button type="button" class="btn btn-primary" id="perio-print-btn-hero" onclick="window.print()">🖨 Stampa / Salva PDF (A4)</button>
+      </p>
+      <nav class="perio-nav no-print" aria-label="Sezioni periodizzazione">
         <a href="/admin/prototipi/periodizzazione/" aria-current="page">Teoria</a>
         <a href="/admin/prototipi/periodizzazione/schede/">Schede pratiche</a>
         <a href="/admin/prototipi/periodizzazione/pdf/">PDF stampabili</a>
       </nav>
-      <nav class="perio-toc" aria-label="Indice pagina">
+      <nav class="perio-toc no-print" aria-label="Indice pagina">
         <a href="#perche">Perché</a>
         <a href="#anno">L’anno in 4 fasi</a>
         <a href="#settimana">La settimana</a>
@@ -186,22 +204,29 @@
       <div class="perio-next">
         <h2>Cosa fare adesso</h2>
         <p>Hai capito il <em>perché</em>. Il <em>cosa fare in palestra</em> è nelle schede e nei PDF (anonimi, senza kg finché non li calcoli).</p>
-        <div class="perio-next__actions">
+        <div class="perio-next__actions no-print">
           <a class="btn btn-primary" href="/admin/prototipi/periodizzazione/schede/">Apri schede pratiche</a>
           <a class="btn btn-ghost" href="/admin/prototipi/periodizzazione/pdf/">PDF stampabili</a>
           <a class="btn btn-ghost" href="/admin/">Dashboard macrociclo</a>
         </div>
       </div>
 
+      <p class="perio-print-foot">Periodizzazione annuale · 4 fasi × ~13 settimane · A4 verticale · uso palestra / amici</p>
+
     </div>
   </section>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer no-print">
   <div class="wrap"><p><small>Admin · periodizzazione annuale — 4 fasi × ~13 settimane</small></p></div>
 </footer>
 
 <script src="/js/main.js?v=19" defer></script>
 <script src="/admin/js/periodizzazione.js?v=4" defer></script>
+<script>
+  document.getElementById("perio-print-btn")?.addEventListener("click", function () {
+    window.print();
+  });
+</script>
 </body>
 </html>

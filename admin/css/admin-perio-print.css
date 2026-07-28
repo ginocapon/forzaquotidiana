@@ -1,0 +1,273 @@
+/**
+ * Guida periodizzazione annuale — stampa A4 verticale (multipagina)
+ * Usare: Stampa → «Salva come PDF» · orientamento Verticale · margini Predefiniti/14 mm · sfondo attivo
+ */
+
+.perio-print-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #0c0c0c;
+  color: #f4efe6;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.perio-print-toolbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+}
+.perio-print-toolbar p { margin: 0; }
+.perio-print-toolbar__tip {
+  width: 100%;
+  margin: 0;
+  color: #aaa;
+  font-size: 0.82rem;
+}
+.perio-print-cta {
+  margin: 1rem 0 0;
+}
+.perio-print-cta .btn {
+  font-size: 0.95rem;
+  padding: 0.65rem 1.15rem;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 11mm 14mm;
+  }
+
+  html, body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    font-size: 10pt;
+    line-height: 1.35;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print,
+  .skip-link,
+  .site-header,
+  .site-footer,
+  .perio-print-toolbar,
+  .perio-nav,
+  .perio-toc,
+  .nav-toggle,
+  .cookie-banner,
+  #cookie-banner {
+    display: none !important;
+  }
+
+  .page-veiled,
+  .admin-page,
+  .admin-hero,
+  .section,
+  .perio-guide {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .wrap,
+  .prose--wide {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 !important;
+  }
+
+  .admin-hero .tagline {
+    color: #c9783a !important;
+    margin: 0 0 2mm;
+    font-size: 8pt;
+  }
+  .admin-hero h1 {
+    color: #111 !important;
+    font-size: 16pt !important;
+    margin: 0 0 2mm !important;
+    line-height: 1.2;
+  }
+  .admin-hero .lead {
+    color: #333 !important;
+    font-size: 10pt !important;
+    max-width: none !important;
+    margin: 0 0 4mm !important;
+  }
+
+  .perio-guide h2 {
+    color: #111 !important;
+    font-size: 12pt !important;
+    margin: 5mm 0 2.5mm !important;
+    padding-top: 2mm;
+    border-top: 0.4pt solid #ccc;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .perio-guide h2:first-of-type { border-top: none; }
+  .perio-guide h3 {
+    color: #111 !important;
+    font-size: 10.5pt !important;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  .perio-guide p,
+  .perio-guide li {
+    color: #222 !important;
+    font-size: 9.5pt;
+  }
+  .perio-guide a {
+    color: #1a1a1a !important;
+    text-decoration: underline;
+  }
+
+  .perio-callout,
+  .perio-note,
+  .perio-year__fase,
+  .perio-week__day,
+  .perio-steps article,
+  .perio-benefits article,
+  .perio-anno-live,
+  .perio-next {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    border: 0.6pt solid #bbb !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .perio-callout {
+    border-left: 2.5pt solid #c9783a !important;
+    margin: 0 0 4mm;
+    padding: 3mm 3.5mm;
+  }
+  .perio-callout p { color: #222 !important; font-size: 9pt; margin: 0 0 1.5mm; }
+
+  .perio-note {
+    background: #f7f3ee !important;
+    margin: 2.5mm 0 0;
+    padding: 2.5mm 3mm;
+    font-size: 9pt;
+    color: #333 !important;
+  }
+
+  .perio-year {
+    gap: 2.5mm;
+    margin: 3mm 0 4mm;
+  }
+  .perio-year__fase {
+    padding: 2.5mm 3mm;
+    gap: 3mm;
+  }
+  .perio-year__num {
+    width: 7mm;
+    height: 7mm;
+    font-size: 10pt;
+    background: #f0e6dc !important;
+    color: #a85a28 !important;
+  }
+  .perio-year__why,
+  .perio-year__gain {
+    color: #333 !important;
+    font-size: 9pt;
+    margin: 0 0 1mm;
+  }
+
+  .perio-week,
+  .perio-steps,
+  .perio-benefits {
+    gap: 2.5mm;
+    margin: 3mm 0;
+  }
+  .perio-week {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .perio-steps,
+  .perio-benefits {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .perio-week__day,
+  .perio-steps article,
+  .perio-benefits article {
+    padding: 2.5mm 3mm;
+  }
+  .perio-week__key { color: #a85a28 !important; }
+  .perio-week__day strong,
+  .perio-steps h3,
+  .perio-benefits h3 { color: #111 !important; }
+  .perio-week__day p,
+  .perio-steps p,
+  .perio-benefits p {
+    color: #333 !important;
+    font-size: 8.5pt;
+  }
+
+  .perio-anno-live {
+    margin: 3mm 0 4mm;
+    padding: 3mm;
+  }
+  .perio-live__title { color: #111 !important; font-size: 10.5pt; }
+  .perio-live__lead { color: #555 !important; font-size: 8.5pt; }
+  .perio-split-box {
+    border-top-color: #ccc !important;
+  }
+  .perio-split-box h4,
+  .perio-split-box p { color: #222 !important; }
+
+  .perio-table-wrap {
+    overflow: visible !important;
+    margin: 2mm 0;
+  }
+  .perio-table {
+    width: 100% !important;
+    font-size: 8pt !important;
+    border-collapse: collapse;
+  }
+  .perio-table th,
+  .perio-table td {
+    border: 0.5pt solid #999 !important;
+    padding: 1.5mm 2mm !important;
+    color: #1a1a1a !important;
+    background: #fff !important;
+    vertical-align: top;
+  }
+  .perio-table th {
+    background: #f0ebe3 !important;
+    font-size: 7.5pt !important;
+  }
+  .perio-table tbody tr:nth-child(even) {
+    background: #faf8f5 !important;
+  }
+
+  .perio-checklist { margin: 2mm 0 3mm; }
+  .perio-checklist li { margin-bottom: 1.2mm; color: #222 !important; }
+
+  .perio-next {
+    margin: 5mm 0 0;
+    padding: 3mm;
+  }
+  .perio-next h2 { border-top: none !important; margin: 0 0 2mm !important; }
+  .perio-next p { color: #333 !important; }
+  .perio-next__actions { display: none !important; }
+
+  .perio-print-foot {
+    display: block !important;
+    margin-top: 6mm;
+    padding-top: 2mm;
+    border-top: 0.4pt solid #ccc;
+    font-size: 8pt;
+    color: #666;
+  }
+}
+
+/* Visibile solo in stampa */
+.perio-print-foot { display: none; }
