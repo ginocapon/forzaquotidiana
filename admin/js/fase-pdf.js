@@ -1,0 +1,123 @@
+/**
+ * PDF una fase (A1–B2) da macrociclo — anonimo, kg blank
+ */
+(function () {
+  "use strict";
+
+  var HUB_URL = "/admin/data/hub-periodizzazione.json";
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        if (k === "className") node.className = attrs[k];
+        else if (k === "html") node.innerHTML = attrs.html;
+        else if (k === "text") node.textContent = attrs.text;
+        else node.setAttribute(k, attrs[k]);
+      });
+    }
+    (children || []).forEach(function (c) {
+      if (typeof c === "string") node.appendChild(document.createTextNode(c));
+      else if (c) node.appendChild(c);
+    });
+    return node;
+  }
+
+  function formatDate(iso) {
+    return new Date(iso + "T12:00:00").toLocaleDateString("it-IT", {
+      day: "numeric", month: "short", year: "numeric"
+    });
+  }
+
+  function render(macro, fase, root) {
+    root.innerHTML = "";
+    document.title = "PDF · " + fase.nome + " | Scheda";
+
+    var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
+
+    var head = el("header", { className: "scheda-a4__head" });
+    head.innerHTML =
+      "<div class=\"scheda-a4__head-main\"><strong>Scheda allenamento</strong> · periodizzazione annuale</div>" +
+      "<div class=\"scheda-a4__head-period\"><span class=\"scheda-a4__badge\">" + fase.settimane + " sett.</span> <strong>" + fase.nome + "</strong></div>" +
+      "<div class=\"scheda-a4__head-meta\">" +
+      "<span><strong>Atleta:</strong> _______________</span>" +
+      "<span><strong>Periodo:</strong> " + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + "</span>" +
+      "<span><strong>RIR:</strong> " + fase.rir + "</span>" +
+      "</div>";
+    article.appendChild(head);
+
+    var intro = el("div", { className: "scheda-a4__osservazioni scheda-a4__intro-fase" });
+    intro.innerHTML =
+      "<div class=\"scheda-a4__osservazioni-label\">Spiegazione fase (leggi prima di allenarti)</div>" +
+      "<p class=\"scheda-a4__intro-text\">" + (fase.guida || fase.obiettivo) + "</p>" +
+      (fase.schedaIntro ? "<p class=\"scheda-a4__intro-text\">" + fase.schedaIntro + "</p>" : "");
+    article.appendChild(intro);
+
+    var grid = el("div", { className: "scheda-a4__grid" });
+    ["a1", "b1", "a2", "b2"].forEach(function (key) {
+      var day = fase.sessioni[key];
+      if (!day) return;
+      var quad = el("section", { className: "scheda-a4__quad" });
+      quad.appendChild(el("h2", { text: key.toUpperCase() + " · " + day.nome }));
+      var table = el("table");
+      table.innerHTML = "<thead><tr><th>Esercizio</th><th>S×R</th><th>RIR</th><th>Rec</th><th>kg</th><th>Reps</th><th>Note</th></tr></thead>";
+      var tbody = el("tbody");
+      day.esercizi.forEach(function (ex) {
+        var tr = el("tr");
+        var nome = ex.nome + (ex.progressione ? " *" : "");
+        tr.innerHTML =
+          "<td>" + nome + "</td>" +
+          "<td>" + ex.serie + "×" + ex.ripetizioni + "</td>" +
+          "<td>" + (ex.rir || "") + "</td>" +
+          "<td>" + (ex.recupero || "") + "</td>" +
+          "<td></td><td></td>" +
+          "<td>" + (ex.tecnica || ex.note || "") + "</td>";
+        tbody.appendChild(tr);
+      });
+      table.appendChild(tbody);
+      quad.appendChild(table);
+      grid.appendChild(quad);
+    });
+    article.appendChild(grid);
+
+    article.appendChild(el("footer", {
+      className: "scheda-a4__foot",
+      text: fase.nome + " · * = progressione · kg da compilare dopo massimali · uso palestra"
+    }));
+
+    root.appendChild(article);
+  }
+
+  function init() {
+    var root = document.getElementById("fase-pdf-root");
+    if (!root) return;
+    var params = new URLSearchParams(window.location.search);
+    var annoId = params.get("anno") || "2026-2027";
+    var faseId = params.get("fase");
+    if (!faseId) {
+      root.innerHTML = "<p>Parametro <code>fase</code> mancante. <a href=\"/admin/prototipi/periodizzazione/\">Torna all’hub</a></p>";
+      return;
+    }
+
+    fetch(HUB_URL)
+      .then(function (r) { return r.json(); })
+      .then(function (hub) {
+        var anno = hub.anni.find(function (a) { return a.id === annoId; }) || hub.anni[0];
+        return fetch(anno.macrocicloUrl).then(function (r) { return r.json(); });
+      })
+      .then(function (macro) {
+        var fase = macro.fasi.find(function (f) { return f.id === faseId; });
+        if (!fase) {
+          root.innerHTML = "<p>Fase non trovata. <a href=\"/admin/prototipi/periodizzazione/\">Hub</a></p>";
+          return;
+        }
+        render(macro, fase, root);
+      })
+      .catch(function (err) {
+        root.innerHTML = "<p>Errore: " + err.message + "</p>";
+      });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();

@@ -33,3 +33,13 @@
   .admin-page.schede-peso { background: #fff; }
   .pdf-cycle-select { display: none !important; }
 }
+
+.scheda-a4__intro-fase {
+  margin-bottom: 2mm !important;
+}
+.scheda-a4__intro-text {
+  margin: 0.8mm 0 0;
+  font-size: 6pt;
+  line-height: 1.25;
+  color: #333;
+}

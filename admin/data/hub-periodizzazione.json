@@ -1,0 +1,17 @@
+{
+  "anni": [
+    {
+      "id": "2026-2027",
+      "label": "2026 – 2027",
+      "macrocicloUrl": "/admin/data/macrociclo-2026-2027.json",
+      "periodi": [
+        {
+          "id": "set26-ago27",
+          "label": "Settembre 2026 → Agosto 2027",
+          "descrizione": "Primo macrociclo annuale: 4 fasi × ~13 settimane, split A1–B2, focus ~55% lower. Pesi da definire dopo i massimali."
+        }
+      ]
+    }
+  ],
+  "_nota": "Aggiungere qui i prossimi anni (es. 2027-2028) con il relativo macrociclo JSON. L’hub periodizzazione legge solo questo file + il macrociclo selezionato."
+}

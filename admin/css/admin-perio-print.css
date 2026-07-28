@@ -34,6 +34,123 @@
   padding: 0.65rem 1.15rem;
 }
 
+/* Hub schede — filtri anno/periodo */
+.perio-hub__h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+}
+.perio-hub__lead {
+  margin: 0 0 1.25rem;
+  color: #ccc4b8;
+  max-width: 55ch;
+}
+.perio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.perio-filters__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 12rem;
+}
+.perio-filters__field span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.perio-filters__field select {
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+}
+.perio-periodo-desc {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.perio-fasi-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+.perio-fase-card {
+  padding: 1.35rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.perio-fase-card__num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.perio-fase-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+.perio-fase-card__meta {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.perio-fase-card__label {
+  margin: 0 0 0.35rem !important;
+  font-size: 0.7rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent) !important;
+}
+.perio-fase-card__guida,
+.perio-fase-card__intro {
+  margin: 0 0 0.85rem;
+  padding: 0.85rem 1rem;
+  background: rgba(201, 120, 58, 0.07);
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+}
+.perio-fase-card__guida p,
+.perio-fase-card__intro p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: #ccc4b8;
+  line-height: 1.45;
+}
+.perio-fase-card__obiettivo {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: #b8b0a4;
+}
+.perio-fase-card__days {
+  margin: 0 0 1.15rem;
+  padding-left: 1.1rem;
+}
+.perio-fase-card__days a {
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+.perio-fase-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+@media print {
+  #schede-hub { display: none !important; }
+}
+
 @media print {
   @page {
     size: A4 portrait;

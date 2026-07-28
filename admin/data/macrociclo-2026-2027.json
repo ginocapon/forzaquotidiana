@@ -349,7 +349,9 @@
             }
           ]
         }
-      }
+      },
+      "guida": "Fase di costruzione. Nelle prime 2 settimane parti soft (RIR 2–3) per far adattare tendini e tecnica; poi accumulo tipico 8–12 ripetizioni. Non cercare PR: cerca serie complete e pulite. La settimana 13 è deload (−40% volume) — obbligatoria. Alla fine di questa fase hai più «motore» e abitudine al volume, base per alzare i carichi dopo.",
+      "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta."
     },
     {
       "id": "tensione-forza",
@@ -692,7 +694,9 @@
             }
           ]
         }
-      }
+      },
+      "guida": "Fase in cui i kg sugli esercizi * salgono. Prime ~6 settimane: tensione meccanica (6–8 rep). Poi forza (4–6 rep). Stessi esercizi della fase 1: cambia solo il range. Non aggiungere nuovi movimenti. Beneficio: forza più alta che tornerà utile quando rifai volume in fase 3.",
+      "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta."
     },
     {
       "id": "ipertrofia-classica-ii",
@@ -1035,7 +1039,9 @@
             }
           ]
         }
-      }
+      },
+      "guida": "Secondo accumulo. Ora puoi spingere un po’ più di volume (verso sett. 9–12 +1 serie sui multiarticolari) perché arrivi dalla fase forza con carichi migliori. Obiettivo: densità e progressione sulle rep, non reinventare la scheda. Deload in sett. 13 prima dell’estate.",
+      "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta."
     },
     {
       "id": "ricondizionamento",
@@ -1378,7 +1384,9 @@
             }
           ]
         }
-      }
+      },
+      "guida": "Mantenimento e recupero di stagione. 10–12 rep, RIR più alto (2–3), zero pressione da peaking. Serve ad arrivare al macrociclo successivo integri, non bruciati. Se viaggi o salti sessioni, questa fase perdona di più — ma non abbandonare del tutto A1–B2.",
+      "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta."
     }
   ]
 }

@@ -951,12 +951,12 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | Dashboard sessioni | `/admin/` |
 | Scheda singola sessione | `/admin/sessione/?ciclo=<id>&sessione=a1\|b1\|a2\|b2` |
 | **PDF scheda sessione** | `/admin/sessione/pdf/?ciclo=<id>&sessione=a1` — A4 verticale, sidebar log |
-| Teoria mesocicli (guida annuale) | `/admin/prototipi/periodizzazione/` — **1 anno · 4 fasi**, perché/come/benefici |
-| Schede pratiche | `/admin/prototipi/periodizzazione/schede/` |
-| PDF stampabili | `/admin/prototipi/periodizzazione/pdf/` |
-| Dati macrociclo Gino | `admin/data/macrociclo-2026-2027.json` |
-| Teoria generica mesocicli | `admin/data/mesocicli.json` |
-| Rigenera macrociclo | `node tools/genera-macrociclo.mjs` |
+| Teoria + hub schede (anno/periodo/fasi/PDF) | `/admin/prototipi/periodizzazione/` — **unico posto** |
+| PDF una fase (A1–B2) | `/admin/prototipi/periodizzazione/fase/?anno=2026-2027&fase=<id>` |
+| Hub anni | `admin/data/hub-periodizzazione.json` |
+| Dati macrociclo | `admin/data/macrociclo-2026-2027.json` |
+| Teoria generica (archivio) | `admin/data/mesocicli.json` — vecchie schede/pdf → redirect all’hub |
+| Rigenera macrociclo | `node tools/genera-macrociclo.mjs` + `rebalance-macrociclo-55.mjs` |
 
 - `noindex` + `robots.txt` → `Disallow: /admin/`
 - **Non** linkare dall’hub pubblico `/allenamenti/`
