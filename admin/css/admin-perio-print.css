@@ -1,6 +1,6 @@
 /**
- * Guida periodizzazione annuale — stampa A4 verticale (multipagina)
- * Usare: Stampa → «Salva come PDF» · orientamento Verticale · margini Predefiniti/14 mm · sfondo attivo
+ * Hub periodizzazione — schermo + stampa A4 leggibile
+ * Stampa: Verticale · margini ~12 mm · scala 100% · «Grafica di sfondo» ON
  */
 
 .perio-print-toolbar {
@@ -26,18 +26,16 @@
   color: #aaa;
   font-size: 0.82rem;
 }
-.perio-print-cta {
-  margin: 1rem 0 0;
-}
+.perio-print-cta { margin: 1rem 0 0; }
 .perio-print-cta .btn {
   font-size: 0.95rem;
   padding: 0.65rem 1.15rem;
 }
 
-/* Hub schede — filtri anno/periodo */
 .perio-hub__h2 {
   margin: 0 0 0.5rem;
   font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  color: #f4efe6;
 }
 .perio-hub__lead {
   margin: 0 0 1.25rem;
@@ -78,10 +76,7 @@
   max-width: 60ch;
 }
 
-.perio-fasi-grid {
-  display: grid;
-  gap: 1.25rem;
-}
+.perio-fasi-grid { display: grid; gap: 1.25rem; }
 .perio-fase-card {
   padding: 1.35rem 1.4rem;
   background: var(--surface);
@@ -100,6 +95,7 @@
 .perio-fase-card h3 {
   margin: 0 0 0.35rem;
   font-size: 1.2rem;
+  color: #f4efe6;
 }
 .perio-fase-card__meta {
   margin: 0 0 1rem;
@@ -117,7 +113,7 @@
 .perio-fase-card__intro {
   margin: 0 0 0.85rem;
   padding: 0.85rem 1rem;
-  background: rgba(201, 120, 58, 0.07);
+  background: rgba(201, 120, 58, 0.1);
   border-radius: 10px;
   border-left: 3px solid var(--accent);
 }
@@ -125,13 +121,13 @@
 .perio-fase-card__intro p {
   margin: 0;
   font-size: 0.92rem;
-  color: #ccc4b8;
+  color: #e8e0d4;
   line-height: 1.45;
 }
 .perio-fase-card__obiettivo {
   margin: 0 0 1rem;
   font-size: 0.88rem;
-  color: #b8b0a4;
+  color: #c8c0b4;
 }
 .perio-fase-card__days {
   margin: 0 0 1.15rem;
@@ -147,23 +143,22 @@
   gap: 0.55rem;
 }
 
-@media print {
-  #schede-hub { display: none !important; }
-}
+.perio-print-foot { display: none; }
 
+/* ——— STAMPA A4: bianco + nero, niente pannelli scuri ——— */
 @media print {
   @page {
     size: A4 portrait;
     margin: 12mm 11mm 14mm;
   }
 
-  html, body {
-    background: #fff !important;
-    color: #1a1a1a !important;
-    font-size: 10pt;
-    line-height: 1.35;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  html, body.admin-page, body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .no-print,
@@ -171,11 +166,27 @@
   .site-header,
   .site-footer,
   .perio-print-toolbar,
+  .perio-print-cta,
   .perio-nav,
   .perio-toc,
   .nav-toggle,
+  #schede-hub,
   .cookie-banner,
   #cookie-banner {
+    display: none !important;
+  }
+
+  /* Elimina velo dark / glass del sito */
+  .page-veiled,
+  .page-veiled::before,
+  .page-veiled::after,
+  .page-veiled-band::before,
+  .page-veiled-band::after,
+  .prose::after {
+    background: none !important;
+    background-image: none !important;
+    content: none !important;
+    opacity: 0 !important;
     display: none !important;
   }
 
@@ -183,198 +194,124 @@
   .admin-page,
   .admin-hero,
   .section,
-  .perio-guide {
-    background: #fff !important;
-    color: #1a1a1a !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-
+  .perio-guide,
+  .perio-guide .prose,
+  .perio-guide .prose--wide,
   .wrap,
+  .prose,
   .prose--wide {
-    max-width: none !important;
-    width: 100% !important;
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111111 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
-    margin: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
+  .admin-hero {
+    padding: 0 0 3mm !important;
+    margin: 0 0 3mm !important;
+    border-bottom: 1pt solid #ccc !important;
+  }
   .admin-hero .tagline {
-    color: #c9783a !important;
-    margin: 0 0 2mm;
-    font-size: 8pt;
+    color: #a85a28 !important;
+    font-size: 8pt !important;
+  }
+  .admin-hero h1,
+  .perio-hub__h2,
+  .perio-guide h2,
+  .perio-guide h3 {
+    color: #111111 !important;
   }
   .admin-hero h1 {
-    color: #111 !important;
     font-size: 16pt !important;
     margin: 0 0 2mm !important;
-    line-height: 1.2;
   }
-  .admin-hero .lead {
-    color: #333 !important;
-    font-size: 10pt !important;
-    max-width: none !important;
-    margin: 0 0 4mm !important;
+  .admin-hero .lead,
+  .perio-guide p,
+  .perio-guide li,
+  .perio-guide strong {
+    color: #222222 !important;
   }
-
   .perio-guide h2 {
-    color: #111 !important;
     font-size: 12pt !important;
     margin: 5mm 0 2.5mm !important;
+    border-top: 0.4pt solid #bbb !important;
     padding-top: 2mm;
-    border-top: 0.4pt solid #ccc;
     break-after: avoid;
-    page-break-after: avoid;
   }
-  .perio-guide h2:first-of-type { border-top: none; }
-  .perio-guide h3 {
-    color: #111 !important;
-    font-size: 10.5pt !important;
-    break-after: avoid;
-    page-break-after: avoid;
-  }
-  .perio-guide p,
-  .perio-guide li {
-    color: #222 !important;
-    font-size: 9.5pt;
-  }
-  .perio-guide a {
-    color: #1a1a1a !important;
-    text-decoration: underline;
-  }
+  .perio-guide h2:first-of-type { border-top: none !important; }
+  .perio-guide h3 { font-size: 10.5pt !important; }
 
   .perio-callout,
   .perio-note,
   .perio-year__fase,
   .perio-week__day,
   .perio-steps article,
-  .perio-benefits article,
-  .perio-anno-live,
-  .perio-next {
-    background: #fff !important;
-    color: #1a1a1a !important;
-    border: 0.6pt solid #bbb !important;
+  .perio-benefits article {
+    background: #ffffff !important;
+    color: #111111 !important;
+    border: 0.7pt solid #999 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
     break-inside: avoid;
     page-break-inside: avoid;
   }
-
   .perio-callout {
     border-left: 2.5pt solid #c9783a !important;
-    margin: 0 0 4mm;
-    padding: 3mm 3.5mm;
+    padding: 3mm !important;
+    margin: 0 0 4mm !important;
   }
-  .perio-callout p { color: #222 !important; font-size: 9pt; margin: 0 0 1.5mm; }
-
+  .perio-callout p,
+  .perio-note,
+  .perio-year__why,
+  .perio-year__gain,
+  .perio-week__day p,
+  .perio-checklist li {
+    color: #222222 !important;
+  }
   .perio-note {
-    background: #f7f3ee !important;
-    margin: 2.5mm 0 0;
-    padding: 2.5mm 3mm;
-    font-size: 9pt;
-    color: #333 !important;
+    background: #f5f0ea !important;
+    padding: 2.5mm 3mm !important;
   }
-
   .perio-year {
     gap: 2.5mm;
     margin: 3mm 0 4mm;
+    list-style: none;
+    padding: 0;
   }
   .perio-year__fase {
-    padding: 2.5mm 3mm;
-    gap: 3mm;
+    display: grid !important;
+    grid-template-columns: auto 1fr !important;
+    gap: 3mm !important;
+    padding: 2.5mm 3mm !important;
   }
   .perio-year__num {
+    background: #f0e6dc !important;
+    color: #8a4a20 !important;
     width: 7mm;
     height: 7mm;
     font-size: 10pt;
-    background: #f0e6dc !important;
-    color: #a85a28 !important;
   }
-  .perio-year__why,
-  .perio-year__gain {
-    color: #333 !important;
-    font-size: 9pt;
-    margin: 0 0 1mm;
-  }
-
-  .perio-week,
-  .perio-steps,
-  .perio-benefits {
-    gap: 2.5mm;
-    margin: 3mm 0;
-  }
+  .perio-year__fase h3 { color: #111111 !important; margin: 0 0 1mm !important; }
   .perio-week {
-    grid-template-columns: repeat(2, 1fr) !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5mm !important;
   }
-  .perio-steps,
-  .perio-benefits {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .perio-week__day {
+    padding: 2.5mm 3mm !important;
   }
-  .perio-week__day,
-  .perio-steps article,
-  .perio-benefits article {
-    padding: 2.5mm 3mm;
-  }
-  .perio-week__key { color: #a85a28 !important; }
-  .perio-week__day strong,
-  .perio-steps h3,
-  .perio-benefits h3 { color: #111 !important; }
-  .perio-week__day p,
-  .perio-steps p,
-  .perio-benefits p {
-    color: #333 !important;
-    font-size: 8.5pt;
-  }
-
-  .perio-anno-live {
-    margin: 3mm 0 4mm;
-    padding: 3mm;
-  }
-  .perio-live__title { color: #111 !important; font-size: 10.5pt; }
-  .perio-live__lead { color: #555 !important; font-size: 8.5pt; }
-  .perio-split-box {
-    border-top-color: #ccc !important;
-  }
-  .perio-split-box h4,
-  .perio-split-box p { color: #222 !important; }
-
-  .perio-table-wrap {
-    overflow: visible !important;
-    margin: 2mm 0;
-  }
-  .perio-table {
-    width: 100% !important;
-    font-size: 8pt !important;
-    border-collapse: collapse;
-  }
-  .perio-table th,
-  .perio-table td {
-    border: 0.5pt solid #999 !important;
-    padding: 1.5mm 2mm !important;
-    color: #1a1a1a !important;
-    background: #fff !important;
-    vertical-align: top;
-  }
-  .perio-table th {
-    background: #f0ebe3 !important;
-    font-size: 7.5pt !important;
-  }
-  .perio-table tbody tr:nth-child(even) {
-    background: #faf8f5 !important;
-  }
-
-  .perio-checklist { margin: 2mm 0 3mm; }
-  .perio-checklist li { margin-bottom: 1.2mm; color: #222 !important; }
-
-  .perio-next {
-    margin: 5mm 0 0;
-    padding: 3mm;
-  }
-  .perio-next h2 { border-top: none !important; margin: 0 0 2mm !important; }
-  .perio-next p { color: #333 !important; }
-  .perio-next__actions { display: none !important; }
+  .perio-week__key { color: #8a4a20 !important; }
+  .perio-week__day strong { color: #111111 !important; }
 
   .perio-print-foot {
     display: block !important;
@@ -382,9 +319,6 @@
     padding-top: 2mm;
     border-top: 0.4pt solid #ccc;
     font-size: 8pt;
-    color: #666;
+    color: #555555 !important;
   }
 }
-
-/* Visibile solo in stampa */
-.perio-print-foot { display: none; }

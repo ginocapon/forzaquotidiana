@@ -166,10 +166,19 @@
   margin: 2.75rem 0 1rem;
   font-size: clamp(1.25rem, 2.5vw, 1.55rem);
   scroll-margin-top: 5rem;
+  color: #f4efe6;
 }
 .perio-guide h3 {
   margin: 0 0 0.4rem;
   font-size: 1.05rem;
+  color: #f4efe6;
+}
+.perio-guide p,
+.perio-guide li {
+  color: #e4dcd0;
+}
+.perio-hub__h2 {
+  color: #f4efe6;
 }
 
 .perio-callout {
