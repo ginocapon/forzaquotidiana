@@ -141,6 +141,200 @@
 }
 .perio-table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
 
+/* Guida teoria annuale */
+.perio-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.84rem;
+}
+.perio-toc a {
+  color: #ccc4b8;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.perio-toc a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.perio-guide .prose--wide { max-width: 52rem; }
+.perio-guide h2 {
+  margin: 2.75rem 0 1rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+  scroll-margin-top: 5rem;
+}
+.perio-guide h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.perio-callout {
+  margin: 0 0 2rem;
+  padding: 1.15rem 1.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+}
+.perio-callout p { margin: 0 0 0.65rem; color: #ccc4b8; font-size: 0.95rem; }
+.perio-callout p:last-child { margin-bottom: 0; }
+
+.perio-checklist {
+  margin: 1rem 0 1.25rem;
+  padding-left: 1.15rem;
+}
+.perio-checklist li { margin-bottom: 0.55rem; }
+.perio-checklist--warn li::marker { color: var(--accent); }
+
+.perio-note {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  background: rgba(201, 120, 58, 0.08);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #ccc4b8;
+}
+
+.perio-year {
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+.perio-year__fase {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.perio-year__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: rgba(201, 120, 58, 0.18);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.perio-year__fase h3 { margin: 0 0 0.45rem; }
+.perio-year__fase h3 small {
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.perio-year__why,
+.perio-year__gain {
+  margin: 0 0 0.4rem;
+  font-size: 0.92rem;
+  color: #ccc4b8;
+}
+.perio-year__gain { margin-bottom: 0; }
+
+.perio-anno-live {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.perio-live__title { margin: 0 0 0.35rem; font-size: 1.05rem; }
+.perio-live__lead { margin: 0 0 1rem; font-size: 0.88rem; color: var(--muted); }
+.perio-loading { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.perio-split-box {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.perio-split-box h4 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.perio-split-box p { margin: 0 0 0.35rem; font-size: 0.88rem; color: #ccc4b8; }
+
+.perio-week {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+@media (min-width: 720px) {
+  .perio-week { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .perio-week { grid-template-columns: repeat(4, 1fr); }
+}
+.perio-week__day {
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.perio-week__key {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+.perio-week__day strong { display: block; font-size: 0.92rem; margin-bottom: 0.35rem; }
+.perio-week__day p { margin: 0; font-size: 0.82rem; color: var(--muted); }
+
+.perio-steps {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.25rem 0;
+}
+@media (min-width: 720px) {
+  .perio-steps { grid-template-columns: repeat(2, 1fr); }
+}
+.perio-steps article {
+  padding: 1.1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.perio-steps p { margin: 0; font-size: 0.9rem; color: #ccc4b8; }
+
+.perio-benefits {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.25rem 0;
+}
+@media (min-width: 720px) {
+  .perio-benefits { grid-template-columns: repeat(2, 1fr); }
+}
+.perio-benefits article {
+  padding: 1.1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.perio-benefits p { margin: 0; font-size: 0.9rem; color: #ccc4b8; }
+
+.perio-next {
+  margin: 2.5rem 0 1rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.perio-next h2 { margin: 0 0 0.5rem !important; }
+.perio-next p { margin: 0 0 1rem; color: #ccc4b8; }
+.perio-next__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
 .ciclo-tabs {
   display: flex;
   flex-wrap: wrap;

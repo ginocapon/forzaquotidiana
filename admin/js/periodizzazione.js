@@ -25,20 +25,6 @@
     "chest-press": "fig-chest"
   };
 
-  var THEORY_FIELDS = [
-    ["obiettivo", "Obiettivo fisiologico"],
-    ["durata", "Durata consigliata"],
-    ["rangeRipetizioni", "Range di ripetizioni"],
-    ["intensita", "Intensità"],
-    ["seriePerGruppo", "Serie per gruppo muscolare"],
-    ["recuperi", "Tempi di recupero"],
-    ["volumeComplessivo", "Volume complessivo"],
-    ["faticaSistemica", "Fatica sistemica"],
-    ["quandoInserire", "Quando inserirlo"],
-    ["cicloPrecedente", "Ciclo precedente"],
-    ["cicloSuccessivo", "Ciclo successivo"]
-  ];
-
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
     if (attrs) {
@@ -68,54 +54,41 @@
 
   function renderTheory(data, root) {
     root.innerHTML = "";
-    var intro = el("div", { className: "prose prose--wide" }, [
-      el("p", { html: data.split.descrizione }),
-      el("ul", { className: "admin-split" }, Object.keys(data.split.giorni).map(function (k) {
-        return el("li", { html: "<strong>" + k + "</strong> — " + data.split.giorni[k] });
-      })),
-      el("p", { html: "<small>" + data.split.frequenza + ". " + data.split.progressione + "</small>" })
-    ]);
-    root.appendChild(intro);
 
-    data.cicli.forEach(function (ciclo) {
-      var card = el("article", { className: "ciclo-card", id: ciclo.id });
-      card.appendChild(el("p", { className: "ciclo-card__meta", text: ciclo.durata + " · " + ciclo.rangeRipetizioni }));
-      card.appendChild(el("h2", { text: ciclo.nome }));
-
-      var grid = el("dl", { className: "ciclo-detail ciclo-detail-grid" });
-      THEORY_FIELDS.forEach(function (pair) {
-        grid.appendChild(el("dt", { text: pair[1] }));
-        grid.appendChild(el("dd", { text: ciclo[pair[0]] || "—" }));
-      });
-      card.appendChild(grid);
-
-      card.appendChild(el("h3", { text: "Tecniche di intensità" }));
-      card.appendChild(listItems(ciclo.tecnicheIntensita));
-
-      card.appendChild(el("h3", { text: "Benefici" }));
-      card.appendChild(listItems(ciclo.benefici));
-      card.appendChild(el("h3", { text: "Limiti" }));
-      card.appendChild(listItems(ciclo.limiti));
-      card.appendChild(el("h3", { text: "Errori comuni" }));
-      card.appendChild(listItems(ciclo.erroriComuni));
-
-      root.appendChild(card);
-    });
+    var heading = el("h3", { className: "perio-live__title", text: "Date e fasi dal file dati (anno corrente)" });
+    root.appendChild(heading);
+    root.appendChild(el("p", {
+      className: "perio-live__lead",
+      text: "Questa tabella si aggiorna da mesocicli.json · periodizzazioneAnnuale. Sopra trovi il perché; qui i nomi ufficiali e le durate."
+    }));
 
     var tableWrap = el("div", { className: "perio-table-wrap" });
     var table = el("table", { className: "perio-table" });
-    table.innerHTML = "<thead><tr><th>#</th><th>Ciclo</th><th>Durata</th><th>Obiettivo</th><th>Motivo successione</th><th>Deload</th></tr></thead>";
+    table.innerHTML = "<thead><tr><th>#</th><th>Fase</th><th>Durata</th><th>Obiettivo</th><th>Perché in questa posizione</th></tr></thead>";
     var tbody = el("tbody");
     data.periodizzazioneAnnuale.forEach(function (row) {
       var ciclo = findCiclo(data, row.ciclo);
+      var nome = row.nome || (ciclo ? ciclo.nome : row.ciclo);
       var tr = el("tr");
-      tr.innerHTML = "<td>" + row.successione + "</td><td><strong>" + (ciclo ? ciclo.nome : row.ciclo) + "</strong></td><td>" + row.durata + "</td><td>" + row.obiettivo + "</td><td>" + row.motivo + "</td><td>" + (row.deload ? "Sì" : "—") + "</td>";
+      tr.innerHTML =
+        "<td>" + row.successione + "</td>" +
+        "<td><strong>" + nome + "</strong></td>" +
+        "<td>" + row.durata + "</td>" +
+        "<td>" + row.obiettivo + "</td>" +
+        "<td>" + row.motivo + "</td>";
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
     tableWrap.appendChild(table);
-    root.appendChild(el("h2", { text: "Periodizzazione annuale" }));
     root.appendChild(tableWrap);
+
+    if (data.split) {
+      var splitBox = el("div", { className: "perio-split-box" });
+      splitBox.appendChild(el("h4", { text: data.split.nome }));
+      splitBox.appendChild(el("p", { text: data.split.frequenza }));
+      splitBox.appendChild(el("p", { html: "<small>" + data.split.progressione + "</small>" }));
+      root.appendChild(splitBox);
+    }
   }
 
   function exerciseFigure(id) {

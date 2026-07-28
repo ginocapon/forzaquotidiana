@@ -951,7 +951,7 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | Dashboard sessioni | `/admin/` |
 | Scheda singola sessione | `/admin/sessione/?ciclo=<id>&sessione=a1\|b1\|a2\|b2` |
 | **PDF scheda sessione** | `/admin/sessione/pdf/?ciclo=<id>&sessione=a1` — A4 verticale, sidebar log |
-| Teoria mesocicli | `/admin/prototipi/periodizzazione/` |
+| Teoria mesocicli (guida annuale) | `/admin/prototipi/periodizzazione/` — **1 anno · 4 fasi**, perché/come/benefici |
 | Schede pratiche | `/admin/prototipi/periodizzazione/schede/` |
 | PDF stampabili | `/admin/prototipi/periodizzazione/pdf/` |
 | Dati macrociclo Gino | `admin/data/macrociclo-2026-2027.json` |

@@ -15,33 +15,37 @@
     {
       "successione": 1,
       "ciclo": "ipertrofia-accumulo",
+      "nome": "Fase 1 · Ipertrofia accumulo",
       "durata": "13 settimane",
-      "obiettivo": "Fase 1 · Accumulo ipertrofico (sett. 1–2 soft, sett. 13 deload)",
-      "motivo": "Modello trimestre Q3 — niente micro-fasi da 4 settimane",
-      "deload": false
+      "obiettivo": "Soft start → volume 8–12 rep → deload sett. 13",
+      "motivo": "Costruisci tessuto e tolleranza al lavoro prima di alzare i carichi",
+      "deload": true
     },
     {
       "successione": 2,
       "ciclo": "tensione-forza",
+      "nome": "Fase 2 · Tensione + forza",
       "durata": "13 settimane",
-      "obiettivo": "Fase 2 · Tensione (1–6) + forza (7–12) + deload (13)",
-      "motivo": "Cambio schema ogni ~3 mesi — blocco unico lungo",
-      "deload": false
+      "obiettivo": "Tensione 6–8 (sett. 1–6) → forza 4–6 (7–12) → deload 13",
+      "motivo": "Alza i kg sugli * usando la base costruita in fase 1",
+      "deload": true
     },
     {
       "successione": 3,
       "ciclo": "ipertrofia-classica-ii",
+      "nome": "Fase 3 · Ipertrofia II",
       "durata": "13 settimane",
-      "obiettivo": "Fase 3 · Secondo accumulo + saturazione volume sett. 9–12",
-      "motivo": "Stesso schema A1–B2, carichi +2,5 kg, deload in sett. 13",
-      "deload": false
+      "obiettivo": "Secondo accumulo + saturazione volume sett. 9–12 → deload 13",
+      "motivo": "Riconverti la forza nuova in volume e densità muscolare",
+      "deload": true
     },
     {
       "successione": 4,
       "ciclo": "ricondizionamento",
+      "nome": "Fase 4 · Ricondizionamento",
       "durata": "13 settimane",
-      "obiettivo": "Fase 4 · Mantenimento estivo fino a fine macrociclo",
-      "motivo": "RIR 2–3, 10–12 rep — prepara macrociclo successivo",
+      "obiettivo": "Mantenimento 10–12 rep, RIR 2–3, fino a fine anno",
+      "motivo": "Arrivi fresco al macrociclo successivo senza mesi di stop",
       "deload": false
     }
   ],
