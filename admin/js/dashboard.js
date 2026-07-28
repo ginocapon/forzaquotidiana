@@ -31,7 +31,8 @@
   function sessionSummary(sessione) {
     var prog = sessione.esercizi.filter(function (e) { return e.progressione; });
     var main = prog.length ? prog[0] : sessione.esercizi[0];
-    return main ? main.nome + " · " + main.peso + " · " + main.serie + "×" + main.ripetizioni : "";
+    var peso = (!main.peso || main.peso === "—" || main.peso === "-") ? "kg TBD" : main.peso;
+    return main ? main.nome + " · " + peso + " · " + main.serie + "×" + main.ripetizioni : "";
   }
 
   function renderDashboard(data, root) {
@@ -39,7 +40,8 @@
     var m = data.macrociclo;
 
     var hero = el("div", { className: "admin-macrociclo-head" });
-    hero.innerHTML = "<h2>" + m.nome + "</h2><p>" + formatDate(m.inizio) + " → " + formatDate(m.fine) + " · <strong>" + m.frequenza + "</strong> · Peso partenza " + m.pesoPartenza + " kg</p><p class=\"admin-macrociclo-desc\">" + m.descrizione + "</p>";
+    var pesoLine = m.pesoPartenza != null ? " · Peso corporeo rif. " + m.pesoPartenza + " kg" : " · Pesi esercizi da definire";
+    hero.innerHTML = "<h2>" + m.nome + "</h2><p>" + formatDate(m.inizio) + " → " + formatDate(m.fine) + " · <strong>" + m.frequenza + "</strong>" + pesoLine + "</p><p class=\"admin-macrociclo-desc\">" + m.descrizione + "</p>";
     root.appendChild(hero);
 
     var timeline = el("div", { className: "admin-timeline" });

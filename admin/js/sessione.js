@@ -63,7 +63,8 @@
     s.esercizi.forEach(function (ex, i) {
       var tr = el("tr");
       if (ex.progressione) tr.className = "admin-row--prog";
-      tr.innerHTML = "<td>" + (i + 1) + (ex.progressione ? " *" : "") + "</td><td><strong>" + ex.nome + "</strong></td><td>" + ex.gruppo + "</td><td>" + ex.serie + "×" + ex.ripetizioni + "</td><td class=\"admin-peso\">" + ex.peso + "</td><td>" + ex.recupero + "</td><td>" + ex.rir + "</td><td>" + (ex.tecnica || "—") + "</td><td>" + (ex.note || "—") + "</td>";
+      var pesoCell = (!ex.peso || ex.peso === "—" || ex.peso === "-") ? "da definire" : ex.peso;
+      tr.innerHTML = "<td>" + (i + 1) + (ex.progressione ? " *" : "") + "</td><td><strong>" + ex.nome + "</strong></td><td>" + ex.gruppo + "</td><td>" + ex.serie + "×" + ex.ripetizioni + "</td><td class=\"admin-peso\">" + pesoCell + "</td><td>" + ex.recupero + "</td><td>" + ex.rir + "</td><td>" + (ex.tecnica || "—") + "</td><td>" + (ex.note || "—") + "</td>";
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);

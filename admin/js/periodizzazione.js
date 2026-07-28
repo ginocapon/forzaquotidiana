@@ -240,9 +240,9 @@
 
       var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
       var head = el("header", { className: "scheda-a4__head" });
-      head.innerHTML = "<div class=\"scheda-a4__head-main\"><strong>La Forza Quotidiana</strong> · Prototipo admin</div>" +
+      head.innerHTML = "<div class=\"scheda-a4__head-main\"><strong>Scheda allenamento</strong> · periodizzazione</div>" +
         "<div class=\"scheda-a4__head-period\"><span class=\"scheda-a4__badge\">" + ciclo.durata + "</span> <strong>" + ciclo.nome + "</strong> — " + ciclo.obiettivo + "</div>" +
-        "<div class=\"scheda-a4__head-meta\"><span><strong>Nome:</strong> _______________</span><span><strong>Data inizio:</strong> ___/___/___</span><span><strong>RIR target:</strong> " + ciclo.intensita + "</span></div>";
+        "<div class=\"scheda-a4__head-meta\"><span><strong>Atleta:</strong> _______________</span><span><strong>Data inizio:</strong> ___/___/___</span><span><strong>RIR target:</strong> " + ciclo.intensita + "</span></div>";
       article.appendChild(head);
 
       var oss = el("div", { className: "scheda-a4__osservazioni" });
@@ -273,7 +273,7 @@
         grid.appendChild(quad);
       });
       article.appendChild(grid);
-      article.appendChild(el("footer", { className: "scheda-a4__foot", text: "forzaquotidiana.it/admin — " + ciclo.nome + " — uso interno · * = progressione a carico fisso" }));
+      article.appendChild(el("footer", { className: "scheda-a4__foot", text: ciclo.nome + " · * = progressione · colonna kg da compilare dopo massimali" }));
       printArea.appendChild(article);
     }
 

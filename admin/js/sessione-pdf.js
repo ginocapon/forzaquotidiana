@@ -77,14 +77,14 @@
 
     var head = el("header", { className: "scheda-sessione-pdf__head" });
     head.innerHTML =
-      "<p class=\"scheda-sessione-pdf__brand\">La Forza Quotidiana · Gino Capon</p>" +
+      "<p class=\"scheda-sessione-pdf__brand\">Scheda allenamento</p>" +
       "<h1>" + sessionKey.toUpperCase() + " — " + s.nome + "</h1>" +
       "<div class=\"scheda-sessione-pdf__meta\">" +
       "<span><span class=\"scheda-sessione-pdf__badge\">" + fase.nome + "</span></span>" +
       "<span><strong>Periodo:</strong> " + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + "</span>" +
       "<span><strong>Settimane:</strong> " + fase.settimane + "</span>" +
       "<span><strong>RIR:</strong> " + fase.rir + "</span>" +
-      "<span><strong>Macrociclo:</strong> " + formatDate(macro.macrociclo.inizio) + " – " + formatDate(macro.macrociclo.fine) + "</span>" +
+      "<span><strong>Atleta:</strong> _______________</span>" +
       "</div>" +
       "<p class=\"scheda-sessione-pdf__obiettivo\">" + fase.obiettivo + "</p>";
     article.appendChild(head);
@@ -128,7 +128,7 @@
       body.appendChild(el("div", {
         className: "ex-pdf-row__params",
         html: "<span><strong>" + ex.serie + "×" + ex.ripetizioni + "</strong></span>" +
-          "<span class=\"target-kg\">Target: " + ex.peso + "</span>" +
+          "<span class=\"target-kg\">kg: _______</span>" +
           "<span>Rec " + ex.recupero + "</span>" +
           "<span>RIR " + ex.rir + "</span>" +
           (ex.tecnica ? "<span>" + ex.tecnica + "</span>" : "")
@@ -149,7 +149,7 @@
 
     article.appendChild(el("footer", {
       className: "scheda-sessione-pdf__foot",
-      text: "forzaquotidiana.it/admin · " + fase.nome + " · " + sessionKey.toUpperCase() + " · uso personale"
+      text: fase.nome + " · " + sessionKey.toUpperCase() + " · pesi da definire dopo test massimali"
     }));
 
     root.appendChild(article);

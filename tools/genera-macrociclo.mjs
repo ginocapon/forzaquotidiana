@@ -51,12 +51,14 @@ function mergeTensioneForza() {
     sessioni[key].esercizi.forEach((ex, i) => {
       const fEx = forzaSrc?.sessioni?.[key]?.esercizi?.[i];
       if (ex.progressione) {
-        if (fEx?.peso) ex.peso = fEx.peso;
+        ex.peso = "—";
         ex.ripetizioni = "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload";
         ex.rir = "1-2 (sett. 13: RIR 4)";
         ex.note =
           (ex.note ? ex.note + " · " : "") +
-          "Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)";
+          "Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume). Carichi da massimali.";
+      } else {
+        ex.peso = "—";
       }
     });
   }
@@ -65,21 +67,13 @@ function mergeTensioneForza() {
 
 function bumpClassicaII(sessioni) {
   const s = JSON.parse(JSON.stringify(sessioni));
-  const bumps = {
-    "Panca inclinata con manubri": "22 kg/manubrio",
-    "Rematore con bilanciere": "52 kg",
-    "Doktor (affondo bulgaro guidato)": "62→52 kg",
-    "Stacco omega (trap bar)": "62 kg",
-    "Chest press alla macchina": "72 kg",
-    "Squat al multipower": "62/57 kg",
-  };
   for (const day of Object.values(s)) {
     day.esercizi.forEach((ex) => {
-      if (bumps[ex.nome]) ex.peso = bumps[ex.nome];
+      ex.peso = "—";
       if (ex.progressione) {
         ex.note =
           (ex.note ? ex.note + " · " : "") +
-          "Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload.";
+          "Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload. Carichi da massimali.";
       }
     });
   }
@@ -165,20 +159,20 @@ const totalWeeks = FASI.reduce((a, f) => a + f.settimane, 0);
 
 const macrociclo = {
   macrociclo: {
-    nome: "Macrociclo 2026–2027 · Gino Capon",
+    nome: "Macrociclo annuale · Upper/Lower A1–B2",
     inizio: "2026-09-01",
     fine: "2027-08-31",
-    descrizione: `Periodizzazione annuale ${totalWeeks} settimane su split A1-B1-A2-B2 (4 sessioni/settimana). **4 fasi macro da ~13 settimane** (modello trimestre Q3) — niente micro-fasi da 4–6 sett. Deload = ultima settimana di ogni fase di lavoro. Pesi base da trimestre Q3 2026.`,
-    pesoPartenza: 67,
+    descrizione: `Periodizzazione annuale ${totalWeeks} settimane su split A1-B1-A2-B2 (4 sessioni/settimana). **4 fasi macro da ~13 settimane**. Focus ~55% volume serie su gambe+polpacci. Deload = ultima settimana di ogni fase. **Pesi da definire** dopo test massimali.`,
     frequenza: "4 sessioni/settimana",
     lineeGuida:
-      "4 fasi × ~13 sett. · Deload in sett. 13 di ogni fase di lavoro · Cambio schema ogni ~3 mesi · Natural 57 anni",
+      "4 fasi × ~13 sett. · ~55% serie lower · Deload sett. 13 · Cambio schema ogni ~3 mesi · Pesi blank fino a 1RM/serie",
   },
   fasi: FASI,
 };
 
 writeFileSync(OUT, JSON.stringify(macrociclo, null, 2) + "\n");
 console.log("OK:", OUT);
+console.log("Nota: dopo genera-macrociclo esegui anche node tools/rebalance-macrociclo-55.mjs");
 FASI.forEach((f, i) => {
   console.log(
     `  ${i + 1}. ${f.nome} · ${f.settimane} sett. · ${f.inizio} → ${f.fine}`

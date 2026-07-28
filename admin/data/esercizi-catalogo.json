@@ -59,8 +59,8 @@
     "figura": "fig-catchball",
     "primario": "Spalle, core",
     "secondario": "Grip, sistema nervoso",
-    "setup": "Kettlebell 8 kg, finisher in chiusura sessione A1.",
-    "movimento": "Movimento balistico unilaterale 15 rep/braccio, rec <1 min.",
+    "setup": "Kettlebell, finisher in chiusura sessione A1 (se presente).",
+    "movimento": "Movimento balistico unilaterale 15 rep/braccio, rec <1 min. Carico da definire.",
     "errori": "Metterlo all'inizio; carico eccessivo."
   },
   "Polpacci al multipower (drop set)": {
@@ -68,7 +68,7 @@
     "primario": "Gastrocnemio",
     "secondario": "Soleo",
     "setup": "Multipower, piedi sulla pedana, ginocchia quasi estese.",
-    "movimento": "4×25 drop 140→110→80 kg senza pausa tra i cali.",
+    "movimento": "4×25 drop set a carichi decrescenti senza pausa tra i cali. Carichi da definire.",
     "errori": "ROM incompleto; rimbalzo in basso."
   },
   "Pressa a 45°": {
@@ -76,7 +76,7 @@
     "primario": "Quadricipiti",
     "secondario": "Glutei",
     "setup": "Piedi larghezza spalle sulla pressa, schiena appoggiata.",
-    "movimento": "2×10 @140 kg + 2×10 @120 kg, eccentrica lenta.",
+    "movimento": "4×8–10, eccentrica lenta. Carichi da definire (es. 2 serie pesanti + 2 leggere).",
     "errori": "Bloccare le ginocchia in alto; stacco del bacino."
   },
   "Leg extension": {
@@ -84,7 +84,7 @@
     "primario": "Quadricipiti",
     "secondario": "—",
     "setup": "Seduto, perno allineato al ginocchio.",
-    "movimento": "2 serie a cedimento + 2 tempo/wafer a 55 kg.",
+    "movimento": "2 serie a cedimento + 2 tempo/wafer. Carichi da definire.",
     "errori": "Slancio in concentrica; iperestensione."
   },
   "Doktor (affondo bulgaro guidato)": {
@@ -92,7 +92,7 @@
     "primario": "Quadricipiti",
     "secondario": "Glutei",
     "setup": "Macchina Doktor PRIMO, piede posteriore appoggiato.",
-    "movimento": "60→50 kg, contrazione forte, stop prima del cedimento.",
+    "movimento": "Contrazione forte, stop prima del cedimento. Carico da definire.",
     "errori": "Cedimento eccessivo; ginocchio che collassa."
   },
   "Curl su panca Scott": {
@@ -100,7 +100,7 @@
     "primario": "Bicipiti",
     "secondario": "Brachiale",
     "setup": "Braccia sul supporto, ascelle al bordo.",
-    "movimento": "2×8 @35 kg ced. + 2×8 @30 kg wafer.",
+    "movimento": "2× al cedimento + 2× submax in wafer. Carichi da definire.",
     "errori": "Sollevare i gomiti dal supporto."
   },
   "Leg curl seduto": {
@@ -115,8 +115,8 @@
     "figura": "fig-halo",
     "primario": "Deltoidi, cuffia",
     "secondario": "Core, trapezi",
-    "setup": "Kettlebell 8 kg, finisher A2 — sempre ultimo esercizio.",
-    "movimento": "Clean al petto, halo lento 10 rep/senso, core attivo.",
+    "setup": "Kettlebell, finisher A2 — sempre ultimo esercizio.",
+    "movimento": "Clean al petto, halo lento 10 rep/senso, core attivo. Carico da definire.",
     "errori": "Movimento troppo veloce; carico eccessivo."
   },
   "Polpacci al multipower": {
@@ -124,7 +124,7 @@
     "primario": "Gastrocnemio",
     "secondario": "—",
     "setup": "Superset con squat, multipower Technogym.",
-    "movimento": "4×8 @80 kg, pausa in stretch e squeeze.",
+    "movimento": "4×8–12, pausa in stretch e squeeze. Carico da definire.",
     "errori": "Rimbalzo; carico che compromette la forma."
   },
   "Squat al multipower": {
@@ -132,7 +132,7 @@
     "primario": "Quadricipiti, glutei",
     "secondario": "Core",
     "setup": "Barra sui trapezi, piedi leggermente avanti.",
-    "movimento": "2×8 @60 kg ced. + 2×8 @55 kg RIR ~2.",
+    "movimento": "2× al cedimento + 2× RIR ~2. Carichi da definire.",
     "errori": "Ginocchia che collassano; profondità inconsistente."
   },
   "Stacco omega (trap bar)": {
@@ -156,7 +156,39 @@
     "primario": "Bicipiti, brachiale",
     "secondario": "Avambraccio",
     "setup": "Presa neutra, gomiti fermi.",
-    "movimento": "4×6 alternato o simultaneo, no dondolio.",
+    "movimento": "3–4×6–8 alternato o simultaneo, no dondolio. Carico da definire.",
     "errori": "Slancio col busto; gomiti che avanzano."
+  },
+  "Hip thrust": {
+    "figura": "fig-hip",
+    "primario": "Glutei",
+    "secondario": "Femorali, core",
+    "setup": "Schiena su panca, bilanciere o macchina sull’anca, mento teso.",
+    "movimento": "Spinta d’anca fino a linea spalle-ginocchia, squeeze in alto 1 sec.",
+    "errori": "Iperestensione lombare; spinta coi piedi invece che bacino."
+  },
+  "Polpacci in piedi (multipower)": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower, piedi su rialzo, ginocchia quasi estese.",
+    "movimento": "4×12–15, pausa in stretch e squeeze in punta. Carico da definire.",
+    "errori": "ROM incompleto; rimbalzo."
+  },
+  "Polpacci seduto": {
+    "figura": "fig-polpacci",
+    "primario": "Soleo",
+    "secondario": "Gastrocnemio",
+    "setup": "Macchina polpacci seduto, cosce bloccate.",
+    "movimento": "4×12–15, eccentrica controllata. Carico da definire.",
+    "errori": "Carico eccessivo che riduce il ROM."
+  },
+  "Stacco rumeno con manubri": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Lombare, grip",
+    "setup": "Manubri lungo le cosce, ginocchia morbide, schiena neutra.",
+    "movimento": "Hip hinge fino a stiramento femorali, risali spingendo il bacino.",
+    "errori": "Arrotondare la schiena; flettere troppo le ginocchia (diventa squat)."
   }
 }

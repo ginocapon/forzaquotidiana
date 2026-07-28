@@ -153,7 +153,7 @@ File simboli condivisi: inline `<symbol id="ex-*">` nella pagina trimestre.
 | ID simbolo | Esercizi |
 |------------|----------|
 | `ex-press-inclinata` | Panca inclinata manubri/bilanciere |
-| `ex-croci` | Farfalla / croci |
+| `ex-croci` | Croci ai cavi |
 | `ex-lento` | Lento avanti seduto |
 | `ex-alzate` | Alzate laterali |
 | `ex-lat` | Lat machine |
@@ -1040,26 +1040,27 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 
 ### 8.8 PDF scheda sessione (palestra)
 
-Ogni sessione A1–B2 ha un **PDF dedicato** con:
+Ogni sessione A1–B2 ha un **PDF dedicato** (stampabile anche per amici — **anonimo**):
 
-- **Intestazione:** macrociclo, nome fase/ciclo, periodo date, RIR, obiettivo
-- **Colonna principale:** esercizio + SVG + gruppi muscolari + note tecniche sintetiche (setup, movimento, errori)
+- **Intestazione:** «Scheda allenamento» (niente nome atleta), fase/ciclo, periodo, RIR, riga **Atleta: _______**
+- **Pesi:** colonna/target **vuota** (`kg: _______`) — da compilare dopo test massimali
+- **Colonna principale:** esercizio + SVG + gruppi muscolari + note tecniche (senza kg fissi)
 - **Sidebar destra:** spazi per data/durata/RPE + per ogni esercizio righe **S1–Sn kg/rep** e campo **Note**
 
 **Path:** `/admin/sessione/pdf/?ciclo=<id-fase>&sessione=a1`  
-**Dati tecnici:** `admin/data/esercizi-catalogo.json`  
-**CSS print:** `admin/css/admin-pdf-sessione.css`  
-**Pulsante:** su pagina sessione e badge «PDF» su ogni card dashboard
+**Dati:** `admin/data/macrociclo-2026-2027.json` + `esercizi-catalogo.json`  
+**Ribilancio ~55% lower:** `node tools/rebalance-macrociclo-55.mjs` (dopo `genera-macrociclo.mjs`)
 
 Stampa: **A4 verticale**, margini standard, «Salva come PDF» dal browser.
 
 ### 8.9 Checklist nuovo macrociclo admin
 
-- [ ] Aggiornare date e durate in `admin/data/macrociclo-2026-2027.json` (o rigenerare con `tools/genera-macrociclo.mjs`)
+- [ ] Aggiornare date e durate in `admin/data/macrociclo-2026-2027.json` (o `tools/genera-macrociclo.mjs` + `rebalance-macrociclo-55.mjs`)
+- [ ] Verificare ~55% serie gambe+polpacci
+- [ ] Pesi esercizi = `—` fino a massimali
+- [ ] PDF sessione anonimo (no nome brand/atleta in stampa)
 - [ ] Allineare `periodizzazioneAnnuale` in `admin/data/mesocicli.json`
-- [ ] Verificare pesi da ultimo trimestre / ultime sessioni loggate
 - [ ] Dashboard `/admin/` mostra tutte le fasi con link A1–B2
-- [ ] Ogni sessione apre tabella peso/serie/RIR in `/admin/sessione/`
 - [ ] Aggiornare questa sezione §8 se cambiano le linee guida
 
 ### 8.10 Errori da evitare

@@ -63,6 +63,36 @@
       ]
     },
     {
+      "id": "leg-extension",
+      "nome": "Leg extension",
+      "gruppo": "Gambe",
+      "scheda": 2,
+      "tipo": "isolamento",
+      "started": "2026-07-21",
+      "entries": [
+        {
+          "date": "2026-07-21",
+          "session_id": "2026-07-21-scheda-2",
+          "serie": 4,
+          "peso_kg": 65,
+          "peso_secondario_kg": 55,
+          "serie_label": "2 ced. + 2 wafer",
+          "tut": "4s su / 1s giù",
+          "note": "Prime 2 al cedimento · wafer 10 colpi"
+        },
+        {
+          "date": "2026-07-28",
+          "session_id": "2026-07-28-scheda-2",
+          "serie": 4,
+          "peso_kg": 70,
+          "peso_secondario_kg": 60,
+          "serie_label": "2×8 ced. + 2×8–9 wafer",
+          "tut": "ced. + wafer",
+          "note": "Alla morte @ 70 kg ×8 · poi wafer @ 60"
+        }
+      ]
+    },
+    {
       "id": "scott-multi",
       "nome": "Panca Scott (multi / bil. curvo)",
       "gruppo": "Bicipiti",
