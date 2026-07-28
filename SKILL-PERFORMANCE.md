@@ -184,7 +184,18 @@ Se orologio lasciato acceso (es. 20/07): vedi § Anomalie in `SKILL.md` — dura
 1. Salvare screenshot in `img/allenamenti/amazfit/mensile/YYYY-MM/` (es. `2026-07-sonno-rem-veglia.png`).
 2. Aggiornare `data/sleep-monthly.json` — medie + `delta_prev_month` + `analisi` testuale.
 3. Pubblicare sezione `#report-sonno-[mese]` nel trimestre (tabella + galleria 4 screenshot + nota interpretativa incrociata con `performance-monthly.json`).
-4. Aggiornare rendiconto in `SKILL.md` §3d.
+4. Eseguire **valutazione integrata** completa seguendo `SKILL.md` **§3e** (tabelle riferimento, semaforo, giudizio, cronologia).
+
+## Analisi integrata mensile (§3e SKILL)
+
+A fine mese, dopo sonno + performance:
+
+1. Leggere §3e in `SKILL.md` — **non improvvisare** range clinici.
+2. Compilare semaforo (volume, FC, sonno, pesi).
+3. Scrivere `.metabolic-note` nel trimestre con giudizio 4–6 frasi + disclaimer medico.
+4. Aggiornare riga cronologia in SKILL §3e.
+
+**Riferimenti chiave da citare quando rilevante:** ACSM RT 2026 (frequenza, RIR); AASM AHI <5; Sleep Foundation WASO/FC sonno; TrainingPeaks/Vitruve TSB −10…0 build zone; PMC5421976 FC in RT over 60.
 
 **Campi JSON sonno (`sleep-monthly.json`):**
 

@@ -255,16 +255,144 @@ Sezione `#confronto-metabolico` nel trimestre: tabella comparativa da `performan
 1. Aggiornare `data/sleep-monthly.json` — voce mese con medie e `delta_prev_month`.
 2. Salvare screenshot in `img/allenamenti/amazfit/mensile/YYYY-MM/` (prefisso `YYYY-MM-sonno-*.png`).
 3. Pubblicare sezione `#report-sonno-[mese]` nel trimestre (tabella + galleria + `.metabolic-note` interpretativa).
-4. Aggiornare **rendiconto testuale** in questa sezione SKILL — incrocio sessioni, sonno, TSB, note qualitative.
+4. Scrivere **valutazione integrata** seguendo §3e (tabelle riferimento + semaforo + giudizio).
+5. Aggiornare **cronologia** in fondo a §3e — una riga sintetica per mese.
 
-**Rendiconto luglio 2026 (riferimento):**
-- **7 sessioni** (6 export completi): durata totale 08:03, FC media 110, carico medio 105*.
-- **Picchi:** 23/07 densità max (FC 165); 27/07 volume max (82 min, aerobico 52%); 24/07 e 20/07 con artefatti device.
-- **Sonno:** REM 23% stabile; veglia +13 min e pisolini +17 min vs giugno; FC sonno 55 bpm (+2); ipopnea in calo (2,2/h).
-- **TSB 27/07:** −3 Bilanciato — carico sostenibile ma veglia da monitorare.
-- **Prossimo report:** fine agosto 2026 — stesso flusso.
+**Regola:** non consulenza medica — trend descrittivi da dati device; invito al medico se anomalie persistenti o sintomi (russamento diurno, sonnolenza, dolore toracico).
 
-**Regola:** non consulenza medica — trend descrittivi da dati device, invito a medico se anomalie persistenti.
+### 3e. Framework analisi integrata mensile (bibbia operativa)
+
+**Scopo:** ogni fine mese l'agente incrocia allenamento + sonno + TSB usando **range di riferimento da letteratura**, non impressioni. Questa sezione è la fonte unica per interpretare i dati di Gino nei mesi successivi.
+
+#### Limiti del dataset (sempre dichiararli)
+
+| Limite | Implicazione |
+|--------|--------------|
+| Log palestra da **16/07/2026** | Nessun dato giugno — CTL/TSB Zepp include storia precedente non documentata sul sito |
+| **7 sessioni / 12 giorni** a luglio | Frequenza alta ma campione corto — trend mensili > singole sessioni |
+| Wearable al polso (Zepp) | FC sonno, REM, WASO, ipopnea ≠ polisonnografia clinica |
+| Artefatti device | Sessioni 20/07 e 24/07 — escludere durata/kcal gonfiate dai confronti |
+| Età biologica Zepp | Indice algorithmico — utile come trend, non diagnosi |
+
+**Profilo fisso:** Gino Capon, **57 anni**, **10+ anni** palestra amatoriale, trimestre Q3 2026 (ipertrofia natural, Schede 1–4, RIR 0–2 sui multiarticolari). Obiettivo sito: longevità funzionale 40–65, non bodybuilding agonistico.
+
+---
+
+#### Riferimenti scientifici — cosa considerare «normale»
+
+**A. Allenamento forza (adulti / over 50)**
+
+| Parametro | Riferimento | Fonte |
+|-----------|-------------|-------|
+| Frequenza minima | ≥ **2 sessioni/settimana**, tutti i gruppi muscolari | ACSM Position Stand 2026 (137 review, ~30k partecipanti) |
+| Recupero tra sessioni RT | ≥ **48 h** tra stimoli sullo stesso distretto | ACSM Health & Fitness Journal, Stack Your Workouts |
+| Sforzo per serie | **~2–3 RIR** sufficienti; cedimento assoluto non obbligatorio | ACSM 2026; Phillips et al. |
+| Volume ipertrofia | ~**10 serie/settimana per gruppo** (range flessibile) | ACSM 2026 |
+| Intensità over 50 | **40–70% 1RM**, 3×8–12, progressione lenta efficace | PMC8977953; Antioxidants 2019 (sarcopenia, 60% 1RM) |
+
+**B. FC e zone in sessione di forza**
+
+| Parametro | Riferimento Gino (57 aa) | Fonte |
+|-----------|--------------------------|-------|
+| FC max teorica | ~220 − 57 ≈ **163 bpm** (stima; individuale ±10) | Convenzione Karvonen / AHA |
+| FC media sessione RT | **100–120 bpm** compatibile con RT + recuperi; picchi 130–165 su set pesanti | Houston Methodist 2025; PMC5421976 |
+| Zona dominante attesa | **Intensiva + aerobica** — in RT il limitante devono essere i **muscoli**, non la FC | Houston Methodist |
+| Effetto aerobico device | 2,5–3,7 «Medio–Buono» = contributo cardioaccessorio | PMC5421976 (adulti <60 aa: fino ~82% tempo ≥40% HRR in RT) |
+
+**C. Carico e TSB (CTL / ATL / TSB = CTL − ATL)**
+
+| TSB | Interpretazione generale | Fonte |
+|-----|--------------------------|-------|
+| **−30 e oltre** | Sovraccarico — rischio stanchezza / infortunio | TrainingPeaks (Friel); Vitruve |
+| **−10 a −20** | Zona produttiva di build | Vitruve; TrainingPeaks |
+| **−10 a 0** | Carico sostenibile, fatica gestibile | Vitruve |
+| **0 a +10** | Recupero in corso / taper leggero | TrainerRoad; Trainingload.ai |
+| **+5 a +15** | Freschezza pre-evento (endurance) | Roadman Cycling; masters spesso +12–18 |
+| **> +25** | Possibile disadaptation — «fresco ma piatto» | Friel; TrainerRoad |
+
+**Nota masters (55+):** recupero più lento — se **TSB < −10 per >14 giorni** con WASO in aumento → valutare deload (volume −40%, intensità mantenuta).
+
+**D. Sonno (adulto 50–60 aa)**
+
+| Metrica | Range normale / target | Allarme (monitorare) | Fonte |
+|---------|------------------------|----------------------|-------|
+| REM | **20–25%** sonno totale | <15% persistente | Cleveland Clinic; Sleep Foundation |
+| WASO (veglia) | **<10% TST** (~**42 min** su 7h); 2–6 risvegli/notte | **>49 min** o ↑ mese su mese | Berger actigraphy; Sleep Foundation; Meta PSG 2019 |
+| FC sonno | **40–60 bpm** (atleti/amatori attivi) | <40 con sintomi o >70 persistente | Sleep Foundation; AHA |
+| Ipopnea / AHI | **<5/h** = normale adulto | ≥5/h = ipo OSAS lieve (clinico) | AASM / Cleveland Clinic / Harvard Sleep |
+| Respirazione sonno | **10–16 BRPM** | Spike persistenti >18 | Letteratura PSG |
+| Pisolini | Individuali; ↑ con carico o sonno frammentato | ↑↑ + WASO ↑ + TSB ↓ | Recovery sportivo |
+
+**E. Qualità esecuzione (radar Zepp)**
+
+| Indicatore | Interpretazione |
+|------------|-----------------|
+| Consistenza / stabilità alte | Tecnica controllata — riduce rischio infortunio over 50 |
+| Speed decay marcato | Atteso con **TUT lungo** (es. pausa 3 sec alzate 27/07) — non confondere con cedimento |
+
+---
+
+#### Matrice semaforo — incrocio mensile
+
+| Pilastro | Verde | Giallo | Rosso |
+|----------|-------|--------|-------|
+| **Volume/frequenza** | 2–4 sessioni/sett., rotazione schede, TSB ≥ −10 | >4 sessioni/sett. o TSB −10…−20 | TSB < −20 o dolore persistente |
+| **Intensità FC** | FC media 100–120, picchi isolati <170 | FC max >165 spesso o sessioni >100 min device | FC max >180 o palpitazioni riferite |
+| **Sonno quantità** | 7–9 h, REM 20–25% | WASO 40–60 min o pisolini ↑ | WASO >60 min + stanchezza |
+| **Sonno qualità** | FC sonno 45–58, AHI <5 | FC sonno ↑ + WASO ↑ insieme | AHI ≥5 (device) + sintomi |
+| **Progressione pesi** | Incrementi lenti, RIR rispettato | Stallo 3+ settimane | Regressione o dolori |
+
+---
+
+#### Checklist agente — fine mese
+
+1. Leggere `performance-monthly.json` + `sleep-monthly.json` + ultimo TSB in `performance-sessions.json`.
+2. Escludere sessioni con `duration_corrected` / `calorie_asterisk` dalle medie se distorcono.
+3. Confrontare ogni metrica sonno con tabella §3e-D.
+4. Confrontare frequenza e TSB con tabella §3e-A/C.
+5. Incrociare: **WASO ↑ + TSB ↓** = possibile recupero insufficiente; **FC sonno bassa + TSB bilanciato** = adattamento ok.
+6. Scrivere `.metabolic-note` nel trimestre (linguaggio chiaro, disclaimer medico).
+7. Aggiornare `sleep-monthly.json` campo `analisi`.
+8. Aggiungere riga in **Cronologia mensile** (sotto).
+9. Metriche cliniche (AHI, sintomi) → «parlare con medico / sleep specialist».
+
+---
+
+#### Valutazione integrata baseline — luglio 2026
+
+**Contesto:** prima documentazione sistematica. Giugno senza log. **7 sessioni in 12 giorni** (16→27 lug).
+
+**Allenamento — VERDE con note**
+
+- Frequenza superiore al minimo ACSM (2×/sett.) — sostenibile perché **TSB −3 (Bilanciato)**, CTL 34 / ATL 37: build iniziale, non overreaching.
+- **FC media 110 bpm** (~68% FCmax stimata) — coerente con RT moderato + recuperi.
+- Sessioni chiave: 23/07 FC max **165**, anaerobico **3,6**; 27/07 **82 min**, aerobico **52%**; 21/07 pressa **140 kg**, 30 gruppi.
+- Tecnica radar alta su 21, 23, 24, 27 — positivo per età e TUT.
+- Artefatti 20/07 e 24/07 — escludere durata device.
+
+**Sonno — VERDE/GIALLO**
+
+- REM **23%** — normale. FC sonno **55 bpm** — ottimo (40–60). Ipopnea **2,2/h** — normale (<5).
+- Veglia **49 min** (+13) — **giallo** (limite WASO). Pisolini **+17 min** — **giallo** (compensazione?).
+- Diario buonanotte vuoto 31/31 gg — compilare ad agosto.
+
+**Giudizio sintetico:** build ben tolerata a 57 anni con background decennale; recupero cardiaco notturno ok; debolezza = fragmentazione sonno in aumento — monitorare ad agosto con TSB e WASO.
+
+**Azioni suggerite (agosto):** diario Zepp; se WASO ↑ persistente, 3 sessioni/sett. una settimana su due; spegnere orologio post-palestra; continuare progressione lenta ACSM.
+
+---
+
+#### Cronologia mensile (log sintetico)
+
+| Mese | Sessioni | Export | TSB fine mese | Sonno (highlight) | Giudizio |
+|------|----------|--------|---------------|-------------------|----------|
+| Giu 2026 | 0 log | — | — | — | Pre-documentazione |
+| **Lug 2026** | **7** | **6** | **−3 Bilanciato** (27/07) | REM 23% ✓ · FC sonno 55 ✓ · WASO 49 ⚠ · pisolini ↑ | Build sostenibile; monitorare veglia |
+| Ago 2026 | — | — | — | — | *Prossimo report fine mese* |
+
+*Aggiornare una riga per mese dopo ogni report integrato §3e.*
+
+---
 
 ### Progressione pesi per esercizio (archivio)
 
