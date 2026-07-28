@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
  * Rigenera admin/data/macrociclo-2026-2027.json
- * Linee guida: mesocicli lunghi (6-10 sett.) per Gino Capon, natural 57 anni.
+ * 4 fasi macro da ~13 settimane ciascuna (modello trimestre Q3) —
+ * natural 57 anni: niente micro-fasi da 4–6 settimane.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -14,23 +15,48 @@ const OLD = JSON.parse(readFileSync(OUT, "utf8"));
 
 function getSessioni(id) {
   const f = OLD.fasi.find((x) => x.id === id);
-  if (!f) throw new Error("Fase mancante: " + id);
+  if (!f) throw new Error("Fase mancante nel JSON precedente: " + id);
   return JSON.parse(JSON.stringify(f.sessioni));
 }
 
+/** Preferisci id nuovo; fallback a id legacy se già migrato. */
+function getSessioniAny(...ids) {
+  for (const id of ids) {
+    const f = OLD.fasi.find((x) => x.id === id);
+    if (f) return JSON.parse(JSON.stringify(f.sessioni));
+  }
+  throw new Error("Nessuna fase trovata tra: " + ids.join(", "));
+}
+
+function addDays(iso, days) {
+  const d = new Date(iso + "T12:00:00Z");
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function endAfterWeeks(start, weeks) {
+  return addDays(start, weeks * 7 - 1);
+}
+
 function mergeTensioneForza() {
-  const t = OLD.fasi.find((x) => x.id === "ipertrofia-tensione-meccanica");
-  const f = OLD.fasi.find((x) => x.id === "forza");
-  const sessioni = JSON.parse(JSON.stringify(t.sessioni));
+  const t = OLD.fasi.find(
+    (x) => x.id === "tensione-forza" || x.id === "ipertrofia-tensione-meccanica"
+  );
+  const f = OLD.fasi.find((x) => x.id === "forza" || x.id === "tensione-forza");
+  const base = t || f;
+  if (!base) throw new Error("Manca blocco tensione/forza nel JSON");
+  const sessioni = JSON.parse(JSON.stringify(base.sessioni));
+  const forzaSrc = OLD.fasi.find((x) => x.id === "forza");
   for (const key of ["a1", "b1", "a2", "b2"]) {
     sessioni[key].esercizi.forEach((ex, i) => {
-      const fEx = f.sessioni[key].esercizi[i];
-      if (!fEx) return;
+      const fEx = forzaSrc?.sessioni?.[key]?.esercizi?.[i];
       if (ex.progressione) {
-        ex.ripetizioni = "6-8 (settimane 1-4) → 4-6 (settimane 5-8)";
-        ex.peso = fEx.peso;
-        ex.rir = "1-2";
-        ex.note = (ex.note || "") + " · Blocco 8 sett.: tensione meccanica → forza";
+        if (fEx?.peso) ex.peso = fEx.peso;
+        ex.ripetizioni = "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload";
+        ex.rir = "1-2 (sett. 13: RIR 4)";
+        ex.note =
+          (ex.note ? ex.note + " · " : "") +
+          "Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)";
       }
     });
   }
@@ -50,110 +76,90 @@ function bumpClassicaII(sessioni) {
   for (const day of Object.values(s)) {
     day.esercizi.forEach((ex) => {
       if (bumps[ex.nome]) ex.peso = bumps[ex.nome];
+      if (ex.progressione) {
+        ex.note =
+          (ex.note ? ex.note + " · " : "") +
+          "Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload.";
+      }
     });
   }
   return s;
 }
 
+function softStartIpertrofia(sessioni) {
+  const s = JSON.parse(JSON.stringify(sessioni));
+  for (const day of Object.values(s)) {
+    day.esercizi.forEach((ex) => {
+      if (ex.progressione) {
+        ex.rir = "2-3 (sett. 1–2) → 1-2";
+        ex.note =
+          (ex.note ? ex.note + " · " : "") +
+          "Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume).";
+      }
+    });
+  }
+  return s;
+}
+
+const START = "2026-09-01";
+const W = 13;
+
 const FASI = [
   {
-    id: "adattamento-anatomico",
-    nome: "Adattamento anatomico",
-    inizio: "2026-09-01",
-    fine: "2026-09-28",
-    settimane: 4,
-    rir: "2-3",
+    id: "ipertrofia-accumulo",
+    nome: "Fase 1 · Ipertrofia accumulo",
+    inizio: START,
+    fine: endAfterWeeks(START, W),
+    settimane: W,
+    rir: "2-3 → 1-2",
     obiettivo:
-      "Transizione dal trimestre Q3 2026. Tessuti, articolazioni e pattern motori con carichi conservativi. Stessi esercizi, RIR generoso — non cambiare scheda ogni settimana.",
-    sessioni: getSessioni("adattamento-anatomico"),
-  },
-  {
-    id: "ipertrofia-classica",
-    nome: "Ipertrofia classica",
-    inizio: "2026-09-29",
-    fine: "2026-12-06",
-    settimane: 10,
-    rir: "1-2",
-    obiettivo:
-      "Blocco principale di accumulo ipertrofico (8-12 rep). 10 settimane sullo stesso schema — coerente con Nippard/Israetel per intermedi che progrediscono. Progressione a carico fisso sui movimenti *.",
-    sessioni: getSessioni("ipertrofia-classica"),
-  },
-  {
-    id: "deload",
-    nome: "Deload",
-    inizio: "2026-12-07",
-    fine: "2026-12-13",
-    settimane: 1,
-    rir: "4",
-    obiettivo:
-      "Scarico fatica dopo 10 settimane di ipertrofia. Volume −40%, stessi esercizi, recupero completo.",
-    sessioni: getSessioni("deload"),
+      "13 settimane sullo stesso schema A1–B2 (modello trimestre Q3). Sett. 1–2 avvio soft RIR 2–3 (ex adattamento anatomico). Sett. 3–12 accumulo 8–12 rep. Sett. 13 deload (−40% volume). Un solo cambio schema a fine fase.",
+    sessioni: softStartIpertrofia(getSessioniAny("ipertrofia-accumulo", "ipertrofia-classica")),
   },
   {
     id: "tensione-forza",
-    nome: "Tensione meccanica + Forza",
-    inizio: "2026-12-14",
-    fine: "2027-02-07",
-    settimane: 8,
+    nome: "Fase 2 · Tensione + Forza",
+    inizio: addDays(endAfterWeeks(START, W), 1),
+    fine: endAfterWeeks(addDays(endAfterWeeks(START, W), 1), W),
+    settimane: W,
     rir: "1-2",
     obiettivo:
-      "Blocco unico 8 settimane: prime 4 settimane tensione meccanica (6-8 rep, carichi più alti), ultime 4 forza (4-6 rep). Evita cambi schema ogni mese.",
+      "13 settimane: sett. 1–6 tensione meccanica (6–8 rep), sett. 7–12 forza (4–6 rep), sett. 13 deload. Stessi esercizi — cambia solo range reps e carico. Coerente con cambio schema ogni ~3 mesi.",
     sessioni: mergeTensioneForza(),
   },
-  {
-    id: "deload-2",
-    nome: "Deload",
-    inizio: "2027-02-08",
-    fine: "2027-02-14",
-    settimane: 1,
-    rir: "4",
-    obiettivo: "Recupero post-blocco forza. Una settimana leggera prima del secondo accumulo ipertrofico.",
-    sessioni: getSessioni("deload"),
-  },
+];
+
+const fase2Fine = FASI[1].fine;
+const fase3Inizio = addDays(fase2Fine, 1);
+const fase3Fine = endAfterWeeks(fase3Inizio, W);
+const fase4Inizio = addDays(fase3Fine, 1);
+
+FASI.push(
   {
     id: "ipertrofia-classica-ii",
-    nome: "Ipertrofia classica II",
-    inizio: "2027-02-15",
-    fine: "2027-04-25",
-    settimane: 10,
+    nome: "Fase 3 · Ipertrofia II",
+    inizio: fase3Inizio,
+    fine: fase3Fine,
+    settimane: W,
     rir: "1-2",
     obiettivo:
-      "Secondo blocco ipertrofico 10 settimane. Carichi +2,5 kg sui fondamentali rispetto al primo blocco. Stessa struttura A1-B2.",
-    sessioni: bumpClassicaII(getSessioni("ipertrofia-classica-ii")),
-  },
-  {
-    id: "ipertrofia-alto-volume",
-    nome: "Ipertrofia ad alto volume",
-    inizio: "2027-04-26",
-    fine: "2027-06-06",
-    settimane: 6,
-    rir: "1-2",
-    obiettivo:
-      "6 settimane di saturazione volume (+1 serie sui multiarticolari). Ultimo push ipertrofico prima dello scarico estivo.",
-    sessioni: getSessioni("ipertrofia-alto-volume"),
-  },
-  {
-    id: "deload-3",
-    nome: "Deload",
-    inizio: "2027-06-07",
-    fine: "2027-06-13",
-    settimane: 1,
-    rir: "4",
-    obiettivo: "Deload pre-estate. Volume minimo, tecnica pulita.",
-    sessioni: getSessioni("deload"),
+      "Secondo blocco ipertrofico 13 settimane. Carichi +2,5 kg sui fondamentali vs Fase 1. Sett. 9–12 saturazione volume (+1 serie multiarticolari, ex alto volume). Sett. 13 deload pre-estate.",
+    sessioni: bumpClassicaII(
+      getSessioniAny("ipertrofia-classica-ii", "ipertrofia-classica")
+    ),
   },
   {
     id: "ricondizionamento",
-    nome: "Ricondizionamento",
-    inizio: "2027-06-14",
+    nome: "Fase 4 · Ricondizionamento",
+    inizio: fase4Inizio,
     fine: "2027-08-31",
-    settimane: 11,
+    settimane: 13,
     rir: "2-3",
     obiettivo:
-      "11 settimane di mantenimento e transizione fine macrociclo. Carichi moderati, 10-12 rep, zero pressione sul SNC. Prepara il macrociclo successivo.",
-    sessioni: getSessioni("ricondizionamento"),
-  },
-];
+      "13 settimane di mantenimento estivo (fino a fine macrociclo 31/08). Carichi moderati, 10–12 rep, zero pressione sul SNC. Prepara il macrociclo successivo — niente nuovi schemi.",
+    sessioni: getSessioniAny("ricondizionamento"),
+  }
+);
 
 const totalWeeks = FASI.reduce((a, f) => a + f.settimane, 0);
 
@@ -162,14 +168,20 @@ const macrociclo = {
     nome: "Macrociclo 2026–2027 · Gino Capon",
     inizio: "2026-09-01",
     fine: "2027-08-31",
-    descrizione: `Periodizzazione annuale ${totalWeeks} settimane su split A1-B1-A2-B2 (4 sessioni/settimana). Mesocicli lunghi (6-10 sett. ipertrofia) secondo linee guida Israetel, Helms e Nippard adattate a natural 57 anni. Pesi base da trimestre Q3 2026. ${FASI.length} fasi totali (inclusi 3 deload).`,
+    descrizione: `Periodizzazione annuale ${totalWeeks} settimane su split A1-B1-A2-B2 (4 sessioni/settimana). **4 fasi macro da ~13 settimane** (modello trimestre Q3) — niente micro-fasi da 4–6 sett. Deload = ultima settimana di ogni fase di lavoro. Pesi base da trimestre Q3 2026.`,
     pesoPartenza: 67,
     frequenza: "4 sessioni/settimana",
     lineeGuida:
-      "Mesocicli ipertrofia 8-10 sett. · Deload ogni 10-11 sett. accumulo · Cambio schema ogni 2-3 mesi, non ogni mese",
+      "4 fasi × ~13 sett. · Deload in sett. 13 di ogni fase di lavoro · Cambio schema ogni ~3 mesi · Natural 57 anni",
   },
   fasi: FASI,
 };
 
 writeFileSync(OUT, JSON.stringify(macrociclo, null, 2) + "\n");
-console.log("OK:", OUT, "—", FASI.length, "fasi,", totalWeeks, "settimane");
+console.log("OK:", OUT);
+FASI.forEach((f, i) => {
+  console.log(
+    `  ${i + 1}. ${f.nome} · ${f.settimane} sett. · ${f.inizio} → ${f.fine}`
+  );
+});
+console.log("Totale settimane dichiarate:", totalWeeks);

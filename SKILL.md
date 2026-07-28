@@ -966,11 +966,11 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 
 ```
 MACROCICLO  = anno intero (~52 settimane)
-MESOCICLO   = singola fase (6–10 sett. ipertrofia per Gino)
+MESOCICLO   = fase macro (~12–13 sett. per Gino — modello trimestre)
 MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 ```
 
-**Regola d’oro per Gino Capon (57 anni, natural, ~10 anni palestra):** cambiare schema ogni **2–3 mesi**, non ogni mese. Il trimestre Q3 2026 (12 settimane stessa scheda) è il modello corretto.
+**Regola d’oro per Gino Capon (57 anni, natural, ~10 anni palestra):** cambiare schema ogni **2–3 mesi**, non ogni mese. Il trimestre Q3 2026 (12 settimane stessa scheda) è il modello corretto. **4 fasi × ~13 settimane** = anno intero; deload = **ultima settimana** di ogni fase di lavoro (non micro-fasi separate da 4–6 sett.).
 
 ### 8.3 Linee guida da fonti americane (sintesi)
 
@@ -980,7 +980,7 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 | **Eric Helms** (3DMJ) | 4–8 sett. | Deload/diet break ogni 4–8 sett.; progressione graduale |
 | **Jeff Nippard** | 4–8 sett. (intermedi) | «Se progredisci, continua 8–12 sett.»; programmi con blocchi da 6–8 sett. |
 
-**Adattamento per Gino:** profilo **intermedio maturo** → mesocicli ipertrofia **8–10 settimane**, deload ogni **10–11 settimane** di accumulo, blocco forza/tensione **6–8 settimane** unificato.
+**Adattamento per Gino:** profilo **intermedio maturo** → mesocicli **12–13 settimane** (come il trimestre documentato), con **deload interno** in settimana 13. Non usare blocchi da 3–6 settimane: troppo brevi per adattamento a 57 anni.
 
 ### 8.4 Split settimanale A1–B2 (invariato tutto l’anno)
 
@@ -1001,17 +1001,14 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 
 | # | Fase | Durata | Periodo | Obiettivo |
 |---|------|--------|---------|-----------|
-| 1 | Adattamento anatomico | 4 sett. | Set 2026 | Transizione da Q3, RIR 2–3 |
-| 2 | Ipertrofia classica | **10 sett.** | Ott–Dic 2026 | Accumulo principale 8–12 rep |
-| 3 | Deload | 1 sett. | Fine dic | Volume −40% |
-| 4 | Tensione + Forza | **8 sett.** | Dic–Feb 2027 | 4 sett. tensione → 4 sett. forza |
-| 5 | Deload | 1 sett. | Metà feb | Recupero post-forza |
-| 6 | Ipertrofia classica II | **10 sett.** | Feb–Apr 2027 | Secondo blocco, +2,5 kg fondamentali |
-| 7 | Ipertrofia alto volume | **6 sett.** | Apr–Giu 2027 | +1 serie multiarticolari |
-| 8 | Deload | 1 sett. | Inizio giu | Pre-estate |
-| 9 | Ricondizionamento | **11 sett.** | Giu–Ago 2027 | Mantenimento 10–12 rep |
+| 1 | **Ipertrofia accumulo** | **13 sett.** | Set–Nov 2026 | Soft start sett. 1–2 · accumulo 8–12 · deload sett. 13 |
+| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | Tensione 1–6 · forza 7–12 · deload 13 |
+| 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | +2,5 kg fondamentali · volume ↑ sett. 9–12 · deload 13 |
+| 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | Mantenimento estivo 10–12 rep, RIR 2–3 |
 
-**Totale:** 9 fasi · 52 settimane · 3 deload
+**Totale:** **4 fasi** · 52 settimane · deload incorporato (niente 9 micro-fasi)
+
+Rigenera: `node tools/genera-macrociclo.mjs`
 
 ### 8.6 Pesi base (da trimestre Giu–Lug–Ago 2026)
 
@@ -1034,11 +1031,12 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 
 ### 8.7 Regole modifica mesociclo
 
-1. **Non accorciare** un mesociclo ipertrofico sotto 6 settimane per Gino senza motivo (infortunio, viaggio lungo).
-2. **Deload** dopo ogni 10–11 settimane di lavoro duro — non saltare.
+1. **Non accorciare** un mesociclo sotto **12 settimane** per Gino senza motivo (infortunio, viaggio lungo).
+2. **Deload** = settimana 13 di ogni fase di lavoro (−40% volume) — non saltare.
 3. **Stessi esercizi** per tutta la fase; cambia solo serie/reps/RIR/peso.
 4. **Progressione:** quando 2 sessioni consecutive al limite superiore reps con RIR target → +2,5–5 kg sul movimento *.
 5. **Log reale** resta in `/allenamenti/sessioni/` — l’admin è prototipo/mappa, non sostituisce il log.
+6. **PDF stampabile:** margini stampa **8 mm** (non minimi); fascia **Osservazioni** in alto; non tagliare il bordo inferiore.
 
 ### 8.8 PDF scheda sessione (palestra)
 
@@ -1070,7 +1068,8 @@ Stampa: **A4 verticale**, margini standard, «Salva come PDF» dal browser.
 |--------|-------------------|
 | Cambiare scheda ogni 4 settimane | Troppo frequente per un natural 57 anni che progredisce ancora |
 | Saltare il deload | Fatica accumulata maschera i guadagni (Israetel) |
-| 16 micro-fasi in un anno | Troppi cambi schema — confusione e zero adattamento |
+| 9+ micro-fasi in un anno | Troppi cambi schema — confusione e zero adattamento |
+| Mesocicli da 3–6 settimane | Troppo brevi vs modello trimestre (12 sett.) |
 | Copiare mesocicli da atleti avanzati giovani | Recovery diversa; servono blocchi più lunghi |
 | Pubblicare `/admin/` nel sitemap | Area riservata, solo prototipi interni |
 

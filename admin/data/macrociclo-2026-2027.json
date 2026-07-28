@@ -3,20 +3,20 @@
     "nome": "Macrociclo 2026–2027 · Gino Capon",
     "inizio": "2026-09-01",
     "fine": "2027-08-31",
-    "descrizione": "Periodizzazione annuale 52 settimane su split A1-B1-A2-B2 (4 sessioni/settimana). Mesocicli lunghi (6-10 sett. ipertrofia) secondo linee guida Israetel, Helms e Nippard adattate a natural 57 anni. Pesi base da trimestre Q3 2026. 9 fasi totali (inclusi 3 deload).",
+    "descrizione": "Periodizzazione annuale 52 settimane su split A1-B1-A2-B2 (4 sessioni/settimana). **4 fasi macro da ~13 settimane** (modello trimestre Q3) — niente micro-fasi da 4–6 sett. Deload = ultima settimana di ogni fase di lavoro. Pesi base da trimestre Q3 2026.",
     "pesoPartenza": 67,
     "frequenza": "4 sessioni/settimana",
-    "lineeGuida": "Mesocicli ipertrofia 8-10 sett. · Deload ogni 10-11 sett. accumulo · Cambio schema ogni 2-3 mesi, non ogni mese"
+    "lineeGuida": "4 fasi × ~13 sett. · Deload in sett. 13 di ogni fase di lavoro · Cambio schema ogni ~3 mesi · Natural 57 anni"
   },
   "fasi": [
     {
-      "id": "adattamento-anatomico",
-      "nome": "Adattamento anatomico",
+      "id": "ipertrofia-accumulo",
+      "nome": "Fase 1 · Ipertrofia accumulo",
       "inizio": "2026-09-01",
-      "fine": "2026-09-28",
-      "settimane": 4,
-      "rir": "2-3",
-      "obiettivo": "Transizione dal trimestre Q3 2026. Tessuti, articolazioni e pattern motori con carichi conservativi. Stessi esercizi, RIR generoso — non cambiare scheda ogni settimana.",
+      "fine": "2026-11-30",
+      "settimane": 13,
+      "rir": "2-3 → 1-2",
+      "obiettivo": "13 settimane sullo stesso schema A1–B2 (modello trimestre Q3). Sett. 1–2 avvio soft RIR 2–3 (ex adattamento anatomico). Sett. 3–12 accumulo 8–12 rep. Sett. 13 deload (−40% volume). Un solo cambio schema a fine fase.",
       "sessioni": {
         "a1": {
           "nome": "A1 · Petto* · Schiena · Spalle",
@@ -28,329 +28,10 @@
               "ripetizioni": "8",
               "peso": "20 kg/manubrio",
               "recupero": "120s",
-              "rir": "2-3",
+              "rir": "2-3 (sett. 1–2) → 1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale petto — progressione a carico fisso"
-            },
-            {
-              "nome": "Croci ai cavi",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "8",
-              "peso": "12 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "8-10",
-              "peso": "14 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide anteriore"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "8-10",
-              "peso": "8 kg/manubrio",
-              "recupero": "60s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "55 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere",
-              "gruppo": "Schiena",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "50 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione orizzontale"
-            },
-            {
-              "nome": "Catch Ball",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "15",
-              "peso": "8 kg",
-              "recupero": "45s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — finisher spalle e core"
-            }
-          ]
-        },
-        "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower (drop set)",
-              "gruppo": "Polpacci",
-              "serie": 3,
-              "ripetizioni": "25",
-              "peso": "140→110→80 kg",
-              "recupero": "60s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Drop set: 140 kg ×8, poi 110, poi 80 senza pausa"
-            },
-            {
-              "nome": "Pressa a 45°",
-              "gruppo": "Quadricipiti",
-              "serie": 4,
-              "ripetizioni": "10+10",
-              "peso": "140/120 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2 serie a 140 kg + 2 serie a 120 kg"
-            },
-            {
-              "nome": "Leg extension",
-              "gruppo": "Quadricipiti",
-              "serie": 3,
-              "ripetizioni": "ced+tempo",
-              "peso": "65/55 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": "cedimento+tempo",
-              "progressione": false,
-              "note": "2 serie a cedimento a 65 kg + 2 serie tempo a 55 kg"
-            },
-            {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "60→50 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
-            },
-            {
-              "nome": "Curl su panca Scott",
-              "gruppo": "Bicipiti",
-              "serie": 3,
-              "ripetizioni": "8+8",
-              "peso": "35/30 kg",
-              "recupero": "60s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2×8 a 35 kg + 2×8 a 30 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "8",
-              "peso": "40 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — bilanciamento femorali"
-            }
-          ]
-        },
-        "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Petto",
-          "esercizi": [
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "14 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "8-10",
-              "peso": "8 kg/manubrio",
-              "recupero": "60s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "55 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere / Trazioni",
-              "gruppo": "Schiena",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "50 kg",
-              "recupero": "120s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
-            },
-            {
-              "nome": "Clean Halo con kettlebell",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10/senso",
-              "peso": "8 kg",
-              "recupero": "45s",
-              "rir": "2-3",
-              "tecnica": "finisher",
-              "progressione": false,
-              "note": "Finisher — sempre ultimo esercizio della scheda"
-            }
-          ]
-        },
-        "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower",
-              "gruppo": "Polpacci",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "80 kg",
-              "recupero": "45s",
-              "rir": "2-3",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "In superset con squat"
-            },
-            {
-              "nome": "Squat al multipower",
-              "gruppo": "Quadricipiti",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "60/55 kg",
-              "recupero": "45s",
-              "rir": "2-3",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "Superset con polpacci — 2 serie a 60 kg + 2 a 55 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "8",
-              "peso": "45 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Stacco omega (trap bar)",
-              "gruppo": "Catena posteriore",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "60 kg",
-              "recupero": "150s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
-            },
-            {
-              "nome": "Chest press alla macchina",
-              "gruppo": "Petto",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "70 kg",
-              "recupero": "90s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Volume petto complementare"
-            },
-            {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
-              "serie": 3,
-              "ripetizioni": "6",
-              "peso": "18 kg/manubrio",
-              "recupero": "60s",
-              "rir": "2-3",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Brachioradiale e brachiale"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "ipertrofia-classica",
-      "nome": "Ipertrofia classica",
-      "inizio": "2026-09-29",
-      "fine": "2026-12-06",
-      "settimane": 10,
-      "rir": "1-2",
-      "obiettivo": "Blocco principale di accumulo ipertrofico (8-12 rep). 10 settimane sullo stesso schema — coerente con Nippard/Israetel per intermedi che progrediscono. Progressione a carico fisso sui movimenti *.",
-      "sessioni": {
-        "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle",
-          "esercizi": [
-            {
-              "nome": "Panca inclinata con manubri",
-              "gruppo": "Petto",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "20 kg/manubrio",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale petto — progressione a carico fisso"
+              "note": "Esercizio principale petto — progressione a carico fisso · Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume)."
             },
             {
               "nome": "Croci ai cavi",
@@ -472,10 +153,10 @@
               "ripetizioni": "8",
               "peso": "60→50 kg",
               "recupero": "120s",
-              "rir": "1-2",
+              "rir": "2-3 (sett. 1–2) → 1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
+              "note": "Esercizio principale gambe accosciata — progressione a carico fisso · Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume)."
             },
             {
               "nome": "Curl su panca Scott",
@@ -513,10 +194,10 @@
               "ripetizioni": "8",
               "peso": "14 kg",
               "recupero": "120s",
-              "rir": "1-2",
+              "rir": "2-3 (sett. 1–2) → 1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
+              "note": "Esercizio principale spalle — progressione a carico fisso · Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume)."
             },
             {
               "nome": "Alzate laterali con manubri",
@@ -549,10 +230,10 @@
               "ripetizioni": "8",
               "peso": "50 kg",
               "recupero": "120s",
-              "rir": "1-2",
+              "rir": "2-3 (sett. 1–2) → 1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
+              "note": "Alternare rematore e trazioni — progressione a carico fisso · Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume)."
             },
             {
               "nome": "Clean Halo con kettlebell",
@@ -614,10 +295,10 @@
               "ripetizioni": "8",
               "peso": "60 kg",
               "recupero": "150s",
-              "rir": "1-2",
+              "rir": "2-3 (sett. 1–2) → 1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
+              "note": "Esercizio principale catena posteriore — progressione a carico fisso · Avvio soft 2 sett. (adattamento anatomico interno). Sett. 13: deload (−40% volume)."
             },
             {
               "nome": "Chest press alla macchina",
@@ -639,325 +320,6 @@
               "peso": "18 kg/manubrio",
               "recupero": "60s",
               "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Brachioradiale e brachiale"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "deload",
-      "nome": "Deload",
-      "inizio": "2026-12-07",
-      "fine": "2026-12-13",
-      "settimane": 1,
-      "rir": "4",
-      "obiettivo": "Scarico fatica dopo 10 settimane di ipertrofia. Volume −40%, stessi esercizi, recupero completo.",
-      "sessioni": {
-        "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle",
-          "esercizi": [
-            {
-              "nome": "Panca inclinata con manubri",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "12 kg/manubrio",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale petto — progressione a carico fisso"
-            },
-            {
-              "nome": "Croci ai cavi",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "7 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide anteriore"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione orizzontale"
-            },
-            {
-              "nome": "Catch Ball",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — finisher spalle e core"
-            }
-          ]
-        },
-        "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower (drop set)",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84→66→48 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Drop set: 140 kg ×8, poi 110, poi 80 senza pausa"
-            },
-            {
-              "nome": "Pressa a 45°",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84/72 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2 serie a 140 kg + 2 serie a 120 kg"
-            },
-            {
-              "nome": "Leg extension",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "39/33 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": "cedimento+tempo",
-              "progressione": false,
-              "note": "2 serie a cedimento a 65 kg + 2 serie tempo a 55 kg"
-            },
-            {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36→30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
-            },
-            {
-              "nome": "Curl su panca Scott",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "21/18 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2×8 a 35 kg + 2×8 a 30 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "24 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — bilanciamento femorali"
-            }
-          ]
-        },
-        "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Petto",
-          "esercizi": [
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere / Trazioni",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
-            },
-            {
-              "nome": "Clean Halo con kettlebell",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10/senso",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "finisher",
-              "progressione": false,
-              "note": "Finisher — sempre ultimo esercizio della scheda"
-            }
-          ]
-        },
-        "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "48 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "In superset con squat"
-            },
-            {
-              "nome": "Squat al multipower",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36/33 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "Superset con polpacci — 2 serie a 60 kg + 2 a 55 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "27 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Stacco omega (trap bar)",
-              "gruppo": "Catena posteriore",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36 kg",
-              "recupero": "150s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
-            },
-            {
-              "nome": "Chest press alla macchina",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "42 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Volume petto complementare"
-            },
-            {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "11 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
               "tecnica": null,
               "progressione": false,
               "note": "Brachioradiale e brachiale"
@@ -968,12 +330,12 @@
     },
     {
       "id": "tensione-forza",
-      "nome": "Tensione meccanica + Forza",
-      "inizio": "2026-12-14",
-      "fine": "2027-02-07",
-      "settimane": 8,
+      "nome": "Fase 2 · Tensione + Forza",
+      "inizio": "2026-12-01",
+      "fine": "2027-03-01",
+      "settimane": 13,
       "rir": "1-2",
-      "obiettivo": "Blocco unico 8 settimane: prime 4 settimane tensione meccanica (6-8 rep, carichi più alti), ultime 4 forza (4-6 rep). Evita cambi schema ogni mese.",
+      "obiettivo": "13 settimane: sett. 1–6 tensione meccanica (6–8 rep), sett. 7–12 forza (4–6 rep), sett. 13 deload. Stessi esercizi — cambia solo range reps e carico. Coerente con cambio schema ogni ~3 mesi.",
       "sessioni": {
         "a1": {
           "nome": "A1 · Petto* · Schiena · Spalle",
@@ -982,13 +344,13 @@
               "nome": "Panca inclinata con manubri",
               "gruppo": "Petto",
               "serie": 4,
-              "ripetizioni": "6-8 (settimane 1-4) → 4-6 (settimane 5-8)",
+              "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "30 kg/manubrio",
               "recupero": "144s",
-              "rir": "1-2",
+              "rir": "1-2 (sett. 13: RIR 4)",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale petto — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza"
+              "note": "Esercizio principale petto — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza · Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)"
             },
             {
               "nome": "Croci ai cavi",
@@ -1107,13 +469,13 @@
               "nome": "Doktor (affondo bulgaro guidato)",
               "gruppo": "Quadricipiti",
               "serie": 4,
-              "ripetizioni": "6-8 (settimane 1-4) → 4-6 (settimane 5-8)",
+              "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "70→60 kg",
               "recupero": "144s",
-              "rir": "1-2",
+              "rir": "1-2 (sett. 13: RIR 4)",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza"
+              "note": "Esercizio principale gambe accosciata — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza · Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)"
             },
             {
               "nome": "Curl su panca Scott",
@@ -1148,13 +510,13 @@
               "nome": "Lento avanti con bilanciere",
               "gruppo": "Spalle",
               "serie": 4,
-              "ripetizioni": "6-8 (settimane 1-4) → 4-6 (settimane 5-8)",
+              "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "24 kg",
               "recupero": "144s",
-              "rir": "1-2",
+              "rir": "1-2 (sett. 13: RIR 4)",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale spalle — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza"
+              "note": "Esercizio principale spalle — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza · Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)"
             },
             {
               "nome": "Alzate laterali con manubri",
@@ -1184,13 +546,13 @@
               "nome": "Rematore con bilanciere / Trazioni",
               "gruppo": "Schiena",
               "serie": 4,
-              "ripetizioni": "6-8 (settimane 1-4) → 4-6 (settimane 5-8)",
+              "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "60 kg",
               "recupero": "144s",
-              "rir": "1-2",
+              "rir": "1-2 (sett. 13: RIR 4)",
               "tecnica": null,
               "progressione": true,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza"
+              "note": "Alternare rematore e trazioni — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza · Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)"
             },
             {
               "nome": "Clean Halo con kettlebell",
@@ -1249,13 +611,13 @@
               "nome": "Stacco omega (trap bar)",
               "gruppo": "Catena posteriore",
               "serie": 3,
-              "ripetizioni": "6-8 (settimane 1-4) → 4-6 (settimane 5-8)",
+              "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "70 kg",
               "recupero": "180s",
-              "rir": "1-2",
+              "rir": "1-2 (sett. 13: RIR 4)",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza"
+              "note": "Esercizio principale catena posteriore — progressione a carico fisso · Blocco 8 sett.: tensione meccanica → forza · Blocco 13 sett.: tensione → forza → settimana 13 scarico (−40% volume)"
             },
             {
               "nome": "Chest press alla macchina",
@@ -1286,332 +648,13 @@
       }
     },
     {
-      "id": "deload-2",
-      "nome": "Deload",
-      "inizio": "2027-02-08",
-      "fine": "2027-02-14",
-      "settimane": 1,
-      "rir": "4",
-      "obiettivo": "Recupero post-blocco forza. Una settimana leggera prima del secondo accumulo ipertrofico.",
-      "sessioni": {
-        "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle",
-          "esercizi": [
-            {
-              "nome": "Panca inclinata con manubri",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "12 kg/manubrio",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale petto — progressione a carico fisso"
-            },
-            {
-              "nome": "Croci ai cavi",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "7 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide anteriore"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione orizzontale"
-            },
-            {
-              "nome": "Catch Ball",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — finisher spalle e core"
-            }
-          ]
-        },
-        "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower (drop set)",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84→66→48 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Drop set: 140 kg ×8, poi 110, poi 80 senza pausa"
-            },
-            {
-              "nome": "Pressa a 45°",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84/72 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2 serie a 140 kg + 2 serie a 120 kg"
-            },
-            {
-              "nome": "Leg extension",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "39/33 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": "cedimento+tempo",
-              "progressione": false,
-              "note": "2 serie a cedimento a 65 kg + 2 serie tempo a 55 kg"
-            },
-            {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36→30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
-            },
-            {
-              "nome": "Curl su panca Scott",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "21/18 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2×8 a 35 kg + 2×8 a 30 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "24 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — bilanciamento femorali"
-            }
-          ]
-        },
-        "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Petto",
-          "esercizi": [
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere / Trazioni",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
-            },
-            {
-              "nome": "Clean Halo con kettlebell",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10/senso",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "finisher",
-              "progressione": false,
-              "note": "Finisher — sempre ultimo esercizio della scheda"
-            }
-          ]
-        },
-        "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "48 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "In superset con squat"
-            },
-            {
-              "nome": "Squat al multipower",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36/33 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "Superset con polpacci — 2 serie a 60 kg + 2 a 55 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "27 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Stacco omega (trap bar)",
-              "gruppo": "Catena posteriore",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36 kg",
-              "recupero": "150s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
-            },
-            {
-              "nome": "Chest press alla macchina",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "42 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Volume petto complementare"
-            },
-            {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "11 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Brachioradiale e brachiale"
-            }
-          ]
-        }
-      }
-    },
-    {
       "id": "ipertrofia-classica-ii",
-      "nome": "Ipertrofia classica II",
-      "inizio": "2027-02-15",
-      "fine": "2027-04-25",
-      "settimane": 10,
+      "nome": "Fase 3 · Ipertrofia II",
+      "inizio": "2027-03-02",
+      "fine": "2027-05-31",
+      "settimane": 13,
       "rir": "1-2",
-      "obiettivo": "Secondo blocco ipertrofico 10 settimane. Carichi +2,5 kg sui fondamentali rispetto al primo blocco. Stessa struttura A1-B2.",
+      "obiettivo": "Secondo blocco ipertrofico 13 settimane. Carichi +2,5 kg sui fondamentali vs Fase 1. Sett. 9–12 saturazione volume (+1 serie multiarticolari, ex alto volume). Sett. 13 deload pre-estate.",
       "sessioni": {
         "a1": {
           "nome": "A1 · Petto* · Schiena · Spalle",
@@ -1626,7 +669,7 @@
               "rir": "1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale petto — progressione a carico fisso"
+              "note": "Esercizio principale petto — progressione a carico fisso · Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload."
             },
             {
               "nome": "Croci ai cavi",
@@ -1751,7 +794,7 @@
               "rir": "1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
+              "note": "Esercizio principale gambe accosciata — progressione a carico fisso · Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload."
             },
             {
               "nome": "Curl su panca Scott",
@@ -1792,7 +835,7 @@
               "rir": "1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
+              "note": "Esercizio principale spalle — progressione a carico fisso · Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload."
             },
             {
               "nome": "Alzate laterali con manubri",
@@ -1828,7 +871,7 @@
               "rir": "1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
+              "note": "Alternare rematore e trazioni — progressione a carico fisso · Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload."
             },
             {
               "nome": "Clean Halo con kettlebell",
@@ -1893,7 +936,7 @@
               "rir": "1-2",
               "tecnica": null,
               "progressione": true,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
+              "note": "Esercizio principale catena posteriore — progressione a carico fisso · Sett. 9–12: +1 serie sul multiarticolare (saturazione volume). Sett. 13: deload."
             },
             {
               "nome": "Chest press alla macchina",
@@ -1924,651 +967,13 @@
       }
     },
     {
-      "id": "ipertrofia-alto-volume",
-      "nome": "Ipertrofia ad alto volume",
-      "inizio": "2027-04-26",
-      "fine": "2027-06-06",
-      "settimane": 6,
-      "rir": "1-2",
-      "obiettivo": "6 settimane di saturazione volume (+1 serie sui multiarticolari). Ultimo push ipertrofico prima dello scarico estivo.",
-      "sessioni": {
-        "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle",
-          "esercizi": [
-            {
-              "nome": "Panca inclinata con manubri",
-              "gruppo": "Petto",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "20 kg/manubrio",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale petto — progressione a carico fisso"
-            },
-            {
-              "nome": "Croci ai cavi",
-              "gruppo": "Petto",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "12 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 3,
-              "ripetizioni": "8-10",
-              "peso": "14 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide anteriore"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 3,
-              "ripetizioni": "8-10",
-              "peso": "8 kg/manubrio",
-              "recupero": "60s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "55 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere",
-              "gruppo": "Schiena",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "50 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione orizzontale"
-            },
-            {
-              "nome": "Catch Ball",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "15",
-              "peso": "8 kg",
-              "recupero": "45s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — finisher spalle e core"
-            }
-          ]
-        },
-        "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower (drop set)",
-              "gruppo": "Polpacci",
-              "serie": 4,
-              "ripetizioni": "25",
-              "peso": "140→110→80 kg",
-              "recupero": "60s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Drop set: 140 kg ×8, poi 110, poi 80 senza pausa"
-            },
-            {
-              "nome": "Pressa a 45°",
-              "gruppo": "Quadricipiti",
-              "serie": 5,
-              "ripetizioni": "10+10",
-              "peso": "140/120 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2 serie a 140 kg + 2 serie a 120 kg"
-            },
-            {
-              "nome": "Leg extension",
-              "gruppo": "Quadricipiti",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "65/55 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": "cedimento+tempo",
-              "progressione": false,
-              "note": "2 serie a cedimento a 65 kg + 2 serie tempo a 55 kg"
-            },
-            {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "60→50 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
-            },
-            {
-              "nome": "Curl su panca Scott",
-              "gruppo": "Bicipiti",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "35/30 kg",
-              "recupero": "60s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2×8 a 35 kg + 2×8 a 30 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "40 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — bilanciamento femorali"
-            }
-          ]
-        },
-        "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Petto",
-          "esercizi": [
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "14 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 3,
-              "ripetizioni": "8-10",
-              "peso": "8 kg/manubrio",
-              "recupero": "60s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "55 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere / Trazioni",
-              "gruppo": "Schiena",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "50 kg",
-              "recupero": "120s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
-            },
-            {
-              "nome": "Clean Halo con kettlebell",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "8",
-              "peso": "8 kg",
-              "recupero": "45s",
-              "rir": "1-2",
-              "tecnica": "finisher",
-              "progressione": false,
-              "note": "Finisher — sempre ultimo esercizio della scheda"
-            }
-          ]
-        },
-        "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower",
-              "gruppo": "Polpacci",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "80 kg",
-              "recupero": "45s",
-              "rir": "1-2",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "In superset con squat"
-            },
-            {
-              "nome": "Squat al multipower",
-              "gruppo": "Quadricipiti",
-              "serie": 5,
-              "ripetizioni": "8",
-              "peso": "60/55 kg",
-              "recupero": "45s",
-              "rir": "1-2",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "Superset con polpacci — 2 serie a 60 kg + 2 a 55 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 3,
-              "ripetizioni": "8",
-              "peso": "45 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Stacco omega (trap bar)",
-              "gruppo": "Catena posteriore",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "60 kg",
-              "recupero": "150s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": true,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
-            },
-            {
-              "nome": "Chest press alla macchina",
-              "gruppo": "Petto",
-              "serie": 4,
-              "ripetizioni": "8",
-              "peso": "70 kg",
-              "recupero": "90s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Volume petto complementare"
-            },
-            {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
-              "serie": 4,
-              "ripetizioni": "6",
-              "peso": "18 kg/manubrio",
-              "recupero": "60s",
-              "rir": "1-2",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Brachioradiale e brachiale"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "deload-3",
-      "nome": "Deload",
-      "inizio": "2027-06-07",
-      "fine": "2027-06-13",
-      "settimane": 1,
-      "rir": "4",
-      "obiettivo": "Deload pre-estate. Volume minimo, tecnica pulita.",
-      "sessioni": {
-        "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle",
-          "esercizi": [
-            {
-              "nome": "Panca inclinata con manubri",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "12 kg/manubrio",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale petto — progressione a carico fisso"
-            },
-            {
-              "nome": "Croci ai cavi",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "7 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide anteriore"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione orizzontale"
-            },
-            {
-              "nome": "Catch Ball",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — finisher spalle e core"
-            }
-          ]
-        },
-        "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower (drop set)",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84→66→48 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Drop set: 140 kg ×8, poi 110, poi 80 senza pausa"
-            },
-            {
-              "nome": "Pressa a 45°",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "84/72 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2 serie a 140 kg + 2 serie a 120 kg"
-            },
-            {
-              "nome": "Leg extension",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "39/33 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": "cedimento+tempo",
-              "progressione": false,
-              "note": "2 serie a cedimento a 65 kg + 2 serie tempo a 55 kg"
-            },
-            {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36→30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale gambe accosciata — progressione a carico fisso"
-            },
-            {
-              "nome": "Curl su panca Scott",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "21/18 kg",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "2×8 a 35 kg + 2×8 a 30 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "24 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Opzionale — bilanciamento femorali"
-            }
-          ]
-        },
-        "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Petto",
-          "esercizi": [
-            {
-              "nome": "Lento avanti con bilanciere",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "8.5 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale spalle — progressione a carico fisso"
-            },
-            {
-              "nome": "Alzate laterali con manubri",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "5 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Deltoide medio"
-            },
-            {
-              "nome": "Lat machine presa larga",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "33 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Trazione verticale"
-            },
-            {
-              "nome": "Rematore con bilanciere / Trazioni",
-              "gruppo": "Schiena",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "30 kg",
-              "recupero": "120s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Alternare rematore e trazioni — progressione a carico fisso"
-            },
-            {
-              "nome": "Clean Halo con kettlebell",
-              "gruppo": "Spalle",
-              "serie": 2,
-              "ripetizioni": "10/senso",
-              "peso": "5 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "finisher",
-              "progressione": false,
-              "note": "Finisher — sempre ultimo esercizio della scheda"
-            }
-          ]
-        },
-        "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
-          "esercizi": [
-            {
-              "nome": "Polpacci al multipower",
-              "gruppo": "Polpacci",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "48 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "In superset con squat"
-            },
-            {
-              "nome": "Squat al multipower",
-              "gruppo": "Quadricipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36/33 kg",
-              "recupero": "45s",
-              "rir": "4",
-              "tecnica": "superset",
-              "progressione": false,
-              "note": "Superset con polpacci — 2 serie a 60 kg + 2 a 55 kg"
-            },
-            {
-              "nome": "Leg curl seduto",
-              "gruppo": "Femorali",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "27 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": null
-            },
-            {
-              "nome": "Stacco omega (trap bar)",
-              "gruppo": "Catena posteriore",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "36 kg",
-              "recupero": "150s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Esercizio principale catena posteriore — progressione a carico fisso"
-            },
-            {
-              "nome": "Chest press alla macchina",
-              "gruppo": "Petto",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "42 kg",
-              "recupero": "90s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Volume petto complementare"
-            },
-            {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
-              "serie": 2,
-              "ripetizioni": "10-12",
-              "peso": "11 kg/manubrio",
-              "recupero": "60s",
-              "rir": "4",
-              "tecnica": null,
-              "progressione": false,
-              "note": "Brachioradiale e brachiale"
-            }
-          ]
-        }
-      }
-    },
-    {
       "id": "ricondizionamento",
-      "nome": "Ricondizionamento",
-      "inizio": "2027-06-14",
+      "nome": "Fase 4 · Ricondizionamento",
+      "inizio": "2027-06-01",
       "fine": "2027-08-31",
-      "settimane": 11,
+      "settimane": 13,
       "rir": "2-3",
-      "obiettivo": "11 settimane di mantenimento e transizione fine macrociclo. Carichi moderati, 10-12 rep, zero pressione sul SNC. Prepara il macrociclo successivo.",
+      "obiettivo": "13 settimane di mantenimento estivo (fino a fine macrociclo 31/08). Carichi moderati, 10–12 rep, zero pressione sul SNC. Prepara il macrociclo successivo — niente nuovi schemi.",
       "sessioni": {
         "a1": {
           "nome": "A1 · Petto* · Schiena · Spalle",

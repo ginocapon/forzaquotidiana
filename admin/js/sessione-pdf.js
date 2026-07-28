@@ -89,13 +89,19 @@
       "<p class=\"scheda-sessione-pdf__obiettivo\">" + fase.obiettivo + "</p>";
     article.appendChild(head);
 
+    var oss = el("div", { className: "scheda-sessione-pdf__osservazioni" });
+    oss.innerHTML =
+      "<div class=\"scheda-sessione-pdf__osservazioni-label\">Osservazioni / note sessione</div>" +
+      "<div class=\"scheda-sessione-pdf__osservazioni-line\"></div>" +
+      "<div class=\"scheda-sessione-pdf__osservazioni-line\"></div>";
+    article.appendChild(oss);
+
     var main = el("div", { className: "scheda-sessione-pdf__main" });
     var sessionBar = el("div", { className: "scheda-sessione-pdf__session-bar" });
     sessionBar.innerHTML =
       "<span><strong>Data:</strong> ___/___/___</span>" +
       "<span><strong>Durata:</strong> _______</span>" +
-      "<span><strong>RPE medio:</strong> ___</span>" +
-      "<span><strong>Note sessione:</strong> _______________________</span>";
+      "<span><strong>RPE medio:</strong> ___</span>";
     main.appendChild(sessionBar);
 
     s.esercizi.forEach(function (ex) {

@@ -245,6 +245,13 @@
         "<div class=\"scheda-a4__head-meta\"><span><strong>Nome:</strong> _______________</span><span><strong>Data inizio:</strong> ___/___/___</span><span><strong>RIR target:</strong> " + ciclo.intensita + "</span></div>";
       article.appendChild(head);
 
+      var oss = el("div", { className: "scheda-a4__osservazioni" });
+      oss.innerHTML =
+        "<div class=\"scheda-a4__osservazioni-label\">Osservazioni / note fase</div>" +
+        "<div class=\"scheda-a4__osservazioni-line\"></div>" +
+        "<div class=\"scheda-a4__osservazioni-line\"></div>";
+      article.appendChild(oss);
+
       var grid = el("div", { className: "scheda-a4__grid" });
       ["A1", "B1", "A2", "B2"].forEach(function (dayKey) {
         var day = ciclo.allenamenti[dayKey];
@@ -263,11 +270,10 @@
         });
         table.appendChild(tbody);
         quad.appendChild(table);
-        quad.appendChild(el("p", { className: "scheda-a4__logline", text: "Log sessione: ___/___/___ · RPE medio ___ · Note: _______________" }));
         grid.appendChild(quad);
       });
       article.appendChild(grid);
-      article.appendChild(el("footer", { className: "scheda-a4__foot", text: "forzaquotidiana.it/admin — " + ciclo.nome + " — uso interno" }));
+      article.appendChild(el("footer", { className: "scheda-a4__foot", text: "forzaquotidiana.it/admin — " + ciclo.nome + " — uso interno · * = progressione a carico fisso" }));
       printArea.appendChild(article);
     }
 
