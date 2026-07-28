@@ -1,0 +1,26 @@
+{
+  "_nota": "Export Zepp «Rapporto mensile sulle tendenze» (sonno). Gino invia screenshot a fine mese. Screenshot in img/allenamenti/amazfit/mensile/YYYY-MM/.",
+  "months": [
+    {
+      "month": "2026-07",
+      "label": "Luglio 2026",
+      "period": "1–31 lug 2026",
+      "source": "Zepp · Rapporto mensile tendenze sonno",
+      "screenshots": [
+        "2026-07-sonno-rem-veglia.png",
+        "2026-07-sonno-fc-respirazione.png",
+        "2026-07-sonno-pisolini-ipopnea.png",
+        "2026-07-sonno-respirazione-umore.png"
+      ],
+      "rem": { "avg": "1:21", "pct_night": 23, "delta_prev_month": "+0:02" },
+      "veglia": { "avg": "0:49", "awakenings_avg": 5, "delta_prev_month": "+0:13" },
+      "pisolini": { "avg": "0:54", "delta_prev_month": "+0:17" },
+      "fc_sonno_bpm": { "avg": 55, "delta_prev_month": "+2" },
+      "ipopnea_per_h": { "avg": 2.2, "delta_prev_month": "-0.2" },
+      "freq_respiratoria_brpm": { "avg": 11, "delta_prev_month": "0" },
+      "diario_buonanotte": { "status": "nessun_dato", "days_no_data": 31 },
+      "umore_risveglio": { "calmo_days": 1, "no_data_days": 30 },
+      "analisi": "REM stabile al 23% della notte. Veglia (+13 min) e pisolini (+17 min) in lieve aumento vs giugno — incrociare con 7 sessioni palestra in luglio e TSB bilanciato (−3). FC sonno 55 bpm (+2): ancora bassa, segno di recupero notturno adeguato nonostante il carico. Ipopnea 2,2/h in calo (−0,2). Respirazione 11 BRPM stabile. Diario buonanotte e umore quasi assenti — spazio per compilare Zepp il mese prossimo."
+    }
+  ]
+}

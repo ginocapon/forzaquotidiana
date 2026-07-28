@@ -229,15 +229,42 @@ Gauge SVG semicircolare `.hr-effect-gauge`.
 ### Cronostoria e statistiche mensili
 
 - Sessioni ordinate **cronologicamente** (più recente in alto).
-- **Database:** `data/performance-sessions.json` (ogni sessione) + `data/performance-monthly.json` (medie e grafici).
-- **Skill dedicata:** `SKILL-PERFORMANCE.md` — flusso screenshot Zepp, JSON, grafici, checklist.
+- **Database allenamento:** `data/performance-sessions.json` (ogni sessione) + `data/performance-monthly.json` (medie e grafici).
+- **Database sonno mensile:** `data/sleep-monthly.json` — export Zepp «Rapporto mensile sulle tendenze» (Gino invia screenshot a **fine mese**).
+- **Skill dedicata:** `SKILL-PERFORMANCE.md` — flusso screenshot Zepp, JSON, grafici, checklist, report mensile integrato.
 - **Script:** `node tools/aggiorna-performance.mjs` dopo ogni aggiornamento sessioni.
 - Tabella `.month-stats` + grafici `#perf-charts` (JS: `performance-charts.js`) nel trimestre `#statistiche`.
+- **Report sonno** nel trimestre: sezione `#report-sonno-[mese]` con tabella + galleria screenshot in `img/allenamenti/amazfit/mensile/YYYY-MM/`.
 
 | Mese | Sessioni | Con export | Durata totale | FC media | Calorie | Carico medio | Gruppi ø |
 |------|----------|------------|---------------|----------|---------|--------------|----------|
 
 Calcolare solo da log pubblicati — medie da `performance-monthly.json`. Celle vuote `—` se mese non ancora iniziato.
+
+Sezione `#confronto-metabolico` nel trimestre: tabella comparativa da `performance-sessions.json` (JS: `metabolic-comparison.js`) + analisi testuale con riferimenti scientifici. Confrontare solo sessioni con export Zepp completo (zone + effetto).
+
+### 3d. Cronologia mensile integrata (salute + allenamento)
+
+**Obiettivo:** storico per report mensili futuri — incrociare palestra, sonno e carico (TSB).
+
+**Input Gino a fine mese:**
+1. Screenshot Zepp **Rapporto mensile tendenze sonno** (REM, veglia, pisolini, FC sonno, ipopnea, respirazione, umore).
+2. (Opzionale) Screenshot **modulo TSB** se non già in ultima sessione del mese.
+
+**Flusso agente:**
+1. Aggiornare `data/sleep-monthly.json` — voce mese con medie e `delta_prev_month`.
+2. Salvare screenshot in `img/allenamenti/amazfit/mensile/YYYY-MM/` (prefisso `YYYY-MM-sonno-*.png`).
+3. Pubblicare sezione `#report-sonno-[mese]` nel trimestre (tabella + galleria + `.metabolic-note` interpretativa).
+4. Aggiornare **rendiconto testuale** in questa sezione SKILL — incrocio sessioni, sonno, TSB, note qualitative.
+
+**Rendiconto luglio 2026 (riferimento):**
+- **7 sessioni** (6 export completi): durata totale 08:03, FC media 110, carico medio 105*.
+- **Picchi:** 23/07 densità max (FC 165); 27/07 volume max (82 min, aerobico 52%); 24/07 e 20/07 con artefatti device.
+- **Sonno:** REM 23% stabile; veglia +13 min e pisolini +17 min vs giugno; FC sonno 55 bpm (+2); ipopnea in calo (2,2/h).
+- **TSB 27/07:** −3 Bilanciato — carico sostenibile ma veglia da monitorare.
+- **Prossimo report:** fine agosto 2026 — stesso flusso.
+
+**Regola:** non consulenza medica — trend descrittivi da dati device, invito a medico se anomalie persistenti.
 
 ### Progressione pesi per esercizio (archivio)
 

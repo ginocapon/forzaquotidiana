@@ -176,6 +176,29 @@ Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi 
 
 Se orologio lasciato acceso (es. 20/07): vedi § Anomalie in `SKILL.md` — durata corretta, asterisco su kcal/carico, omettere zone se contaminate. Screenshot parziali ok con nota.
 
+## Report sonno mensile (fine mese)
+
+**Input Gino:** screenshot Zepp «Rapporto mensile sulle tendenze» (1–31 del mese) — REM, veglia, pisolini, FC sonno, ipopnea, respirazione, diario/umore.
+
+**Flusso:**
+1. Salvare screenshot in `img/allenamenti/amazfit/mensile/YYYY-MM/` (es. `2026-07-sonno-rem-veglia.png`).
+2. Aggiornare `data/sleep-monthly.json` — medie + `delta_prev_month` + `analisi` testuale.
+3. Pubblicare sezione `#report-sonno-[mese]` nel trimestre (tabella + galleria 4 screenshot + nota interpretativa incrociata con `performance-monthly.json`).
+4. Aggiornare rendiconto in `SKILL.md` §3d.
+
+**Campi JSON sonno (`sleep-monthly.json`):**
+
+| Campo | Esempio luglio 2026 |
+|-------|---------------------|
+| `rem.avg` | 1:21 (23%) |
+| `veglia.avg` | 0:49 · 5 risvegli |
+| `pisolini.avg` | 0:54 |
+| `fc_sonno_bpm.avg` | 55 |
+| `ipopnea_per_h.avg` | 2.2 |
+| `freq_respiratoria_brpm.avg` | 11 |
+
+**TSB (Training Stress Balance):** opzionale per sessione in `performance-sessions.json` (`tsb.value`, `fitness_ctl`, `fatigue_atl`) — screenshot extra `-tsb.png` se Gino lo invia.
+
 ## Copia screenshot da assets
 
 Su Windows i file in `.cursor/.../assets/` possono essere «phantom» (visibili in listing ma non copiabili con PowerShell). Usare Node:
