@@ -420,7 +420,7 @@ Sezione `#confronto-metabolico` nel trimestre: tabella comparativa da `performan
 ```json
 {
   "date": "2026-07-27",
-  "session_id": "2026-07-27-scheda-1",
+  "session_id": "2026-07-27",
   "serie": 10,
   "peso_kg": 30,
   "peso_secondario_kg": 26,
@@ -484,9 +484,9 @@ Qualsiasi esercizio con **kettlebell** (Catch Ball, Clean Halo, futuri) va **sem
 1. **`/allenamenti/`** — Hub motivazionale: titolo energico, galleria foto Gino, link a trimestre e sessioni. Nessun log misto.
 2. **`/allenamenti/trimestre-[slug]/`** — Solo riferimento: Schede 1–4 con esercizi, serie, **pesi iniziali concordati**, SVG, statistiche mensili. **Niente** log sessioni inline.
 3. **`/allenamenti/sessioni/`** — Elenco per **data** (più recente in alto), **non** per numero scheda.
-4. **`/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`** — Pagina singola sessione: data, Scheda N di riferimento, foto, note, `.hr-log` Amazfit.
+4. **`/allenamenti/sessioni/YYYY-MM-DD/`** — Pagina sessione (slug = **data**). Se in un’unica uscita Gino fa **più schede** (es. S1+S3), **una sola pagina** con log a blocchi e un export Amazfit. Slug legacy `YYYY-MM-DD-scheda-N` → redirect alla pagina unificata.
 
-Input sessione: **data + scheda N** (+ pesi se cambiano). Aggiornare la pagina sessione, non il trimestre.
+Input sessione: **data** (+ schede svolte + pesi). Se stesso giorno = stessa palestra = **un’unica sessione**, non due card.
 
 URL legacy `/allenamenti/YYYY-MM-DD/` → redirect alla pagina sessione canonica.
 
@@ -494,7 +494,7 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 
 ### Formato pagina sessione (obbligatorio — layout pro v2)
 
-**URL:** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/`  
+**URL:** `/allenamenti/sessioni/YYYY-MM-DD/` (canonico) · legacy `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` → redirect  
 **CSS:** `styles.css?v=35` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)

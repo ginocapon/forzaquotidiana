@@ -25,11 +25,23 @@ function secToHms(sec) {
   return [h, m, s].map((n) => String(n).padStart(2, "0")).join(":");
 }
 
-function fmtDateIt(id) {
+function fmtDateIt(session) {
+  const id = session.id;
   const d = id.slice(8, 10);
   const m = id.slice(5, 7);
   const names = ["", "gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
-  return `${d} ${names[parseInt(m, 10)]} S${id.slice(-1)}`;
+  let scheda = "";
+  if (session.scheda_label) {
+    scheda = session.scheda_label;
+  } else if (session.schede?.length) {
+    scheda = "S" + session.schede.join("+");
+  } else if (session.scheda) {
+    scheda = "S" + session.scheda;
+  } else {
+    const mScheda = id.match(/scheda-(\d)/);
+    scheda = mScheda ? "S" + mScheda[1] : id.slice(8, 10);
+  }
+  return `${d} ${names[parseInt(m, 10)]} ${scheda}`;
 }
 
 function monthLabel(mk) {
@@ -101,7 +113,7 @@ for (const mk of allMonthKeys) {
 
   if (complete.length) {
     charts[mk] = {
-      labels: complete.map((s) => fmtDateIt(s.id) + (s.duration_corrected ? "*" : "")),
+      labels: complete.map((s) => fmtDateIt(s) + (s.duration_corrected ? "*" : "")),
       durata_min: complete.map((s) => Math.round(s.durata_sec / 60)),
       fc_media: complete.map((s) => s.fc_media),
       calorie: complete.map((s) => s.calorie),

@@ -43,7 +43,7 @@
         "2026-07-21-scheda-2",
         "2026-07-23-scheda-3",
         "2026-07-24-scheda-4",
-        "2026-07-27-scheda-3"
+        "2026-07-27"
       ],
       "in_trimestre": true
     },
@@ -72,7 +72,7 @@
         "21 lug S2",
         "23 lug S3",
         "24 lug S4",
-        "27 lug S3"
+        "27 lug S1 + S3"
       ],
       "durata_min": [
         70,

@@ -21,13 +21,13 @@ const SESSION_PAGES = [
   { file: "allenamenti/sessioni/2026-07-21-scheda-2/index.html", date: "2026-07-21" },
   { file: "allenamenti/sessioni/2026-07-23-scheda-3/index.html", date: "2026-07-23" },
   { file: "allenamenti/sessioni/2026-07-24-scheda-4/index.html", date: "2026-07-24" },
-  { file: "allenamenti/sessioni/2026-07-27-scheda-1/index.html", date: "2026-07-27" },
+  { file: "allenamenti/sessioni/2026-07-27/index.html", date: "2026-07-27" },
 ];
 
 const SCHEDA_FOCUS = {
   1: "2026-07-20",
   2: "2026-07-21",
-  3: "2026-07-23",
+  3: "2026-07-27",
   4: "2026-07-24",
 };
 

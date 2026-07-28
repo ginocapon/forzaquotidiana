@@ -196,11 +196,12 @@
       "note_device": "Orologio lasciato acceso fino a casa — durata e kcal sovrastimate"
     },
     {
-      "id": "2026-07-27-scheda-3",
+      "id": "2026-07-27",
       "date": "2026-07-27",
       "time": "12:22",
       "datetime": "2026-07-27T12:22",
-      "scheda": 3,
+      "schede": [1, 3],
+      "scheda_label": "S1 + S3",
       "month": "2026-07",
       "durata_sec": 4940,
       "durata": "01:22:20",
@@ -232,6 +233,7 @@
         "rhythm": "Tempi coerenti",
         "speed_decay": "Decadimento velocità più marcato — pause 3 sec alzate"
       },
+      "note": "Sessione integrata Scheda 1 + Scheda 3 — un'unica uscita in palestra, export Amazfit unico",
       "tsb": {
         "value": -3.0,
         "label": "Bilanciato",
