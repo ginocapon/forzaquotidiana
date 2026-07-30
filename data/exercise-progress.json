@@ -148,6 +148,15 @@
           "serie_label": "4×8",
           "tut": null,
           "note": "Multipower Technogym superset"
+        },
+        {
+          "date": "2026-07-30",
+          "session_id": "2026-07-30-scheda-4",
+          "serie": 3,
+          "peso_kg": 140,
+          "serie_label": "3×25 drop",
+          "tut": "2-1-2",
+          "note": "Pressa · a scalare da 140 kg"
         }
       ]
     },

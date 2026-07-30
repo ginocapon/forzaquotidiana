@@ -287,6 +287,52 @@
         "fatigue_atl": 41.9,
         "date": "2026-07-28"
       }
+    },
+    {
+      "id": "2026-07-30-scheda-4",
+      "date": "2026-07-30",
+      "time": "12:30",
+      "datetime": "2026-07-30T12:30",
+      "scheda": 4,
+      "month": "2026-07",
+      "durata_sec": 3519,
+      "durata": "00:58:39",
+      "recupero_sec": 2525,
+      "recupero": "00:42:05",
+      "gruppi": 21,
+      "fc_media": 99,
+      "fc_max": 136,
+      "calorie": 365,
+      "carico": 26,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 0, "time": "00:05" },
+        "aerobica": { "pct": 11, "time": "06:55" },
+        "intensiva": { "pct": 42, "time": "24:51" },
+        "leggera": { "pct": 40, "time": "23:39" }
+      },
+      "effetto_aerobico": 2.0,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 0.4,
+      "effetto_anaerobico_label": "Nessun effetto",
+      "tecnica": {
+        "consistenza": "ROM molto uniforme — radar alto",
+        "stability": "Movimenti molto stabili",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti, leggermente sotto il massimo",
+        "speed_decay": "Decadimento velocità contenuto"
+      },
+      "note": "Polpacci pressa 3×25 a scalare da 140 kg; Scheda 4, 21 gruppi; Zepp modulo −2 / modello sito −1 Bilanciato",
+      "tsb": {
+        "value": -1.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 33.9,
+        "fatigue_atl": 35,
+        "date": "2026-07-30"
+      }
     }
   ]
 }
