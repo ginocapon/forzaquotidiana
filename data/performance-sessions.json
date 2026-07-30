@@ -325,11 +325,11 @@
         "rhythm": "Tempi coerenti, leggermente sotto il massimo",
         "speed_decay": "Decadimento velocità contenuto"
       },
-      "note": "Scheda 3 + polpacci pressa 3×25 a scalare da 140 kg (aggiunti anche a S3 → 3×/settimana con S2 e S4); Zepp modulo −2 / modello sito −1 Bilanciato",
+      "note": "Scheda 3 + polpacci pressa 3×25 a scalare da 140 kg (aggiunti anche a S3 → 3×/settimana con S2 e S4); TSB Zepp −2 Bilanciato (ATL 35 / CTL 33)",
       "tsb": {
-        "value": -1.0,
+        "value": -2.0,
         "label": "Bilanciato",
-        "fitness_ctl": 33.9,
+        "fitness_ctl": 33,
         "fatigue_atl": 35,
         "date": "2026-07-30"
       }
