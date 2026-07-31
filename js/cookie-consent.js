@@ -7,7 +7,7 @@
   var CONSENT_MAX_AGE = 31536000;
 
   var CONTENT_PATH = /^\/(diario|allenamenti|chi-sono)(\/|$)/;
-  var LEGAL_PATH = /^\/(privacy|cookie)(\/|$)/;
+  var LEGAL_PATH = /^\/(privacy|cookie|termini)(\/|$)/;
 
   function readCookie(name) {
     var match = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "=([^;]*)"));
@@ -72,6 +72,17 @@
     /* Riservato: GA/Matomo solo dopo consenso esplicito categoria analitici */
   }
 
+  /**
+   * API pubblica per gli altri script: nessuna misurazione può partire
+   * prima che l'utente abbia dato il consenso alla categoria richiesta.
+   */
+  function hasConsent(category) {
+    var consent = getConsent();
+    if (!consent) return false;
+    if (!category || category === "necessary") return true;
+    return !!consent[category];
+  }
+
   function isContentPage() {
     return CONTENT_PATH.test(window.location.pathname);
   }
@@ -98,6 +109,7 @@
     legal.innerHTML =
       '<a href="/privacy/">Privacy Policy</a> · ' +
       '<a href="/cookie/">Cookie Policy</a> · ' +
+      '<a href="/termini/">Termini</a> · ' +
       '<button type="button" class="footer-legal__btn" id="fq-manage-cookies">Gestisci cookie</button>';
     footer.appendChild(legal);
     var btn = document.getElementById("fq-manage-cookies");
@@ -122,9 +134,9 @@
           '(Reg. UE 2016/679 e normativa italiana).' +
         '</p>' +
         '<div class="cookie-banner__actions">' +
-          '<button type="button" class="btn btn-ghost cookie-banner__btn" data-consent="reject">Solo necessari</button>' +
-          '<button type="button" class="btn btn-ghost cookie-banner__btn" data-consent="prefs">Personalizza</button>' +
-          '<button type="button" class="btn btn-primary cookie-banner__btn" data-consent="accept">Accetta tutti</button>' +
+          '<button type="button" class="btn cookie-banner__btn cookie-banner__btn--choice" data-consent="reject">Solo necessari</button>' +
+          '<button type="button" class="btn cookie-banner__btn cookie-banner__btn--choice" data-consent="accept">Accetta tutti</button>' +
+          '<button type="button" class="btn btn-ghost cookie-banner__btn cookie-banner__btn--alt" data-consent="prefs">Personalizza</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(banner);
@@ -162,6 +174,42 @@
     }
   }
 
+  var FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  var lastFocused = null;
+
+  /** Trattiene il focus dentro il dialog e lo restituisce alla chiusura (WCAG 2.4.3, 2.1.2). */
+  function trapFocus(modal, onClose) {
+    lastFocused = document.activeElement;
+    var panel = modal.querySelector(".cookie-modal__panel");
+    var first = panel.querySelector(FOCUSABLE);
+    if (first) first.focus();
+
+    modal.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") {
+        ev.preventDefault();
+        onClose();
+        return;
+      }
+      if (ev.key !== "Tab") return;
+      var items = Array.prototype.filter.call(
+        panel.querySelectorAll(FOCUSABLE),
+        function (n) { return n.offsetParent !== null; }
+      );
+      if (!items.length) return;
+      var edge = ev.shiftKey ? items[0] : items[items.length - 1];
+      if (document.activeElement === edge) {
+        ev.preventDefault();
+        (ev.shiftKey ? items[items.length - 1] : items[0]).focus();
+      }
+    });
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove("is-visible");
+    modal.hidden = true;
+    if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
+  }
+
   function openPreferences() {
     var modal = document.getElementById("fq-cookie-prefs");
     var consent = getConsent() || { analytics: false };
@@ -171,6 +219,8 @@
       modal.classList.add("is-visible");
       var chk = modal.querySelector("#fq-analytics-opt");
       if (chk) chk.checked = !!consent.analytics;
+      lastFocused = document.activeElement;
+      if (chk) chk.focus();
       return;
     }
 
@@ -182,7 +232,7 @@
     modal.setAttribute("aria-labelledby", "fq-prefs-title");
     modal.innerHTML =
       '<div class="cookie-modal__backdrop" data-close="prefs" tabindex="-1"></div>' +
-      '<div class="cookie-modal__panel" role="document">' +
+      '<div class="cookie-modal__panel">' +
         '<h2 id="fq-prefs-title">Preferenze cookie</h2>' +
         '<p>Puoi modificare le scelte in qualsiasi momento. I cookie necessari garantiscono funzioni base e memorizzano questa preferenza.</p>' +
         '<div class="cookie-pref">' +
@@ -203,18 +253,16 @@
     modal.classList.add("is-visible");
 
     modal.addEventListener("click", function (ev) {
-      if (ev.target.closest("[data-close='prefs']")) {
-        modal.classList.remove("is-visible");
-        modal.hidden = true;
-      }
+      if (ev.target.closest("[data-close='prefs']")) closeModal(modal);
     });
 
     document.getElementById("fq-save-prefs").addEventListener("click", function () {
       setConsent({ analytics: document.getElementById("fq-analytics-opt").checked });
       hideBanner();
-      modal.classList.remove("is-visible");
-      modal.hidden = true;
+      closeModal(modal);
     });
+
+    trapFocus(modal, function () { closeModal(modal); });
   }
 
   function openPrivacyModal(targetHref) {
@@ -239,7 +287,7 @@
     modal.dataset.href = targetHref || "";
     modal.innerHTML =
       '<div class="cookie-modal__backdrop" data-close="privacy" tabindex="-1"></div>' +
-      '<div class="cookie-modal__panel" role="document">' +
+      '<div class="cookie-modal__panel">' +
         '<h2 id="fq-privacy-title">Informativa prima dell&apos;accesso ai contenuti</h2>' +
         '<p>Stai per consultare contenuti personali (diario, allenamenti, biografia). ' +
         'La navigazione comporta trattamento di dati tecnici (es. indirizzo IP, log di sistema) ' +
@@ -271,10 +319,7 @@
     });
 
     modal.addEventListener("click", function (ev) {
-      if (ev.target.closest("[data-close='privacy']")) {
-        modal.classList.remove("is-visible");
-        modal.hidden = true;
-      }
+      if (ev.target.closest("[data-close='privacy']")) closeModal(modal);
     });
 
     cont.addEventListener("click", function () {
@@ -285,10 +330,11 @@
         hideBanner();
       }
       var href = modal.dataset.href;
-      modal.classList.remove("is-visible");
-      modal.hidden = true;
+      closeModal(modal);
       if (href) window.location.href = href;
     });
+
+    trapFocus(modal, function () { closeModal(modal); });
   }
 
   function injectContentNotice() {
@@ -338,6 +384,12 @@
       window.setTimeout(showBanner, 600);
     }
   }
+
+  window.fqConsent = {
+    has: hasConsent,
+    get: getConsent,
+    openPreferences: openPreferences
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

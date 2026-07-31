@@ -31,7 +31,7 @@
 <main id="contenuto" class="section page-veiled">
   <div class="wrap prose prose--wide legal-doc">
     <h1>Privacy Policy</h1>
-    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-07-20">20 luglio 2026</time> · Regolamento (UE) 2016/679 (GDPR) · D.Lgs. 196/2003 come modificato dal D.Lgs. 101/2018</p>
+    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-07-31">31 luglio 2026</time> · Regolamento (UE) 2016/679 (GDPR) · D.Lgs. 196/2003 come modificato dal D.Lgs. 101/2018</p>
 
     <p>La presente informativa descrive le modalità di trattamento dei dati personali degli utenti che consultano il sito <strong>forzaquotidiana.it</strong> (di seguito &laquo;Sito&raquo;), gestito da <strong>Gino Capon</strong> nell&apos;ambito del progetto <em>La Forza Quotidiana</em>.</p>
 
@@ -49,7 +49,20 @@
     <h3>2.3 Dati forniti volontariamente</h3>
     <p>Eventuali dati inviati volontariamente dall&apos;utente (es. email di contatto o iscrizione alla newsletter) saranno trattati esclusivamente per rispondere alla richiesta o per inviare gli aggiornamenti editoriali richiesti. Per la newsletter è obbligatorio indicare un indirizzo email valido e prestare consenso esplicito tramite checkbox dedicata. L&apos;iscrizione adotta la procedura di <strong>doppio opt-in</strong>: l&apos;email viene attivata solo dopo la conferma tramite link inviato all&apos;indirizzo indicato. In ogni comunicazione è presente un link di <strong>disiscrizione immediata</strong> (un click); in alternativa è possibile scrivere al Titolare.</p>
     <h3>2.4 Dati memorizzati localmente (browser)</h3>
-    <p>Dopo l&apos;iscrizione alla newsletter, il Sito può memorizzare nel browser dell&apos;utente (localStorage, chiave <code>fq_newsletter_ok</code>) un segnale tecnico che consente l&apos;accesso alla scheda pesi PDF senza reinserire l&apos;email a ogni visita. Tale dato resta sul dispositivo dell&apos;utente finché non viene cancellato manualmente o tramite impostazioni del browser.</p>
+    <p>Il Sito può memorizzare nel browser dell&apos;utente i seguenti valori. Nessuno di essi contiene dati identificativi:</p>
+    <ul>
+      <li><code>fq_consent</code> (cookie) — scelta espressa sui cookie. Durata 12 mesi.</li>
+      <li><code>fq_privacy_ack</code> (localStorage) — presa visione dell&apos;informativa prima della navigazione sui contenuti.</li>
+      <li><code>fq_newsletter_ok</code> (localStorage) — segnale che l&apos;iscrizione è già stata effettuata, per non ripresentare il modulo. Contiene solo il valore <code>1</code>, <strong>non</strong> l&apos;indirizzo email.</li>
+      <li><code>fq_scheda_logged_session</code> (sessionStorage) — evita conteggi duplicati della stessa visita; si cancella alla chiusura della scheda del browser.</li>
+    </ul>
+    <p>Questi valori restano sul dispositivo dell&apos;utente finché non vengono cancellati manualmente o tramite le impostazioni del browser.</p>
+
+    <h3>2.5 Statistiche di consultazione delle schede</h3>
+    <p>Quando l&apos;utente apre o stampa una scheda di allenamento, il Sito può registrare un <strong>conteggio anonimo</strong> dell&apos;evento (tipo evento e data/ora) su un Foglio Google del Titolare. Non vengono registrati indirizzo IP, email, identificativi del dispositivo né altri dati che permettano di risalire alla persona. Questa misurazione ha <strong>natura statistica e non necessaria</strong>: viene effettuata <strong>solo se l&apos;utente ha prestato il consenso alla categoria &laquo;analitici&raquo;</strong> nel banner cookie e cessa immediatamente in caso di revoca.</p>
+
+    <h3>2.6 Dati relativi alla salute pubblicati dal Titolare</h3>
+    <p>Il Sito pubblica dati di allenamento e benessere <strong>riferiti esclusivamente al Titolare</strong> (frequenza cardiaca, carico di allenamento, qualità del sonno, peso corporeo, stima dell&apos;età biologica). Si tratta di categorie particolari di dati ai sensi dell&apos;art. 9 GDPR, resi manifestamente pubblici dall&apos;interessato stesso a fini editoriali e divulgativi (art. 9.2.e GDPR), nell&apos;esercizio della libertà di espressione (art. 85 GDPR). <strong>Il Sito non raccoglie né tratta dati sanitari dei visitatori.</strong> I valori pubblicati derivano da dispositivi consumer, non sono dati clinici e non costituiscono in alcun modo consulenza medica.</p>
 
     <h2>3. Finalità e base giuridica del trattamento</h2>
     <table class="legal-table">
@@ -60,6 +73,8 @@
         <tr><td>Cookie analitici (se attivi)</td><td>Consenso dell&apos;interessato (art. 6.1.a)</td></tr>
         <tr><td>Risposta a richieste via email</td><td>Esecuzione di misure precontrattuali / consenso (art. 6.1.b / 6.1.a)</td></tr>
         <tr><td>Invio newsletter (schede, articoli)</td><td>Consenso dell&apos;interessato (art. 6.1.a)</td></tr>
+        <tr><td>Conteggio anonimo aperture/stampe delle schede</td><td>Consenso dell&apos;interessato, categoria analitici (art. 6.1.a)</td></tr>
+        <tr><td>Pubblicazione dati di allenamento e salute del Titolare</td><td>Dati resi manifestamente pubblici dall&apos;interessato (art. 9.2.e) · libertà di espressione (art. 85)</td></tr>
       </tbody>
     </table>
 
@@ -84,7 +99,8 @@
       <li><strong>Preferenze cookie:</strong> fino a 12 mesi, salvo revoca anticipata</li>
       <li><strong>Email di contatto:</strong> per il tempo necessario a evadere la richiesta e, se applicabile, per tutela in giudizio</li>
       <li><strong>Iscrizione newsletter:</strong> fino a revoca del consenso (disiscrizione) o cancellazione da parte del Titolare; i dati possono essere conservati in forma limitata per adempimenti legali</li>
-      <li><strong>Segnale locale scheda PDF (<code>fq_newsletter_ok</code>):</strong> fino a cancellazione dati del browser da parte dell&apos;utente</li>
+      <li><strong>Segnale locale newsletter (<code>fq_newsletter_ok</code>):</strong> fino a cancellazione dati del browser da parte dell&apos;utente</li>
+      <li><strong>Conteggi anonimi aperture schede:</strong> conservati in forma aggregata e non identificativa, senza limite predefinito in quanto non riferibili a persone fisiche</li>
     </ul>
 
     <h2>8. Natura del conferimento</h2>
@@ -111,7 +127,7 @@
     <h2>12. Modifiche alla presente informativa</h2>
     <p>Il Titolare si riserva di aggiornare questa Privacy Policy. La data di ultimo aggiornamento è indicata in alto. Si invita a consultare periodicamente questa pagina.</p>
 
-    <p><a href="/cookie/">Cookie Policy</a> · <a href="/">Home</a></p>
+    <p><a href="/cookie/">Cookie Policy</a> · <a href="/termini/">Termini di utilizzo</a> · <a href="/">Home</a></p>
   </div>
 </main>
 

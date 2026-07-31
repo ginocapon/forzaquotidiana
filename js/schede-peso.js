@@ -14,6 +14,9 @@
   }
 
   function logEvent(tipo) {
+    /* Statistica non necessaria al funzionamento: parte solo col consenso analitico. */
+    if (!window.fqConsent || !window.fqConsent.has("analytics")) return;
+
     try {
       if (sessionStorage.getItem(LOG_KEY)) return;
     } catch (e) { /* ignore */ }

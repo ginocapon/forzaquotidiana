@@ -31,7 +31,7 @@
 <main id="contenuto" class="section page-veiled">
   <div class="wrap prose prose--wide legal-doc">
     <h1>Cookie Policy</h1>
-    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-07-18">18 luglio 2026</time> · Linee guida Garante Privacy italiano · Reg. UE 2016/679</p>
+    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-07-31">31 luglio 2026</time> · Linee guida Garante Privacy italiano · Reg. UE 2016/679</p>
 
     <p>Questa Cookie Policy spiega cosa sono i cookie, quali tipologie utilizza il sito <strong>forzaquotidiana.it</strong> e come gestire le preferenze, in conformità alla normativa europea e nazionale (Provvedimento Garante del 10 giugno 2021 &laquo;Cookie e altri strumenti di tracciamento&raquo;).</p>
 
@@ -49,16 +49,29 @@
         </thead>
         <tbody>
           <tr><td><code>fq_consent</code></td><td>Cookie tecnico</td><td>Memorizza le preferenze di consenso cookie (categorie accettate)</td><td>12 mesi</td></tr>
-          <tr><td><code>fq_privacy_ack</code></td><td>localStorage</td><td>Memorizza l&apos;avvenuta presa visione dell&apos;informativa privacy per l&apos;accesso ai contenuti</td><td>Fino a revoca/cancellazione browser</td></tr>
-          <tr><td><code>fq_newsletter_ok</code></td><td>localStorage</td><td>Segnale locale che consente l&apos;accesso alla scheda pesi PDF dopo iscrizione newsletter</td><td>Fino a revoca/cancellazione browser</td></tr>
+          <tr><td><code>fq_privacy_ack</code></td><td>localStorage</td><td>Memorizza l&apos;avvenuta presa visione dell&apos;informativa privacy per l&apos;accesso ai contenuti</td><td>Fino a cancellazione browser</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h3>2.2 Cookie analitici (richiedono consenso)</h3>
-    <p>Al momento il Sito <strong>non utilizza</strong> cookie analitici di terze parti. Qualora venissero attivati in futuro (es. Google Analytics anonimizzato o Matomo), saranno installati <strong>solo dopo consenso esplicito</strong> tramite il banner cookie, con aggiornamento di questa informativa.</p>
+    <h3>2.2 Memorie locali legate a un consenso (non necessarie)</h3>
+    <p>Questi valori non sono indispensabili al funzionamento del Sito: vengono scritti solo come conseguenza di una scelta dell&apos;utente e possono essere cancellati in qualsiasi momento senza perdere l&apos;accesso ai contenuti.</p>
+    <div class="month-stats-wrap">
+      <table class="legal-table month-stats">
+        <thead>
+          <tr><th scope="col">Nome</th><th scope="col">Tipo</th><th scope="col">Finalità</th><th scope="col">Durata</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>fq_newsletter_ok</code></td><td>localStorage</td><td>Ricorda che l&apos;iscrizione alla newsletter è già avvenuta, per non riproporre il modulo. Contiene solo il valore <code>1</code>, non l&apos;email.</td><td>Fino a cancellazione browser</td></tr>
+          <tr><td><code>fq_scheda_logged_session</code></td><td>sessionStorage</td><td>Evita di contare due volte la stessa visita alla scheda. Scritto solo con consenso analitico.</td><td>Fine sessione del browser</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-    <h3>2.3 Cookie di profilazione / marketing</h3>
+    <h3>2.3 Cookie e misurazioni analitiche (richiedono consenso)</h3>
+    <p>Il Sito <strong>non utilizza</strong> cookie analitici di terze parti (Google Analytics, Matomo o simili). È presente una sola misurazione propria: un <strong>conteggio anonimo</strong> delle aperture e stampe delle schede di allenamento, inviato a un Foglio Google del Titolare senza indirizzo IP, email o identificativi. Questo conteggio parte <strong>solo dopo il consenso alla categoria analitici</strong> e si interrompe subito in caso di revoca. Se in futuro venissero attivati strumenti analitici di terze parti, saranno installati solo previo consenso esplicito e questa informativa verrà aggiornata.</p>
+
+    <h3>2.4 Cookie di profilazione / marketing</h3>
     <p>Il Sito <strong>non utilizza</strong> cookie di profilazione o pubblicitari.</p>
 
     <h2>3. Cookie di terze parti via hosting</h2>
@@ -84,7 +97,7 @@
     <p>Per l&apos;informativa completa sul trattamento dei dati personali: <a href="/privacy/">Privacy Policy</a>.</p>
 
     <p><button type="button" class="btn btn-primary" id="fq-open-prefs">Apri preferenze cookie</button></p>
-    <p><a href="/privacy/">Privacy Policy</a> · <a href="/">Home</a></p>
+    <p><a href="/privacy/">Privacy Policy</a> · <a href="/termini/">Termini di utilizzo</a> · <a href="/">Home</a></p>
   </div>
 </main>
 
