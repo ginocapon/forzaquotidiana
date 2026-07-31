@@ -1,5 +1,6 @@
 /**
  * Guida operativa Blocco 1 — distribuzione, RIR, periodizzazione, volumi
+ * Schermo: /admin/metodo-blocco1/ · PDF/stampa: /admin/metodo-blocco1/pdf/
  */
 (function () {
   "use strict";
@@ -21,6 +22,12 @@
       else if (c) node.appendChild(c);
     });
     return node;
+  }
+
+  function formatDate(iso) {
+    return new Date(iso + "T12:00:00").toLocaleDateString("it-IT", {
+      day: "numeric", month: "long", year: "numeric"
+    });
   }
 
   function table(headers, rows, className) {
@@ -51,22 +58,37 @@
     return sec;
   }
 
-  function render(blocco, root) {
+  function listItems(items, ordered) {
+    var list = el(ordered ? "ol" : "ul", { className: "admin-metodo-list" });
+    (items || []).forEach(function (x) { list.appendChild(el("li", { text: x })); });
+    return list;
+  }
+
+  function renderHead(blocco) {
+    var head = el("header", { className: "metodo-a4__head" });
+    head.innerHTML =
+      "<div class=\"metodo-a4__head-main\">" + blocco.tipo + " · " + blocco.codice + "</div>" +
+      "<h1>Metodo Blocco 1 — guida operativa</h1>" +
+      "<div class=\"metodo-a4__head-meta\">" +
+      "<span><strong>Periodo:</strong> " + formatDate(blocco.inizio) + " – " + formatDate(blocco.fine) + "</span>" +
+      "<span><strong>Atleta:</strong> _______________</span>" +
+      "<span><strong>Frequenza:</strong> " + blocco.frequenza + "</span>" +
+      "</div>";
+    return head;
+  }
+
+  function renderContent(blocco, container) {
     var g = blocco.guidaOperativa;
     if (!g) {
-      root.innerHTML = "<p>Guida operativa non trovata.</p>";
+      container.appendChild(el("p", { text: "Guida operativa non trovata." }));
       return;
     }
-
-    root.innerHTML = "";
-    document.title = g.titolo + " | Admin";
 
     var intro = el("aside", { className: "admin-callout card admin-metodo-intro" });
     intro.appendChild(el("p", { html: "<strong>" + g.sintesi + "</strong>" }));
     if (blocco.guida) intro.appendChild(el("p", { text: blocco.guida }));
-    root.appendChild(intro);
+    container.appendChild(intro);
 
-    /* 1. Distribuzione settimanale */
     var dist = g.distribuzioneSettimanale;
     var distSec = section("1. Distribuzione settimanale — quando fare ogni scheda", [
       el("p", { className: "admin-metodo-lead", text: dist.schema }),
@@ -79,45 +101,34 @@
     ]);
     if (dist.alternative && dist.alternative.length) {
       var alt = el("div", { className: "admin-metodo-alt" });
-      alt.appendChild(el("h3", { text: "Alternative se non puoi seguire Lun–Mar–Gio–Sab" }));
-      var ul = el("ul");
-      dist.alternative.forEach(function (a) { ul.appendChild(el("li", { text: a })); });
-      alt.appendChild(ul);
+      alt.appendChild(el("h3", { text: "Alternative" }));
+      alt.appendChild(listItems(dist.alternative));
       distSec.appendChild(alt);
     }
     if (dist.regoleRecupero) {
       var rec = el("div", { className: "admin-metodo-rules" });
       rec.appendChild(el("h3", { text: "Regole di recupero" }));
-      var rul = el("ul");
-      dist.regoleRecupero.forEach(function (r) { rul.appendChild(el("li", { text: r })); });
-      rec.appendChild(rul);
+      rec.appendChild(listItems(dist.regoleRecupero));
       distSec.appendChild(rec);
     }
-    root.appendChild(distSec);
+    container.appendChild(distSec);
 
-    /* 2. RIR e cedimento */
     var rir = g.regoleRirECedimento;
-    var rirSec = section("2. RIR e cedimento — cosa significa davvero", [
+    container.appendChild(section("2. RIR e cedimento — cosa significa davvero", [
       el("p", { className: "admin-metodo-lead", text: rir.principio }),
       el("h3", { text: "Fondamentali (esercizi con *)" }),
-      el("ul", { className: "admin-metodo-list" }, (rir.fondamentali || []).map(function (x) {
-        return el("li", { text: x });
-      })),
+      listItems(rir.fondamentali),
       el("h3", { text: "Isolamento e accessori" }),
-      el("ul", { className: "admin-metodo-list" }, (rir.isolamento || []).map(function (x) {
-        return el("li", { text: x });
-      })),
+      listItems(rir.isolamento),
       table(
         ["Periodo", "Fondamentali *", "Isolamento"],
         (rir.tabellaCedimento || []).map(function (r) {
           return [r.periodo, r.fondamentali, r.isolamento];
         })
       )
-    ]);
-    root.appendChild(rirSec);
+    ]));
 
-    /* 3. Periodizzazione intensità */
-    root.appendChild(section("3. Periodizzazione — 13 settimane", [
+    container.appendChild(section("3. Periodizzazione — 13 settimane", [
       table(
         ["Settimane", "Intensità (RIR)", "Volume", "Nota"],
         g.periodizzazioneIntensita.map(function (p) {
@@ -126,8 +137,7 @@
       )
     ]));
 
-    /* 4. Volume settimanale */
-    root.appendChild(section("4. Volume settimanale finale", [
+    container.appendChild(section("4. Volume settimanale finale", [
       table(
         ["Gruppo muscolare", "Serie", "Note"],
         g.volumeSettimanaleFinale.map(function (v) {
@@ -136,9 +146,8 @@
       )
     ]));
 
-    /* 5. Volume per seduta */
-    root.appendChild(section("5. Volume per seduta — mappa rapida", [
-      el("p", { className: "admin-metodo-lead", text: "Ogni riga è una delle quattro sessioni. Utile per capire dove finisce il lavoro di ogni muscolo." }),
+    container.appendChild(section("5. Volume per seduta — mappa rapida", [
+      el("p", { className: "admin-metodo-lead", text: "Ogni riga è una delle quattro sessioni." }),
       table(
         ["Scheda", "Dettaglio volumi (serie efficaci)"],
         g.volumePerSeduta.map(function (v) {
@@ -152,34 +161,61 @@
       )
     ]));
 
-    /* 6. Progressione e checklist */
     var progSec = section("6. Progressione carico e checklist seduta", []);
-    var progUl = el("ul", { className: "admin-metodo-list" });
-    g.progressioneCarico.forEach(function (p) { progUl.appendChild(el("li", { text: p })); });
-    progSec.appendChild(progUl);
-    progSec.appendChild(el("h3", { text: "Checklist prima di uscire dalla palestra" }));
-    var chk = el("ol", { className: "admin-metodo-list" });
-    g.checklistSeduta.forEach(function (c) { chk.appendChild(el("li", { text: c })); });
-    progSec.appendChild(chk);
-    root.appendChild(progSec);
+    progSec.appendChild(listItems(g.progressioneCarico));
+    progSec.appendChild(el("h3", { text: "Checklist seduta" }));
+    progSec.appendChild(listItems(g.checklistSeduta, true));
+    container.appendChild(progSec);
 
-    /* Link schede */
-    var nav = el("nav", { className: "admin-session-nav no-print" });
-    ["a1", "b1", "a2", "b2"].forEach(function (k) {
-      nav.appendChild(el("a", {
-        href: "/admin/sessione/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + k,
-        text: k.toUpperCase() + " — apri scheda"
-      }));
-    });
-    root.appendChild(nav);
+    container.appendChild(el("footer", {
+      className: "metodo-a4__foot",
+      text: blocco.codice + " · Metodo operativo · Schede A1–B2 su forzaquotidiana.it/admin · * = fondamentale in progressione"
+    }));
   }
+
+  function render(blocco, root, opts) {
+    opts = opts || {};
+    var isPdf = opts.pdf || document.body.classList.contains("admin-metodo-pdf");
+
+    root.innerHTML = "";
+    document.title = (isPdf ? "PDF · " : "") + "Metodo Blocco 1 | Admin";
+
+    var article = el("article", { className: "metodo-a4" });
+    if (isPdf) article.appendChild(renderHead(blocco));
+    renderContent(blocco, article);
+    root.appendChild(article);
+
+    if (!isPdf) {
+      var nav = el("nav", { className: "admin-session-nav no-print" });
+      nav.appendChild(el("a", {
+        href: "/admin/metodo-blocco1/pdf/",
+        className: "btn btn-primary btn-sm",
+        text: "Apri versione PDF / stampa →"
+      }));
+      ["a1", "b1", "a2", "b2"].forEach(function (k) {
+        nav.appendChild(el("a", {
+          href: "/admin/sessione/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + k,
+          text: k.toUpperCase()
+        }));
+      });
+      root.appendChild(nav);
+    }
+  }
+
+  window.fqMetodoBlocco1 = { render: render };
 
   document.addEventListener("DOMContentLoaded", function () {
     var root = document.getElementById("metodo-root");
     if (!root) return;
+    var isPdf = document.body.classList.contains("admin-metodo-pdf");
     fetch(BLOCCO_URL)
       .then(function (r) { return r.json(); })
-      .then(function (data) { render(data, root); })
+      .then(function (data) {
+        render(data, root, { pdf: isPdf });
+        if (isPdf && new URLSearchParams(location.search).get("print") === "1") {
+          setTimeout(function () { window.print(); }, 400);
+        }
+      })
       .catch(function () {
         root.innerHTML = "<p>Errore caricamento guida.</p>";
       });

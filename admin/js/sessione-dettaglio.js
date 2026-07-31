@@ -250,7 +250,8 @@
       shared.appendChild(el("h2", { text: "Come usare il blocco" }));
       shared.appendChild(el("p", {
         html: blocco.guidaOperativa.sintesi +
-          " <a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/\">Guida completa (distribuzione, RIR, volumi) →</a>"
+          " <a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/pdf/\">PDF / Stampa metodo →</a> · " +
+          "<a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/\">Guida online</a>"
       }));
       if (blocco.guidaOperativa.periodizzazioneIntensita) {
         shared.appendChild(el("h3", { text: "Periodizzazione 13 settimane" }));

@@ -9,7 +9,7 @@
   "frequenza": "4 allenamenti/settimana",
   "durataSeduta": "85-95 minuti",
   "guida": "Fase di costruzione in 13 settimane con intensità ondulata: parti soft (RIR 3–2), accumuli a RIR 2 e poi 1, scarico parziale in sett. 9, picco controllato in sett. 10–12 (cedimento solo sull’ultima serie dei fondamentali), deload obbligatorio in sett. 13 (−40% volume). Non cercare PR nelle prime settimane: cerca serie pulite e progressione sul carico quando completi il tetto di rep col RIR target per due sedute di fila.",
-  "schedaIntro": "4 allenamenti/settimana (A1–B1–A2–B2). Schema consigliato: Lun A1 · Mar B1 · Gio A2 · Sab B2. Il RIR sulla scheda è il target nelle settimane 6–8: nelle altre settimane segui la tabella periodizzazione in «Metodo Blocco 1». Gli esercizi con * sono i fondamentali in progressione. Guida completa: /admin/metodo-blocco1/",
+  "schedaIntro": "4 allenamenti/settimana (A1–B1–A2–B2). Schema: Lun A1 · Mar B1 · Gio A2 · Sab B2. Metodo completo stampabile: /admin/metodo-blocco1/pdf/ · Gli esercizi con * progredisci quando completi il tetto rep col RIR target per 2 sedute di fila.",
   "periodizzazione": [
     { "fase": "Adattamento", "settimane": "1-2", "rir": "3-2", "obiettivo": "Tecnica, ricerca carichi, zero cedimento" },
     { "fase": "Accumulo leggero", "settimane": "3-5", "rir": "2", "obiettivo": "Volume stabile, progressione rep e kg" },
