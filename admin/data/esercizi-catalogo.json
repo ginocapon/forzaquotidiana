@@ -191,6 +191,30 @@
     "movimento": "Hip hinge fino a stiramento femorali, risali spingendo il bacino.",
     "errori": "Arrotondare la schiena; flettere troppo le ginocchia (diventa squat)."
   },
+  "Panca inclinata manubri": {
+    "figura": "fig-press-incl",
+    "primario": "Petto alto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Panca a 30°, scapole addotte, piedi a terra.",
+    "movimento": "Tempo 3-1-X-1. Discesa controllata, spinta esplosiva senza lock.",
+    "errori": "Inclinazione eccessiva; rimbalzo in basso."
+  },
+  "Lat machine": {
+    "figura": "fig-lat",
+    "primario": "Gran dorsale",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Presa larga, cosce bloccate, petto alto.",
+    "movimento": "Deprime le scapole, tira al petto alto, eccentrica controllata.",
+    "errori": "Slancio col busto."
+  },
+  "Polpacci in piedi": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "In piedi, ginocchia quasi estese.",
+    "movimento": "Stretch 2\", contrazione 2\", ROM completo.",
+    "errori": "Rimbalzo; ROM parziale."
+  },
   "Panca inclinata manubri 30°": {
     "figura": "fig-press-incl",
     "primario": "Petto alto",
