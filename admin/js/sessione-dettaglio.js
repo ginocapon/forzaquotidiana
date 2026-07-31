@@ -163,6 +163,16 @@
     return grid;
   }
 
+  function querySuffix() {
+    var anno = new URLSearchParams(window.location.search).get("anno");
+    return anno ? "&anno=" + encodeURIComponent(anno) : "";
+  }
+
+  function sessionHref(bloccoId, sessionKey) {
+    return "/admin/sessione/?ciclo=" + encodeURIComponent(bloccoId) +
+      "&sessione=" + sessionKey + querySuffix();
+  }
+
   function renderBlocco1Session(blocco, sessionKey, catalogo, root) {
     var s = blocco.sessioni[sessionKey];
     if (!s) {
@@ -189,7 +199,8 @@
 
     var actions = el("div", { className: "admin-session-actions no-print" });
     actions.innerHTML =
-      "<a class=\"btn btn-primary\" href=\"/admin/sessione/pdf/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + sessionKey + "\" target=\"_blank\">Stampa scheda con spiegazioni</a>" +
+      "<a class=\"btn btn-primary\" href=\"/admin/metodo-blocco1/pdf/\">PDF metodo blocco</a>" +
+      "<a class=\"btn btn-primary\" href=\"/admin/sessione/pdf/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + sessionKey + querySuffix() + "\" target=\"_blank\">Stampa scheda con spiegazioni</a>" +
       "<a class=\"btn btn-ghost\" href=\"/admin/prototipi/periodizzazione/fase/?fase=" + encodeURIComponent(blocco.id) + "\" target=\"_blank\">PDF fase completa A1–B2</a>" +
       "<a class=\"btn btn-ghost\" href=\"/admin/mappa-esercizi/\">Mappa esercizi</a>";
     root.appendChild(actions);
@@ -204,12 +215,13 @@
     var scheda = el("section", { className: "admin-section" });
     scheda.appendChild(el("h2", { text: "Scheda " + s.codice }));
     scheda.appendChild(renderTable(
-      ["Esercizio", "Serie", "Rip.", "Tempo", "Recupero", "Progressione"],
+      ["Esercizio", "Serie", "Rip.", "RIR", "Tempo", "Recupero", "Progressione"],
       s.esercizi.map(function (ex) {
         return [
           ex.nome + (ex.progressionePrincipale ? " *" : ""),
           String(ex.serie),
           ex.ripetizioni,
+          ex.rir || "—",
           ex.tempo,
           ex.recupero,
           ex.progressione || "—"
@@ -282,7 +294,7 @@
     var links = el("nav", { className: "admin-session-nav" });
     ["a1", "b1", "a2", "b2"].forEach(function (k) {
       links.appendChild(el("a", {
-        href: "/admin/sessione/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + k,
+        href: sessionHref(blocco.id, k),
         className: k === sessionKey ? "is-active" : "",
         text: k.toUpperCase()
       }));

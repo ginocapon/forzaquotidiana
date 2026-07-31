@@ -36,6 +36,16 @@
     return data.fasi.find(function (f) { return f.id === id; });
   }
 
+  function querySuffix() {
+    var anno = new URLSearchParams(window.location.search).get("anno");
+    return anno ? "&anno=" + encodeURIComponent(anno) : "";
+  }
+
+  function sessionHref(faseId, sessionKey) {
+    return "/admin/sessione/?ciclo=" + encodeURIComponent(faseId) +
+      "&sessione=" + sessionKey + querySuffix();
+  }
+
   function renderSessionBasic(data, faseId, sessionKey, root) {
     var fase = findFase(data, faseId);
     if (!fase || !fase.sessioni[sessionKey]) {
@@ -55,7 +65,9 @@
     root.appendChild(head);
 
     var actions = el("div", { className: "admin-session-actions no-print" });
-    actions.innerHTML = "<a class=\"btn btn-primary\" href=\"/admin/sessione/pdf/?ciclo=" + encodeURIComponent(faseId) + "&sessione=" + sessionKey + "\">PDF scheda</a>";
+    actions.innerHTML =
+      "<a class=\"btn btn-primary\" href=\"/admin/sessione/pdf/?ciclo=" + encodeURIComponent(faseId) +
+      "&sessione=" + sessionKey + querySuffix() + "\" target=\"_blank\">PDF scheda</a>";
     root.appendChild(actions);
 
     var tableWrap = el("div", { className: "table-wrap" });
@@ -71,6 +83,17 @@
     table.appendChild(tbody);
     tableWrap.appendChild(table);
     root.appendChild(tableWrap);
+
+    var links = el("nav", { className: "admin-session-nav" });
+    ["a1", "b1", "a2", "b2"].forEach(function (k) {
+      if (!fase.sessioni[k]) return;
+      links.appendChild(el("a", {
+        href: sessionHref(faseId, k),
+        className: k === sessionKey ? "is-active" : "",
+        text: k.toUpperCase()
+      }));
+    });
+    root.appendChild(links);
   }
 
   function init() {

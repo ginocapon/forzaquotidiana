@@ -46,6 +46,7 @@ macro.fasi[faseIdx] = {
   inizio: blocco.inizio,
   fine: blocco.fine,
   settimane: blocco.settimane,
+  rir: "sett. 6–8: RIR 1 (vedi Metodo Blocco 1)",
   obiettivo: blocco.schedaIntro,
   guida: blocco.guida,
   schedaIntro: blocco.schedaIntro,
