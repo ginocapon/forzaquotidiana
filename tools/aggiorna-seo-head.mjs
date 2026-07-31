@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-/** Aggiunge favicon e Twitter Card alle pagine pubbliche che ne sono prive. */
+/** Aggiunge favicon, Twitter Card e meta SEO alle pagine pubbliche che ne sono prive. */
 import fs from "fs";
 import path from "path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
+const GOOGLE_VERIFY = "UDSpTc6NWtgVmdn6Z-ZGkr7rDiC_O3nhGTFePh85hhs";
 
 function walk(dir, out = []) {
   for (const name of fs.readdirSync(dir)) {
@@ -61,6 +62,14 @@ for (const file of walk(ROOT)) {
     html = html.replace(
       /<meta property="og:type"[^>]*>\n/i,
       (m) => m + '<meta property="og:site_name" content="La Forza Quotidiana">\n<meta property="og:locale" content="it_IT">\n'
+    );
+    changed = true;
+  }
+
+  if (path.resolve(file) === path.join(ROOT, "index.html") && !html.includes('name="google-site-verification"')) {
+    html = html.replace(
+      /<meta name="description"[^>]*>\n/i,
+      (m) => m + `<meta name="google-site-verification" content="${GOOGLE_VERIFY}">\n`
     );
     changed = true;
   }

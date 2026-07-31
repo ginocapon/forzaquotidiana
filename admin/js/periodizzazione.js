@@ -1,5 +1,6 @@
 /**
  * Periodizzazione admin — rendering da mesocicli.json
+ * @deprecated Sostituito da periodizzazione-hub.js (hub unificato). Non referenziato in HTML.
  */
 (function () {
   "use strict";
