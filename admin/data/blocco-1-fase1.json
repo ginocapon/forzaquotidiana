@@ -69,7 +69,7 @@
     "glutei": 11,
     "polpacci": 16,
     "bicipitiDiretti": 7,
-    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da Doktor, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 1 — come usare le 4 schede",
@@ -130,9 +130,10 @@
       { "gruppo": "Spalle anteriori", "serie": 12, "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto" },
       { "gruppo": "Spalle laterali", "serie": 6, "note": "A1 alzate 3 · A2 alzate 3" },
       { "gruppo": "Deltoide posteriore", "serie": 3, "note": "A2 reverse pec deck" },
-      { "gruppo": "Quadricipiti", "serie": 16, "note": "B1 pressa+extension+doktor 12 · B2 squat 4" },
-      { "gruppo": "Femorali", "serie": 16, "note": "B1 rumeno+leg curl · B2 leg curl+trap bar (+ overlap doktor)" },
-      { "gruppo": "Glutei", "serie": 11, "note": "B1 doktor 4 · B2 squat 4 + hip thrust 3" },
+      { "gruppo": "Quadricipiti", "serie": 12, "note": "B1 pressa+extension 8 · B2 squat 4" },
+      { "gruppo": "Adduttori", "serie": 4, "note": "B1 adduttori · macchina Doktor PRIMO" },
+      { "gruppo": "Femorali", "serie": 16, "note": "B1 rumeno+leg curl · B2 leg curl+trap bar" },
+      { "gruppo": "Glutei", "serie": 11, "note": "B2 squat 4 + hip thrust 3 (+ overlap adduttori B1)" },
       { "gruppo": "Polpacci", "serie": 16, "note": "4 serie per sessione (standing, drop, seduto, multipower)" },
       { "gruppo": "Bicipiti diretti", "serie": 7, "note": "B1 curl Scott 4 · B2 curl martello 3" }
     ],
@@ -338,8 +339,8 @@
           "note": "Ultime serie vicino al cedimento tecnico · wafer se serve."
         },
         {
-          "nome": "Doktor",
-          "gruppo": "Quadricipiti",
+          "nome": "Adduttori · macchina Doktor PRIMO",
+          "gruppo": "Adduttori",
           "serie": 4,
           "ripetizioni": "8",
           "tempo": "2-1-2-1",
@@ -348,7 +349,7 @@
           "rir": "1",
           "figura": "fig-doktor",
           "progressionePrincipale": false,
-          "note": "Affondo bulgaro guidato (Doktor PRIMO) · ginocchio stabile, no cedimento."
+          "note": "Adduttori e abduttori · macchina Doktor PRIMO (palestra Arturo) · squeeze 3s, no cedimento."
         },
         {
           "nome": "Rumeno manubri",
@@ -401,10 +402,10 @@
           "✓ Pausa 1 sec in contrazione",
           "✓ Discesa controllata"
         ],
-        "Doktor": [
-          "✓ Affondo guidato, passo stabile",
-          "✓ Ginocchio anteriore non collassa",
-          "✓ Stop prima del cedimento (RIR 1)"
+        "Adduttori · macchina Doktor PRIMO": [
+          "✓ Contrazione forte, squeeze 3 sec al picco",
+          "✓ Stop prima del cedimento (RIR 1)",
+          "✓ Due macchine adduttori/abduttori se disponibili"
         ],
         "Polpacci drop set": [
           "✓ Drop senza pausa tra i cali",
@@ -413,12 +414,13 @@
         ]
       },
       "volumeSeduta": [
-        { "muscolo": "Quadricipiti", "serie": 12 },
+        { "muscolo": "Quadricipiti", "serie": 8 },
+        { "muscolo": "Adduttori", "serie": 4 },
         { "muscolo": "Polpacci", "serie": 4 },
         { "muscolo": "Femorali", "serie": 6 },
         { "muscolo": "Bicipiti", "serie": 4 }
       ],
-      "notaComplementare": "B1 concentra il lavoro su pattern accosciato (pressa, extension, Doktor) e polpacci in apertura. Femorali ridotti (rumeno + leg curl) perché B2 dà enfasi a catena posteriore e glutei — le due sessioni gambe si completano senza sovraccaricare i femorali."
+      "notaComplementare": "B1 concentra il lavoro su pattern accosciato (pressa, extension, adduttori) e polpacci in apertura. Femorali ridotti (rumeno + leg curl) perché B2 dà enfasi a catena posteriore e glutei — le due sessioni gambe si completano senza sovraccaricare i femorali."
     },
     "a2": {
       "codice": "A2",
