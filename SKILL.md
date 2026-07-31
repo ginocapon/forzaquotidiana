@@ -454,7 +454,7 @@ Il **tempo di esecuzione** (TUT = Time Under Tension) va indicato in **tutte** l
 - Multi-articolari standard: `3-1-2` (eccentrica-pausa-concentrica)
 - Rematore: `ecc 2s`
 - Kettlebell finisher: `esplosivo` o `continuo`
-- Doktor: `squeeze 3s`
+- Adduttori · macchina Doktor PRIMO: `squeeze 3s`
 
 ### Confronto metabolico sessioni
 
@@ -991,7 +991,7 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 | Sessione | Origine scheda Q3 | Focus | Progressione (*) |
 |----------|-------------------|-------|------------------|
 | **A1** | Scheda 1 | Petto · Schiena · Spalle | Panca inclinata manubri |
-| **B1** | Scheda 2 | Gambe accosciata · Braccia | Doktor / pressa |
+| **B1** | Scheda 2 | Gambe accosciata · Braccia | Adduttori / pressa |
 | **A2** | Scheda 3 | Schiena · Spalle · Petto | Rematore / lento avanti |
 | **B2** | Scheda 4 | Gambe anca · Braccia | Stacco omega |
 
@@ -1022,7 +1022,7 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 |----------|-----------|------------------|
 | B1 | Pressa 45° | 140 / 120 kg |
 | B1 | Leg extension | 65 / 55 kg |
-| B1 | Doktor PRIMO | 60 → 50 kg |
+| B1 | Adduttori · Doktor PRIMO | 60 → 50 kg |
 | B1 | Curl Scott | 35 / 30 kg |
 | B1 | Polpacci drop | 140→110→80 kg |
 | B2 | Squat multipower | 60 / 55 kg |

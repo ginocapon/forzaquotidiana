@@ -87,6 +87,14 @@
     "movimento": "2 serie a cedimento + 2 tempo/wafer. Carichi da definire.",
     "errori": "Slancio in concentrica; iperestensione."
   },
+  "Adduttori · macchina Doktor PRIMO": {
+    "figura": "fig-doktor",
+    "primario": "Adduttori",
+    "secondario": "Abduttori",
+    "setup": "Macchina adduttori/abduttori Doktor PRIMO (palestra Arturo).",
+    "movimento": "Contrazione forte, squeeze 3 sec al picco, stop prima del cedimento.",
+    "errori": "Cedimento eccessivo; ROM incompleto."
+  },
   "Doktor (affondo bulgaro guidato)": {
     "figura": "fig-doktor",
     "primario": "Quadricipiti",
@@ -311,13 +319,21 @@
     "movimento": "10-12 rep; ultima serie RIR 0-1 se la tecnica regge.",
     "errori": "Slancio in concentrica."
   },
+  "Adduttori · macchina Doktor PRIMO": {
+    "figura": "fig-doktor",
+    "primario": "Adduttori",
+    "secondario": "Abduttori",
+    "setup": "Macchina adduttori/abduttori Doktor PRIMO (palestra Arturo).",
+    "movimento": "4×8, squeeze 3s, stop prima del cedimento.",
+    "errori": "Cedimento eccessivo; ROM incompleto."
+  },
   "Doktor": {
     "figura": "fig-doktor",
-    "primario": "Quadricipiti",
-    "secondario": "Glutei",
-    "setup": "Macchina Doktor PRIMO, affondo bulgaro guidato.",
-    "movimento": "4×8, stop prima del cedimento.",
-    "errori": "Ginocchio che collassa."
+    "primario": "Adduttori",
+    "secondario": "Abduttori",
+    "setup": "Macchina adduttori/abduttori Doktor PRIMO (palestra Arturo).",
+    "movimento": "4×8, squeeze 3s, stop prima del cedimento.",
+    "errori": "Cedimento eccessivo; ROM incompleto."
   },
   "Rumeno manubri": {
     "figura": "fig-rdl",

@@ -146,8 +146,8 @@
               "note": "+5% quando completi 4×12 · Ultime serie vicino al cedimento tecnico · wafer se serve."
             },
             {
-              "nome": "Doktor",
-              "gruppo": "Quadricipiti",
+              "nome": "Adduttori · macchina Doktor PRIMO",
+              "gruppo": "Adduttori",
               "serie": 4,
               "ripetizioni": "8",
               "peso": "—",
@@ -155,7 +155,7 @@
               "rir": "1",
               "tempo": "2-1-2-1",
               "progressione": false,
-              "note": "Carico fisso progressivo quando completi 4×8 con RIR 1 · Affondo bulgaro guidato (Doktor PRIMO) · ginocchio stabile, no cedimento."
+              "note": "Carico fisso progressivo quando completi 4×8 con RIR 1 · Adduttori e abduttori · macchina Doktor PRIMO (palestra Arturo) · squeeze 3s, no cedimento."
             },
             {
               "nome": "Rumeno manubri",
@@ -503,8 +503,8 @@
               "note": "2 serie a cedimento a + 2 serie tempo a"
             },
             {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
+              "nome": "Adduttori · macchina Doktor PRIMO",
+              "gruppo": "Adduttori",
               "serie": 4,
               "ripetizioni": "6-8 (sett. 1–6) → 4-6 (sett. 7–12) · sett. 13 deload",
               "peso": "—",
@@ -848,8 +848,8 @@
               "note": "2 serie a cedimento a + 2 serie tempo a"
             },
             {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
+              "nome": "Adduttori · macchina Doktor PRIMO",
+              "gruppo": "Adduttori",
               "serie": 4,
               "ripetizioni": "8",
               "peso": "—",
@@ -1193,8 +1193,8 @@
               "note": "2 serie a cedimento a + 2 serie tempo a"
             },
             {
-              "nome": "Doktor (affondo bulgaro guidato)",
-              "gruppo": "Quadricipiti",
+              "nome": "Adduttori · macchina Doktor PRIMO",
+              "gruppo": "Adduttori",
               "serie": 4,
               "ripetizioni": "10-12",
               "peso": "—",
