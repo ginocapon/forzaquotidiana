@@ -387,7 +387,7 @@ Sezione `#confronto-metabolico` nel trimestre: tabella comparativa da `performan
 | Mese | Sessioni | Export | TSB fine mese | Sonno (highlight) | Giudizio |
 |------|----------|--------|---------------|-------------------|----------|
 | Giu 2026 | 0 log | — | — | — | Pre-documentazione |
-| **Lug 2026** | **7** | **6** | **−3 Bilanciato** (27/07) | REM 23% ✓ · FC sonno 55 ✓ · WASO 49 ⚠ · pisolini ↑ | Build sostenibile; monitorare veglia |
+| **Lug 2026** | **8** | **7** | **−2 Bilanciato** (31/07) | REM 23% ✓ · FC sonno 55 ✓ · WASO 49 ⚠ · pisolini ↑ | Build sostenibile; monitorare veglia |
 | Ago 2026 | — | — | — | — | *Prossimo report fine mese* |
 
 *Aggiornare una riga per mese dopo ogni report integrato §3e.*
