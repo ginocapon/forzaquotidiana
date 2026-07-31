@@ -255,6 +255,62 @@
     "movimento": "Stretch 2\", contrazione 2\", movimento completo.",
     "errori": "Rimbalzo; ROM parziale."
   },
+  "Polpacci drop set": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower, piedi su rialzo.",
+    "movimento": "4 serie drop senza pausa tra i cali (es. 140→110→80 kg).",
+    "errori": "ROM incompleto; pausa tra i drop."
+  },
+  "Pressa": {
+    "figura": "fig-pressa",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Pressa 45°, schiena appoggiata.",
+    "movimento": "8-10 rep, eccentrica lenta, ROM completo.",
+    "errori": "Bacino che si stacca; rimbalzo."
+  },
+  "Leg Extension": {
+    "figura": "fig-legext",
+    "primario": "Quadricipiti",
+    "secondario": "—",
+    "setup": "Seduto, perno al ginocchio.",
+    "movimento": "10-12 rep; ultima serie RIR 0-1 se la tecnica regge.",
+    "errori": "Slancio in concentrica."
+  },
+  "Doktor": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Macchina Doktor PRIMO, affondo bulgaro guidato.",
+    "movimento": "4×8, stop prima del cedimento.",
+    "errori": "Ginocchio che collassa."
+  },
+  "Rumeno manubri": {
+    "figura": "fig-rdl",
+    "primario": "Femorali",
+    "secondario": "Glutei",
+    "setup": "Manubri lungo le cosce, schiena neutra.",
+    "movimento": "Hip hinge 8-10 rep, stretch controllato.",
+    "errori": "Schiena arrotondata."
+  },
+  "Curl Scott": {
+    "figura": "fig-curl",
+    "primario": "Bicipiti",
+    "secondario": "Brachiale",
+    "setup": "Panca Scott curva, gomiti sul supporto.",
+    "movimento": "8-10 rep, nessun dondolio.",
+    "errori": "Gomiti che si staccano."
+  },
+  "Leg Curl": {
+    "figura": "fig-legcurl",
+    "primario": "Femorali",
+    "secondario": "—",
+    "setup": "Sdraiato o seduto.",
+    "movimento": "10-12 rep, contrazione completa.",
+    "errori": "ROM parziale."
+  },
   "Squat bilanciere": {
     "figura": "fig-squat",
     "primario": "Quadricipiti, glutei",

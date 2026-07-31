@@ -107,91 +107,91 @@
           ]
         },
         "b1": {
-          "nome": "B1 · Gambe accosciata · Polpacci · Addome",
+          "nome": "B1 · Gambe accosciata · Polpacci · Braccia",
           "esercizi": [
             {
-              "nome": "Squat bilanciere",
-              "gruppo": "Quadricipiti",
+              "nome": "Polpacci drop set",
+              "gruppo": "Polpacci",
               "serie": 4,
-              "ripetizioni": "6-8",
+              "ripetizioni": "Drop",
               "peso": "—",
-              "recupero": "150 sec",
-              "rir": "2-3 (sett. 1-2) → 1-2",
-              "tempo": "3-1-X-1",
-              "progressione": true,
-              "note": "+2,5 kg quando raggiungi 4×8 con RIR target per 2 sessioni · Esercizio principale gambe accosciata — pattern squat. Coscia almeno parallela, ginocchia allineate alle punte."
+              "recupero": "60 sec",
+              "rir": "1",
+              "tempo": "2-1-X-1",
+              "progressione": false,
+              "note": "Stessa sequenza drop finché completi tutte le serie pulite · Multipower: es. 140→110→80 kg senza pausa tra i cali · 4×25 totali."
             },
             {
-              "nome": "Pressa 45°",
+              "nome": "Pressa",
               "gruppo": "Quadricipiti",
               "serie": 4,
-              "ripetizioni": "10-12",
+              "ripetizioni": "8-10",
               "peso": "—",
               "recupero": "120 sec",
-              "rir": "1-2",
+              "rir": "1",
               "tempo": "3-1-2-1",
-              "progressione": false,
-              "note": "+5% carico quando completi 4×12 con RIR 1 · Volume complementare quadricipiti. Piedi larghezza spalle, bacino sempre appoggiato."
+              "progressione": true,
+              "note": "+5% quando completi 4×10 con RIR 1 · Pressa 45° · ROM completo, bacino appoggiato, eccentrica lenta."
             },
             {
-              "nome": "Leg Curl sdraiato",
-              "gruppo": "Femorali",
+              "nome": "Leg Extension",
+              "gruppo": "Quadricipiti",
               "serie": 4,
               "ripetizioni": "10-12",
               "peso": "—",
               "recupero": "90 sec",
-              "rir": "1-2",
-              "tempo": "3-1-2-1",
+              "rir": "0-1 ultimo set",
+              "tempo": "2-1-2-1",
               "progressione": false,
-              "note": "+5% carico o +1 rep per serie · Isolamento femorali — bilancia lo squat. Bacino premuto sulla panca, pausa 1 sec in contrazione."
+              "note": "+5% quando completi 4×12 · Ultime serie vicino al cedimento tecnico · wafer se serve."
             },
             {
-              "nome": "Affondi camminati manubri",
-              "gruppo": "Quadricipiti / Glutei",
-              "serie": 3,
-              "ripetizioni": "10+10",
+              "nome": "Doktor",
+              "gruppo": "Quadricipiti",
+              "serie": 4,
+              "ripetizioni": "8",
               "peso": "—",
-              "recupero": "90 sec",
-              "rir": "1-2",
-              "tempo": "3-1-2-1",
+              "recupero": "120 sec",
+              "rir": "1",
+              "tempo": "2-1-2-1",
               "progressione": false,
-              "note": "+2,5 kg per manubrio quando completi 3×10+10 con RIR 1 · 10 passi per gamba. Passo lungo, ginocchio anteriore allineato al piede, busto eretto."
+              "note": "Carico fisso progressivo quando completi 4×8 con RIR 1 · Affondo bulgaro guidato (Doktor PRIMO) · ginocchio stabile, no cedimento."
             },
             {
-              "nome": "Standing Calf Raise",
-              "gruppo": "Polpacci",
+              "nome": "Rumeno manubri",
+              "gruppo": "Femorali",
+              "serie": 3,
+              "ripetizioni": "8-10",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1",
+              "tempo": "3-1-2-1",
+              "progressione": false,
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Stacco rumeno con manubri · schiena neutra, stretch femorali."
+            },
+            {
+              "nome": "Curl Scott",
+              "gruppo": "Bicipiti",
               "serie": 4,
               "ripetizioni": "8-10",
               "peso": "—",
               "recupero": "60 sec",
-              "rir": "1-2",
-              "tempo": "3-2-X-2",
-              "progressione": false,
-              "note": "+2,5 kg quando completi 4×10 con RIR 1 · Gastrocnemio in piedi — ROM completo, pausa in stretch."
-            },
-            {
-              "nome": "Seated Calf Raise",
-              "gruppo": "Polpacci",
-              "serie": 3,
-              "ripetizioni": "12-15",
-              "peso": "—",
-              "recupero": "60 sec",
-              "rir": "1-2",
-              "tempo": "2-1-3-1",
-              "progressione": false,
-              "note": "+5% carico quando completi 3×15 con RIR 1 · Soleo — complementare al gastrocnemio in piedi. Ginocchia a 90°."
-            },
-            {
-              "nome": "Crunch ai cavi",
-              "gruppo": "Addome",
-              "serie": 3,
-              "ripetizioni": "15-20",
-              "peso": "—",
-              "recupero": "60 sec",
-              "rir": "1-2",
+              "rir": "1",
               "tempo": "2-1-2-1",
               "progressione": false,
-              "note": "+1 rep per serie, poi +5% carico · Retto addominale — flessione toracica, non tirare col busto. Expira in chiusura."
+              "note": "+2,5 kg quando completi 4×10 con RIR 1 · Panca Scott curva · gomiti fermi sul supporto."
+            },
+            {
+              "nome": "Leg Curl",
+              "gruppo": "Femorali",
+              "serie": 3,
+              "ripetizioni": "10-12",
+              "peso": "—",
+              "recupero": "90 sec",
+              "rir": "1",
+              "tempo": "2-1-2-1",
+              "progressione": false,
+              "note": "+5% quando completi 3×12 con RIR 1 · Sdraiato o seduto · volume femorali ridotto perché B2 lavora catena posteriore."
             }
           ]
         },
