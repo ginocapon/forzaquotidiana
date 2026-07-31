@@ -180,7 +180,7 @@
     "primario": "Soleo",
     "secondario": "Gastrocnemio",
     "setup": "Macchina polpacci seduto, cosce bloccate.",
-    "movimento": "4×12–15, eccentrica controllata. Carico da definire.",
+    "movimento": "4×15-20, eccentrica controllata. Carico da definire.",
     "errori": "Carico eccessivo che riduce il ROM."
   },
   "Stacco rumeno con manubri": {
@@ -398,6 +398,22 @@
     "setup": "Cavi bassi, tensione continua.",
     "movimento": "Nessun aiuto del tronco, massima tensione.",
     "errori": "Slancio."
+  },
+  "Rematore/Trazioni": {
+    "figura": "fig-rematore",
+    "primario": "Dorsali",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Rematore bilanciere busto ~45° oppure trazioni presa larga.",
+    "movimento": "Alterna tra le sedute — 3×8-10, RIR 1.",
+    "errori": "Slancio col busto; ROM parziale."
+  },
+  "Halo": {
+    "figura": "fig-halo",
+    "primario": "Deltoidi, cuffia",
+    "secondario": "Core, trapezi",
+    "setup": "Kettlebell, finisher A2 — sempre ultimo esercizio.",
+    "movimento": "Halo lento intorno alla testa, 2×12, core attivo.",
+    "errori": "Movimento troppo veloce; carico eccessivo."
   },
   "Reverse Pec Deck": {
     "figura": "fig-reverse-pec",

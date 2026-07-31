@@ -51,18 +51,18 @@
     ]
   },
   "valutazioneProgramma": {
-    "petto": 11,
+    "petto": 7,
     "dorsali": 14,
     "deltoideLaterale": 6,
-    "deltoideAnteriore": 2,
+    "deltoideAnteriore": 6,
     "deltoidePosteriore": 3,
     "quadricipiti": 17,
     "femorali": 12,
     "glutei": 9,
-    "polpacci": 19,
-    "bicipiti": 3,
-    "addome": 6,
-    "note": "Volume settimanale totale A1-B2. ~59% serie su gambe + polpacci (priorità lower per Gino). Petto e dorsali bilanciati su due sessioni upper. Polpacci ad alta frequenza (stubborn muscle). Deload sett. 13 non incluso nel conteggio."
+    "polpacci": 16,
+    "bicipiti": 4,
+    "addome": 3,
+    "note": "Volume settimanale totale A1-B2. ~58% serie su gambe + polpacci (priorità lower per Gino). Petto concentrato in A1; A2 enfatizza schiena, spalle e polpacci seduto. Polpacci ad alta frequenza (4 serie per sessione). Deload sett. 13 non incluso nel conteggio."
   },
   "sessioni": {
     "a1": {
@@ -193,7 +193,7 @@
         { "muscolo": "Deltoide anteriore", "serie": 2 },
         { "muscolo": "Polpacci", "serie": 4 }
       ],
-      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che lavora petto su macchina convergente, pulley basso e deltoide posteriore — copertura completa upper body senza sovrapposizione ridondante."
+      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
     },
     "b1": {
       "codice": "B1",
@@ -329,160 +329,159 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena · Petto · Spalle · Polpacci",
+      "nome": "Schiena · Spalle · Polpacci",
       "priorita": [
         { "stelle": 5, "muscolo": "Dorsali" },
         { "stelle": 5, "muscolo": "Deltoide laterale" },
+        { "stelle": 4, "muscolo": "Deltoide anteriore" },
         { "stelle": 4, "muscolo": "Deltoide posteriore" },
-        { "stelle": 4, "muscolo": "Petto" },
         { "stelle": 3, "muscolo": "Polpacci" }
       ],
       "esercizi": [
         {
-          "nome": "Chest Press convergente",
-          "gruppo": "Petto",
+          "nome": "Lento avanti bilanciere",
+          "gruppo": "Deltoide anteriore",
           "serie": 4,
-          "ripetizioni": "8-10",
-          "tempo": "3-1-2-1",
+          "ripetizioni": "6-8",
+          "tempo": "3-1-X-1",
           "recupero": "120 sec",
-          "progressione": "+2,5 kg quando raggiungi 4×10 con RIR 1",
-          "rir": "1-2",
-          "figura": "fig-chest-converg",
-          "progressionePrincipale": false,
-          "note": "Petto su macchina — traiettoria convergente, scapole stabili. Complementare alla panca inclinata di A1."
+          "progressione": "+2,5 kg quando completi 4×8 con RIR 1",
+          "rir": "2→1",
+          "figura": "fig-lento",
+          "progressionePrincipale": true,
+          "note": "Progressione principale A2 · gomiti leggermente flessi, barra davanti al viso, no slancio col busto."
         },
         {
-          "nome": "Pulley basso",
-          "gruppo": "Dorsali",
-          "serie": 4,
-          "ripetizioni": "8-10",
-          "tempo": "3-1-2-1",
-          "recupero": "120 sec",
-          "progressione": "+2,5 kg quando raggiungi 4×10 con RIR 1",
-          "rir": "1-2",
-          "figura": "fig-pulley-basso",
-          "progressionePrincipale": false,
-          "note": "Trazione orizzontale bassa — spessore dorsale. Petto alto, gomiti verso i fianchi."
-        },
-        {
-          "nome": "Lat Machine presa neutra",
-          "gruppo": "Dorsali",
-          "serie": 3,
-          "ripetizioni": "10-12",
-          "tempo": "3-1-2-1",
-          "recupero": "120 sec",
-          "progressione": "+1 rep per serie, poi +2,5 kg",
-          "rir": "1-2",
-          "figura": "fig-lat-neutro",
-          "progressionePrincipale": false,
-          "note": "Trazione verticale presa neutra — angolo diverso dalla presa larga di A1."
-        },
-        {
-          "nome": "Alzate laterali ai cavi",
+          "nome": "Alzate laterali",
           "gruppo": "Deltoide laterale",
           "serie": 3,
           "ripetizioni": "12-15",
           "tempo": "2-1-3-1",
           "recupero": "60 sec",
-          "progressione": "+5% carico o +1 rep per serie",
-          "rir": "1-2",
-          "figura": "fig-alzate-cavi",
+          "progressione": "+1 kg quando completi 3×15 con RIR 1",
+          "rir": "1",
+          "figura": "fig-alzate",
           "progressionePrincipale": false,
-          "note": "Tensione costante del cavo — complementare alle alzate con manubri di A1."
+          "note": "Priorità deltoide laterale. Discesa lenta, niente slancio col busto."
+        },
+        {
+          "nome": "Lat machine",
+          "gruppo": "Dorsali",
+          "serie": 4,
+          "ripetizioni": "8-10",
+          "tempo": "3-1-2-1",
+          "recupero": "120 sec",
+          "progressione": "+5% quando completi 4×10 con RIR 1",
+          "rir": "1",
+          "figura": "fig-lat",
+          "progressionePrincipale": false,
+          "note": "Presa larga. Deprime le scapole prima di tirare, sbarra al petto alto."
+        },
+        {
+          "nome": "Rematore/Trazioni",
+          "gruppo": "Dorsali",
+          "serie": 3,
+          "ripetizioni": "8-10",
+          "tempo": "3-1-2-1",
+          "recupero": "120 sec",
+          "progressione": "+2,5-5% quando completi 3×10 con RIR 1",
+          "rir": "1",
+          "figura": "fig-rematore",
+          "progressionePrincipale": false,
+          "note": "Alterna rematore bilanciere e trazioni a presa larga tra le sedute."
         },
         {
           "nome": "Reverse Pec Deck",
           "gruppo": "Deltoide posteriore",
           "serie": 3,
-          "ripetizioni": "12-15",
+          "ripetizioni": "15",
           "tempo": "2-1-2-1",
           "recupero": "60 sec",
           "progressione": "+5% carico quando completi 3×15 con RIR 1",
-          "rir": "1-2",
+          "rir": "1",
           "figura": "fig-reverse-pec",
           "progressionePrincipale": false,
           "note": "Deltoide posteriore e romboidi — equilibra il volume spalle anteriori/laterali."
         },
         {
-          "nome": "Curl bilanciere EZ",
-          "gruppo": "Bicipiti",
-          "serie": 3,
-          "ripetizioni": "8-10",
-          "tempo": "3-1-2-1",
-          "recupero": "60 sec",
-          "progressione": "+2,5 kg quando raggiungi 3×10 con RIR 1",
-          "rir": "1-2",
-          "figura": "fig-curl-ez",
-          "progressionePrincipale": false,
-          "note": "Bicipiti — gomiti fermi ai fianchi, presa EZ per comfort polso."
-        },
-        {
-          "nome": "Standing Calf Raise",
+          "nome": "Polpacci seduto",
           "gruppo": "Polpacci",
           "serie": 4,
-          "ripetizioni": "10-12",
-          "tempo": "3-2-X-2",
+          "ripetizioni": "15-20",
+          "tempo": "2-1-3-1",
           "recupero": "60 sec",
-          "progressione": "+2,5 kg quando completi 4×12 con RIR 1",
-          "rir": "1-2",
-          "figura": "fig-polpacci",
+          "progressione": "+5% quando completi 4×20 con RIR 1",
+          "rir": "1",
+          "figura": "fig-calf-seated",
           "progressionePrincipale": false,
-          "note": "Seconda stimolazione gastrocnemio settimanale — range rep più alto rispetto ad A1."
+          "note": "Soleo — complementare ai polpacci in piedi di A1. ROM completo, pausa in stretch."
+        },
+        {
+          "nome": "Halo",
+          "gruppo": "Spalle",
+          "serie": 2,
+          "ripetizioni": "12",
+          "tempo": "2-1-2-1",
+          "recupero": "60 sec",
+          "progressione": "Carico fisso — finisher tecnico",
+          "rir": "1",
+          "figura": "fig-halo",
+          "progressionePrincipale": false,
+          "note": "Kettlebell · finisher, sempre ultimo esercizio. Halo lento intorno alla testa, core attivo."
         }
       ],
       "focusTecnico": {
-        "Chest Press convergente": [
-          "✓ Schienale regolato, spalle appoggiate, presa all'altezza del petto",
-          "✓ Spinta convergente controllata, petto in contrazione in chiusura",
-          "✓ Discesa lenta fino a stiramento moderato",
-          "✓ Scapole addotte per tutto il movimento"
+        "Lento avanti bilanciere": [
+          "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
+          "✓ Gomiti leggermente flessi, barra davanti al viso",
+          "✓ Spinta verticale senza slancio col busto",
+          "✓ Discesa controllata fino all'altezza clavicole"
         ],
-        "Pulley basso": [
-          "✓ Seduto, piedi appoggiati, busto leggermente inclinato",
-          "✓ Tira la maniglia all'ombelico, gomiti verso i fianchi",
-          "✓ Squeeze scapole 1 sec, eccentrica controllata",
-          "✓ Evita slancio col busto"
-        ],
-        "Lat Machine presa neutra": [
-          "✓ Presa neutra (palmi rivolti), cosce bloccate",
-          "✓ Tira la sbarra al petto alto, gomiti verso il basso",
-          "✓ Contrazione dorsali in chiusura, risalita lenta",
-          "✓ Angolo diverso dalla presa larga — enfatizza spessore"
-        ],
-        "Alzate laterali ai cavi": [
-          "✓ Cavi incrociati o laterali, gomiti leggermente flessi",
-          "✓ Alza fino all'altezza spalle, tensione costante",
+        "Alzate laterali": [
+          "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
           "✓ Discesa lenta 3 sec — niente slancio",
-          "✓ Complemento ideale alle alzate manubri di A1"
+          "✓ Polsi neutri, spalle basse",
+          "✓ Stesso schema di A1 per coerenza del deltoide laterale"
+        ],
+        "Lat machine": [
+          "✓ Presa larga, cosce bloccate sotto i cuscinetti",
+          "✓ Deprime le scapole prima di tirare",
+          "✓ Sbarra al petto alto, squeeze 1 sec",
+          "✓ Risalita lenta senza slancio"
+        ],
+        "Rematore/Trazioni": [
+          "✓ Rematore: busto ~45°, squeeze scapole in chiusura",
+          "✓ Trazioni: presa larga, petto verso la sbarra",
+          "✓ Alterna tra le sedute — stesso volume, angolo diverso",
+          "✓ RIR 1 su entrambe le varianti"
         ],
         "Reverse Pec Deck": [
           "✓ Petto appoggiato al supporto, braccia parallele al pavimento",
           "✓ Apertura controllata fino all'allineamento spalle",
           "✓ Squeeze deltoide posteriore 1 sec",
-          "✓ Carico moderato — qualità > quantità"
+          "✓ 15 rep pulite — carico moderato"
         ],
-        "Curl bilanciere EZ": [
-          "✓ Gomiti fermi ai fianchi, presa EZ supina",
-          "✓ Flessione completa senza movimento delle spalle",
-          "✓ Discesa controllata fino a quasi estensione",
-          "✓ Evita slancio col busto"
+        "Polpacci seduto": [
+          "✓ Ginocchia a 90°, carico sui polpacci (soleo)",
+          "✓ ROM completo, pausa 3 sec in stretch",
+          "✓ Range 15-20 rep per densità metabolica",
+          "✓ Complementare ai polpacci in piedi di A1"
         ],
-        "Standing Calf Raise": [
-          "✓ ROM completo con pausa 2 sec in stretch",
-          "✓ Range rep 10-12 (più alto di A1) per variare lo stimolo",
-          "✓ Contrazione massima in alto",
-          "✓ Frequenza polpacci: 4ª sessione settimanale"
+        "Halo": [
+          "✓ Sempre ultimo esercizio della seduta",
+          "✓ Kettlebell leggera, movimento lento intorno alla testa",
+          "✓ Core attivo, respirazione controllata",
+          "✓ 12 rep totali — qualità gestuale, non carico"
         ]
       },
       "volumeSeduta": [
         { "muscolo": "Dorsali", "serie": 7 },
-        { "muscolo": "Petto", "serie": 4 },
+        { "muscolo": "Deltoide anteriore", "serie": 4 },
         { "muscolo": "Deltoide laterale", "serie": 3 },
         { "muscolo": "Deltoide posteriore", "serie": 3 },
-        { "muscolo": "Bicipiti", "serie": 3 },
         { "muscolo": "Polpacci", "serie": 4 }
       ],
-      "notaComplementare": "A2 completa A1 con angoli diversi: petto su macchina convergente, dorsali con pulley basso e presa neutra, deltoide posteriore e bicipiti. Insieme A1+A2 garantiscono 14 serie dorsali e 11 serie petto settimanali con copertura tri-planare delle spalle."
+      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
     },
     "b2": {
       "codice": "B2",
@@ -638,7 +637,7 @@
         { "muscolo": "Polpacci", "serie": 4 },
         { "muscolo": "Addome", "serie": 3 }
       ],
-      "notaComplementare": "B2 è la sessione catena posteriore-dominante (pattern hinge e anca). Complementa B1: insieme coprono squat + hinge, quad + femorali, gastrocnemio + soleo. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 17 quadricipiti, 12 femorali, 19 polpacci, 6 addome — ~59% volume lower."
+      "notaComplementare": "B2 è la sessione catena posteriore-dominante (pattern hinge e anca). Complementa B1: insieme coprono squat + hinge, quad + femorali, gastrocnemio + soleo. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 17 quadricipiti, 12 femorali, 16 polpacci, 3 addome — ~58% volume lower."
     }
   }
 }
