@@ -15,22 +15,25 @@
   --accent-soft: rgba(201, 120, 58, 0.18);
   --cta-bg: #1e3a52;
   --cta-hover: #163047;
+  /* Velatura hero: nella fascia dove cade il testo serve almeno 0.60 per garantire 4.5:1 */
   --hero-gradient: linear-gradient(
     to top,
-    rgba(12, 12, 12, 0.96) 8%,
-    rgba(12, 12, 12, 0.42) 48%,
-    rgba(201, 120, 58, 0.12) 72%,
-    rgba(12, 12, 12, 0.55) 100%
+    rgba(12, 12, 12, 0.97) 8%,
+    rgba(12, 12, 12, 0.66) 48%,
+    rgba(201, 120, 58, 0.14) 74%,
+    rgba(12, 12, 12, 0.6) 100%
   );
-  --line: rgba(244, 239, 230, 0.22);
+  /* Bordi UI: contrasto >= 3:1 su --bg per WCAG 2.2 SC 1.4.11 */
+  --line: rgba(244, 239, 230, 0.42);
+  --line-soft: rgba(244, 239, 230, 0.22);
   --max: 1120px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
   /* Panel relief — rilievo 3D dorato (vedi SKILL.md §0.1) */
   --panel-bg: linear-gradient(168deg, #211d19 0%, #181513 36%, #100f0e 100%);
   --panel-bg-glass: linear-gradient(168deg, rgba(32, 28, 24, 0.96) 0%, rgba(18, 16, 14, 0.92) 100%);
-  --panel-border-light: rgba(255, 228, 175, 0.34);
-  --panel-border-mid: rgba(212, 178, 118, 0.24);
+  --panel-border-light: rgba(255, 228, 175, 0.42);
+  --panel-border-mid: rgba(212, 178, 118, 0.5);
   --panel-border-dark: rgba(0, 0, 0, 0.72);
   --panel-border-gold: rgba(201, 150, 80, 0.16);
   --panel-highlight: linear-gradient(180deg, rgba(255, 235, 190, 0.16) 0%, rgba(201, 120, 58, 0.06) 32%, transparent 58%);
@@ -74,8 +77,20 @@ body {
 .skip-link:focus { left: 0; }
 
 *:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid var(--color-accent-warm);
   outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Rispetta chi ha ridotto le animazioni nel sistema operativo — WCAG 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -263,6 +278,11 @@ a.session-card:hover {
   color: var(--muted);
   text-decoration: none;
   font-size: 0.92rem;
+  /* Target minimo 24x24 px — WCAG 2.2 SC 2.5.8 */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.15rem;
 }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] { color: var(--text); }
@@ -682,10 +702,10 @@ body.theme-chi-sono .hero--portrait .hero__overlay {
   background:
     linear-gradient(
       to top,
-      rgba(12, 12, 12, 0.95) 6%,
-      rgba(12, 12, 12, 0.55) 38%,
-      rgba(12, 12, 12, 0.28) 58%,
-      rgba(12, 12, 12, 0.42) 100%
+      rgba(12, 12, 12, 0.96) 6%,
+      rgba(12, 12, 12, 0.74) 38%,
+      rgba(12, 12, 12, 0.5) 58%,
+      rgba(12, 12, 12, 0.55) 100%
     ),
     linear-gradient(180deg, var(--theme-veil-hero) 0%, transparent 72%);
 }
@@ -859,10 +879,10 @@ body.theme-allenamenti .disclaimer {
 .hero--portrait .hero__overlay {
   background: linear-gradient(
     to top,
-    rgba(12, 12, 12, 0.95) 6%,
-    rgba(12, 12, 12, 0.55) 38%,
-    rgba(12, 12, 12, 0.28) 58%,
-    rgba(12, 12, 12, 0.42) 100%
+    rgba(12, 12, 12, 0.96) 6%,
+    rgba(12, 12, 12, 0.74) 38%,
+    rgba(12, 12, 12, 0.5) 58%,
+    rgba(12, 12, 12, 0.55) 100%
   );
 }
 .hero--portrait .hero__content {
@@ -2611,9 +2631,12 @@ body.theme-allenamenti .session-card__badge {
 .month-nav a {
   color: var(--accent);
   text-decoration: none;
-  padding: 0.25rem 0.6rem;
+  padding: 0.35rem 0.7rem;
   border: 1px solid var(--line);
   border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
 }
 .month-nav a:hover { border-color: var(--accent); }
 .month-panels {
@@ -2622,6 +2645,12 @@ body.theme-allenamenti .session-card__badge {
   gap: 2.5rem;
   margin: 1.5rem 0;
 }
+.sleep-report {
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.sleep-report .month-panel__title { margin-bottom: 0.75rem; }
 .month-panel {
   padding: 1.25rem 0 0;
   border-top: 1px solid var(--line);
@@ -2834,7 +2863,7 @@ body.theme-allenamenti .session-card__badge {
 .tsb-axis-y,
 .tsb-axis-x {
   fill: var(--muted);
-  font-size: 9px;
+  font-size: 12px;
   font-family: var(--font, system-ui, sans-serif);
 }
 .tsb-module__session-note {
@@ -2884,11 +2913,15 @@ body.theme-allenamenti .session-card__badge {
 .footer-legal__btn {
   background: none;
   border: none;
-  padding: 0;
   font: inherit;
   color: #ccc4b8;
   text-decoration: underline;
   cursor: pointer;
+  /* Target minimo 24x24 px — WCAG 2.2 SC 2.5.8 */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0.15rem 0.25rem;
 }
 .footer-legal__btn:hover { color: var(--accent); }
 
@@ -2924,7 +2957,25 @@ body.theme-allenamenti .session-card__badge {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.cookie-banner__btn { font-size: 0.85rem; padding: 0.65rem 1rem; }
+.cookie-banner__btn { font-size: 0.85rem; padding: 0.65rem 1rem; min-height: 44px; }
+/* Accettare e rifiutare devono avere lo stesso peso visivo (Garante, provv. 10/06/2021) */
+.cookie-banner__btn--choice {
+  background: var(--surface-2);
+  border: 1px solid var(--color-accent-warm);
+  color: var(--text);
+  flex: 1 1 auto;
+}
+.cookie-banner__btn--choice:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.cookie-banner__btn--alt { flex: 0 0 auto; }
+.cookie-pref input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
 
 .cookie-modal {
   position: fixed;
@@ -3010,12 +3061,15 @@ body.theme-allenamenti .session-card__badge {
 .privacy-content-notice__btn {
   background: none;
   border: none;
-  padding: 0;
   font: inherit;
   color: var(--accent);
   text-decoration: underline;
   cursor: pointer;
   margin-left: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0.15rem 0.25rem;
 }
 
 .legal-doc__meta {
@@ -3364,9 +3418,13 @@ body.theme-allenamenti .session-card__badge {
 /* Newsletter + scheda pesi gate */
 .btn-block { display: block; width: 100%; text-align: center; }
 .btn-link {
-  background: none; border: none; padding: 0;
+  background: none; border: none;
   color: var(--accent); text-decoration: underline;
   cursor: pointer; font: inherit;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0.15rem 0.25rem;
 }
 .newsletter-hero { margin-bottom: 1.5rem; }
 .newsletter-grid {
@@ -3388,8 +3446,10 @@ body.theme-allenamenti .session-card__badge {
 .newsletter-form__field input[type="text"],
 .newsletter-form__field input[type="email"] {
   width: 100%;
-  padding: 0.55rem 0.65rem;
-  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.6rem 0.65rem;
+  min-height: 44px;
+  /* Bordo campo: contrasto >= 3:1 su sfondo scuro — WCAG 2.2 SC 1.4.11 */
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 6px;
   background: rgba(0,0,0,0.25);
   color: inherit;
@@ -3401,7 +3461,13 @@ body.theme-allenamenti .session-card__badge {
   font-size: 0.85rem;
   line-height: 1.4;
 }
-.newsletter-form__check input { margin-top: 0.2rem; flex-shrink: 0; }
+.newsletter-form__check input {
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: var(--accent);
+}
 .newsletter-form__hp {
   position: absolute;
   left: -9999px;

@@ -38,9 +38,11 @@
   border-color: var(--accent);
   transform: translateY(-2px);
 }
+/* Colore dedicato invece di opacity: l'opacity abbassava il contrasto sotto 4.5:1 */
 .admin-card--muted {
-  opacity: 0.72;
   pointer-events: none;
+  color: #b8aea4;
+  border-style: dashed;
 }
 .admin-card__label {
   display: block;
