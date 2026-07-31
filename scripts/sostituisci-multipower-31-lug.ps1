@@ -2,13 +2,17 @@
 # con il file WhatsApp in img/
 $ErrorActionPreference = "Stop"
 $repo = Split-Path -Parent $PSScriptRoot
-$src = Join-Path $repo "img\WhatsApp Video .mp4"
+$srcDownloads = "C:\Users\Utente\Downloads\mltipower gambe.mp4"
+$srcWhatsApp = Join-Path $repo "img\WhatsApp Video .mp4"
+$src = if (Test-Path -LiteralPath $srcDownloads) { $srcDownloads }
+       elseif (Test-Path -LiteralPath $srcWhatsApp) { $srcWhatsApp }
+       else { $null }
 $destDir = Join-Path $repo "img\allenamenti\2026-07-31"
 $dest = Join-Path $destDir "multipower-gambe.mp4"
 $poster = Join-Path $destDir "multipower-gambe-poster.jpg"
 
-if (-not (Test-Path -LiteralPath $src)) {
-    Write-Error "File non trovato: img\WhatsApp Video .mp4`nMetti il video WhatsApp in img\ e rilancia."
+if (-not $src) {
+    Write-Error "File non trovato.`nCerca: C:\Users\Utente\Downloads\mltipower gambe.mp4`noppure: img\WhatsApp Video .mp4"
 }
 
 New-Item -ItemType Directory -Force -Path $destDir | Out-Null
