@@ -119,6 +119,38 @@
     "movimento": "Clean al petto, halo lento 10 rep/senso, core attivo. Carico da definire.",
     "errori": "Movimento troppo veloce; carico eccessivo."
   },
+  "Polpacci multipower": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower Technogym, piedi su rialzo.",
+    "movimento": "4×12-15, pausa in stretch e squeeze in punta.",
+    "errori": "Rimbalzo; ROM incompleto."
+  },
+  "Squat multipower": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Barra sui trapezi, piedi leggermente avanti.",
+    "movimento": "4×8, profondità costante, RIR 1.",
+    "errori": "Ginocchia che collassano; profondità inconsistente."
+  },
+  "Trap Bar": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Schiena, trapezi",
+    "setup": "Trap bar (stacco omega), schiena neutra, hip hinge.",
+    "movimento": "4×6-8, spinta col bacino, barra vicino alle gambe.",
+    "errori": "Schiena arrotondata; barra lontana dalle tibie."
+  },
+  "Curl Martello": {
+    "figura": "fig-curl-mart",
+    "primario": "Bicipiti, brachiale",
+    "secondario": "Avambraccio",
+    "setup": "Presa neutra, gomiti fermi.",
+    "movimento": "3×8-10, no dondolio.",
+    "errori": "Slancio col busto; gomiti che avanzano."
+  },
   "Polpacci al multipower": {
     "figura": "fig-polpacci",
     "primario": "Gastrocnemio",

@@ -285,19 +285,55 @@
           ]
         },
         "b2": {
-          "nome": "B2 · Gambe anca · Catena posteriore · Addome",
+          "nome": "B2 · Gambe dominante anca · Bicipiti",
           "esercizi": [
             {
-              "nome": "Stacco Rumeno",
-              "gruppo": "Femorali",
+              "nome": "Polpacci multipower",
+              "gruppo": "Polpacci",
+              "serie": 4,
+              "ripetizioni": "12-15",
+              "peso": "—",
+              "recupero": "60 sec",
+              "rir": "1",
+              "tempo": "3-2-X-2",
+              "progressione": false,
+              "note": "+5% quando completi 4×15 con RIR 1 · Multipower Technogym · ROM completo, pausa in stretch e squeeze in punta."
+            },
+            {
+              "nome": "Squat multipower",
+              "gruppo": "Quadricipiti",
               "serie": 4,
               "ripetizioni": "8",
               "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1",
+              "tempo": "3-1-X-1",
+              "progressione": false,
+              "note": "+5% quando completi 4×8 con RIR 1 · Barra sui trapezi, piedi leggermente avanti · profondità costante, ginocchia in linea con i piedi."
+            },
+            {
+              "nome": "Leg Curl",
+              "gruppo": "Femorali",
+              "serie": 3,
+              "ripetizioni": "10",
+              "peso": "—",
+              "recupero": "90 sec",
+              "rir": "1",
+              "tempo": "2-1-2-1",
+              "progressione": false,
+              "note": "+5% quando completi 3×10 con RIR 1 · Sdraiato o seduto · isolamento femorali, pausa 1 sec in contrazione."
+            },
+            {
+              "nome": "Trap Bar",
+              "gruppo": "Femorali",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "peso": "—",
               "recupero": "150 sec",
-              "rir": "2-3 (sett. 1-2) → 1-2",
+              "rir": "1",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "+2,5 kg quando raggiungi 4×8 con RIR target per 2 sessioni · Esercizio principale catena posteriore — pattern hinge. Bilanciere a contatto con le gambe, stiramento femorali."
+              "note": "+2,5-5 kg quando completi 4×8 con RIR 1 · Progressione principale B2 · stacco omega, schiena neutra, spinta col bacino."
             },
             {
               "nome": "Hip Thrust",
@@ -306,70 +342,22 @@
               "ripetizioni": "8-10",
               "peso": "—",
               "recupero": "90 sec",
-              "rir": "1-2",
+              "rir": "1",
               "tempo": "2-1-X-1",
               "progressione": false,
-              "note": "+2,5 kg quando raggiungi 3×10 con RIR 1 · Dominante anca — pausa 1-2 sec in alto, mento al petto."
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Dominante anca — pausa 1-2 sec in alto, mento al petto, squeeze glutei."
             },
             {
-              "nome": "Leg Curl seduto",
-              "gruppo": "Femorali",
-              "serie": 4,
-              "ripetizioni": "10-12",
+              "nome": "Curl Martello",
+              "gruppo": "Bicipiti",
+              "serie": 3,
+              "ripetizioni": "8-10",
               "peso": "—",
-              "recupero": "90 sec",
-              "rir": "1-2",
+              "recupero": "60 sec",
+              "rir": "1",
               "tempo": "3-1-2-1",
               "progressione": false,
-              "note": "+5% carico o +1 rep per serie · Isolamento femorali seduto — angolo diverso dal leg curl sdraiato di B1."
-            },
-            {
-              "nome": "Bulgarian Split Squat",
-              "gruppo": "Quadricipiti / Glutei",
-              "serie": 3,
-              "ripetizioni": "10+10",
-              "peso": "—",
-              "recupero": "90 sec",
-              "rir": "1-2",
-              "tempo": "3-1-2-1",
-              "progressione": false,
-              "note": "+2,5 kg per manubrio quando completi 3×10+10 con RIR 1 · 10 rep per gamba. Piede posteriore rialzato, discesa controllata, ginocchio anteriore stabile."
-            },
-            {
-              "nome": "Seated Calf Raise",
-              "gruppo": "Polpacci",
-              "serie": 4,
-              "ripetizioni": "12-15",
-              "peso": "—",
-              "recupero": "60 sec",
-              "rir": "1-2",
-              "tempo": "2-1-3-1",
-              "progressione": false,
-              "note": "+5% carico quando completi 4×15 con RIR 1 · Soleo — seconda seduta seated settimanale. Complementare ai standing calf di A1, A2 e B1."
-            },
-            {
-              "nome": "Leg Extension",
-              "gruppo": "Quadricipiti",
-              "serie": 3,
-              "ripetizioni": "12-15",
-              "peso": "—",
-              "recupero": "60 sec",
-              "rir": "1-2",
-              "tempo": "2-1-2-1",
-              "progressione": false,
-              "note": "+5% carico o +1 rep per serie · Isolamento quadricipiti — finisher gambe. Contrazione massima in alto, discesa controllata."
-            },
-            {
-              "nome": "Plank + Side Plank",
-              "gruppo": "Addome",
-              "serie": 3,
-              "ripetizioni": "45-60 sec",
-              "peso": "—",
-              "recupero": "60 sec",
-              "rir": "1-2",
-              "tempo": "isometrico",
-              "progressione": false,
-              "note": "+5-10 sec per set quando completi 3×60 sec · Plank frontale + side plank alternato per lato. Core anti-estensione e anti-lateroflessione."
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Presa neutra, gomiti fermi · brachiale e brachioradiale."
             }
           ]
         }
