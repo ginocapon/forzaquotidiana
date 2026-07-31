@@ -556,3 +556,81 @@
 }
 .admin-back { margin-top: 1rem; }
 .admin-back a { color: var(--accent); }
+
+/* Blocco 1 — sessione dettagliata */
+.admin-session-head--blocco h1 { color: var(--accent); }
+.admin-priorita { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.35rem; }
+.admin-priorita li { font-size: 0.95rem; }
+.admin-regole-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 1rem 0;
+}
+.admin-regole-card { padding: 0.85rem 1rem; }
+.admin-regole-card h3 { margin: 0 0 0.5rem; font-size: 0.9rem; color: var(--accent); }
+.admin-regole-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.82rem; }
+.admin-focus__item { margin-bottom: 1rem; }
+.admin-focus__item h3 { margin: 0 0 0.35rem; font-size: 0.95rem; }
+.admin-focus__item ul { margin: 0; padding-left: 0; list-style: none; font-size: 0.88rem; }
+.admin-callout { margin: 1.25rem 0; padding: 1rem 1.25rem; border-left: 3px solid var(--accent); }
+.admin-section { margin: 2rem 0; }
+.admin-section--shared { border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.admin-ex-fig svg { width: 72px; height: 72px; }
+.exercise-card--prog { border-color: rgba(201, 120, 58, 0.45); }
+.tag-prog { color: var(--accent); font-weight: 600; }
+.admin-diario-table { font-size: 0.82rem; }
+
+/* Mappa esercizi */
+.admin-mappa-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+.admin-mappa-card { position: relative; padding: 1rem; text-align: center; }
+.admin-mappa-card__session {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: rgba(201, 120, 58, 0.12);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+.admin-mappa-card__fig svg { width: 80px; height: 80px; margin: 0.5rem auto; display: block; }
+.admin-mappa-card h2 { font-size: 0.92rem; margin: 0.5rem 0 0.35rem; line-height: 1.25; }
+.admin-mappa-card__meta { font-size: 0.78rem; color: var(--muted); margin: 0 0 0.35rem; }
+.admin-mappa-card__mov { font-size: 0.8rem; margin: 0; }
+
+/* Metodo Blocco 1 */
+.admin-metodo-section { margin-bottom: 2.5rem; }
+.admin-metodo-section h2 { margin-bottom: 0.75rem; }
+.admin-metodo-section h3 { margin: 1.25rem 0 0.5rem; font-size: 1rem; }
+.admin-metodo-lead { color: #ccc4b8; max-width: 65ch; margin-bottom: 1rem; }
+.admin-metodo-intro { margin-bottom: 2rem; }
+.admin-metodo-list { margin: 0 0 1rem; padding-left: 1.25rem; }
+.admin-metodo-list li { margin-bottom: 0.35rem; }
+.admin-metodo-alt,
+.admin-metodo-rules { margin-top: 1rem; }
+.admin-metodo-table th { white-space: nowrap; }
+.btn-sm { font-size: 0.85rem; padding: 0.35rem 0.75rem; }
+.scheda-a4__mini-table {
+  width: 100%;
+  font-size: 0.72rem;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+.scheda-a4__mini-table th,
+.scheda-a4__mini-table td {
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+}
+
+@media print {
+  .admin-metodo-section { break-inside: avoid; page-break-inside: avoid; }
+  .admin-metodo-table { font-size: 0.8rem; }
+}

@@ -5,7 +5,9 @@
   "use strict";
 
   var MACRO_URL = "/admin/data/macrociclo-2026-2027.json";
+  var BLOCCO1_URL = "/admin/data/blocco-1-fase1.json";
   var CATALOGO_URL = "/admin/data/esercizi-catalogo.json";
+  var BLOCCO1_ID = "ipertrofia-accumulo";
 
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
@@ -62,8 +64,41 @@
     return log;
   }
 
-  function renderPdf(macro, catalogo, faseId, sessionKey, root) {
-    var fase = findFase(macro, faseId);
+  function adaptBloccoToFase(blocco) {
+    var sessioni = {};
+    ["a1", "b1", "a2", "b2"].forEach(function (key) {
+      var s = blocco.sessioni[key];
+      if (!s) return;
+      sessioni[key] = {
+        nome: s.codice + " · " + s.nome,
+        esercizi: s.esercizi.map(function (ex) {
+          return {
+            nome: ex.nome,
+            gruppo: ex.gruppo,
+            serie: ex.serie,
+            ripetizioni: ex.ripetizioni,
+            recupero: ex.recupero,
+            rir: ex.rir,
+            progressione: ex.progressionePrincipale || false,
+            note: ex.note,
+            figura: ex.figura
+          };
+        })
+      };
+    });
+    return {
+      nome: blocco.nome,
+      inizio: blocco.inizio,
+      fine: blocco.fine,
+      settimane: blocco.settimane,
+      rir: "sett. 6–8: RIR 1 · vedi /admin/metodo-blocco1/pdf/",
+      obiettivo: blocco.schedaIntro,
+      sessioni: sessioni
+    };
+  }
+
+  function renderPdf(macro, catalogo, faseId, sessionKey, root, blocco) {
+    var fase = blocco ? adaptBloccoToFase(blocco) : findFase(macro, faseId);
     if (!fase || !fase.sessioni[sessionKey]) {
       root.innerHTML = "<p>Sessione non trovata.</p>";
       return;
@@ -108,7 +143,7 @@
       var cat = catalogo[ex.nome] || {};
       var row = el("div", { className: "ex-pdf-row" + (ex.progressione ? " ex-pdf-row--prog" : "") });
 
-      row.appendChild(figureSvg(cat.figura));
+      row.appendChild(figureSvg(ex.figura || cat.figura));
 
       var body = el("div");
       var nameLine = el("p", { className: "ex-pdf-row__name" });
@@ -168,11 +203,21 @@
       return;
     }
 
+    if (faseId === BLOCCO1_ID) {
+      Promise.all([
+        fetch(BLOCCO1_URL).then(function (r) { return r.json(); }),
+        fetch(CATALOGO_URL).then(function (r) { return r.json(); })
+      ])
+        .then(function (res) { renderPdf(null, res[1], faseId, sessionKey, root, res[0]); })
+        .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
+      return;
+    }
+
     Promise.all([
       fetch(MACRO_URL).then(function (r) { return r.json(); }),
       fetch(CATALOGO_URL).then(function (r) { return r.json(); })
     ])
-      .then(function (res) { renderPdf(res[0], res[1], faseId, sessionKey, root); })
+      .then(function (res) { renderPdf(res[0], res[1], faseId, sessionKey, root, null); })
       .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
 
     var printBtn = document.getElementById("pdf-print-btn");

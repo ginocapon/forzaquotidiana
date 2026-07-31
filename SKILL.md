@@ -955,6 +955,10 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | PDF una fase (A1–B2) | `/admin/prototipi/periodizzazione/fase/?anno=2026-2027&fase=<id>` |
 | Hub anni | `admin/data/hub-periodizzazione.json` |
 | Dati macrociclo | `admin/data/macrociclo-2026-2027.json` |
+| **Blocco 1 dettaglio** (fonte di verità sett. 2026) | `admin/data/blocco-1-fase1.json` |
+| **Mappa esercizi** (figure SVG) | `/admin/mappa-esercizi/` |
+| Catalogo esercizi + figure | `admin/data/esercizi-catalogo.json` + `admin/img/esercizi-sprite.svg` |
+| Sync Blocco 1 → macrociclo | `node tools/sync-blocco1-macrociclo.mjs` |
 | Teoria generica (archivio) | `admin/data/mesocicli.json` — vecchie schede/pdf → redirect all’hub |
 | Rigenera macrociclo | `node tools/genera-macrociclo.mjs` + `rebalance-macrociclo-55.mjs` |
 
@@ -1062,6 +1066,22 @@ Stampa: **A4 verticale**, margini standard, «Salva come PDF» dal browser.
 - [ ] Allineare `periodizzazioneAnnuale` in `admin/data/mesocicli.json`
 - [ ] Dashboard `/admin/` mostra tutte le fasi con link A1–B2
 - [ ] Aggiornare questa sezione §8 se cambiano le linee guida
+
+### 8.11 Blocco 1 · Ipertrofia accumulo (da 1 settembre 2026)
+
+**Fonte di verità:** `admin/data/blocco-1-fase1.json` — contiene A1–B2 con tempo, recuperi, progressione, priorità, focus tecnico, regole settimana per settimana, diario stampabile.
+
+| Azione | Come |
+|--------|------|
+| Aprire scheda dettagliata | `/admin/sessione/?ciclo=ipertrofia-accumulo&sessione=a1` (o b1/a2/b2) |
+| Mappa figure esercizi | `/admin/mappa-esercizi/` |
+| PDF fase completa A1–B2 | Hub → PDF scheda Fase 1 |
+| PDF singola sessione | Pulsante «Stampa scheda con spiegazioni» nella pagina sessione |
+| Modificare esercizi Blocco 1 | Edita `blocco-1-fase1.json` → `node tools/sync-blocco1-macrociclo.mjs` |
+| Nuove figure SVG | Aggiungi symbol in `admin/img/esercizi-sprite.svg` + voce in `esercizi-catalogo.json` |
+| Articolo strategia (diario) | `/diario/blocco-1-ipertrofia-accumulo-settembre-2026/` — riflessione, non log |
+
+**Ragionamento schede:** 13 settimane stesso schema → adattamento (1–2) → accumulo (3–6) → intensificazione (7–10) → picco (11–12) → deload (13). A settimana 14 si riparte con Blocco 2 sostituendo ~20–30% esercizi.
 
 ### 8.10 Errori da evitare
 

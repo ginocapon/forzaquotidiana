@@ -29,15 +29,16 @@
     });
   }
 
-  function render(macro, fase, root) {
+  function render(macro, fase, root, blocco) {
     root.innerHTML = "";
     document.title = "PDF · " + fase.nome + " | Scheda";
 
     var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
+    var tipo = blocco ? blocco.tipo : "Periodizzazione";
 
     var head = el("header", { className: "scheda-a4__head" });
     head.innerHTML =
-      "<div class=\"scheda-a4__head-main\"><strong>Scheda allenamento</strong> · periodizzazione annuale</div>" +
+      "<div class=\"scheda-a4__head-main\"><strong>Scheda allenamento</strong> · " + tipo + "</div>" +
       "<div class=\"scheda-a4__head-period\"><span class=\"scheda-a4__badge\">" + fase.settimane + " sett.</span> <strong>" + fase.nome + "</strong></div>" +
       "<div class=\"scheda-a4__head-meta\">" +
       "<span><strong>Atleta:</strong> _______________</span>" +
@@ -47,11 +48,45 @@
     article.appendChild(head);
 
     var intro = el("div", { className: "scheda-a4__osservazioni scheda-a4__intro-fase" });
-    intro.innerHTML =
-      "<div class=\"scheda-a4__osservazioni-label\">Spiegazione fase (leggi prima di allenarti)</div>" +
-      "<p class=\"scheda-a4__intro-text\">" + (fase.guida || fase.obiettivo) + "</p>" +
-      (fase.schedaIntro ? "<p class=\"scheda-a4__intro-text\">" + fase.schedaIntro + "</p>" : "");
+    var introHtml = "<div class=\"scheda-a4__osservazioni-label\">Spiegazione fase (leggi prima di allenarti)</div>" +
+      "<p class=\"scheda-a4__intro-text\">" + (fase.guida || fase.obiettivo) + "</p>";
+    if (blocco && blocco.periodizzazione) {
+      introHtml += "<p class=\"scheda-a4__intro-text\"><strong>Periodizzazione:</strong> ";
+      introHtml += blocco.periodizzazione.map(function (p) {
+        return p.fase + " (sett. " + p.settimane + ")";
+      }).join(" → ");
+      introHtml += "</p>";
+    }
+    if (fase.schedaIntro) introHtml += "<p class=\"scheda-a4__intro-text\">" + fase.schedaIntro + "</p>";
+    intro.innerHTML = introHtml;
     article.appendChild(intro);
+
+    if (blocco && blocco.guidaOperativa) {
+      var g = blocco.guidaOperativa;
+      var metodo = el("div", { className: "scheda-a4__osservazioni scheda-a4__metodo" });
+      var mh = "<div class=\"scheda-a4__osservazioni-label\">Metodo — distribuzione e RIR</div>";
+      mh += "<p class=\"scheda-a4__intro-text\"><strong>" + g.sintesi + "</strong></p>";
+      if (g.distribuzioneSettimanale && g.distribuzioneSettimanale.consigliata) {
+        mh += "<p class=\"scheda-a4__intro-text\"><strong>Settimana tipo:</strong> ";
+        mh += g.distribuzioneSettimanale.consigliata
+          .filter(function (r) { return r.sessione !== "Riposo"; })
+          .map(function (r) { return r.giorno.slice(0, 3) + " " + r.sessione; })
+          .join(" · ");
+        mh += "</p>";
+      }
+      if (g.periodizzazioneIntensita) {
+        mh += "<table class=\"scheda-a4__mini-table\"><thead><tr><th>Sett.</th><th>RIR</th><th>Vol.</th></tr></thead><tbody>";
+        g.periodizzazioneIntensita.forEach(function (p) {
+          mh += "<tr><td>" + p.settimane + "</td><td>" + p.intensita + "</td><td>" + p.volume + "</td></tr>";
+        });
+        mh += "</tbody></table>";
+      }
+      if (g.regoleRirECedimento && g.regoleRirECedimento.principio) {
+        mh += "<p class=\"scheda-a4__intro-text\"><em>" + g.regoleRirECedimento.principio + "</em></p>";
+      }
+      metodo.innerHTML = mh;
+      article.appendChild(metodo);
+    }
 
     var grid = el("div", { className: "scheda-a4__grid" });
     ["a1", "b1", "a2", "b2"].forEach(function (key) {
@@ -111,7 +146,12 @@
           root.innerHTML = "<p>Fase non trovata. <a href=\"/admin/prototipi/periodizzazione/\">Hub</a></p>";
           return;
         }
-        render(macro, fase, root);
+        if (faseId === "ipertrofia-accumulo") {
+          return fetch("/admin/data/blocco-1-fase1.json")
+            .then(function (r) { return r.json(); })
+            .then(function (blocco) { render(macro, fase, root, blocco); });
+        }
+        render(macro, fase, root, null);
       })
       .catch(function (err) {
         root.innerHTML = "<p>Errore: " + err.message + "</p>";

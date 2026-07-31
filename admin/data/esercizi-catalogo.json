@@ -119,6 +119,38 @@
     "movimento": "Clean al petto, halo lento 10 rep/senso, core attivo. Carico da definire.",
     "errori": "Movimento troppo veloce; carico eccessivo."
   },
+  "Polpacci multipower": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower Technogym, piedi su rialzo.",
+    "movimento": "4×12-15, pausa in stretch e squeeze in punta.",
+    "errori": "Rimbalzo; ROM incompleto."
+  },
+  "Squat multipower": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Barra sui trapezi, piedi leggermente avanti.",
+    "movimento": "4×8, profondità costante, RIR 1.",
+    "errori": "Ginocchia che collassano; profondità inconsistente."
+  },
+  "Trap Bar": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Schiena, trapezi",
+    "setup": "Trap bar (stacco omega), schiena neutra, hip hinge.",
+    "movimento": "4×6-8, spinta col bacino, barra vicino alle gambe.",
+    "errori": "Schiena arrotondata; barra lontana dalle tibie."
+  },
+  "Curl Martello": {
+    "figura": "fig-curl-mart",
+    "primario": "Bicipiti, brachiale",
+    "secondario": "Avambraccio",
+    "setup": "Presa neutra, gomiti fermi.",
+    "movimento": "3×8-10, no dondolio.",
+    "errori": "Slancio col busto; gomiti che avanzano."
+  },
   "Polpacci al multipower": {
     "figura": "fig-polpacci",
     "primario": "Gastrocnemio",
@@ -180,7 +212,7 @@
     "primario": "Soleo",
     "secondario": "Gastrocnemio",
     "setup": "Macchina polpacci seduto, cosce bloccate.",
-    "movimento": "4×12–15, eccentrica controllata. Carico da definire.",
+    "movimento": "4×15-20, eccentrica controllata. Carico da definire.",
     "errori": "Carico eccessivo che riduce il ROM."
   },
   "Stacco rumeno con manubri": {
@@ -190,5 +222,277 @@
     "setup": "Manubri lungo le cosce, ginocchia morbide, schiena neutra.",
     "movimento": "Hip hinge fino a stiramento femorali, risali spingendo il bacino.",
     "errori": "Arrotondare la schiena; flettere troppo le ginocchia (diventa squat)."
+  },
+  "Panca inclinata manubri": {
+    "figura": "fig-press-incl",
+    "primario": "Petto alto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Panca a 30°, scapole addotte, piedi a terra.",
+    "movimento": "Tempo 3-1-X-1. Discesa controllata, spinta esplosiva senza lock.",
+    "errori": "Inclinazione eccessiva; rimbalzo in basso."
+  },
+  "Lat machine": {
+    "figura": "fig-lat",
+    "primario": "Gran dorsale",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Presa larga, cosce bloccate, petto alto.",
+    "movimento": "Deprime le scapole, tira al petto alto, eccentrica controllata.",
+    "errori": "Slancio col busto."
+  },
+  "Polpacci in piedi": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "In piedi, ginocchia quasi estese.",
+    "movimento": "Stretch 2\", contrazione 2\", ROM completo.",
+    "errori": "Rimbalzo; ROM parziale."
+  },
+  "Panca inclinata manubri 30°": {
+    "figura": "fig-press-incl",
+    "primario": "Petto alto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Panca a 30°, scapole addotte, piedi a terra.",
+    "movimento": "Tempo 3-1-X-1. Discesa controllata, spinta esplosiva senza lock.",
+    "errori": "Inclinazione eccessiva; rimbalzo in basso."
+  },
+  "Rematore bilanciere": {
+    "figura": "fig-rematore",
+    "primario": "Dorsali, romboidi",
+    "secondario": "Bicipiti",
+    "setup": "Busto ~45°, schiena neutra.",
+    "movimento": "Tira all'ombelico, squeeze scapole, eccentrica 2 sec.",
+    "errori": "Cat back; slancio col busto."
+  },
+  "Lento avanti bilanciere": {
+    "figura": "fig-lento",
+    "primario": "Deltoidi anteriori",
+    "secondario": "Tricipiti",
+    "setup": "Seduto, core attivo.",
+    "movimento": "Spinta sopra la testa, discesa controllata.",
+    "errori": "Inarcamento lombare."
+  },
+  "Alzate laterali": {
+    "figura": "fig-alzate",
+    "primario": "Deltoide laterale",
+    "secondario": "Trapezi",
+    "setup": "Gomiti leggermente flessi.",
+    "movimento": "Tempo 2-1-3-1. Alza fino alle spalle, discesa lenta.",
+    "errori": "Slancio del busto."
+  },
+  "Calf Raise in piedi": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "In piedi, ginocchia quasi estese.",
+    "movimento": "Stretch 2\", contrazione 2\", movimento completo.",
+    "errori": "Rimbalzo; ROM parziale."
+  },
+  "Polpacci drop set": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "Soleo",
+    "setup": "Multipower, piedi su rialzo.",
+    "movimento": "4 serie drop senza pausa tra i cali (es. 140→110→80 kg).",
+    "errori": "ROM incompleto; pausa tra i drop."
+  },
+  "Pressa": {
+    "figura": "fig-pressa",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Pressa 45°, schiena appoggiata.",
+    "movimento": "8-10 rep, eccentrica lenta, ROM completo.",
+    "errori": "Bacino che si stacca; rimbalzo."
+  },
+  "Leg Extension": {
+    "figura": "fig-legext",
+    "primario": "Quadricipiti",
+    "secondario": "—",
+    "setup": "Seduto, perno al ginocchio.",
+    "movimento": "10-12 rep; ultima serie RIR 0-1 se la tecnica regge.",
+    "errori": "Slancio in concentrica."
+  },
+  "Doktor": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "Macchina Doktor PRIMO, affondo bulgaro guidato.",
+    "movimento": "4×8, stop prima del cedimento.",
+    "errori": "Ginocchio che collassa."
+  },
+  "Rumeno manubri": {
+    "figura": "fig-rdl",
+    "primario": "Femorali",
+    "secondario": "Glutei",
+    "setup": "Manubri lungo le cosce, schiena neutra.",
+    "movimento": "Hip hinge 8-10 rep, stretch controllato.",
+    "errori": "Schiena arrotondata."
+  },
+  "Curl Scott": {
+    "figura": "fig-curl",
+    "primario": "Bicipiti",
+    "secondario": "Brachiale",
+    "setup": "Panca Scott curva, gomiti sul supporto.",
+    "movimento": "8-10 rep, nessun dondolio.",
+    "errori": "Gomiti che si staccano."
+  },
+  "Leg Curl": {
+    "figura": "fig-legcurl",
+    "primario": "Femorali",
+    "secondario": "—",
+    "setup": "Sdraiato o seduto.",
+    "movimento": "10-12 rep, contrazione completa.",
+    "errori": "ROM parziale."
+  },
+  "Squat bilanciere": {
+    "figura": "fig-squat",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Barra sui trapezi, addome contratto.",
+    "movimento": "Discesa sotto il parallelo se possibile, ginocchia in linea coi piedi.",
+    "errori": "Valgo ginocchia; cat back."
+  },
+  "Pressa 45°": {
+    "figura": "fig-pressa",
+    "primario": "Quadricipiti",
+    "secondario": "Glutei",
+    "setup": "ROM completo, bacino appoggiato.",
+    "movimento": "Nessun rimbalzo, eccentrica controllata.",
+    "errori": "Stacco del bacino."
+  },
+  "Leg Curl sdraiato": {
+    "figura": "fig-legcurl",
+    "primario": "Femorali",
+    "secondario": "—",
+    "setup": "Sdraiato, perno al ginocchio.",
+    "movimento": "Massimo allungamento, contrazione 1\", eccentrica lenta.",
+    "errori": "ROM parziale."
+  },
+  "Affondi camminati manubri": {
+    "figura": "fig-affondi",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Manubri ai lati, passo controllato.",
+    "movimento": "10+10 passi, ginocchio stabile.",
+    "errori": "Passo troppo corto; busto che crolla."
+  },
+  "Standing Calf Raise": {
+    "figura": "fig-polpacci",
+    "primario": "Gastrocnemio",
+    "secondario": "—",
+    "setup": "Piedi su rialzo opzionale.",
+    "movimento": "Stretch 2\", contrazione 2\", nessun rimbalzo.",
+    "errori": "ROM incompleto."
+  },
+  "Seated Calf Raise": {
+    "figura": "fig-calf-seated",
+    "primario": "Soleo",
+    "secondario": "Gastrocnemio",
+    "setup": "Seduto, cosce bloccate.",
+    "movimento": "Tempo 2-2-2-2, movimento completo.",
+    "errori": "Carico eccessivo."
+  },
+  "Crunch ai cavi": {
+    "figura": "fig-crunch",
+    "primario": "Addome",
+    "secondario": "—",
+    "setup": "In ginocchio, cavi alti.",
+    "movimento": "Flessione del tronco, addome contratto.",
+    "errori": "Tirare con le braccia."
+  },
+  "Chest Press convergente": {
+    "figura": "fig-chest-converg",
+    "primario": "Petto",
+    "secondario": "Deltoidi, tricipiti",
+    "setup": "Movimento convergente, scapole stabili.",
+    "movimento": "Fermo 1 sec in chiusura, nessun rimbalzo.",
+    "errori": "Stacco spalle."
+  },
+  "Pulley basso": {
+    "figura": "fig-pulley-basso",
+    "primario": "Dorsali",
+    "secondario": "Bicipiti",
+    "setup": "Petto aperto, gomiti vicini al busto.",
+    "movimento": "Contrazione massima della schiena, eccentrica controllata.",
+    "errori": "Slancio col busto."
+  },
+  "Lat Machine presa neutra": {
+    "figura": "fig-lat-neutro",
+    "primario": "Gran dorsale",
+    "secondario": "Bicipiti",
+    "setup": "Presa neutra, petto alto.",
+    "movimento": "Tirare con i gomiti, no slanci.",
+    "errori": "ROM incompleto."
+  },
+  "Alzate laterali ai cavi": {
+    "figura": "fig-alzate-cavi",
+    "primario": "Deltoide laterale",
+    "secondario": "—",
+    "setup": "Cavi bassi, tensione continua.",
+    "movimento": "Nessun aiuto del tronco, massima tensione.",
+    "errori": "Slancio."
+  },
+  "Rematore/Trazioni": {
+    "figura": "fig-rematore",
+    "primario": "Dorsali",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Rematore bilanciere busto ~45° oppure trazioni presa larga.",
+    "movimento": "Alterna tra le sedute — 3×8-10, RIR 1.",
+    "errori": "Slancio col busto; ROM parziale."
+  },
+  "Halo": {
+    "figura": "fig-halo",
+    "primario": "Deltoidi, cuffia",
+    "secondario": "Core, trapezi",
+    "setup": "Kettlebell, finisher A2 — sempre ultimo esercizio.",
+    "movimento": "Halo lento intorno alla testa, 2×12, core attivo.",
+    "errori": "Movimento troppo veloce; carico eccessivo."
+  },
+  "Reverse Pec Deck": {
+    "figura": "fig-reverse-pec",
+    "primario": "Deltoide posteriore",
+    "secondario": "Romboidi",
+    "setup": "Petto sul supporto, scapole stabili.",
+    "movimento": "Apertura controllata, squeeze posteriore.",
+    "errori": "Usare il trapezio al posto del deltoide posteriore."
+  },
+  "Curl bilanciere EZ": {
+    "figura": "fig-curl-ez",
+    "primario": "Bicipiti",
+    "secondario": "Brachiale",
+    "setup": "Gomiti fermi, presa EZ.",
+    "movimento": "Massima escursione, nessun dondolio.",
+    "errori": "Slancio col busto."
+  },
+  "Stacco Rumeno": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Lombare",
+    "setup": "Schiena neutra, bilanciere vicino alle gambe.",
+    "movimento": "Stretch massimo femorali, nessun rimbalzo.",
+    "errori": "Arrotondare la schiena."
+  },
+  "Hip Thrust": {
+    "figura": "fig-hip",
+    "primario": "Glutei",
+    "secondario": "Femorali",
+    "setup": "Schiena su panca, sguardo in avanti.",
+    "movimento": "Fermo 2\" in massima contrazione, bacino esteso.",
+    "errori": "Iperestensione lombare."
+  },
+  "Bulgarian Split Squat": {
+    "figura": "fig-bulgarian",
+    "primario": "Quadricipiti, glutei",
+    "secondario": "Core",
+    "setup": "Passo sufficientemente lungo, ginocchio stabile.",
+    "movimento": "Discesa controllata, 10+10 per gamba.",
+    "errori": "Passo troppo corto."
+  },
+  "Plank + Side Plank": {
+    "figura": "fig-plank",
+    "primario": "Core",
+    "secondario": "Obliqui",
+    "setup": "Linea corpo neutra, addome contratto.",
+    "movimento": "45-60 sec per posizione, aumenta progressivamente.",
+    "errori": "Bacino che cede."
   }
 }
