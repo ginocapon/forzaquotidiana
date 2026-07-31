@@ -68,7 +68,7 @@ for (const file of walk(ROOT)) {
 
   if (path.resolve(file) === path.join(ROOT, "index.html") && !html.includes('name="google-site-verification"')) {
     html = html.replace(
-      /<meta name="description"[^>]*>\n/i,
+      /<meta charset="UTF-8">\n/i,
       (m) => m + `<meta name="google-site-verification" content="${GOOGLE_VERIFY}">\n`
     );
     changed = true;
