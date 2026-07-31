@@ -34,14 +34,9 @@
     return "⭐".repeat(Math.min(n, 5));
   }
 
-  function figureSvg(figId) {
+  function figureSvg(figId, label) {
     var wrap = el("div", { className: "exercise-card__fig admin-ex-fig" });
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 80 80");
-    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#" + (figId || "fig-press-incl"));
-    svg.appendChild(use);
-    wrap.appendChild(svg);
+    wrap.appendChild(window.fqSprite.figure(figId, label));
     return wrap;
   }
 
@@ -136,7 +131,7 @@
     esercizi.forEach(function (ex) {
       var cat = catalogo[ex.nome] || {};
       var card = el("article", { className: "exercise-card" + (ex.progressionePrincipale ? " exercise-card--prog" : "") });
-      card.appendChild(figureSvg(ex.figura || cat.figura));
+      card.appendChild(figureSvg(ex.figura || cat.figura, ex.nome));
 
       var body = el("div");
       body.appendChild(el("p", {
@@ -304,21 +299,6 @@
 
   window.fqSessioneDettaglio = {
     renderBlocco1Session: renderBlocco1Session,
-    BLOCCO1_ID: "ipertrofia-accumulo",
-    injectSprite: function () {
-      if (document.getElementById("admin-ex-sprite")) return;
-      fetch("/admin/img/esercizi-sprite.svg")
-        .then(function (r) { return r.text(); })
-        .then(function (svg) {
-          var wrap = document.createElement("div");
-          wrap.id = "admin-ex-sprite";
-          wrap.innerHTML = svg;
-          wrap.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
-          document.body.insertBefore(wrap, document.body.firstChild);
-        })
-        .catch(function () { /* sprite opzionale */ });
-    }
+    BLOCCO1_ID: "ipertrofia-accumulo"
   };
-
-  window.fqSessioneDettaglio.injectSprite();
 })();

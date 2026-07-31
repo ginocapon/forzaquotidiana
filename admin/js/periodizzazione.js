@@ -1,5 +1,6 @@
 /**
  * Periodizzazione admin — rendering da mesocicli.json
+ * @deprecated Sostituito da periodizzazione-hub.js (hub unificato). Non referenziato in HTML.
  */
 (function () {
   "use strict";
@@ -30,8 +31,8 @@
     if (attrs) {
       Object.keys(attrs).forEach(function (k) {
         if (k === "className") node.className = attrs[k];
-        else if (k === "html") node.innerHTML = attrs.html;
-        else if (k === "text") node.textContent = attrs.text;
+        else if (k === "html") node.innerHTML = attrs[k];
+        else if (k === "text") node.textContent = attrs[k];
         else node.setAttribute(k, attrs[k]);
       });
     }

@@ -17,9 +17,10 @@
     }
   }
 
-  function markSubscribed(email) {
+  /* Nessuna email in localStorage: serve solo sapere che l'iscrizione è avvenuta. */
+  function markSubscribed() {
     try {
-      localStorage.setItem(STORAGE_KEY, email || "1");
+      localStorage.setItem(STORAGE_KEY, "1");
     } catch (e) { /* ignore */ }
   }
 
@@ -42,7 +43,7 @@
       email = decodeURIComponent(email);
     } catch (e) { /* ignore */ }
 
-    markSubscribed(email);
+    markSubscribed();
     showSuccess(email);
 
     params.delete("sub");
@@ -62,11 +63,7 @@
 
   consumeReturnParams();
 
-  if (document.body.dataset.newsletterGate === "schede-peso" && !isSubscribed()) {
-    var next = encodeURIComponent(window.location.pathname);
-    window.location.replace("/allenamenti/newsletter/?from=schede-peso&next=" + next);
-    return;
-  }
+  /* Le schede PDF sono pubbliche: la newsletter avvisa delle novità, non è un muro. */
 
   if (isSubscribed() && form && success && success.hidden) {
     form.hidden = true;
@@ -107,15 +104,5 @@
     form.action = scriptUrl;
     form.method = "POST";
   });
-
-  var demoBtn = document.getElementById("newsletter-demo");
-  if (demoBtn) {
-    demoBtn.addEventListener("click", function () {
-      markSubscribed("demo@forzaquotidiana.it");
-      showSuccess("demo@forzaquotidiana.it");
-      var next = params.get("next") || "/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/";
-      window.location.href = next;
-    });
-  }
 })();
 
