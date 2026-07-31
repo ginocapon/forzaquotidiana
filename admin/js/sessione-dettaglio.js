@@ -78,13 +78,18 @@
     var wrap = el("div", { className: "admin-regole-grid" });
     var labels = {
       sett1_2: "Settimane 1-2",
+      sett3_5: "Settimane 3-5",
       sett3_6: "Settimane 3-6",
+      sett6_8: "Settimane 6-8",
       sett7_10: "Settimane 7-10",
+      sett9: "Settimana 9",
+      sett10_12: "Settimane 10-12",
       sett11_12: "Settimane 11-12",
       sett13: "Settimana 13"
     };
-    Object.keys(labels).forEach(function (key) {
-      if (!regole[key]) return;
+    var order = ["sett1_2", "sett3_5", "sett3_6", "sett6_8", "sett7_10", "sett9", "sett10_12", "sett11_12", "sett13"];
+    order.forEach(function (key) {
+      if (!regole[key] || !labels[key]) return;
       var card = el("div", { className: "admin-regole-card card" });
       card.appendChild(el("h3", { text: labels[key] }));
       var ul = el("ul");
@@ -241,12 +246,30 @@
     root.appendChild(renderDiario(s.esercizi));
 
     var shared = el("section", { className: "admin-section admin-section--shared" });
-    shared.appendChild(el("h2", { text: "Periodizzazione del blocco (13 settimane)" }));
-    shared.appendChild(renderTable(
-      ["Fase", "Settimane", "Obiettivo"],
-      blocco.periodizzazione.map(function (p) { return [p.fase, p.settimane, p.obiettivo]; }),
-      "scheda-table"
-    ));
+    if (blocco.guidaOperativa) {
+      shared.appendChild(el("h2", { text: "Come usare il blocco" }));
+      shared.appendChild(el("p", {
+        html: blocco.guidaOperativa.sintesi +
+          " <a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/\">Guida completa (distribuzione, RIR, volumi) →</a>"
+      }));
+      if (blocco.guidaOperativa.periodizzazioneIntensita) {
+        shared.appendChild(el("h3", { text: "Periodizzazione 13 settimane" }));
+        shared.appendChild(renderTable(
+          ["Settimane", "RIR", "Volume", "Nota"],
+          blocco.guidaOperativa.periodizzazioneIntensita.map(function (p) {
+            return [p.settimane, p.intensita, p.volume, p.nota];
+          }),
+          "scheda-table"
+        ));
+      }
+    } else {
+      shared.appendChild(el("h2", { text: "Periodizzazione del blocco (13 settimane)" }));
+      shared.appendChild(renderTable(
+        ["Fase", "Settimane", "Obiettivo"],
+        blocco.periodizzazione.map(function (p) { return [p.fase, p.settimane, p.obiettivo]; }),
+        "scheda-table"
+      ));
+    }
     shared.appendChild(el("h3", { text: "Regole del blocco" }));
     shared.appendChild(renderRegole(blocco.regoleBlocco));
     if (blocco.guida) {

@@ -15,7 +15,7 @@
       "fine": "2026-11-30",
       "settimane": 13,
       "rir": "2-3 → 1-2",
-      "obiettivo": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con progressione principale (*) progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta. Split upper/lower alternato: A1 enfatizza petto alto e dorsali, B1 pattern accosciato, A2 complementa angoli diversi, B2 pattern anca e catena posteriore.",
+      "obiettivo": "4 allenamenti/settimana (A1–B1–A2–B2). Schema consigliato: Lun A1 · Mar B1 · Gio A2 · Sab B2. Il RIR sulla scheda è il target nelle settimane 6–8: nelle altre settimane segui la tabella periodizzazione in «Metodo Blocco 1». Gli esercizi con * sono i fondamentali in progressione. Guida completa: /admin/metodo-blocco1/",
       "sessioni": {
         "a1": {
           "nome": "A1 · Petto · Schiena · Spalle · Polpacci",
@@ -362,8 +362,8 @@
           ]
         }
       },
-      "guida": "Fase di costruzione. Nelle prime 2 settimane parti soft (RIR 2–3) per far adattare tendini e tecnica; poi accumulo tipico 8–12 ripetizioni. Non cercare PR: cerca serie complete e pulite. La settimana 13 è deload (−40% volume) — obbligatoria. Alla fine di questa fase hai più «motore» e abitudine al volume, base per alzare i carichi dopo.",
-      "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con progressione principale (*) progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta. Split upper/lower alternato: A1 enfatizza petto alto e dorsali, B1 pattern accosciato, A2 complementa angoli diversi, B2 pattern anca e catena posteriore."
+      "guida": "Fase di costruzione in 13 settimane con intensità ondulata: parti soft (RIR 3–2), accumuli a RIR 2 e poi 1, scarico parziale in sett. 9, picco controllato in sett. 10–12 (cedimento solo sull’ultima serie dei fondamentali), deload obbligatorio in sett. 13 (−40% volume). Non cercare PR nelle prime settimane: cerca serie pulite e progressione sul carico quando completi il tetto di rep col RIR target per due sedute di fila.",
+      "schedaIntro": "4 allenamenti/settimana (A1–B1–A2–B2). Schema consigliato: Lun A1 · Mar B1 · Gio A2 · Sab B2. Il RIR sulla scheda è il target nelle settimane 6–8: nelle altre settimane segui la tabella periodizzazione in «Metodo Blocco 1». Gli esercizi con * sono i fondamentali in progressione. Guida completa: /admin/metodo-blocco1/"
     },
     {
       "id": "tensione-forza",

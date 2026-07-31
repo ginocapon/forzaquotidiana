@@ -8,14 +8,15 @@
   "settimane": 13,
   "frequenza": "4 allenamenti/settimana",
   "durataSeduta": "85-95 minuti",
-  "guida": "Fase di costruzione. Nelle prime 2 settimane parti soft (RIR 2–3) per far adattare tendini e tecnica; poi accumulo tipico 8–12 ripetizioni. Non cercare PR: cerca serie complete e pulite. La settimana 13 è deload (−40% volume) — obbligatoria. Alla fine di questa fase hai più «motore» e abitudine al volume, base per alzare i carichi dopo.",
-  "schedaIntro": "Come usare questa fase: 4 allenamenti a settimana (A1, B1, A2, B2). Gli esercizi con progressione principale (*) progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Colonna kg vuota: compilala dopo i massimali. PDF = foglio palestra anonimo, senza nome atleta. Split upper/lower alternato: A1 enfatizza petto alto e dorsali, B1 pattern accosciato, A2 complementa angoli diversi, B2 pattern anca e catena posteriore.",
+  "guida": "Fase di costruzione in 13 settimane con intensità ondulata: parti soft (RIR 3–2), accumuli a RIR 2 e poi 1, scarico parziale in sett. 9, picco controllato in sett. 10–12 (cedimento solo sull’ultima serie dei fondamentali), deload obbligatorio in sett. 13 (−40% volume). Non cercare PR nelle prime settimane: cerca serie pulite e progressione sul carico quando completi il tetto di rep col RIR target per due sedute di fila.",
+  "schedaIntro": "4 allenamenti/settimana (A1–B1–A2–B2). Schema consigliato: Lun A1 · Mar B1 · Gio A2 · Sab B2. Il RIR sulla scheda è il target nelle settimane 6–8: nelle altre settimane segui la tabella periodizzazione in «Metodo Blocco 1». Gli esercizi con * sono i fondamentali in progressione. Guida completa: /admin/metodo-blocco1/",
   "periodizzazione": [
-    { "fase": "Adattamento", "settimane": "1-2", "obiettivo": "Tecnica, ricerca dei carichi, nessun cedimento" },
-    { "fase": "Accumulo", "settimane": "3-6", "obiettivo": "Progressione dei carichi e delle ripetizioni" },
-    { "fase": "Intensificazione", "settimane": "7-10", "obiettivo": "Aumento dell'intensità mantenendo il volume" },
-    { "fase": "Picco", "settimane": "11-12", "obiettivo": "Massimo stimolo ipertrofico" },
-    { "fase": "Deload", "settimane": "13", "obiettivo": "Recupero attivo e preparazione al blocco successivo" }
+    { "fase": "Adattamento", "settimane": "1-2", "rir": "3-2", "obiettivo": "Tecnica, ricerca carichi, zero cedimento" },
+    { "fase": "Accumulo leggero", "settimane": "3-5", "rir": "2", "obiettivo": "Volume stabile, progressione rep e kg" },
+    { "fase": "Accumulo intenso", "settimane": "6-8", "rir": "1", "obiettivo": "Massimo stimolo sostenibile prima dello scarico" },
+    { "fase": "Scarico parziale", "settimane": "9", "rir": "2", "obiettivo": "−25% volume, recupero parziale" },
+    { "fase": "Picco controllato", "settimane": "10-12", "rir": "0-1 ultima serie fondamentali", "obiettivo": "Ultima serie dei * a RIR 0-1; le altre a RIR 1" },
+    { "fase": "Deload", "settimane": "13", "rir": "4-5", "obiettivo": "−40% volume, carichi ~80-85%, nessun cedimento" }
   ],
   "recuperi": [
     { "tipologia": "Fondamentali", "recupero": "150 sec" },
@@ -26,43 +27,135 @@
   ],
   "regoleBlocco": {
     "sett1_2": [
-      "RIR 3-2",
-      "Tecnica impeccabile",
-      "Nessun cedimento"
+      "RIR 3-2 su tutte le serie",
+      "Tecnica impeccabile, nessun cedimento",
+      "Compila i kg dopo aver trovato i carichi di lavoro"
     ],
-    "sett3_6": [
-      "RIR 2-1",
-      "Progressione dei carichi",
-      "Ultima serie degli esercizi di isolamento vicino al cedimento"
+    "sett3_5": [
+      "RIR 2 su tutte le serie",
+      "Progressione: +rep fino al tetto, poi +kg",
+      "Isolamento: ultime serie vicine al cedimento tecnico solo se la forma regge"
     ],
-    "sett7_10": [
-      "Fondamentali: RIR 1",
-      "Complementari: ultima serie a cedimento tecnico"
+    "sett6_8": [
+      "RIR 1 su tutte le serie (target della scheda)",
+      "Fondamentali (*): progredisci se completi il tetto rep per 2 sedute",
+      "Leg Extension B1: RIR 0-1 solo ultimo set"
     ],
-    "sett11_12": [
-      "Fondamentali: RIR 1",
-      "Isolamento e polpacci: ultima serie a cedimento tecnico"
+    "sett9": [
+      "Scarico parziale: −25% serie totali (es. 4→3, 3→2)",
+      "RIR 2, nessun cedimento",
+      "Stessi esercizi, meno volume"
+    ],
+    "sett10_12": [
+      "RIR 1 sulle serie 1-(n-1) dei fondamentali (*)",
+      "Ultima serie dei fondamentali (*): RIR 0-1 se la tecnica regge",
+      "Isolamento: ultima serie a cedimento tecnico; le altre RIR 1"
     ],
     "sett13": [
-      "Volume −40/50%",
+      "Deload: −40% volume",
       "Carichi all'80-85% di quelli abituali",
-      "RIR 4-5",
-      "Nessun cedimento"
+      "RIR 4-5, nessun cedimento",
+      "Obbligatorio prima del blocco successivo"
     ]
   },
   "valutazioneProgramma": {
     "petto": 7,
-    "dorsali": 14,
-    "deltoideLaterale": 6,
-    "deltoideAnteriore": 6,
+    "schiena": 14,
+    "spalleAnteriori": 12,
+    "spalleLaterali": 6,
     "deltoidePosteriore": 3,
     "quadricipiti": 16,
-    "femorali": 13,
-    "glutei": 6,
+    "femorali": 16,
+    "glutei": 11,
     "polpacci": 16,
-    "bicipiti": 7,
-    "addome": 0,
-    "note": "Volume settimanale totale A1-B2. ~60% serie su gambe + polpacci (priorità lower per Gino). B2 dominante anca: trap bar in progressione, squat multipower, hip thrust. Polpacci 4 serie per sessione. Deload sett. 13 non incluso nel conteggio."
+    "bicipitiDiretti": 7,
+    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da Doktor, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+  },
+  "guidaOperativa": {
+    "titolo": "Metodo Blocco 1 — come usare le 4 schede",
+    "sintesi": "Stesso programma per 13 settimane: cambiano solo RIR, volume (settimana 9 e 13) e kg. Le quattro schede non si mescolano: ogni seduta ha esercizi fissi nell’ordine indicato.",
+    "distribuzioneSettimanale": {
+      "schema": "Upper / Lower alternato · 4 giorni + 3 riposi",
+      "consigliata": [
+        { "giorno": "Lunedì", "sessione": "A1", "tipo": "Upper", "focus": "Petto · Schiena · Spalle · Polpacci in piedi" },
+        { "giorno": "Martedì", "sessione": "B1", "tipo": "Lower", "focus": "Gambe accosciata · Polpacci drop · Braccia" },
+        { "giorno": "Mercoledì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero completo o camminata leggera" },
+        { "giorno": "Giovedì", "sessione": "A2", "tipo": "Upper", "focus": "Schiena · Spalle · Polpacci seduto · Halo" },
+        { "giorno": "Venerdì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" },
+        { "giorno": "Sabato", "sessione": "B2", "tipo": "Lower", "focus": "Gambe dominante anca · Bicipiti" },
+        { "giorno": "Domenica", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" }
+      ],
+      "alternative": [
+        "Lun A1 · Mer B1 · Ven A2 · Dom B2 (se non puoi allenarti il martedì)",
+        "Mar A1 · Gio B1 · Sab A2 · Lun B2 (sposta tutto di un giorno)"
+      ],
+      "regoleRecupero": [
+        "Non fare B1 e B2 in due giorni consecutivi se puoi evitarlo",
+        "Tra due sedute lower: almeno 48 ore",
+        "Se salti una seduta: riprendi dalla sessione saltata, non comprimere due lower nello stesso giorno",
+        "Ordine fisso delle sedute nella settimana: A1 → B1 → A2 → B2"
+      ]
+    },
+    "regoleRirECedimento": {
+      "principio": "Il RIR stampato sulla scheda è il target nelle settimane 6–8. NON significa cedimento su tutte le serie: nella maggior parte del blocco lavori con 1–3 rep di riserva. Il cedimento tecnico è eccezione, non regola.",
+      "fondamentali": [
+        "Esercizi con * : Panca inclinata A1, Pressa B1, Lento avanti A2, Trap Bar B2",
+        "Settimane 1–8: nessuna serie a cedimento sui fondamentali",
+        "Settimane 10–12: solo l’ultima serie di ogni fondamentale può andare a RIR 0–1",
+        "Settimana 13: RIR 4–5, mai cedimento"
+      ],
+      "isolamento": [
+        "Alzate, croci, leg extension, leg curl, curl: ultime serie più vicine al cedimento tecnico",
+        "Leg Extension B1: RIR 0–1 solo ultimo set (anche in sett. 6–8)",
+        "Polpacci e Halo: RIR 1, stop prima del cedimento tranne drop set polpacci B1"
+      ],
+      "tabellaCedimento": [
+        { "periodo": "Sett. 1–8", "fondamentali": "Mai cedimento", "isolamento": "Ultima serie vicina al cedimento tecnico (se forma OK)" },
+        { "periodo": "Sett. 9", "fondamentali": "Mai cedimento (scarico)", "isolamento": "RIR 2, niente cedimento" },
+        { "periodo": "Sett. 10–12", "fondamentali": "Solo ultima serie * a RIR 0–1", "isolamento": "Ultima serie a cedimento tecnico" },
+        { "periodo": "Sett. 13", "fondamentali": "RIR 4–5", "isolamento": "RIR 4–5, zero cedimento" }
+      ]
+    },
+    "periodizzazioneIntensita": [
+      { "settimane": "1-2", "intensita": "RIR 3-2", "volume": "100%", "nota": "Adattamento tendini e tecnica" },
+      { "settimane": "3-5", "intensita": "RIR 2", "volume": "100%", "nota": "Accumulo controllato" },
+      { "settimane": "6-8", "intensita": "RIR 1", "volume": "100%", "nota": "Target della scheda — massimo stimolo sostenibile" },
+      { "settimane": "9", "intensita": "RIR 2", "volume": "−25%", "nota": "Scarico parziale — evita fatica accumulata" },
+      { "settimane": "10-12", "intensita": "RIR 0-1 ultima serie *", "volume": "100%", "nota": "Picco controllato sui fondamentali" },
+      { "settimane": "13", "intensita": "RIR 4-5", "volume": "−40%", "nota": "Deload obbligatorio" }
+    ],
+    "volumeSettimanaleFinale": [
+      { "gruppo": "Petto", "serie": 7, "note": "Tutto in A1 (panca inclinata + croci)" },
+      { "gruppo": "Schiena", "serie": 14, "note": "A1 lat+rematore · A2 lat+rematore/trazioni" },
+      { "gruppo": "Spalle anteriori", "serie": 12, "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto" },
+      { "gruppo": "Spalle laterali", "serie": 6, "note": "A1 alzate 3 · A2 alzate 3" },
+      { "gruppo": "Deltoide posteriore", "serie": 3, "note": "A2 reverse pec deck" },
+      { "gruppo": "Quadricipiti", "serie": 16, "note": "B1 pressa+extension+doktor 12 · B2 squat 4" },
+      { "gruppo": "Femorali", "serie": 16, "note": "B1 rumeno+leg curl · B2 leg curl+trap bar (+ overlap doktor)" },
+      { "gruppo": "Glutei", "serie": 11, "note": "B1 doktor 4 · B2 squat 4 + hip thrust 3" },
+      { "gruppo": "Polpacci", "serie": 16, "note": "4 serie per sessione (standing, drop, seduto, multipower)" },
+      { "gruppo": "Bicipiti diretti", "serie": 7, "note": "B1 curl Scott 4 · B2 curl martello 3" }
+    ],
+    "volumePerSeduta": [
+      { "sessione": "A1", "petto": 7, "schiena": 7, "spalleAnt": 6, "spalleLat": 3, "polpacci": 4 },
+      { "sessione": "A2", "petto": 0, "schiena": 7, "spalleAnt": 6, "spalleLat": 3, "deltoPost": 3, "polpacci": 4 },
+      { "sessione": "B1", "quad": 12, "femorali": 6, "polpacci": 4, "bicipiti": 4, "glutei": 4 },
+      { "sessione": "B2", "quad": 4, "femorali": 7, "glutei": 7, "polpacci": 4, "bicipiti": 3 }
+    ],
+    "progressioneCarico": [
+      "Quando completi il tetto di ripetizioni con il RIR target per 2 sedute consecutive sullo stesso esercizio *, aumenta il carico",
+      "Fondamentali: +2,5–5 kg (upper) o +5% (lower/macchine)",
+      "Isolamento: +1 rep per serie, poi +2,5 kg o +5%",
+      "Settimana 9: stessi kg, meno serie",
+      "Settimana 13: stessi esercizi, −40% serie, kg all'80–85%"
+    ],
+    "checklistSeduta": [
+      "1. Riscaldamento 8–10 min (bike + mobilità articolare)",
+      "2. Esercizi nell’ordine della scheda (polpacci spesso in apertura su B1/B2)",
+      "3. Annota kg, rep e RIR reale nel diario in fondo alla pagina sessione",
+      "4. Recuperi: fondamentali 120–150 s · isolamento 60–90 s",
+      "5. Finisher Halo A2 sempre ultimo esercizio"
+    ]
   },
   "sessioni": {
     "a1": {

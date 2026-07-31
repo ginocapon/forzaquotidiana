@@ -61,6 +61,33 @@
     intro.innerHTML = introHtml;
     article.appendChild(intro);
 
+    if (blocco && blocco.guidaOperativa) {
+      var g = blocco.guidaOperativa;
+      var metodo = el("div", { className: "scheda-a4__osservazioni scheda-a4__metodo" });
+      var mh = "<div class=\"scheda-a4__osservazioni-label\">Metodo — distribuzione e RIR</div>";
+      mh += "<p class=\"scheda-a4__intro-text\"><strong>" + g.sintesi + "</strong></p>";
+      if (g.distribuzioneSettimanale && g.distribuzioneSettimanale.consigliata) {
+        mh += "<p class=\"scheda-a4__intro-text\"><strong>Settimana tipo:</strong> ";
+        mh += g.distribuzioneSettimanale.consigliata
+          .filter(function (r) { return r.sessione !== "Riposo"; })
+          .map(function (r) { return r.giorno.slice(0, 3) + " " + r.sessione; })
+          .join(" · ");
+        mh += "</p>";
+      }
+      if (g.periodizzazioneIntensita) {
+        mh += "<table class=\"scheda-a4__mini-table\"><thead><tr><th>Sett.</th><th>RIR</th><th>Vol.</th></tr></thead><tbody>";
+        g.periodizzazioneIntensita.forEach(function (p) {
+          mh += "<tr><td>" + p.settimane + "</td><td>" + p.intensita + "</td><td>" + p.volume + "</td></tr>";
+        });
+        mh += "</tbody></table>";
+      }
+      if (g.regoleRirECedimento && g.regoleRirECedimento.principio) {
+        mh += "<p class=\"scheda-a4__intro-text\"><em>" + g.regoleRirECedimento.principio + "</em></p>";
+      }
+      metodo.innerHTML = mh;
+      article.appendChild(metodo);
+    }
+
     var grid = el("div", { className: "scheda-a4__grid" });
     ["a1", "b1", "a2", "b2"].forEach(function (key) {
       var day = fase.sessioni[key];

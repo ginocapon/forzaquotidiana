@@ -604,3 +604,33 @@
 .admin-mappa-card h2 { font-size: 0.92rem; margin: 0.5rem 0 0.35rem; line-height: 1.25; }
 .admin-mappa-card__meta { font-size: 0.78rem; color: var(--muted); margin: 0 0 0.35rem; }
 .admin-mappa-card__mov { font-size: 0.8rem; margin: 0; }
+
+/* Metodo Blocco 1 */
+.admin-metodo-section { margin-bottom: 2.5rem; }
+.admin-metodo-section h2 { margin-bottom: 0.75rem; }
+.admin-metodo-section h3 { margin: 1.25rem 0 0.5rem; font-size: 1rem; }
+.admin-metodo-lead { color: #ccc4b8; max-width: 65ch; margin-bottom: 1rem; }
+.admin-metodo-intro { margin-bottom: 2rem; }
+.admin-metodo-list { margin: 0 0 1rem; padding-left: 1.25rem; }
+.admin-metodo-list li { margin-bottom: 0.35rem; }
+.admin-metodo-alt,
+.admin-metodo-rules { margin-top: 1rem; }
+.admin-metodo-table th { white-space: nowrap; }
+.btn-sm { font-size: 0.85rem; padding: 0.35rem 0.75rem; }
+.scheda-a4__mini-table {
+  width: 100%;
+  font-size: 0.72rem;
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+}
+.scheda-a4__mini-table th,
+.scheda-a4__mini-table td {
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.35rem;
+  text-align: left;
+}
+
+@media print {
+  .admin-metodo-section { break-inside: avoid; page-break-inside: avoid; }
+  .admin-metodo-table { font-size: 0.8rem; }
+}
