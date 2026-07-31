@@ -333,6 +333,52 @@
         "fatigue_atl": 35,
         "date": "2026-07-30"
       }
+    },
+    {
+      "id": "2026-07-31-scheda-4",
+      "date": "2026-07-31",
+      "time": "15:30",
+      "datetime": "2026-07-31T15:30",
+      "scheda": 4,
+      "month": "2026-07",
+      "durata_sec": 4874,
+      "durata": "01:21:14",
+      "recupero_sec": 2695,
+      "recupero": "44:55",
+      "gruppi": 21,
+      "fc_media": 114,
+      "fc_max": 153,
+      "calorie": 648,
+      "carico": 97,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 1, "time": "01:01" },
+        "anaerobica": { "pct": 9, "time": "07:28" },
+        "aerobica": { "pct": 35, "time": "28:30" },
+        "intensiva": { "pct": 46, "time": "37:39" },
+        "leggera": { "pct": 7, "time": "06:29" }
+      },
+      "effetto_aerobico": 3.2,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 2.6,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "ROM per lo più uniforme — piccole fluttuazioni",
+        "stability": "Movimenti stabili con lievi scosse",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti, ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole — buona efficacia"
+      },
+      "note": "Scheda 4 gambe-petto-bicipiti — video squat multipower e adduttori; timer chiuso correttamente; carico 97 vs 69* del 24/07; hybrid charge 41 pre-sessione",
+      "tsb": {
+        "value": -2.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 37,
+        "fatigue_atl": 39,
+        "date": "2026-07-31"
+      }
     }
   ]
 }
