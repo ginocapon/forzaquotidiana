@@ -88,7 +88,7 @@
     "errori": "Slancio in concentrica; iperestensione."
   },
   "Doktor (affondo bulgaro guidato)": {
-    "figura": "fig-squat",
+    "figura": "fig-doktor",
     "primario": "Quadricipiti",
     "secondario": "Glutei",
     "setup": "Macchina Doktor PRIMO, piede posteriore appoggiato.",
@@ -96,7 +96,7 @@
     "errori": "Cedimento eccessivo; ginocchio che collassa."
   },
   "Curl su panca Scott": {
-    "figura": "fig-curl",
+    "figura": "fig-curl-scott",
     "primario": "Bicipiti",
     "secondario": "Brachiale",
     "setup": "Braccia sul supporto, ascelle al bordo.",
@@ -136,7 +136,7 @@
     "errori": "Ginocchia che collassano; profondità inconsistente."
   },
   "Trap Bar": {
-    "figura": "fig-rdl",
+    "figura": "fig-trapbar",
     "primario": "Femorali, glutei",
     "secondario": "Schiena, trapezi",
     "setup": "Trap bar (stacco omega), schiena neutra, hip hinge.",
@@ -168,7 +168,7 @@
     "errori": "Ginocchia che collassano; profondità inconsistente."
   },
   "Stacco omega (trap bar)": {
-    "figura": "fig-rdl",
+    "figura": "fig-trapbar",
     "primario": "Femorali, glutei",
     "secondario": "Schiena, trapezi",
     "setup": "Trap bar, schiena neutra, hip hinge.",
@@ -312,7 +312,7 @@
     "errori": "Slancio in concentrica."
   },
   "Doktor": {
-    "figura": "fig-squat",
+    "figura": "fig-doktor",
     "primario": "Quadricipiti",
     "secondario": "Glutei",
     "setup": "Macchina Doktor PRIMO, affondo bulgaro guidato.",
@@ -328,7 +328,7 @@
     "errori": "Schiena arrotondata."
   },
   "Curl Scott": {
-    "figura": "fig-curl",
+    "figura": "fig-curl-scott",
     "primario": "Bicipiti",
     "secondario": "Brachiale",
     "setup": "Panca Scott curva, gomiti sul supporto.",

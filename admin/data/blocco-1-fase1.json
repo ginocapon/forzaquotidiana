@@ -346,7 +346,7 @@
           "recupero": "120 sec",
           "progressione": "Carico fisso progressivo quando completi 4×8 con RIR 1",
           "rir": "1",
-          "figura": "fig-squat",
+          "figura": "fig-doktor",
           "progressionePrincipale": false,
           "note": "Affondo bulgaro guidato (Doktor PRIMO) · ginocchio stabile, no cedimento."
         },
@@ -372,7 +372,7 @@
           "recupero": "60 sec",
           "progressione": "+2,5 kg quando completi 4×10 con RIR 1",
           "rir": "1",
-          "figura": "fig-curl",
+          "figura": "fig-curl-scott",
           "progressionePrincipale": false,
           "note": "Panca Scott curva · gomiti fermi sul supporto."
         },
@@ -635,7 +635,7 @@
           "recupero": "150 sec",
           "progressione": "+2,5-5 kg quando completi 4×8 con RIR 1",
           "rir": "1",
-          "figura": "fig-rdl",
+          "figura": "fig-trapbar",
           "progressionePrincipale": true,
           "note": "Progressione principale B2 · stacco omega, schiena neutra, spinta col bacino."
         },

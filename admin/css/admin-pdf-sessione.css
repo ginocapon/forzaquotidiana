@@ -150,7 +150,14 @@
   align-items: center;
   justify-content: center;
 }
-.ex-pdf-row__fig svg { width: 15mm; height: 15mm; }
+.ex-pdf-row__fig svg { width: 19mm; height: 19mm; }
+.ex-pdf-row__fig {
+  --fx-body: #1a1a1a;
+  --fx-equip: #6b6b6b;
+  --fx-frame: #8a8a8a;
+  --fx-pad: #e0e0e0;
+  --fx-target: #b8622a;
+}
 .ex-pdf-row__fig .muscle-hot { fill: #c9783a; }
 .ex-pdf-row__fig .muscle-warm { fill: #8b7355; opacity: 0.85; }
 .ex-pdf-row__fig .muscle-base { fill: none; stroke: #666; stroke-width: 1.2; }

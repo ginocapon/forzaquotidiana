@@ -576,7 +576,7 @@
 .admin-callout { margin: 1.25rem 0; padding: 1rem 1.25rem; border-left: 3px solid var(--accent); }
 .admin-section { margin: 2rem 0; }
 .admin-section--shared { border-top: 1px solid var(--line); padding-top: 1.5rem; }
-.admin-ex-fig svg { width: 72px; height: 72px; }
+.admin-ex-fig svg { width: 96px; height: 96px; }
 .exercise-card--prog { border-color: rgba(201, 120, 58, 0.45); }
 .tag-prog { color: var(--accent); font-weight: 600; }
 .admin-diario-table { font-size: 0.82rem; }
@@ -600,7 +600,7 @@
   padding: 0.15rem 0.4rem;
   border-radius: 4px;
 }
-.admin-mappa-card__fig svg { width: 80px; height: 80px; margin: 0.5rem auto; display: block; }
+.admin-mappa-card__fig svg { width: 112px; height: 112px; margin: 0.5rem auto; display: block; }
 .admin-mappa-card h2 { font-size: 0.92rem; margin: 0.5rem 0 0.35rem; line-height: 1.25; }
 .admin-mappa-card__meta { font-size: 0.78rem; color: var(--muted); margin: 0 0 0.35rem; }
 .admin-mappa-card__mov { font-size: 0.8rem; margin: 0; }

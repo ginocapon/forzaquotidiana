@@ -7,17 +7,9 @@
   var BLOCCO_URL = "/admin/data/blocco-1-fase1.json";
   var CATALOGO_URL = "/admin/data/esercizi-catalogo.json";
 
-  function injectSprite() {
-    if (document.getElementById("admin-ex-sprite")) return Promise.resolve();
-    return fetch("/admin/img/esercizi-sprite.svg")
-      .then(function (r) { return r.text(); })
-      .then(function (svg) {
-        var wrap = document.createElement("div");
-        wrap.id = "admin-ex-sprite";
-        wrap.innerHTML = svg;
-        wrap.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
-        document.body.insertBefore(wrap, document.body.firstChild);
-      });
+  function okJson(r) {
+    if (!r.ok) throw new Error("Dati non disponibili (" + r.status + ")");
+    return r.json();
   }
 
   function uniqueExercises(blocco) {
@@ -51,12 +43,7 @@
 
       var fig = document.createElement("div");
       fig.className = "admin-mappa-card__fig";
-      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("viewBox", "0 0 80 80");
-      var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-      use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#" + (item.figura || cat.figura || "fig-press-incl"));
-      svg.appendChild(use);
-      fig.appendChild(svg);
+      fig.appendChild(window.fqSprite.figure(item.figura || cat.figura, item.nome));
       card.appendChild(fig);
 
       var h = document.createElement("h2");
@@ -89,10 +76,10 @@
   function init() {
     var root = document.getElementById("mappa-root");
     if (!root) return;
-    injectSprite().then(function () {
+    window.fqSprite.inject().then(function () {
       return Promise.all([
-        fetch(BLOCCO_URL).then(function (r) { return r.json(); }),
-        fetch(CATALOGO_URL).then(function (r) { return r.json(); })
+        fetch(BLOCCO_URL).then(okJson),
+        fetch(CATALOGO_URL).then(okJson)
       ]);
     }).then(function (res) {
       render(res[0], res[1], root);

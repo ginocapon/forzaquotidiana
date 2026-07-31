@@ -78,7 +78,7 @@
       html += sessionInterpretation(display);
       html += "</p>";
     } else if (!focusDate) {
-      html += '<p class="tsb-module__session-note">Panoramica trimestre — le date con pallino evidenziano le sessioni registrate. Valori da carico Zepp/Amazfit (CTL fitness, ATL fatica, TSB = differenza).</p>";
+      html += '<p class="tsb-module__session-note">Panoramica trimestre — le date con pallino evidenziano le sessioni registrate. Valori da carico Zepp/Amazfit (CTL fitness, ATL fatica, TSB = differenza).</p>';
     }
 
     root.innerHTML = html;

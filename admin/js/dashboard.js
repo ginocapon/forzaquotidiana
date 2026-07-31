@@ -12,7 +12,7 @@
       Object.keys(attrs).forEach(function (k) {
         if (k === "className") node.className = attrs[k];
         else if (k === "html") node.innerHTML = attrs[k];
-        else if (k === "text") node.textContent = attrs.text;
+        else if (k === "text") node.textContent = attrs[k];
         else node.setAttribute(k, attrs[k]);
       });
     }

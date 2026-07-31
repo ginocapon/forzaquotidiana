@@ -15,7 +15,7 @@
       Object.keys(attrs).forEach(function (k) {
         if (k === "className") node.className = attrs[k];
         else if (k === "html") node.innerHTML = attrs[k];
-        else if (k === "text") node.textContent = attrs.text;
+        else if (k === "text") node.textContent = attrs[k];
         else node.setAttribute(k, attrs[k]);
       });
     }
@@ -36,14 +36,9 @@
     return data.fasi.find(function (f) { return f.id === id; });
   }
 
-  function figureSvg(figId) {
+  function figureSvg(figId, label) {
     var wrap = el("div", { className: "ex-pdf-row__fig" });
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 80 80");
-    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-    use.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#" + (figId || "fig-press-incl"));
-    svg.appendChild(use);
-    wrap.appendChild(svg);
+    wrap.appendChild(window.fqSprite.figure(figId, label));
     return wrap;
   }
 
@@ -143,7 +138,7 @@
       var cat = catalogo[ex.nome] || {};
       var row = el("div", { className: "ex-pdf-row" + (ex.progressione ? " ex-pdf-row--prog" : "") });
 
-      row.appendChild(figureSvg(ex.figura || cat.figura));
+      row.appendChild(figureSvg(ex.figura || cat.figura, ex.nome));
 
       var body = el("div");
       var nameLine = el("p", { className: "ex-pdf-row__name" });

@@ -1812,8 +1812,8 @@ body.theme-diario .disclaimer {
   align-items: start;
 }
 .exercise-card__fig {
-  width: 88px;
-  height: 88px;
+  width: 108px;
+  height: 108px;
   border-radius: 12px;
   background: var(--surface-2);
   border: 1px solid var(--line);
@@ -1821,7 +1821,7 @@ body.theme-diario .disclaimer {
   align-items: center;
   justify-content: center;
 }
-.exercise-card__fig svg { width: 72px; height: 72px; }
+.exercise-card__fig svg { width: 96px; height: 96px; }
 .exercise-card__meta {
   display: flex;
   flex-wrap: wrap;
@@ -1856,10 +1856,29 @@ body.theme-diario .disclaimer {
 }
 .exercise-card__exec li { margin-bottom: 0.35rem; }
 
-/* SVG muscoli */
+/* Figure esercizi — illustrazioni SVG (sprite esercizi-sprite.svg) */
+:root {
+  --fx-body: #f4efe6;
+  --fx-equip: #a89f95;
+  --fx-frame: #6f6a64;
+  --fx-pad: #3a3632;
+  --fx-target: #c9783a;
+}
+
+/* Legacy: simboli muscolari delle vecchie schede */
 .muscle-hot { fill: #c9783a; }
 .muscle-warm { fill: #8b7355; opacity: 0.85; }
 .muscle-base { fill: none; stroke: rgba(244,239,230,0.35); stroke-width: 1.2; }
+
+@media print {
+  :root {
+    --fx-body: #1a1a1a;
+    --fx-equip: #6b6b6b;
+    --fx-frame: #8a8a8a;
+    --fx-pad: #dcdcdc;
+    --fx-target: #b8622a;
+  }
+}
 
 /* Monitoraggio cardiaco */
 .hr-section {
