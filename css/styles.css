@@ -909,6 +909,62 @@ body.theme-allenamenti .disclaimer {
   color: #f0c090;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.9);
 }
+
+/* Hero panorama — foto orizzontale (scene vintage, salt flats, ecc.) */
+.hero--wide-scene.hero--portrait .hero__media img {
+  object-position: center 40%;
+}
+
+@media (max-width: 767px) {
+  .hero--wide-scene {
+    min-height: 0;
+    display: block;
+    overflow: visible;
+  }
+  .hero--wide-scene .hero__media {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 3 / 2;
+    width: 100%;
+  }
+  .hero--wide-scene .hero__media img {
+    object-fit: cover;
+    object-position: center center;
+  }
+  .hero--wide-scene .hero__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(12, 12, 12, 0.45) 0%,
+      transparent 35%
+    );
+  }
+  .hero--wide-scene .hero__content {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(168deg, rgba(34, 38, 44, 0.98) 0%, rgba(20, 22, 28, 0.95) 100%);
+    padding: 1.75rem 0 2rem;
+  }
+  .hero--wide-scene h1 {
+    max-width: none;
+    color: #fff;
+    text-shadow: none;
+  }
+  .hero--wide-scene .hero__content p,
+  .hero--wide-scene .hero__content .lead {
+    color: #ddd5c9;
+    text-shadow: none;
+  }
+  .hero--wide-scene .tagline {
+    color: var(--accent);
+    text-shadow: none;
+  }
+  .hero--wide-scene .hero__caption {
+    color: #c9bfb0;
+  }
+  .hero--wide-scene .hero__trust {
+    color: var(--muted);
+  }
+}
 .hero__caption {
   margin: 0 0 0.65rem;
   font-size: 0.76rem;
