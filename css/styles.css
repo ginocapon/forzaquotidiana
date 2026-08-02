@@ -3396,6 +3396,24 @@ body.theme-allenamenti .session-card__badge {
   padding: 3rem 0 1.75rem;
   background: linear-gradient(180deg, rgba(201, 120, 58, 0.08) 0%, transparent 100%);
 }
+.hero.allenamenti-hero {
+  padding: 0;
+  background: none;
+}
+body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
+  background: linear-gradient(
+    to top,
+    rgba(12, 12, 12, 0.96) 6%,
+    rgba(12, 12, 12, 0.74) 38%,
+    rgba(12, 12, 12, 0.45) 58%,
+    rgba(18, 10, 10, 0.55) 100%
+  );
+}
+@media (max-width: 767px) {
+  body.theme-allenamenti .hero.allenamenti-hero.hero--wide-scene .hero__content {
+    background: linear-gradient(168deg, rgba(38, 28, 28, 0.98) 0%, rgba(20, 18, 22, 0.95) 100%);
+  }
+}
 .allenamenti-hero h1 {
   max-width: 18ch;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
