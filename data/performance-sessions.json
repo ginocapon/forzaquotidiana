@@ -379,6 +379,75 @@
         "fatigue_atl": 39,
         "date": "2026-07-31"
       }
+    },
+    {
+      "id": "2026-08-03-scheda-1",
+      "date": "2026-08-03",
+      "time": "14:50",
+      "datetime": "2026-08-03T14:50",
+      "scheda": 1,
+      "month": "2026-08",
+      "durata_sec": 4536,
+      "durata": "01:15:36",
+      "recupero_sec": 2821,
+      "recupero": "47:01",
+      "gruppi": 28,
+      "fc_media": 111,
+      "fc_max": 145,
+      "calorie": 579,
+      "carico": 75,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 4, "time": "03:46" },
+        "aerobica": { "pct": 33, "time": "25:19" },
+        "intensiva": { "pct": 48, "time": "36:55" },
+        "leggera": { "pct": 12, "time": "09:32" }
+      },
+      "effetto_aerobico": 2.9,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 2.4,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "ROM molto uniforme — radar alto",
+        "stability": "Movimenti molto stabili",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti, ritmo uniforme",
+        "speed_decay": "Decadimento velocità leggermente più marcato — comunque efficace"
+      },
+      "hybridcharge": {
+        "pre": 82,
+        "pre_label": "Ottimale",
+        "post": 44,
+        "post_delta": -11,
+        "sleep": "00:51–07:50",
+        "sleep_impact": 28
+      },
+      "stress": {
+        "media": 28,
+        "max": 64,
+        "min": 11,
+        "rilassato_pct": 72,
+        "normale_pct": 26,
+        "medio_pct": 2,
+        "elevato_pct": 0
+      },
+      "training_balance": {
+        "focus": "Forza",
+        "forza_pct": 70,
+        "resistenza_pct": 30,
+        "periodo": "7 giorni"
+      },
+      "note": "Scheda 1 petto-spalle-dorsali — video croci ai cavi. HybridCharge 82 al risveglio (sonno ~7 h), −11 post sessione. Focus Zepp FORZA coerente con RT.",
+      "tsb": {
+        "value": 0.8,
+        "label": "Bilanciato",
+        "fitness_ctl": 36.2,
+        "fatigue_atl": 35.4,
+        "date": "2026-08-03"
+      }
     }
   ]
 }
