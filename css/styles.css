@@ -839,6 +839,9 @@ body.theme-allenamenti .disclaimer {
   object-fit: cover;
   object-position: center 20%;
 }
+.hero--vita .hero__media img {
+  object-position: center 42%;
+}
 .hero__overlay {
   position: absolute;
   inset: 0;
