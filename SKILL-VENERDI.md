@@ -64,9 +64,17 @@ Ogni venerdì l’agente (o tu) può aggiungere in `SKILL.md` §5a o checklist:
 
 Non duplicare: una riga in **SKILL.md**, dettaglio in **NEWSLETTER-SETUP.md** se tecnico.
 
-### 6. Aggiorna conteggio anonimo (opzionale)
+### 6. Aggiorna conteggi sito (obbligatorio se contenuti nuovi)
 
-In `data/site-stats.json` solo numeri, es.:
+```bash
+node tools/aggiorna-site-stats.mjs
+```
+
+Aggiorna `data/site-stats.json` (anni palestra, articoli diario, sessioni Zepp, età cronologica) e ricalcola `data/biological-age.json`.
+
+**Mensile:** eseguire anche a fine mese con export Zepp/sonno — verifica età biologica in home.
+
+Opzionale — iscritti newsletter (solo numeri, **mai email**):
 ```json
 {
   "iscritti_totali": 12,

@@ -1,36 +1,36 @@
 {
   "_nota": "Età biologica da crediti Zepp verificati + profilo 10+ anni palestra. Non dato clinico. node tools/aggiorna-bio-age.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
-  "updated": "2026-07-26",
+  "updated": "2026-08-04",
   "chronological_age": 57,
-  "biological_age": 51.6,
-  "offset_years": 5.4,
-  "delta_vs_chrono": 5.4,
+  "biological_age": 51.2,
+  "offset_years": 5.8,
+  "delta_vs_chrono": 5.8,
   "trend": "in miglioramento",
   "methodology": {
     "modello": "crediti per pilastro",
     "max_offset_totale": 5.8,
     "ctl_fonte": "Zepp verificato (override/snapshot), non proiezione decaduta",
     "maturita_sessioni": 12,
-    "maturita_pct": 0.4
+    "maturita_pct": 0.9
   },
   "crediti_anni": {
     "storia_palestra": 2.5,
-    "fitness_ctl": 0.9,
-    "cardio": 0.7,
-    "forza": 1.2,
-    "trimestre_documentato": 0.2
+    "fitness_ctl": 1.1,
+    "cardio": 0.6,
+    "forza": 1,
+    "trimestre_documentato": 0.8
   },
   "dati_zepp": {
-    "ctl_zepp": 35,
-    "fc_media_pesata": 109,
-    "effetto_aerobico_medio": 3,
-    "effetto_anaerobico_medio": 2.8,
+    "ctl_zepp": 37,
+    "fc_media_pesata": 110,
+    "effetto_aerobico_medio": 2.9,
+    "effetto_anaerobico_medio": 2.3,
     "effetto_anaerobico_picco": 3.6,
-    "carico_medio": 83,
-    "gruppi_medi": 23,
-    "sessioni_complete": 5,
-    "sessioni_documentate": 5,
+    "carico_medio": 78,
+    "gruppi_medi": 25,
+    "sessioni_complete": 11,
+    "sessioni_documentate": 11,
     "tecnica_media": 1
   },
   "timeline": [
@@ -81,6 +81,54 @@
       "sessions": 5,
       "ctl": 35,
       "maturity": 0.4
+    },
+    {
+      "date": "2026-07-27",
+      "age": 51.6,
+      "offset": 5.4,
+      "sessions": 6,
+      "ctl": 34,
+      "maturity": 0.5
+    },
+    {
+      "date": "2026-07-28",
+      "age": 51.5,
+      "offset": 5.5,
+      "sessions": 7,
+      "ctl": 34,
+      "maturity": 0.6
+    },
+    {
+      "date": "2026-07-30",
+      "age": 51.6,
+      "offset": 5.4,
+      "sessions": 8,
+      "ctl": 33,
+      "maturity": 0.7
+    },
+    {
+      "date": "2026-07-31",
+      "age": 51.2,
+      "offset": 5.8,
+      "sessions": 9,
+      "ctl": 37,
+      "maturity": 0.8
+    },
+    {
+      "date": "2026-08-03",
+      "age": 51.2,
+      "offset": 5.8,
+      "sessions": 10,
+      "ctl": 37,
+      "maturity": 0.8
+    },
+    {
+      "date": "2026-08-04",
+      "age": 51.2,
+      "offset": 5.8,
+      "sessions": 11,
+      "ctl": 37,
+      "maturity": 0.9
     }
   ]
 }
