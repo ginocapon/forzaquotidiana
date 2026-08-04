@@ -72,6 +72,7 @@ function findRow_(sh, email) {
 /* ---------- POST: iscrizione dal form ---------- */
 
 function doPost(e) {
+  e = e || {};
   var p = e.parameter || {};
   if (p.website) {
     return redirectAfterSubscribe_(p.email, p.next);
@@ -114,6 +115,7 @@ function doPost(e) {
 /* ---------- GET: conferma, disiscrizione, log ---------- */
 
 function doGet(e) {
+  e = e || {};
   var p = e.parameter || {};
   var email = String(p.e || '').trim().toLowerCase();
 
@@ -307,4 +309,18 @@ function resetTestIscritti() {
 function testPdf() {
   var pdf = fetchSchedaPdf_();
   Logger.log(pdf ? ('PDF OK: ' + pdf.getBytes().length + ' byte') : 'PDF NON scaricato — autorizza permesso servizio esterno');
+}
+
+/** Simula iscrizione dal form — esegui dall'editor (NON usare ▶ su doPost). */
+function testSubscribe() {
+  doPost({
+    parameter: {
+      email: 'test@example.com',
+      nome: 'Test',
+      privacy: 'yes',
+      from: 'test-editor',
+      next: '/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/'
+    }
+  });
+  Logger.log('testSubscribe OK — controlla foglio Iscritti e email di conferma');
 }
