@@ -46,7 +46,7 @@ for (const file of walk(ROOT)) {
     const desc = extractMeta(html, "description");
     const twTitle = ogTitle || title;
     const twDesc = ogDesc || desc;
-    const twImage = ogImage || "https://forzaquotidiana.it/img/hero/gino-locker-disciplina.png";
+    const twImage = ogImage || "https://forzaquotidiana.it/img/hero/gino-locker-disciplina.webp";
     if (twTitle) {
       const block =
         `<meta name="twitter:card" content="summary_large_image">\n` +

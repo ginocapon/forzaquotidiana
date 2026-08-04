@@ -53,18 +53,19 @@
     {
       "month": "2026-08",
       "label": "agosto 2026",
-      "sessioni_totali": 1,
-      "sessioni_con_export": 1,
-      "durata_totale_sec": 4536,
-      "durata_totale": "01:15:36",
-      "fc_media": 111,
-      "calorie_totale": 579,
+      "sessioni_totali": 2,
+      "sessioni_con_export": 2,
+      "durata_totale_sec": 9658,
+      "durata_totale": "02:40:58",
+      "fc_media": 109,
+      "calorie_totale": 1204,
       "calorie_asterisk": false,
-      "carico_medio": 75,
+      "carico_medio": 63,
       "carico_asterisk": false,
       "gruppi_medio": 28,
       "sessioni_ids": [
-        "2026-08-03-scheda-1"
+        "2026-08-03-scheda-1",
+        "2026-08-04-scheda-2"
       ],
       "in_trimestre": true
     }
@@ -140,22 +141,28 @@
     },
     "2026-08": {
       "labels": [
-        "03 ago S1"
+        "03 ago S1",
+        "04 ago S2"
       ],
       "durata_min": [
-        76
+        76,
+        85
       ],
       "fc_media": [
-        111
+        111,
+        108
       ],
       "calorie": [
-        579
+        579,
+        625
       ],
       "carico": [
-        75
+        75,
+        51
       ],
       "gruppi": [
-        28
+        28,
+        27
       ]
     }
   },

@@ -72,7 +72,7 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 
 Foto reale Gino **fuori palestra** — stesso markup hero della home: `.hero.hero--portrait` + `.hero__overlay` (sfumatura) + testo in pannello vetro.
 
-- File: `img/chi-sono/gino-affari.png`
+- File: `img/chi-sono/gino-affari.webp`
 - Pagine: `/chi-sono/` e `/diario/` — `.hero.hero--portrait` come home: foto visibile in alto (volto), titoli bianchi sopra l'immagine con ombra, overlay sfumato; testo lungo sotto nel contenuto
 - Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
 - Tono: autorevolezza — non solo palestra, anche uomo d'affari
@@ -85,9 +85,9 @@ La pagina `/allenamenti/` deve essere **immediata**: tre card con illustrazione 
 
 | Blocco | Link | Immagine hub | Cosa comunica |
 |--------|------|--------------|---------------|
-| Trimestre | `/allenamenti/trimestre-…/` | `img/allenamenti/hub/trimestre.png` | Schede 1–4 di riferimento, programma |
-| Sessioni svolte | `/allenamenti/sessioni/` | `img/allenamenti/hub/sessioni.png` | Log per data, Amazfit, foto |
-| Diario | `/diario/` | `img/allenamenti/hub/diario.png` | Riflessioni separate dai numeri |
+| Trimestre | `/allenamenti/trimestre-…/` | `img/allenamenti/hub/trimestre.webp` | Schede 1–4 di riferimento, programma |
+| Sessioni svolte | `/allenamenti/sessioni/` | `img/allenamenti/hub/sessioni.webp` | Log per data, Amazfit, foto |
+| Diario | `/diario/` | `img/allenamenti/hub/diario.webp` | Riflessioni separate dai numeri |
 
 **Markup:** `.hub-cards` > `a.hub-card` con `.hub-card__img`, `.hub-card__label`, `h3`, `p`, `.hub-card__cta`.
 
@@ -541,8 +541,8 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 
 - **6 KPI fissi** in hero (stessi della `.hr-log` finale).
 - Valori mancanti: `—`. Asterisco `*` se sovrastima device.
-- **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.png` (atleta Technogym). Preload in `<head>`.
-- **Sfondo velato altre pagine:** `<main class="page-veiled">` o `<div class="page-veiled">` sotto l'hero + `/img/allenamenti/page-bg-dumbbells.png`. Hero band su `.allenamenti-hero`, `.trimestre-hero`, `.hero--portrait` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`.
+- **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.webp` (atleta Technogym). Preload in `<head>`.
+- **Sfondo velato altre pagine:** `<main class="page-veiled">` o `<div class="page-veiled">` sotto l'hero + `/img/allenamenti/page-bg-dumbbells.webp`. Hero band su `.allenamenti-hero`, `.trimestre-hero`, `.hero--portrait` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`.
 
 #### Pannelli e navigazione
 
@@ -582,6 +582,25 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 - **Attributi fissi:** `controls playsinline preload="metadata"` — mai `autoplay`.
 - **Aspect ratio:** verticale 9:16 (tipico WhatsApp) via CSS `.polaroid--video video { aspect-ratio: 9/16; }`; adattare se il video è orizzontale.
 - Stesso `figcaption` descrittivo delle foto, stesso stile polaroid (rotazione leggera, cornice crema).
+
+#### Immagini raster — WebP obbligatorio (performance)
+
+**Tutte** le foto raster del progetto (`jpg`, `jpeg`, `png`) devono essere in **WebP** per peso e LCP. SVG e `favicon.svg` restano invariati; video `.mp4` no.
+
+| Azione | Tool |
+|--------|------|
+| Convertire tutto il repo | `node tools/convert-images-webp.mjs` |
+| Dry-run (solo elenco) | `node tools/convert-images-webp.mjs --dry-run` |
+| Nuova immagine caricata | Convertire subito in WebP e referenziare `.webp` in HTML/CSS/JSON |
+
+**Flusso agente dopo upload foto:**
+1. Salvare in `img/…` (anche temporaneamente come jpg/png).
+2. Eseguire `node tools/convert-images-webp.mjs` — converte, aggiorna riferimenti in html/css/js/json/md/xml, elimina l’originale raster.
+3. Verificare `og:image` e `poster` dei video.
+
+**Parametri:** quality 82, effort 4 (`sharp`). Dipendenza: `npm install` in `tools/`.
+
+**Naming screenshot Zepp:** preferire `.webp` in repo — es. `2026-08-04-scheda-2-riepilogo.webp` (non `.png`).
 
 #### Intestazione (deprecata: `.session-head`)
 
