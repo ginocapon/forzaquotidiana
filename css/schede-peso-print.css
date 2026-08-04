@@ -1,7 +1,7 @@
-/* Scheda pesi — 1 pagina A4 orizzontale */
+/* Scheda pesi — A4 orizzontale, look dark/glamour allineato al sito */
 .schede-peso {
-  background: #e8e4dc;
-  color: #1a1a1a;
+  background: #0c0c0c;
+  color: #f4efe6;
 }
 
 .schede-peso-toolbar {
@@ -11,7 +11,7 @@
   background: #0c0c0c;
   color: #f4efe6;
   padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(201, 150, 80, 0.28);
 }
 .schede-peso-toolbar__inner {
   display: flex;
@@ -21,50 +21,106 @@
   gap: 0.5rem 0.75rem;
 }
 .schede-peso-toolbar p { margin: 0; }
-.schede-peso-toolbar__tip { width: 100%; margin: 0; color: #aaa; }
+.schede-peso-toolbar__tip { width: 100%; margin: 0; color: #a39a90; }
 
 /* Anteprima schermo ≈ A4 landscape */
 .scheda-a4 {
+  --scheda-ink: #f4efe6;
+  --scheda-muted: #c4b8a8;
+  --scheda-bronze: #c9783a;
+  --scheda-gold: #d4a855;
+  --scheda-panel: rgba(18, 16, 14, 0.82);
+  --scheda-cell: rgba(250, 244, 232, 0.92);
+  --scheda-cell-ink: #1a1510;
+
+  position: relative;
   width: 297mm;
   min-height: 210mm;
   margin: 1rem auto 2rem;
   padding: 4mm 5mm 5mm;
-  background: #fff;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  background: #0c0c0c;
+  color: var(--scheda-ink);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 150, 80, 0.22);
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: "Segoe UI", system-ui, sans-serif;
   font-size: 6.5pt;
   line-height: 1.15;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+.scheda-a4__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      155deg,
+      rgba(8, 8, 8, 0.88) 0%,
+      rgba(12, 10, 8, 0.72) 38%,
+      rgba(14, 10, 8, 0.78) 100%
+    ),
+    radial-gradient(ellipse at 80% 22%, rgba(201, 120, 58, 0.28), transparent 52%),
+    url("../img/schede/scheda-bg-vita-atletica.jpg") 78% 16% / cover no-repeat;
+}
+
+.scheda-a4__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.55) 0%, rgba(8, 8, 8, 0.18) 48%, transparent 70%),
+    linear-gradient(0deg, rgba(8, 8, 8, 0.5) 0%, transparent 42%);
+}
+
+.scheda-a4 > *:not(.scheda-a4__bg) {
+  position: relative;
+  z-index: 1;
 }
 
 .scheda-a4__head {
-  border-bottom: 1.5px solid #c9783a;
+  border-bottom: 1.4px solid rgba(212, 168, 85, 0.65);
   padding-bottom: 1.5mm;
   margin-bottom: 1.5mm;
   flex-shrink: 0;
 }
 .scheda-a4__head-main {
-  font-size: 8pt;
-  font-weight: 600;
+  font-size: 9pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-align: center;
-  margin-bottom: 0.4mm;
+  margin-bottom: 0.5mm;
+  color: var(--scheda-gold);
+  text-transform: uppercase;
+}
+.scheda-a4__head-main span {
+  color: var(--scheda-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: 7pt;
 }
 .scheda-a4__head-period {
   text-align: center;
   font-size: 6.5pt;
   margin: 0 0 0.8mm;
-  line-height: 1.2;
+  line-height: 1.25;
+  color: var(--scheda-ink);
 }
 .scheda-a4__badge {
   display: inline-block;
   font-size: 5.5pt;
   font-weight: 700;
-  border: 1px solid #c9783a;
+  border: 1px solid var(--scheda-bronze);
+  color: var(--scheda-gold);
   border-radius: 2px;
-  padding: 0.15mm 0.8mm;
+  padding: 0.2mm 1mm;
   margin-right: 1mm;
+  letter-spacing: 0.06em;
+  background: rgba(201, 120, 58, 0.12);
 }
 .scheda-a4__head-meta {
   display: flex;
@@ -72,61 +128,42 @@
   justify-content: space-between;
   gap: 1mm 4mm;
   font-size: 6pt;
-  color: #444;
+  color: var(--scheda-muted);
 }
-
-/* Fascia osservazioni in alto — spazio per note a penna */
-.scheda-a4__osservazioni {
-  flex-shrink: 0;
-  border: 1px solid #c9b8a4;
-  border-radius: 2px;
-  background: #faf7f2;
-  padding: 1mm 2mm 1.5mm;
-  margin-bottom: 1.5mm;
-}
-.scheda-a4__osservazioni-label {
-  font-size: 5.5pt;
-  font-weight: 700;
-  color: #8b4513;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.8mm;
-}
-.scheda-a4__osservazioni-line {
-  border-bottom: 1px solid #c9b8a4;
-  min-height: 3.2mm;
-  margin-bottom: 0.6mm;
-}
-.scheda-a4__osservazioni-line:last-child {
-  margin-bottom: 0;
+.scheda-a4__head-meta strong {
+  color: var(--scheda-ink);
+  font-weight: 600;
 }
 
 .scheda-a4__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 2mm;
+  gap: 2.2mm;
   flex: 1;
   min-height: 0;
 }
 
 .scheda-a4__quad {
-  border: 1px solid #bbb;
-  border-radius: 2px;
-  padding: 1.2mm 1.5mm;
+  border: 1px solid rgba(212, 168, 85, 0.42);
+  border-radius: 3px;
+  padding: 1.3mm 1.5mm;
   display: flex;
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+  background: var(--scheda-panel);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 .scheda-a4__quad h2 {
-  font-size: 6.5pt;
-  margin: 0 0 0.8mm;
-  padding: 0.4mm 0.8mm;
-  background: #f0ebe3;
-  color: #8b4513;
-  border-left: 2px solid #c9783a;
+  font-size: 6.6pt;
+  margin: 0 0 0.9mm;
+  padding: 0.55mm 1mm;
+  background: linear-gradient(90deg, rgba(201, 120, 58, 0.28), rgba(201, 120, 58, 0.08));
+  color: var(--scheda-gold);
+  border-left: 2.2px solid var(--scheda-bronze);
   flex-shrink: 0;
+  letter-spacing: 0.02em;
 }
 
 .scheda-a4__quad table {
@@ -137,70 +174,84 @@
 }
 .scheda-a4__quad th,
 .scheda-a4__quad td {
-  border: 1px solid #ccc;
+  border: 1px solid rgba(201, 150, 80, 0.28);
   padding: 0.45mm 0.8mm;
   vertical-align: middle;
 }
 .scheda-a4__quad th {
-  background: #faf7f2;
+  background: rgba(212, 168, 85, 0.14);
+  color: var(--scheda-gold);
   font-weight: 600;
   text-align: left;
 }
-.scheda-a4__quad td:nth-child(2) { width: 11%; white-space: nowrap; }
+.scheda-a4__quad td {
+  color: var(--scheda-ink);
+  background: rgba(8, 8, 8, 0.35);
+}
+/* Celle vuote kg / Note: crema scrivibile a penna */
+.scheda-a4__quad td:nth-child(3),
+.scheda-a4__quad td:nth-child(5) {
+  background: var(--scheda-cell);
+  color: var(--scheda-cell-ink);
+}
+.scheda-a4__quad td:nth-child(2) { width: 11%; white-space: nowrap; color: #f0c090; }
 .scheda-a4__quad td:nth-child(3) { width: 8%; }
-.scheda-a4__quad td:nth-child(4) { width: 12%; }
-.scheda-a4__quad td:nth-child(5),
-.scheda-a4__quad td:nth-child(6) { width: 8%; }
+.scheda-a4__quad td:nth-child(4) { width: 12%; color: var(--scheda-muted); }
+.scheda-a4__quad td:nth-child(5) { width: 12%; }
 .scheda-a4__filler {
-  border-color: #eee !important;
-  background: #fafafa;
+  border-color: rgba(201, 150, 80, 0.12) !important;
+  background: rgba(250, 244, 232, 0.08) !important;
   height: 2.8mm;
 }
 
 .scheda-a4__logline {
   margin: 0.8mm 0 0;
   font-size: 5.5pt;
-  color: #555;
-  border-top: 1px dashed #ddd;
-  padding-top: 0.4mm;
+  color: var(--scheda-muted);
+  border-top: 1px dashed rgba(212, 168, 85, 0.35);
+  padding-top: 0.5mm;
 }
 
 .scheda-a4__foot {
   margin-top: 1.5mm;
   padding-top: 1mm;
-  font-size: 5pt;
-  color: #888;
+  font-size: 5.2pt;
+  color: var(--scheda-muted);
   text-align: center;
   flex-shrink: 0;
-  border-top: 1px solid #e8e0d4;
+  border-top: 1px solid rgba(212, 168, 85, 0.35);
+  letter-spacing: 0.03em;
 }
 
 @media print {
   @page {
     size: A4 landscape;
-    margin: 8mm;
+    margin: 5mm;
   }
   .no-print { display: none !important; }
-  .schede-peso { background: #fff; }
+  .schede-peso { background: #0c0c0c; }
   .scheda-a4 {
     width: 100%;
     max-width: none;
     min-height: 0;
     height: auto;
-    max-height: calc(210mm - 16mm);
+    max-height: calc(210mm - 10mm);
     margin: 0;
     padding: 0;
     box-shadow: none;
+    border-radius: 0;
     page-break-after: avoid;
     page-break-inside: avoid;
     overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .scheda-a4__bg {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .scheda-a4__grid {
-    /* Lascia spazio a head + osservazioni + foot dentro i margini 8mm */
-    max-height: 148mm;
-  }
-  .scheda-a4__osservazioni-line {
-    min-height: 3mm;
+    max-height: 155mm;
   }
 }
 
@@ -216,4 +267,7 @@
     height: auto;
   }
   .scheda-a4__quad table { font-size: 0.62rem; }
+  .scheda-a4__bg {
+    background-position: 70% 20%;
+  }
 }

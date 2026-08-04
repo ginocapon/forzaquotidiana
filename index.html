@@ -237,10 +237,14 @@
       <h2 id="offer-title" class="visually-hidden">Newsletter e scheda PDF</h2>
       <div class="newsletter-cta">
         <h2>Scheda pesi + newsletter</h2>
-        <p>Ricevi la scheda trimestrale in PDF e un avviso quando esce un nuovo articolo — niente spam, solo contenuti utili.</p>
+        <p>Iscriviti gratis: sblocchi la scheda trimestrale in PDF e ricevi un avviso quando esce un nuovo articolo — niente spam.</p>
         <div class="newsletter-cta__actions">
-          <a class="btn btn-primary" href="/allenamenti/newsletter/">Iscriviti gratis</a>
-          <a class="btn btn-ghost" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf" download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica PDF</a>
+          <a class="btn btn-primary" href="/allenamenti/newsletter/?from=home">Iscriviti gratis</a>
+          <a class="btn btn-ghost js-scheda-pdf"
+             href="/allenamenti/newsletter/?from=home-pdf&amp;next=/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/"
+             data-pdf="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf"
+             data-from="home-pdf"
+             data-next="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/">Scarica PDF</a>
         </div>
       </div>
     </div>
@@ -269,5 +273,6 @@
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
 <script src="/js/bio-age.js?v=1" defer></script>
+<script src="/js/newsletter.js?v=5" defer></script>
 </body>
 </html>

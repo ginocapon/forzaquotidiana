@@ -1,0 +1,12 @@
+{
+  "name": "forzaquotidiana",
+  "private": true,
+  "description": "Sito statico La Forza Quotidiana — tool locali in /tools",
+  "type": "module",
+  "scripts": {
+    "pdf:scheda": "node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf --local"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

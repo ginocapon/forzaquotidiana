@@ -36,14 +36,14 @@
 
     <div class="newsletter-hero">
       <h1>Scheda pesi PDF + aggiornamenti gratuiti</h1>
-      <p class="lead">Iscriviti alla newsletter (zero costo). Ricevi una mail quando pubblico <strong>nuove schede</strong> o <strong>articoli</strong> — e subito puoi scaricare la scheda per annotare pesi e note, divisa per le <strong>4 giornate</strong> del trimestre.</p>
+      <p class="lead">Iscriviti gratis: sblocchi il download della <strong>scheda pesi PDF</strong> (4 giornate su un foglio A4) e ricevi una mail quando pubblico <strong>nuove schede</strong> o <strong>articoli</strong>. Niente spam.</p>
     </div>
 
     <div class="newsletter-grid">
       <div class="newsletter-benefits card">
         <h2>Cosa ricevi</h2>
         <ul>
-          <li><strong>Scheda pesi PDF</strong> — 4 schede, colonne peso + annotazioni</li>
+          <li><strong>Scheda pesi PDF</strong> — sblocco download dopo iscrizione (4 giornate, colonne kg + note)</li>
           <li>Avviso quando esce un nuovo trimestre o articolo</li>
           <li>Niente spam: solo ciò che pubblico sul sito</li>
           <li>Conferma via email (doppio opt-in) + disiscrizione in un click</li>
@@ -72,17 +72,22 @@
         </form>
 
         <div id="newsletter-success" class="newsletter-success" hidden>
-          <p><strong>Quasi fatto!</strong> Ti ho inviato una mail a <span id="newsletter-success-email"></span>: apri e clicca <em>Conferma iscrizione</em> per attivarla (doppio opt-in). Finché non confermi non ricevi nulla.</p>
-          <p>Le schede restano comunque pubbliche, iscrizione o meno:</p>
+          <p><strong>Iscrizione registrata.</strong> Ti ho inviato una mail a <span id="newsletter-success-email"></span>: apri e clicca <em>Conferma iscrizione</em> per attivare la newsletter (doppio opt-in). Finché non confermi non ricevi aggiornamenti.</p>
+          <p>Da questo browser puoi già scaricare la scheda:</p>
           <p class="btn-row">
-            <a class="btn btn-primary" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf" download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica PDF Q3 2026</a>
+            <a class="btn btn-primary js-scheda-pdf"
+               href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf"
+               data-pdf="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/scheda-forza-quotidiana-q3-2026.pdf"
+               data-from="newsletter-success"
+               data-next="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/"
+               download="Scheda-ForzaQuotidiana-Q3-2026.pdf">Scarica PDF Q3 2026</a>
             <a class="btn btn-ghost" href="/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/">Apri scheda online</a>
           </p>
         </div>
 
         <p id="newsletter-error" class="newsletter-error" hidden role="alert"></p>
 
-        <p class="newsletter-form__note"><small>Lista gestita con la mia Gmail (Google Apps Script). Le schede PDF sono <strong>pubbliche</strong>: la newsletter serve solo ad avvisarti quando esce qualcosa di nuovo.</small></p>
+        <p class="newsletter-form__note"><small>Lista gestita con la mia Gmail (Google Apps Script). La scheda PDF si scarica <strong>dopo l&apos;iscrizione</strong> (stesso browser). La newsletter ti avvisa quando esce un nuovo periodo o articolo.</small></p>
       </div>
     </div>
 
@@ -96,6 +101,6 @@
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
-<script src="/js/newsletter.js?v=3" defer></script>
+<script src="/js/newsletter.js?v=5" defer></script>
 </body>
 </html>

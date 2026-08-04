@@ -35,7 +35,11 @@
 
   var printBtn = document.getElementById("scheda-print-btn");
   if (printBtn) {
-    printBtn.addEventListener("click", function () {
+    printBtn.addEventListener("click", function (ev) {
+      if (window.fqNewsletter && !window.fqNewsletter.isSubscribed()) {
+        ev.preventDefault();
+        return;
+      }
       logEvent("scheda_stampa");
       window.print();
     });
