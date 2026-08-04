@@ -602,6 +602,39 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 
 **Naming screenshot Zepp:** preferire `.webp` in repo — es. `2026-08-04-scheda-2-riepilogo.webp` (non `.png`).
 
+#### Upload foto da GitHub — cartella temporanea
+
+Gino può caricare screenshot WhatsApp in `allenamenti/foto allenamento {data}/` (o simile). **L’agente** deve:
+
+1. **Identificare** ogni JPEG/PNG (contenuto visivo, non il nome WhatsApp).
+2. **Rinominare** con schema SEO fisso (vedi tabella sotto) in `img/allenamenti/amazfit/` o `img/allenamenti/YYYY-MM-DD/`.
+3. **Convertire** in WebP (`quality 82`) — `node tools/processa-foto-upload.mjs` oppure `convert-images-webp.mjs`.
+4. **Eliminare** la cartella upload e i JPEG originali — **mai** lasciare `WhatsApp Image …` nel repo.
+5. **Aggiornare** pagina sessione: gallerie `.amazfit-gallery` + `alt` descrittivi (data, scheda, metriche, «Gino Capon», contesto geo/attività).
+
+**Schema file SEO (slug fissi):**
+
+| Tipo screenshot | Nome file | `alt` include |
+|-----------------|-----------|---------------|
+| Riepilogo sessione | `{date}-scheda-{n}-riepilogo.webp` | serie, kcal, FC, carico |
+| Grafico FC | `{date}-scheda-{n}-fc-grafico.webp` | FC media/max, tipologia scheda |
+| Zone + effetto | `{date}-scheda-{n}-zone-effetto.webp` | % zone, aerobico/anaerobico |
+| Muscoli + radar | `{date}-scheda-{n}-tecnica.webp` | gruppi muscolari, radar |
+| Testo valutazione | `{date}-scheda-{n}-valutazione.webp` | consistenza, stabilità, ritmo |
+| HybridCharge panoramica | `{date}-scheda-{n}-hybridcharge.webp` | score, sforzo % |
+| Sonno score | `{date}-scheda-{n}-sonno-score.webp` | score, Normale/Medio |
+| Sonno metriche | `{date}-scheda-{n}-sonno-metriche.webp` | durata, profondo, REM |
+| Metriche readiness | `{date}-scheda-{n}-readiness-metriche.webp` | HRV, carico sforzo |
+| TSB modulo | `{date}-scheda-{n}-tsb.webp` | TSB, CTL, ATL |
+| Stress | `{date}-scheda-{n}-stress.webp` | % rilassato |
+| Training balance | `{date}-scheda-{n}-training-balance.webp` | focus FORZA/resistenza |
+
+`{date}` = `YYYY-MM-DD` · `{n}` = numero scheda trimestre (1–4). Slug minuscolo, trattini, niente spazi né caratteri speciali.
+
+**Alt text SEO:** italiano naturale + metriche chiave + «Gino Capon» + contesto (es. «gambe bicipiti», «culturismo amatoriale», «Amazfit Zepp») — non solo il nome file.
+
+**Tool:** `node tools/processa-foto-upload.mjs [cartella-upload]` — mappa automatica WhatsApp → slug se la cartella segue il pattern `foto allenamento …`.
+
 #### Intestazione (deprecata: `.session-head`)
 
 **Usare `.session-hero` + `.session-kpis`** (vedi sopra). Il vecchio `.session-head` resta solo per retrocompatibilità — non usarlo in pagine nuove.
@@ -621,10 +654,10 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 4. **Galleria screenshot** `.amazfit-gallery` — **sempre per prima**, griglia 2×2 (mobile) / 4 colonne (desktop). Ordine fisso:
    | # | File | Contenuto |
    |---|------|-----------|
-   | 1 | `-riepilogo.png` | Card riepilogo Zepp (durata, kcal, FC, carico) |
-   | 2 | `-fc-grafico.png` | Grafico linea FC con picchi e valli |
-   | 3 | `-zone-effetto.png` | Barre zone FC + gauge effetto aerobico/anaerobico |
-   | 4 | `-tecnica.png` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
+   | 1 | `-riepilogo.webp` | Card riepilogo Zepp (durata, kcal, FC, carico) |
+   | 2 | `-fc-grafico.webp` | Grafico linea FC con picchi e valli |
+   | 3 | `-zone-effetto.webp` | Barre zone FC + gauge effetto aerobico/anaerobico |
+   | 4 | `-tecnica.webp` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
    Ogni figura: `.phone-shot` + `.phone-shot__frame` + `figcaption` descrittiva.
 
    **Regola agente (non dimenticare):** quando Gino manda gli screenshot Zepp, sono **sempre 4** (riepilogo, grafico FC, zone+effetto, **radar tecnica**). Se ne manca uno in chat, chiedere; se c’è, **pubblicarlo tutti e 4** — galleria + card testo tecnica + JSON `tecnica`. Non fermarsi a 3/4.
