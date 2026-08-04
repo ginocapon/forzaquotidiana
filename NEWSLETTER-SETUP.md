@@ -27,7 +27,12 @@ Niente Formspree: iscrizioni e email passano da **Google Apps Script** sul tuo a
    - Esegui come: **Me** (ginocapon@gmail.com)
    - Chi ha accesso: **Chiunque**
 8. **Autorizza** l’app quando Google lo chiede (permessi Gmail + Fogli)
-9. Copia l’URL che finisce con **`/exec`** (es. `https://script.google.com/macros/s/AKfycb.../exec`)
+9. Copia l’URL che finisce con **`/exec`** e incollalo in:
+   - `allenamenti/newsletter/index.html` → `data-script-url`
+   - `allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/index.html` → `data-script-url` sul `<body>`
+
+   URL attivo (agosto 2026):
+   `https://script.google.com/macros/s/AKfycbzHT-A41ZDrZcA8bEHnp8OOI-I66hIvnCP7YLx2Cr0X0zuTsPJo76-auKZnXXbQSBPjww/exec`
 
 ## Passo 3 — Collega al sito
 
@@ -62,6 +67,19 @@ Fai commit + push su GitHub → il sito si aggiorna in pochi minuti.
 ## Disiscrizioni (automatica, un click)
 
 Ogni email ha in fondo il link **Disiscriviti con un click**: al click lo script imposta lo stato **disiscritto** e quell’indirizzo non riceve più nulla. Nessuna azione manuale richiesta.
+
+## Troubleshooting
+
+### Errore `Cannot read properties of undefined (reading 'parameter')`
+
+Se clicchi **▶ Esegui** su `doPost` nell’editor Apps Script, fallisce sempre — `doPost` riceve dati solo dal form web. Per testare dall’editor usa **`testSubscribe`** (menu funzioni → testSubscribe → Esegui).
+
+### Il form sul sito non funziona
+
+1. Verifica che `data-script-url` nel sito coincida con l’URL **Attivo** in Deploy → Gestisci distribuzioni (copia con «Copia»).
+2. Dopo ogni modifica al codice: **Deploy → Gestisci distribuzioni → Modifica → Nuova versione** (non basta Salva).
+3. Deploy: **Esegui come: Me** · **Chi ha accesso: Chiunque**.
+4. Sul sito: `/allenamenti/newsletter/` → iscrizione con email reale → controlla mail di conferma.
 
 ## Test
 
