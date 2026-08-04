@@ -448,6 +448,68 @@
         "fatigue_atl": 35.4,
         "date": "2026-08-03"
       }
+    },
+    {
+      "id": "2026-08-04-scheda-2",
+      "date": "2026-08-04",
+      "time": "15:19",
+      "datetime": "2026-08-04T15:19",
+      "scheda": 2,
+      "month": "2026-08",
+      "durata_sec": 5122,
+      "durata": "01:25:22",
+      "recupero_sec": 3083,
+      "recupero": "51:23",
+      "gruppi": 27,
+      "fc_media": 108,
+      "fc_max": 137,
+      "calorie": 625,
+      "carico": 51,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 1, "time": "01:19" },
+        "aerobica": { "pct": 25, "time": "22:05" },
+        "intensiva": { "pct": 61, "time": "52:13" },
+        "leggera": { "pct": 9, "time": "08:11" }
+      },
+      "effetto_aerobico": 2.5,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 1.4,
+      "effetto_anaerobico_label": "Basso",
+      "tecnica": {
+        "consistenza": "ROM uniforme — piccole fluttuazioni",
+        "stability": "Movimenti stabili — lievi scosse",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti",
+        "speed_decay": "Decadimento moderato — accettabile"
+      },
+      "hybridcharge": {
+        "pre": 39,
+        "pre_label": "Basso",
+        "sleep_score": 63,
+        "sleep_duration": "6:19",
+        "sleep_regularity_pct": 73,
+        "hrv": 35,
+        "effort_pct": 100,
+        "effort_load": 81
+      },
+      "training_balance": {
+        "focus": "Forza",
+        "forza_pct": 70,
+        "resistenza_pct": 30,
+        "periodo": "7 giorni"
+      },
+      "note": "Scheda 2 gambe-bicipiti — terzultimo allenamento prima vacanza Ken 15 gg. HybridCharge 39, sonno 6:19, HRV 35. Link diario Demolition Men stesso giorno.",
+      "tsb": {
+        "value": 3.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 36.0,
+        "fatigue_atl": 33.0,
+        "date": "2026-08-04"
+      }
     }
   ]
 }

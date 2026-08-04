@@ -72,7 +72,7 @@ Cometa con **nucleo piccolo** e **scia di polvere stellare rada** (particelle bi
 
 Foto reale Gino **fuori palestra** — stesso markup hero della home: `.hero.hero--portrait` + `.hero__overlay` (sfumatura) + testo in pannello vetro.
 
-- File: `img/chi-sono/gino-affari.png`
+- File: `img/chi-sono/gino-affari.webp`
 - Pagine: `/chi-sono/` e `/diario/` — `.hero.hero--portrait` come home: foto visibile in alto (volto), titoli bianchi sopra l'immagine con ombra, overlay sfumato; testo lungo sotto nel contenuto
 - Upload da mobile: allega in chat → `node tools/copia-ritratto-affari.mjs`
 - Tono: autorevolezza — non solo palestra, anche uomo d'affari
@@ -85,9 +85,9 @@ La pagina `/allenamenti/` deve essere **immediata**: tre card con illustrazione 
 
 | Blocco | Link | Immagine hub | Cosa comunica |
 |--------|------|--------------|---------------|
-| Trimestre | `/allenamenti/trimestre-…/` | `img/allenamenti/hub/trimestre.png` | Schede 1–4 di riferimento, programma |
-| Sessioni svolte | `/allenamenti/sessioni/` | `img/allenamenti/hub/sessioni.png` | Log per data, Amazfit, foto |
-| Diario | `/diario/` | `img/allenamenti/hub/diario.png` | Riflessioni separate dai numeri |
+| Trimestre | `/allenamenti/trimestre-…/` | `img/allenamenti/hub/trimestre.webp` | Schede 1–4 di riferimento, programma |
+| Sessioni svolte | `/allenamenti/sessioni/` | `img/allenamenti/hub/sessioni.webp` | Log per data, Amazfit, foto |
+| Diario | `/diario/` | `img/allenamenti/hub/diario.webp` | Riflessioni separate dai numeri |
 
 **Markup:** `.hub-cards` > `a.hub-card` con `.hub-card__img`, `.hub-card__label`, `h3`, `p`, `.hub-card__cta`.
 
@@ -541,8 +541,8 @@ Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno�
 
 - **6 KPI fissi** in hero (stessi della `.hr-log` finale).
 - Valori mancanti: `—`. Asterisco `*` se sovrastima device.
-- **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.png` (atleta Technogym). Preload in `<head>`.
-- **Sfondo velato altre pagine:** `<main class="page-veiled">` o `<div class="page-veiled">` sotto l'hero + `/img/allenamenti/page-bg-dumbbells.png`. Hero band su `.allenamenti-hero`, `.trimestre-hero`, `.hero--portrait` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`.
+- **Sfondo velato sessioni:** `<main class="session-page">` + `/img/allenamenti/session-hero-bg.webp` (atleta Technogym). Preload in `<head>`.
+- **Sfondo velato altre pagine:** `<main class="page-veiled">` o `<div class="page-veiled">` sotto l'hero + `/img/allenamenti/page-bg-dumbbells.webp`. Hero band su `.allenamenti-hero`, `.trimestre-hero`, `.hero--portrait` (chi-sono, diario). Home: sezioni sotto hero → `.page-veiled-band`.
 
 #### Pannelli e navigazione
 
@@ -583,6 +583,58 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 - **Aspect ratio:** verticale 9:16 (tipico WhatsApp) via CSS `.polaroid--video video { aspect-ratio: 9/16; }`; adattare se il video è orizzontale.
 - Stesso `figcaption` descrittivo delle foto, stesso stile polaroid (rotazione leggera, cornice crema).
 
+#### Immagini raster — WebP obbligatorio (performance)
+
+**Tutte** le foto raster del progetto (`jpg`, `jpeg`, `png`) devono essere in **WebP** per peso e LCP. SVG e `favicon.svg` restano invariati; video `.mp4` no.
+
+| Azione | Tool |
+|--------|------|
+| Convertire tutto il repo | `node tools/convert-images-webp.mjs` |
+| Dry-run (solo elenco) | `node tools/convert-images-webp.mjs --dry-run` |
+| Nuova immagine caricata | Convertire subito in WebP e referenziare `.webp` in HTML/CSS/JSON |
+
+**Flusso agente dopo upload foto:**
+1. Salvare in `img/…` (anche temporaneamente come jpg/png).
+2. Eseguire `node tools/convert-images-webp.mjs` — converte, aggiorna riferimenti in html/css/js/json/md/xml, elimina l’originale raster.
+3. Verificare `og:image` e `poster` dei video.
+
+**Parametri:** quality 82, effort 4 (`sharp`). Dipendenza: `npm install` in `tools/`.
+
+**Naming screenshot Zepp:** preferire `.webp` in repo — es. `2026-08-04-scheda-2-riepilogo.webp` (non `.png`).
+
+#### Upload foto da GitHub — cartella temporanea
+
+Gino può caricare screenshot WhatsApp in `allenamenti/foto allenamento {data}/` (o simile). **L’agente** deve:
+
+1. **Identificare** ogni JPEG/PNG (contenuto visivo, non il nome WhatsApp).
+2. **Rinominare** con schema SEO fisso (vedi tabella sotto) in `img/allenamenti/amazfit/` o `img/allenamenti/YYYY-MM-DD/`.
+3. **Convertire** in WebP (`quality 82`) — `node tools/processa-foto-upload.mjs` oppure `convert-images-webp.mjs`.
+4. **Eliminare** la cartella upload e i JPEG originali — **mai** lasciare `WhatsApp Image …` nel repo.
+5. **Aggiornare** pagina sessione: gallerie `.amazfit-gallery` + `alt` descrittivi (data, scheda, metriche, «Gino Capon», contesto geo/attività).
+
+**Schema file SEO (slug fissi):**
+
+| Tipo screenshot | Nome file | `alt` include |
+|-----------------|-----------|---------------|
+| Riepilogo sessione | `{date}-scheda-{n}-riepilogo.webp` | serie, kcal, FC, carico |
+| Grafico FC | `{date}-scheda-{n}-fc-grafico.webp` | FC media/max, tipologia scheda |
+| Zone + effetto | `{date}-scheda-{n}-zone-effetto.webp` | % zone, aerobico/anaerobico |
+| Muscoli + radar | `{date}-scheda-{n}-tecnica.webp` | gruppi muscolari, radar |
+| Testo valutazione | `{date}-scheda-{n}-valutazione.webp` | consistenza, stabilità, ritmo |
+| HybridCharge panoramica | `{date}-scheda-{n}-hybridcharge.webp` | score, sforzo % |
+| Sonno score | `{date}-scheda-{n}-sonno-score.webp` | score, Normale/Medio |
+| Sonno metriche | `{date}-scheda-{n}-sonno-metriche.webp` | durata, profondo, REM |
+| Metriche readiness | `{date}-scheda-{n}-readiness-metriche.webp` | HRV, carico sforzo |
+| TSB modulo | `{date}-scheda-{n}-tsb.webp` | TSB, CTL, ATL |
+| Stress | `{date}-scheda-{n}-stress.webp` | % rilassato |
+| Training balance | `{date}-scheda-{n}-training-balance.webp` | focus FORZA/resistenza |
+
+`{date}` = `YYYY-MM-DD` · `{n}` = numero scheda trimestre (1–4). Slug minuscolo, trattini, niente spazi né caratteri speciali.
+
+**Alt text SEO:** italiano naturale + metriche chiave + «Gino Capon» + contesto (es. «gambe bicipiti», «culturismo amatoriale», «Amazfit Zepp») — non solo il nome file.
+
+**Tool:** `node tools/processa-foto-upload.mjs [cartella-upload]` — mappa automatica WhatsApp → slug se la cartella segue il pattern `foto allenamento …`.
+
 #### Intestazione (deprecata: `.session-head`)
 
 **Usare `.session-hero` + `.session-kpis`** (vedi sopra). Il vecchio `.session-head` resta solo per retrocompatibilità — non usarlo in pagine nuove.
@@ -602,10 +654,10 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 4. **Galleria screenshot** `.amazfit-gallery` — **sempre per prima**, griglia 2×2 (mobile) / 4 colonne (desktop). Ordine fisso:
    | # | File | Contenuto |
    |---|------|-----------|
-   | 1 | `-riepilogo.png` | Card riepilogo Zepp (durata, kcal, FC, carico) |
-   | 2 | `-fc-grafico.png` | Grafico linea FC con picchi e valli |
-   | 3 | `-zone-effetto.png` | Barre zone FC + gauge effetto aerobico/anaerobico |
-   | 4 | `-tecnica.png` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
+   | 1 | `-riepilogo.webp` | Card riepilogo Zepp (durata, kcal, FC, carico) |
+   | 2 | `-fc-grafico.webp` | Grafico linea FC con picchi e valli |
+   | 3 | `-zone-effetto.webp` | Barre zone FC + gauge effetto aerobico/anaerobico |
+   | 4 | `-tecnica.webp` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
    Ogni figura: `.phone-shot` + `.phone-shot__frame` + `figcaption` descrittiva.
 
    **Regola agente (non dimenticare):** quando Gino manda gli screenshot Zepp, sono **sempre 4** (riepilogo, grafico FC, zone+effetto, **radar tecnica**). Se ne manca uno in chat, chiedere; se c’è, **pubblicarlo tutti e 4** — galleria + card testo tecnica + JSON `tecnica`. Non fermarsi a 3/4.
