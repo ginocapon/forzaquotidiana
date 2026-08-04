@@ -703,12 +703,12 @@
     {
       "date": "2026-08-04",
       "label": "04/08",
-      "load": 0,
-      "ctl": 35.4,
-      "atl": 30.7,
-      "tsb": 4.7,
+      "load": 51,
+      "ctl": 36,
+      "atl": 33,
+      "tsb": 3,
       "status": "Bilanciato",
-      "session": false
+      "session": true
     },
     {
       "date": "2026-08-05",
@@ -911,6 +911,13 @@
       "tsb": 0.8,
       "status": "Bilanciato",
       "load": 75
+    },
+    "2026-08-04": {
+      "ctl": 36,
+      "atl": 33,
+      "tsb": 3,
+      "status": "Bilanciato",
+      "load": 51
     }
   },
   "sessions": [
@@ -953,6 +960,10 @@
     {
       "date": "2026-08-03",
       "id": "2026-08-03-scheda-1"
+    },
+    {
+      "date": "2026-08-04",
+      "id": "2026-08-04-scheda-2"
     }
   ]
 }
