@@ -102,7 +102,7 @@
         <a class="btn btn-primary" href="/diario/">Leggi il Diario</a>
         <a class="btn btn-ghost" href="/chi-sono/">Chi sono</a>
       </div>
-      <p class="hero__trust">Gino Capon · 57 anni · 10+ anni di palestra</p>
+      <p class="hero__trust" data-site-stat="hero-trust">Gino Capon · 57 anni · 10 anni di palestra</p>
       <p class="hero__bio-age" data-bio-age="hero" hidden aria-live="polite">
         <span class="bio-age__label">Età biologica</span>
         <strong class="bio-age__value">—</strong>
@@ -189,25 +189,25 @@
       <span class="landing-section-label">Dati reali</span>
       <h2 id="proof-title">Niente numeri inventati</h2>
       <div class="landing-proof__stats">
-        <div class="proof-stat">
-          <span class="proof-stat__value">6+</span>
+        <div class="proof-stat" data-site-stat="sessions">
+          <span class="proof-stat__value">10</span>
           <span class="proof-stat__label">Sessioni documentate con export Zepp</span>
         </div>
         <div class="proof-stat">
-          <span class="proof-stat__value">10+</span>
+          <span class="proof-stat__value" data-site-stat="training-years">10</span>
           <span class="proof-stat__label">Anni di allenamento amatoriale</span>
         </div>
-        <div class="proof-stat">
-          <span class="proof-stat__value">7</span>
+        <div class="proof-stat" data-site-stat="diario-articles">
+          <span class="proof-stat__value">11</span>
           <span class="proof-stat__label">Articoli diario pubblicati</span>
         </div>
         <div class="proof-stat proof-stat--bio-age" data-bio-age="stat">
           <span class="proof-stat__value">—</span>
           <span class="proof-stat__label">Età biologica da dati Amazfit</span>
         </div>
-        <div class="proof-stat">
+        <div class="proof-stat" data-site-stat="chrono-stat">
           <span class="proof-stat__value">57</span>
-          <span class="proof-stat__label">Anni cronologici — vita reale, non reel</span>
+          <span class="proof-stat__label">Anni cronologici — compleanno 27 gennaio</span>
         </div>
       </div>
       <div class="grid-3">
@@ -272,7 +272,8 @@
 <script src="/js/comet.js?v=5" defer></script>
 <script src="/js/main.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=2" defer></script>
-<script src="/js/bio-age.js?v=1" defer></script>
+<script src="/js/bio-age.js?v=2" defer></script>
+<script src="/js/site-stats.js?v=1" defer></script>
 <script src="/js/newsletter.js?v=5" defer></script>
 </body>
 </html>

@@ -750,6 +750,45 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 - Conteggi anonimi → `data/site-stats.json`
 - Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail (conta confermati/da confermare/disiscritti)
 
+### 5a.1 Contatori home · profilo Gino · età biologica (obbligatorio)
+
+**Profilo fisso** in `data/gino-profile.json`:
+
+| Campo | Valore | Note |
+|-------|--------|------|
+| `birth_date` | `1969-01-27` | Compleanno **27 gennaio** — età cronologica si aggiorna da sola |
+| `training_start_year` | `2016` | Primo anno palestra regolare → 2026 = **10 anni**, 2027 = **11**, ecc. |
+
+**Conteggi dinamici** in `data/site-stats.json` (generato, no email):
+
+| Campo | Fonte |
+|-------|--------|
+| `chronological_age` | Calcolo da `birth_date` |
+| `training_years` | `anno corrente − training_start_year` |
+| `diario_articles` | Cartelle `diario/*/index.html` |
+| `sessions_documented` | Sessioni in `performance-sessions.json` con `zones` e non `partial` |
+| `updated` | Data ultimo aggiornamento script |
+
+**Età biologica** → `data/biological-age.json` via `node tools/aggiorna-bio-age.mjs` (usa stessa età cronologica da `gino-profile.json`).
+
+**Script unico (dopo sessione, articolo diario, o mensile):**
+
+```bash
+node tools/aggiorna-site-stats.mjs
+```
+
+Esegue anche `aggiorna-bio-age.mjs`. La home legge i numeri con `js/site-stats.js` (`data-site-stat` su `index.html`, `diario/index.html`, `chi-sono/index.html`).
+
+**Checklist agente — quando pubblicare:**
+
+1. Nuova sessione con export Zepp → `aggiorna-performance.mjs` + **`aggiorna-site-stats.mjs`**
+2. Nuovo articolo diario → **`aggiorna-site-stats.mjs`**
+3. **Fine mese** (con screenshot Zepp / sonno) → **`aggiorna-site-stats.mjs`** + verifica `biological-age.json` e timeline
+4. Dopo **27 gennaio** → età cronologica +1 automatica al prossimo run script (non editare `57` a mano in HTML)
+
+**HTML home** — non hardcodare `10+` / `7 articoli`: usare `data-site-stat` o valori fallback aggiornati dallo script.
+
+
 ### File
 
 | Path | Ruolo |

@@ -16,13 +16,27 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const REPO = dirname(ROOT);
+const PROFILE_PATH = join(REPO, "data/gino-profile.json");
 const SESSIONS_PATH = join(REPO, "data/performance-sessions.json");
 const LOAD_PATH = join(REPO, "data/training-load.json");
 const OUT_PATH = join(REPO, "data/biological-age.json");
 
-const CHRONO_AGE = 57;
+function chronologicalAge(birthDate, at = new Date()) {
+  const [y, m, d] = birthDate.split("-").map(Number);
+  let age = at.getFullYear() - y;
+  const month = at.getMonth() + 1;
+  if (month < m || (month === m && at.getDate() < d)) age -= 1;
+  return age;
+}
+
+function trainingYears(startYear, at = new Date()) {
+  return at.getFullYear() - startYear;
+}
+
+const profile = JSON.parse(readFileSync(PROFILE_PATH, "utf8"));
+const CHRONO_AGE = chronologicalAge(profile.birth_date);
+const TRAINING_YEARS = trainingYears(profile.training_start_year);
 const TRIMESTRE_START = "2026-06-01";
-const TRAINING_YEARS = 10;
 const MATURITY_SESSIONS = 12;
 
 const CAPS = {
