@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -24,14 +24,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare site artifact
+        run: |
+          mkdir -p _site
+          # Esclude tool locali, dipendenze e meta-repo: riduce artifact e timeout deploy.
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'node_modules/' \
+            --exclude 'tools/' \
+            --exclude '.cursor/' \
+            --exclude 'package.json' \
+            --exclude 'package-lock.json' \
+            --exclude 'SKILL.md' \
+            --exclude 'SKILL-*.md' \
+            --exclude 'NEWSLETTER-SETUP.md' \
+            --exclude 'DEPLOY-GITHUB-PAGES.md' \
+            --exclude 'README.md' \
+            ./ _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 600000
