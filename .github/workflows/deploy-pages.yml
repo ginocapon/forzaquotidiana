@@ -51,9 +51,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    # Niente environment github-pages qui: evita "waiting for deployment approval".
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
