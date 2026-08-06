@@ -3,6 +3,10 @@
 > Adattato da template operativo palestra/brand (luglio 2026).  
 > **Versione operativa integrata in `SKILL.md` §8** — leggere quella sezione prima di ogni modifica.
 
+## PRIORITÀ PERMANENTE — Trasparenza AI (AI Act UE)
+
+OG image / hero SEO: se sintetici o abbelliti con IA → etichetta in pagina + `data-ai`. Non presentare immagini IA come foto documentali di Gino. Vedi `SKILL.md` § PRIORITÀ PERMANENTE e `/trasparenza-ai/`.
+
 ## Applicazione a forzaquotidiana.it
 
 | Template generico | Forza Quotidiana |

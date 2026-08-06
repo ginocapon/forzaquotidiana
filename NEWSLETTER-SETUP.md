@@ -83,9 +83,31 @@ Se clicchi **▶ Esegui** su `doPost` nell’editor Apps Script, fallisce sempre
 
 ## Test
 
-1. Sul sito live: `/allenamenti/newsletter/` → iscrizione con una tua email secondaria
-2. Controlla foglio Google + casella di benvenuto
-3. Verifica redirect a `/allenamenti/schede-peso/` — **1 pagina A4 orizzontale**
+1. Apri in una **finestra anonima** l’URL `/exec` dello script: deve mostrare la pagina scura «La Forza Quotidiana / Servizio newsletter attivo» **senza** chiedere login Google.
+2. Sul sito live: `/allenamenti/newsletter/` → iscrizione con una tua email secondaria
+3. Controlla foglio Google + casella di conferma
+4. Verifica redirect a `/allenamenti/schede-peso/…/?sub=1` — da lì scarichi il PDF
+
+## Errore: «Impossibile aprire il file in questo momento»
+
+Succede quando la **distribuzione App web** non è pubblica (o è stata revocata). Il form posta a Google e Google risponde 401.
+
+**Fix (account ginocapon@gmail.com):**
+
+1. Vai su [script.google.com](https://script.google.com) → progetto **Forza Quotidiana Newsletter**
+2. Incolla/aggiorna il codice da `newsletter/google-apps-script.gs` del repo → **Salva**
+3. **Deploy** → **Gestisci distribuzioni**
+   - Se esiste già un’App web: **Modifica** (matita) → **Versione: Nuova versione** → **Esegui come: Me** → **Chi ha accesso: Chiunque** → **Distribuisci**
+   - Se non esiste: **Nuova distribuzione** → tipo **App web** con le stesse opzioni
+4. Se Google chiede autorizzazioni → **Consenti** (Gmail + Fogli + servizi esterni)
+5. Copia l’URL che finisce con **`/exec`**
+6. Se l’URL è **cambiato** rispetto a quello nel sito, aggiorna `data-script-url` in:
+   - `allenamenti/newsletter/index.html`
+   - `allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/index.html`
+   poi commit + push
+7. Ritesta l’URL `/exec` in finestra anonima (passo Test §1)
+
+> Non basta «Salva» nello script: senza **Nuova versione** della distribuzione il sito continua a usare il vecchio deploy rotto.
 
 ## Trigger venerdì (opzionale)
 

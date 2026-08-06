@@ -2,6 +2,10 @@
 
 > **Quando usare:** ogni nuova sessione pubblicata; Gino invia screenshot Zepp; fine mese; aggiornamento grafici trimestre.
 
+## PRIORITÀ PERMANENTE — Trasparenza AI (AI Act UE)
+
+Screenshot Amazfit/Zepp e foto sessione reali = **documentali** (niente etichetta IA). Se aggiungi hero/illustrazioni sintetiche sulla stessa pagina → etichetta obbligatoria. Vedi `SKILL.md` § PRIORITÀ PERMANENTE.
+
 ## Obiettivo
 
 Ogni pagina sessione mostra **due livelli complementari**:

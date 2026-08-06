@@ -7,7 +7,7 @@
   var CONSENT_MAX_AGE = 31536000;
 
   var CONTENT_PATH = /^\/(diario|allenamenti|chi-sono)(\/|$)/;
-  var LEGAL_PATH = /^\/(privacy|cookie|termini)(\/|$)/;
+  var LEGAL_PATH = /^\/(privacy|cookie|termini|trasparenza-ai)(\/|$)/;
 
   function readCookie(name) {
     var match = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "=([^;]*)"));
@@ -103,17 +103,31 @@
 
   function injectFooterLegal() {
     var footer = document.querySelector(".site-footer .wrap");
-    if (!footer || footer.querySelector(".footer-legal")) return;
-    var legal = document.createElement("p");
-    legal.className = "footer-legal";
-    legal.innerHTML =
-      '<a href="/privacy/">Privacy Policy</a> · ' +
-      '<a href="/cookie/">Cookie Policy</a> · ' +
-      '<a href="/termini/">Termini</a> · ' +
-      '<button type="button" class="footer-legal__btn" id="fq-manage-cookies">Gestisci cookie</button>';
-    footer.appendChild(legal);
-    var btn = document.getElementById("fq-manage-cookies");
-    if (btn) btn.addEventListener("click", openPreferences);
+    if (!footer) return;
+
+    if (!footer.querySelector(".footer-legal")) {
+      var legal = document.createElement("p");
+      legal.className = "footer-legal";
+      legal.innerHTML =
+        '<a href="/privacy/">Privacy Policy</a> · ' +
+        '<a href="/cookie/">Cookie Policy</a> · ' +
+        '<a href="/termini/">Termini</a> · ' +
+        '<a href="/trasparenza-ai/">Trasparenza AI</a> · ' +
+        '<button type="button" class="footer-legal__btn" id="fq-manage-cookies">Gestisci cookie</button>';
+      footer.appendChild(legal);
+      var btn = document.getElementById("fq-manage-cookies");
+      if (btn) btn.addEventListener("click", openPreferences);
+    }
+
+    if (!footer.querySelector(".ai-site-notice")) {
+      var ai = document.createElement("p");
+      ai.className = "ai-site-notice";
+      ai.setAttribute("role", "note");
+      ai.innerHTML =
+        'Alcune immagini e contenuti di questo sito possono essere <strong>generati, abbelliti o modificati in parte con intelligenza artificiale</strong>. ' +
+        'Dettagli e criteri: <a href="/trasparenza-ai/">Trasparenza AI (AI Act UE)</a>.';
+      footer.appendChild(ai);
+    }
   }
 
   function createBanner() {

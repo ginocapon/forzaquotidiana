@@ -6,6 +6,12 @@
 
 ---
 
+## PRIORITÀ PERMANENTE — Trasparenza AI (AI Act UE)
+
+Prima di pubblicare hero, card o visual marketing: se l’immagine è generata/abbellita con IA → etichetta `.ai-media-note` + `data-ai` + link `/trasparenza-ai/`. Notice footer obbligatorio su ogni pagina. Vedi `SKILL.md` § PRIORITÀ PERMANENTE e `.cursor/rules/ai-trasparenza.mdc`.
+
+---
+
 ## 0. Contesto brand (non negoziabile)
 
 | Campo | Valore |

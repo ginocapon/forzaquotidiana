@@ -3040,6 +3040,53 @@ body.theme-allenamenti .session-card__badge {
 }
 .footer-legal__btn:hover { color: var(--accent); }
 
+.ai-site-notice {
+  margin: 0.65rem 0 0;
+  max-width: 42rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--muted, #a39a90);
+}
+.ai-site-notice a { color: var(--accent); }
+.ai-site-notice strong { color: #e8dfd2; font-weight: 600; }
+
+.ai-media-note,
+.fig-credit {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.72rem;
+  font-style: normal;
+  line-height: 1.4;
+  color: var(--muted, #a39a90);
+  letter-spacing: 0.01em;
+}
+.ai-media-note a,
+.fig-credit a { color: var(--accent); }
+.ai-badge {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.05rem 0.35rem;
+  border: 1px solid rgba(201, 150, 80, 0.45);
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #d4a855;
+  vertical-align: 0.05em;
+}
+.hero__ai-note {
+  position: relative;
+  z-index: 2;
+  margin: 0.5rem auto 0;
+  padding: 0 1rem 0.75rem;
+  max-width: var(--wrap, 68rem);
+  text-align: left;
+}
+.hub-card .ai-media-note {
+  margin: 0.4rem 0 0;
+  padding: 0 0.15rem;
+}
+
 .cookie-banner {
   position: fixed;
   inset-inline: 0;

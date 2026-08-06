@@ -6,6 +6,22 @@
 
 ---
 
+## PRIORITÀ PERMANENTE — Trasparenza AI (AI Act UE)
+
+**Obbligo non negoziabile** su tutto il sito pubblico. Riferimento: Regolamento (UE) 2024/1689 (AI Act) — obblighi di trasparenza (art. 50); *l’obbligo concreto dipende da come l’IA è utilizzata*.
+
+1. **Ogni pagina pubblica** deve caricare `js/cookie-consent.js` (footer con notice + link `/trasparenza-ai/`).
+2. **Ogni immagine generata, abbellita o modificata con IA** (hero cinematici, vignette, hub illustrations, sfondi decorativi, collage/archivio ritoccato):
+   - `data-ai="generated"` | `edited` | `illustrative`
+   - trafiletto visibile: `.ai-media-note` / `.fig-credit` + badge `.ai-badge` + link a `/trasparenza-ai/`
+3. **Foto/video documentali reali** (palestra, spogliatoio, mare, Amazfit): niente etichetta IA; restano coperti dal notice footer.
+4. **Nuovi contenuti / nuove foto:** se c’è intervento IA → etichetta **prima** del commit. Aggiornare `/trasparenza-ai/` se cambia la prassi.
+5. Pagina normativa: `/trasparenza-ai/` · cross-link in Termini e Privacy · sitemap.
+
+Dettaglio operativo e markup: anche `.cursor/rules/ai-trasparenza.mdc`.
+
+---
+
 ## 0. Anima del sito — dedicato a Ginevra
 
 **La Forza Quotidiana** è un **lascito per Ginevra**, unica figlia di Gino. Non è bodybuilding da vetrina né coaching commerciale.

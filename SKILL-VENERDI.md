@@ -8,6 +8,10 @@ description: >-
 
 # Forza Quotidiana — venerdì operativo
 
+## PRIORITÀ PERMANENTE — Trasparenza AI (AI Act UE)
+
+In checklist venerdì: verificare che nuove immagini/pagine della settimana abbiano etichetta IA se generate/abbellite; footer notice presente; `/trasparenza-ai/` aggiornata se serve. Vedi `SKILL.md` § PRIORITÀ PERMANENTE.
+
 ## Automazioni attive
 
 | Cosa | Quando | Dove |
@@ -42,6 +46,7 @@ description: >-
 - [ ] `llms.txt` — contenuti recenti?
 - [ ] Link rotti: homepage → allenamenti → newsletter → scheda PDF
 - [ ] Privacy/cookie coerenti se hai aggiunto form o tracking
+- [ ] **Trasparenza AI:** nuove immagini generate/abbellite etichettate? footer notice ok? `/trasparenza-ai/` aggiornata?
 - [ ] GitHub Pages deploy ok (ultimo push su `main`)
 
 ### 3. Contenuti settimana
