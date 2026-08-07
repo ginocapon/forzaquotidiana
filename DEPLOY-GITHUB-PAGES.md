@@ -53,7 +53,9 @@ Propagazione: 15 min – 48 h.
 
 ### Se non vedi le modifiche online
 
-- Controlla **Actions** su GitHub: workflow «Deploy GitHub Pages» deve essere verde.
+- Controlla **Actions** su GitHub: workflow «Deploy GitHub Pages» deve essere verde (job `build` + `deploy`).
+- Il job `deploy` **deve** usare l'environment `github-pages` (obbligatorio per `deploy-pages`).
+- Non attivare `cancel-in-progress` sul workflow Pages: interrompe deploy in corso.
 - Se Pages usa ancora «Deploy from branch», passa a **GitHub Actions** come sopra.
 - Hard refresh: Ctrl+F5 (Windows) o svuota cache browser.
 
