@@ -7,9 +7,28 @@
 
   var SESSIONS_URL = "/data/performance-sessions.json";
   var MOUNT_ID = "allenamenti-readiness-chart";
+  var DAYS_SHORT = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
 
   function pad(n) {
     return n < 10 ? "0" + n : String(n);
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  }
+
+  function weekdayShort(iso) {
+    var d = new Date(iso + "T12:00:00");
+    return DAYS_SHORT[d.getDay()];
+  }
+
+  function schedaSigla(session) {
+    if (session.scheda_label) return session.scheda_label;
+    if (session.schede && session.schede.length) {
+      return session.schede.map(function (n) { return "S" + n; }).join("+");
+    }
+    if (session.scheda) return "S" + session.scheda;
+    return "—";
   }
 
   function formatLabel(iso) {
@@ -27,7 +46,8 @@
     return {
       date: session.date,
       id: session.id,
-      scheda: session.scheda || session.scheda_label || "—",
+      scheda: schedaSigla(session),
+      weekday: weekdayShort(session.date),
       sleep: hc.sleep_score != null ? hc.sleep_score : null,
       efficiency: hc.pre != null ? hc.pre : null,
       effort: effort != null ? effort : null
@@ -39,7 +59,8 @@
       date: session.date,
       id: session.id,
       url: "/allenamenti/sessioni/" + session.id + "/",
-      scheda: session.scheda || session.scheda_label || "—",
+      scheda: schedaSigla(session),
+      weekday: weekdayShort(session.date),
       fc_max: session.fc_max != null ? session.fc_max : null,
       fc_min: session.fc_min != null ? session.fc_min : null,
       fc_media: session.fc_media != null ? session.fc_media : null
@@ -70,12 +91,14 @@
     }).join(" ");
   }
 
-  function axisLabels(points, xScale, H) {
+  function pointLabels(points, xScale, H) {
     var labels = "";
     points.forEach(function (p, i) {
-      if (i === 0 || i === points.length - 1 || points.length <= 8 || i % 2 === 0) {
-        labels += '<text class="readiness-axis-x" x="' + xScale(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + formatLabel(p.date) + "</text>";
-      }
+      var cx = xScale(i);
+      labels += '<text class="readiness-point-label" x="' + cx + '" y="' + (H - 26) + '" text-anchor="middle">';
+      labels += '<tspan x="' + cx + '" dy="0">' + esc(p.weekday) + "</tspan>";
+      labels += '<tspan x="' + cx + '" dy="11" class="readiness-point-label__scheda">' + esc(p.scheda) + "</tspan>";
+      labels += "</text>";
     });
     return labels;
   }
@@ -88,11 +111,11 @@
     if (!hasSleep && !hasEff && !hasEffort) return "";
 
     var W = 640;
-    var H = 220;
+    var H = 236;
     var padL = 36;
     var padR = 12;
     var padT = 16;
-    var padB = 32;
+    var padB = 40;
     var innerW = W - padL - padR;
     var innerH = H - padT - padB;
 
@@ -134,10 +157,10 @@
         var val = p[s.key];
         if (val == null) return;
         svg += '<circle class="readiness-dot ' + s.dotClass + '" cx="' + cx + '" cy="' + yScale(val) + '" r="4">';
-        svg += "<title>" + formatLabel(p.date) + " · " + s.label + ": " + val + "</title></circle>";
+        svg += "<title>" + p.weekday + " " + p.scheda + " · " + formatLabel(p.date) + " · " + s.label + ": " + val + "</title></circle>";
       });
     });
-    svg += axisLabels(points, xScale, H);
+    svg += pointLabels(points, xScale, H);
     svg += "</svg>";
 
     var legend = '<p class="readiness-chart__legend">';
@@ -169,11 +192,11 @@
     var yMax = Math.min(180, Math.ceil(Math.max.apply(null, values) / 10) * 10 + 10);
 
     var W = 640;
-    var H = 240;
+    var H = 256;
     var padL = 40;
     var padR = 12;
     var padT = 16;
-    var padB = 32;
+    var padB = 40;
     var innerW = W - padL - padR;
     var innerH = H - padT - padB;
 
@@ -218,14 +241,14 @@
       var cx = xScale(i);
       if (p.fc_max != null) {
         svg += '<circle class="readiness-dot readiness-dot--hr-max" cx="' + cx + '" cy="' + yScale(p.fc_max) + '" r="4.5">';
-        svg += "<title>" + formatLabel(p.date) + " · FC max: " + p.fc_max + " bpm</title></circle>";
+        svg += "<title>" + p.weekday + " " + p.scheda + " · FC max: " + p.fc_max + " bpm</title></circle>";
       }
       if (p.fc_min != null) {
         svg += '<circle class="readiness-dot readiness-dot--hr-min" cx="' + cx + '" cy="' + yScale(p.fc_min) + '" r="3.5">';
-        svg += "<title>" + formatLabel(p.date) + " · FC min: " + p.fc_min + " bpm</title></circle>";
+        svg += "<title>" + p.weekday + " " + p.scheda + " · FC min: " + p.fc_min + " bpm</title></circle>";
       }
     });
-    svg += axisLabels(points, xScale, H);
+    svg += pointLabels(points, xScale, H);
     svg += "</svg>";
 
     var legend = '<p class="readiness-chart__legend">';

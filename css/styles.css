@@ -4396,3 +4396,14 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
 .readiness-legend.readiness-line--hr-min,
 .readiness-hr-range-label { color: #e85d5d; }
 
+.readiness-point-label {
+  fill: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+}
+.readiness-point-label__scheda {
+  fill: var(--color-accent-warm, #c9783a);
+  font-size: 8.5px;
+  font-weight: 700;
+}
+
