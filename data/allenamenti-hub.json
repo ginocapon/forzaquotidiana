@@ -1,0 +1,124 @@
+{
+  "_nota": "Hub pubblico allenamenti — calendario, cicli e mapping schede. Sessioni reali in performance-sessions.json.",
+  "calendario": {
+    "inizio": "2026-05-01",
+    "fine": "2030-12-31"
+  },
+  "cicloCorrente": {
+    "id": "trimestre-giugno-luglio-agosto-2026",
+    "tipo": "trimestre",
+    "label": "Trimestre Giu–Lug–Ago 2026",
+    "badge": "Q3 · 2026",
+    "periodo": "1 giu – 31 ago 2026",
+    "url": "/allenamenti/trimestre-giugno-luglio-agosto-2026/",
+    "descrizione": "Ipertrofia natural · 4 schede settimanali (S1–S4)"
+  },
+  "cicloProssimo": {
+    "id": "macrociclo-2026-2027",
+    "tipo": "annuale",
+    "label": "Macrociclo Set 2026 – Ago 2027",
+    "badge": "Fase 1",
+    "inizio": "2026-09-01",
+    "fase": "Ipertrofia accumulo",
+    "urlDiario": "/diario/blocco-1-ipertrofia-accumulo-settembre-2026/",
+    "descrizione": "Split A1–B1–A2–B2 · 4 sedute/settimana"
+  },
+  "settimanaTipo": {
+    "trimestre-giugno-luglio-agosto-2026": [
+      { "giorno": "Lunedì", "scheda": 1, "codice": "S1", "focus": "Petto · Spalle · Dorsali" },
+      { "giorno": "Martedì", "scheda": 2, "codice": "S2", "focus": "Gambe · Bicipiti" },
+      { "giorno": "Mercoledì", "tipo": "riposo", "label": "Riposo" },
+      { "giorno": "Giovedì", "scheda": 3, "codice": "S3", "focus": "Spalle · Dorsali · Polpacci" },
+      { "giorno": "Venerdì", "scheda": 4, "codice": "S4", "focus": "Gambe · Petto · Bicipiti" },
+      { "giorno": "Sabato", "tipo": "riposo", "label": "Riposo" },
+      { "giorno": "Domenica", "tipo": "riposo", "label": "Riposo" }
+    ],
+    "macrociclo-2026-2027": [
+      { "giorno": "Lunedì", "sessione": "a1", "codice": "A1", "focus": "Petto · Schiena · Spalle · Polpacci" },
+      { "giorno": "Martedì", "sessione": "b1", "codice": "B1", "focus": "Gambe accosciata · Polpacci · Braccia" },
+      { "giorno": "Mercoledì", "tipo": "riposo", "label": "Riposo" },
+      { "giorno": "Giovedì", "sessione": "a2", "codice": "A2", "focus": "Schiena · Spalle · Polpacci · Halo" },
+      { "giorno": "Venerdì", "tipo": "riposo", "label": "Riposo" },
+      { "giorno": "Sabato", "sessione": "b2", "codice": "B2", "focus": "Gambe anca · Bicipiti" },
+      { "giorno": "Domenica", "tipo": "riposo", "label": "Riposo" }
+    ]
+  },
+  "schedeGiornaliere": {
+    "trimestre-giugno-luglio-agosto-2026": [
+      {
+        "numero": 1,
+        "codice": "S1",
+        "titolo": "Petto · Spalle · Dorsali",
+        "muscoli": ["Petto", "Spalle", "Dorsali"],
+        "figura": "fig-press-incl",
+        "anchor": "/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-1"
+      },
+      {
+        "numero": 2,
+        "codice": "S2",
+        "titolo": "Gambe · Bicipiti",
+        "muscoli": ["Gambe", "Bicipiti"],
+        "figura": "fig-pressa",
+        "anchor": "/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-2"
+      },
+      {
+        "numero": 3,
+        "codice": "S3",
+        "titolo": "Spalle · Dorsali · Polpacci",
+        "muscoli": ["Spalle", "Dorsali", "Polpacci"],
+        "figura": "fig-alzate",
+        "anchor": "/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-3"
+      },
+      {
+        "numero": 4,
+        "codice": "S4",
+        "titolo": "Gambe · Petto · Bicipiti",
+        "muscoli": ["Gambe", "Petto", "Bicipiti"],
+        "figura": "fig-squat",
+        "anchor": "/allenamenti/trimestre-giugno-luglio-agosto-2026/#scheda-4"
+      }
+    ]
+  },
+  "schedeAnnuali": {
+    "macrociclo-2026-2027": [
+      {
+        "sessione": "a1",
+        "codice": "A1",
+        "titolo": "Petto · Schiena · Spalle · Polpacci",
+        "muscoli": ["Petto", "Schiena", "Spalle", "Polpacci"],
+        "figura": "fig-press-incl",
+        "fase": "ipertrofia-accumulo"
+      },
+      {
+        "sessione": "b1",
+        "codice": "B1",
+        "titolo": "Gambe accosciata · Polpacci · Braccia",
+        "muscoli": ["Gambe", "Polpacci", "Bicipiti"],
+        "figura": "fig-pressa",
+        "fase": "ipertrofia-accumulo"
+      },
+      {
+        "sessione": "a2",
+        "codice": "A2",
+        "titolo": "Schiena · Spalle · Polpacci · Halo",
+        "muscoli": ["Schiena", "Spalle", "Polpacci"],
+        "figura": "fig-lat",
+        "fase": "ipertrofia-accumulo"
+      },
+      {
+        "sessione": "b2",
+        "codice": "B2",
+        "titolo": "Gambe anca · Bicipiti",
+        "muscoli": ["Gambe", "Glutei", "Bicipiti"],
+        "figura": "fig-trapbar",
+        "fase": "ipertrofia-accumulo"
+      }
+    ]
+  },
+  "muscoliPerScheda": {
+    "1": ["Petto", "Spalle", "Dorsali"],
+    "2": ["Gambe", "Bicipiti"],
+    "3": ["Spalle", "Dorsali", "Polpacci"],
+    "4": ["Gambe", "Petto", "Bicipiti"]
+  }
+}

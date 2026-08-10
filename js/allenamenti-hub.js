@@ -1,0 +1,556 @@
+/**
+ * Hub allenamenti — calendario sessioni + schede programma
+ */
+(function () {
+  "use strict";
+
+  var HUB_URL = "/data/allenamenti-hub.json";
+  var SESSIONS_URL = "/data/performance-sessions.json";
+
+  var MONTHS_IT = [
+    "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+    "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+  ];
+  var DAYS_SHORT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
+  var DAYS_LONG = [
+    "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"
+  ];
+
+  function pad(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+
+  function parseDate(iso) {
+    var p = iso.split("-");
+    return new Date(+p[0], +p[1] - 1, +p[2]);
+  }
+
+  function toIso(d) {
+    return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  }
+
+  function startOfWeek(d) {
+    var copy = new Date(d);
+    var day = copy.getDay();
+    var diff = day === 0 ? -6 : 1 - day;
+    copy.setDate(copy.getDate() + diff);
+    copy.setHours(0, 0, 0, 0);
+    return copy;
+  }
+
+  function addDays(d, n) {
+    var copy = new Date(d);
+    copy.setDate(copy.getDate() + n);
+    return copy;
+  }
+
+  function formatDayLong(iso) {
+    var d = parseDate(iso);
+    return DAYS_LONG[(d.getDay() + 6) % 7] + " " + d.getDate() + " " +
+      MONTHS_IT[d.getMonth()].toLowerCase() + " " + d.getFullYear();
+  }
+
+  function formatMonthYear(d) {
+    return MONTHS_IT[d.getMonth()] + " " + d.getFullYear();
+  }
+
+  function el(tag, attrs, children) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        if (k === "className") node.className = attrs[k];
+        else if (k === "html") node.innerHTML = attrs[k];
+        else if (k === "text") node.textContent = attrs[k];
+        else node.setAttribute(k, attrs[k]);
+      });
+    }
+    (children || []).forEach(function (c) {
+      if (typeof c === "string") node.appendChild(document.createTextNode(c));
+      else if (c) node.appendChild(c);
+    });
+    return node;
+  }
+
+  function schedaLabel(s) {
+    if (s.scheda_label) return s.scheda_label;
+    if (s.schede && s.schede.length) {
+      return s.schede.map(function (n) { return "S" + n; }).join(" + ");
+    }
+    if (s.scheda) return "S" + s.scheda;
+    return "—";
+  }
+
+  function sessionUrl(s) {
+    return "/allenamenti/sessioni/" + s.id + "/";
+  }
+
+  function muscoliForSession(s, hub) {
+    if (s.schede && s.schede.length) {
+      var map = hub.muscoliPerScheda || {};
+      var set = {};
+      s.schede.forEach(function (n) {
+        (map[String(n)] || []).forEach(function (m) { set[m] = true; });
+      });
+      return Object.keys(set);
+    }
+    if (s.scheda && hub.muscoliPerScheda) {
+      return hub.muscoliPerScheda[String(s.scheda)] || [];
+    }
+    return [];
+  }
+
+  function enrichSessions(hub, perf) {
+    return (perf.sessions || [])
+      .filter(function (s) { return s.date; })
+      .map(function (s) {
+        return {
+          id: s.id,
+          date: s.date,
+          time: s.time || "",
+          datetime: s.datetime || s.date,
+          durata: s.durata || (s.partial ? "dati parziali" : "—"),
+          calorie: s.calorie,
+          gruppi: s.gruppi,
+          schedaLabel: schedaLabel(s),
+          muscoli: muscoliForSession(s, hub),
+          url: sessionUrl(s),
+          partial: !!s.partial
+        };
+      });
+  }
+
+  function groupByDate(sessions) {
+    var map = {};
+    sessions.forEach(function (s) {
+      if (!map[s.date]) map[s.date] = [];
+      map[s.date].push(s);
+    });
+    return map;
+  }
+
+  function figureNode(figId, label, className) {
+    var wrap = el("div", { className: className || "scheda-tile__fig" });
+    if (window.fqSprite && window.fqSprite.figure) {
+      wrap.appendChild(window.fqSprite.figure(figId, label));
+    }
+    return wrap;
+  }
+
+  function renderQuickActions(root, hub) {
+    var ciclo = hub.cicloCorrente;
+    var grid = el("div", { className: "allen-hub-actions" });
+
+    var trim = el("a", {
+      className: "allen-hub-action",
+      href: ciclo.url
+    });
+    trim.appendChild(figureNode("fig-press-incl", "Programma trimestrale", "allen-hub-action__fig"));
+    var trimBody = el("div", { className: "allen-hub-action__body" });
+    trimBody.appendChild(el("span", { className: "allen-hub-action__badge", text: ciclo.badge }));
+    trimBody.appendChild(el("strong", { text: "Scheda trimestrale" }));
+    trimBody.appendChild(el("span", { className: "allen-hub-action__meta", text: ciclo.label }));
+    trim.appendChild(trimBody);
+    grid.appendChild(trim);
+
+    var log = el("a", {
+      className: "allen-hub-action",
+      href: "/allenamenti/sessioni/"
+    });
+    log.appendChild(figureNode("fig-lat", "Sessioni svolte", "allen-hub-action__fig"));
+    var logBody = el("div", { className: "allen-hub-action__body" });
+    logBody.appendChild(el("span", { className: "allen-hub-action__badge", text: "Log" }));
+    logBody.appendChild(el("strong", { text: "Sedute svolte" }));
+    logBody.appendChild(el("span", {
+      className: "allen-hub-action__meta",
+      text: "Data, KPI Amazfit, foto e export Zepp"
+    }));
+    log.appendChild(logBody);
+    grid.appendChild(log);
+
+    root.appendChild(grid);
+  }
+
+  function renderSchedaTile(s) {
+    var a = el("a", {
+      className: "scheda-tile",
+      href: s.anchor || "#"
+    });
+    a.appendChild(figureNode(s.figura, s.titolo));
+    var body = el("div", { className: "scheda-tile__body" });
+    body.appendChild(el("span", { className: "scheda-tile__code", text: s.codice }));
+    body.appendChild(el("strong", { className: "scheda-tile__title", text: s.titolo }));
+    body.appendChild(el("span", {
+      className: "scheda-tile__muscles",
+      text: (s.muscoli || []).join(" · ")
+    }));
+    a.appendChild(body);
+    return a;
+  }
+
+  function renderWeekRow(day, hub) {
+    var cicloId = hub.cicloCorrente.id;
+    var prossimo = hub.cicloProssimo;
+    var useAnnuale = prossimo && prossimo.inizio && day >= prossimo.inizio;
+    var key = useAnnuale ? prossimo.id : cicloId;
+    var rows = hub.settimanaTipo[key] || [];
+    var weekday = DAYS_LONG[(parseDate(day).getDay() + 6) % 7];
+    var row = rows.find(function (r) { return r.giorno === weekday; });
+    if (!row) return null;
+    if (row.tipo === "riposo") {
+      return el("span", { className: "week-plan__rest", text: "Riposo" });
+    }
+    if (row.codice) {
+      return el("span", { className: "week-plan__code", text: row.codice });
+    }
+    return null;
+  }
+
+  function renderProgramma(root, hub) {
+    var sec = el("section", { className: "allen-hub-programma" });
+    sec.appendChild(el("h2", { text: "Programma" }));
+
+    var ciclo = hub.cicloCorrente;
+    sec.appendChild(el("p", {
+      className: "allen-hub-programma__lead",
+      html: "<strong>" + ciclo.label + "</strong> — " + ciclo.descrizione +
+        " · <a href=\"" + ciclo.url + "\">Apri trimestre completo →</a>"
+    }));
+
+    sec.appendChild(el("h3", { className: "allen-hub-programma__h3", text: "Settimana tipo" }));
+    sec.appendChild(el("p", {
+      className: "allen-hub-programma__note",
+      text: "Schema settimanale del ciclo in corso — distinto dalle singole schede giornaliere sotto."
+    }));
+
+    var weekKey = ciclo.id;
+    var weekRows = hub.settimanaTipo[weekKey] || [];
+    var weekGrid = el("div", { className: "week-plan" });
+    weekRows.forEach(function (row) {
+      var cell = el("div", {
+        className: "week-plan__day" + (row.tipo === "riposo" ? " is-rest" : "")
+      });
+      cell.appendChild(el("span", { className: "week-plan__label", text: row.giorno }));
+      if (row.tipo === "riposo") {
+        cell.appendChild(el("span", { className: "week-plan__rest", text: "Riposo" }));
+      } else {
+        cell.appendChild(el("span", { className: "week-plan__code", text: row.codice }));
+        cell.appendChild(el("span", { className: "week-plan__focus", text: row.focus }));
+      }
+      weekGrid.appendChild(cell);
+    });
+    sec.appendChild(weekGrid);
+
+    if (hub.cicloProssimo) {
+      var next = hub.cicloProssimo;
+      var nextBox = el("div", { className: "allen-hub-next card" });
+      nextBox.appendChild(el("p", {
+        className: "allen-hub-next__badge",
+        text: "Da " + formatDayLong(next.inizio).replace(/^\w+ /, "").replace(/ \d{4}$/, "") + " · " + next.badge
+      }));
+      nextBox.appendChild(el("h3", { text: next.label }));
+      nextBox.appendChild(el("p", { text: next.descrizione + " — " + next.fase + "." }));
+      var nextWeek = hub.settimanaTipo[next.id] || [];
+      var nextGrid = el("div", { className: "week-plan week-plan--compact" });
+      nextWeek.forEach(function (row) {
+        var cell = el("div", {
+          className: "week-plan__day" + (row.tipo === "riposo" ? " is-rest" : "")
+        });
+        cell.appendChild(el("span", { className: "week-plan__label", text: row.giorno.slice(0, 3) }));
+        if (row.tipo === "riposo") {
+          cell.appendChild(el("span", { className: "week-plan__rest", text: "—" }));
+        } else {
+          cell.appendChild(el("span", { className: "week-plan__code", text: row.codice }));
+        }
+        nextGrid.appendChild(cell);
+      });
+      nextBox.appendChild(nextGrid);
+      if (next.urlDiario) {
+        nextBox.appendChild(el("p", {
+          className: "allen-hub-next__link",
+          html: "<a href=\"" + next.urlDiario + "\">Leggi il blocco nel diario →</a>"
+        }));
+      }
+      sec.appendChild(nextBox);
+    }
+
+    sec.appendChild(el("h3", {
+      className: "allen-hub-programma__h3",
+      text: "Schede giornaliere · " + ciclo.badge
+    }));
+    sec.appendChild(el("p", {
+      className: "allen-hub-programma__note",
+      text: "Ogni scheda è un giorno di allenamento del trimestre. Clicca per aprire esercizi, serie e note."
+    }));
+
+    var giornaliere = (hub.schedeGiornaliere && hub.schedeGiornaliere[ciclo.id]) || [];
+    var tiles = el("div", { className: "scheda-tiles" });
+    giornaliere.forEach(function (s) { tiles.appendChild(renderSchedaTile(s)); });
+    sec.appendChild(tiles);
+
+    if (hub.schedeAnnuali && hub.cicloProssimo) {
+      sec.appendChild(el("h3", {
+        className: "allen-hub-programma__h3",
+        text: "Schede ciclo annuale · A1–B2"
+      }));
+      sec.appendChild(el("p", {
+        className: "allen-hub-programma__note",
+        text: "Dal settembre 2026 — stesso split tutto l'anno, fasi da ~13 settimane. Dettaglio in admin."
+      }));
+      var annual = hub.schedeAnnuali[hub.cicloProssimo.id] || [];
+      var annualTiles = el("div", { className: "scheda-tiles scheda-tiles--annual" });
+      annual.forEach(function (s) {
+        var tile = el("article", { className: "scheda-tile scheda-tile--static" });
+        tile.appendChild(figureNode(s.figura, s.titolo));
+        var body = el("div", { className: "scheda-tile__body" });
+        body.appendChild(el("span", { className: "scheda-tile__code", text: s.codice }));
+        body.appendChild(el("strong", { className: "scheda-tile__title", text: s.titolo }));
+        body.appendChild(el("span", {
+          className: "scheda-tile__muscles",
+          text: (s.muscoli || []).join(" · ")
+        }));
+        tile.appendChild(body);
+        annualTiles.appendChild(tile);
+      });
+      sec.appendChild(annualTiles);
+    }
+
+    root.appendChild(sec);
+  }
+
+  function renderSessionChip(s) {
+    var a = el("a", {
+      className: "cal-session" + (s.partial ? " is-partial" : ""),
+      href: s.url
+    });
+    var head = el("div", { className: "cal-session__head" });
+    head.appendChild(el("span", { className: "cal-session__badge", text: s.schedaLabel }));
+    if (s.time) head.appendChild(el("time", { text: s.time }));
+    a.appendChild(head);
+    a.appendChild(el("span", {
+      className: "cal-session__dur",
+      text: s.durata + (s.calorie ? " · " + s.calorie + " kcal" : "")
+    }));
+    if (s.muscoli.length) {
+      a.appendChild(el("span", {
+        className: "cal-session__muscles",
+        text: s.muscoli.join(" · ")
+      }));
+    }
+    if (s.gruppi) {
+      a.appendChild(el("span", {
+        className: "cal-session__groups",
+        text: s.gruppi + " gruppi"
+      }));
+    }
+    return a;
+  }
+
+  function Calendar(root, hub, sessionsByDate) {
+    var min = parseDate(hub.calendario.inizio);
+    var max = parseDate(hub.calendario.fine);
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    var state = {
+      view: "month",
+      cursor: new Date(today)
+    };
+
+    if (state.cursor < min) state.cursor = new Date(min);
+    if (state.cursor > max) state.cursor = new Date(max);
+
+    var toolbar = el("div", { className: "cal-toolbar" });
+    var prevBtn = el("button", {
+      type: "button",
+      className: "cal-nav",
+      "aria-label": "Periodo precedente",
+      text: "‹"
+    });
+    var nextBtn = el("button", {
+      type: "button",
+      className: "cal-nav",
+      "aria-label": "Periodo successivo",
+      text: "›"
+    });
+    var title = el("h2", { className: "cal-toolbar__title", id: "cal-title" });
+    var todayBtn = el("button", {
+      type: "button",
+      className: "btn btn-ghost cal-today",
+      text: "Oggi"
+    });
+    var toggle = el("div", { className: "cal-toggle", role: "group", "aria-label": "Vista calendario" });
+    var weekBtn = el("button", {
+      type: "button",
+      className: "cal-toggle__btn",
+      text: "Settimana"
+    });
+    var monthBtn = el("button", {
+      type: "button",
+      className: "cal-toggle__btn is-active",
+      text: "Mese"
+    });
+    toggle.appendChild(weekBtn);
+    toggle.appendChild(monthBtn);
+
+    toolbar.appendChild(prevBtn);
+    toolbar.appendChild(title);
+    toolbar.appendChild(nextBtn);
+    toolbar.appendChild(todayBtn);
+    toolbar.appendChild(toggle);
+
+    var body = el("div", { className: "cal-body", "aria-live": "polite" });
+
+    function setView(v) {
+      state.view = v;
+      weekBtn.classList.toggle("is-active", v === "week");
+      monthBtn.classList.toggle("is-active", v === "month");
+      render();
+    }
+
+    function shift(dir) {
+      if (state.view === "month") {
+        state.cursor.setMonth(state.cursor.getMonth() + dir);
+      } else {
+        state.cursor = addDays(state.cursor, dir * 7);
+      }
+      clampCursor();
+      render();
+    }
+
+    function clampCursor() {
+      if (state.cursor < min) state.cursor = new Date(min);
+      if (state.cursor > max) state.cursor = new Date(max);
+    }
+
+    function renderMonth() {
+      body.innerHTML = "";
+      title.textContent = formatMonthYear(state.cursor);
+
+      var y = state.cursor.getFullYear();
+      var m = state.cursor.getMonth();
+      var first = new Date(y, m, 1);
+      var start = startOfWeek(first);
+      var grid = el("div", { className: "cal-month" });
+
+      DAYS_SHORT.forEach(function (d) {
+        grid.appendChild(el("div", { className: "cal-month__dow", text: d }));
+      });
+
+      var day = new Date(start);
+      for (var i = 0; i < 42; i++) {
+        var iso = toIso(day);
+        var inMonth = day.getMonth() === m;
+        var cell = el("div", {
+          className: "cal-month__cell" +
+            (inMonth ? "" : " is-outside") +
+            (iso === toIso(today) ? " is-today" : "") +
+            (sessionsByDate[iso] ? " has-session" : "")
+        });
+        cell.appendChild(el("span", { className: "cal-month__num", text: String(day.getDate()) }));
+        var list = el("div", { className: "cal-month__sessions" });
+        (sessionsByDate[iso] || []).forEach(function (s) {
+          list.appendChild(renderSessionChip(s));
+        });
+        cell.appendChild(list);
+        grid.appendChild(cell);
+        day = addDays(day, 1);
+      }
+      body.appendChild(grid);
+    }
+
+    function renderWeek() {
+      body.innerHTML = "";
+      var weekStart = startOfWeek(state.cursor);
+      var weekEnd = addDays(weekStart, 6);
+      title.textContent = weekStart.getDate() + "–" + weekEnd.getDate() + " " +
+        MONTHS_IT[weekEnd.getMonth()] + " " + weekEnd.getFullYear();
+
+      var agenda = el("div", { className: "cal-week" });
+      for (var i = 0; i < 7; i++) {
+        var day = addDays(weekStart, i);
+        var iso = toIso(day);
+        var col = el("div", {
+          className: "cal-week__day" + (iso === toIso(today) ? " is-today" : "")
+        });
+        col.appendChild(el("span", { className: "cal-week__dow", text: DAYS_SHORT[i] }));
+        col.appendChild(el("span", {
+          className: "cal-week__date",
+          text: day.getDate() + " " + MONTHS_IT[day.getMonth()].slice(0, 3)
+        }));
+        var planned = renderWeekRow(iso, hub);
+        if (planned) {
+          var plan = el("div", { className: "cal-week__plan" });
+          plan.appendChild(el("span", { className: "cal-week__plan-label", text: "Programma" }));
+          plan.appendChild(planned);
+          col.appendChild(plan);
+        }
+        var sessWrap = el("div", { className: "cal-week__sessions" });
+        var daySessions = sessionsByDate[iso] || [];
+        if (daySessions.length) {
+          daySessions.forEach(function (s) { sessWrap.appendChild(renderSessionChip(s)); });
+        } else {
+          sessWrap.appendChild(el("p", { className: "cal-week__empty", text: "—" }));
+        }
+        col.appendChild(sessWrap);
+        agenda.appendChild(col);
+      }
+      body.appendChild(agenda);
+    }
+
+    function render() {
+      if (state.view === "month") renderMonth();
+      else renderWeek();
+    }
+
+    prevBtn.addEventListener("click", function () { shift(-1); });
+    nextBtn.addEventListener("click", function () { shift(1); });
+    todayBtn.addEventListener("click", function () {
+      state.cursor = new Date(today);
+      clampCursor();
+      render();
+    });
+    weekBtn.addEventListener("click", function () { setView("week"); });
+    monthBtn.addEventListener("click", function () { setView("month"); });
+
+    root.appendChild(toolbar);
+    root.appendChild(body);
+    render();
+  }
+
+  function init() {
+    var calRoot = document.getElementById("allenamenti-calendario");
+    var progRoot = document.getElementById("allenamenti-programma");
+    var actionsRoot = document.getElementById("allenamenti-azioni");
+    if (!calRoot) return;
+
+    var spriteReady = window.fqSprite ? window.fqSprite.inject() : Promise.resolve();
+
+    Promise.all([
+      spriteReady,
+      fetch(HUB_URL).then(function (r) { return r.json(); }),
+      fetch(SESSIONS_URL).then(function (r) { return r.json(); })
+    ])
+      .then(function (res) {
+        var hub = res[1];
+        var perf = res[2];
+        var sessions = enrichSessions(hub, perf);
+        var byDate = groupByDate(sessions);
+
+        if (actionsRoot) renderQuickActions(actionsRoot, hub);
+        Calendar(calRoot, hub, byDate);
+        if (progRoot) renderProgramma(progRoot, hub);
+
+        var countEl = document.getElementById("allenamenti-session-count");
+        if (countEl) countEl.textContent = String(sessions.length);
+      })
+      .catch(function (err) {
+        calRoot.innerHTML = "<p class=\"admin-error\">Calendario non disponibile: " + err.message + "</p>";
+      });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
