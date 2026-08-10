@@ -107,7 +107,7 @@ async function main() {
     const src = join(uploadDir, file);
     const dest = join(destDir, destName);
     const before = statSync(src).size;
-    await sharp(src).webp({ quality: 82, effort: 4 }).toFile(dest);
+    await sharp(src).rotate().webp({ quality: 82, effort: 4 }).toFile(dest);
     const after = statSync(dest).size;
     console.log(`OK ${destName} (${before} → ${after} bytes)`);
     unlinkSync(src);

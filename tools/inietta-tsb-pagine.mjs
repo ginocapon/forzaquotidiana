@@ -8,7 +8,6 @@ import { fileURLToPath } from "node:url";
 import {
   renderTsbModule,
   renderTsbPanel,
-  renderTrimestreSchedaBlock,
 } from "./tsb-render.mjs";
 
 const REPO = dirname(dirname(fileURLToPath(import.meta.url)));
@@ -28,13 +27,6 @@ const SESSION_PAGES = [
   { file: "allenamenti/sessioni/2026-08-03-scheda-1/index.html", date: "2026-08-03" },
   { file: "allenamenti/sessioni/2026-08-04-scheda-2/index.html", date: "2026-08-04" },
 ];
-
-const SCHEDA_FOCUS = {
-  1: "2026-08-03",
-  2: "2026-08-04",
-  3: "2026-07-30",
-  4: "2026-07-31",
-};
 
 const MONTH_KEYS = ["2026-06", "2026-07", "2026-08"];
 const MONTH_ANCHORS = {
@@ -166,19 +158,13 @@ if (trim.includes("<!-- MONTH-PANELS-START -->")) {
   );
 }
 
-for (const [num, date] of Object.entries(SCHEDA_FOCUS)) {
+// Schede tipo 1–4: solo spiegazione tecnica — niente TSB (resta nelle sessioni)
+for (let num = 1; num <= 4; num++) {
   const markerStart = `<!-- TSB-SCHEDA-${num}-START -->`;
   const markerEnd = `<!-- TSB-SCHEDA-${num}-END -->`;
-  const inner = renderTsbModule(data, date, `trim-s${num}`);
-  const block = renderTrimestreSchedaBlock(num, inner);
-
-  if (trim.includes(markerStart)) {
-    trim = replaceBetween(trim, markerStart, markerEnd, block);
-  } else {
-    const schedaRe = new RegExp(`(<section class="section section--tight day-block" id="scheda-${num}">[\\s\\S]*?<div class="day-block__head">[\\s\\S]*?</div>)`);
-    trim = trim.replace(schedaRe, `$1\n      ${markerStart}${block}${markerEnd}`);
+  if (trim.includes(markerStart) && trim.includes(markerEnd)) {
+    trim = replaceBetween(trim, markerStart, markerEnd, "\n");
   }
-  console.log("trimestre scheda", num, date);
 }
 
 trim = ensureScript(trim);

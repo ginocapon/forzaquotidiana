@@ -4300,3 +4300,65 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   color: var(--muted);
 }
 
+/* Grafico performance corporea — hub allenamenti */
+.readiness-chart {
+  padding: 1.25rem 1.35rem 1.1rem;
+}
+.readiness-chart__head h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+.readiness-chart__head p {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.readiness-chart__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.readiness-grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.readiness-grid--minor {
+  stroke-dasharray: 4 4;
+  opacity: 0.55;
+}
+.readiness-axis-y,
+.readiness-axis-x {
+  fill: var(--muted);
+  font-size: 10px;
+}
+.readiness-line {
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.readiness-line--sleep { stroke: #6eb5ff; }
+.readiness-line--efficiency { stroke: #5fd4a4; }
+.readiness-line--effort { stroke: #e8a04a; }
+.readiness-dot { stroke: var(--bg, #12100e); stroke-width: 1.5; }
+.readiness-dot--sleep { fill: #6eb5ff; }
+.readiness-dot--efficiency { fill: #5fd4a4; }
+.readiness-dot--effort { fill: #e8a04a; }
+.readiness-chart__legend {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.readiness-legend.readiness-line--sleep { color: #6eb5ff; }
+.readiness-legend.readiness-line--efficiency { color: #5fd4a4; }
+.readiness-legend.readiness-line--effort { color: #e8a04a; }
+.readiness-chart__note {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.readiness-chart__empty {
+  margin: 0;
+  color: var(--muted);
+}
+
