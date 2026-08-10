@@ -1168,6 +1168,24 @@ body.theme-allenamenti .disclaimer {
 }
 
 .landing-benefits .hub-cards { margin-top: 1.5rem; }
+.landing-benefits .hub-card {
+  display: block;
+}
+.landing-benefits .hub-card__body {
+  height: 100%;
+}
+.landing-benefits .hub-card__img--inset {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  margin: 0 0 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.landing-benefits .hub-card h3 {
+  margin-top: 0;
+}
 
 .benefit-card {
   padding: 1.35rem 1.5rem;
