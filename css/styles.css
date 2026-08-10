@@ -1403,6 +1403,36 @@ body.theme-diario .disclaimer {
   text-decoration: none;
   color: inherit;
 }
+.hub-card--unified {
+  overflow: hidden;
+}
+@media (min-width: 520px) {
+  .hub-card--unified {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .hub-card--unified .hub-card__img {
+    width: 42%;
+    max-width: 14rem;
+    aspect-ratio: auto;
+    align-self: stretch;
+    min-height: 100%;
+    object-fit: cover;
+    border-radius: 14px 0 0 14px;
+  }
+  .hub-card--unified .hub-card__body {
+    flex: 1;
+    border-radius: 0 14px 14px 0;
+  }
+}
+.hub-card--unified .hub-card__cta {
+  display: inline-block;
+  margin-top: 0.75rem;
+  text-decoration: none;
+}
+.hub-card--unified .hub-card__cta:hover {
+  text-decoration: underline;
+}
 .hub-card:hover,
 article.hub-card:hover {
   background: linear-gradient(168deg, #24201c 0%, #1a1816 38%, #141210 100%);
