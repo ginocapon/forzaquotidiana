@@ -1,13 +1,21 @@
 /**
  * Grafici performance — readiness (0–100) + cuore in allenamento (bpm)
- * Hub allenamenti. Il cuore mostra FC max/min per capire lo sforzo reale.
+ * Paginazione 15 sedute per finestra, frecce per scorrere nel tempo.
  */
 (function () {
   "use strict";
 
   var SESSIONS_URL = "/data/performance-sessions.json";
   var MOUNT_ID = "allenamenti-readiness-chart";
+  var PAGE_SIZE = 15;
   var DAYS_SHORT = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
+  var MONTHS_IT = ["", "gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"];
+
+  var state = {
+    readinessAll: [],
+    hrAll: [],
+    windowStart: 0
+  };
 
   function pad(n) {
     return n < 10 ? "0" + n : String(n);
@@ -34,6 +42,11 @@
   function formatLabel(iso) {
     var p = iso.split("-");
     return pad(+p[2]) + "/" + pad(+p[1]);
+  }
+
+  function formatRange(iso) {
+    var p = iso.split("-");
+    return +p[2] + " " + MONTHS_IT[+p[1]] + " " + p[0];
   }
 
   function extractReadinessPoint(session, maxCarico) {
@@ -101,6 +114,34 @@
       labels += "</text>";
     });
     return labels;
+  }
+
+  function sliceWindow(all) {
+    return all.slice(state.windowStart, state.windowStart + PAGE_SIZE);
+  }
+
+  function windowRangeLabel(all) {
+    var slice = sliceWindow(all);
+    if (!slice.length) return "";
+    if (slice.length === 1) return formatRange(slice[0].date);
+    return formatRange(slice[0].date) + " – " + formatRange(slice[slice.length - 1].date);
+  }
+
+  function renderPager(all) {
+    var total = all.length;
+    if (total <= PAGE_SIZE) return "";
+
+    var end = Math.min(state.windowStart + PAGE_SIZE, total);
+    var prevDisabled = state.windowStart <= 0;
+    var nextDisabled = state.windowStart + PAGE_SIZE >= total;
+
+    return (
+      '<div class="readiness-chart__pager" role="group" aria-label="Scorri periodo grafico">' +
+      '<button type="button" class="readiness-chart__nav" data-readiness-nav="prev"' + (prevDisabled ? " disabled" : "") + ' aria-label="Periodo precedente">‹</button>' +
+      '<span class="readiness-chart__range">' + esc(windowRangeLabel(all)) + " · sedute " + (state.windowStart + 1) + "–" + end + " di " + total + "</span>" +
+      '<button type="button" class="readiness-chart__nav" data-readiness-nav="next"' + (nextDisabled ? " disabled" : "") + ' aria-label="Periodo successivo">›</button>' +
+      "</div>"
+    );
   }
 
   function renderReadinessChart(points) {
@@ -221,13 +262,6 @@
       svg += '<text class="readiness-axis-y" x="' + (padL - 6) + '" y="' + y + '" text-anchor="end" dominant-baseline="middle">' + tick + "</text>";
     });
 
-    points.forEach(function (p, i) {
-      var cx = xScale(i);
-      if (p.fc_min != null && p.fc_max != null) {
-        svg += '<line class="readiness-hr-range" x1="' + cx + '" y1="' + yScale(p.fc_max) + '" x2="' + cx + '" y2="' + yScale(p.fc_min) + '"/>';
-      }
-    });
-
     if (hasMax) {
       var dMax = buildPath(points, "fc_max", xScale, yScale);
       if (dMax) svg += '<path class="readiness-line readiness-line--hr-max" fill="none" d="' + dMax + '"/>';
@@ -253,29 +287,34 @@
 
     var legend = '<p class="readiness-chart__legend">';
     if (hasMax) legend += '<span class="readiness-legend readiness-line--hr-max">● FC max in seduta</span> ';
-    if (hasMin) legend += '<span class="readiness-legend readiness-line--hr-min">● FC min in seduta</span> ';
-    legend += '<span class="readiness-legend readiness-hr-range-label">▮ Fascia max–min</span>';
+    if (hasMin) legend += '<span class="readiness-legend readiness-line--hr-min">● FC min in seduta</span>';
     legend += "</p>";
 
     return (
       '<div class="readiness-chart__block readiness-chart__block--hr">' +
       '<h3 class="readiness-chart__subtitle">Cuore in allenamento</h3>' +
-      "<p class=\"readiness-chart__lead\">Picchi e minimi Zepp per seduta — quanto sale il cuore sotto sforzo e quanto scende in recupero tra i set.</p>" +
+      "<p class=\"readiness-chart__lead\">Picchi (rosso) e minimi (arancio) Zepp per seduta — quanto sale il cuore sotto sforzo e quanto scende in recupero tra i set.</p>" +
       svg + legend +
       "</div>"
     );
   }
 
-  function render(root, readinessPoints, hrPoints) {
-    if (!readinessPoints.length && !hrPoints.length) {
+  function render(root) {
+    var readinessPoints = sliceWindow(state.readinessAll);
+    var hrPoints = sliceWindow(state.hrAll);
+    var pagerSource = state.hrAll.length ? state.hrAll : state.readinessAll;
+
+    if (!state.readinessAll.length && !state.hrAll.length) {
       root.innerHTML = "<p class=\"readiness-chart__empty\"><small>Nessuna sessione con metriche ancora — i grafici si popolano man mano che pubblico i log Zepp.</small></p>";
       return;
     }
 
     var readinessHtml = renderReadinessChart(readinessPoints);
     var hrHtml = renderHrChart(hrPoints);
+    var pager = renderPager(pagerSource);
 
     var note = "<p class=\"readiness-chart__note\">Ogni punto = una seduta loggata. Dati da export Amazfit/Zepp. ";
+    note += "Scorri con le frecce (max " + PAGE_SIZE + " sedute per finestra). ";
     note += "Dettaglio completo nelle <a href=\"/allenamenti/sessioni/\">pagine sessione</a>.</p>";
 
     root.innerHTML =
@@ -283,9 +322,23 @@
       "<h2 id=\"readiness-chart-title\">Performance corporea</h2>" +
       "<p>Come oscillano sonno, efficienza, sforzo e frequenza cardiaca — nulla a che vedere con i kg in palestra.</p>" +
       "</div>" +
+      pager +
       readinessHtml +
       hrHtml +
       note;
+
+    root.querySelectorAll("[data-readiness-nav]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var dir = btn.getAttribute("data-readiness-nav");
+        if (dir === "prev" && state.windowStart > 0) {
+          state.windowStart = Math.max(0, state.windowStart - PAGE_SIZE);
+          render(root);
+        } else if (dir === "next" && state.windowStart + PAGE_SIZE < pagerSource.length) {
+          state.windowStart = Math.min(pagerSource.length - 1, state.windowStart + PAGE_SIZE);
+          render(root);
+        }
+      });
+    });
   }
 
   function init() {
@@ -305,17 +358,20 @@
           if (c != null && c > maxCarico) maxCarico = c;
         });
 
-        var readinessPoints = sessions.map(function (s) {
+        state.readinessAll = sessions.map(function (s) {
           return extractReadinessPoint(s, maxCarico);
         }).filter(function (p) {
           return p.sleep != null || p.efficiency != null || p.effort != null;
         });
 
-        var hrPoints = sessions.map(extractHrPoint).filter(function (p) {
+        state.hrAll = sessions.map(extractHrPoint).filter(function (p) {
           return p.fc_max != null || p.fc_min != null;
         });
 
-        render(root, readinessPoints, hrPoints);
+        var total = Math.max(state.readinessAll.length, state.hrAll.length);
+        state.windowStart = Math.max(0, total - PAGE_SIZE);
+
+        render(root);
       })
       .catch(function () {
         root.innerHTML = "<p class=\"readiness-chart__empty\"><small>Grafico performance non disponibile.</small></p>";
