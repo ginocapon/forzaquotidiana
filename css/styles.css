@@ -4362,3 +4362,37 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   color: var(--muted);
 }
 
+.readiness-chart__block {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+.readiness-chart__block:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.readiness-chart__subtitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-accent-warm, #c9783a);
+}
+.readiness-chart__lead {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.readiness-line--hr-max { stroke: #e85d5d; stroke-width: 2.75; }
+.readiness-line--hr-min { stroke: #e85d5d; stroke-width: 2; stroke-dasharray: 6 4; opacity: 0.75; }
+.readiness-dot--hr-max { fill: #e85d5d; }
+.readiness-dot--hr-min { fill: #e85d5d; opacity: 0.65; }
+.readiness-hr-range {
+  stroke: #e85d5d;
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.35;
+}
+.readiness-legend.readiness-line--hr-max,
+.readiness-legend.readiness-line--hr-min,
+.readiness-hr-range-label { color: #e85d5d; }
+
