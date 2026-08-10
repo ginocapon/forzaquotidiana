@@ -25,9 +25,9 @@
 {"@type":"ListItem","position":4,"name":"3 agosto 2026 — Scheda 1","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-08-03-scheda-1/"}]}
 </script>
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=50">
 </head>
-<body class="theme-allenamenti">
+<body class="theme-allenamenti" data-schede="1" data-trimestre-url="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
@@ -83,6 +83,13 @@
       <p class="session-note">Lunedì pomeriggio — <strong>Scheda 1</strong> completa del trimestre, ~75 min con recuperi lunghi (47 min tra i set). Sonno solido la notte prima (00:51–07:50), <strong>HybridCharge 82 Ottimale</strong> al risveglio: base ideale per spingere. Ho registrato le <strong>croci ai cavi</strong> per controllare squeeze ed eccentrica. Zepp conferma petto primario e deltoidi/trap secondari — coerente con la giornata petto-spalle-dorsali.</p>
       <p class="session-note">Novità app: il modulo HybridCharge ora include anche lo <strong>sforzo muscolare</strong> oltre al cardio — la sessione ha tolto 11 punti (82→44 a fine giornata), comportamento atteso dopo 579 kcal e carico 75. Stress giornaliero resta basso: 72% rilassato, media 28.</p>
     </section>
+    <section class="session-panel" aria-labelledby="figure-esercizi">
+      <span class="session-panel__label" id="figure-esercizi">Programma</span>
+      <h2>Figure esercizi · scheda di riferimento</h2>
+      <div id="sessione-scheda-figure" class="sessione-figure-mount"></div>
+    </section>
+
+
 
     <section class="session-panel" aria-labelledby="log-esercizi">
       <span class="session-panel__label">Log</span>
@@ -294,6 +301,8 @@
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
+    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/training-load-chart.js?v=3" defer></script>
 </body>

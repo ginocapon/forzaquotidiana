@@ -25,9 +25,9 @@
 {"@type":"ListItem","position":4,"name":"31 luglio 2026 — Scheda 4","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-07-31-scheda-4/"}]}
 </script>
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=50">
 </head>
-<body class="theme-allenamenti">
+<body class="theme-allenamenti" data-schede="4" data-trimestre-url="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
@@ -83,6 +83,13 @@
       <p class="session-note">Venerdì pomeriggio — <strong>Scheda 4</strong> gambe-petto-bicipiti, stessi pesi del trimestre. Ho registrato <strong>squat al multipower</strong> e <strong>adduttori</strong> per controllare la forma. Rispetto al 24 luglio il timer è stato chiuso correttamente: durata e calorie sono quelle reali della palestra, senza asterisco.</p>
       <p class="session-note">Contesto readiness: sonno frammentato la notte prima (veglia in aumento), hybrid charge 41 — sessione comunque solida con carico 97 e FC max 153 bpm sui set pesanti.</p>
     </section>
+    <section class="session-panel" aria-labelledby="figure-esercizi">
+      <span class="session-panel__label" id="figure-esercizi">Programma</span>
+      <h2>Figure esercizi · scheda di riferimento</h2>
+      <div id="sessione-scheda-figure" class="sessione-figure-mount"></div>
+    </section>
+
+
 
     <section class="session-panel" aria-labelledby="log-esercizi">
       <span class="session-panel__label">Log</span>
@@ -272,6 +279,8 @@
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
+    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/training-load-chart.js?v=3" defer></script>
 </body>

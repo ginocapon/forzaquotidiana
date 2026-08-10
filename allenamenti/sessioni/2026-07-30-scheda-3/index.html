@@ -25,9 +25,9 @@
 {"@type":"ListItem","position":4,"name":"30 luglio 2026 — Scheda 3","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-07-30-scheda-3/"}]}
 </script>
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=50">
 </head>
-<body class="theme-allenamenti">
+<body class="theme-allenamenti" data-schede="3" data-trimestre-url="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
@@ -96,6 +96,13 @@
       <span class="session-panel__label" id="nota-sessione">Nota di Gino</span>
       <p class="session-note">Scheda 3 (spalle · dorsali) del blocco corrente — ultime settimane del trimestre prima delle schede di settembre. Aggiunta: <strong>polpacci sulla pressa</strong>, <strong>3×25</strong> a peso <em>a scalare</em> da <strong>140 kg</strong>, prima del finisher Clean Halo. Video in galleria. FC media 99, carico 26 — sessione controllata.</p>
     </section>
+    <section class="session-panel" aria-labelledby="figure-esercizi">
+      <span class="session-panel__label" id="figure-esercizi">Programma</span>
+      <h2>Figure esercizi · scheda di riferimento</h2>
+      <div id="sessione-scheda-figure" class="sessione-figure-mount"></div>
+    </section>
+
+
 
     <section class="session-panel" aria-labelledby="log-esercizi">
       <span class="session-panel__label">Log</span>
@@ -264,6 +271,8 @@
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
+    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 </body>
 </html>

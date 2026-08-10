@@ -25,9 +25,9 @@
 {"@type":"ListItem","position":4,"name":"21 luglio 2026 — Scheda 2","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-07-21-scheda-2/"}]}
 </script>
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=50">
 </head>
-<body class="theme-allenamenti">
+<body class="theme-allenamenti" data-schede="2" data-trimestre-url="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
@@ -100,6 +100,13 @@
       <p class="session-note">Focus parte bassa + bicipiti. Pressa pesante con eccentrica lenta, extension con cedimento controllato sulle prime serie e <em>wafer</em> (micro-serie) sulle seconde. Adduttori (macchina Doktor PRIMO): carico alto ma <strong>senza cedimento</strong> sull&apos;ultima — per ipertrofia, non per bruciare il sistema nervoso. Scott curvo: due serie al limite, due submax.</p>
 
     </section>
+    <section class="session-panel" aria-labelledby="figure-esercizi">
+      <span class="session-panel__label" id="figure-esercizi">Programma</span>
+      <h2>Figure esercizi · scheda di riferimento</h2>
+      <div id="sessione-scheda-figure" class="sessione-figure-mount"></div>
+    </section>
+
+
 
     <section class="session-panel" aria-labelledby="log-esercizi">
       <span class="session-panel__label">Log</span>
@@ -176,23 +183,7 @@
           <img src="/img/allenamenti/2026-07-21/gino-spogliatoio-lavandino.webp" alt="Gino Capon allo specchio del lavandino in spogliatoio palestra" width="400" height="500" loading="lazy">
           <figcaption>Doccia · verso ufficio</figcaption>
         </figure>
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-21/technogym-leg-press.webp" alt="Pressa Technogym Leg Press 45 gradi usata nella sessione" width="400" height="500" loading="lazy">
-          <figcaption>Pressa 45° · 140 / 120 kg</figcaption>
-        </figure>
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-21/technogym-leg-extension.webp" alt="Leg extension Technogym con diagramma quadricipiti" width="400" height="500" loading="lazy">
-          <figcaption>Extension · 65 / 55 kg</figcaption>
-        </figure>
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-21/panca-scott-curva.webp" alt="Panca Scott con bilanciere curvo e asciugamano verde" width="400" height="500" loading="lazy">
-          <figcaption>Scott curvo · 35 / 30 kg</figcaption>
-        </figure>
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-21/technogym-leg-curl.webp" alt="Leg curl Technogym in palestra Arturo" width="400" height="500" loading="lazy">
-          <figcaption>Leg curl · palestra</figcaption>
-        </figure>
-      </div>
+        </div>
     </section>
 
     </section>
@@ -313,6 +304,8 @@
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
+    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/training-load-chart.js?v=3" defer></script>
 </body>

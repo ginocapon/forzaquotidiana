@@ -4278,3 +4278,25 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   line-height: 1.35;
 }
 
+/* Figure esercizi nelle pagine sessione */
+.sessione-figure-mount .exercise-grid {
+  margin-top: 0.5rem;
+}
+.sessione-figure-mount .exercise-card__fig svg {
+  width: 100%;
+  height: 100%;
+}
+.sessione-figure__scheda-title {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-accent-warm, #c9783a);
+}
+.sessione-figure__scheda-title:first-child {
+  margin-top: 0;
+}
+.sessione-figure__foot {
+  margin: 0.75rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+

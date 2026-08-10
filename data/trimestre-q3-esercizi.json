@@ -1,0 +1,289 @@
+{
+  "trimestre": "trimestre-giugno-luglio-agosto-2026",
+  "schede": {
+    "scheda-1": [
+      {
+        "figura": "fig-press-incl",
+        "nome": "Panca inclinata con manubri",
+        "meta": "4×8 · Peso iniz. — · Rec 2&apos; · TUT 4s rientro · RIR 0-2",
+        "muscoli": "<em>Primario:</em> petto alto · <em>Secondario:</em> deltoidi anteriori, tricipiti",
+        "exec": [
+          "Panca 30–45°, piedi a terra, scapole addotte.",
+          "Discendi manubri al livello clavicole, gomiti ~45°.",
+          "Spingi in alto senza far toccare i pesi in cima."
+        ]
+      },
+      {
+        "figura": "fig-croci",
+        "nome": "Croci ai cavi",
+        "meta": "3×8 · Peso iniz. — · Rec 1&apos;30&quot; · TUT 3-1-2 · RIR 1-2",
+        "muscoli": "<em>Primario:</em> pettorale · <em>Secondario:</em> deltoidi anteriori",
+        "exec": [
+          "Gomiti leggermente flessi, stesso angolo per tutta l&apos;arco.",
+          "Chiudi le mani davanti al petto, squeeze 1 sec.",
+          "Controlla la fase eccentrica — non lasciare tirare i cavi."
+        ]
+      },
+      {
+        "figura": "fig-lento",
+        "nome": "Lento avanti seduto",
+        "meta": "3×8-10 · Peso iniz. — · Rec 2&apos; · TUT 3-1-2 · RIR 0-2",
+        "muscoli": "<em>Primario:</em> deltoidi · <em>Secondario:</em> tricipiti",
+        "exec": [
+          "Schiena appoggiata, core attivo.",
+          "Spingi sopra la testa senza inarcare il basso schiena.",
+          "Scendi fino a orecchie — gomiti leggermente davanti al busto."
+        ]
+      },
+      {
+        "figura": "fig-alzate",
+        "nome": "Alzate laterali",
+        "meta": "3×8-10 · Peso iniz. — · Rec 1&apos;30&quot; · TUT 3-1-2 · RIR 1-2",
+        "muscoli": "<em>Primario:</em> deltoidi laterali",
+        "exec": [
+          "Leggera flessione gomiti, polsi neutri.",
+          "Alza fino all&apos;altezza spalle — non oltre.",
+          "Discesa lenta; evita slancio con il busto."
+        ]
+      },
+      {
+        "figura": "fig-lat",
+        "nome": "Lat machine presa larga",
+        "meta": "4×8 · Peso iniz. — · Rec 2&apos; · TUT 3-1-2 · RIR 0-2",
+        "muscoli": "<em>Primario:</em> gran dorsale · <em>Secondario:</em> bicipiti, romboidi",
+        "exec": [
+          "Presa sopra la larghezza spalle, petto alto.",
+          "Tira la sbarra al petto alto, gomiti verso il basso.",
+          "Controlla la risalita — niente slancio con il busto."
+        ]
+      },
+      {
+        "figura": "fig-rematore",
+        "nome": "Rematore / trazioni",
+        "meta": "4×8 · Peso iniz. — · Rec 2&apos; · TUT ecc 2s · RIR 0-2",
+        "muscoli": "<em>Primario:</em> dorsali, romboidi · <em>Secondario:</em> bicipiti",
+        "exec": [
+          "Busto inclinato ~45°, schiena neutra.",
+          "Tira il manubrio/sbarra all&apos;ombelico — gomiti indietro.",
+          "Squeeze scapole 1 sec; fase eccentrica 2 sec.",
+          "Penultimo esercizio — petto e dorsali freschi prima del finisher kettlebell."
+        ]
+      },
+      {
+        "figura": "fig-catchball",
+        "nome": "Catch Ball (kettlebell 8 kg)",
+        "meta": "2×15 / braccio · 8 kg · Rec &lt;1&apos; · TUT esplosivo · Opzionale · Finisher",
+        "muscoli": "<em>Primario:</em> sistema nervoso / esplosività · <em>Secondario:</em> spalle, core, grip · <em>Effetto:</em> impulso aerobico-esplosivo",
+        "exec": [
+          "Chiusura sessione — dopo panca, croci, lenti, alzate, lat e rematore.",
+          "Kettlebell (&laquo;racchetta&raquo;) da 8 kg; lavoro unilaterale, 15 rep per braccio.",
+          "Movimento balistico/catch: velocità e timing, non ipertrofia pura.",
+          "Recupero sotto il minuto — densità alta, FC che sale senza schiacciare il SNC all&apos;inizio."
+        ]
+      }
+    ],
+    "scheda-2": [
+      {
+        "figura": "fig-polpacci",
+        "nome": "Polpacci in piedi",
+        "meta": "4×25 drop · 140→110→80 kg · Rec 1&apos;30&quot; · TUT 2-1-2",
+        "muscoli": "<em>Primario:</em> gastrocnemio · <em>Secondario:</em> soleo",
+        "exec": [
+          "4 serie da 25 rep totali a peso decrescente (140→110→80 kg).",
+          "Salita completa in punta, pausa 1 sec.",
+          "Discesa lenta — completa le 25 rep per serie scendendo di carico."
+        ]
+      },
+      {
+        "figura": "fig-pressa",
+        "nome": "Pressa 45°",
+        "meta": "2×10 + 2×10 · 140 / 120 kg · Rec 2&apos; · TUT ecc lenta",
+        "muscoli": "<em>Primario:</em> quadricipiti · <em>Secondario:</em> glutei",
+        "exec": [
+          "Prime 2 serie @ 140 kg × 10 — eccentrica lenta.",
+          "Ultime 2 serie @ 120 kg × 10 — maggiore ritardo fase passiva.",
+          "Spingi senza bloccare le ginocchia in chiusura."
+        ]
+      },
+      {
+        "figura": "fig-pressa",
+        "nome": "Leg extension",
+        "meta": "2 ced. + 2 tempo · 65 / 55 kg · Rec 1&apos;30&quot; · TUT 4s su / 1s giù · wafer",
+        "muscoli": "<em>Primario:</em> quadricipiti",
+        "exec": [
+          "Prime 2 serie al cedimento @ 65 kg (rif. 21 lug).",
+          "Poi 55 kg: 4s salita / 1s discesa oppure wafer 10 colpi (rec 4s).",
+          "Estensione completa senza iper-estendere il ginocchio."
+        ]
+      },
+      {
+        "figura": "fig-legcurl",
+        "nome": "Leg curl sdraiato",
+        "meta": "2×8 + 2×8–9 · 70 / 60 kg · Rec 1&apos;30&quot; · TUT ced. + wafer",
+        "muscoli": "<em>Primario:</em> femorali · <em>Secondario:</em> polpacci",
+        "exec": [
+          "28 lug: 2×8 @ 70 kg alla morte + 2×8–9 @ 60 kg wafer.",
+          "Fletti portando i talloni al gluteo.",
+          "Discesa controllata — non lasciare cadere il peso."
+        ]
+      },
+      {
+        "figura": "fig-rdl",
+        "nome": "Stacco rumeno con manubri",
+        "meta": "3×8 · Opzionale · Rec 2&apos; · TUT 3-1-2",
+        "muscoli": "<em>Primario:</em> femorali, glutei · <em>Secondario:</em> lombare",
+        "exec": [
+          "Ginocchia semi-flesse, busto che pivota sui fianchi.",
+          "Manubri lungo le gambe, schiena neutra.",
+          "Senti allungamento femorali — non arrotondare la schiena."
+        ]
+      },
+      {
+        "figura": "fig-adduttori",
+        "nome": "Adduttori e abduttori",
+        "meta": "Adduttori ×2 · 60 → 50 kg · Rec 1&apos;30&quot; · TUT squeeze 3s · no cedimento",
+        "muscoli": "<em>Primario:</em> adduttori, abduttori",
+        "exec": [
+          "Due macchine adduttori/abduttori · Doktor PRIMO (palestra Arturo).",
+          "Carico 60 kg — contrazione forte, stop prima del cedimento.",
+          "Ultima serie macchina 2 @ 50 kg se lo squeeze diventa eccessivo."
+        ]
+      },
+      {
+        "figura": "fig-curl",
+        "nome": "Curl su panca Scott",
+        "meta": "2×8 + 2×8 · 35 / 30 kg curvo · Rec 1&apos;30&quot; · TUT 3-1-2 · wafer",
+        "muscoli": "<em>Primario:</em> bicipiti",
+        "exec": [
+          "Beat attivazione (non riscaldamento lungo).",
+          "2×8 @ 35 kg bilanciere curvo — al cedimento, wafer.",
+          "2×8 @ 30 kg — submax, sempre in wafer."
+        ]
+      }
+    ],
+    "scheda-3": [
+      {
+        "figura": "fig-lento",
+        "nome": "Lento avanti seduto",
+        "meta": "4×8 · 20 kg · Rec 2&apos; · TUT 3-1-2 · RIR 0-2 · panca incl.",
+        "muscoli": "<em>Primario:</em> deltoidi · <em>Secondario:</em> tricipiti",
+        "exec": [
+          "Manubri su panca inclinata — log 27/07: 20 kg × 4×8."
+        ]
+      },
+      {
+        "figura": "fig-alzate",
+        "nome": "Alzate laterali",
+        "meta": "3×8-10 · 6 kg · Rec 1&apos;30&quot; · TUT pausa 3 sec · RIR 1-2",
+        "muscoli": "<em>Primario:</em> deltoidi laterali",
+        "exec": [
+          "6 kg · fermo 3 secondi al punto superiore — controllo postura (log 27/07)."
+        ]
+      },
+      {
+        "figura": "fig-lat",
+        "nome": "Lat machine presa larga",
+        "meta": "4×8 · Peso iniz. — · Rec 2&apos; · TUT 3-1-2 · RIR 0-2",
+        "muscoli": "<em>Primario:</em> gran dorsale",
+        "exec": [
+          "Focus connessione mente-muscolo — senti la schiena lavorare."
+        ]
+      },
+      {
+        "figura": "fig-rematore",
+        "nome": "Rematore / trazioni",
+        "meta": "4×8 · Peso iniz. — · Rec 2&apos; · TUT ecc 2s · RIR 0-2",
+        "muscoli": "<em>Primario:</em> dorsali, romboidi",
+        "exec": [
+          "Dorsali fresche — prima di polpacci e finisher kettlebell."
+        ]
+      },
+      {
+        "figura": "fig-polpacci",
+        "nome": "Polpacci sulla pressa",
+        "meta": "3×25 drop · 140 kg → scalare · Rec 1&apos;30&quot; · TUT 2-1-2 · pressa",
+        "muscoli": "<em>Primario:</em> gastrocnemio · <em>Secondario:</em> soleo",
+        "exec": [
+          "Dal 30/07 anche in Scheda 3 (oltre S2 e S4 → 3×/settimana).",
+          "3 serie × 25 rep a peso a scalare partendo da 140 kg sulla leg press.",
+          "Prima del Clean Halo — kettlebell resta in chiusura."
+        ]
+      },
+      {
+        "figura": "fig-halo",
+        "nome": "Clean Halo (kettlebell)",
+        "meta": "2×10 / senso · 8 kg · Rec 1&apos;30&quot; · TUT continuo · RIR 2-3 · Finisher",
+        "muscoli": "<em>Primario:</em> deltoidi, cuffia · <em>Secondario:</em> core, trapezi, grip · <em>Effetto:</em> impulso aerobico leggero",
+        "exec": [
+          "Chiusura sessione — dopo lento, alzate, lat, rematore e polpacci.",
+          "Clean leggero al petto (goblet); halo lento attorno alla testa — 10 rep orario + 10 antiorario per serie.",
+          "Core attivo, costole chiuse; kettlebell vicino al cranio. FC sale senza schiacciare il SNC.",
+          "Figure guida: partenza · rotazione · passaggio posteriore · SVG."
+        ]
+      }
+    ],
+    "scheda-4": [
+      {
+        "figura": "fig-polpacci",
+        "nome": "Polpacci sulla pressa",
+        "meta": "3×25 drop · 140 kg → scalare · Rec 1&apos;30&quot; · TUT 2-1-2 · pressa",
+        "muscoli": "<em>Primario:</em> gastrocnemio · <em>Secondario:</em> soleo",
+        "exec": [
+          "3 serie × 25 rep a peso a scalare partendo da 140 kg sulla leg press (anche in S2 e S3).",
+          "Piedi in basso sulla pedana, spinta in punta — ginocchia quasi bloccate.",
+          "Completa le 25 scendendo di carico quando serve (drop)."
+        ]
+      },
+      {
+        "figura": "fig-squat",
+        "nome": "Squat al multipower",
+        "meta": "4×8 · 60 / 55 kg · Rec 2&apos; · TUT 3-1-2 · 2× ced. + 2× RIR ~2",
+        "muscoli": "<em>Primario:</em> quadricipiti, glutei · <em>Secondario:</em> core",
+        "exec": [
+          "Barra sui trapezi, piedi leggermente avanti rispetto alla barra.",
+          "Discesa profonda controllata — ginocchia seguono le punte.",
+          "Prime 2 serie @ 60 kg al cedimento; ultime 2 @ 55 kg con margine (~2 rep)."
+        ]
+      },
+      {
+        "figura": "fig-legcurl",
+        "nome": "Leg curl sdraiato",
+        "meta": "3×8 · 45 kg · Rec 1&apos;30&quot; · TUT 3-1-2 · RIR 1-2",
+        "muscoli": "<em>Primario:</em> femorali",
+        "exec": [
+          "Complemento al squat — femorali isolati."
+        ]
+      },
+      {
+        "figura": "fig-rdl",
+        "nome": "Stacco bilanciere omega / trap",
+        "meta": "3×8 · 60 kg · Rec 2&apos; · TUT 3-1-2 · RIR 0-2",
+        "muscoli": "<em>Primario:</em> femorali, glutei, schiena",
+        "exec": [
+          "Carico moderato — priorità postura e sicurezza lombare. Video di controllo in log sessione."
+        ]
+      },
+      {
+        "figura": "fig-press-incl",
+        "nome": "Chest press",
+        "meta": "4×8 · 70 kg · Rec 2&apos; · TUT 3-1-2 · RIR 0-2",
+        "muscoli": "<em>Primario:</em> petto · <em>Secondario:</em> deltoidi, tricipiti",
+        "exec": [
+          "Alternativa alla panca inclinata quando la setup o il tempo non permettono il bilanciere libero.",
+          "Log 24/07: 70 kg × 4×8."
+        ]
+      },
+      {
+        "figura": "fig-curl",
+        "nome": "Curl martello",
+        "meta": "4×6 · 18 kg · Rec 1&apos;30&quot; · TUT 3-1-2 · RIR 1-2",
+        "muscoli": "<em>Primario:</em> bicipiti, brachiale",
+        "exec": [
+          "Presa neutra, gomiti fermi lungo il busto.",
+          "Alternato o simultaneo — stesso range di movimento.",
+          "Evita il dondolio del busto."
+        ]
+      }
+    ]
+  }
+}

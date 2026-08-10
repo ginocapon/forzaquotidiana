@@ -25,9 +25,9 @@
 {"@type":"ListItem","position":4,"name":"24 luglio 2026 — Scheda 4","item":"https://forzaquotidiana.it/allenamenti/sessioni/2026-07-24-scheda-4/"}]}
 </script>
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=50">
 </head>
-<body class="theme-allenamenti">
+<body class="theme-allenamenti" data-schede="4" data-trimestre-url="/allenamenti/trimestre-giugno-luglio-agosto-2026/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
 <header class="site-header">
   <div class="wrap">
@@ -100,6 +100,13 @@
       <p class="session-note">Prima cosa: mi sono <strong>dimenticato di spegnere</strong> la sessione Amazfit — sono arrivato a casa e l&apos;orologio era ancora acceso. Niente di grave, ma durata e calorie device sono gonfiate (*). Pesi lasciati <strong>uguali al trimestre</strong> per oggi; eventualmente li correggo in un secondo step.</p>
       <p class="session-note">Non importa se l&apos;allenamento di oggi non è uscito perfetto come vorrei: l&apos;importante è che sia <strong>perfettibile</strong>. I video che ho registrato mi sono serviti soprattutto per capire la postura — in particolare lo <strong>stacco da terra con bilanciere omega</strong> — per verificare se mi facevo del male o no. Radar Zepp conferma stabilità e consistenza alte: coerente con l&apos;attenzione alla forma.</p>
     </section>
+    <section class="session-panel" aria-labelledby="figure-esercizi">
+      <span class="session-panel__label" id="figure-esercizi">Programma</span>
+      <h2>Figure esercizi · scheda di riferimento</h2>
+      <div id="sessione-scheda-figure" class="sessione-figure-mount"></div>
+    </section>
+
+
 
     <section class="session-panel" aria-labelledby="log-esercizi">
       <span class="session-panel__label">Log</span>
@@ -162,14 +169,6 @@
       <span class="session-panel__label">Galleria</span>
       <h2 id="foto-sessione">Foto e video sessione</h2>
       <div class="collage collage--scatter">
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-24/multipower-sala-pesi.webp" alt="Multipower Technogym in sala pesi con step Reebok e pavimento verde, riflesso allenamento" width="400" height="500" loading="lazy">
-          <figcaption>Sala pesi · squat multipower</figcaption>
-        </figure>
-        <figure class="polaroid">
-          <img src="/img/allenamenti/2026-07-24/technogym-multipower-10kg.webp" alt="Dettaglio multipower Technogym con dischi 10 kg e 20 kg e spugna sul bilanciere" width="400" height="500" loading="lazy">
-          <figcaption>Technogym · setup multipower</figcaption>
-        </figure>
         <figure class="polaroid polaroid--video">
           <video controls playsinline preload="metadata" width="464" height="832" poster="/img/allenamenti/2026-07-24/stacco-omega-poster.webp">
             <source src="/img/allenamenti/2026-07-24/stacco-omega.mp4" type="video/mp4">
@@ -295,6 +294,8 @@
 </footer>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/main.js?v=1" defer></script>
+    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/training-load-chart.js?v=3" defer></script>
 </body>
