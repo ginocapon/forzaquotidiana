@@ -3864,6 +3864,37 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   padding: 2.5rem 0 1.5rem;
   border-bottom: 1px solid var(--panel-border-mid, rgba(200, 150, 80, 0.2));
 }
+.allen-hub-hero__inner {
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .allen-hub-hero__inner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+}
+.allen-hub-hero__media {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid var(--panel-border-mid, rgba(200, 150, 80, 0.25));
+  box-shadow: var(--panel-shadow, 0 8px 32px rgba(0, 0, 0, 0.45));
+  background: #0a0a0a;
+}
+.allen-hub-hero__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.allen-hub-hero__media .ai-media-note {
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.78rem;
+  background: rgba(0, 0, 0, 0.55);
+}
 .allen-hub-hero h1 {
   margin: 0.25rem 0 0.75rem;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -3872,6 +3903,39 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   margin: 0.75rem 0 0;
   font-size: 0.88rem;
   color: var(--muted);
+}
+
+.allen-hub-unified {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--panel-bg, linear-gradient(165deg, #1a1816 0%, #121110 100%));
+  border: 1.5px solid var(--panel-border-mid, rgba(200, 150, 80, 0.25));
+  box-shadow: var(--panel-shadow, 0 6px 24px rgba(0, 0, 0, 0.35));
+}
+.allen-hub-unified__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-warm, #c9783a);
+  margin-bottom: 0.35rem;
+}
+.allen-hub-unified h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+.allen-hub-unified__lead {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.allen-hub-unified__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .allen-cal {
@@ -4357,9 +4421,14 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   color: var(--muted);
   line-height: 1.45;
 }
-.readiness-chart__empty {
+.readiness-chart__empty,
+.readiness-chart__empty-window {
   margin: 0;
   color: var(--muted);
+}
+.readiness-chart__empty-window {
+  padding: 0.75rem 0;
+  font-size: 0.85rem;
 }
 
 .readiness-chart__block {

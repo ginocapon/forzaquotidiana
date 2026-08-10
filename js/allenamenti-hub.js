@@ -136,38 +136,30 @@
     return wrap;
   }
 
-  function renderQuickActions(root, hub) {
+  function renderQuickActions(root, hub, sessionCount) {
     var ciclo = hub.cicloCorrente;
-    var grid = el("div", { className: "allen-hub-actions" });
-
-    var trim = el("a", {
-      className: "allen-hub-action",
-      href: ciclo.url
-    });
-    trim.appendChild(figureNode("fig-press-incl", "Programma trimestrale", "allen-hub-action__fig"));
-    var trimBody = el("div", { className: "allen-hub-action__body" });
-    trimBody.appendChild(el("span", { className: "allen-hub-action__badge", text: ciclo.badge }));
-    trimBody.appendChild(el("strong", { text: "Scheda trimestrale" }));
-    trimBody.appendChild(el("span", { className: "allen-hub-action__meta", text: ciclo.label }));
-    trim.appendChild(trimBody);
-    grid.appendChild(trim);
-
-    var log = el("a", {
-      className: "allen-hub-action",
-      href: "/allenamenti/sessioni/"
-    });
-    log.appendChild(figureNode("fig-lat", "Sessioni svolte", "allen-hub-action__fig"));
-    var logBody = el("div", { className: "allen-hub-action__body" });
-    logBody.appendChild(el("span", { className: "allen-hub-action__badge", text: "Log" }));
-    logBody.appendChild(el("strong", { text: "Sedute svolte" }));
-    logBody.appendChild(el("span", {
-      className: "allen-hub-action__meta",
-      text: "Data, KPI Amazfit, foto e export Zepp"
+    var card = el("article", { className: "allen-hub-unified" });
+    var body = el("div", { className: "allen-hub-unified__body" });
+    body.appendChild(el("span", { className: "allen-hub-unified__badge", text: ciclo.badge }));
+    body.appendChild(el("h2", { text: "Tutto in questa pagina" }));
+    body.appendChild(el("p", {
+      className: "allen-hub-unified__lead",
+      text: "Calendario, grafici performance, programma trimestre e link alle sedute con export Zepp — un solo hub, niente doppioni."
     }));
-    log.appendChild(logBody);
-    grid.appendChild(log);
 
-    root.appendChild(grid);
+    var links = el("div", { className: "allen-hub-unified__links" });
+    links.appendChild(el("a", { className: "btn btn-ghost", href: "#calendario", text: "Calendario ↓" }));
+    links.appendChild(el("a", { className: "btn btn-ghost", href: "#programma", text: "Programma trimestre" }));
+    var sess = el("a", {
+      className: "btn btn-primary",
+      href: "/allenamenti/sessioni/",
+      text: "Sedute svolte (" + (sessionCount || "—") + ")"
+    });
+    links.appendChild(sess);
+    body.appendChild(links);
+    card.appendChild(body);
+
+    root.appendChild(card);
   }
 
   function renderSchedaTile(s) {
@@ -536,7 +528,7 @@
         var sessions = enrichSessions(hub, perf);
         var byDate = groupByDate(sessions);
 
-        if (actionsRoot) renderQuickActions(actionsRoot, hub);
+        if (actionsRoot) renderQuickActions(actionsRoot, hub, sessions.length);
         Calendar(calRoot, hub, byDate);
         if (progRoot) renderProgramma(progRoot, hub);
 
