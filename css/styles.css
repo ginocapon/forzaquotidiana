@@ -2312,6 +2312,10 @@ article.hub-card:hover {
   text-align: center;
   color: var(--muted);
 }
+.phone-shot--landscape .phone-shot__frame {
+  border-radius: 16px;
+  padding: 0.35rem;
+}
 
 .amazfit-card {
   border-radius: 16px;

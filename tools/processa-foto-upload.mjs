@@ -34,12 +34,24 @@ const KNOWN_BATCHES = {
   },
 };
 
+/** Rotazione extra per file specifici (gradi, senso orario positivo) */
+const ROTATE_OVERRIDES = {
+  tsb: -90,
+};
+
+function processImage(src, slug) {
+  let pipeline = sharp(src).rotate();
+  const extra = ROTATE_OVERRIDES[slug];
+  if (extra) pipeline = pipeline.rotate(extra);
+  return pipeline.webp({ quality: 82, effort: 4 });
+}
+
 function buildSlugMap(files, date, scheda, dirName) {
   const batch = KNOWN_BATCHES[dirName];
   if (batch?.files) {
     const map = {};
     for (const [whatsapp, slug] of Object.entries(batch.files)) {
-      map[whatsapp] = `${batch.date}-scheda-${batch.scheda}-${slug}.webp`;
+      map[whatsapp] = { dest: `${batch.date}-scheda-${batch.scheda}-${slug}.webp`, slug };
     }
     return map;
   }
@@ -50,7 +62,8 @@ function buildSlugMap(files, date, scheda, dirName) {
   ];
   const map = {};
   for (let i = 0; i < sorted.length && i < slugs.length; i++) {
-    map[sorted[i]] = `${date}-scheda-${scheda}-${slugs[i]}.webp`;
+    const slug = slugs[i];
+    map[sorted[i]] = { dest: `${date}-scheda-${scheda}-${slug}.webp`, slug };
   }
   return map;
 }
@@ -99,15 +112,16 @@ async function main() {
   console.log(`Processing ${files.length} files → ${destDir} (${date} scheda ${scheda})`);
 
   for (const file of files) {
-    const destName = slugMap[file];
-    if (!destName) {
+    const entry = slugMap[file];
+    if (!entry) {
       console.warn("SKIP (no slug):", file);
       continue;
     }
+    const { dest: destName, slug } = entry;
     const src = join(uploadDir, file);
     const dest = join(destDir, destName);
     const before = statSync(src).size;
-    await sharp(src).rotate().webp({ quality: 82, effort: 4 }).toFile(dest);
+    await processImage(src, slug).toFile(dest);
     const after = statSync(dest).size;
     console.log(`OK ${destName} (${before} → ${after} bytes)`);
     unlinkSync(src);
