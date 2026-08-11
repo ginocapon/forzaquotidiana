@@ -9,7 +9,7 @@ description: >-
 
 > **Quando caricare:** generazione articoli diario, venerdì editoriale, discovery keyword, immagini fumetto/surreali.
 >
-> **Entry point:** `node tools/editorial-weekly.mjs run [--generate] [--publish]`
+> **Entry point:** `node tools/editorial-weekly.mjs run [--generate|--publish|--autopilot]`
 >
 > **NON ricreare Guardian** — usa `guardian/` esistente + questa skill.
 
@@ -38,8 +38,10 @@ node tools/sync-my-stats.mjs
 node scripts/web-keyword-discovery.mjs --count 3
 node scripts/check-doppioni.mjs --slug SLUG --kw "kw" --cluster CLUSTER
 node scripts/build-skimm.mjs --check SLUG "kw" CLUSTER
-node tools/editorial-weekly.mjs run --generate    # venerdì: schedule
+node tools/editorial-weekly.mjs run --generate    # solo coda + schedule (no LLM)
 node tools/editorial-weekly.mjs run --publish     # dopo HTML+hero pronti
+node tools/editorial-weekly.mjs run --autopilot   # trend + skin + LLM + immagini + publish (cron)
+node tools/generate-diario-assets.mjs --slug SLUG # singolo articolo
 node scripts/geo-aeo-formula.mjs --slug SLUG
 node scripts/verify-article-hero.mjs --slug SLUG
 node scripts/validate-page.js --file diario/SLUG/index.html
@@ -72,20 +74,37 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 
 Template banner: `templates/partials/banner-goliardia.html`
 
+## Autopilot (cron venerdì — end-to-end)
+
+Con `OPENAI_API_KEY` (secret GitHub) il cron genera e pubblica **senza intervento umano**:
+
+1. **Trend** — `scripts/lib/trending-rss.mjs` legge RSS da `guardian/config/web-sources.yaml`
+2. **Discovery** — merge trend + gap statici → `data/editorial-queue.json`
+3. **Skin testo** — `data/editorial-skin.json` (voce, struttura, articoli riferimento)
+4. **Skin immagini** — `data/editorial-image-skin.json` (fumetto JoJo, palette, disclosure)
+5. **Generazione** — `tools/generate-diario-assets.mjs` → LLM JSON + DALL-E → WebP via ffmpeg
+6. **Render** — `tools/render-diario-html.mjs` → HTML con banner goliardia + CTA newsletter
+7. **Publish** — index diario, sitemap, llms.txt, GEO/AEO check
+8. **Commit** — GitHub Actions push su `main`
+
+Setup: `docs/EDITORIAL-AUTOPILOT-SETUP.md`
+
 ## Cron venerdì
 
-- **05:00 UTC (07:00 CEST):** `.github/workflows/editorial-venerdi.yml` → discovery + `--generate`
+- **05:00 UTC (07:00 CEST):** `.github/workflows/editorial-venerdi.yml` → `--autopilot` (default)
+- **Manuale senza LLM:** workflow_dispatch con `autopilot: false` → `--generate`
 - **07:00 UTC:** `venerdi-forza-quotidiana.yml` + Guardian `weekly_strategy`
-- Agente Cloud: genera HTML + WebP **prima** del cron o usa `workflow_dispatch` publish=true
 
 ## File dati
 
 | File | Ruolo |
 |------|-------|
 | `data/editorial-queue.json` | Coda proposed/scheduled/published |
+| `data/editorial-skin.json` | Voce, struttura, articoli riferimento (autopilot) |
+| `data/editorial-image-skin.json` | Stile immagini fumetto/surreale (autopilot) |
 | `data/my-stats.json` | Solo numeri reali |
 | `data/skimm-catalog.json` | Cluster keyword |
-| `guardian/config/web-sources.yaml` | Gap keyword statici |
+| `guardian/config/web-sources.yaml` | Gap keyword statici + RSS trend |
 
 ## Output fine run
 

@@ -4,7 +4,10 @@
   "description": "Sito statico La Forza Quotidiana — tool locali in /tools",
   "type": "module",
   "scripts": {
-    "pdf:scheda": "node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf --local"
+    "pdf:scheda": "node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf --local",
+    "editorial:generate": "node tools/editorial-weekly.mjs run --generate",
+    "editorial:autopilot": "node tools/editorial-weekly.mjs run --autopilot",
+    "editorial:publish": "node tools/editorial-weekly.mjs run --publish"
   },
   "devDependencies": {
     "puppeteer-core": "^24.0.0"

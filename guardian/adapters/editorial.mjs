@@ -67,6 +67,28 @@ export function checkEditorial(repoRoot) {
     verified.push("my-stats.json presente");
   }
 
+  const skinText = path.join(repoRoot, "data/editorial-skin.json");
+  const skinImg = path.join(repoRoot, "data/editorial-image-skin.json");
+  for (const [p, label] of [
+    [skinText, "editorial-skin.json"],
+    [skinImg, "editorial-image-skin.json"],
+  ]) {
+    if (!fs.existsSync(p)) {
+      failures.push({
+        category: "editorial",
+        event: `${label} mancante — autopilot non può rispettare la skin`,
+        probability: 0.95,
+        impact: 0.8,
+        detectability: 1,
+        controllability: 0.95,
+        action_level: "yellow",
+        suggested_action: `Creare data/${label} (vedi docs/EDITORIAL-AUTOPILOT-SETUP.md)`,
+      });
+    } else {
+      verified.push(`${label} presente`);
+    }
+  }
+
   const reportsDir = path.join(repoRoot, "guardian/reports");
   if (fs.existsSync(reportsDir)) {
     const weeklyReport = fs.readdirSync(reportsDir).filter((f) => f.startsWith("weekly-"));
