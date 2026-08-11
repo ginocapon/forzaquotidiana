@@ -1,8 +1,10 @@
 # SKILL — La Forza Quotidiana · Schede allenamento
 
-> **Quando caricare:** nuova scheda trimestrale, log sessione, statistiche mensili, pagina allenamento nel sito.
+> **Token:** non caricare questo file intero se non serve. Usa `.cursor/rules/skill-router.mdc` + `docs/SKILL-INDEX.md` e apri solo le sezioni/moduli indicati.
 >
-> **Landing premium (architettura · colori · hero copy):** `SKILL-LANDING.md`
+> **Moduli:** `SKILL-PERFORMANCE.md` (sessioni/Zepp) · `SKILL-VENERDI.md` (venerdì) · `SKILL-LANDING.md` (hero/UI) · `guardian/skill/SKILL.md` (premortem)
+>
+> **Quando caricare tutto:** nuovo trimestre da zero, refactor architetturale, audit completo.
 
 ---
 

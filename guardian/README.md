@@ -20,6 +20,7 @@ Crescita **newsletter** (PDF scheda gratuita), integrità tecnica, SEO e contenu
 - `docs/GUARDIAN-INTEGRATION.md` — analisi architettura e piano
 - `guardian/skill/SKILL.md` — skill operativa agente
 - `guardian/sequences/master-sequence.md` — sequenza cognitiva
+- `.cursor/rules/skill-router.mdc` + `docs/SKILL-INDEX.md` — **router token** (carica solo zone necessarie)
 
 ## Cron
 
