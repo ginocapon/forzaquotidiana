@@ -36,3 +36,10 @@ jobs:
     scope: [all, business_growth, newsletter]
     premortem: true
     open_friday_issue: true
+
+  weekly_editorial:
+    cron_dow: 5
+    cron_hour_utc: 5
+    scope: [editorial, newsletter, seo, content]
+    premortem: true
+    run_editorial: true

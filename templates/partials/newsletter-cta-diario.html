@@ -1,0 +1,24 @@
+<!-- Newsletter CTA inline — includere in articoli diario generati -->
+<aside class="article-newsletter-cta card card--highlight" id="newsletter-articolo">
+  <h2>Solo culturismo, scherzi e aggiornamenti</h2>
+  <p>Zero spam, zero integratori in vendita. La newsletter avvisa quando esce un articolo o una scheda — come questo.</p>
+  <form id="newsletter-form" class="newsletter-form" data-script-url="https://script.google.com/macros/s/AKfycbzHT-A41ZDrZcA8bEHnp8OOI-I66hIvnCP7YLx2Cr0X0zuTsPJo76-auKZnXXbQSBPjww/exec" method="POST">
+    <input type="hidden" name="next" id="newsletter-next" value="/diario/">
+    <input type="hidden" name="from" id="newsletter-from" value="articolo-SLUG_PLACEHOLDER">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" class="newsletter-form__hp" aria-hidden="true">
+    <label class="newsletter-form__field">
+      <span>Nome</span>
+      <input type="text" name="nome" autocomplete="name" required>
+    </label>
+    <label class="newsletter-form__field">
+      <span>Email</span>
+      <input type="email" name="email" autocomplete="email" required>
+    </label>
+    <label class="newsletter-form__check">
+      <input type="checkbox" name="consenso" value="si" required>
+      <span>Acconsento al trattamento dei dati per ricevere la newsletter (GDPR). <a href="/privacy/">Privacy</a></span>
+    </label>
+    <button type="submit" class="btn btn--primary">Iscriviti gratis</button>
+  </form>
+  <p class="newsletter-form__note"><small>Provenienza: articolo-SLUG_PLACEHOLDER · Nessuna vendita · Disiscriviti quando vuoi.</small></p>
+</aside>

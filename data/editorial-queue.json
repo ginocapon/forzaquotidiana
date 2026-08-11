@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "updated": "2026-08-11",
+  "max_per_week": 3,
+  "items": [
+    {
+      "id": "eq-001",
+      "slug": "proteine-shake-universita-57-anni",
+      "status": "scheduled",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "proteine shake culturismo",
+      "cluster": "goliardia-nutrizione",
+      "intent": "umorismo palestra + miti supplementi senza vendita",
+      "muscle_group": null,
+      "target_week": "2026-08-18",
+      "discovery_score": 0.84,
+      "hero_brief": "Gino cartoon surreale in aula universitaria di Scienze dello Shake — lavagna con formula assurda, shaker gigante, stile fumetto JoJo",
+      "hero_concept": "comic surreal, palette scura, umorismo italiano, NO stock photo palestra",
+      "title_draft": "Università delle proteine: laurea in shake a 57 anni",
+      "meta_draft": "Satira goliardica su miti whey e bro-science — zero vendita integratori. Gino Capon, culturismo dilettante e umorismo a fumetti.",
+      "h1_draft": "La mia laurea triennale in Scienze dello Shake (con onore in bro-science)",
+      "outline": [
+        "Risposta breve AEO",
+        "Miti shake",
+        "Bro-science vs realtà",
+        "FAQ",
+        "Newsletter"
+      ],
+      "paths": {
+        "html": "diario/proteine-shake-universita-57-anni/index.html",
+        "hero": "img/diario/2026-08-18/proteine-shake-universita-hero.webp",
+        "figures": [
+          "img/diario/2026-08-18/proteine-shake-bro-science-cartoon.webp",
+          "img/diario/2026-08-18/shaker-surreale-manga.webp"
+        ]
+      }
+    },
+    {
+      "id": "eq-002",
+      "slug": "leg-day-ascensore-57-anni",
+      "status": "scheduled",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "leg day gambe allenamento",
+      "cluster": "goliardia-allenamento",
+      "intent": "umorismo post leg day + costanza reale",
+      "muscle_group": "gambe",
+      "target_week": "2026-08-18",
+      "discovery_score": 0.81,
+      "hero_brief": "Gino cartoon che guarda ascensore come boss finale — gambe stropicciate, fumetto surreale",
+      "hero_concept": "comic, gambe come alberi, ascensore con faccia minacciosa",
+      "title_draft": "Leg day: quando l'ascensore è il boss finale",
+      "meta_draft": "Parodia goliardica sul giorno dopo leg day a 57 anni — scale, ascensori e dignità. Finzione visiva, costanza vera.",
+      "h1_draft": "Leg day e l'ascensore che mi giudica: sopravvivenza a 57 anni",
+      "outline": [
+        "Risposta breve",
+        "Boss ascensore",
+        "Costanza vs dramma",
+        "FAQ"
+      ],
+      "paths": {
+        "html": "diario/leg-day-ascensore-57-anni/index.html",
+        "hero": "img/diario/2026-08-18/leg-day-ascensore-hero.webp",
+        "figures": [
+          "img/diario/2026-08-18/leg-day-scale-cartoon.webp",
+          "img/diario/2026-08-18/ascensore-boss-manga.webp"
+        ]
+      }
+    },
+    {
+      "id": "eq-003",
+      "slug": "mirror-gym-selfie-epica-57-anni",
+      "status": "scheduled",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "selfie palestra specchio",
+      "cluster": "goliardia-culturismo",
+      "intent": "satira selfie gym + autenticità diario",
+      "muscle_group": null,
+      "target_week": "2026-08-18",
+      "discovery_score": 0.79,
+      "hero_brief": "Specchio palestra cartoon che riflette versione epica vs versione stropicciata di Gino — split panel fumetto",
+      "hero_concept": "surreal comic mirror, dualità eroe/stanco",
+      "title_draft": "Lo specchio della palestra: epica vs realtà",
+      "meta_draft": "Satira sul selfie da specchio in palestra — finzione a fumetti, zero influencer. Gino 57 anni, diario autentico.",
+      "h1_draft": "Lo specchio che mi dà due versioni: Teken il Guerriero e l'uomo stropicciato",
+      "outline": [
+        "Risposta breve",
+        "Doppio specchio",
+        "Autenticità",
+        "FAQ"
+      ],
+      "paths": {
+        "html": "diario/mirror-gym-selfie-epica-57-anni/index.html",
+        "hero": "img/diario/2026-08-18/mirror-gym-selfie-hero.webp",
+        "figures": [
+          "img/diario/2026-08-18/specchio-epico-cartoon.webp",
+          "img/diario/2026-08-18/specchio-stropicciato-cartoon.webp"
+        ]
+      }
+    },
+    {
+      "id": "disc-1786448549531-z0bs",
+      "slug": "overtraining-recupero-50-anni-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "overtraining recupero 50 anni",
+      "cluster": "tecnico-natural",
+      "intent": "recupero natural maturo",
+      "discovery_score": 0.76,
+      "target_week": "2026-08-11",
+      "hero_brief": "Da definire — stile fumetto surreale goliardico",
+      "hero_concept": "comic surreal, NO stock palestra"
+    },
+    {
+      "id": "disc-1786448549531-83mx",
+      "slug": "kettlebell-spalle-mobilita-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "kettlebell spalle mobilità",
+      "cluster": "tecnico-natural",
+      "intent": "tecnica documentata",
+      "discovery_score": 0.72,
+      "target_week": "2026-08-11",
+      "hero_brief": "Da definire — stile fumetto surreale goliardico",
+      "hero_concept": "comic surreal, NO stock palestra"
+    }
+  ]
+}
