@@ -45,26 +45,59 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 8. Verifica tabella + grafici in trimestre `#statistiche` + modulo TSB.
 9. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
 
-## Layout pagina sessione (ordine fisso)
+## Layout pagina sessione (ordine fisso — riferimento 4 agosto 2026)
+
+**URL canonico:** `/allenamenti/sessioni/2026-08-04-scheda-2/`
+
+### Sequenza completa body
+
+```
+1. .session-panel--tsb          ← grafico SVG CTL/ATL (tools/inietta-tsb-pagine.mjs)
+2. .session-panel               ← nota Gino
+3. .session-panel               ← figure scheda (#sessione-scheda-figure)
+4. .session-panel               ← log .scheda-table
+5. .session-panel               ← galleria foto/video (opzionale)
+6. .session-panel--readiness    ← readiness Zepp (se screenshot disponibili)
+7. .session-panel--metabolic    ← metabolico Amazfit (sempre)
+8. .session-nav + .session-meta-footer
+```
+
+### Sezione readiness (se export HybridCharge/sonno/HRV/TSB)
+
+```
+.session-panel--readiness
+├── h2 + intro
+├── .amazfit-tsb-hero                    ← FUORI dalla griglia, 100% larghezza
+│   └── -tsb.webp (landscape, eager)
+├── .amazfit-gallery                     ← portrait: hybridcharge, sonno×2, HRV
+└── .amazfit-data
+    ├── card wide TSB (prima)
+    ├── card Sonno
+    └── card HybridCharge
+```
+
+**Mai** mettere `-tsb.webp` dentro `.amazfit-gallery` senza `.amazfit-tsb-hero` — su desktop resta ¼ larghezza e illeggibile.
+
+### Sezione metabolica
 
 ```
 .metabolic-block
 ├── h2 + device
-├── .amazfit-gallery__lead          ← intro «export originali Zepp»
-├── .amazfit-gallery                ← 4 screenshot in griglia (PRIMA, tutto visibile)
-│   ├── .phone-shot riepilogo
-│   ├── .phone-shot fc-grafico
-│   ├── .phone-shot zone-effetto
-│   └── .phone-shot tecnica
-├── .amazfit-data                   ← tabelle HTML sotto la galleria
-│   ├── .amazfit-card riepilogo
-│   ├── .amazfit-card zone+effetto
-│   └── .amazfit-card--wide tecnica
-├── .metabolic-note                 ← analisi testuale
-└── .hr-log.hr-log--elevated        ← sintesi 6 metriche
+├── .amazfit-gallery__lead
+├── .amazfit-gallery
+│   ├── .phone-shot--full  riepilogo
+│   ├── fc-grafico
+│   ├── zone-effetto
+│   ├── tecnica
+│   └── valutazione (opz.)
+├── .amazfit-data
+├── .metabolic-note
+└── .hr-log
 ```
 
-**Regola layout:** griglia CSS — **no scroll orizzontale**. Tutti gli screenshot devono essere visibili senza scorrere.
+**Regola layout:** griglia CSS — **no scroll orizzontale**. Screenshot hero (`-tsb.webp`, `-riepilogo.webp`) a **larghezza piena** tramite `.amazfit-tsb-hero` o `.phone-shot--full`.
+
+Tool allineamento sessioni esistenti: `node tools/standardizza-layout-sessioni.mjs`
 
 ## Modulo TSB — fitness, fatica, riposo (obbligatorio)
 
