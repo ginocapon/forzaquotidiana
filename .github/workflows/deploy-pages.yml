@@ -38,6 +38,10 @@ jobs:
             --exclude 'NEWSLETTER-SETUP.md' \
             --exclude 'DEPLOY-GITHUB-PAGES.md' \
             --exclude 'README.md' \
+            --exclude 'guardian/' \
+            --exclude 'docs/' \
+            --exclude 'Righetto_Premortem_Guardian_ONE_COMMAND/' \
+            --exclude 'Righetto_Premortem_Guardian_ONE_COMMAND.zip' \
             --exclude 'diario/*.png' \
             ./ _site/
 

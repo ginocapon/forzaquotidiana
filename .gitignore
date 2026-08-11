@@ -5,3 +5,6 @@ node_modules/
 package-lock.json
 img/schede/scheda-preview.png
 img/schede/scheda-pdf-preview.png
+guardian/reports/
+guardian/memory/events.jsonl
+guardian/memory/last-runs.json

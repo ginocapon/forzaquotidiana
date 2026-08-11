@@ -822,6 +822,22 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 - Conteggi anonimi → `data/site-stats.json`
 - Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail (conta confermati/da confermare/disiscritti)
 
+### 5a.0 Premortem Guardian (sistema operativo)
+
+**Obiettivo primario del sito:** acquisire iscritti **newsletter** (PDF scheda gratuita) → audience per prodotti futuri (schede premium, community). Non è un CRM immobiliare.
+
+**Entry point unico:** `node guardian/scripts/guardian.mjs run`
+
+| Risorsa | Path |
+|---------|------|
+| Sistema | `guardian/` |
+| Skill agente | `guardian/skill/SKILL.md` |
+| Analisi integrazione | `docs/GUARDIAN-INTEGRATION.md` |
+| Cron CI | `.github/workflows/guardian-run.yml` |
+| Venerdì | `weekly_strategy` job + issue checklist esistente |
+
+Sequenza: CONTEXT → OBSERVE → VERIFY → … → NEXT CHECK. Autonomia: GREEN report only · YELLOW proposta · RED approvazione umana.
+
 ### 5a.1 Contatori home · profilo Gino · età biologica (obbligatorio)
 
 **Profilo fisso** in `data/gino-profile.json`:

@@ -1,0 +1,41 @@
+name: Guardian — Forza Quotidiana
+
+on:
+  schedule:
+    # Ogni 6 ore UTC
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Job forzato (es. weekly_strategy, daily_premortem)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  guardian:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Doctor
+        run: node guardian/scripts/guardian.mjs doctor
+
+      - name: Run Guardian
+        run: |
+          if [ -n "${{ github.event.inputs.job }}" ]; then
+            node guardian/scripts/guardian.mjs run --job "${{ github.event.inputs.job }}"
+          else
+            node guardian/scripts/guardian.mjs run
+          fi
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: guardian-report
+          path: guardian/reports/
+          retention-days: 30
