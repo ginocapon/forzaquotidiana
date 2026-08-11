@@ -83,9 +83,9 @@ function renderMonthPanel(monthKey) {
 }
 
 function ensureScript(html) {
-  let out = html.replace("/css/styles.css?v=34", "/css/styles.css?v=37");
-  if (!out.includes("styles.css?v=37") && out.includes("styles.css?v=")) {
-    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=37");
+  let out = html;
+  if (out.includes("styles.css?v=")) {
+    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=51");
   }
   if (out.includes("training-load-chart.js")) {
     out = out.replace(/training-load-chart\.js\?v=\d+/, "training-load-chart.js?v=3");

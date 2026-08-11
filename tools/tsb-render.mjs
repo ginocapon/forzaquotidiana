@@ -251,13 +251,13 @@ export function renderTsbModule(data, mode, uid = "tsb0") {
   html += "</div></div>";
 
   html += '<div class="tsb-module__chart-wrap">';
+  html += renderSvg(slice, chartFocusDate, data.sessions || [], uid);
   html += '<div class="tsb-module__zones" aria-hidden="true">';
   html += '<span class="tsb-zone__title">Da allenamenti</span>';
   data.zones.forEach((z) => {
     html += `<span class="tsb-zone tsb-zone--${z.id}">${esc(z.label)}</span>`;
   });
   html += "</div>";
-  html += renderSvg(slice, chartFocusDate, data.sessions || [], uid);
   html += "</div>";
 
   html += '<p class="tsb-module__legend"><span class="tsb-legend tsb-legend--atl">● Fatica ATL</span> <span class="tsb-legend tsb-legend--ctl">● Fitness CTL</span> <span class="tsb-legend tsb-legend--bar">▮ Carico giornaliero</span></p>';

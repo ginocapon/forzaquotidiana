@@ -62,12 +62,12 @@
     html += "</div>";
 
     html += '<div class="tsb-module__chart-wrap">';
+    html += renderSvg(slice, focusDate, data.sessions || []);
     html += '<div class="tsb-module__zones" aria-hidden="true">';
     data.zones.forEach(function (z) {
       html += '<span class="tsb-zone tsb-zone--' + z.id + '">' + esc(z.label) + "</span>";
     });
     html += "</div>";
-    html += renderSvg(slice, focusDate, data.sessions || []);
     html += "</div>";
 
     if (focusDate && snapshot) {

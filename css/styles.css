@@ -2943,6 +2943,7 @@ body.theme-allenamenti .session-card__badge {
   border-radius: 12px;
   background: linear-gradient(145deg, rgba(18, 18, 22, 0.95) 0%, rgba(12, 12, 16, 0.98) 100%);
   min-height: 12rem;
+  overflow: hidden;
 }
 .tsb-module__placeholder {
   color: var(--muted);
@@ -3014,38 +3015,38 @@ body.theme-allenamenti .session-card__badge {
 .tsb-kpi--fatigue dd { color: #e85d5d; }
 .tsb-kpi--fitness dd { color: #5eb0f5; }
 .tsb-module__chart-wrap {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.5rem 0.75rem;
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 .tsb-module__zones {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 0.62rem;
-  line-height: 1.1;
-  text-align: right;
-  padding: 0.25rem 0;
-  min-width: 4.5rem;
+  flex-direction: row;
+  align-items: stretch;
+  order: 2;
+  margin: 0.5rem -1.35rem -1.25rem;
+  width: calc(100% + 2.7rem);
+  font-size: 0.58rem;
+  line-height: 1.15;
+  text-align: center;
+  padding: 0;
+  min-width: 0;
+  border-radius: 0 0 11px 11px;
+  overflow: hidden;
 }
 .tsb-zone {
-  padding: 0.2rem 0.35rem;
-  border-radius: 3px;
-  color: rgba(255, 255, 255, 0.75);
+  flex: 1 1 0;
+  padding: 0.38rem 0.2rem;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.8);
 }
 .tsb-zone__title {
-  font-size: 0.58rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.15rem;
-  display: block;
+  display: none;
 }
-.tsb-zone--rilassato { background: linear-gradient(90deg, transparent, rgba(111, 207, 151, 0.35)); }
-.tsb-zone--energetico { background: linear-gradient(90deg, transparent, rgba(125, 211, 192, 0.3)); }
-.tsb-zone--bilanciato { background: linear-gradient(90deg, transparent, rgba(110, 181, 240, 0.35)); }
-.tsb-zone--ottimale { background: linear-gradient(90deg, transparent, rgba(74, 127, 212, 0.4)); }
+.tsb-zone--rilassato { background: linear-gradient(180deg, rgba(111, 207, 151, 0.42), rgba(111, 207, 151, 0.18)); }
+.tsb-zone--energetico { background: linear-gradient(180deg, rgba(125, 211, 192, 0.38), rgba(125, 211, 192, 0.16)); }
+.tsb-zone--bilanciato { background: linear-gradient(180deg, rgba(110, 181, 240, 0.42), rgba(110, 181, 240, 0.18)); }
+.tsb-zone--ottimale { background: linear-gradient(180deg, rgba(74, 127, 212, 0.48), rgba(74, 127, 212, 0.22)); }
 .tsb-module__svg {
   width: 100%;
   height: auto;
