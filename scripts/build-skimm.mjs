@@ -3,7 +3,7 @@
  * SKIMM catalog check
  * node scripts/build-skimm.mjs --check "slug" "kw-primaria" "cluster"
  */
-import { readJson, listDiarioSlugs, slugTokens, jaccard } from "./lib/editorial-utils.mjs";
+import { readJson, listCatalogDiarioSlugs, slugTokens, jaccard } from "./lib/editorial-utils.mjs";
 
 const args = process.argv.slice(2);
 if (!args.includes("--check")) {
@@ -24,7 +24,7 @@ if (!catalog?.clusters?.[cluster]) {
   process.exit(1);
 }
 
-const published = listDiarioSlugs();
+const published = listCatalogDiarioSlugs();
 const kwTok = kw.toLowerCase().split(/\s+/);
 let fail = false;
 
