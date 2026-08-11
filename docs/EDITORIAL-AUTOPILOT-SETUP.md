@@ -1,6 +1,10 @@
-# Setup autopilot editoriale (cron venerdì)
+# Setup autopilot editoriale (opzionale — API a consumo)
 
-Pipeline **end-to-end**: trend RSS → keyword → 3 articoli goliardici + immagini WebP → pubblicazione → sitemap/llms.txt → commit automatico.
+> **Modalità consigliata oggi:** venerdì mattina dai il comando all’agente Cursor (nessuna API). Vedi `SKILL-EDITORIAL.md` § «Venerdì mattina».
+
+Questa guida serve **solo** se in futuro vuoi il cron GitHub che genera tutto da solo con OpenAI (`--autopilot`).
+
+Pipeline **end-to-end con API**: trend RSS → keyword → 3 articoli + immagini → publish → commit.
 
 ## Cosa fa il cron
 

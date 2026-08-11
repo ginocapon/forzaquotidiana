@@ -20,7 +20,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 | Articolo diario | `SKILL.md` §0c + §5b |
 | Newsletter / iscritti | `SKILL.md` §5a, `SKILL-VENERDI.md` |
 | Check salute / premortem | `node guardian/scripts/guardian.mjs run` → `guardian/reports/guardian-latest.md` |
-| **Editoriale venerdì (3 articoli diario)** | `SKILL-EDITORIAL.md` → `node tools/editorial-weekly.mjs run --autopilot` (cron) |
+| **Editoriale venerdì (3 articoli diario)** | Comando: *«Venerdì editoriale: genera e pubblica i 3 articoli»* → `SKILL-EDITORIAL.md` + `.cursor/commands/venerdi-editoriale.md` |
 | Venerdì | `SKILL-VENERDI.md` |
 | SEO nuova pagina | `SKILL.md` §8, `scripts/validate-page.js` |
 | UI / hero | `SKILL-LANDING.md`, `SKILL.md` §0.1 |

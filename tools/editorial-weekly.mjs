@@ -21,8 +21,9 @@ import { hasApiKey } from "../scripts/lib/llm-client.mjs";
 const args = process.argv.slice(2);
 const cmd = args[0] || "run";
 const doPublish = args.includes("--publish");
-const doGenerate = args.includes("--generate");
+const doGenerate = args.includes("--generate") || args.includes("--friday");
 const doAutopilot = args.includes("--autopilot");
+const doFriday = args.includes("--friday");
 
 function runScript(rel, scriptArgs = []) {
   const r = spawnSync("node", [path.join(REPO_ROOT, rel), ...scriptArgs], {
@@ -283,6 +284,7 @@ async function runPipeline() {
       item.status = "scheduled";
       console.log(`→ ${item.slug}: scheduled — agente deve generare HTML + WebP (vedi SKILL-EDITORIAL.md)`);
     }
+    writeJson("data/editorial-queue.json", queue);
   }
 
   const published = [];
@@ -329,6 +331,20 @@ async function runPipeline() {
   writeJson("data/editorial-queue.json", queue);
 
   console.log(`Report: ${path.relative(REPO_ROOT, reportPath)}`);
+
+  if (doFriday) {
+    console.log("\n=== BRIEFING AGENTE (venerdì — nessuna API esterna) ===");
+    console.log("Skin testo: data/editorial-skin.json");
+    console.log("Skin immagini: data/editorial-image-skin.json");
+    console.log("Dopo HTML + WebP per ogni slug: node tools/editorial-weekly.mjs run --publish\n");
+    for (const item of picked) {
+      console.log(`• ${item.slug}`);
+      console.log(`  kw: ${item.kw_primary} | tono: ${item.tone} | finzione: ${item.fiction ? "sì" : "no"}`);
+      console.log(`  html: diario/${item.slug}/index.html`);
+      console.log(`  img: img/diario/${todayISO()}/${item.slug.replace(/-57-anni$/, "")}-hero.webp (+ fig1, fig2)`);
+      if (item.trending_title) console.log(`  trend: ${item.trending_title}`);
+    }
+  }
 }
 
 if (cmd === "run") {
@@ -337,6 +353,6 @@ if (cmd === "run") {
     process.exit(1);
   });
 } else {
-  console.log("Uso: editorial-weekly.mjs run [--generate] [--publish] [--autopilot]");
+  console.log("Uso: editorial-weekly.mjs run [--generate|--friday|--publish|--autopilot]");
   process.exit(1);
 }

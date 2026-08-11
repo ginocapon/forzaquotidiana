@@ -1,6 +1,6 @@
-# Venerdì 07:00 CEST (05:00 UTC) — autopilot editoriale completo
-# Richiede secret OPENAI_API_KEY (o EDITORIAL_API_KEY) nel repository
-name: Editorial venerdì (autopilot)
+# Venerdì 07:00 CEST (05:00 UTC) — prepara coda editoriale (no API)
+# Generazione contenuti: comando utente → Cloud Agent (vedi .cursor/commands/venerdi-editoriale.md)
+name: Editorial venerdì
 
 on:
   schedule:
@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       autopilot:
-        description: 'Genera contenuti+immagini+pubblica (serve API key)'
+        description: 'Solo con OPENAI_API_KEY: genera+pubblica in CI (API a consumo)'
         type: boolean
-        default: true
+        default: false
 
 permissions:
   contents: write
@@ -25,30 +25,31 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Dipendenze sistema (ffmpeg per WebP)
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-
-      - name: Autopilot editoriale
+      - name: Prepara coda (default) o autopilot (opzionale)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EDITORIAL_API_KEY: ${{ secrets.EDITORIAL_API_KEY }}
           EDITORIAL_LLM_MODEL: ${{ vars.EDITORIAL_MODEL || 'gpt-4o-mini' }}
           EDITORIAL_IMAGE_MODEL: ${{ vars.EDITORIAL_IMAGE_MODEL || 'dall-e-3' }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.autopilot }}" != "true" ]; then
-            node tools/editorial-weekly.mjs run --generate
-          else
+          if [ "${{ inputs.autopilot }}" = "true" ] && [ -n "$OPENAI_API_KEY$EDITORIAL_API_KEY" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
             node tools/editorial-weekly.mjs run --autopilot
+          else
+            node tools/editorial-weekly.mjs run --generate
           fi
 
-      - name: Commit articoli e asset generati
+      - name: Commit coda e report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/editorial-queue.json guardian/reports/weekly-*.md diario/ img/diario/ sitemap.xml llms.txt diario/index.html
+          git add data/editorial-queue.json guardian/reports/weekly-*.md
+          if [ "${{ inputs.autopilot }}" = "true" ]; then
+            git add diario/ img/diario/ sitemap.xml llms.txt diario/index.html
+          fi
           if git diff --staged --quiet; then
             echo "Nessuna modifica da committare"
           else
-            git commit -m "editorial(autopilot): articoli settimanali $(date -u +%Y-%m-%d)"
+            git commit -m "editorial: coda settimanale $(date -u +%Y-%m-%d)"
             git push
           fi

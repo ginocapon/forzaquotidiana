@@ -9,7 +9,7 @@ description: >-
 
 > **Quando caricare:** generazione articoli diario, venerdì editoriale, discovery keyword, immagini fumetto/surreali.
 >
-> **Entry point:** `node tools/editorial-weekly.mjs run [--generate|--publish|--autopilot]`
+> **Entry point:** `node tools/editorial-weekly.mjs run [--friday|--generate|--publish|--autopilot]`
 >
 > **NON ricreare Guardian** — usa `guardian/` esistente + questa skill.
 
@@ -38,9 +38,10 @@ node tools/sync-my-stats.mjs
 node scripts/web-keyword-discovery.mjs --count 3
 node scripts/check-doppioni.mjs --slug SLUG --kw "kw" --cluster CLUSTER
 node scripts/build-skimm.mjs --check SLUG "kw" CLUSTER
+node tools/editorial-weekly.mjs run --friday       # venerdì: discovery + briefing agente (CONSIGLIATO)
 node tools/editorial-weekly.mjs run --generate    # solo coda + schedule (no LLM)
-node tools/editorial-weekly.mjs run --publish     # dopo HTML+hero pronti
-node tools/editorial-weekly.mjs run --autopilot   # trend + skin + LLM + immagini + publish (cron)
+node tools/editorial-weekly.mjs run --publish     # dopo HTML+hero pronti dall'agente
+node tools/editorial-weekly.mjs run --autopilot   # opzionale: richiede OPENAI_API_KEY (API a consumo)
 node tools/generate-diario-assets.mjs --slug SLUG # singolo articolo
 node scripts/geo-aeo-formula.mjs --slug SLUG
 node scripts/verify-article-hero.mjs --slug SLUG
@@ -74,25 +75,44 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 
 Template banner: `templates/partials/banner-goliardia.html`
 
-## Autopilot (cron venerdì — end-to-end)
+## Venerdì mattina — comando utente → agente (modalità consigliata)
 
-Con `OPENAI_API_KEY` (secret GitHub) il cron genera e pubblica **senza intervento umano**:
+**Nessuna API a consumo.** Tu dai il comando; l’agente Cursor fa tutto il resto.
 
-1. **Trend** — `scripts/lib/trending-rss.mjs` legge RSS da `guardian/config/web-sources.yaml`
-2. **Discovery** — merge trend + gap statici → `data/editorial-queue.json`
-3. **Skin testo** — `data/editorial-skin.json` (voce, struttura, articoli riferimento)
-4. **Skin immagini** — `data/editorial-image-skin.json` (fumetto JoJo, palette, disclosure)
-5. **Generazione** — `tools/generate-diario-assets.mjs` → LLM JSON + DALL-E → WebP via ffmpeg
-6. **Render** — `tools/render-diario-html.mjs` → HTML con banner goliardia + CTA newsletter
-7. **Publish** — index diario, sitemap, llms.txt, GEO/AEO check
-8. **Commit** — GitHub Actions push su `main`
+### Cosa scrivi (copia-incolla)
 
-Setup: `docs/EDITORIAL-AUTOPILOT-SETUP.md`
+```
+Venerdì editoriale: genera e pubblica i 3 articoli goliardici del diario secondo la skin.
+```
+
+Oppure usa il comando Cursor: **venerdi-editoriale** (file `.cursor/commands/venerdi-editoriale.md`).
+
+### Cosa fa l’agente (automatico)
+
+1. Legge questa skill + `data/editorial-skin.json` + `data/editorial-image-skin.json`
+2. `node tools/editorial-weekly.mjs run --friday` — trend RSS, keyword, max 3 in `scheduled`
+3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (stile skin, disclosure IA)
+4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt, check GEO/AEO
+5. Commit e push
+
+### Cron GitHub (opzionale, alle 07:00)
+
+Il workflow prepara solo la **coda** (`--generate`). La generazione vera resta al comando venerdì mattina.
+
+## Autopilot API (futuro — opzionale)
+
+Con `OPENAI_API_KEY` in GitHub Actions il cron può generare tutto senza agente (**API a consumo**, ~2–5 €/settimana). Vedi `docs/EDITORIAL-AUTOPILOT-SETUP.md`. Non necessario se usi l’agente Cursor.
+
+1. **Trend** — `scripts/lib/trending-rss.mjs`
+2. **Skin** — `data/editorial-skin.json`, `data/editorial-image-skin.json`
+3. **Generazione** — `tools/generate-diario-assets.mjs` (OpenAI + DALL-E)
+4. **Publish** — automatico in CI
 
 ## Cron venerdì
 
-- **05:00 UTC (07:00 CEST):** `.github/workflows/editorial-venerdi.yml` → `--autopilot` (default)
-- **Manuale senza LLM:** workflow_dispatch con `autopilot: false` → `--generate`
+- **05:00 UTC (07:00 CEST):** workflow prepara coda (`--generate`) — **nessuna API**
+- **Mattina:** tu → comando agente → 3 articoli pubblicati
+- **Autopilot CI:** solo se aggiungi secret + `workflow_dispatch` con `autopilot: true`
 - **07:00 UTC:** `venerdi-forza-quotidiana.yml` + Guardian `weekly_strategy`
 
 ## File dati
