@@ -28,6 +28,15 @@ export function listDiarioSlugs() {
     .map((d) => d.name);
 }
 
+/** Slug già in catalogo pubblico (diario/index.html) */
+export function listCatalogDiarioSlugs() {
+  const indexPath = path.join(REPO_ROOT, "diario/index.html");
+  if (!fs.existsSync(indexPath)) return [];
+  const html = fs.readFileSync(indexPath, "utf8");
+  const slugs = [...html.matchAll(/href="\/diario\/([^"\/]+)\//g)].map((m) => m[1]);
+  return [...new Set(slugs)];
+}
+
 export function slugTokens(slug) {
   return slug.toLowerCase().split("-").filter((t) => t.length > 2 && t !== "anni" && t !== "57");
 }

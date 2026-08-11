@@ -5,7 +5,7 @@
  */
 import {
   readJson,
-  listDiarioSlugs,
+  listCatalogDiarioSlugs,
   slugTokens,
   jaccard,
 } from "./lib/editorial-utils.mjs";
@@ -18,7 +18,7 @@ const cluster = args.includes("--cluster") ? args[args.indexOf("--cluster") + 1]
 const catalog = readJson("data/skimm-catalog.json");
 const threshold = catalog?.blocked_overlap_threshold ?? 0.55;
 const queue = readJson("data/editorial-queue.json");
-const published = listDiarioSlugs();
+const published = listCatalogDiarioSlugs();
 
 const failures = [];
 
@@ -34,7 +34,7 @@ function checkOne(s, k, c) {
 
   for (const item of queue?.items || []) {
     if (item.status === "published" && item.slug === s) continue;
-    if (item.slug === s && item.status !== "proposed") {
+    if (item.slug === s && item.status === "published") {
       failures.push({ type: "queue_slug", against: item.slug, status: item.status });
     }
     if (k && item.kw_primary === k && item.slug !== s) {
@@ -53,9 +53,9 @@ function checkOne(s, k, c) {
 if (slug || kw) {
   checkOne(slug, kw, cluster);
 } else {
-  // Audit tutta la queue proposed/scheduled
+  // Audit solo proposed vs catalogo pubblicato
   for (const item of queue?.items || []) {
-    if (["proposed", "scheduled", "draft"].includes(item.status)) {
+    if (item.status === "proposed") {
       checkOne(item.slug, item.kw_primary, item.cluster);
     }
   }

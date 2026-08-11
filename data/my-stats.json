@@ -37,7 +37,7 @@
     "stacco-omega_max": 60,
     "squat-multipower_max": 60
   },
-  "diario_articles": 12,
+  "diario_articles": 15,
   "iscritti_newsletter": null,
   "claims_allowed": [
     "età cronologica da birth_date",

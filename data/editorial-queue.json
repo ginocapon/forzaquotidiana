@@ -6,7 +6,7 @@
     {
       "id": "eq-001",
       "slug": "proteine-shake-universita-57-anni",
-      "status": "scheduled",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "proteine shake culturismo",
@@ -29,17 +29,18 @@
       ],
       "paths": {
         "html": "diario/proteine-shake-universita-57-anni/index.html",
-        "hero": "img/diario/2026-08-18/proteine-shake-universita-hero.webp",
+        "hero": "img/diario/2026-08-11/proteine-shake-universita-hero.webp",
         "figures": [
-          "img/diario/2026-08-18/proteine-shake-bro-science-cartoon.webp",
-          "img/diario/2026-08-18/shaker-surreale-manga.webp"
+          "img/diario/2026-08-11/proteine-shake-bro-science-cartoon.webp",
+          "img/diario/2026-08-11/shaker-surreale-manga.webp"
         ]
-      }
+      },
+      "published_date": "2026-08-11"
     },
     {
       "id": "eq-002",
       "slug": "leg-day-ascensore-57-anni",
-      "status": "scheduled",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "leg day gambe allenamento",
@@ -61,17 +62,18 @@
       ],
       "paths": {
         "html": "diario/leg-day-ascensore-57-anni/index.html",
-        "hero": "img/diario/2026-08-18/leg-day-ascensore-hero.webp",
+        "hero": "img/diario/2026-08-11/leg-day-ascensore-hero.webp",
         "figures": [
-          "img/diario/2026-08-18/leg-day-scale-cartoon.webp",
-          "img/diario/2026-08-18/ascensore-boss-manga.webp"
+          "img/diario/2026-08-11/leg-day-scale-cartoon.webp",
+          "img/diario/2026-08-11/ascensore-boss-manga.webp"
         ]
-      }
+      },
+      "published_date": "2026-08-11"
     },
     {
       "id": "eq-003",
       "slug": "mirror-gym-selfie-epica-57-anni",
-      "status": "scheduled",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "selfie palestra specchio",
@@ -93,12 +95,13 @@
       ],
       "paths": {
         "html": "diario/mirror-gym-selfie-epica-57-anni/index.html",
-        "hero": "img/diario/2026-08-18/mirror-gym-selfie-hero.webp",
+        "hero": "img/diario/2026-08-11/mirror-gym-selfie-hero.webp",
         "figures": [
-          "img/diario/2026-08-18/specchio-epico-cartoon.webp",
-          "img/diario/2026-08-18/specchio-stropicciato-cartoon.webp"
+          "img/diario/2026-08-11/specchio-epico-cartoon.webp",
+          "img/diario/2026-08-11/specchio-stropicciato-cartoon.webp"
         ]
-      }
+      },
+      "published_date": "2026-08-11"
     },
     {
       "id": "disc-1786448549531-z0bs",
