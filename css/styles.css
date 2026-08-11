@@ -2316,6 +2316,13 @@ article.hub-card:hover {
   border-radius: 16px;
   padding: 0.35rem;
 }
+.amazfit-gallery .phone-shot--full {
+  grid-column: 1 / -1;
+}
+.amazfit-gallery .phone-shot--full .phone-shot__frame {
+  max-width: min(100%, 56rem);
+  margin-inline: auto;
+}
 
 .amazfit-card {
   border-radius: 16px;
