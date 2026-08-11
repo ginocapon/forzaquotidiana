@@ -136,6 +136,66 @@ function publishItem(item) {
   return { ok: true };
 }
 
+function refillProposedQueue(queue) {
+  const proposed = queue.items.filter((i) => i.status === "proposed");
+  const scheduled = queue.items.filter((i) => i.status === "scheduled");
+  let need = Math.max(0, 3 - proposed.length - scheduled.length);
+  if (!need) return;
+
+  const seeds = [
+    {
+      slug: "rest-day-guerra-divano-57-anni",
+      kw: "rest day recupero palestra",
+      cluster: "goliardia-allenamento",
+      tone: "goliardico",
+      fiction: true,
+      title: "Rest day: guerra sul divano",
+      intent: "satira riposo attivo vs divano",
+    },
+    {
+      slug: "spotter-imaginario-57-anni",
+      kw: "spotter palestra amico",
+      cluster: "goliardia-culturismo",
+      tone: "goliardico",
+      fiction: true,
+      title: "Lo spotter immaginario",
+      intent: "umorismo su chi non ti aiuta mai in panca",
+    },
+    {
+      slug: "creatina-meme-universita-57-anni",
+      kw: "creatina culturismo meme",
+      cluster: "goliardia-nutrizione",
+      tone: "goliardico",
+      fiction: true,
+      title: "Facoltà di Creatina Applicata",
+      intent: "satira meme integratori senza vendita",
+    },
+  ];
+
+  const used = new Set(queue.items.map((i) => i.slug));
+  for (const s of seeds) {
+    if (need <= 0) break;
+    if (used.has(s.slug)) continue;
+    queue.items.push({
+      id: `prop-${Date.now()}-${Math.random().toString(36).slice(2, 5)}`,
+      slug: s.slug,
+      status: "proposed",
+      tone: s.tone,
+      fiction: s.fiction,
+      kw_primary: s.kw,
+      cluster: s.cluster,
+      intent: s.intent,
+      title_draft: s.title,
+      target_week: todayISO(),
+      discovery_score: 0.75,
+      hero_brief: "Fumetto surreale goliardico — palette scura, NO stock palestra",
+      hero_concept: "comic surreal JoJo-light",
+    });
+    used.add(s.slug);
+    need -= 1;
+  }
+}
+
 function writeWeeklyReport(data) {
   const d = todayISO();
   const mdPath = path.join(REPO_ROOT, `guardian/reports/weekly-${d}.md`);
@@ -226,11 +286,11 @@ async function runPipeline() {
     premortem,
   });
 
-  // Riempi proposed se < 3 scheduled
-  const scheduledCount = queue.items.filter((i) => i.status === "scheduled").length;
-  if (scheduledCount < 3) {
-    console.log("Queue: proposed slots disponibili per prossima discovery");
-  }
+  // Riempi proposed per prossima settimana (min 3 slot liberi)
+  refillProposedQueue(queue);
+  const proposedN = queue.items.filter((i) => i.status === "proposed").length;
+  const scheduledN = queue.items.filter((i) => i.status === "scheduled").length;
+  console.log(`Queue dopo refill: ${proposedN} proposed, ${scheduledN} scheduled`);
   queue.updated = todayISO();
   writeJson("data/editorial-queue.json", queue);
 

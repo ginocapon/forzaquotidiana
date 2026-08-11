@@ -31,12 +31,11 @@ function trainingYears(startYear, at = new Date()) {
 }
 
 function countDiarioArticles() {
-  let n = 0;
-  for (const name of readdirSync(DIARIO_DIR)) {
-    const p = join(DIARIO_DIR, name, "index.html");
-    if (statSync(join(DIARIO_DIR, name)).isDirectory() && existsSync(p)) n += 1;
-  }
-  return n;
+  const indexPath = join(DIARIO_DIR, "index.html");
+  if (!existsSync(indexPath)) return 0;
+  const html = readFileSync(indexPath, "utf8");
+  const slugs = [...html.matchAll(/href="\/diario\/([^"\/]+)\//g)].map((m) => m[1]);
+  return new Set(slugs).size;
 }
 
 function countSessionsDocumented() {

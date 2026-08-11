@@ -130,6 +130,21 @@
       "target_week": "2026-08-11",
       "hero_brief": "Da definire — stile fumetto surreale goliardico",
       "hero_concept": "comic surreal, NO stock palestra"
+    },
+    {
+      "id": "prop-1786450039791-vxn",
+      "slug": "rest-day-guerra-divano-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "rest day recupero palestra",
+      "cluster": "goliardia-allenamento",
+      "intent": "satira riposo attivo vs divano",
+      "title_draft": "Rest day: guerra sul divano",
+      "target_week": "2026-08-11",
+      "discovery_score": 0.75,
+      "hero_brief": "Fumetto surreale goliardico — palette scura, NO stock palestra",
+      "hero_concept": "comic surreal JoJo-light"
     }
   ]
 }
