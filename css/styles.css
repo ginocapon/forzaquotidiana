@@ -1167,46 +1167,78 @@ body.theme-allenamenti .disclaimer {
   line-height: 1.55;
 }
 
-.landing-benefits .hub-cards--home {
-  margin-top: 1.5rem;
+/* Home — tre card navigazione (Diario, Allenamenti, Chi sono) */
+.home-trio {
+  display: grid;
+  gap: 1rem;
   grid-template-columns: 1fr;
-  align-items: stretch;
+  margin-top: 1.5rem;
 }
-@media (min-width: 720px) {
-  .landing-benefits .hub-cards--home {
+@media (min-width: 768px) {
+  .home-trio {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+    align-items: stretch;
   }
 }
-.landing-benefits .hub-cards--home .hub-card {
+.home-trio__card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   height: 100%;
-  min-height: 100%;
+  border-radius: 14px;
+  border: 1.5px solid var(--panel-border-mid, rgba(200, 150, 80, 0.28));
+  box-shadow: var(--panel-shadow, 0 8px 28px rgba(0, 0, 0, 0.4));
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
-.landing-benefits .hub-cards--home .hub-card__img {
-  flex-shrink: 0;
+.home-trio__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-warm, #c9783a);
+}
+.home-trio__card--oro {
+  background: linear-gradient(165deg, rgba(212, 168, 85, 0.22) 0%, rgba(28, 22, 16, 0.98) 42%, rgba(14, 12, 10, 1) 100%);
+}
+.home-trio__card--rosso {
+  background: linear-gradient(165deg, rgba(224, 112, 96, 0.22) 0%, rgba(28, 16, 14, 0.98) 42%, rgba(14, 10, 10, 1) 100%);
+}
+.home-trio__card--argento {
+  background: linear-gradient(165deg, rgba(176, 188, 200, 0.2) 0%, rgba(22, 24, 28, 0.98) 42%, rgba(12, 12, 14, 1) 100%);
+}
+.home-trio__img {
+  display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 14px 14px 0 0;
-  background: #1a1816;
+  flex-shrink: 0;
 }
-.landing-benefits .hub-cards--home .hub-card__body {
-  flex: 1;
+.home-trio__body {
   display: flex;
   flex-direction: column;
-  border-radius: 0 0 14px 14px;
+  flex: 1;
+  padding: 1rem 1.1rem 1.15rem;
+  gap: 0.45rem;
 }
-.landing-benefits .hub-cards--home .hub-card__body::before {
-  border-radius: 0 0 14px 14px;
+.home-trio__body h3 {
+  margin: 0;
+  font-size: 1.1rem;
 }
-.landing-benefits .hub-cards--home .hub-card h3 {
-  margin-top: 0;
+.home-trio__body p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--muted);
 }
-.landing-benefits .hub-cards--home .hub-card .ai-media-note {
+.home-trio__body .ai-media-note {
   margin-top: auto;
-  padding-top: 0.65rem;
+  padding-top: 0.35rem;
+  font-size: 0.72rem;
 }
+.home-trio__card--oro .home-trio__body h3 { color: #e8c070; }
+.home-trio__card--rosso .home-trio__body h3 { color: #e88a78; }
+.home-trio__card--argento .home-trio__body h3 { color: #c8d4e0; }
 
 .benefit-card {
   padding: 1.35rem 1.5rem;
