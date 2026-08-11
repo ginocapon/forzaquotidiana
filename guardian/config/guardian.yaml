@@ -1,0 +1,53 @@
+version: 1
+name: Forza Quotidiana Premortem Guardian
+site: https://forzaquotidiana.it
+mode: autonomous_with_guardrails
+
+objective: >
+  Acquisire e fidelizzare iscritti newsletter (PDF scheda gratuita),
+  pubblicare sessioni e diario con qualità, preparare base audience
+  per prodotti futuri (schede premium, community primi 60).
+
+sequence:
+  - context
+  - observe
+  - verify
+  - assumptions
+  - premortem
+  - failure_modes
+  - prioritize
+  - act
+  - verify_again
+  - learn
+  - next_check
+
+outputs:
+  human_report: guardian/reports/guardian-latest.md
+  machine_report: guardian/reports/guardian-latest.json
+  event_log: guardian/memory/events.jsonl
+  last_runs: guardian/memory/last-runs.json
+
+categories:
+  - availability
+  - newsletter
+  - forms
+  - content
+  - seo
+  - performance_data
+  - ai_transparency
+  - analytics
+  - security
+  - deploy
+  - business_growth
+
+probe_urls:
+  - https://forzaquotidiana.it/
+  - https://forzaquotidiana.it/allenamenti/
+  - https://forzaquotidiana.it/allenamenti/newsletter/
+  - https://forzaquotidiana.it/allenamenti/schede-peso/trimestre-giugno-luglio-agosto-2026/
+  - https://forzaquotidiana.it/diario/
+
+newsletter:
+  gas_url: https://script.google.com/macros/s/AKfycbzHT-A41ZDrZcA8bEHnp8OOI-I66hIvnCP7YLx2Cr0X0zuTsPJo76-auKZnXXbQSBPjww/exec
+  page_path: allenamenti/newsletter/index.html
+  sheet_doc_url: https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit

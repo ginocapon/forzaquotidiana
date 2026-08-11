@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** Validazione minima title/meta — Forza Quotidiana */
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
 
 const args = process.argv.slice(2);
 let file = null;

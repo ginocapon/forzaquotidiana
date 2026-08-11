@@ -1,0 +1,38 @@
+version: 1
+site: forzaquotidiana
+
+# Un solo comando esterno: node guardian/scripts/guardian.mjs run
+# Il dispatcher seleziona i job in base a last-runs e questa matrice.
+
+jobs:
+  heartbeat:
+    every_minutes: 360
+    scope: [availability, deploy]
+
+  transaction_sentinel:
+    every_minutes: 720
+    scope: [newsletter, forms]
+
+  site_integrity:
+    every_minutes: 1440
+    scope: [seo, content]
+
+  content_freshness:
+    every_minutes: 1440
+    scope: [content, business_growth]
+
+  ai_transparency:
+    every_minutes: 10080
+    scope: [ai_transparency]
+
+  daily_premortem:
+    every_minutes: 1440
+    scope: [all]
+    premortem: true
+
+  weekly_strategy:
+    cron_dow: 5
+    cron_hour_utc: 7
+    scope: [all, business_growth, newsletter]
+    premortem: true
+    open_friday_issue: true

@@ -16,10 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verifica URL principali
+      - name: Verifica URL principali (Guardian)
         id: probe
         continue-on-error: true
         run: |
+          node guardian/scripts/guardian.mjs run --job heartbeat
           ok=true
           for url in \
             "https://forzaquotidiana.it/" \
@@ -31,6 +32,10 @@ jobs:
             [ "$code" = "200" ] || ok=false
           done
           echo "probe_ok=$ok" >> "$GITHUB_OUTPUT"
+
+      - name: Guardian weekly strategy
+        continue-on-error: true
+        run: node guardian/scripts/guardian.mjs run --job weekly_strategy
 
       - name: Apri issue checklist venerdì
         uses: actions/github-script@v7

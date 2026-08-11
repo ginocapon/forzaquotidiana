@@ -508,28 +508,83 @@ URL legacy `/allenamenti/YYYY-MM-DD/` → redirect alla pagina sessione canonica
 
 Riflessioni → `/diario/` (separate). Opzionale: link «Riflessione del giorno» nel footer sessione se esiste articolo stesso giorno.
 
-### Formato pagina sessione (obbligatorio — layout pro v2)
+### Formato pagina sessione (obbligatorio — layout pro v3)
+
+**Riferimento canonico:** `/allenamenti/sessioni/2026-08-04-scheda-2/` — ogni sessione passata e futura segue questa sequenza, queste classi CSS e questo stile visivo.
 
 **URL:** `/allenamenti/sessioni/YYYY-MM-DD/` (canonico) · legacy `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` → redirect  
-**CSS:** `styles.css?v=35` (o versione corrente — tieni tutte le pagine allineate).
+**CSS:** `styles.css?v=59` (o versione corrente — tieni tutte le pagine allineate).
 
 #### Struttura HTML (due zone)
 
-1. **`.session-hero`** — banda in testa fuori da `.prose`: breadcrumb, badge Scheda N, data/ora, titolo, sottotitolo, **6 KPI** (`.session-kpis`), link scheda trimestre + diario.
+1. **`.session-hero`** — banda in testa fuori da `.prose`: breadcrumb, badge Scheda N, data/ora, titolo, sottotitolo, **6 KPI** (`.session-kpis`), link scheda trimestre + sessioni correlate + diario.
 2. **`.session-body`** — contenuto in `.wrap.prose.prose--wide`: pannelli `.session-panel`, nav pill `.session-nav`, footer data.
 
 #### Ordine sezioni nel body (non invertire)
 
 | # | Blocco | Classe | Obbligatorio |
 |---|--------|--------|--------------|
-| 1 | Nota Gino | `.session-panel` + `.session-note` | Se note disponibili |
-| 2 | Tecnica / figure guida | `.session-panel` | Se esercizio nuovo |
-| 3 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati — colonne: Esercizio · Serie×Rep · kg · **TUT** · Note |
-| 4 | Galleria | `.session-panel` + `.collage--scatter` | Se foto/video |
-| 5 | **TSB fitness/fatica** | `.session-panel.session-panel--tsb` | Sì |
-| 6 | Metabolico | `.session-panel.session-panel--metabolic` | Sì |
-| 7 | Navigazione | `.session-nav` | Sì |
-| 8 | Data aggiornamento | `.session-meta-footer` | Sì |
+| 1 | **Modulo TSB SVG** | `.session-panel.session-panel--tsb` | Sì — marker `<!-- TSB-START -->` … `<!-- TSB-END -->` |
+| 2 | Nota Gino | `.session-panel` + `.session-note` | Se note disponibili |
+| 3 | Figure scheda | `.session-panel` + `#sessione-scheda-figure` | Sì (mount JS) |
+| 4 | Log esercizi | `.session-panel` + `.scheda-table` | Se pesi annotati — colonne: Esercizio · Serie×Rep · kg · **TUT** · Note |
+| 5 | Galleria foto/video | `.session-panel` + `.collage--scatter` | Se foto/video reali |
+| 6 | **Readiness · Zepp** | `.session-panel.session-panel--readiness` | Se export readiness (vedi sotto) |
+| 7 | **Metabolico · Amazfit** | `.session-panel.session-panel--metabolic` | Sì |
+| 8 | Navigazione | `.session-nav` | Sì |
+| 9 | Data aggiornamento | `.session-meta-footer` | Sì |
+
+**Regola:** il modulo TSB SVG va **sempre per primo** nel body (subito dopo l’hero). Gli screenshot Zepp readiness/metabolici **non** sostituiscono il grafico SVG — sono complementari.
+
+#### Sezione readiness (`.session-panel--readiness`)
+
+Quando Gino invia screenshot readiness (HybridCharge, sonno, HRV, modulo TSB Zepp):
+
+```
+.session-panel--readiness
+├── h2 «Metriche giornata · Zepp»
+├── p intro (data + contesto)
+├── .amazfit-tsb-hero              ← SEMPRE PRIMA, larghezza piena (fuori dalla griglia)
+│   └── figure.phone-shot--landscape + img -tsb.webp
+├── .amazfit-gallery               ← screenshot portrait in griglia 2/4 colonne
+│   ├── hybridcharge (se c’è)
+│   ├── sonno-score
+│   ├── sonno-metriche
+│   └── readiness-metriche (HRV)
+└── .amazfit-data
+    ├── .amazfit-card--wide TSB    ← prima card, griglia 6 celle (TSB · CTL · ATL · modulo · carico · orario)
+    ├── .amazfit-card Sonno
+    └── .amazfit-card HybridCharge
+```
+
+**Screenshot TSB (`-tsb.webp`):** blocco `.amazfit-tsb-hero` **sopra** la gallery — **mai** dentro la griglia a 4 colonne (altrimenti resta a metà larghezza e illeggibile). `loading="eager"` + `fetchpriority="high"` sull’immagine TSB.
+
+**Variante agosto 2026 (prima settimana):** se mancano HybridCharge/sonno ma ci sono `stress.webp` + `training-balance.webp` (es. 3 agosto), usare la stessa sezione readiness con gallery adattata — TSB hero solo se esiste `-tsb.webp`.
+
+**Sessioni senza export readiness:** omettere intera sezione §6 — solo modulo TSB SVG + blocco metabolico.
+
+#### Sezione metabolica (`.session-panel--metabolic`)
+
+```
+.metabolic-block
+├── h2 «Dati metabolici · Amazfit»
+├── device + .amazfit-gallery__lead
+├── .amazfit-gallery
+│   ├── .phone-shot.phone-shot--full  riepilogo   ← prima, larghezza piena
+│   ├── fc-grafico
+│   ├── zone-effetto
+│   ├── tecnica (radar)
+│   └── valutazione (se c’è)
+├── .amazfit-data (riepilogo · zone · tecnica · muscoli · nota TSB testuale)
+├── .metabolic-note
+└── .hr-log
+```
+
+**Riepilogo sessione:** prima figura della gallery metabolica con `.phone-shot--full` — occupa tutta la riga della griglia.
+
+**TSB screenshot:** **non** ripetere in fondo al metabolico se già in `.amazfit-tsb-hero` (readiness). Nel metabolico resta solo card testuale TSB se serve contesto post-sessione.
+
+Tool retroattivo: `node tools/standardizza-layout-sessioni.mjs`
 
 #### Hero `.session-hero` + KPI `.session-kpis`
 
@@ -667,13 +722,14 @@ Gino può caricare screenshot WhatsApp in `allenamenti/foto allenamento {data}/`
 1. **Titolo fisso:** `Dati metabolici · Amazfit`
 2. **Device:** `Amazfit Active 2 NFC · sync app Zepp · Allenamento muscolare`
 3. **Intro galleria** `.amazfit-gallery__lead` — una riga che spiega che sono export originali app
-4. **Galleria screenshot** `.amazfit-gallery` — **sempre per prima**, griglia 2×2 (mobile) / 4 colonne (desktop). Ordine fisso:
-   | # | File | Contenuto |
-   |---|------|-----------|
-   | 1 | `-riepilogo.webp` | Card riepilogo Zepp (durata, kcal, FC, carico) |
-   | 2 | `-fc-grafico.webp` | Grafico linea FC con picchi e valli |
-   | 3 | `-zone-effetto.webp` | Barre zone FC + gauge effetto aerobico/anaerobico |
-   | 4 | `-tecnica.webp` | Radar valutazione movimento — **obbligatorio** se Gino lo invia (quasi sempre) |
+4. **Galleria screenshot** `.amazfit-gallery` — griglia 2×2 (mobile) / 4 colonne (desktop). Ordine fisso:
+   | # | File | Classe | Contenuto |
+   |---|------|--------|-----------|
+   | 1 | `-riepilogo.webp` | `.phone-shot--full` | Card riepilogo Zepp — **larghezza piena, prima riga** |
+   | 2 | `-fc-grafico.webp` | `.phone-shot` | Grafico linea FC con picchi e valli |
+   | 3 | `-zone-effetto.webp` | `.phone-shot` | Barre zone FC + gauge effetto aerobico/anaerobico |
+   | 4 | `-tecnica.webp` | `.phone-shot` | Radar valutazione movimento — **obbligatorio** se Gino lo invia |
+   | 5 | `-valutazione.webp` | `.phone-shot` | Testo valutazione (se separato da tecnica) |
    Ogni figura: `.phone-shot` + `.phone-shot__frame` + `figcaption` descrittiva.
 
    **Regola agente (non dimenticare):** quando Gino manda gli screenshot Zepp, sono **sempre 4** (riepilogo, grafico FC, zone+effetto, **radar tecnica**). Se ne manca uno in chat, chiedere; se c’è, **pubblicarlo tutti e 4** — galleria + card testo tecnica + JSON `tecnica`. Non fermarsi a 3/4.
@@ -765,6 +821,22 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 - Accessi/stampe → foglio **Accessi scheda** (Apps Script `doGet?action=log`)
 - Conteggi anonimi → `data/site-stats.json`
 - Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail (conta confermati/da confermare/disiscritti)
+
+### 5a.0 Premortem Guardian (sistema operativo)
+
+**Obiettivo primario del sito:** acquisire iscritti **newsletter** (PDF scheda gratuita) → audience per prodotti futuri (schede premium, community). Non è un CRM immobiliare.
+
+**Entry point unico:** `node guardian/scripts/guardian.mjs run`
+
+| Risorsa | Path |
+|---------|------|
+| Sistema | `guardian/` |
+| Skill agente | `guardian/skill/SKILL.md` |
+| Analisi integrazione | `docs/GUARDIAN-INTEGRATION.md` |
+| Cron CI | `.github/workflows/guardian-run.yml` |
+| Venerdì | `weekly_strategy` job + issue checklist esistente |
+
+Sequenza: CONTEXT → OBSERVE → VERIFY → … → NEXT CHECK. Autonomia: GREEN report only · YELLOW proposta · RED approvazione umana.
 
 ### 5a.1 Contatori home · profilo Gino · età biologica (obbligatorio)
 
@@ -1028,6 +1100,9 @@ Claim immobiliari, schema `RealEstateAgent`, cluster zone locali commerciali, Su
 
 ### Checklist sessione + articolo (stesso giorno)
 
+- [ ] Layout **pro v3** (riferimento `2026-08-04-scheda-2`): TSB SVG → nota → figure → log → readiness → metabolico
+- [ ] Screenshot TSB in `.amazfit-tsb-hero` (larghezza piena) · riepilogo con `.phone-shot--full`
+- [ ] `node tools/aggiorna-training-load.mjs` + `node tools/aggiorna-performance.mjs`
 - [ ] Log `.hr-log` in pagina sessione dedicata (non nel trimestre)
 - [ ] Se c’è riflessione: pagina in `/diario/` **senza link** al log sessione
 - [ ] Catch Ball / esercizi nuovi: card opzionale in giorno scheda
