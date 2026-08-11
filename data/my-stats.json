@@ -1,0 +1,53 @@
+{
+  "_nota": "Solo numeri verificabili — NON inventare. Rigenerare con: node tools/sync-my-stats.mjs",
+  "updated": "2026-08-11",
+  "sources": [
+    "data/gino-profile.json",
+    "data/site-stats.json",
+    "data/performance-sessions.json",
+    "data/exercise-progress.json",
+    "data/training-load.json"
+  ],
+  "profile": {
+    "birth_date": "1969-01-27",
+    "chronological_age": 57,
+    "training_start_year": 2016,
+    "training_years": 10
+  },
+  "sessions": {
+    "documented_full": 10,
+    "documented_partial": 1,
+    "note": "Da performance-sessions.json"
+  },
+  "training_load": {
+    "ctl": 36,
+    "atl": 33,
+    "tsb": 3,
+    "source": "data/training-load.json",
+    "as_of": "2026-08-04"
+  },
+  "weights_kg_verified": {
+    "press-inclinata-manubri_max": 30,
+    "lat-machine_max": 45,
+    "pressa-45_max": 140,
+    "leg-extension_max": 65,
+    "leg-curl_max": 70,
+    "scott-multi_max": 35,
+    "polpacci-multipower_max": 140,
+    "stacco-omega_max": 60,
+    "squat-multipower_max": 60
+  },
+  "diario_articles": 12,
+  "iscritti_newsletter": null,
+  "claims_allowed": [
+    "età cronologica da birth_date",
+    "anni allenamento da training_start_year",
+    "dati sessione da export Zepp pubblicati",
+    "pesi da exercise-progress.json"
+  ],
+  "claims_forbidden": [
+    "record non documentati",
+    "percentuali body fat non misurate",
+    "kg non in exercise-progress o log sessione"
+  ]
+}

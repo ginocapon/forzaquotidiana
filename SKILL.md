@@ -923,6 +923,8 @@ Ogni scheda deve indicare chiaramente:
 
 ## 5b. Editoriale Diario vs Allenamenti
 
+**Pipeline settimanale goliardica (3 articoli venerdì 07:00 CEST):** vedi `SKILL-EDITORIAL.md` — discovery, anti-doppioni, hero fumetto/surreale, newsletter only, zero vendita.
+
 **Separazione netta:**
 
 | Diario `/diario/` | Allenamenti `/allenamenti/` |

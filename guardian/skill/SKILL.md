@@ -24,7 +24,8 @@ Non è un CRM immobiliare. Non inventare lead case o annunci.
 - SEO (sitemap, llms.txt, meta);
 - freschezza `data/*.json` e `site-stats.json`;
 - trasparenza AI su nuove immagini;
-- incidenti deploy GitHub Pages.
+- incidenti deploy GitHub Pages;
+- **venerdì editoriale:** `weekly_editorial` job + `SKILL-EDITORIAL.md`.
 
 ## Sequenza obbligatoria
 
@@ -45,6 +46,7 @@ Segui `../sequences/master-sequence.md`.
 | security | admin noindex, nessun segreto in repo |
 | deploy | ultimo workflow Pages (in CI) |
 | business_growth | site-stats stale, iscritti_totali null |
+| editorial | coda articoli, my-stats, weekly report |
 
 ## Regole
 
@@ -60,3 +62,4 @@ Segui `../sequences/master-sequence.md`.
 - Riusa `scripts/validate-page.js` per SEO head
 - Riusa `SKILL-VENERDI.md` per azioni umane Sheet Google
 - Dettaglio: `docs/GUARDIAN-INTEGRATION.md`
+- Editoriale: `SKILL-EDITORIAL.md`, `tools/editorial-weekly.mjs`

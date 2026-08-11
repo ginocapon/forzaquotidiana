@@ -1,0 +1,60 @@
+name: Editorial venerdì — 3 articoli diario
+
+on:
+  schedule:
+    # Venerdì 05:00 UTC = 07:00 CEST — pipeline editoriale goliardica
+    - cron: '0 5 * * 5'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Tenta pubblicazione (--publish) se HTML+hero pronti'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  editorial:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync my-stats
+        run: node tools/sync-my-stats.mjs
+
+      - name: Pipeline editoriale (discovery + prioritize)
+        run: node tools/editorial-weekly.mjs run --generate
+
+      - name: Pubblica articoli pronti
+        if: github.event.inputs.publish == 'true'
+        run: node tools/editorial-weekly.mjs run --publish
+
+      - name: Guardian site_integrity
+        continue-on-error: true
+        run: node guardian/scripts/guardian.mjs run --job site_integrity
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-weekly-report
+          path: |
+            guardian/reports/weekly-*.md
+            guardian/reports/web-keyword-discovery-latest.md
+            guardian/reports/geo-aeo-formula-latest.json
+          retention-days: 30
+
+      - name: Commit queue/report updates
+        if: github.event_name == 'schedule'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/editorial-queue.json data/my-stats.json guardian/reports/
+          git diff --staged --quiet || git commit -m "chore(editorial): weekly discovery $(date -u +%Y-%m-%d)"
+          git push || echo "Nothing to push or push failed"

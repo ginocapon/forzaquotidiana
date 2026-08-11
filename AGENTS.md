@@ -20,6 +20,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 | Articolo diario | `SKILL.md` §0c + §5b |
 | Newsletter / iscritti | `SKILL.md` §5a, `SKILL-VENERDI.md` |
 | Check salute / premortem | `node guardian/scripts/guardian.mjs run` → `guardian/reports/guardian-latest.md` |
+| **Editoriale venerdì (3 articoli diario)** | `SKILL-EDITORIAL.md` → `node tools/editorial-weekly.mjs run` |
 | Venerdì | `SKILL-VENERDI.md` |
 | SEO nuova pagina | `SKILL.md` §8, `scripts/validate-page.js` |
 | UI / hero | `SKILL-LANDING.md`, `SKILL.md` §0.1 |

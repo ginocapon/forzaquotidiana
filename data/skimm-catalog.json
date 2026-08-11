@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "clusters": {
+    "goliardia-nutrizione": {
+      "label": "Goliardia · nutrizione / bro-science",
+      "hub_links": ["/diario/", "/allenamenti/"],
+      "tone": "goliardico"
+    },
+    "goliardia-allenamento": {
+      "label": "Goliardia · allenamento / leg day",
+      "hub_links": ["/diario/", "/allenamenti/"],
+      "tone": "goliardico"
+    },
+    "goliardia-culturismo": {
+      "label": "Goliardia · culturismo / lifestyle",
+      "hub_links": ["/diario/", "/chi-sono/"],
+      "tone": "goliardico"
+    },
+    "riflessione-vita": {
+      "label": "Riflessione · vita / equilibrio",
+      "hub_links": ["/diario/"],
+      "tone": "riflessione"
+    },
+    "tecnico-natural": {
+      "label": "Tecnico · natural 40-65",
+      "hub_links": ["/allenamenti/", "/diario/"],
+      "tone": "tecnico"
+    }
+  },
+  "blocked_overlap_threshold": 0.55
+}

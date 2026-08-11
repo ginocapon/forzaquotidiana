@@ -3822,6 +3822,24 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
 .scheda-pdf-promo h3 { margin: 0 0 0.35rem; }
 .scheda-pdf-promo p { margin: 0; max-width: 42rem; }
 
+/* Diario — goliardia + newsletter inline articolo */
+.banner-goliardia {
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 168, 106, 0.35);
+  background: linear-gradient(135deg, rgba(80, 40, 20, 0.45) 0%, rgba(30, 22, 16, 0.9) 100%);
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.banner-goliardia strong { color: #f0c090; }
+.article-newsletter-cta {
+  margin: 2.5rem 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+}
+.article-newsletter-cta h2 { margin-top: 0; font-size: 1.15rem; }
+
 .scheda-periodo-list { display: grid; gap: 1.25rem; margin: 1.5rem 0; }
 .scheda-periodo-card__head { margin-bottom: 0.75rem; }
 .scheda-periodo-card__badge {

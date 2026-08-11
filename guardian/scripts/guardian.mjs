@@ -10,6 +10,7 @@ import { checkAvailability } from "../adapters/availability.mjs";
 import { checkNewsletter } from "../adapters/newsletter.mjs";
 import { checkContent, checkDataIntegrity } from "../adapters/content.mjs";
 import { checkSeo, checkAiTransparency } from "../adapters/seo.mjs";
+import { checkEditorial } from "../adapters/editorial.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const GUARDIAN_ROOT = path.join(__dirname, "..");
@@ -163,7 +164,7 @@ async function runScopes(scopes, config) {
   let allFailures = [];
 
   const scopeSet = scopes.includes("all")
-    ? ["availability", "newsletter", "forms", "content", "seo", "performance_data", "ai_transparency", "business_growth", "security"]
+    ? ["availability", "newsletter", "forms", "content", "seo", "performance_data", "ai_transparency", "business_growth", "security", "editorial"]
     : scopes;
 
   if (scopeSet.some((s) => ["availability", "deploy"].includes(s))) {
@@ -199,6 +200,13 @@ async function runScopes(scopes, config) {
   if (scopeSet.includes("ai_transparency")) {
     const r = checkAiTransparency(REPO_ROOT);
     allVerified.push(...(r.verified_facts || []));
+    allFailures.push(...(r.failures || []));
+  }
+  if (scopeSet.includes("editorial")) {
+    const r = checkEditorial(REPO_ROOT);
+    allObs.push(...(r.observations || []).map((o) => ({ scope: "editorial", ...o })));
+    allVerified.push(...(r.verified_facts || []));
+    allAssumptions.push(...(r.assumptions || []));
     allFailures.push(...(r.failures || []));
   }
 
@@ -334,6 +342,7 @@ function doctor() {
     "adapters/newsletter.mjs",
     "adapters/content.mjs",
     "adapters/seo.mjs",
+    "adapters/editorial.mjs",
   ];
   const missing = required.filter((f) => !fs.existsSync(path.join(GUARDIAN_ROOT, f)));
   console.log("FQ Guardian Doctor");

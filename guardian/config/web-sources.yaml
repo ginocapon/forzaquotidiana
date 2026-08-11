@@ -1,0 +1,42 @@
+version: 1
+niche: culturismo-goliardico
+
+# Fonti per discovery — statiche + opzionali RSS (fallback se fetch fallisce)
+static_keyword_gaps:
+  - kw: "leg day gambe allenamento"
+    cluster: goliardia-allenamento
+    intent: umorismo post leg day
+    score: 0.81
+  - kw: "proteine shake culturismo"
+    cluster: goliardia-nutrizione
+    intent: satira bro-science senza vendita integratori
+    score: 0.84
+  - kw: "selfie palestra specchio"
+    cluster: goliardia-culturismo
+    intent: satira influencer gym
+    score: 0.79
+  - kw: "overtraining recupero 50 anni"
+    cluster: tecnico-natural
+    intent: recupero natural maturo
+    score: 0.76
+  - kw: "kettlebell spalle mobilità"
+    cluster: tecnico-natural
+    intent: tecnica documentata
+    score: 0.72
+
+seed_topics:
+  - culturismo dilettante over 50
+  - meme fitness italiano
+  - bro science umorismo
+  - costanza palestra famiglia lavoro
+
+rss_feeds_optional:
+  - url: https://www.reddit.com/r/bodybuilding/.rss
+    label: r/bodybuilding trends
+  - url: https://www.reddit.com/r/Fitness/.rss
+    label: r/Fitness trends
+
+rules:
+  no_supplement_affiliate: true
+  no_product_sales: true
+  newsletter_only_cta: true
