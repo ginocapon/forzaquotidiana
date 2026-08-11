@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "brand": "La Forza Quotidiana",
+  "author": "Gino Capon",
+  "voice": {
+    "persona": "Uomo 57 anni, papà di Ginevra, dilettante autentico da oltre dieci anni, lavoro e famiglia",
+    "tone_goliardico": "Satira calda, autoironia, riferimenti a Demolition Men, Ken il Poeta, Teken il Guerriero, Cartovità — mai hype da influencer",
+    "tone_tecnico": "Chiaro, numeri solo se in my-stats.json, niente bro-science",
+    "forbidden": [
+      "vendita integratori",
+      "link affiliati",
+      "promesse estetiche",
+      "inventare kg o PR",
+      "coaching commerciale",
+      "link a /allenamenti/sessioni/ nel corpo articolo"
+    ],
+    "required_links": ["/diario/", "/allenamenti/", "/chi-sono/"],
+    "dedication": "Ginevra"
+  },
+  "structure": {
+    "words_min": 1400,
+    "words_max": 2200,
+    "h2_min": 8,
+    "faq_min": 5,
+    "title_max": 60,
+    "meta_max": 160,
+    "aeo_box_label": "Risposta breve"
+  },
+  "reference_articles": [
+    "diario/demolition-men-universita-vita-57-anni/index.html",
+    "diario/ken-poeta-indomito-volonta-57-anni/index.html",
+    "diario/proteine-shake-universita-57-anni/index.html"
+  ]
+}

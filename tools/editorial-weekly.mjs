@@ -15,11 +15,15 @@ import {
   monthGroupId,
   monthGroupTitle,
 } from "../scripts/lib/editorial-utils.mjs";
+import { generateDiarioAssets } from "./generate-diario-assets.mjs";
+import { hasApiKey } from "../scripts/lib/llm-client.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0] || "run";
 const doPublish = args.includes("--publish");
-const doGenerate = args.includes("--generate");
+const doGenerate = args.includes("--generate") || args.includes("--friday");
+const doAutopilot = args.includes("--autopilot");
+const doFriday = args.includes("--friday");
 
 function runScript(rel, scriptArgs = []) {
   const r = spawnSync("node", [path.join(REPO_ROOT, rel), ...scriptArgs], {
@@ -106,6 +110,17 @@ function addToSitemap(slug, publishDate) {
   fs.writeFileSync(smPath, xml);
 }
 
+function addToLlmsTxt(item, publishDate) {
+  const llmsPath = path.join(REPO_ROOT, "llms.txt");
+  let txt = fs.readFileSync(llmsPath, "utf8");
+  if (txt.includes(`/diario/${item.slug}/`)) return;
+  const label = item.fiction ? "Goliardia" : "Riflessione";
+  const d = `${publishDate.slice(8, 10)}/${publishDate.slice(5, 7)}`;
+  const line = `- [${label} ${d} ${item.title_draft || item.h1_draft || item.slug}](https://forzaquotidiana.it/diario/${item.slug}/): ${(item.meta_draft || item.intent || "").slice(0, 120)} (immagini IA se goliardia)\n`;
+  txt = txt.replace("## Contenuto recente\n", `## Contenuto recente\n${line}`);
+  fs.writeFileSync(llmsPath, txt);
+}
+
 function publishItem(item) {
   const htmlPath = item.paths?.html || `diario/${item.slug}/index.html`;
   const full = path.join(REPO_ROOT, htmlPath);
@@ -131,6 +146,7 @@ function publishItem(item) {
   const publishDate = todayISO();
   addToDiarioIndex(item, publishDate);
   addToSitemap(item.slug, publishDate);
+  addToLlmsTxt(item, publishDate);
   item.status = "published";
   item.published_date = publishDate;
   return { ok: true };
@@ -244,18 +260,38 @@ async function runPipeline() {
   const picked = prioritize(queue, 3);
   console.log("Picked:", picked.map((p) => p.slug).join(", ") || "(nessuno)");
 
-  if (doGenerate) {
+  if (doAutopilot) {
+    if (!hasApiKey()) {
+      console.error("AUTOPILOT ABORT: imposta OPENAI_API_KEY (GitHub secret) per generazione automatica");
+      process.exit(1);
+    }
+    console.log("=== FASE 5 ACT (autopilot — trend + skin + immagini) ===");
+    for (const item of picked) {
+      if (item.status === "published") continue;
+      item.status = "scheduled";
+      try {
+        await generateDiarioAssets(item);
+        console.log(`✓ Asset generati: ${item.slug}`);
+      } catch (e) {
+        console.error(`✗ ${item.slug}: ${e.message}`);
+        item.status = "needs_generation";
+      }
+    }
+    writeJson("data/editorial-queue.json", queue);
+  } else if (doGenerate) {
     console.log("=== FASE 5 ACT (generate flag) ===");
     for (const item of picked) {
       item.status = "scheduled";
       console.log(`→ ${item.slug}: scheduled — agente deve generare HTML + WebP (vedi SKILL-EDITORIAL.md)`);
     }
+    writeJson("data/editorial-queue.json", queue);
   }
 
   const published = [];
-  if (doPublish) {
-    console.log("=== FASE 5 ACT (publish) ===");
+  if (doPublish || doAutopilot) {
+    console.log("=== FASE 5b PUBLISH ===");
     for (const item of picked) {
+      if (item.status === "published") continue;
       const r = publishItem(item);
       if (r.ok) {
         console.log(`✓ Pubblicato: ${item.slug}`);
@@ -295,6 +331,20 @@ async function runPipeline() {
   writeJson("data/editorial-queue.json", queue);
 
   console.log(`Report: ${path.relative(REPO_ROOT, reportPath)}`);
+
+  if (doFriday) {
+    console.log("\n=== BRIEFING AGENTE (venerdì — nessuna API esterna) ===");
+    console.log("Skin testo: data/editorial-skin.json");
+    console.log("Skin immagini: data/editorial-image-skin.json");
+    console.log("Dopo HTML + WebP per ogni slug: node tools/editorial-weekly.mjs run --publish\n");
+    for (const item of picked) {
+      console.log(`• ${item.slug}`);
+      console.log(`  kw: ${item.kw_primary} | tono: ${item.tone} | finzione: ${item.fiction ? "sì" : "no"}`);
+      console.log(`  html: diario/${item.slug}/index.html`);
+      console.log(`  img: img/diario/${todayISO()}/${item.slug.replace(/-57-anni$/, "")}-hero.webp (+ fig1, fig2)`);
+      if (item.trending_title) console.log(`  trend: ${item.trending_title}`);
+    }
+  }
 }
 
 if (cmd === "run") {
@@ -303,6 +353,6 @@ if (cmd === "run") {
     process.exit(1);
   });
 } else {
-  console.log("Uso: editorial-weekly.mjs run [--publish] [--generate]");
+  console.log("Uso: editorial-weekly.mjs run [--generate|--friday|--publish|--autopilot]");
   process.exit(1);
 }

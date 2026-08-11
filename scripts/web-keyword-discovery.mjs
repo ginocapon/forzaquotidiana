@@ -7,13 +7,14 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   REPO_ROOT,
-  listDiarioSlugs,
+  listCatalogDiarioSlugs,
   slugTokens,
   jaccard,
   readJson,
   writeJson,
   todayISO,
 } from "./lib/editorial-utils.mjs";
+import { fetchTrendingTopics } from "./lib/trending-rss.mjs";
 
 const args = process.argv.slice(2);
 const count = Number(args.includes("--count") ? args[args.indexOf("--count") + 1] : 3);
@@ -42,7 +43,7 @@ function loadWebSources() {
 }
 
 function existingKeywords() {
-  const slugs = listDiarioSlugs();
+  const slugs = listCatalogDiarioSlugs();
   const tokens = slugs.flatMap(slugTokens);
   const queue = readJson("data/editorial-queue.json");
   const qkw = (queue?.items || []).map((i) => i.kw_primary).filter(Boolean);
@@ -63,6 +64,17 @@ function scoreGap(gap, existing) {
 
 async function main() {
   const gaps = loadWebSources();
+  const trending = await fetchTrendingTopics();
+  for (const t of trending.slice(0, 8)) {
+    gaps.push({
+      kw: t.kw,
+      cluster: "goliardia-culturismo",
+      intent: `Angolo goliardico su trend: ${t.title.slice(0, 80)}`,
+      score: t.score,
+      trending_title: t.title,
+      source: t.source,
+    });
+  }
   const existing = existingKeywords();
   const ranked = gaps
     .map((g) => ({ ...g, discovery_score: scoreGap(g, existing), niche }))
@@ -74,8 +86,9 @@ async function main() {
     niche,
     count: ranked.length,
     proposals: ranked,
+    trending_fetched: trending.length,
     existing_slugs: existing.slugs,
-    integrations_missing: ["GSC API", "GA4", "live RSS in CI senza rete"],
+    integrations_missing: trending.length ? [] : ["RSS fetch fallito — solo gap statici"],
   };
 
   const outJson = path.join(REPO_ROOT, "guardian/reports/web-keyword-discovery-latest.json");
@@ -106,8 +119,9 @@ async function main() {
         intent: r.intent,
         discovery_score: r.discovery_score,
         target_week: todayISO(),
-        hero_brief: "Da definire — stile fumetto surreale goliardico",
+        hero_brief: "Fumetto surreale goliardico — palette scura JoJo-light",
         hero_concept: "comic surreal, NO stock palestra",
+        trending_title: r.trending_title || null,
       });
     }
   }

@@ -62,4 +62,4 @@ Segui `../sequences/master-sequence.md`.
 - Riusa `scripts/validate-page.js` per SEO head
 - Riusa `SKILL-VENERDI.md` per azioni umane Sheet Google
 - Dettaglio: `docs/GUARDIAN-INTEGRATION.md`
-- Editoriale: `SKILL-EDITORIAL.md`, `tools/editorial-weekly.mjs`
+- Editoriale: `SKILL-EDITORIAL.md`, `tools/editorial-weekly.mjs`, `docs/EDITORIAL-AUTOPILOT-SETUP.md`

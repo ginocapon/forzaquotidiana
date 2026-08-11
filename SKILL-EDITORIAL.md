@@ -9,7 +9,7 @@ description: >-
 
 > **Quando caricare:** generazione articoli diario, venerdì editoriale, discovery keyword, immagini fumetto/surreali.
 >
-> **Entry point:** `node tools/editorial-weekly.mjs run [--generate] [--publish]`
+> **Entry point:** `node tools/editorial-weekly.mjs run [--friday|--generate|--publish|--autopilot]`
 >
 > **NON ricreare Guardian** — usa `guardian/` esistente + questa skill.
 
@@ -38,8 +38,11 @@ node tools/sync-my-stats.mjs
 node scripts/web-keyword-discovery.mjs --count 3
 node scripts/check-doppioni.mjs --slug SLUG --kw "kw" --cluster CLUSTER
 node scripts/build-skimm.mjs --check SLUG "kw" CLUSTER
-node tools/editorial-weekly.mjs run --generate    # venerdì: schedule
-node tools/editorial-weekly.mjs run --publish     # dopo HTML+hero pronti
+node tools/editorial-weekly.mjs run --friday       # venerdì: discovery + briefing agente (CONSIGLIATO)
+node tools/editorial-weekly.mjs run --generate    # solo coda + schedule (no LLM)
+node tools/editorial-weekly.mjs run --publish     # dopo HTML+hero pronti dall'agente
+node tools/editorial-weekly.mjs run --autopilot   # opzionale: richiede OPENAI_API_KEY (API a consumo)
+node tools/generate-diario-assets.mjs --slug SLUG # singolo articolo
 node scripts/geo-aeo-formula.mjs --slug SLUG
 node scripts/verify-article-hero.mjs --slug SLUG
 node scripts/validate-page.js --file diario/SLUG/index.html
@@ -72,20 +75,56 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 
 Template banner: `templates/partials/banner-goliardia.html`
 
+## Venerdì mattina — comando utente → agente (modalità consigliata)
+
+**Nessuna API a consumo.** Tu dai il comando; l’agente Cursor fa tutto il resto.
+
+### Cosa scrivi (copia-incolla)
+
+```
+Venerdì editoriale: genera e pubblica i 3 articoli goliardici del diario secondo la skin.
+```
+
+Oppure usa il comando Cursor: **venerdi-editoriale** (file `.cursor/commands/venerdi-editoriale.md`).
+
+### Cosa fa l’agente (automatico)
+
+1. Legge questa skill + `data/editorial-skin.json` + `data/editorial-image-skin.json`
+2. `node tools/editorial-weekly.mjs run --friday` — trend RSS, keyword, max 3 in `scheduled`
+3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (stile skin, disclosure IA)
+4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt, check GEO/AEO
+5. Commit e push
+
+### Cron GitHub (opzionale, alle 07:00)
+
+Il workflow prepara solo la **coda** (`--generate`). La generazione vera resta al comando venerdì mattina.
+
+## Autopilot API (futuro — opzionale)
+
+Con `OPENAI_API_KEY` in GitHub Actions il cron può generare tutto senza agente (**API a consumo**, ~2–5 €/settimana). Vedi `docs/EDITORIAL-AUTOPILOT-SETUP.md`. Non necessario se usi l’agente Cursor.
+
+1. **Trend** — `scripts/lib/trending-rss.mjs`
+2. **Skin** — `data/editorial-skin.json`, `data/editorial-image-skin.json`
+3. **Generazione** — `tools/generate-diario-assets.mjs` (OpenAI + DALL-E)
+4. **Publish** — automatico in CI
+
 ## Cron venerdì
 
-- **05:00 UTC (07:00 CEST):** `.github/workflows/editorial-venerdi.yml` → discovery + `--generate`
+- **05:00 UTC (07:00 CEST):** workflow prepara coda (`--generate`) — **nessuna API**
+- **Mattina:** tu → comando agente → 3 articoli pubblicati
+- **Autopilot CI:** solo se aggiungi secret + `workflow_dispatch` con `autopilot: true`
 - **07:00 UTC:** `venerdi-forza-quotidiana.yml` + Guardian `weekly_strategy`
-- Agente Cloud: genera HTML + WebP **prima** del cron o usa `workflow_dispatch` publish=true
 
 ## File dati
 
 | File | Ruolo |
 |------|-------|
 | `data/editorial-queue.json` | Coda proposed/scheduled/published |
+| `data/editorial-skin.json` | Voce, struttura, articoli riferimento (autopilot) |
+| `data/editorial-image-skin.json` | Stile immagini fumetto/surreale (autopilot) |
 | `data/my-stats.json` | Solo numeri reali |
 | `data/skimm-catalog.json` | Cluster keyword |
-| `guardian/config/web-sources.yaml` | Gap keyword statici |
+| `guardian/config/web-sources.yaml` | Gap keyword statici + RSS trend |
 
 ## Output fine run
 

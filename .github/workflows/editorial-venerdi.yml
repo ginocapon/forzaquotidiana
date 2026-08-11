@@ -1,23 +1,19 @@
-name: Editorial venerdì — 3 articoli diario
+# Venerdì 07:00 CEST (05:00 UTC) — prepara coda editoriale (no API)
+# Generazione contenuti: comando utente → Cloud Agent (vedi .cursor/commands/venerdi-editoriale.md)
+name: Editorial venerdì
 
 on:
   schedule:
-    # Venerdì 05:00 UTC = 07:00 CEST — pipeline editoriale goliardica
     - cron: '0 5 * * 5'
   workflow_dispatch:
     inputs:
-      publish:
-        description: 'Tenta pubblicazione (--publish) se HTML+hero pronti'
-        required: false
-        default: 'false'
-        type: choice
-        options:
-          - 'false'
-          - 'true'
+      autopilot:
+        description: 'Solo con OPENAI_API_KEY: genera+pubblica in CI (API a consumo)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
-  issues: write
 
 jobs:
   editorial:
@@ -25,36 +21,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Sync my-stats
-        run: node tools/sync-my-stats.mjs
-
-      - name: Pipeline editoriale (discovery + prioritize)
-        run: node tools/editorial-weekly.mjs run --generate
-
-      - name: Pubblica articoli pronti
-        if: github.event.inputs.publish == 'true'
-        run: node tools/editorial-weekly.mjs run --publish
-
-      - name: Guardian site_integrity
-        continue-on-error: true
-        run: node guardian/scripts/guardian.mjs run --job site_integrity
-
-      - name: Upload report
-        if: always()
-        uses: actions/upload-artifact@v4
+      - uses: actions/setup-node@v4
         with:
-          name: editorial-weekly-report
-          path: |
-            guardian/reports/weekly-*.md
-            guardian/reports/web-keyword-discovery-latest.md
-            guardian/reports/geo-aeo-formula-latest.json
-          retention-days: 30
+          node-version: '20'
 
-      - name: Commit queue/report updates
-        if: github.event_name == 'schedule'
+      - name: Prepara coda (default) o autopilot (opzionale)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EDITORIAL_API_KEY: ${{ secrets.EDITORIAL_API_KEY }}
+          EDITORIAL_LLM_MODEL: ${{ vars.EDITORIAL_MODEL || 'gpt-4o-mini' }}
+          EDITORIAL_IMAGE_MODEL: ${{ vars.EDITORIAL_IMAGE_MODEL || 'dall-e-3' }}
+        run: |
+          if [ "${{ inputs.autopilot }}" = "true" ] && [ -n "$OPENAI_API_KEY$EDITORIAL_API_KEY" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+            node tools/editorial-weekly.mjs run --autopilot
+          else
+            node tools/editorial-weekly.mjs run --generate
+          fi
+
+      - name: Commit coda e report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/editorial-queue.json data/my-stats.json guardian/reports/
-          git diff --staged --quiet || git commit -m "chore(editorial): weekly discovery $(date -u +%Y-%m-%d)"
-          git push || echo "Nothing to push or push failed"
+          git add data/editorial-queue.json guardian/reports/weekly-*.md
+          if [ "${{ inputs.autopilot }}" = "true" ]; then
+            git add diario/ img/diario/ sitemap.xml llms.txt diario/index.html
+          fi
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica da committare"
+          else
+            git commit -m "editorial: coda settimanale $(date -u +%Y-%m-%d)"
+            git push
+          fi

@@ -22,7 +22,7 @@ alwaysApply: true
 | Newsletter, iscritti, PDF, GAS, GDPR | `SKILL.md` righe 800–920 (§5a) + `SKILL-VENERDI.md` | §4 sessioni |
 | Venerdì / checklist settimanale | `SKILL-VENERDI.md` | SKILL monolitico |
 | Guardian, premortem, salute sito, cron | `guardian/skill/SKILL.md` + `guardian/reports/guardian-latest.md` | Righetto zip, SKILL intero |
-| **Editoriale goliardia / 3 articoli venerdì** | `SKILL-EDITORIAL.md` + `data/editorial-queue.json` | SKILL monolitico |
+| **Editoriale goliardia / venerdì mattina** | `SKILL-EDITORIAL.md` + `.cursor/commands/venerdi-editoriale.md` + skin JSON | SKILL monolitico, autopilot API |
 | Hero, landing, palette, Panel Relief | `SKILL-LANDING.md` + `SKILL.md` righe 47–96 (§0.1) | §3–4 performance |
 | SEO, sitemap, meta, validate-page | `SKILL.md` righe 979–1087 + `scripts/validate-page.js` | Admin, trimestre |
 | Admin / periodizzazione / macrociclo | `SKILL.md` righe 1125–1278 (§8) | Diario, landing |

@@ -6,7 +6,8 @@ Usa questo indice con `.cursor/rules/skill-router.mdc`. Leggi **solo** le righe 
 
 | File | Righe ca. | Quando |
 |------|-----------|--------|
-| `SKILL-EDITORIAL.md` | ~120 | 3 articoli/settimana, goliardia, discovery, venerdì |
+| `SKILL-EDITORIAL.md` | ~150 | 3 articoli/settimana, goliardia, autopilot cron, skin |
+| `docs/EDITORIAL-AUTOPILOT-SETUP.md` | ~80 | Secret OpenAI, workflow venerdì, troubleshooting |
 | `SKILL-PERFORMANCE.md` | 264 | Sessioni, TSB, Zepp, JSON performance |
 | `SKILL-VENERDI.md` | 126 | Checklist venerdì, Sheet iscritti |
 | `SKILL-LANDING.md` | 263 | Hero, palette, conversione landing |
