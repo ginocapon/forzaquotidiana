@@ -7,6 +7,8 @@
     "pdf:scheda": "node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf --local",
     "editorial:friday": "node tools/editorial-weekly.mjs run --friday",
     "newsletter:sync": "node tools/sync-newsletter-stats.mjs",
+    "ai:watermark": "node scripts/apply-ai-photo-watermark.mjs",
+    "ai:watermark:check": "node scripts/apply-ai-photo-watermark.mjs --check",
     "editorial:generate": "node tools/editorial-weekly.mjs run --generate",
     "editorial:autopilot": "node tools/editorial-weekly.mjs run --autopilot",
     "editorial:publish": "node tools/editorial-weekly.mjs run --publish"
