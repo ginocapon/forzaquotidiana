@@ -3207,6 +3207,44 @@ body.theme-allenamenti .session-card__badge {
   color: #d4a855;
   vertical-align: 0.05em;
 }
+
+/* Marchio visivo «Foto AI» su immagini non originali (AI Act UE art. 50) */
+.ai-photo-wrap {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+.ai-photo-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ai-photo-mark {
+  position: absolute;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  z-index: 2;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(12, 10, 8, 0.72);
+  border: 1px solid rgba(201, 150, 80, 0.35);
+  color: #e8dfd2;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: none;
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 480px) {
+  .ai-photo-mark {
+    right: 0.35rem;
+    bottom: 0.35rem;
+    font-size: 0.58rem;
+    padding: 0.15rem 0.35rem;
+  }
+}
 .hero__ai-note {
   position: relative;
   z-index: 2;

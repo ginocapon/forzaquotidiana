@@ -8,7 +8,7 @@ Genera e pubblica i **3 articoli del diario** della settimana. **Nessuna API Ope
 2. Esegui: `node tools/editorial-weekly.mjs run --friday`
 3. Per **ogni** articolo in coda `scheduled` (max 3):
    - Scrivi `diario/{slug}/index.html` (template come articoli esistenti in `data/editorial-skin.json` → `reference_articles`)
-   - Genera hero + 2 figure WebP in `img/diario/YYYY-MM-DD/` (stile fumetto JoJo, `data-ai="generated"`, disclosure IA)
+   - Genera hero + 2 figure WebP in `img/diario/YYYY-MM-DD/` (stile fumetto JoJo, `data-ai="generated"`, marchio **Foto AI** sull'immagine, disclosure in figcaption)
    - Rispetta: numeri solo da `data/my-stats.json`, banner goliardia, CTA newsletter
 4. Esegui: `node tools/editorial-weekly.mjs run --publish`
 5. Commit, push, PR se necessario

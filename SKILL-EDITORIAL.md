@@ -22,7 +22,7 @@ description: >-
 
 1. **Numeri** (kg, PR, %): solo da `data/my-stats.json` o fonte verificabile — mai inventare.
 2. **Finzione/goliardia:** banner `.banner-goliardia` + disclaimer; non fingere cronaca reale.
-3. **Immagini:** 1 hero 19:9 WebP + ≥2 figure **nuove** per articolo; hash unico in `img/`; stile **fumetto surreale** quando generate da IA; didascalia «Immagine elaborata / scena di finzione» + `data-ai="generated"` + `.ai-badge`.
+3. **Immagini:** 1 hero 19:9 WebP + ≥2 figure **nuove** per articolo; hash unico in `img/`; stile **fumetto surreale** quando generate da IA; **marchio «Foto AI»** sull’immagine (`.ai-photo-mark`) + didascalia «Immagine elaborata / scena di finzione» + `data-ai="generated"` + `.ai-badge` + link `/trasparenza-ai/`.
 4. **Anti-doppioni:** `node scripts/check-doppioni.mjs` prima di pubblicare.
 5. **CTA:** solo newsletter (`from=articolo-{slug}`), dopo ~40% scroll o fine articolo — template `templates/partials/newsletter-cta-diario.html`.
 6. **Autonomia:** GREEN = discovery/bozze/report · YELLOW = publish HTML se GEO≥8 · RED = DNS/email/DB.
@@ -71,9 +71,15 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 
 **Brief visivo:** Gino cartoon stropicciato ma dignitoso; palette scura sito; umorismo italiano; NO stock palestra identico; NO riuso hero altri articoli.
 
-**IA:** `data-ai="generated"` + `.fig-credit` con `.ai-badge` + link `/trasparenza-ai/`.
+**IA:** `data-ai="generated"` + marchio visivo **«Foto AI»** (`.ai-photo-wrap` / `.ai-photo-mark`) + `.fig-credit` con `.ai-badge` + link `/trasparenza-ai/`. Vedi `data/editorial-image-skin.json` → `watermark`.
 
 Template banner: `templates/partials/banner-goliardia.html`
+
+## Articolo pianificato — creatina (prossimo venerdì)
+
+Slug: `creatina-meme-universita-57-anni` · bozza scientifica: `data/editorial-drafts/creatina-dossier-scientifico-2026-08.md`
+
+Angolo: parodia «Facoltà di Creatina Applicata» + sintesi prudente del dossier (meta-analisi 2024–2026, tabella verdetto, **zero vendita**). Collegare a `proteine-shake-universita-57-anni`. Immagini **elaborate da zero** con marchio Foto AI.
 
 ## Venerdì mattina — comando utente → agente (modalità consigliata)
 

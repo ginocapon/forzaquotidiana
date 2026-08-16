@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Trasparenza AI — La Forza Quotidiana">
 <meta name="twitter:description" content="Come segnaliamo immagini e contenuti assistiti da IA sul sito, in linea con l'AI Act UE.">
 <meta name="twitter:image" content="https://forzaquotidiana.it/img/hero/gino-locker-disciplina.png">
-<link rel="stylesheet" href="/css/styles.css?v=48">
+<link rel="stylesheet" href="/css/styles.css?v=60">
 </head>
 <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -36,7 +36,7 @@
 <main id="contenuto" class="section page-veiled">
   <div class="wrap prose prose--wide legal-doc">
     <h1>Trasparenza sull&apos;uso dell&apos;intelligenza artificiale</h1>
-    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-08-06">6 agosto 2026</time> · Regolamento (UE) 2024/1689 (AI Act) · obblighi di trasparenza (art. 50) · legge italiana applicabile</p>
+    <p class="legal-doc__meta">Ultimo aggiornamento: <time datetime="2026-08-16">16 agosto 2026</time> · Regolamento (UE) 2024/1689 (AI Act) · obblighi di trasparenza (art. 50) · legge italiana applicabile</p>
 
     <p>Su <strong>forzaquotidiana.it</strong> alcuni contenuti visivi (e, dove indicato, testi) possono essere <strong>generati, abbelliti o modificati in parte con sistemi di intelligenza artificiale</strong>. Questa pagina spiega <em>come</em> usiamo l&apos;IA e <em>come</em> lo segnaliamo, in modo chiaro e riconoscibile.</p>
 
@@ -57,6 +57,16 @@
     </ul>
     <p>Dove un&apos;immagine rientra in queste categorie trovi un&apos;etichetta del tipo <em>«Immagine generata o abbellita con IA»</em>, spesso con collegamento a questa pagina. Attributi HTML <code>data-ai</code> segnalano il tipo di intervento in modo leggibile anche a livello tecnico.</p>
 
+    <h2>2bis. Marchio «Foto AI» sulle immagini non originali</h2>
+    <p>Da <strong>agosto 2026</strong>, tutte le immagini del Sito marcate con attributo <code>data-ai</code> (generate, abbellite o illustrative con IA) recano un <strong>marchio visivo permanente</strong> in basso a destra con la dicitura <strong>«Foto AI»</strong>, in carattere piccolo ma leggibile, su sfondo semitrasparente scuro.</p>
+    <ul>
+      <li><strong>Scopo:</strong> riconoscibilità immediata dei contenuti sintetici o non originali, in linea con l&apos;AI Act UE (art. 50) e con le richieste di trasparenza verso il lettore europeo.</li>
+      <li><strong>Implementazione tecnica:</strong> markup <code>.ai-photo-wrap</code> + <code>.ai-photo-mark</code>; su pagine già pubblicate il marchio è applicato anche via <code>main.js</code> a ogni <code>img[data-ai]</code>.</li>
+      <li><strong>In aggiunta</strong> (non in sostituzione): trafiletto testuale sotto la figura (<code>.fig-credit</code> / <code>.ai-media-note</code>) con badge «IA» e link a questa pagina.</li>
+      <li><strong>File sorgente:</strong> le immagini WebP/PNG possono essere prive di testo incorporato; il marchio è garantito <em>in pagina</em> al momento della visualizzazione, così resta coerente anche se l&apos;asset viene riutilizzato altrove senza ritocchi.</li>
+    </ul>
+    <p>Le <strong>foto e i video documentali reali</strong> (sessioni in palestra, Amazfit/Zepp, scatti di vita) <strong>non</strong> portano attributo <code>data-ai</code> e <strong>non</strong> recano il marchio «Foto AI», salvo ritocco sostanziale con IA — in quel caso aggiorniamo attributo, marchio e questa informativa.</p>
+
     <h2>3. Cosa resta documentale (non etichettato come IA)</h2>
     <ul>
       <li>Foto e video di sessioni reali (palestra, attrezzi, spogliatoio)</li>
@@ -71,6 +81,7 @@
 
     <h2>5. Come troviamo l&apos;avviso sul Sito</h2>
     <ul>
+      <li><strong>Marchio sull&apos;immagine:</strong> «Foto AI» in basso a destra su ogni file con <code>data-ai</code></li>
       <li><strong>Footer di ogni pagina:</strong> notice permanente + link «Trasparenza AI»</li>
       <li><strong>Sotto le immagini interessate:</strong> trafiletto / figcaption con etichetta IA</li>
       <li><strong>Questa pagina:</strong> informativa completa e aggiornata</li>
