@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-11",
+  "updated": "2026-08-16",
   "max_per_week": 3,
   "items": [
     {
@@ -106,7 +106,7 @@
     {
       "id": "disc-1786448549531-z0bs",
       "slug": "overtraining-recupero-50-anni-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "tecnico",
       "fiction": false,
       "kw_primary": "overtraining recupero 50 anni",
@@ -115,7 +115,18 @@
       "discovery_score": 0.76,
       "target_week": "2026-08-11",
       "hero_brief": "Da definire — stile fumetto surreale goliardico",
-      "hero_concept": "comic surreal, NO stock palestra"
+      "hero_concept": "comic surreal, NO stock palestra",
+      "title_draft": "Overtraining e recupero dopo i 50: riflessione a 57 anni",
+      "meta_draft": "Recupero e overtraining per il natural maturo: TSB, costanza e segnali da ascoltare. Riflessione personale, non consulenza medica.",
+      "paths": {
+        "html": "diario/overtraining-recupero-50-anni-57-anni/index.html",
+        "hero": "img/diario/2026-08-16/overtraining-recupero-50-anni-hero.webp",
+        "figures": [
+          "img/diario/2026-08-16/overtraining-recupero-50-anni-fig1.webp",
+          "img/diario/2026-08-16/overtraining-recupero-50-anni-fig2.webp"
+        ]
+      },
+      "published_date": "2026-08-16"
     },
     {
       "id": "disc-1786448549531-83mx",
@@ -145,6 +156,103 @@
       "discovery_score": 0.75,
       "hero_brief": "Fumetto surreale goliardico — palette scura, NO stock palestra",
       "hero_concept": "comic surreal JoJo-light"
+    },
+    {
+      "id": "disc-1786885742841-8p8c",
+      "slug": "bodybuilding-everybody-wants-bodybuilder-57-anni",
+      "status": "published",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "bodybuilding everybody wants bodybuilder",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Bodybuilding - everybody wants to be a bodybuilder",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-16",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Bodybuilding - everybody wants to be a bodybuilder",
+      "title_draft": "Bodybuilding: tutti vogliono bodybuilder",
+      "meta_draft": "Satira goliardica sul mito «everybody wants to be a bodybuilder» — finzione cartoon, zero vendita, costanza vera a 57 anni.",
+      "paths": {
+        "html": "diario/bodybuilding-everybody-wants-bodybuilder-57-anni/index.html",
+        "hero": "img/diario/2026-08-16/bodybuilding-everybody-wants-bodybuilder-hero.webp",
+        "figures": [
+          "img/diario/2026-08-16/bodybuilding-everybody-wants-bodybuilder-fig1.webp",
+          "img/diario/2026-08-16/bodybuilding-everybody-wants-bodybuilder-fig2.webp"
+        ]
+      },
+      "published_date": "2026-08-16"
+    },
+    {
+      "id": "disc-1786885742841-7d19",
+      "slug": "daily-discussion-thread-july-57-anni",
+      "status": "published",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "daily discussion thread july",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Daily Discussion Thread - July 04, 2026 (up for two days)",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-16",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Daily Discussion Thread - July 04, 2026 (up for two days)",
+      "title_draft": "Daily discussion thread di luglio",
+      "meta_draft": "Parodia goliardica del Daily Discussion Thread applicata alla vita di Gino a 57 anni — palestra, lavoro, papà. Finzione visiva.",
+      "paths": {
+        "html": "diario/daily-discussion-thread-july-57-anni/index.html",
+        "hero": "img/diario/2026-08-16/daily-discussion-thread-july-hero.webp",
+        "figures": [
+          "img/diario/2026-08-16/daily-discussion-thread-july-fig1.webp",
+          "img/diario/2026-08-16/daily-discussion-thread-july-fig2.webp"
+        ]
+      },
+      "published_date": "2026-08-16"
+    },
+    {
+      "id": "disc-1786886087428-1e95",
+      "slug": "many-years-apart-think-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "many years apart think",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: How many years apart do you think?🫡",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-16",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "How many years apart do you think?🫡"
+    },
+    {
+      "id": "disc-1786886087428-wyr0",
+      "slug": "check-weeks-natural-viking-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "check weeks natural viking",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Check-In: 2 Weeks Out from OCB Natural Viking",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-16",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Check-In: 2 Weeks Out from OCB Natural Viking"
+    },
+    {
+      "id": "disc-1786886087428-14o1",
+      "slug": "weeks-into-mass-phase-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "weeks into mass phase",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: 4 weeks into the mass phase",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-16",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "4 weeks into the mass phase"
     }
   ]
 }
