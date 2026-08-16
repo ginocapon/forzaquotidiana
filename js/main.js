@@ -8,9 +8,11 @@
     });
   }
 
-  /* Marchio «Foto AI» su tutte le immagini con data-ai (AI Act UE) */
+  /* Marchio «Foto AI» su immagini data-ai (AI Act UE).
+     Esclusi i thumb dell’indice diario: troppo piccoli, il testo non si legge. */
   document.querySelectorAll('img[data-ai]').forEach(function (img) {
     if (img.closest(".ai-photo-wrap")) return;
+    if (img.closest(".diario-list__thumb")) return;
     var wrap = document.createElement("span");
     wrap.className = "ai-photo-wrap";
     var mark = document.createElement("span");

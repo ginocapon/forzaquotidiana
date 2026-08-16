@@ -1410,37 +1410,47 @@ body.theme-allenamenti .disclaimer {
 }
 .diario-list__link {
   display: grid;
-  grid-template-columns: 4.5rem 1fr;
+  grid-template-columns: 6.5rem 1fr;
   align-items: center;
-  column-gap: 0.85rem;
-  padding: 0.65rem 1rem 0.65rem 0.65rem;
+  column-gap: 0.9rem;
+  padding: 0.7rem 1rem 0.7rem 0.7rem;
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
 }
 .diario-list__link > .diario-list__thumb {
   display: block;
-  width: 4.5rem;
-  height: 4.5rem;
-  min-width: 4.5rem;
-  min-height: 4.5rem;
+  width: 6.5rem;
+  height: 6.5rem;
+  min-width: 6.5rem;
+  min-height: 6.5rem;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(232, 184, 96, 0.55);
-  background: #2a221c;
+  background: #3a2e24;
   z-index: 3;
 }
 .diario-list__link > .diario-list__body {
   min-width: 0;
   z-index: 3;
 }
-.diario-list__thumb img {
+.diario-list__thumb .ai-photo-wrap {
   display: block;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 100%;
+  height: 100%;
+}
+.diario-list__thumb .ai-photo-mark {
+  display: none !important;
+}
+.diario-list__link .diario-list__thumb img,
+.diario-list__link .diario-list__thumb .ai-photo-wrap img {
+  display: block;
+  width: 6.5rem;
+  height: 6.5rem;
   max-width: none;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center;
+  filter: brightness(1.22) contrast(1.1) saturate(1.12);
 }
 .diario-list__body {
   min-width: 0;
@@ -1448,16 +1458,17 @@ body.theme-allenamenti .disclaimer {
 }
 @media (max-width: 420px) {
   .diario-list__link {
-    grid-template-columns: 3.8rem 1fr;
+    grid-template-columns: 5.2rem 1fr;
     column-gap: 0.7rem;
     padding: 0.55rem 0.8rem 0.55rem 0.55rem;
   }
   .diario-list__thumb,
-  .diario-list__thumb img {
-    width: 3.8rem;
-    height: 3.8rem;
-    min-width: 3.8rem;
-    min-height: 3.8rem;
+  .diario-list__link .diario-list__thumb img,
+  .diario-list__link .diario-list__thumb .ai-photo-wrap img {
+    width: 5.2rem;
+    height: 5.2rem;
+    min-width: 5.2rem;
+    min-height: 5.2rem;
   }
 }
 body.theme-diario .diario-list__link {

@@ -17,6 +17,7 @@
    - `data-ai="generated"` | `edited` | `illustrative`
    - **marchio visivo sull’immagine:** testo **«Foto AI»** in basso a destra (`.ai-photo-wrap` + `.ai-photo-mark`; `main.js` su pagine esistenti)
    - trafiletto sotto figura: `.ai-media-note` / `.fig-credit` + badge `.ai-badge` + link a `/trasparenza-ai/`
+   - **Eccezione:** miniature `.diario-list__thumb` (indice diario) — niente marchio visivo, solo `data-ai` + disclosure in pagina articolo e footer.
 3. **Foto/video documentali reali** (palestra, spogliatoio, mare, Amazfit): niente etichetta IA; restano coperti dal notice footer.
 4. **Nuovi contenuti / nuove foto:** se c’è intervento IA → etichetta **prima** del commit. Aggiornare `/trasparenza-ai/` se cambia la prassi.
 5. Pagina normativa: `/trasparenza-ai/` · cross-link in Termini e Privacy · sitemap.
@@ -76,7 +77,7 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
 2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
-4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=59**).
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=60**).
 
 #### Cometa hero (solo `/` — sopra la foto)
 
@@ -121,6 +122,7 @@ Il diario deve restare **semplice e fruibile**:
 - Intro corta: titolo «Pensieri e vita», menzione Ginevra, link ad Allenamenti.
 - Elenco **`.diario-list`**: card con **miniatura a sinistra** (foto rappresentativa del titolo) + data/titolo/excerpt spostati a destra. Tap-friendly, niente muri di testo in indice.
 - Miniatura **obbligatoria** su ogni voce, anche nei prossimi articoli: stessa `og:image` / hero dell’articolo, WebP, `object-fit: cover`. Se l’immagine è IA → `data-ai` sul `<img>` (il notice footer copre la pagina indice).
+- **Niente marchio «Foto AI» sul thumb** (troppo piccolo, illeggibile). `main.js` salta `.diario-list__thumb`. Il marchio resta sull’articolo aperto.
 - Markup fisso:
 
 ```html
