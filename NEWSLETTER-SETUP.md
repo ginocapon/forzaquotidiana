@@ -109,11 +109,26 @@ Succede quando la **distribuzione App web** non è pubblica (o è stata revocata
 
 > Non basta «Salva» nello script: senza **Nuova versione** della distribuzione il sito continua a usare il vecchio deploy rotto.
 
-## Trigger venerdì (opzionale)
+## Trigger venerdì e quindicina (opzionale, zero API a pagamento)
 
-script.google.com → **Trigger** → `riepilogoVenerdi` → ogni venerdì ore 09:00.
+script.google.com → **Trigger** (icona orologio):
 
-Vedi `SKILL-VENERDI.md` e issue GitHub automatica ogni venerdì.
+| Funzione | Quando | Cosa fa |
+|----------|--------|---------|
+| `riepilogoVenerdi` | Ogni **venerdì** 09:00 | Email riepilogo iscritti + accessi scheda |
+| `promemoriaQuindicinale` | **1° e 16°** del mese 09:00 | Email gentile a Gino — promemoria progetto + link Foglio |
+
+Vedi `SKILL-VENERDI.md`, `SKILL.md` §5a.2 e issue GitHub automatica ogni venerdì.
+
+## Conteggi pubblici sul sito (Guardian / home)
+
+Dopo deploy dello script aggiornato:
+
+1. Test browser: `URL/exec?action=stats` → JSON `{ iscritti_totali, accessi_scheda_settimana, … }` (**nessuna email**)
+2. In repo: `node tools/sync-newsletter-stats.mjs` → aggiorna `data/site-stats.json`
+3. CI: workflow `newsletter-stats-sync.yml` (1°/16° mese + venerdì) fa sync + commit automatico
+
+**Importante:** dopo ogni modifica a `google-apps-script.gs` → **Deploy → Nuova versione** (altrimenti `?action=stats` non esiste ancora online).
 
 **Demo senza script:** pulsante *accesso demo scheda* in fondo alla pagina newsletter.
 

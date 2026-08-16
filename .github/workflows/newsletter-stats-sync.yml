@@ -1,0 +1,38 @@
+# Sync conteggi iscritti da GAS → site-stats.json (no email, no API a pagamento)
+name: Newsletter stats sync
+
+on:
+  schedule:
+    # 1° e 16° del mese ore 08:00 UTC (~ogni 15 giorni) + allineato al promemoria GAS
+    - cron: '0 8 1,16 * *'
+    # Venerdì 06:00 UTC — prima della checklist
+    - cron: '0 6 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync iscritti da GAS
+        run: node tools/sync-newsletter-stats.mjs
+
+      - name: Commit site-stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/site-stats.json
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica"
+          else
+            git commit -m "chore(stats): sync iscritti newsletter da GAS $(date -u +%Y-%m-%d)"
+            git push
+          fi

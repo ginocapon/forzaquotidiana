@@ -124,6 +124,11 @@ function doGet(e) {
     return ContentService.createTextOutput('ok').setMimeType(ContentService.MimeType.TEXT);
   }
 
+  if (p.action === 'stats') {
+    return ContentService.createTextOutput(JSON.stringify(getNewsletterStats_()))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+
   if (p.action === 'confirm' && email && p.t === token_(email)) {
     var sh = getSheet_();
     var r = findRow_(sh, email);
@@ -261,7 +266,7 @@ function inviaAggiornamentoATutti() {
 
 /* ---------- Riepilogo venerdì ---------- */
 
-function riepilogoVenerdi() {
+function getNewsletterStats_() {
   var rows = getSheet_().getDataRange().getValues();
   var confermati = 0, daConfermare = 0, disiscritti = 0;
   for (var i = 1; i < rows.length; i++) {
@@ -278,16 +283,70 @@ function riepilogoVenerdi() {
     if (accessi[j][0] instanceof Date && accessi[j][0] >= weekAgo) nAccessi++;
   }
 
+  return {
+    updated: Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd'),
+    iscritti_totali: confermati,
+    iscritti_da_confermare: daConfermare,
+    iscritti_disiscritti: disiscritti,
+    accessi_scheda_settimana: nAccessi,
+    sheet_id: SHEET_ID
+  };
+}
+
+function riepilogoVenerdi() {
+  var stats = getNewsletterStats_();
   var body =
     'Riepilogo venerdì Forza Quotidiana\n\n' +
-    'Iscritti confermati: ' + confermati + '\n' +
-    'Da confermare: ' + daConfermare + '\n' +
-    'Disiscritti: ' + disiscritti + '\n' +
-    'Accessi/stampe scheda (7 gg): ' + nAccessi + '\n\n' +
+    'Iscritti confermati: ' + stats.iscritti_totali + '\n' +
+    'Da confermare: ' + stats.iscritti_da_confermare + '\n' +
+    'Disiscritti: ' + stats.iscritti_disiscritti + '\n' +
+    'Accessi/stampe scheda (7 gg): ' + stats.accessi_scheda_settimana + '\n\n' +
     'Foglio: https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit\n\n' +
     'Checklist: nuovo articolo? → inviaAggiornamentoATutti() · aggiorna sitemap.xml e llms.txt';
 
   GmailApp.sendEmail(TitolareEmail, 'Forza Quotidiana — riepilogo venerdì', body);
+}
+
+/* ---------- Promemoria quindicinale (Gino) — zero API a pagamento ---------- */
+
+function promemoriaQuindicinale() {
+  var stats = getNewsletterStats_();
+  var html =
+    '<div style="font-family:Georgia,serif;max-width:560px;color:#222;line-height:1.55">' +
+    '<p>Gino,</p>' +
+    '<p>È passato un po\' di tempo — questo è il promemoria gentile de <strong>La Forza Quotidiana</strong>, ' +
+    'non un allarme da influencer. Stiamo costruendo qualcosa per <strong>Ginevra</strong> e per chi si riconosce: ' +
+    'pagine vere, costanza vera, zero trucchi.</p>' +
+    '<p><strong>Oggi puoi fare così (15 minuti, con calma):</strong></p>' +
+    '<ol style="padding-left:1.2rem">' +
+    '<li>Apri il <a href="https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit">Foglio iscritti</a> — ' +
+    'guarda quanti confermati hai (' + stats.iscritti_totali + ' adesso).</li>' +
+    '<li>Se hai pubblicato sul sito: apri Cursor e scrivi al tuo agente il comando che usi già — ' +
+    'editoriale, sessione, o semplice «cosa facciamo questa quindicina?».</li>' +
+    '<li>Se c\'è un articolo nuovo da annunciare: Apps Script → <code>inviaAggiornamentoATutti()</code>.</li>' +
+    '</ol>' +
+    '<p style="color:#555;font-size:14px">I numeri sul sito si aggiornano da soli via ' +
+    '<code>?action=stats</code> — niente API OpenAI, niente Supabase: solo il tuo Google e il repo.</p>' +
+    '<p>Non devi essere perfetto. Devi essere presente — come in palestra, come papà.</p>' +
+    '<p style="color:#888;font-size:12px">Gino · promemoria automatico ogni ~15 giorni · forzaquotidiana.it</p></div>';
+
+  GmailApp.sendEmail(
+    TitolareEmail,
+    'Forza Quotidiana — un momento per te e il progetto (promemoria)',
+    statsToPlainText_(stats),
+    { htmlBody: html, name: 'La Forza Quotidiana' }
+  );
+}
+
+function statsToPlainText_(stats) {
+  return (
+    'Promemoria quindicinale Forza Quotidiana\n\n' +
+    'Iscritti confermati: ' + stats.iscritti_totali + '\n' +
+    'Da confermare: ' + stats.iscritti_da_confermare + '\n' +
+    'Accessi scheda (7 gg): ' + stats.accessi_scheda_settimana + '\n\n' +
+    'Foglio: https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit\n\n' +
+    'Apri Cursor quando vuoi — il tuo agente sa cosa fare (SKILL.md §5a.2).'
+  );
 }
 
 /* ---------- Test / reset (solo da editor Apps Script) ---------- */

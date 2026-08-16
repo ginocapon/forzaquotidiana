@@ -99,8 +99,10 @@ export async function checkNewsletter(config, repoRoot) {
       assumptions.push({
         text: "Conteggio iscritti non sincronizzato in site-stats",
         confidence: "high",
-        test: "Copiare conteggio da Sheet venerdì → aggiorna-site-stats.mjs",
+        test: "node tools/sync-newsletter-stats.mjs (richiede GAS ?action=stats deployato)",
       });
+    } else {
+      verified.push(`iscritti_totali in site-stats: ${stats.iscritti_totali} (${stats.updated || "n/d"})`);
     }
   }
 
