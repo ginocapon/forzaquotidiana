@@ -76,7 +76,7 @@ Per nuovi componenti futuri: aggiungere la classe `.panel-raised` **oppure** est
 1. **Non** creare card con `border: 1px solid var(--line)` piatto — usare sempre il sistema Panel Relief.
 2. Nuova pagina/sezione → riquadri con classi esistenti (`.card`, `.hub-card`, `.session-panel`, ecc.).
 3. Se serve un contenitore nuovo → `.panel-raised` + eventuale modifica accent.
-4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=32**).
+4. Dopo ogni modifica CSS: bump `styles.css?v=N` su **tutte** le pagine (versione corrente: **v=59**).
 
 #### Cometa hero (solo `/` — sopra la foto)
 
@@ -119,7 +119,23 @@ La pagina `/allenamenti/` deve essere **immediata**: tre card con illustrazione 
 Il diario deve restare **semplice e fruibile**:
 
 - Intro corta: titolo «Pensieri e vita», menzione Ginevra, link ad Allenamenti.
-- Elenco **`.diario-list`**: una riga per articolo (data · titolo · excerpt), tap-friendly, niente muri di testo in indice.
+- Elenco **`.diario-list`**: card con **miniatura a sinistra** (foto rappresentativa del titolo) + data/titolo/excerpt spostati a destra. Tap-friendly, niente muri di testo in indice.
+- Miniatura **obbligatoria** su ogni voce, anche nei prossimi articoli: stessa `og:image` / hero dell’articolo, WebP, `object-fit: cover`. Se l’immagine è IA → `data-ai` sul `<img>` (il notice footer copre la pagina indice).
+- Markup fisso:
+
+```html
+<a class="diario-list__link" href="/diario/slug/">
+  <span class="diario-list__thumb">
+    <img src="/img/diario/…/hero.webp" alt="…" width="96" height="96" loading="lazy">
+  </span>
+  <span class="diario-list__body">
+    <div class="diario-list__meta"><time datetime="YYYY-MM-DD">…</time> · Riflessione</div>
+    <h3 class="diario-list__title">…</h3>
+    <p class="diario-list__excerpt">…</p>
+  </span>
+</a>
+```
+
 - **Non** mischiare log palestra nell’indice diario.
 
 ---
@@ -1018,7 +1034,7 @@ Slug **corto, descrittivo, unico** — niente doppioni semantici con articoli es
 
 ### SEO minimo articolo
 
-- Title + meta description unici; `og:image` = foto reale della sessione se c’è.
+- Title + meta description unici; `og:image` = foto reale della sessione se c’è (stesso file nella miniatura `.diario-list__thumb` dell’indice).
 - `BlogPosting` JSON-LD con `datePublished` / `dateModified`.
 - Voce in `diario/index.html`, `sitemap.xml`, `llms.txt`.
 
@@ -1173,6 +1189,8 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 ## 8. Admin — Periodizzazione e macrociclo
 
 > **Quando caricare:** nuovo macrociclo annuale, modifica fasi, pesi ipotizzati, prototipi admin, rigenerazione `macrociclo-2026-2027.json`.
+>
+> **Ciclo annuale per un amico (prompt riusabile):** `admin/PROMPT-CICLO-ANNUALE-AMICO.md` — base `/admin/`, PDF stampabili con kg/note vuoti, figure esercizi definite dalla scheda. Live: https://forzaquotidiana.it/admin/
 
 ### 8.1 Area admin (non pubblica)
 

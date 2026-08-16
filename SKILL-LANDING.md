@@ -49,7 +49,7 @@ Ogni pagina hub (`/`, `/allenamenti/`, `/diario/`, `/chi-sono/`) deve scorrere c
 | Pagina | Sezioni minime |
 |--------|----------------|
 | `/allenamenti/` | Hero hub → 3 blocchi hub-card → galleria foto → scheda PDF → newsletter |
-| `/diario/` | Hero portrait → intro Ginevra → elenco `.diario-list` |
+| `/diario/` | Hero portrait → intro Ginevra → elenco `.diario-list` (miniatura + titolo) |
 | `/chi-sono/` | Hero portrait → dedicatio → storia → CTA diario/allenamenti |
 
 ### Regole scroll irresistibile
