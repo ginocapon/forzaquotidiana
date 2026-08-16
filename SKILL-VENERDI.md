@@ -18,6 +18,8 @@ In checklist venerdì: verificare che nuove immagini/pagine della settimana abbi
 |------|--------|------|
 | Issue GitHub checklist | Venerdì 09:00 CEST | `.github/workflows/venerdi-forza-quotidiana.yml` |
 | Email riepilogo iscritti | Venerdì (opzionale) | Apps Script `riepilogoVenerdi()` — trigger orario su script.google.com |
+| **Promemoria quindicinale** | **1° e 16° del mese** | Apps Script `promemoriaQuindicinale()` → Gmail a Gino (tono lascito/Ginevra) |
+| Sync conteggi → sito | 1°/16° + venerdì | `node tools/sync-newsletter-stats.mjs` · CI `newsletter-stats-sync.yml` |
 | Lista iscritti + accessi scheda | Sempre | [Foglio Google](https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit) |
 
 ## Database iscritti — regola importante
@@ -72,22 +74,15 @@ Non duplicare: una riga in **SKILL.md**, dettaglio in **NEWSLETTER-SETUP.md** se
 ### 6. Aggiorna conteggi sito (obbligatorio se contenuti nuovi)
 
 ```bash
-node tools/aggiorna-site-stats.mjs
+node tools/sync-newsletter-stats.mjs   # iscritti da GAS (dopo deploy ?action=stats)
+node tools/aggiorna-site-stats.mjs     # diario, sessioni, età biologica
 ```
 
-Aggiorna `data/site-stats.json` (anni palestra, articoli diario, sessioni Zepp, età cronologica) e ricalcola `data/biological-age.json`.
+Aggiorna `data/site-stats.json` (anni palestra, articoli diario, sessioni Zepp, età cronologica, **iscritti_totali** da sync GAS) e ricalcola `data/biological-age.json`.
 
 **Mensile:** eseguire anche a fine mese con export Zepp/sonno — verifica età biologica in home.
 
-Opzionale — iscritti newsletter (solo numeri, **mai email**):
-```json
-{
-  "iscritti_totali": 12,
-  "accessi_scheda_settimana": 8,
-  "ultimo_controllo": "2026-07-25"
-}
-```
-Valori copiati manualmente dal Foglio Google — **mai email nel repo**.
+Opzionale — iscritti newsletter (solo numeri, **mai email**): preferire `sync-newsletter-stats.mjs` al posto della copia manuale.
 
 ## Formato risposta agente (venerdì)
 
@@ -115,6 +110,7 @@ Su script.google.com → **Trigger** (icona orologio) → Aggiungi:
 | Funzione | Tipo | Giorno | Ora |
 |----------|------|--------|-----|
 | `riepilogoVenerdi` | Temporizzato | Venerdì | 09:00–10:00 |
+| `promemoriaQuindicinale` | Temporizzato | **1** e **16** del mese | 09:00–10:00 |
 
 Dopo ogni modifica a `google-apps-script.gs`: **Deploy → Gestisci distribuzioni → Modifica → Nuova versione**.
 

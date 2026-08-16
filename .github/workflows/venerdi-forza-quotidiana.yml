@@ -59,7 +59,7 @@ jobs:
             - [ ] \`sitemap.xml\` e \`llms.txt\` aggiornati
             - [ ] Sessione allenamento pubblicata (se allenato)
             - [ ] Scheda A4 allineata al trimestre
-            - [ ] Aggiorna \`data/site-stats.json\` (solo conteggi, no email)
+            - [ ] Aggiorna conteggi: \`node tools/sync-newsletter-stats.mjs\` + \`node tools/aggiorna-site-stats.mjs\`
 
             ### SKILL
             - [ ] Leggi \`SKILL-VENERDI.md\` e applica migliorie a \`SKILL.md\` se serve

@@ -822,8 +822,51 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 - **Disiscrizione un click:** link `?action=unsub` in ogni email → stato `disiscritto`.
 - Colonne foglio Iscritti: Data · Nome · Email · Consenso · Origine · **Stato** · **Token**
 - Accessi/stampe → foglio **Accessi scheda** (Apps Script `doGet?action=log`)
-- Conteggi anonimi → `data/site-stats.json`
-- Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail (conta confermati/da confermare/disiscritti)
+- Conteggi anonimi → `data/site-stats.json` (sync automatico da GAS)
+- Venerdì → `SKILL-VENERDI.md` + workflow GitHub + `riepilogoVenerdi()` Gmail
+- **Sync conteggi:** `node tools/sync-newsletter-stats.mjs` ← legge `?action=stats` (solo numeri, zero email)
+- CI: `.github/workflows/newsletter-stats-sync.yml` (1°/16° mese + venerdì)
+
+### 5a.2 Promemoria quindicinale + sync iscritti (zero API a pagamento)
+
+**Obiettivo:** ogni ~15 giorni Gino riceve un nudge gentile (email) e l’agente Cursor sa ricordargli il rituale — senza OpenAI, senza Supabase.
+
+| Cosa | Come | Quando |
+|------|------|--------|
+| **Email a Gino** | Apps Script `promemoriaQuindicinale()` → Gmail | Trigger: **1° e 16°** del mese, ore 09:00 (setup una tantum su script.google.com) |
+| **Conteggi sul sito** | GAS `?action=stats` → `tools/sync-newsletter-stats.mjs` | CI 1°/16° + venerdì; oppure manuale |
+| **Agente Cursor** | Se `ultimo_controllo` in `site-stats.json` > 15 giorni **oppure** oggi è 1 o 16 del mese → invia il testo sotto | A ogni chat rilevante |
+
+**Setup GAS (una tantum dopo pull):**
+
+1. Incolla `newsletter/google-apps-script.gs` aggiornato su script.google.com
+2. **Deploy → Gestisci distribuzioni → Nuova versione**
+3. Trigger (icona orologio) → Aggiungi:
+
+| Funzione | Tipo | Giorno | Ora |
+|----------|------|--------|-----|
+| `promemoriaQuindicinale` | Temporizzato | **1** e **16** del mese | 09:00–10:00 |
+| `riepilogoVenerdi` | Temporizzato | Venerdì | 09:00–10:00 |
+
+**Test stats:** apri nel browser  
+`https://script.google.com/macros/s/…/exec?action=stats`  
+→ JSON con `iscritti_totali`, `accessi_scheda_settimana` (no email).
+
+**Comando locale:**
+
+```bash
+node tools/sync-newsletter-stats.mjs
+node tools/aggiorna-site-stats.mjs   # aggiorna anche diario/sessioni/età
+```
+
+**Testo promemoria agente (copia-incolla se Gino apre Cursor nel giorno 1/16 o dopo 15 gg senza controllo):**
+
+> Gino, è il momento della quindicina — niente fretta, niente guru.  
+> Apri il [Foglio iscritti](https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit), guarda i confermati, e dimmi cosa vuoi fare: articolo diario, sessione, newsletter agli iscritti, o solo aggiornare i numeri.  
+> Se serve: `node tools/sync-newsletter-stats.mjs` · comando editoriale venerdì · Guardian `node guardian/scripts/guardian.mjs run`.  
+> Stiamo costruendo lascito per Ginevra — presente batte perfetto.
+
+**Regola agente:** non inventare conteggi iscritti; usare `data/site-stats.json` dopo sync o chiedere a Gino di aprire il Foglio.
 
 ### 5a.0 Premortem Guardian (sistema operativo)
 
