@@ -15,7 +15,8 @@
 1. **Ogni pagina pubblica** deve caricare `js/cookie-consent.js` (footer con notice + link `/trasparenza-ai/`).
 2. **Ogni immagine generata, abbellita o modificata con IA** (hero cinematici, vignette, hub illustrations, sfondi decorativi, collage/archivio ritoccato):
    - `data-ai="generated"` | `edited` | `illustrative`
-   - trafiletto visibile: `.ai-media-note` / `.fig-credit` + badge `.ai-badge` + link a `/trasparenza-ai/`
+   - **marchio visivo sull’immagine:** testo **«Foto AI»** in basso a destra (`.ai-photo-wrap` + `.ai-photo-mark`; `main.js` su pagine esistenti)
+   - trafiletto sotto figura: `.ai-media-note` / `.fig-credit` + badge `.ai-badge` + link a `/trasparenza-ai/`
 3. **Foto/video documentali reali** (palestra, spogliatoio, mare, Amazfit): niente etichetta IA; restano coperti dal notice footer.
 4. **Nuovi contenuti / nuove foto:** se c’è intervento IA → etichetta **prima** del commit. Aggiornare `/trasparenza-ai/` se cambia la prassi.
 5. Pagina normativa: `/trasparenza-ai/` · cross-link in Termini e Privacy · sitemap.

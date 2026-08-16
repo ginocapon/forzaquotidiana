@@ -45,7 +45,10 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
     if (!rel) return "";
     return `
     <figure class="article-figure">
-      <img src="/${rel}" alt="${esc(fig.alt)}" width="1200" height="800" loading="lazy" data-ai="generated">
+      <span class="ai-photo-wrap">
+        <img src="/${rel}" alt="${esc(fig.alt)}" width="1200" height="800" loading="lazy" data-ai="generated">
+        <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
+      </span>
       <figcaption>${esc(fig.caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> Immagine elaborata / scena di finzione · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
     </figure>`;
   }).join("\n");
@@ -159,7 +162,10 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
     </div>
 
     <figure class="article-figure article-figure--hero">
-      <img src="/${paths.hero}" alt="${esc(article.hero_alt)}" width="1600" height="760" loading="eager" data-ai="generated">
+      <span class="ai-photo-wrap">
+        <img src="/${paths.hero}" alt="${esc(article.hero_alt)}" width="1600" height="760" loading="eager" data-ai="generated">
+        <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
+      </span>
       <figcaption>${esc(article.hero_caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> Immagine generata o abbellita con intelligenza artificiale · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
     </figure>
 

@@ -253,6 +253,31 @@
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
       "trending_title": "4 weeks into the mass phase"
+    },
+    {
+      "id": "prop-creatina-dossier-2026-08",
+      "slug": "creatina-meme-universita-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "creatina culturismo meme",
+      "cluster": "goliardia-nutrizione",
+      "intent": "Satira Facoltà di Creatina + sintesi scientifica dossier agosto 2026 — zero vendita",
+      "title_draft": "Facoltà di Creatina Applicata",
+      "target_week": "2026-08-22",
+      "discovery_score": 0.92,
+      "priority": "next_friday",
+      "dossier_source": "data/editorial-drafts/creatina-dossier-scientifico-2026-08.md",
+      "hero_brief": "Aula universitaria cartoon — lavagna con tabella evidenze creatina, Gino stropicciato professore, stile JoJo goliardico",
+      "hero_concept": "comic surreal, palette scura, parodia meme integratori",
+      "outline": [
+        "Risposta breve AEO (sintesi prudente creatina)",
+        "Facoltà immaginaria goliardica",
+        "Box scientifico da dossier (tabella verdetto)",
+        "FAQ con disclaimer medico",
+        "Newsletter"
+      ],
+      "notes": "Integrare dossier scientifico utente ago 2026; collegare a proteine-shake-universita-57-anni"
     }
   ]
 }
