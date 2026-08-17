@@ -16,6 +16,11 @@ const RASTER = new Set([".jpg", ".jpeg", ".png"]);
 
 /** Mapping esplicito per batch upload — estendere ad ogni nuova sessione */
 const KNOWN_BATCHES = {
+  "foto allenamento 17 agosto": {
+    date: "2026-08-17",
+    scheda: 1,
+    slugOrder: ["riepilogo", "tsb", "valutazione", "tecnica", "zone-effetto"],
+  },
   "foto allenamento 4 agosto": {
     date: "2026-08-04",
     scheda: 2,
@@ -56,14 +61,16 @@ function buildSlugMap(files, date, scheda, dirName) {
     return map;
   }
   const sorted = [...files].sort();
-  const slugs = [
+  const slugs = batch?.slugOrder || [
     "riepilogo", "valutazione", "tecnica", "zone-effetto", "fc-grafico",
     "sonno-metriche", "sonno-score", "tsb", "readiness-metriche", "hybridcharge",
   ];
   const map = {};
+  const outDate = batch?.date || date;
+  const outScheda = batch?.scheda || scheda;
   for (let i = 0; i < sorted.length && i < slugs.length; i++) {
     const slug = slugs[i];
-    map[sorted[i]] = { dest: `${date}-scheda-${scheda}-${slug}.webp`, slug };
+    map[sorted[i]] = { dest: `${outDate}-scheda-${outScheda}-${slug}.webp`, slug };
   }
   return map;
 }
