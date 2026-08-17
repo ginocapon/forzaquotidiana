@@ -16,6 +16,12 @@ const RASTER = new Set([".jpg", ".jpeg", ".png"]);
 
 /** Mapping esplicito per batch upload — estendere ad ogni nuova sessione */
 const KNOWN_BATCHES = {
+  "foto allenamento 17 agosto": {
+    date: "2026-08-17",
+    scheda: 1,
+    /** Ordine export Zepp tipico da chat (6 file): riepilogo, TSB, valutazione, tecnica, zone, grafico FC */
+    slugs: ["riepilogo", "tsb", "valutazione", "tecnica", "zone-effetto", "fc-grafico"],
+  },
   "foto allenamento 4 agosto": {
     date: "2026-08-04",
     scheda: 2,
@@ -48,22 +54,24 @@ function processImage(src, slug) {
 
 function buildSlugMap(files, date, scheda, dirName) {
   const batch = KNOWN_BATCHES[dirName];
-  if (batch?.files) {
+  const useDate = batch?.date || date;
+  const useScheda = batch?.scheda || scheda;
+  if (batch?.files && Object.keys(batch.files).length) {
     const map = {};
     for (const [whatsapp, slug] of Object.entries(batch.files)) {
-      map[whatsapp] = { dest: `${batch.date}-scheda-${batch.scheda}-${slug}.webp`, slug };
+      map[whatsapp] = { dest: `${useDate}-scheda-${useScheda}-${slug}.webp`, slug };
     }
     return map;
   }
   const sorted = [...files].sort();
-  const slugs = [
+  const slugs = batch?.slugs || [
     "riepilogo", "valutazione", "tecnica", "zone-effetto", "fc-grafico",
     "sonno-metriche", "sonno-score", "tsb", "readiness-metriche", "hybridcharge",
   ];
   const map = {};
   for (let i = 0; i < sorted.length && i < slugs.length; i++) {
     const slug = slugs[i];
-    map[sorted[i]] = { dest: `${date}-scheda-${scheda}-${slug}.webp`, slug };
+    map[sorted[i]] = { dest: `${useDate}-scheda-${useScheda}-${slug}.webp`, slug };
   }
   return map;
 }
@@ -96,8 +104,9 @@ function parseDateFromDir(dirName) {
 async function main() {
   const uploadDir = findUploadDir();
   const dirName = uploadDir.split("/").pop();
-  const date = parseDateFromDir(dirName);
-  const scheda = process.argv[3] || "2";
+  const batch = KNOWN_BATCHES[dirName];
+  const date = batch?.date || parseDateFromDir(dirName);
+  const scheda = batch?.scheda || process.argv[3] || "2";
 
   const files = readdirSync(uploadDir).filter((f) => RASTER.has(extname(f).toLowerCase()));
   if (!files.length) {

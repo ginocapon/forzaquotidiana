@@ -517,6 +517,52 @@
         "fatigue_atl": 33.0,
         "date": "2026-08-04"
       }
+    },
+    {
+      "id": "2026-08-17-scheda-1",
+      "date": "2026-08-17",
+      "time": "15:53",
+      "datetime": "2026-08-17T15:53",
+      "scheda": 1,
+      "month": "2026-08",
+      "durata_sec": 3933,
+      "durata": "01:05:33",
+      "recupero_sec": 2770,
+      "recupero": "46:10",
+      "gruppi": 24,
+      "fc_media": 113,
+      "fc_max": 150,
+      "calorie": 513,
+      "carico": 75,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:10" },
+        "anaerobica": { "pct": 9, "time": "06:25" },
+        "aerobica": { "pct": 31, "time": "20:42" },
+        "intensiva": { "pct": 49, "time": "32:18" },
+        "leggera": { "pct": 8, "time": "05:51" }
+      },
+      "effetto_aerobico": 3.2,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 1.8,
+      "effetto_anaerobico_label": "Basso",
+      "tecnica": {
+        "consistenza": "ROM per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Fluidi con pause minori",
+        "rhythm": "Tempi coerenti, ritmo uniforme",
+        "speed_decay": "Decadimento velocità ragionevole, buona efficacia"
+      },
+      "note": "Prima Scheda 1 dopo pausa agosto — rientro palestra post vacanza Ken, 24 serie petto-spalle-dorsali, carico 75 come 3 agosto, TSB Zepp 4,0 Bilanciato (CTL 15 / ATL 11)",
+      "tsb": {
+        "value": 4.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 15,
+        "fatigue_atl": 11,
+        "date": "2026-08-17"
+      }
     }
   ]
 }
