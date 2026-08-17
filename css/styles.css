@@ -4276,6 +4276,56 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   flex-direction: column;
   gap: 0.2rem;
 }
+.cal-month__plan,
+.cal-month__rest {
+  display: block;
+  margin-bottom: 0.2rem;
+  padding: 0.2rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.64rem;
+  line-height: 1.3;
+  text-decoration: none;
+  color: inherit;
+}
+.cal-month__plan {
+  border: 1px dashed rgba(201, 120, 58, 0.45);
+  background: rgba(201, 120, 58, 0.08);
+  transition: border-color 0.15s, background 0.15s;
+}
+.cal-month__plan:hover {
+  border-color: var(--color-accent-warm, #c9783a);
+  background: rgba(201, 120, 58, 0.14);
+}
+.cal-month__plan--logged {
+  border-style: solid;
+  opacity: 0.75;
+}
+.cal-month__plan-code {
+  display: block;
+  font-weight: 700;
+  color: var(--color-accent-warm, #c9783a);
+}
+.cal-month__plan-focus {
+  display: block;
+  color: var(--muted);
+  font-size: 0.6rem;
+}
+.cal-month__rest {
+  color: var(--muted);
+  font-size: 0.62rem;
+}
+.cal-today-hint {
+  margin: 0 0 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(201, 120, 58, 0.1);
+  border: 1px solid rgba(201, 120, 58, 0.28);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.cal-today-hint a {
+  color: var(--color-accent-warm, #c9783a);
+}
 
 .cal-session {
   display: block;

@@ -179,14 +179,26 @@
     return a;
   }
 
-  function renderWeekRow(day, hub) {
+  function getWeekPlanRow(dayIso, hub) {
     var cicloId = hub.cicloCorrente.id;
     var prossimo = hub.cicloProssimo;
-    var useAnnuale = prossimo && prossimo.inizio && day >= prossimo.inizio;
+    var useAnnuale = prossimo && prossimo.inizio && dayIso >= prossimo.inizio;
     var key = useAnnuale ? prossimo.id : cicloId;
     var rows = hub.settimanaTipo[key] || [];
-    var weekday = DAYS_LONG[(parseDate(day).getDay() + 6) % 7];
-    var row = rows.find(function (r) { return r.giorno === weekday; });
+    var weekday = DAYS_LONG[(parseDate(dayIso).getDay() + 6) % 7];
+    return rows.find(function (r) { return r.giorno === weekday; });
+  }
+
+  function schedaAnchor(hub, schedaNum) {
+    var cicloId = hub.cicloCorrente.id;
+    var giornaliere = (hub.schedeGiornaliere && hub.schedeGiornaliere[cicloId]) || [];
+    var scheda = giornaliere.find(function (g) { return g.numero === schedaNum; });
+    if (scheda && scheda.anchor) return scheda.anchor;
+    return hub.cicloCorrente.url + "#scheda-" + schedaNum;
+  }
+
+  function renderWeekRow(day, hub) {
+    var row = getWeekPlanRow(day, hub);
     if (!row) return null;
     if (row.tipo === "riposo") {
       return el("span", { className: "week-plan__rest", text: "Riposo" });
@@ -195,6 +207,45 @@
       return el("span", { className: "week-plan__code", text: row.codice });
     }
     return null;
+  }
+
+  function renderMonthPlan(iso, hub, hasSession) {
+    var row = getWeekPlanRow(iso, hub);
+    if (!row) return null;
+    if (row.tipo === "riposo") {
+      return el("span", { className: "cal-month__rest", text: "Riposo" });
+    }
+    var href = row.scheda ? schedaAnchor(hub, row.scheda) : hub.cicloCorrente.url;
+    var link = el("a", {
+      className: "cal-month__plan" + (hasSession ? " cal-month__plan--logged" : ""),
+      href: href,
+      title: row.focus || row.codice
+    });
+    link.appendChild(el("span", { className: "cal-month__plan-code", text: row.codice }));
+    if (row.focus) {
+      link.appendChild(el("span", { className: "cal-month__plan-focus", text: row.focus }));
+    }
+    return link;
+  }
+
+  function renderTodayHint(hub, sessionsByDate, today) {
+    var todayIso = toIso(today);
+    var todaySessions = sessionsByDate[todayIso] || [];
+    if (todaySessions.length) return null;
+    var row = getWeekPlanRow(todayIso, hub);
+    if (!row || row.tipo === "riposo") return null;
+    var href = row.scheda ? schedaAnchor(hub, row.scheda) : hub.cicloCorrente.url;
+    var hint = el("p", { className: "cal-today-hint" });
+    hint.appendChild(document.createTextNode("Oggi · programma "));
+    var strong = el("a", { href: href, html: "<strong>" + row.codice + "</strong>" });
+    hint.appendChild(strong);
+    hint.appendChild(document.createTextNode(" — " + row.focus + ". "));
+    hint.appendChild(el("a", {
+      href: "/allenamenti/sessioni/",
+      text: "Seduta non ancora pubblicata"
+    }));
+    hint.appendChild(document.createTextNode(" — invia export Zepp per aggiornare sessioni e grafico FC."));
+    return hint;
   }
 
   function periodStatus(inizio, fine) {
@@ -462,8 +513,11 @@
             (sessionsByDate[iso] ? " has-session" : "")
         });
         cell.appendChild(el("span", { className: "cal-month__num", text: String(day.getDate()) }));
+        var daySessions = sessionsByDate[iso] || [];
+        var monthPlan = renderMonthPlan(iso, hub, daySessions.length > 0);
+        if (monthPlan) cell.appendChild(monthPlan);
         var list = el("div", { className: "cal-month__sessions" });
-        (sessionsByDate[iso] || []).forEach(function (s) {
+        daySessions.forEach(function (s) {
           list.appendChild(renderSessionChip(s));
         });
         cell.appendChild(list);
@@ -527,6 +581,8 @@
     weekBtn.addEventListener("click", function () { setView("week"); });
     monthBtn.addEventListener("click", function () { setView("month"); });
 
+    var todayHint = renderTodayHint(hub, sessionsByDate, today);
+    if (todayHint) root.appendChild(todayHint);
     root.appendChild(toolbar);
     root.appendChild(body);
     render();
