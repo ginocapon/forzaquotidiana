@@ -21,8 +21,77 @@
     "inizio": "2026-09-01",
     "fase": "Ipertrofia accumulo",
     "urlDiario": "/diario/blocco-1-ipertrofia-accumulo-settembre-2026/",
+    "urlSchede": "/admin/prototipi/periodizzazione/?anno=2026-2027",
     "descrizione": "Split A1–B1–A2–B2 · 4 sedute/settimana"
   },
+  "annoLavoro": {
+    "id": "2026-2027",
+    "label": "Anno di lavoro 2026–2027",
+    "periodo": "1 set 2026 – 31 ago 2027",
+    "url": "/admin/prototipi/periodizzazione/?anno=2026-2027"
+  },
+  "mesocicli": [
+    {
+      "id": "trimestre-giugno-luglio-agosto-2026",
+      "tipo": "trimestre",
+      "num": null,
+      "label": "Ipertrofia natural",
+      "quadrimestre": "Q3 2026",
+      "periodo": "1 giu – 31 ago 2026",
+      "inizio": "2026-06-01",
+      "fine": "2026-08-31",
+      "descrizione": "4 schede settimanali S1–S4",
+      "url": "/allenamenti/trimestre-giugno-luglio-agosto-2026/"
+    },
+    {
+      "id": "ipertrofia-accumulo",
+      "tipo": "mesociclo",
+      "num": 1,
+      "label": "Ipertrofia accumulo",
+      "quadrimestre": "Set–Nov 2026",
+      "periodo": "1 set – 30 nov 2026",
+      "inizio": "2026-09-01",
+      "fine": "2026-11-30",
+      "descrizione": "Fase 1 · 13 settimane · A1–B2",
+      "url": "/admin/prototipi/periodizzazione/fase/?anno=2026-2027&periodo=set26-ago27&fase=ipertrofia-accumulo"
+    },
+    {
+      "id": "tensione-forza",
+      "tipo": "mesociclo",
+      "num": 2,
+      "label": "Tensione + Forza",
+      "quadrimestre": "Dic 2026 – Mar 2027",
+      "periodo": "1 dic 2026 – 1 mar 2027",
+      "inizio": "2026-12-01",
+      "fine": "2027-03-01",
+      "descrizione": "Fase 2 · 13 settimane · A1–B2",
+      "url": "/admin/prototipi/periodizzazione/fase/?anno=2026-2027&periodo=set26-ago27&fase=tensione-forza"
+    },
+    {
+      "id": "ipertrofia-classica-ii",
+      "tipo": "mesociclo",
+      "num": 3,
+      "label": "Ipertrofia II",
+      "quadrimestre": "Mar–Mag 2027",
+      "periodo": "2 mar – 31 mag 2027",
+      "inizio": "2027-03-02",
+      "fine": "2027-05-31",
+      "descrizione": "Fase 3 · 13 settimane · A1–B2",
+      "url": "/admin/prototipi/periodizzazione/fase/?anno=2026-2027&periodo=set26-ago27&fase=ipertrofia-classica-ii"
+    },
+    {
+      "id": "ricondizionamento",
+      "tipo": "mesociclo",
+      "num": 4,
+      "label": "Ricondizionamento",
+      "quadrimestre": "Giu–Ago 2027",
+      "periodo": "1 giu – 31 ago 2027",
+      "inizio": "2027-06-01",
+      "fine": "2027-08-31",
+      "descrizione": "Fase 4 · 13 settimane · A1–B2",
+      "url": "/admin/prototipi/periodizzazione/fase/?anno=2026-2027&periodo=set26-ago27&fase=ricondizionamento"
+    }
+  ],
   "settimanaTipo": {
     "trimestre-giugno-luglio-agosto-2026": [
       { "giorno": "Lunedì", "scheda": 1, "codice": "S1", "focus": "Petto · Spalle · Dorsali" },

@@ -1213,7 +1213,8 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | Rigenera macrociclo | `node tools/genera-macrociclo.mjs` + `rebalance-macrociclo-55.mjs` |
 
 - `noindex` + `robots.txt` → `Disallow: /admin/`
-- **Non** linkare dall’hub pubblico `/allenamenti/`
+- Voce menu **Schede** (nav principale) → `/admin/prototipi/periodizzazione/`
+- Hub `/allenamenti/` → Programma con mesocicli cliccabili (passato / in corso / futuro)
 - Password admin: da implementare in seguito
 
 ### 8.2 Gerarchia periodizzazione

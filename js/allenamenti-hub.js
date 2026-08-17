@@ -197,6 +197,41 @@
     return null;
   }
 
+  function periodStatus(inizio, fine) {
+    if (!inizio || !fine) return "futuro";
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var a = parseDate(inizio);
+    var b = parseDate(fine);
+    if (today < a) return "futuro";
+    if (today > b) return "passato";
+    return "in-corso";
+  }
+
+  function statusLabel(st) {
+    if (st === "in-corso") return "In corso";
+    if (st === "passato") return "Passato";
+    return "Futuro";
+  }
+
+  function renderMesoCard(m) {
+    var st = periodStatus(m.inizio, m.fine);
+    var a = el("a", {
+      className: "meso-card card meso-card--" + st + (st === "in-corso" ? " is-current" : ""),
+      href: m.url
+    });
+    var top = el("p", { className: "meso-card__meta" });
+    var badge = m.num ? "Mesociclo " + m.num + " · " + (m.quadrimestre || "") : (m.quadrimestre || "");
+    top.appendChild(el("span", { className: "meso-card__quad", text: badge }));
+    top.appendChild(el("span", { className: "meso-card__status", text: statusLabel(st) }));
+    a.appendChild(top);
+    a.appendChild(el("strong", { className: "meso-card__title", text: m.label }));
+    a.appendChild(el("span", { className: "meso-card__periodo", text: m.periodo }));
+    a.appendChild(el("span", { className: "meso-card__desc", text: m.descrizione }));
+    a.appendChild(el("span", { className: "meso-card__cta", text: "Apri schede →" }));
+    return a;
+  }
+
   function renderProgramma(root, hub) {
     var sec = el("section", { className: "allen-hub-programma" });
     sec.appendChild(el("h2", { text: "Programma" }));
@@ -204,9 +239,28 @@
     var ciclo = hub.cicloCorrente;
     sec.appendChild(el("p", {
       className: "allen-hub-programma__lead",
-      html: "<strong>" + ciclo.label + "</strong> — " + ciclo.descrizione +
-        " · <a href=\"" + ciclo.url + "\">Apri trimestre completo →</a>"
+      html: "Periodo che stai osservando: <a href=\"" + ciclo.url + "\"><strong>" + ciclo.label + "</strong></a> — " + ciclo.descrizione +
+        " · <a href=\"/admin/prototipi/periodizzazione/\">Tutte le schede →</a>"
     }));
+
+    if (hub.annoLavoro) {
+      sec.appendChild(el("h3", {
+        className: "allen-hub-programma__h3",
+        text: hub.annoLavoro.label
+      }));
+      sec.appendChild(el("p", {
+        className: "allen-hub-programma__note",
+        html: hub.annoLavoro.periodo + " · 4 mesocicli (~13 settimane). Clicca passato, presente o futuro. " +
+          "<a href=\"" + hub.annoLavoro.url + "\">Hub schede anno →</a>"
+      }));
+    }
+
+    var meso = hub.mesocicli || [];
+    if (meso.length) {
+      var grid = el("div", { className: "meso-grid" });
+      meso.forEach(function (m) { grid.appendChild(renderMesoCard(m)); });
+      sec.appendChild(grid);
+    }
 
     sec.appendChild(el("h3", { className: "allen-hub-programma__h3", text: "Settimana tipo" }));
     sec.appendChild(el("p", {
@@ -232,39 +286,6 @@
     });
     sec.appendChild(weekGrid);
 
-    if (hub.cicloProssimo) {
-      var next = hub.cicloProssimo;
-      var nextBox = el("div", { className: "allen-hub-next card" });
-      nextBox.appendChild(el("p", {
-        className: "allen-hub-next__badge",
-        text: "Da " + formatDayLong(next.inizio).replace(/^\w+ /, "").replace(/ \d{4}$/, "") + " · " + next.badge
-      }));
-      nextBox.appendChild(el("h3", { text: next.label }));
-      nextBox.appendChild(el("p", { text: next.descrizione + " — " + next.fase + "." }));
-      var nextWeek = hub.settimanaTipo[next.id] || [];
-      var nextGrid = el("div", { className: "week-plan week-plan--compact" });
-      nextWeek.forEach(function (row) {
-        var cell = el("div", {
-          className: "week-plan__day" + (row.tipo === "riposo" ? " is-rest" : "")
-        });
-        cell.appendChild(el("span", { className: "week-plan__label", text: row.giorno.slice(0, 3) }));
-        if (row.tipo === "riposo") {
-          cell.appendChild(el("span", { className: "week-plan__rest", text: "—" }));
-        } else {
-          cell.appendChild(el("span", { className: "week-plan__code", text: row.codice }));
-        }
-        nextGrid.appendChild(cell);
-      });
-      nextBox.appendChild(nextGrid);
-      if (next.urlDiario) {
-        nextBox.appendChild(el("p", {
-          className: "allen-hub-next__link",
-          html: "<a href=\"" + next.urlDiario + "\">Leggi il blocco nel diario →</a>"
-        }));
-      }
-      sec.appendChild(nextBox);
-    }
-
     sec.appendChild(el("h3", {
       className: "allen-hub-programma__h3",
       text: "Schede giornaliere · " + ciclo.badge
@@ -286,12 +307,14 @@
       }));
       sec.appendChild(el("p", {
         className: "allen-hub-programma__note",
-        text: "Dal settembre 2026 — stesso split tutto l'anno, fasi da ~13 settimane. Dettaglio in admin."
+        text: "Dal settembre 2026 — stesso split tutto l'anno. Clicca A1–B2 per la scheda della fase in corso."
       }));
       var annual = hub.schedeAnnuali[hub.cicloProssimo.id] || [];
       var annualTiles = el("div", { className: "scheda-tiles scheda-tiles--annual" });
       annual.forEach(function (s) {
-        var tile = el("article", { className: "scheda-tile scheda-tile--static" });
+        var href = "/admin/sessione/?ciclo=" + encodeURIComponent(s.fase || "ipertrofia-accumulo") +
+          "&sessione=" + encodeURIComponent(s.sessione || "a1");
+        var tile = el("a", { className: "scheda-tile", href: href });
         tile.appendChild(figureNode(s.figura, s.titolo));
         var body = el("div", { className: "scheda-tile__body" });
         body.appendChild(el("span", { className: "scheda-tile__code", text: s.codice }));

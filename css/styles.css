@@ -4446,6 +4446,65 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   color: var(--muted);
 }
 
+.meso-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+@media (min-width: 720px) {
+  .meso-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .meso-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.meso-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(201, 150, 80, 0.22);
+}
+.meso-card:hover {
+  border-color: var(--accent);
+}
+.meso-card.is-current {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(201, 120, 58, 0.35);
+}
+.meso-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.meso-card__quad { color: var(--accent); font-weight: 700; }
+.meso-card--in-corso .meso-card__status { color: #c4e0a8; }
+.meso-card--passato .meso-card__status { color: var(--muted); }
+.meso-card--futuro .meso-card__status { color: #e8c090; }
+.meso-card__title {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+.meso-card__periodo {
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.meso-card__desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.meso-card__cta {
+  margin-top: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
 .week-plan {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

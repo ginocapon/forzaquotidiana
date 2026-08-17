@@ -8,6 +8,22 @@
     });
   }
 
+  var ul = nav && nav.querySelector("ul");
+  if (ul && !ul.querySelector('[data-nav="schede"]')) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = "/admin/prototipi/periodizzazione/";
+    a.textContent = "Schede";
+    a.setAttribute("data-nav", "schede");
+    if (location.pathname.indexOf("/admin/prototipi/periodizzazione") === 0) {
+      a.setAttribute("aria-current", "page");
+    }
+    li.appendChild(a);
+    var allen = ul.querySelector('a[href="/allenamenti/"]');
+    if (allen && allen.parentNode) allen.parentNode.insertAdjacentElement("afterend", li);
+    else ul.appendChild(li);
+  }
+
   /* Marchio «Foto AI» su immagini data-ai (AI Act UE).
      Esclusi i thumb dell’indice diario: troppo piccoli, il testo non si legge. */
   document.querySelectorAll('img[data-ai]').forEach(function (img) {
