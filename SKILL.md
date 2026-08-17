@@ -1305,7 +1305,7 @@ Ogni sessione A1–B2 ha un **PDF dedicato** (stampabile anche per amici — **a
 **Dati:** `admin/data/macrociclo-2026-2027.json` + `esercizi-catalogo.json`  
 **Ribilancio ~55% lower:** `node tools/rebalance-macrociclo-55.mjs` (dopo `genera-macrociclo.mjs`)
 
-Stampa: **A4 verticale**, margini standard, «Salva come PDF» dal browser.
+Stampa: **A4 verticale**, margini **8 mm**, «Salva come PDF» dal browser. Testo e figure esercizi ingranditi; **massimo 2 facciate** per sessione (header compatto, una riga osservazioni, cue tecnica breve).
 
 ### 8.9 Checklist nuovo macrociclo admin
 

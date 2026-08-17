@@ -42,6 +42,17 @@
     return wrap;
   }
 
+  function findCatalog(catalogo, ex) {
+    if (catalogo[ex.nome]) return catalogo[ex.nome];
+    var fig = ex.figura;
+    if (!fig) return {};
+    var names = Object.keys(catalogo);
+    for (var i = 0; i < names.length; i++) {
+      if (catalogo[names[i]].figura === fig) return catalogo[names[i]];
+    }
+    return {};
+  }
+
   function buildExerciseLog(ex) {
     var log = el("div", { className: "ex-pdf-log" });
     log.appendChild(el("p", { className: "ex-pdf-log__label", text: "Log" }));
@@ -74,6 +85,7 @@
             ripetizioni: ex.ripetizioni,
             recupero: ex.recupero,
             rir: ex.rir,
+            tempo: ex.tempo,
             progressione: ex.progressionePrincipale || false,
             note: ex.note,
             figura: ex.figura
@@ -116,13 +128,12 @@
       "<span><strong>RIR:</strong> " + fase.rir + "</span>" +
       "<span><strong>Atleta:</strong> _______________</span>" +
       "</div>" +
-      "<p class=\"scheda-sessione-pdf__obiettivo\">" + fase.obiettivo + "</p>";
+      (fase.obiettivo ? "<p class=\"scheda-sessione-pdf__obiettivo\">" + fase.obiettivo + "</p>" : "");
     article.appendChild(head);
 
     var oss = el("div", { className: "scheda-sessione-pdf__osservazioni" });
     oss.innerHTML =
       "<div class=\"scheda-sessione-pdf__osservazioni-label\">Osservazioni / note sessione</div>" +
-      "<div class=\"scheda-sessione-pdf__osservazioni-line\"></div>" +
       "<div class=\"scheda-sessione-pdf__osservazioni-line\"></div>";
     article.appendChild(oss);
 
@@ -135,7 +146,7 @@
     main.appendChild(sessionBar);
 
     s.esercizi.forEach(function (ex) {
-      var cat = catalogo[ex.nome] || {};
+      var cat = findCatalog(catalogo, ex);
       var row = el("div", { className: "ex-pdf-row" + (ex.progressione ? " ex-pdf-row--prog" : "") });
 
       row.appendChild(figureSvg(ex.figura || cat.figura, ex.nome));
@@ -151,25 +162,24 @@
 
       body.appendChild(el("p", {
         className: "ex-pdf-row__muscles",
-        html: "<strong>Primario:</strong> " + (cat.primario || ex.gruppo) +
-          (cat.secondario ? " · <strong>Secondario:</strong> " + cat.secondario : "")
+        html: "<strong>" + (cat.primario || ex.gruppo) + "</strong>" +
+          (cat.secondario ? " · " + cat.secondario : "")
       }));
 
       body.appendChild(el("div", {
         className: "ex-pdf-row__params",
         html: "<span><strong>" + ex.serie + "×" + ex.ripetizioni + "</strong></span>" +
           "<span class=\"target-kg\">kg: _______</span>" +
+          (ex.tempo ? "<span>TUT " + ex.tempo + "</span>" : "") +
           "<span>Rec " + ex.recupero + "</span>" +
-          "<span>RIR " + ex.rir + "</span>" +
-          (ex.tecnica ? "<span>" + ex.tecnica + "</span>" : "")
+          "<span>RIR " + ex.rir + "</span>"
       }));
 
       var tech = el("ul", { className: "ex-pdf-row__tech" });
-      if (cat.setup) tech.appendChild(el("li", { html: "<strong>Setup:</strong> " + cat.setup }));
-      if (cat.movimento) tech.appendChild(el("li", { html: "<strong>Movimento:</strong> " + cat.movimento }));
-      if (cat.errori) tech.appendChild(el("li", { html: "<strong>Evita:</strong> " + cat.errori }));
-      if (ex.note) tech.appendChild(el("li", { html: "<strong>Nota scheda:</strong> " + ex.note }));
-      body.appendChild(tech);
+      if (cat.movimento) tech.appendChild(el("li", { text: cat.movimento }));
+      else if (cat.setup) tech.appendChild(el("li", { text: cat.setup }));
+      if (ex.note) tech.appendChild(el("li", { html: "<strong>Nota:</strong> " + ex.note }));
+      if (tech.childNodes.length) body.appendChild(tech);
 
       row.appendChild(body);
       row.appendChild(buildExerciseLog(ex));
@@ -198,6 +208,11 @@
       return;
     }
 
+    var printBtn = document.getElementById("pdf-print-btn");
+    if (printBtn) {
+      printBtn.addEventListener("click", function () { window.print(); });
+    }
+
     if (faseId === BLOCCO1_ID) {
       Promise.all([
         fetch(BLOCCO1_URL).then(function (r) { return r.json(); }),
@@ -214,11 +229,6 @@
     ])
       .then(function (res) { renderPdf(res[0], res[1], faseId, sessionKey, root, null); })
       .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
-
-    var printBtn = document.getElementById("pdf-print-btn");
-    if (printBtn) {
-      printBtn.addEventListener("click", function () { window.print(); });
-    }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

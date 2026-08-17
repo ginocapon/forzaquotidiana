@@ -43,11 +43,11 @@
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 150, 80, 0.22);
   box-sizing: border-box;
   font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 6.5pt;
+  font-size: 11pt;
   line-height: 1.15;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 3px;
 }
 
@@ -88,7 +88,7 @@
   flex-shrink: 0;
 }
 .scheda-a4__head-main {
-  font-size: 9pt;
+  font-size: 15pt;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-align: center;
@@ -101,18 +101,18 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: none;
-  font-size: 7pt;
+  font-size: 11pt;
 }
 .scheda-a4__head-period {
   text-align: center;
-  font-size: 6.5pt;
+  font-size: 11pt;
   margin: 0 0 0.8mm;
   line-height: 1.25;
   color: var(--scheda-ink);
 }
 .scheda-a4__badge {
   display: inline-block;
-  font-size: 5.5pt;
+  font-size: 9pt;
   font-weight: 700;
   border: 1px solid var(--scheda-bronze);
   color: var(--scheda-gold);
@@ -127,7 +127,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1mm 4mm;
-  font-size: 6pt;
+  font-size: 10pt;
   color: var(--scheda-muted);
 }
 .scheda-a4__head-meta strong {
@@ -151,12 +151,12 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   background: var(--scheda-panel);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 .scheda-a4__quad h2 {
-  font-size: 6.6pt;
+  font-size: 12pt;
   margin: 0 0 0.9mm;
   padding: 0.55mm 1mm;
   background: linear-gradient(90deg, rgba(201, 120, 58, 0.28), rgba(201, 120, 58, 0.08));
@@ -170,12 +170,12 @@
   width: 100%;
   border-collapse: collapse;
   flex: 1;
-  font-size: 6pt;
+  font-size: 11pt;
 }
 .scheda-a4__quad th,
 .scheda-a4__quad td {
   border: 1px solid rgba(201, 150, 80, 0.28);
-  padding: 0.45mm 0.8mm;
+  padding: 0.7mm 1mm;
   vertical-align: middle;
 }
 .scheda-a4__quad th {
@@ -206,7 +206,7 @@
 
 .scheda-a4__logline {
   margin: 0.8mm 0 0;
-  font-size: 5.5pt;
+  font-size: 9pt;
   color: var(--scheda-muted);
   border-top: 1px dashed rgba(212, 168, 85, 0.35);
   padding-top: 0.5mm;
@@ -215,7 +215,7 @@
 .scheda-a4__foot {
   margin-top: 1.5mm;
   padding-top: 1mm;
-  font-size: 5.2pt;
+  font-size: 8pt;
   color: var(--scheda-muted);
   text-align: center;
   flex-shrink: 0;
@@ -226,7 +226,7 @@
 @media print {
   @page {
     size: A4 landscape;
-    margin: 5mm;
+    margin: 6mm;
   }
   .no-print { display: none !important; }
   .schede-peso { background: #0c0c0c; }
@@ -235,14 +235,12 @@
     max-width: none;
     min-height: 0;
     height: auto;
-    max-height: calc(210mm - 10mm);
+    max-height: none;
     margin: 0;
     padding: 0;
     box-shadow: none;
     border-radius: 0;
-    page-break-after: avoid;
-    page-break-inside: avoid;
-    overflow: hidden;
+    overflow: visible;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -251,7 +249,13 @@
     print-color-adjust: exact;
   }
   .scheda-a4__grid {
-    max-height: 155mm;
+    max-height: none;
+    grid-template-rows: auto auto;
+  }
+  .scheda-a4__quad {
+    overflow: visible;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 
