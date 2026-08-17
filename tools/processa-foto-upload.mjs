@@ -19,7 +19,14 @@ const KNOWN_BATCHES = {
   "foto allenamento 17 agosto": {
     date: "2026-08-17",
     scheda: 1,
-    slugOrder: ["riepilogo", "tsb", "valutazione", "tecnica", "zone-effetto"],
+    files: {
+      "IMG_0349.jpeg": "riepilogo",
+      "IMG_0344.png": "fc-grafico",
+      "IMG_0345.png": "zone-effetto",
+      "IMG_0346.png": "tecnica",
+      "IMG_0347.jpeg": "valutazione",
+      "IMG_0348.png": "tsb",
+    },
   },
   "foto allenamento 4 agosto": {
     date: "2026-08-04",

@@ -531,7 +531,7 @@
       "recupero": "46:10",
       "gruppi": 24,
       "fc_media": 113,
-      "fc_max": null,
+      "fc_max": 150,
       "calorie": 513,
       "carico": 75,
       "duration_corrected": false,
