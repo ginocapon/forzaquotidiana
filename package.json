@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "pdf:scheda": "node tools/genera-pdf-scheda.mjs trimestre-giugno-luglio-agosto-2026 scheda-forza-quotidiana-q3-2026.pdf --local",
+    "pdf:fase": "node tools/genera-pdf-fase.mjs",
     "editorial:friday": "node tools/editorial-weekly.mjs run --friday",
     "newsletter:sync": "node tools/sync-newsletter-stats.mjs",
     "ai:watermark": "node scripts/apply-ai-photo-watermark.mjs",

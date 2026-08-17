@@ -212,6 +212,7 @@ body.admin-page.schede-peso {
   body.admin-page,
   body.admin-page.schede-peso,
   body {
+    color-scheme: light !important;
     background: #ffffff !important;
     color: #111111 !important;
   }
@@ -219,13 +220,20 @@ body.admin-page.schede-peso {
   .pdf-cycle-select { display: none !important; }
 
   .scheda-a4--admin {
-    width: 100%;
-    max-width: none;
-    min-height: 0;
-    margin: 0;
-    box-shadow: none;
-    border: none;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  .scheda-a4--admin table td:nth-child(5),
+  .scheda-a4--admin table td:nth-child(6),
+  .scheda-a4--admin table td:nth-child(7) {
+    background: #fff8e8 !important;
   }
 }

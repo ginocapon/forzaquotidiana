@@ -67,7 +67,7 @@
       var tbody = el("tbody");
       day.esercizi.forEach(function (ex) {
         var tr = el("tr");
-        var nome = ex.nome + ((ex.progressionePrincipale || ex.progressione) ? " *" : "");
+        var nome = ex.nome + (ex.progressionePrincipale === true || ex.progressione === true ? " *" : "");
         tr.innerHTML =
           "<td>" + nome + "</td>" +
           "<td>" + ex.serie + "×" + ex.ripetizioni + "</td>" +

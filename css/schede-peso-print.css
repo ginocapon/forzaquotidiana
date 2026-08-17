@@ -209,30 +209,82 @@
     size: A4 landscape;
     margin: 8mm;
   }
-  .no-print { display: none !important; }
-  html, body, .schede-peso {
+
+  html {
+    color-scheme: light !important;
     background: #ffffff !important;
-    color: #111111 !important;
   }
+
+  html, body, body.admin-page, body.schede-peso, body.theme-allenamenti,
+  main, .wrap, #contenuto, #fase-pdf-root, .scheda-a4 {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111111 !important;
+    box-shadow: none !important;
+  }
+
+  .no-print,
+  .skip-link,
+  .site-header,
+  .site-footer,
+  .cookie-banner,
+  #cookie-banner {
+    display: none !important;
+  }
+
+  main, .wrap, #contenuto, #fase-pdf-root {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
   .scheda-a4 {
-    width: 100%;
-    max-width: none;
-    min-height: 0;
-    height: auto;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+
+  .scheda-a4,
+  .scheda-a4 h2,
+  .scheda-a4 th,
+  .scheda-a4 td,
+  .scheda-a4 p,
+  .scheda-a4 span,
+  .scheda-a4 strong {
+    color: #111111 !important;
+  }
+
+  .scheda-a4__quad,
+  .scheda-a4 th,
+  .scheda-a4 td {
+    background: #ffffff !important;
+  }
+
+  .scheda-a4__quad h2,
+  .scheda-a4 th {
+    background: #efe4d6 !important;
+  }
+
+  .scheda-a4 td:nth-child(3),
+  .scheda-a4 td:nth-child(5) {
+    background: #fff8e8 !important;
+  }
+
   .scheda-a4__grid {
     max-height: none;
     grid-template-rows: auto auto;
   }
+
   .scheda-a4__quad {
     overflow: visible;
     break-inside: avoid;
