@@ -829,9 +829,9 @@ Nuovi movimenti kettlebell (es. Catch Ball, Clean Halo) → card **in chiusura**
 
 ### Scheda A4
 
-- 4 quadranti (Scheda 1–4) su **un solo foglio** orizzontale
+- 4 quadranti (Scheda 1–4) su **un solo foglio** orizzontale (max 2 facciate)
 - Colonne: Esercizio · S×R · kg · **TUT** · Note + riga log per quadrante
-- Stampa: orizzontale, margini minimi, 100%
+- Stampa: **foglio bianco**, testo ~13 pt, orizzontale, margini 8 mm, 100%
 
 ### Database iscritti + consenso (GDPR)
 

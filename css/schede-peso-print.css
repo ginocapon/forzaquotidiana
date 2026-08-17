@@ -1,7 +1,7 @@
-/* Scheda pesi — A4 orizzontale, look dark/glamour allineato al sito */
+/* Schede pesi stampabili — A4 orizzontale, foglio bianco, testo grande */
 .schede-peso {
-  background: #0c0c0c;
-  color: #f4efe6;
+  background: #d8d4cc;
+  color: #111;
 }
 
 .schede-peso-toolbar {
@@ -23,28 +23,28 @@
 .schede-peso-toolbar p { margin: 0; }
 .schede-peso-toolbar__tip { width: 100%; margin: 0; color: #a39a90; }
 
-/* Anteprima schermo ≈ A4 landscape */
 .scheda-a4 {
-  --scheda-ink: #f4efe6;
-  --scheda-muted: #c4b8a8;
-  --scheda-bronze: #c9783a;
-  --scheda-gold: #d4a855;
-  --scheda-panel: rgba(18, 16, 14, 0.82);
-  --scheda-cell: rgba(250, 244, 232, 0.92);
-  --scheda-cell-ink: #1a1510;
+  --scheda-ink: #111111;
+  --scheda-muted: #333333;
+  --scheda-bronze: #8b4513;
+  --scheda-gold: #6b3a14;
+  --scheda-panel: #ffffff;
+  --scheda-cell: #fff8e8;
+  --scheda-cell-ink: #111111;
 
   position: relative;
   width: 297mm;
   min-height: 210mm;
   margin: 1rem auto 2rem;
   padding: 4mm 5mm 5mm;
-  background: #0c0c0c;
+  background: #ffffff;
   color: var(--scheda-ink);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 150, 80, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  border: 1px solid #bbb;
   box-sizing: border-box;
   font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 11pt;
-  line-height: 1.15;
+  font-size: 13pt;
+  line-height: 1.2;
   display: flex;
   flex-direction: column;
   overflow: visible;
@@ -52,28 +52,7 @@
 }
 
 .scheda-a4__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      155deg,
-      rgba(8, 8, 8, 0.88) 0%,
-      rgba(12, 10, 8, 0.72) 38%,
-      rgba(14, 10, 8, 0.78) 100%
-    ),
-    radial-gradient(ellipse at 80% 22%, rgba(201, 120, 58, 0.28), transparent 52%),
-    url("../img/schede/scheda-bg-vita-atletica.webp") 78% 16% / cover no-repeat;
-}
-
-.scheda-a4__bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(8, 8, 8, 0.55) 0%, rgba(8, 8, 8, 0.18) 48%, transparent 70%),
-    linear-gradient(0deg, rgba(8, 8, 8, 0.5) 0%, transparent 42%);
+  display: none !important;
 }
 
 .scheda-a4 > *:not(.scheda-a4__bg) {
@@ -82,18 +61,18 @@
 }
 
 .scheda-a4__head {
-  border-bottom: 1.4px solid rgba(212, 168, 85, 0.65);
+  border-bottom: 2px solid #c9783a;
   padding-bottom: 1.5mm;
   margin-bottom: 1.5mm;
   flex-shrink: 0;
 }
 .scheda-a4__head-main {
-  font-size: 15pt;
+  font-size: 16pt;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   text-align: center;
   margin-bottom: 0.5mm;
-  color: var(--scheda-gold);
+  color: var(--scheda-ink);
   text-transform: uppercase;
 }
 .scheda-a4__head-main span {
@@ -101,33 +80,33 @@
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: none;
-  font-size: 11pt;
+  font-size: 13pt;
 }
 .scheda-a4__head-period {
   text-align: center;
-  font-size: 11pt;
+  font-size: 13pt;
   margin: 0 0 0.8mm;
   line-height: 1.25;
   color: var(--scheda-ink);
 }
 .scheda-a4__badge {
   display: inline-block;
-  font-size: 9pt;
+  font-size: 11pt;
   font-weight: 700;
   border: 1px solid var(--scheda-bronze);
   color: var(--scheda-gold);
   border-radius: 2px;
-  padding: 0.2mm 1mm;
+  padding: 0.3mm 1.4mm;
   margin-right: 1mm;
-  letter-spacing: 0.06em;
-  background: rgba(201, 120, 58, 0.12);
+  letter-spacing: 0.04em;
+  background: #f3e6d8;
 }
 .scheda-a4__head-meta {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1mm 4mm;
-  font-size: 10pt;
+  font-size: 12pt;
   color: var(--scheda-muted);
 }
 .scheda-a4__head-meta strong {
@@ -145,7 +124,7 @@
 }
 
 .scheda-a4__quad {
-  border: 1px solid rgba(212, 168, 85, 0.42);
+  border: 1px solid #888;
   border-radius: 3px;
   padding: 1.3mm 1.5mm;
   display: flex;
@@ -153,15 +132,14 @@
   min-height: 0;
   overflow: visible;
   background: var(--scheda-panel);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 .scheda-a4__quad h2 {
-  font-size: 12pt;
+  font-size: 14pt;
   margin: 0 0 0.9mm;
   padding: 0.55mm 1mm;
-  background: linear-gradient(90deg, rgba(201, 120, 58, 0.28), rgba(201, 120, 58, 0.08));
-  color: var(--scheda-gold);
-  border-left: 2.2px solid var(--scheda-bronze);
+  background: #f3e6d8;
+  color: var(--scheda-ink);
+  border-left: 3px solid #c9783a;
   flex-shrink: 0;
   letter-spacing: 0.02em;
 }
@@ -170,66 +148,72 @@
   width: 100%;
   border-collapse: collapse;
   flex: 1;
-  font-size: 11pt;
+  font-size: 13pt;
 }
 .scheda-a4__quad th,
 .scheda-a4__quad td {
-  border: 1px solid rgba(201, 150, 80, 0.28);
-  padding: 0.7mm 1mm;
+  border: 1px solid #999;
+  padding: 1mm 1.2mm;
   vertical-align: middle;
+  color: var(--scheda-ink);
 }
 .scheda-a4__quad th {
-  background: rgba(212, 168, 85, 0.14);
-  color: var(--scheda-gold);
-  font-weight: 600;
+  background: #efe4d6;
+  color: var(--scheda-ink);
+  font-weight: 700;
   text-align: left;
 }
 .scheda-a4__quad td {
-  color: var(--scheda-ink);
-  background: rgba(8, 8, 8, 0.35);
+  background: #ffffff;
 }
-/* Celle vuote kg / Note: crema scrivibile a penna */
+.scheda-a4__quad td:nth-child(1) {
+  font-weight: 700;
+  font-size: 14pt;
+}
+/* Celle vuote kg / Note: crema scrivibile a penna (tabella 5 colonne riassuntiva) */
 .scheda-a4__quad td:nth-child(3),
 .scheda-a4__quad td:nth-child(5) {
   background: var(--scheda-cell);
   color: var(--scheda-cell-ink);
 }
-.scheda-a4__quad td:nth-child(2) { width: 11%; white-space: nowrap; color: #f0c090; }
+.scheda-a4__quad td:nth-child(2) { width: 11%; white-space: nowrap; font-weight: 700; }
 .scheda-a4__quad td:nth-child(3) { width: 8%; }
-.scheda-a4__quad td:nth-child(4) { width: 12%; color: var(--scheda-muted); }
+.scheda-a4__quad td:nth-child(4) { width: 12%; }
 .scheda-a4__quad td:nth-child(5) { width: 12%; }
 .scheda-a4__filler {
-  border-color: rgba(201, 150, 80, 0.12) !important;
-  background: rgba(250, 244, 232, 0.08) !important;
-  height: 2.8mm;
+  border-color: #ddd !important;
+  background: #f7f4ee !important;
+  height: 3mm;
 }
 
 .scheda-a4__logline {
   margin: 0.8mm 0 0;
-  font-size: 9pt;
+  font-size: 11pt;
   color: var(--scheda-muted);
-  border-top: 1px dashed rgba(212, 168, 85, 0.35);
+  border-top: 1px dashed #bbb;
   padding-top: 0.5mm;
 }
 
 .scheda-a4__foot {
   margin-top: 1.5mm;
   padding-top: 1mm;
-  font-size: 8pt;
+  font-size: 11pt;
   color: var(--scheda-muted);
   text-align: center;
   flex-shrink: 0;
-  border-top: 1px solid rgba(212, 168, 85, 0.35);
-  letter-spacing: 0.03em;
+  border-top: 1px solid #bbb;
 }
 
 @media print {
   @page {
     size: A4 landscape;
-    margin: 6mm;
+    margin: 8mm;
   }
   .no-print { display: none !important; }
-  .schede-peso { background: #0c0c0c; }
+  html, body, .schede-peso {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
   .scheda-a4 {
     width: 100%;
     max-width: none;
@@ -239,12 +223,9 @@
     margin: 0;
     padding: 0;
     box-shadow: none;
+    border: none;
     border-radius: 0;
     overflow: visible;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-  .scheda-a4__bg {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -264,14 +245,9 @@
     width: 100%;
     min-height: auto;
     padding: 0.75rem;
-    font-size: 0.65rem;
   }
   .scheda-a4__grid {
     grid-template-columns: 1fr;
     height: auto;
-  }
-  .scheda-a4__quad table { font-size: 0.62rem; }
-  .scheda-a4__bg {
-    background-position: 70% 20%;
   }
 }

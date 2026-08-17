@@ -1,10 +1,183 @@
-/* Admin PDF overrides */
-.scheda-a4--admin .scheda-a4__head-period { font-size: 11pt; }
+/* PDF scheda fase admin — foglio bianco, testo grande, max 2 facciate */
+
+body.admin-page.schede-peso {
+  background: #d8d4cc !important;
+  color: #111;
+}
+
+.scheda-a4--admin {
+  --scheda-ink: #111111;
+  --scheda-muted: #333333;
+  --scheda-bronze: #8b4513;
+  --scheda-gold: #6b3a14;
+  --scheda-panel: #ffffff;
+  --scheda-cell: #fff8e8;
+  --scheda-cell-ink: #111111;
+
+  background: #ffffff !important;
+  color: #111111;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  border: 1px solid #bbb;
+  font-size: 13pt;
+  line-height: 1.2;
+}
+
+.scheda-a4--admin .scheda-a4__bg {
+  display: none !important;
+}
+
+.scheda-a4--admin .scheda-a4__head {
+  border-bottom: 2px solid #c9783a;
+}
+
+.scheda-a4--admin .scheda-a4__head-main {
+  font-size: 16pt;
+  color: #111111;
+}
+
+.scheda-a4--admin .scheda-a4__head-main span,
+.scheda-a4--admin .scheda-a4__head-main strong {
+  color: #111111;
+  font-size: 16pt;
+}
+
+.scheda-a4--admin .scheda-a4__head-period {
+  font-size: 13pt;
+  color: #111111;
+}
+
+.scheda-a4--admin .scheda-a4__badge {
+  font-size: 11pt;
+  color: #6b3a14;
+  border-color: #c9783a;
+  background: #f3e6d8;
+}
+
+.scheda-a4--admin .scheda-a4__head-meta {
+  font-size: 12pt;
+  color: #222222;
+}
+
+.scheda-a4--admin .scheda-a4__head-meta strong {
+  color: #111111;
+}
+
+.scheda-a4--admin .scheda-a4__quad {
+  background: #ffffff;
+  border: 1px solid #888;
+  box-shadow: none;
+}
+
+.scheda-a4--admin .scheda-a4__quad h2 {
+  font-size: 14pt;
+  color: #111111;
+  background: #f3e6d8;
+  border-left: 3px solid #c9783a;
+}
+
+.scheda-a4--admin table,
 .scheda-a4--admin table th,
-.scheda-a4--admin table td { font-size: 11pt; padding: 0.7mm 1mm; }
-.scheda-a4--admin .scheda-a4__quad h2 { font-size: 12pt; }
+.scheda-a4--admin table td {
+  font-size: 13pt;
+  padding: 1mm 1.2mm;
+  color: #111111;
+}
+
+.scheda-a4--admin table th {
+  background: #efe4d6;
+  color: #111111;
+  font-weight: 700;
+}
+
+.scheda-a4--admin table td {
+  background: #ffffff;
+  color: #111111;
+}
+
+.scheda-a4--admin table td:nth-child(1) {
+  font-weight: 700;
+  font-size: 14pt;
+}
+
+.scheda-a4--admin table td:nth-child(2) {
+  color: #111111;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.scheda-a4--admin table td:nth-child(3),
+.scheda-a4--admin table td:nth-child(4) {
+  background: #ffffff;
+}
+
+/* kg + reps + note: celle crema da compilare a penna */
+.scheda-a4--admin table td:nth-child(5),
+.scheda-a4--admin table td:nth-child(6),
+.scheda-a4--admin table td:nth-child(7) {
+  background: #fff8e8;
+  min-width: 11mm;
+}
+
+.scheda-a4--admin .scheda-a4__filler {
+  background: #f7f4ee !important;
+  border-color: #ddd !important;
+}
+
+.scheda-a4--admin .scheda-a4__logline,
+.scheda-a4--admin .scheda-a4__foot {
+  font-size: 11pt;
+  color: #333333;
+  border-color: #bbb;
+}
+
 .scheda-a4--admin .scheda-a4__osservazioni {
-  margin-bottom: 1.5mm;
+  margin: 0 0 2mm;
+  padding: 1.2mm 2mm;
+  border: 1px solid #c9b8a4;
+  border-radius: 2px;
+  background: #faf7f2;
+}
+
+.scheda-a4__osservazioni-label {
+  font-size: 10pt;
+  font-weight: 700;
+  color: #8b4513;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6mm;
+}
+
+.scheda-a4__intro-fase {
+  margin-bottom: 2mm !important;
+}
+
+.scheda-a4__intro-text {
+  margin: 0.4mm 0 0;
+  font-size: 11pt;
+  line-height: 1.25;
+  color: #222;
+}
+
+.scheda-a4__osservazioni-line {
+  border-bottom: 1px solid #c9b8a4;
+  min-height: 6mm;
+  margin-bottom: 0.6mm;
+}
+
+.scheda-a4__mini-table {
+  width: auto;
+  font-size: 10pt;
+  border-collapse: collapse;
+  margin: 0.8mm 0 0;
+}
+
+.scheda-a4__mini-table th,
+.scheda-a4__mini-table td {
+  border: 1px solid #999;
+  padding: 0.4mm 1.2mm;
+  font-size: 10pt;
+  color: #111;
+  background: #fff;
 }
 
 .pdf-cycle-select {
@@ -30,16 +203,29 @@
 }
 
 @media print {
-  .admin-page.schede-peso { background: #fff; }
-  .pdf-cycle-select { display: none !important; }
-}
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
 
-.scheda-a4__intro-fase {
-  margin-bottom: 2mm !important;
-}
-.scheda-a4__intro-text {
-  margin: 0.8mm 0 0;
-  font-size: 10pt;
-  line-height: 1.25;
-  color: #333;
+  html,
+  body.admin-page,
+  body.admin-page.schede-peso,
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  .pdf-cycle-select { display: none !important; }
+
+  .scheda-a4--admin {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 }
