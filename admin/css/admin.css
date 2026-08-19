@@ -452,7 +452,30 @@
 }
 .admin-fase h3 { margin: 0.15rem 0; font-size: 1.15rem; }
 .admin-fase__dates { margin: 0; font-size: 0.85rem; color: var(--muted); }
-.admin-fase__obiettivo { margin: 0; font-size: 0.9rem; color: #ccc4b8; max-width: 28rem; }
+.admin-fase__side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  max-width: 28rem;
+}
+.admin-fase__obiettivo { margin: 0; font-size: 0.9rem; color: #ccc4b8; max-width: none; }
+.admin-fase__pdf {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  white-space: nowrap;
+}
+.admin-fase__pdf:hover { filter: brightness(1.08); color: #fff; }
+@media (max-width: 639px) {
+  .admin-fase__side { align-items: flex-start; max-width: none; }
+}
 
 .admin-sessioni-grid {
   display: grid;

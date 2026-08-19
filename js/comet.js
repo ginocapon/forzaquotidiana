@@ -35,65 +35,248 @@
   var holdElapsed = 0;
   var pathEl = null;
   var pathLen = 0;
+  var pathBox = { w: 720, h: 210 };
+  var glyphDots = [];
+  var scriptReady = false;
 
-  /**
-   * Corsivo italiano inclinato — un tratto, col punto della i dopo l’asta.
-   * ViewBox approssimata 0 0 720 210.
-   */
-  var GINEVRA_D =
-    "M 52,176 " +
-    "C 36,170 32,112 58,58 " +
-    "C 80,16 152,12 176,62 " +
-    "C 192,96 176,150 124,170 " +
-    "C 92,182 68,164 82,138 " +
-    "C 100,108 154,118 188,168 " +
-    "C 198,142 202,78 204,52 " +
-    "C 206,78 212,148 226,182 " +
-    "M 204,30 C 198,30 196,38 204,40 C 212,42 212,30 204,30 " +
-    "M 226,182 " +
-    "C 236,128 240,62 242,48 " +
-    "C 252,62 258,128 262,182 " +
-    "C 270,128 276,58 290,48 " +
-    "C 302,58 308,128 312,182 " +
-    "C 328,164 318,108 348,96 " +
-    "C 380,82 392,124 372,154 " +
-    "C 358,176 348,180 364,182 " +
-    "C 382,128 394,58 402,46 " +
-    "C 422,100 440,176 452,182 " +
-    "C 462,128 466,58 470,48 " +
-    "C 488,60 500,96 502,108 " +
-    "C 498,140 508,176 518,182 " +
-    "C 536,166 528,92 564,78 " +
-    "C 604,62 624,108 608,152 " +
-    "C 596,180 572,190 566,162 " +
-    "C 582,180 628,176 678,168";
+  /** Come a casa: script matematico 𝒢𝒾𝓃𝑒𝓋𝓇𝒶 (𝑒 in corsivo italico). */
+  var GINEVRA_SCRIPT = "𝒢𝒾𝓃𝑒𝓋𝓇𝒶";
+  var SCRIPT_FONT = '160px "Cambria Math", "STIX Two Math", "STIX", "Segoe UI Symbol", serif';
+  var FALLBACK_FONT = 'italic 160px "Segoe Script", "French Script MT", "Apple Chancery", cursive';
 
-  function ensurePath() {
-    if (pathEl) return;
-    var ns = "http://www.w3.org/2000/svg";
-    var svg = document.createElementNS(ns, "svg");
-    svg.setAttribute("aria-hidden", "true");
-    svg.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
-    pathEl = document.createElementNS(ns, "path");
-    pathEl.setAttribute("d", GINEVRA_D);
-    svg.appendChild(pathEl);
-    hero.appendChild(svg);
+  function sampleText(text, fontSpec) {
+    var probe = document.createElement("canvas").getContext("2d");
+    probe.font = fontSpec;
+    var width = probe.measureText(text).width;
+    if (!width || width < 40) return null;
+
+    var pad = 28;
+    var tw = Math.ceil(width) + pad * 2;
+    var th = 220;
+    var c = document.createElement("canvas");
+    c.width = tw;
+    c.height = th;
+    var g = c.getContext("2d");
+    g.font = fontSpec;
+    g.fillStyle = "#fff";
+    g.textBaseline = "alphabetic";
+    var baseline = 150;
+    g.fillText(text, pad, baseline);
+    var data = g.getImageData(0, 0, tw, th).data;
+
+    function ink(x, y) {
+      if (x < 0 || y < 0 || x >= tw || y >= th) return false;
+      return data[(y * tw + x) * 4 + 3] > 48;
+    }
+
+    var step = 2;
+    var visited = new Uint8Array(tw * th);
+    var blobs = [];
+
+    function flood(sx, sy) {
+      var stack = [[sx, sy]];
+      var minX = sx, maxX = sx, minY = sy, maxY = sy;
+      visited[sy * tw + sx] = 1;
+      while (stack.length) {
+        var p = stack.pop();
+        var x = p[0];
+        var y = p[1];
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+        var nbs = [[x + step, y], [x - step, y], [x, y + step], [x, y - step]];
+        for (var i = 0; i < 4; i++) {
+          var nx = nbs[i][0];
+          var ny = nbs[i][1];
+          if (nx < 0 || ny < 0 || nx >= tw || ny >= th) continue;
+          var idx = ny * tw + nx;
+          if (visited[idx] || !ink(nx, ny)) continue;
+          visited[idx] = 1;
+          stack.push([nx, ny]);
+        }
+      }
+      return { minX: minX, maxX: maxX, minY: minY, maxY: maxY };
+    }
+
+    for (var y = 0; y < th; y += step) {
+      for (var x = 0; x < tw; x += step) {
+        if (!visited[y * tw + x] && ink(x, y)) blobs.push(flood(x, y));
+      }
+    }
+
+    blobs = blobs.filter(function (b) {
+      return (b.maxX - b.minX) * (b.maxY - b.minY) > 18;
+    });
+    if (!blobs.length) return null;
+
+    var letters = [];
+    var dots = [];
+    blobs.forEach(function (b) {
+      var bw = b.maxX - b.minX;
+      var bh = b.maxY - b.minY;
+      if (bw < 30 && bh < 30 && b.minY < baseline - 48) dots.push(b);
+      else letters.push(b);
+    });
+    letters.sort(function (a, b) { return a.minX - b.minX; });
+
+    function centerline(blob) {
+      var pts = [];
+      var prevY = (blob.minY + blob.maxY) / 2;
+      for (var x = blob.minX; x <= blob.maxX; x += 2) {
+        var ys = [];
+        for (var y = blob.minY; y <= blob.maxY; y += 2) {
+          if (ink(x, y)) ys.push(y);
+        }
+        if (!ys.length) continue;
+        var best = ys[0];
+        var bestD = Math.abs(ys[0] - prevY);
+        for (var i = 1; i < ys.length; i++) {
+          var d = Math.abs(ys[i] - prevY);
+          if (d < bestD) {
+            bestD = d;
+            best = ys[i];
+          }
+        }
+        pts.push({ x: x, y: best });
+        prevY = best;
+      }
+      return smooth(pts);
+    }
+
+    function circle(blob) {
+      var cx = (blob.minX + blob.maxX) / 2;
+      var cy = (blob.minY + blob.maxY) / 2;
+      var r = Math.max(3.2, Math.min(blob.maxX - blob.minX, blob.maxY - blob.minY) / 2);
+      var pts = [];
+      for (var a = 0; a <= 10; a++) {
+        var ang = (a / 10) * Math.PI * 2 - Math.PI / 2;
+        pts.push({ x: cx + Math.cos(ang) * r, y: cy + Math.sin(ang) * r });
+      }
+      return pts;
+    }
+
+    function smooth(pts) {
+      if (pts.length < 3) return pts;
+      var out = [pts[0]];
+      for (var i = 1; i < pts.length - 1; i++) {
+        out.push({
+          x: (pts[i - 1].x + pts[i].x + pts[i + 1].x) / 3,
+          y: (pts[i - 1].y + pts[i].y + pts[i + 1].y) / 3
+        });
+      }
+      out.push(pts[pts.length - 1]);
+      return out;
+    }
+
+    var parts = [];
+    letters.forEach(function (letter) {
+      var line = centerline(letter);
+      if (line.length >= 2) parts.push(line);
+      dots.forEach(function (dot) {
+        if (dot.used) return;
+        if (dot.minX >= letter.minX - 8 && dot.minX <= letter.maxX + 12) {
+          parts.push(circle(dot));
+          dot.used = true;
+        }
+      });
+    });
+    dots.forEach(function (dot) {
+      if (!dot.used) parts.push(circle(dot));
+    });
+    if (!parts.length) return null;
+    if (letters.length >= 6) {
+      var widths = letters.map(function (b) { return b.maxX - b.minX; });
+      var minW = Math.min.apply(null, widths);
+      var maxW = Math.max.apply(null, widths);
+      if (maxW - minW < 14) return null;
+    }
+
+    var dotsOut = [];
+    var minX = Infinity;
+    var minY = Infinity;
+    var maxX = 0;
+    var maxY = 0;
+    for (var gy = 0; gy < th; gy += 3) {
+      for (var gx = 0; gx < tw; gx += 3) {
+        if (!ink(gx, gy)) continue;
+        dotsOut.push({ x: gx, y: gy, lit: false });
+        if (gx < minX) minX = gx;
+        if (gy < minY) minY = gy;
+        if (gx > maxX) maxX = gx;
+        if (gy > maxY) maxY = gy;
+      }
+    }
+    if (dotsOut.length < 80) return null;
+
+    var d = "";
+    parts.forEach(function (pts) {
+      d += "M" + pts[0].x.toFixed(2) + "," + pts[0].y.toFixed(2);
+      for (var i = 1; i < pts.length; i++) {
+        d += " L" + pts[i].x.toFixed(2) + "," + pts[i].y.toFixed(2);
+      }
+    });
+
+    return {
+      d: d,
+      box: { w: Math.max(120, maxX - minX + 24), h: Math.max(80, maxY - minY + 24), ox: minX - 12, oy: minY - 12 },
+      dots: dotsOut
+    };
+  }
+
+  function buildScript() {
+    var sampled = sampleText(GINEVRA_SCRIPT, SCRIPT_FONT);
+    if (!sampled) sampled = sampleText("Ginevra", FALLBACK_FONT);
+    if (!sampled) return false;
+    pathBox = sampled.box;
+    glyphDots = sampled.dots;
+    if (!pathEl) {
+      var ns = "http://www.w3.org/2000/svg";
+      var svg = document.createElementNS(ns, "svg");
+      svg.setAttribute("aria-hidden", "true");
+      svg.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+      pathEl = document.createElementNS(ns, "path");
+      svg.appendChild(pathEl);
+      hero.appendChild(svg);
+    }
+    pathEl.setAttribute("d", sampled.d);
     pathLen = pathEl.getTotalLength();
+    scriptReady = pathLen > 40;
+    return scriptReady;
   }
 
   function isWriteMode() {
-    return WRITE_GINEVRA && w >= DESKTOP_MIN && pathLen > 0;
+    return WRITE_GINEVRA && w >= DESKTOP_MIN && scriptReady && pathLen > 0;
   }
 
   function mapPathPoint(pt) {
-    var slant = 0.3;
-    var x = pt.x + (155 - pt.y) * slant;
-    var boxW = 720;
-    var boxH = 210;
-    var scale = Math.min((w * 0.78) / boxW, (h * 0.34) / boxH);
-    var ox = (w - boxW * scale) / 2;
-    var oy = h * 0.13;
-    return { x: ox + x * scale, y: oy + pt.y * scale };
+    var scale = Math.min((w * 0.82) / pathBox.w, (h * 0.38) / pathBox.h);
+    var ox = (w - pathBox.w * scale) / 2;
+    var oy = h * 0.11;
+    return {
+      x: ox + (pt.x - (pathBox.ox || 0)) * scale,
+      y: oy + (pt.y - (pathBox.oy || 0)) * scale
+    };
+  }
+
+  function resetGlyphs() {
+    for (var i = 0; i < glyphDots.length; i++) glyphDots[i].lit = false;
+    particles = particles.filter(function (p) { return !p.ink; });
+  }
+
+  function lightGlyphs(leadX) {
+    var n = 0;
+    for (var i = 0; i < glyphDots.length; i++) {
+      var d = glyphDots[i];
+      if (d.lit) continue;
+      var m = mapPathPoint(d);
+      if (m.x <= leadX + 12) {
+        d.lit = true;
+        emitInk(m.x, m.y);
+        n++;
+        if (n > 28) break;
+      }
+    }
   }
 
   function resize() {
@@ -105,7 +288,6 @@
     canvas.width = Math.floor(w * dpr);
     canvas.height = Math.floor(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ensurePath();
     if (!head.x) {
       head.x = w * helix.cx;
       head.y = h * helix.cy;
@@ -146,17 +328,18 @@
   }
 
   function emitInk(x, y) {
-    for (var i = 0; i < 5; i++) {
+    var count = glyphDots.length ? 2 : 5;
+    for (var i = 0; i < count; i++) {
       var a = Math.random() * Math.PI * 2;
-      var r = Math.random() * 3.2;
+      var r = Math.random() * 2.4;
       particles.push({
         x: x + Math.cos(a) * r,
         y: y + Math.sin(a) * r,
-        vx: (Math.random() - 0.5) * 0.04,
-        vy: (Math.random() - 0.5) * 0.04,
+        vx: (Math.random() - 0.5) * 0.03,
+        vy: (Math.random() - 0.5) * 0.03,
         life: 0,
         maxLife: 9800 + Math.random() * 4200,
-        size: 0.7 + Math.random() * 1.6,
+        size: 0.65 + Math.random() * 1.45,
         gold: Math.random() < 0.62,
         twinkle: Math.random() < 0.12,
         ink: true
@@ -204,6 +387,7 @@
       if (holdElapsed >= HOLD_MS) {
         writeElapsed = 0;
         holdElapsed = 0;
+        resetGlyphs();
       }
     }
     var t = Math.min(1, writeElapsed / WRITE_MS);
@@ -225,9 +409,9 @@
     var jump = Math.hypot(vx, vy) > 28;
     var writing = isWriteMode() && writeElapsed < WRITE_MS && writeElapsed > 0;
 
-    if (writing && !jump) {
-      emitInk(head.x, head.y);
-      emitDust(head.x, head.y, vx, vy, 1, 7, 5200);
+    if (writing) {
+      lightGlyphs(head.x);
+      if (!jump) emitDust(head.x, head.y, vx, vy, 1, 7, 5200);
     } else if (!isWriteMode()) {
       emitDust(head.x, head.y, vx, vy, 2, 9, 3640);
       emitDust(head.x, head.y, vx, vy, 1, 16, 4680);
@@ -322,11 +506,30 @@
     requestAnimationFrame(loop);
   }
 
-  resize();
-  window.addEventListener("resize", resize);
-  window.addEventListener("orientationchange", resize);
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", resize);
+  function start() {
+    resize();
+    window.addEventListener("resize", resize);
+    window.addEventListener("orientationchange", resize);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", resize);
+    }
+    requestAnimationFrame(loop);
   }
-  requestAnimationFrame(loop);
+
+  function loadFontsThenStart() {
+    var loads = [];
+    if (document.fonts && document.fonts.load) {
+      loads.push(document.fonts.load(SCRIPT_FONT, GINEVRA_SCRIPT));
+      loads.push(document.fonts.load(FALLBACK_FONT, "Ginevra"));
+    }
+    Promise.all(loads).then(function () {
+      buildScript();
+      start();
+    }).catch(function () {
+      buildScript();
+      start();
+    });
+  }
+
+  loadFontsThenStart();
 })();

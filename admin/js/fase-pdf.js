@@ -32,6 +32,25 @@
   function render(macro, fase, root, blocco) {
     root.innerHTML = "";
     document.title = "PDF · " + fase.nome + " | Scheda";
+    var titleEl = document.getElementById("fase-pdf-title");
+    if (titleEl) titleEl.textContent = "PDF riassunto A1–B2 · " + fase.nome;
+    var dl = document.getElementById("fase-pdf-download");
+    if (dl) {
+      var files = {
+        "ipertrofia-accumulo": {
+          href: "/admin/prototipi/periodizzazione/fase/scheda-fase-1-ipertrofia-accumulo.pdf",
+          name: "Scheda-Fase1-Ipertrofia-accumulo.pdf"
+        }
+      };
+      var file = files[fase.id];
+      if (file) {
+        dl.href = file.href;
+        dl.setAttribute("download", file.name);
+        dl.hidden = false;
+      } else {
+        dl.hidden = true;
+      }
+    }
 
     var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
     var tipo = blocco ? blocco.tipo : "Periodizzazione";

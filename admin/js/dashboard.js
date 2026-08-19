@@ -48,7 +48,20 @@
     data.fasi.forEach(function (fase, i) {
       var block = el("section", { className: "admin-fase", id: fase.id });
       var head = el("div", { className: "admin-fase__head" });
-      head.innerHTML = "<div><span class=\"admin-fase__num\">Fase " + (i + 1) + "</span><h3>" + fase.nome + "</h3><p class=\"admin-fase__dates\">" + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + " · " + fase.settimane + " sett. · RIR " + fase.rir + "</p></div><p class=\"admin-fase__obiettivo\">" + fase.obiettivo + "</p>";
+      var info = el("div");
+      info.innerHTML = "<span class=\"admin-fase__num\">Fase " + (i + 1) + "</span><h3>" + fase.nome + "</h3><p class=\"admin-fase__dates\">" + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + " · " + fase.settimane + " sett. · RIR " + fase.rir + "</p>";
+      var side = el("div", { className: "admin-fase__side" });
+      side.appendChild(el("p", { className: "admin-fase__obiettivo", html: fase.obiettivo }));
+      side.appendChild(el("a", {
+        className: "admin-fase__pdf",
+        href: "/admin/prototipi/periodizzazione/fase/?anno=2026-2027&fase=" + encodeURIComponent(fase.id),
+        target: "_blank",
+        rel: "noopener",
+        title: "Riassunto stampabile delle quattro schede A1–B2",
+        text: "PDF Fase " + (i + 1) + " · A1–B2"
+      }));
+      head.appendChild(info);
+      head.appendChild(side);
       block.appendChild(head);
 
       var grid = el("div", { className: "admin-sessioni-grid" });

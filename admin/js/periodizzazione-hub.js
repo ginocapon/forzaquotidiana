@@ -100,7 +100,7 @@
         href: pdfUrl,
         target: "_blank",
         rel: "noopener",
-        text: "PDF scheda · Fase " + (i + 1)
+        text: "PDF riassunto A1–B2 · Fase " + (i + 1)
       }));
       actions.appendChild(el("a", {
         className: "btn btn-ghost",
