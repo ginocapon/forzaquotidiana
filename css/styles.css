@@ -2383,6 +2383,9 @@ article.hub-card:hover {
 /* TSB screenshot — sempre sopra la gallery, larghezza piena */
 .amazfit-tsb-hero {
   margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 .amazfit-tsb-hero .phone-shot {
   margin: 0;

@@ -46,6 +46,7 @@ const KNOWN_BATCHES = {
     date: "2026-08-18",
     scheda: 2,
     files: {
+      "WhatsApp Image 2026-08-19 at 11.07.54.jpeg": { date: "2026-08-17", scheda: 1, slug: "tsb" },
       "WhatsApp Image 2026-08-19 at 11.07.54(1).jpeg": "riepilogo",
       "WhatsApp Image 2026-08-19 at 11.07.54(2).jpeg": "fc-grafico",
       "WhatsApp Image 2026-08-19 at 11.07.54(3).jpeg": "zone-effetto",
@@ -55,8 +56,6 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-19 at 11.18.51.jpeg": "hybridcharge",
       "WhatsApp Image 2026-08-19 at 11.18.51(1).jpeg": "sonno-score",
     },
-    /** TSB 17/08 duplicato — non appartiene alla S2 del 18 */
-    skip: ["WhatsApp Image 2026-08-19 at 11.07.54.jpeg"],
   },
 };
 
@@ -95,8 +94,15 @@ function buildSlugMap(files, dirName) {
   if (!batch) return {};
   const map = {};
   if (batch.files) {
-    for (const [whatsapp, slug] of Object.entries(batch.files)) {
-      map[whatsapp] = { dest: destName(batch.date, batch.scheda, slug), slug };
+    for (const [whatsapp, slugOrMeta] of Object.entries(batch.files)) {
+      if (typeof slugOrMeta === "string") {
+        map[whatsapp] = { dest: destName(batch.date, batch.scheda, slugOrMeta), slug: slugOrMeta };
+      } else {
+        map[whatsapp] = {
+          dest: destName(slugOrMeta.date, slugOrMeta.scheda, slugOrMeta.slug),
+          slug: slugOrMeta.slug,
+        };
+      }
     }
     return map;
   }
@@ -111,11 +117,13 @@ function buildSlugMap(files, dirName) {
 
 function findUploadDirs() {
   if (UPLOAD_ARG) return [join(REPO, UPLOAD_ARG)];
-  const allenamenti = join(REPO, "allenamenti");
   const dirs = [];
-  for (const name of readdirSync(allenamenti)) {
-    if (/foto allenamento|allenamento\s+\d/i.test(name)) {
-      dirs.push(join(allenamenti, name));
+  for (const parent of [join(REPO, "allenamenti"), join(REPO, "img/allenamenti")]) {
+    if (!existsSync(parent)) continue;
+    for (const name of readdirSync(parent)) {
+      if (/foto allenamento|allenamento\s+\d/i.test(name)) {
+        dirs.push(join(parent, name));
+      }
     }
   }
   return dirs;
@@ -172,17 +180,28 @@ async function processDir(uploadDir) {
   }
 }
 
-async function processRootWhatsApp() {
-  const files = rasterFiles(REPO).filter((f) => /^WhatsApp Image /i.test(f));
+function lookupMapped(file) {
+  if (ROOT_FILES[file]) return ROOT_FILES[file];
+  for (const batch of Object.values(KNOWN_BATCHES)) {
+    const hit = batch.files?.[file];
+    if (!hit) continue;
+    if (typeof hit === "string") return { date: batch.date, scheda: batch.scheda, slug: hit };
+    return hit;
+  }
+  return null;
+}
+
+async function processLooseWhatsApp(dir, label) {
+  const files = rasterFiles(dir).filter((f) => /^WhatsApp Image /i.test(f));
   if (!files.length) return;
-  console.log(`\nRoot repo — ${files.length} WhatsApp JPEG`);
+  console.log(`\n${label} — ${files.length} WhatsApp JPEG`);
   for (const file of files) {
-    const mapped = ROOT_FILES[file];
+    const mapped = lookupMapped(file);
     if (!mapped) {
-      console.warn("SKIP root (no slug):", file);
+      console.warn("SKIP (no slug, identifica visivamente):", join(dir, file));
       continue;
     }
-    await convertOne(join(REPO, file), destName(mapped.date, mapped.scheda, mapped.slug), mapped.slug);
+    await convertOne(join(dir, file), destName(mapped.date, mapped.scheda, mapped.slug), mapped.slug);
   }
 }
 
@@ -191,7 +210,8 @@ async function main() {
     await processDir(join(REPO, UPLOAD_ARG));
     return;
   }
-  await processRootWhatsApp();
+  await processLooseWhatsApp(REPO, "Root repo");
+  await processLooseWhatsApp(join(REPO, "img/allenamenti"), "img/allenamenti");
   for (const dir of findUploadDirs()) {
     await processDir(dir);
   }

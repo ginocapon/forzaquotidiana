@@ -605,9 +605,11 @@
         "hybridcharge": 31,
         "sleep_score": 44,
         "sleep_label": "Fai attenzione",
-        "effort_pct": 33
+        "sleep_duration": "2:44",
+        "effort_pct": 33,
+        "focus": "Forza"
       },
-      "note": "Scheda 2 martedì — 28 serie, carico 71, FC 110/145. Zepp muscoli primari femorali e tricipiti. HybridCharge 31 e sonno 44 il giorno dopo. Modulo TSB export 19/08 −1,0 Bilanciato.",
+      "note": "Scheda 2 martedì — 28 serie, carico 71, FC 110/145. Zepp primari femorali e tricipiti. Giorno dopo: HybridCharge 31, sonno 44 in 2:44 Fai attenzione, focus FORZA. TSB da 4,0 (17/08 CTL 15/ATL 11) a −1,0 (19/08).",
       "tsb": {
         "value": -1.0,
         "label": "Bilanciato",
