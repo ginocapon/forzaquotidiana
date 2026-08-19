@@ -17,6 +17,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 | Task | File |
 |------|------|
 | Nuova sessione allenamento | `SKILL-PERFORMANCE.md`, `SKILL.md` §4 (righe 481–763) |
+| **Foto Zepp caricate su GitHub** | `.cursor/rules/foto-sessione-upload.mdc` — processa WebP e mettile in pagina **come il 4 agosto**; niente JPEG WhatsApp in repo |
 | Articolo diario | `SKILL.md` §0c + §5b |
 | Newsletter / iscritti | `SKILL.md` §5a, `SKILL-VENERDI.md` |
 | Check salute / premortem | `node guardian/scripts/guardian.mjs run` → `guardian/reports/guardian-latest.md` |

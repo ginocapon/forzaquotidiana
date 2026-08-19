@@ -1,0 +1,21 @@
+---
+description: Upload foto Zepp/WhatsApp → WebP in pagina sessione come il 4 agosto
+alwaysApply: true
+---
+
+# Foto sessione — subito in pagina (layout 4 agosto)
+
+Quando Gino carica JPEG WhatsApp (GitHub *Add files via upload*, cartella `allenamenti/foto allenamento {data}/`, `allenamenti/allenamento …`, o **root del repo**), **non** chiudere il task con i JPEG nel repo e `<img>` che puntano a WebP inesistenti.
+
+## Obbligo
+
+1. **Identificare visivamente** ogni scatto (non fidarsi del nome WhatsApp né dell’ordine file).
+2. `node tools/processa-foto-upload.mjs` → WebP in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-{slug}.webp` · **eliminare JPEG e cartella upload**.
+3. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` **come il 4 agosto**:
+   - TSB landscape → `.amazfit-tsb-hero` (mai in griglia ¼)
+   - Portrait readiness (HybridCharge, sonno, HRV) → `.amazfit-gallery` sotto l’hero
+   - Metabolico: `.phone-shot--full` riepilogo, poi fc / zone / tecnica / valutazione
+4. Screenshot Zepp = **documentali** (niente `data-ai` / Foto AI).
+5. Commit + push se Gino ha chiesto di pubblicare.
+
+Riferimento visivo: `/allenamenti/sessioni/2026-08-04-scheda-2/` · dettaglio `SKILL-PERFORMANCE.md`.

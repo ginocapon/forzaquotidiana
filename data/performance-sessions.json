@@ -563,6 +563,56 @@
         "fatigue_atl": 11,
         "date": "2026-08-17"
       }
+    },
+    {
+      "id": "2026-08-18-scheda-2",
+      "date": "2026-08-18",
+      "time": "17:05",
+      "datetime": "2026-08-18T17:05",
+      "scheda": 2,
+      "month": "2026-08",
+      "durata_sec": 4426,
+      "durata": "01:13:46",
+      "recupero_sec": 3421,
+      "recupero": "57:01",
+      "gruppi": 28,
+      "fc_media": 110,
+      "fc_max": 145,
+      "calorie": 557,
+      "carico": 71,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 4, "time": "03:27" },
+        "aerobica": { "pct": 34, "time": "25:22" },
+        "intensiva": { "pct": 46, "time": "34:00" },
+        "leggera": { "pct": 14, "time": "10:20" }
+      },
+      "effetto_aerobico": 3.0,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 2.4,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento moderato della velocità, effetto di allenamento accettabile"
+      },
+      "readiness": {
+        "hybridcharge": 31,
+        "sleep_score": 44,
+        "sleep_label": "Fai attenzione",
+        "effort_pct": 33
+      },
+      "note": "Scheda 2 martedì — 28 serie, carico 71, FC 110/145. Zepp muscoli primari femorali e tricipiti. HybridCharge 31 e sonno 44 il giorno dopo. Modulo TSB export 19/08 −1,0 Bilanciato.",
+      "tsb": {
+        "value": -1.0,
+        "label": "Bilanciato",
+        "date": "2026-08-19"
+      }
     }
   ]
 }

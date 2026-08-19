@@ -45,6 +45,16 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 8. Verifica tabella + grafici in trimestre `#statistiche` + modulo TSB.
 9. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
 
+## BLOCCANTE — foto upload → pagina (come il 4 agosto)
+
+Gino carica gli screenshot su GitHub (`allenamenti/foto allenamento {data}/`, cartella `allenamento …`, o JPEG *WhatsApp Image* a **root**). L’agente **deve** nello stesso turno:
+
+1. Identificare visivamente → `node tools/processa-foto-upload.mjs` (WebP SEO + cancella JPEG/cartella).
+2. Inserire le foto **in pagina sessione** come `/allenamenti/sessioni/2026-08-04-scheda-2/` (hero TSB + galleria portrait + metabolico). **Mai** lasciare `<img src="…webp">` senza file.
+3. Screenshot Zepp = documentali (niente etichetta IA).
+
+Dettaglio: `.cursor/rules/foto-sessione-upload.mdc`.
+
 ## Layout pagina sessione (ordine fisso — riferimento 4 agosto 2026)
 
 **URL canonico:** `/allenamenti/sessioni/2026-08-04-scheda-2/`

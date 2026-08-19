@@ -696,7 +696,7 @@ Galleria `.collage.collage--scatter` con una `figure.polaroid` per ogni foto rea
 
 #### Upload foto da GitHub — cartella temporanea
 
-Gino può caricare screenshot WhatsApp in `allenamenti/foto allenamento {data}/` (o simile). **L’agente** deve:
+Gino può caricare screenshot WhatsApp in `allenamenti/foto allenamento {data}/`, in `allenamenti/allenamento …`, o **a root del repo** (upload GitHub senza path). **Stesso turno:** WebP + foto **in pagina come il 4 agosto** (`.cursor/rules/foto-sessione-upload.mdc`). **L’agente** deve:
 
 1. **Identificare** ogni JPEG/PNG (contenuto visivo, non il nome WhatsApp).
 2. **Rinominare** con schema SEO fisso (vedi tabella sotto) in `img/allenamenti/amazfit/` o `img/allenamenti/YYYY-MM-DD/`.
