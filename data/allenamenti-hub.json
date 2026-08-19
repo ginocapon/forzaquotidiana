@@ -21,14 +21,14 @@
     "inizio": "2026-09-01",
     "fase": "Ipertrofia accumulo",
     "urlDiario": "/diario/blocco-1-ipertrofia-accumulo-settembre-2026/",
-    "urlSchede": "/admin/prototipi/periodizzazione/?anno=2026-2027",
+    "urlSchede": "/admin/",
     "descrizione": "Split A1–B1–A2–B2 · 4 sedute/settimana"
   },
   "annoLavoro": {
     "id": "2026-2027",
     "label": "Anno di lavoro 2026–2027",
     "periodo": "1 set 2026 – 31 ago 2027",
-    "url": "/admin/prototipi/periodizzazione/?anno=2026-2027"
+    "url": "/admin/"
   },
   "mesocicli": [
     {

@@ -9,19 +9,34 @@
   }
 
   var ul = nav && nav.querySelector("ul");
-  if (ul && !ul.querySelector('[data-nav="schede"]')) {
-    var li = document.createElement("li");
-    var a = document.createElement("a");
-    a.href = "/admin/prototipi/periodizzazione/";
-    a.textContent = "Schede";
-    a.setAttribute("data-nav", "schede");
-    if (location.pathname.indexOf("/admin/prototipi/periodizzazione") === 0) {
-      a.setAttribute("aria-current", "page");
-    }
-    li.appendChild(a);
-    var allen = ul.querySelector('a[href="/allenamenti/"]');
-    if (allen && allen.parentNode) allen.parentNode.insertAdjacentElement("afterend", li);
-    else ul.appendChild(li);
+  if (ul) {
+    /* Menu unificato: Home · Chi sono · Allenamenti · Schede (niente Diario in barra) */
+    var diarioLink = ul.querySelector('a[href="/diario/"]');
+    if (diarioLink && diarioLink.parentNode) diarioLink.parentNode.remove();
+
+    var spec = [
+      { href: "/", label: "Home", match: function (p) { return p === "/" || p === "/index.html"; } },
+      { href: "/chi-sono/", label: "Chi sono", match: function (p) { return p.indexOf("/chi-sono") === 0; } },
+      { href: "/allenamenti/", label: "Allenamenti", match: function (p) { return p.indexOf("/allenamenti") === 0; } },
+      {
+        href: "/admin/",
+        label: "Schede",
+        dataNav: "schede",
+        match: function (p) { return p.indexOf("/admin") === 0; }
+      }
+    ];
+    var path = location.pathname;
+    ul.innerHTML = "";
+    spec.forEach(function (item) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = item.label;
+      if (item.dataNav) a.setAttribute("data-nav", item.dataNav);
+      if (item.match(path)) a.setAttribute("aria-current", "page");
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
   }
 
   /* Marchio «Foto AI» su immagini data-ai (AI Act UE).
