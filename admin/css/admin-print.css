@@ -77,14 +77,13 @@ body.admin-page.schede-peso {
 
 .scheda-a4--admin .scheda-a4__quad table {
   table-layout: fixed;
-  flex: 1 1 auto;
 }
 
 .scheda-a4--admin table,
 .scheda-a4--admin table th,
 .scheda-a4--admin table td {
-  font-size: 11.5pt;
-  padding: 0.7mm 1mm;
+  font-size: 13pt;
+  padding: 1mm 1.2mm;
   color: #111111;
 }
 
@@ -101,17 +100,13 @@ body.admin-page.schede-peso {
 
 .scheda-a4--admin table td:nth-child(1) {
   font-weight: 700;
-  font-size: 12pt;
-  white-space: normal;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  font-size: 14pt;
 }
 
 .scheda-a4--admin table td:nth-child(2) {
   color: #111111;
   font-weight: 700;
   white-space: nowrap;
-  width: 16%;
 }
 
 .scheda-a4--admin table td:nth-child(3),

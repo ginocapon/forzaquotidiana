@@ -1,10 +1,11 @@
 /**
- * PDF una fase (A1–B2) da macrociclo — anonimo, kg blank
+ * PDF una fase (A1–B2) — stesso layout palestra della Fase 1
  */
 (function () {
   "use strict";
 
   var HUB_URL = "/admin/data/hub-periodizzazione.json";
+  var BLOCCO1_URL = "/admin/data/blocco-1-fase1.json";
 
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
@@ -39,28 +40,108 @@
     return code + " · " + nome;
   }
 
-  /** Cella S×R da palestra: niente note di periodizzazione nel range. */
   function compactReps(raw) {
     if (raw == null || raw === "") return "";
     var s = String(raw).replace(/\s+/g, " ").trim();
-    var arrow = s.match(/^(\d+(?:\s*[–\-]\s*\d+)?)\s*(?:\([^)]*\))?\s*→\s*(\d+(?:\s*[–\-]\s*\d+)?)/);
-    if (arrow) {
-      return arrow[1].replace(/\s/g, "") + "→" + arrow[2].replace(/\s/g, "");
-    }
+    var first = s.match(/^(\d+(?:\s*[–\-]\s*\d+)?)/);
+    if (first) return first[1].replace(/\s/g, "");
     return s.replace(/\s*\([^)]*\)/g, "").split(/\s*·\s*/)[0].trim();
   }
 
-  function formatRecupero(raw) {
-    if (!raw) return "—";
-    var s = String(raw).trim();
-    var m = s.match(/^(\d+)\s*s$/i);
-    if (m) return m[1] + " sec";
-    return s;
+  function hasWaveReps(sessioni) {
+    var found = false;
+    ["a1", "b1", "a2", "b2"].forEach(function (key) {
+      var day = sessioni && sessioni[key];
+      if (!day || !day.esercizi) return;
+      day.esercizi.forEach(function (ex) {
+        if (/→/.test(String(ex.ripetizioni || ""))) found = true;
+      });
+    });
+    return found;
   }
 
-  function formatTut(ex) {
-    var t = ex && (ex.tempo || ex.tut);
-    return t ? String(t) : "—";
+  function normName(s) {
+    return String(s || "")
+      .toLowerCase()
+      .replace(/[àá]/g, "a")
+      .replace(/[èé]/g, "e")
+      .replace(/[ìí]/g, "i")
+      .replace(/[òó]/g, "o")
+      .replace(/[ùú]/g, "u")
+      .replace(/stacco rumeno/g, "rumeno")
+      .replace(/stacco omega/g, "trap")
+      .replace(/clean halo/g, "halo")
+      .replace(/panca scott/g, "scott")
+      .replace(/\b(con|su|a|al|alla|di|del|della|un|una|presa|larga|macchina|kettlebell|doktor|dottor|primo)\b/g, " ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function tokens(s) {
+    return normName(s).split(" ").filter(function (w) { return w.length > 2; });
+  }
+
+  function scoreMatch(a, b) {
+    var ta = tokens(a.nome);
+    var tb = tokens(b.nome);
+    if (!ta.length || !tb.length) return 0;
+    var hit = 0;
+    ta.forEach(function (t) {
+      if (tb.indexOf(t) !== -1) hit += 1;
+    });
+    return hit / Math.max(ta.length, tb.length);
+  }
+
+  function findMatch(templateEx, liveList, used) {
+    var bestI = -1;
+    var bestS = 0.4;
+    liveList.forEach(function (ex, i) {
+      if (used[i]) return;
+      var s = scoreMatch(templateEx, ex);
+      if (s > bestS) {
+        bestS = s;
+        bestI = i;
+      }
+    });
+    return bestI;
+  }
+
+  function mergeSessions(blocco, fase) {
+    var out = {};
+    ["a1", "b1", "a2", "b2"].forEach(function (key) {
+      var tpl = blocco.sessioni[key];
+      var live = fase.sessioni && fase.sessioni[key];
+      if (!tpl) {
+        out[key] = live;
+        return;
+      }
+      var used = {};
+      out[key] = {
+        codice: tpl.codice,
+        nome: tpl.nome,
+        esercizi: tpl.esercizi.map(function (ex) {
+          var row = {
+            nome: ex.nome,
+            serie: ex.serie,
+            ripetizioni: ex.ripetizioni,
+            tempo: ex.tempo,
+            recupero: ex.recupero,
+            progressionePrincipale: ex.progressionePrincipale === true
+          };
+          if (!live || !live.esercizi) return row;
+          var i = findMatch(ex, live.esercizi, used);
+          if (i < 0) return row;
+          used[i] = true;
+          var src = live.esercizi[i];
+          if (src.serie != null) row.serie = src.serie;
+          if (src.ripetizioni) row.ripetizioni = compactReps(src.ripetizioni);
+          if (src.progressione === true) row.progressionePrincipale = true;
+          return row;
+        })
+      };
+    });
+    return out;
   }
 
   function render(macro, fase, root, blocco) {
@@ -87,18 +168,13 @@
     }
 
     var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
-    var tipo = (blocco && blocco.tipo)
+    var tipo = (fase.id === "ipertrofia-accumulo" && blocco && blocco.tipo)
       ? blocco.tipo
       : String(fase.nome || "Periodizzazione").replace(/^Fase\s*\d+\s*[·•]\s*/i, "").toUpperCase();
-    var sessioni = (blocco && blocco.sessioni) ? blocco.sessioni : fase.sessioni;
-    var waveNote = false;
-    ["a1", "b1", "a2", "b2"].forEach(function (key) {
-      var day = sessioni[key];
-      if (!day || !day.esercizi) return;
-      day.esercizi.forEach(function (ex) {
-        if (compactReps(ex.ripetizioni).indexOf("→") !== -1) waveNote = true;
-      });
-    });
+    var sessioni = (fase.id === "ipertrofia-accumulo" && blocco && blocco.sessioni)
+      ? blocco.sessioni
+      : (blocco && blocco.sessioni ? mergeSessions(blocco, fase) : fase.sessioni);
+    var waveNote = hasWaveReps(fase.sessioni);
 
     var head = el("header", { className: "scheda-a4__head" });
     head.innerHTML =
@@ -116,7 +192,7 @@
     oss.innerHTML =
       "<div class=\"scheda-a4__osservazioni-label\">Osservazioni / note</div>" +
       (waveNote
-        ? "<p class=\"scheda-a4__intro-text\">Sui movimenti *: sett. 1–6 range alto, sett. 7–12 range basso, sett. 13 deload (−40% volume). Compila kg dopo i massimali.</p>"
+        ? "<p class=\"scheda-a4__intro-text\">Sui movimenti *: sett. 1–6 range in tabella, sett. 7–12 range più basso, sett. 13 deload (−40% volume).</p>"
         : "<p class=\"scheda-a4__intro-text\">________________________________________________________________</p>");
     article.appendChild(oss);
 
@@ -135,8 +211,8 @@
         tr.innerHTML =
           "<td>" + nome + "</td>" +
           "<td>" + ex.serie + "×" + compactReps(ex.ripetizioni) + "</td>" +
-          "<td>" + formatTut(ex) + "</td>" +
-          "<td>" + formatRecupero(ex.recupero) + "</td>" +
+          "<td>" + (ex.tempo || ex.tut || "—") + "</td>" +
+          "<td>" + (ex.recupero || "—") + "</td>" +
           "<td></td><td></td><td></td>";
         tbody.appendChild(tr);
       });
@@ -165,24 +241,25 @@
       return;
     }
 
-    fetch(HUB_URL)
-      .then(function (r) { return r.json(); })
-      .then(function (hub) {
+    Promise.all([
+      fetch(HUB_URL).then(function (r) { return r.json(); }),
+      fetch(BLOCCO1_URL).then(function (r) { return r.json(); })
+    ])
+      .then(function (pair) {
+        var hub = pair[0];
+        var blocco = pair[1];
         var anno = hub.anni.find(function (a) { return a.id === annoId; }) || hub.anni[0];
-        return fetch(anno.macrocicloUrl).then(function (r) { return r.json(); });
+        return fetch(anno.macrocicloUrl).then(function (r) { return r.json(); }).then(function (macro) {
+          return { macro: macro, blocco: blocco };
+        });
       })
-      .then(function (macro) {
-        var fase = macro.fasi.find(function (f) { return f.id === faseId; });
+      .then(function (pack) {
+        var fase = pack.macro.fasi.find(function (f) { return f.id === faseId; });
         if (!fase) {
           root.innerHTML = "<p>Fase non trovata. <a href=\"/admin/prototipi/periodizzazione/\">Hub</a></p>";
           return;
         }
-        if (faseId === "ipertrofia-accumulo") {
-          return fetch("/admin/data/blocco-1-fase1.json")
-            .then(function (r) { return r.json(); })
-            .then(function (blocco) { render(macro, fase, root, blocco); });
-        }
-        render(macro, fase, root, null);
+        render(pack.macro, fase, root, pack.blocco);
       })
       .catch(function (err) {
         root.innerHTML = "<p>Errore: " + err.message + "</p>";
