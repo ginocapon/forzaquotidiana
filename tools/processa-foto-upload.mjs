@@ -3,7 +3,7 @@
  * Uso: node tools/processa-foto-upload.mjs [cartella-upload]
  * Default cartella: allenamenti/foto allenamento *
  */
-import { readdirSync, statSync, mkdirSync, unlinkSync, rmSync } from "node:fs";
+import { readdirSync, statSync, mkdirSync, unlinkSync, rmSync, renameSync } from "node:fs";
 import { dirname, join, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
@@ -19,8 +19,14 @@ const KNOWN_BATCHES = {
   "foto allenamento 17 agosto": {
     date: "2026-08-17",
     scheda: 1,
-    /** Ordine export Zepp tipico da chat (6 file): riepilogo, TSB, valutazione, tecnica, zone, grafico FC */
-    slugs: ["riepilogo", "tsb", "valutazione", "tecnica", "zone-effetto", "fc-grafico"],
+    files: {
+      "WhatsApp Image 2026-08-17 at 23.01.32.jpeg": "riepilogo",
+      "WhatsApp Image 2026-08-17 at 23.16.20.jpeg": "tsb",
+      "WhatsApp Image 2026-08-17 at 23.16.20(1).jpeg": "valutazione",
+      "WhatsApp Image 2026-08-17 at 23.16.21(2).jpeg": "tecnica",
+      "WhatsApp Image 2026-08-17 at 23.16.21(1).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-08-17 at 23.16.21.jpeg": "fc-grafico",
+    },
   },
   "foto allenamento 4 agosto": {
     date: "2026-08-04",
@@ -101,7 +107,25 @@ function parseDateFromDir(dirName) {
   throw new Error(`Impossibile estrarre data da: ${dirName}`);
 }
 
+function recoverRootWhatsAppUploads() {
+  const rootFiles = readdirSync(REPO).filter((f) => /^WhatsApp.*\.(jpe?g|png)$/i.test(f));
+  if (!rootFiles.length) return null;
+  const m = rootFiles[0].match(/(\d{4}-\d{2}-\d{2})/);
+  if (!m) return null;
+  const [, y, mo, d] = m[0].match(/(\d{4})-(\d{2})-(\d{2})/) || [];
+  const monthNames = { "01": "gennaio", "02": "febbraio", "03": "marzo", "04": "aprile", "05": "maggio", "06": "giugno", "07": "luglio", "08": "agosto", "09": "settembre", "10": "ottobre", "11": "novembre", "12": "dicembre" };
+  const folderName = `foto allenamento ${d} ${monthNames[mo] || "agosto"}`;
+  const dest = join(REPO, "allenamenti", folderName);
+  mkdirSync(dest, { recursive: true });
+  for (const f of rootFiles) {
+    renameSync(join(REPO, f), join(dest, f));
+    console.log("Spostato da root:", f, "→", folderName);
+  }
+  return dest;
+}
+
 async function main() {
+  recoverRootWhatsAppUploads();
   const uploadDir = findUploadDir();
   const dirName = uploadDir.split("/").pop();
   const batch = KNOWN_BATCHES[dirName];
