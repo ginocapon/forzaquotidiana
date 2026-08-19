@@ -549,11 +549,11 @@
       "effetto_anaerobico": 1.8,
       "effetto_anaerobico_label": "Basso",
       "tecnica": {
-        "consistenza": "ROM per lo più uniforme, con piccole fluttuazioni",
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
         "stability": "Movimenti per lo più stabili con lievi scosse",
-        "continuity": "Fluidi con pause minori",
-        "rhythm": "Tempi coerenti, ritmo uniforme",
-        "speed_decay": "Decadimento velocità ragionevole, buona efficacia"
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento della velocità ragionevole con buona efficacia dell'allenamento"
       },
       "note": "Prima Scheda 1 dopo pausa agosto — rientro palestra post vacanza Ken, 24 serie petto-spalle-dorsali, carico 75 come 3 agosto, TSB Zepp 4,0 Bilanciato (CTL 15 / ATL 11)",
       "tsb": {
