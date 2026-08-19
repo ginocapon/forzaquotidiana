@@ -291,7 +291,7 @@
     sec.appendChild(el("p", {
       className: "allen-hub-programma__lead",
       html: "Periodo che stai osservando: <a href=\"" + ciclo.url + "\"><strong>" + ciclo.label + "</strong></a> — " + ciclo.descrizione +
-        " · <a href=\"/admin/prototipi/periodizzazione/\">Tutte le schede →</a>"
+        " · <a href=\"/admin/\">Tutte le schede →</a>"
     }));
 
     if (hub.annoLavoro) {
@@ -514,8 +514,6 @@
         });
         cell.appendChild(el("span", { className: "cal-month__num", text: String(day.getDate()) }));
         var daySessions = sessionsByDate[iso] || [];
-        var monthPlan = renderMonthPlan(iso, hub, daySessions.length > 0);
-        if (monthPlan) cell.appendChild(monthPlan);
         var list = el("div", { className: "cal-month__sessions" });
         daySessions.forEach(function (s) {
           list.appendChild(renderSessionChip(s));
@@ -546,13 +544,6 @@
           className: "cal-week__date",
           text: day.getDate() + " " + MONTHS_IT[day.getMonth()].slice(0, 3)
         }));
-        var planned = renderWeekRow(iso, hub);
-        if (planned) {
-          var plan = el("div", { className: "cal-week__plan" });
-          plan.appendChild(el("span", { className: "cal-week__plan-label", text: "Programma" }));
-          plan.appendChild(planned);
-          col.appendChild(plan);
-        }
         var sessWrap = el("div", { className: "cal-week__sessions" });
         var daySessions = sessionsByDate[iso] || [];
         if (daySessions.length) {
@@ -581,8 +572,6 @@
     weekBtn.addEventListener("click", function () { setView("week"); });
     monthBtn.addEventListener("click", function () { setView("month"); });
 
-    var todayHint = renderTodayHint(hub, sessionsByDate, today);
-    if (todayHint) root.appendChild(todayHint);
     root.appendChild(toolbar);
     root.appendChild(body);
     render();

@@ -2,6 +2,8 @@
  * Screenshot Zepp da chat mobile → WebP in img/allenamenti/amazfit/
  * Dopo upload in Cursor (finiscono in /opt/cursor/artifacts/assets/):
  *   node tools/copia-screenshot-zepp-artifacts.mjs 2026-08-17 1
+ * Oppure JPEG già in allenamenti/foto allenamento …:
+ *   node tools/copia-screenshot-zepp-artifacts.mjs 2026-08-17 1 --upload
  */
 import { existsSync, mkdirSync, readdirSync, statSync, unlinkSync } from "node:fs";
 import { dirname, join, extname } from "node:path";
