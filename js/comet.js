@@ -25,6 +25,10 @@
     tiltPhase: Math.random() * Math.PI * 2
   };
   var nextShift = 0;
+  var starSpin = 0;
+  /** Prova etichetta: stringa vuota = nucleo originale senza scritta. */
+  var GINEVRA_LABEL = "Ginevra";
+  var DESKTOP_MIN = 900;
 
   function resize() {
     var rect = hero.getBoundingClientRect();
@@ -91,6 +95,7 @@
     if (!nextShift) nextShift = now + 5000;
     if (now >= nextShift) shiftHelix(now);
 
+    starSpin += dt * 0.00135;
     helix.angle += helix.speed * helix.dir * dt;
     var t = helix.angle;
     var nx = helix.cx * w + Math.cos(t) * helix.radiusX * w;
@@ -125,9 +130,42 @@
     }
   }
 
+  function drawSparkleStar(cx, cy, outerR, rotation) {
+    var innerR = outerR * 0.32;
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(rotation);
+    ctx.beginPath();
+    for (var i = 0; i < 8; i++) {
+      var r = i % 2 === 0 ? outerR : innerR;
+      var a = (i * Math.PI) / 4 - Math.PI / 2;
+      var x = Math.cos(a) * r;
+      var y = Math.sin(a) * r;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function drawGinevraLabel() {
+    if (!GINEVRA_LABEL || w < DESKTOP_MIN) return;
+    ctx.save();
+    ctx.font = "italic 22px Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.shadowColor = "rgba(255, 220, 150, 0.9)";
+    ctx.shadowBlur = 14;
+    ctx.fillStyle = "rgba(255, 246, 220, 0.96)";
+    ctx.fillText(GINEVRA_LABEL, head.x, head.y + 28);
+    ctx.restore();
+  }
+
   function drawNucleus() {
-    var coreR = 2.6;
-    var auraR = 11;
+    var labeled = GINEVRA_LABEL && w >= DESKTOP_MIN;
+    var coreR = labeled ? 3.4 : 2.6;
+    var auraR = labeled ? 18 : 11;
     var aura = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, auraR);
     aura.addColorStop(0, "rgba(255, 252, 238, 0.95)");
     aura.addColorStop(0.35, "rgba(255, 228, 165, 0.45)");
@@ -139,9 +177,15 @@
     ctx.fill();
 
     ctx.fillStyle = "rgba(255, 255, 252, 1)";
-    ctx.beginPath();
-    ctx.arc(head.x, head.y, coreR, 0, Math.PI * 2);
-    ctx.fill();
+    if (labeled) {
+      drawSparkleStar(head.x, head.y, 7.2, starSpin);
+    } else {
+      ctx.beginPath();
+      ctx.arc(head.x, head.y, coreR, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    drawGinevraLabel();
   }
 
   function draw() {
