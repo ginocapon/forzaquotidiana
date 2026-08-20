@@ -1,4 +1,5 @@
 /* La Forza Quotidiana — v45 · Dark + Panel Relief Gold + Section themes */
+@import url("/css/lenis.css?v=1");
 :root {
   --bg: #0c0c0c;
   --surface: #161616;
@@ -55,7 +56,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body {
   margin: 0;
   font-family: var(--font);
