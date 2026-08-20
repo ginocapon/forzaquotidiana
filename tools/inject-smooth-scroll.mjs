@@ -9,7 +9,7 @@ const REPO = join(import.meta.dirname, "..");
 const MARKER = "/js/smooth-scroll.js";
 const SNIPPET =
   '<script src="/js/vendor/lenis.min.js" defer></script>\n' +
-  '<script src="/js/smooth-scroll.js?v=1" defer></script>\n';
+  '<script src="/js/smooth-scroll.js?v=2" defer></script>\n';
 
 const SKIP = [
   "admin/prototipi/periodizzazione/fase/index.html",

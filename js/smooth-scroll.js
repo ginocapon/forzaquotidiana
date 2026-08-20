@@ -1,17 +1,17 @@
 /**
- * Smooth scroll Lenis — stessi parametri di ginocapon.github.io/Grok/en/
- * lerp .08 · smoothWheel · syncTouch · autoRaf
+ * Smooth scroll Lenis — base Grok (lerp .08) + 20% effetto in più
+ * ginocapon.github.io/Grok/en/ · smoothWheel · syncTouch · autoRaf
  */
 (function () {
   "use strict";
 
   var LENIS_OPTS = {
-    lerp: 0.08,
+    lerp: 0.064,
     smoothWheel: true,
-    wheelMultiplier: 1,
-    touchMultiplier: 1,
+    wheelMultiplier: 1.2,
+    touchMultiplier: 1.2,
     syncTouch: true,
-    syncTouchLerp: 0.08,
+    syncTouchLerp: 0.064,
     autoRaf: true,
     anchors: true
   };
