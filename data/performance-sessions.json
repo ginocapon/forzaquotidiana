@@ -732,6 +732,65 @@
         "fatigue_atl": 30,
         "date": "2026-08-21"
       }
+    },
+    {
+      "id": "2026-08-24-scheda-1",
+      "date": "2026-08-24",
+      "time": "12:16",
+      "datetime": "2026-08-24T12:16",
+      "scheda": 1,
+      "month": "2026-08",
+      "durata_sec": 3799,
+      "durata": "01:03:19",
+      "recupero_sec": 2916,
+      "recupero": "48:36",
+      "gruppi": 25,
+      "fc_media": 114,
+      "fc_max": 144,
+      "calorie": 502,
+      "carico": 69,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 4, "time": "02:54" },
+        "aerobica": { "pct": 44, "time": "28:00" },
+        "intensiva": { "pct": 45, "time": "28:56" },
+        "leggera": { "pct": 5, "time": "03:25" }
+      },
+      "effetto_aerobico": 3.1,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 2.3,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento della velocità ragionevole con buona efficacia dell'allenamento"
+      },
+      "readiness": {
+        "hybridcharge_wake": 81,
+        "sleep_duration": "6:25",
+        "sleep_duration_label": "Normale",
+        "sleep_regularity": 74,
+        "sleep_deep": "0:52",
+        "sleep_deep_pct": 14,
+        "sleep_rem": "1:15",
+        "sleep_rem_pct": 19,
+        "sleep_window": "23:46–07:07",
+        "hrv": 53,
+        "resting_hr": 47
+      },
+      "note": "Scheda 1 lunedì post weekend — 25 serie, carico 69, HRV 53 e HybridCharge 81. TSB −1,0 Bilanciato (CTL 19 / ATL 20). Rientro soft dopo S2 venerdì (carico 92).",
+      "tsb": {
+        "value": -1.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 19,
+        "fatigue_atl": 20,
+        "date": "2026-08-24"
+      }
     }
   ]
 }

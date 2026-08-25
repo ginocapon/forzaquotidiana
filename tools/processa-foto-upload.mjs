@@ -61,6 +61,20 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 10.38.47.jpeg": "sonno-metriche",
     },
   },
+  "foto allenamento 24 agosto": {
+    date: "2026-08-24",
+    scheda: 1,
+    files: {
+      "WhatsApp Image 2026-08-25 at 11.10.29.jpeg": "tsb",
+      "WhatsApp Image 2026-08-25 at 11.10.30.jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-08-25 at 11.10.30 (1).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-08-25 at 11.10.30 (2).jpeg": "valutazione",
+      "WhatsApp Image 2026-08-25 at 11.10.30 (3).jpeg": "tecnica",
+      "WhatsApp Image 2026-08-25 at 11.10.30 (4).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
+      /* (6) valutazione gambe — sessione diversa; (7) muscoli quad/abs — scartato */
+    },
+  },
   "allenamento  18 agosto 2026": {
     date: "2026-08-18",
     scheda: 2,
