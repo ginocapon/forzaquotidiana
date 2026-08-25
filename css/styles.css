@@ -2422,6 +2422,19 @@ article.hub-card:hover {
   max-width: 28rem;
   margin-inline: auto;
 }
+
+/* Riepilogo Zepp — in primo piano, riga dedicata */
+.amazfit-riepilogo-hero {
+  margin: 0 0 1.5rem;
+}
+.amazfit-riepilogo-hero .phone-shot {
+  margin: 0;
+}
+.amazfit-riepilogo-hero .phone-shot__frame {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
 .phone-shot--solo .phone-shot__frame img {
   width: 100%;
   height: auto;

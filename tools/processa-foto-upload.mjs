@@ -47,6 +47,20 @@ const KNOWN_BATCHES = {
     scheda: 1,
     slugs: ["tsb", "hrv", "riepilogo", "fc-grafico", "hybridcharge-giorno", "readiness-metriche", "sonno-score", "valutazione", "tecnica", "zone-effetto"],
   },
+  "foto allenamento 21 agosto": {
+    date: "2026-08-21",
+    scheda: 2,
+    files: {
+      "WhatsApp Image 2026-08-25 at 10.39.38 (1).jpeg": "riepilogo",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (5).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (6).jpeg": "tsb",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (4).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (3).jpeg": "tecnica",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (2).jpeg": "valutazione",
+      "WhatsApp Image 2026-08-25 at 10.38.47 (1).jpeg": "hrv",
+      "WhatsApp Image 2026-08-25 at 10.38.47.jpeg": "sonno-metriche",
+    },
+  },
   "allenamento  18 agosto 2026": {
     date: "2026-08-18",
     scheda: 2,

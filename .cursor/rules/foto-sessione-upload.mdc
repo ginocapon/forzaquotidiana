@@ -12,11 +12,14 @@ Quando Gino carica JPEG WhatsApp (GitHub *Add files via upload*, cartella `allen
 1. **Identificare visivamente** ogni scatto (non fidarsi del nome WhatsApp né dell’ordine file).
 2. **Radrizzare** con `sharp().rotate()` — molti JPEG WhatsApp arrivano ruotati 90°: controllare **sempre** il WebP prima di metterlo in pagina (riepilogo, zone FC, ecc.).
 3. `node tools/processa-foto-upload.mjs` → WebP in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-{slug}.webp` · **eliminare JPEG e cartella upload**.
-4. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` **come il 4 agosto**:
-   - TSB landscape → `.amazfit-tsb-hero` **da solo a tutta larghezza** (mai in griglia ¼)
-   - Grafico FC sessione → `.amazfit-fc-hero` **da solo** (mai accanto ad altre foto)
-   - Portrait readiness (HybridCharge, sonno, HRV) → `.amazfit-gallery` sotto l’hero
-   - Metabolico: `.phone-shot--full` riepilogo, poi fc hero, poi zone / tecnica / valutazione in griglia
+4. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` — layout fisso:
+   - **Readiness:** `.amazfit-tsb-hero` → screenshot modulo TSB **solo, tutta larghezza** (mai in griglia ¼)
+   - **Readiness gallery:** portrait sonno · HRV · HybridCharge sotto l’hero TSB
+   - **Metabolico — ordine obbligatorio:**
+     1. `.amazfit-riepilogo-hero` (o `.phone-shot--full`) → **resoconto Zepp solo, in primo piano**
+     2. `.amazfit-fc-hero` → **grafico FC solo**
+     3. `.amazfit-gallery` → zone · muscoli/radar · valutazione (portrait in griglia)
+     4. `.amazfit-data` → card dati raggruppate (stessi numeri delle foto)
 5. Screenshot Zepp = **documentali** (niente `data-ai` / Foto AI).
 6. Commit + push se Gino ha chiede di pubblicare.
 

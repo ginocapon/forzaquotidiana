@@ -94,18 +94,20 @@ Dettaglio: `.cursor/rules/foto-sessione-upload.mdc`.
 .metabolic-block
 ├── h2 + device
 ├── .amazfit-gallery__lead
-├── .amazfit-gallery
-│   ├── .phone-shot--full  riepilogo
-│   ├── fc-grafico
-│   ├── zone-effetto
-│   ├── tecnica
-│   └── valutazione (opz.)
-├── .amazfit-data
+├── .amazfit-riepilogo-hero (o .phone-shot--full)   ← riepilogo Zepp SOLO, in primo piano
+├── .amazfit-fc-hero                                ← grafico FC SOLO (mai in griglia ¼)
+├── .amazfit-gallery                                ← zone · tecnica · valutazione (portrait)
+├── .amazfit-data                                   ← card dati raggruppate (riepilogo, zone, tecnica, TSB)
 ├── .metabolic-note
 └── .hr-log
 ```
 
-**Regola layout:** griglia CSS — **no scroll orizzontale**. Screenshot hero (`-tsb.webp`, `-riepilogo.webp`) a **larghezza piena** tramite `.amazfit-tsb-hero` o `.phone-shot--full`.
+**Regola layout (bloccante):**
+- **Modulo TSB** (readiness): `.amazfit-tsb-hero` — screenshot landscape **da solo**, 100% larghezza.
+- **Riepilogo Zepp** (metabolico): **sempre in primo piano**, riga dedicata — mai in griglia ¼.
+- **Grafico FC**: `.amazfit-fc-hero` — **da solo**, mai accanto ad altre foto.
+- Portrait readiness (sonno, HRV, HybridCharge): `.amazfit-gallery` sotto TSB hero.
+- **WebP obbligatorio** — mai JPEG WhatsApp in repo; identificare ogni scatto visivamente; radrizzare con `sharp().rotate()` prima di pubblicare.
 
 Tool allineamento sessioni esistenti: `node tools/standardizza-layout-sessioni.mjs`
 

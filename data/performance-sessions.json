@@ -672,6 +672,66 @@
         "fatigue_atl": 23,
         "date": "2026-08-20"
       }
+    },
+    {
+      "id": "2026-08-21-scheda-2",
+      "date": "2026-08-21",
+      "time": "16:11",
+      "datetime": "2026-08-21T16:11",
+      "scheda": 2,
+      "month": "2026-08",
+      "durata_sec": 3936,
+      "durata": "01:05:36",
+      "recupero_sec": 2870,
+      "recupero": "47:50",
+      "gruppi": 24,
+      "fc_media": 110,
+      "fc_max": 152,
+      "calorie": 494,
+      "carico": 92,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 1, "time": "01:17" },
+        "anaerobica": { "pct": 13, "time": "08:50" },
+        "aerobica": { "pct": 29, "time": "19:13" },
+        "intensiva": { "pct": 32, "time": "21:20" },
+        "leggera": { "pct": 9, "time": "06:27" }
+      },
+      "effetto_aerobico": 3.4,
+      "effetto_aerobico_label": "Buono",
+      "effetto_anaerobico": 2.6,
+      "effetto_anaerobico_label": "Medio",
+      "tecnica": {
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento moderato della velocità, effetto di allenamento accettabile"
+      },
+      "readiness": {
+        "sleep_duration": "7:54",
+        "sleep_duration_label": "Ottimale",
+        "sleep_regularity": 63,
+        "sleep_deep": "1:08",
+        "sleep_deep_pct": 14,
+        "sleep_rem": "1:37",
+        "sleep_rem_pct": 21,
+        "sleep_awake": "0:37",
+        "sleep_awake_count": 11,
+        "hrv": 39,
+        "hrv_label": "Buono",
+        "hrv_baseline": 42
+      },
+      "note": "Scheda 2 venerdì — 24 serie in 65 min, carico 92 (+136% vs 39 del 20/08). Effetto aerobico 3,4 Buono e anaerobico 2,6 Medio. TSB −8,0 Ottimale (CTL 22 / ATL 30). Sonno 7:54 Ottimale, HRV 39; veglia 37 min ×11.",
+      "tsb": {
+        "value": -8.0,
+        "label": "Ottimale",
+        "fitness_ctl": 22,
+        "fatigue_atl": 30,
+        "date": "2026-08-21"
+      }
     }
   ]
 }
