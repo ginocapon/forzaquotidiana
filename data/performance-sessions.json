@@ -615,6 +615,63 @@
         "label": "Bilanciato",
         "date": "2026-08-19"
       }
+    },
+    {
+      "id": "2026-08-20-scheda-1",
+      "date": "2026-08-20",
+      "time": "17:03",
+      "datetime": "2026-08-20T17:03",
+      "scheda": 1,
+      "month": "2026-08",
+      "durata_sec": 3121,
+      "durata": "00:52:01",
+      "recupero_sec": 2197,
+      "recupero": "36:37",
+      "gruppi": 24,
+      "fc_media": 107,
+      "fc_max": 140,
+      "calorie": 372,
+      "carico": 39,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 2, "time": "01:21" },
+        "aerobica": { "pct": 24, "time": "12:32" },
+        "intensiva": { "pct": 51, "time": "26:47" },
+        "leggera": { "pct": 21, "time": "11:08" }
+      },
+      "effetto_aerobico": 2.5,
+      "effetto_aerobico_label": "Medio",
+      "effetto_anaerobico": 0.5,
+      "effetto_anaerobico_label": "Nessun effetto",
+      "tecnica": {
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento della velocità ragionevole con buona efficacia dell'allenamento"
+      },
+      "readiness": {
+        "hybridcharge_wake": 84,
+        "hybridcharge_wake_label": "Ottimale",
+        "hybridcharge_day": 46,
+        "sleep_score": 73,
+        "sleep_duration": "8:46",
+        "sleep_window": "22:52–09:02",
+        "hrv": 41,
+        "hrv_label": "Buono",
+        "effort_pct": 100
+      },
+      "note": "Scheda 1 giovedì — 24 serie, sessione più corta e carico 39 (−48% vs 75 del 17/08) dopo notte recuperata (8:46, HybridCharge 84). TSB Zepp −5,0 Bilanciato (CTL 18 / ATL 23).",
+      "tsb": {
+        "value": -5.0,
+        "label": "Bilanciato",
+        "fitness_ctl": 18,
+        "fatigue_atl": 23,
+        "date": "2026-08-20"
+      }
     }
   ]
 }

@@ -42,6 +42,11 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-04 at 18.48.41 (4).jpeg": "sonno-metriche",
     },
   },
+  "foto allenamento 20 agosto": {
+    date: "2026-08-20",
+    scheda: 1,
+    slugs: ["tsb", "hrv", "riepilogo", "fc-grafico", "hybridcharge-giorno", "readiness-metriche", "sonno-score", "valutazione", "tecnica", "zone-effetto"],
+  },
   "allenamento  18 agosto 2026": {
     date: "2026-08-18",
     scheda: 2,
