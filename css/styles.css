@@ -2410,6 +2410,28 @@ article.hub-card:hover {
   color: var(--muted);
 }
 
+/* Grafico FC / chart Zepp — riga dedicata, mai in griglia ¼ */
+.amazfit-fc-hero {
+  margin: 0 0 1.5rem;
+}
+.amazfit-fc-hero .phone-shot {
+  margin: 0;
+}
+.amazfit-fc-hero .phone-shot__frame {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+.phone-shot--solo .phone-shot__frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.amazfit-tsb-hero.phone-shot--solo .phone-shot__frame,
+.amazfit-tsb-hero .phone-shot--solo .phone-shot__frame {
+  max-width: none;
+}
+
 .amazfit-card {
   border-radius: 16px;
   margin-bottom: 1rem;

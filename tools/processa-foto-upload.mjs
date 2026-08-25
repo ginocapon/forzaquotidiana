@@ -80,11 +80,14 @@ function destName(date, scheda, slug) {
 
 async function processImage(src, slug) {
   let pipeline = sharp(src).rotate();
+  const meta = await sharp(src).rotate().metadata();
+  const w = meta.width || 0;
+  const h = meta.height || 0;
   if (slug === "tsb") {
-    const meta = await sharp(src).rotate().metadata();
-    if ((meta.height || 0) > (meta.width || 0)) {
-      pipeline = pipeline.rotate(-90);
-    }
+    if (h > w) pipeline = pipeline.rotate(-90);
+  }
+  if (slug === "riepilogo" && w > h) {
+    pipeline = pipeline.rotate(90);
   }
   return pipeline.webp({ quality: 82, effort: 4 });
 }

@@ -10,12 +10,14 @@ Quando Gino carica JPEG WhatsApp (GitHub *Add files via upload*, cartella `allen
 ## Obbligo
 
 1. **Identificare visivamente** ogni scatto (non fidarsi del nome WhatsApp né dell’ordine file).
-2. `node tools/processa-foto-upload.mjs` → WebP in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-{slug}.webp` · **eliminare JPEG e cartella upload**.
-3. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` **come il 4 agosto**:
-   - TSB landscape → `.amazfit-tsb-hero` (mai in griglia ¼)
+2. **Radrizzare** con `sharp().rotate()` — molti JPEG WhatsApp arrivano ruotati 90°: controllare **sempre** il WebP prima di metterlo in pagina (riepilogo, zone FC, ecc.).
+3. `node tools/processa-foto-upload.mjs` → WebP in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-{slug}.webp` · **eliminare JPEG e cartella upload**.
+4. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` **come il 4 agosto**:
+   - TSB landscape → `.amazfit-tsb-hero` **da solo a tutta larghezza** (mai in griglia ¼)
+   - Grafico FC sessione → `.amazfit-fc-hero` **da solo** (mai accanto ad altre foto)
    - Portrait readiness (HybridCharge, sonno, HRV) → `.amazfit-gallery` sotto l’hero
-   - Metabolico: `.phone-shot--full` riepilogo, poi fc / zone / tecnica / valutazione
-4. Screenshot Zepp = **documentali** (niente `data-ai` / Foto AI).
-5. Commit + push se Gino ha chiesto di pubblicare.
+   - Metabolico: `.phone-shot--full` riepilogo, poi fc hero, poi zone / tecnica / valutazione in griglia
+5. Screenshot Zepp = **documentali** (niente `data-ai` / Foto AI).
+6. Commit + push se Gino ha chiede di pubblicare.
 
 Riferimento visivo: `/allenamenti/sessioni/2026-08-04-scheda-2/` · dettaglio `SKILL-PERFORMANCE.md`.
