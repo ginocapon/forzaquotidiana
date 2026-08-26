@@ -76,7 +76,13 @@
     var trimestreUrl = document.body.getAttribute("data-trimestre-url") ||
       "/allenamenti/trimestre-giugno-luglio-agosto-2026/";
 
-    var spriteReady = window.fqSprite ? window.fqSprite.inject() : Promise.resolve();
+    var spriteReady = window.fqSprite
+      ? window.fqSprite.inject().then(function () {
+          if (!window.fqSprite.findSymbol("fig-press-incl")) {
+            throw new Error("Sprite figure non caricato");
+          }
+        })
+      : Promise.reject(new Error("fqSprite assente"));
 
     spriteReady
       .then(function () { return fetch(DATA_URL).then(function (r) { return r.json(); }); })

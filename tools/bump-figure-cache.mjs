@@ -19,9 +19,12 @@ function walk(dir, out = []) {
 }
 
 const REPLACEMENTS = [
-  ["sprite-esercizi.js?v=1", "sprite-esercizi.js?v=2"],
-  ["sessione-scheda-figure.js?v=1", "sessione-scheda-figure.js?v=2"],
-  ["trimestre-scheda-figure.js?v=1", "trimestre-scheda-figure.js?v=2"],
+  ["sprite-esercizi.js?v=2", "sprite-esercizi.js?v=3"],
+  ["sprite-esercizi.js?v=1", "sprite-esercizi.js?v=3"],
+  ["sessione-scheda-figure.js?v=2", "sessione-scheda-figure.js?v=3"],
+  ["sessione-scheda-figure.js?v=1", "sessione-scheda-figure.js?v=3"],
+  ["trimestre-scheda-figure.js?v=2", "trimestre-scheda-figure.js?v=3"],
+  ["trimestre-scheda-figure.js?v=1", "trimestre-scheda-figure.js?v=3"],
   ["styles.css?v=51", "styles.css?v=55"],
 ];
 

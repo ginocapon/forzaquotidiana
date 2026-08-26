@@ -23,6 +23,7 @@ jobs:
 
       - name: Prepare site artifact
         run: |
+          cp admin/img/esercizi-sprite.svg img/esercizi-sprite.svg
           mkdir -p _site
           rsync -a \
             --exclude '.git/' \
