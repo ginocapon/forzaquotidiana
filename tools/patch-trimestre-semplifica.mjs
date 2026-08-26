@@ -43,7 +43,7 @@ html = html.replace(/styles\.css\?v=\d+/, "styles.css?v=55");
 if (!html.includes("sprite-esercizi.js")) {
   html = html.replace(
     '<script src="/js/main.js',
-    '<script src="/admin/js/sprite-esercizi.js?v=2" defer></script>\n<script src="/js/trimestre-scheda-figure.js?v=2" defer></script>\n<script src="/js/main.js'
+    '<script src="/admin/js/sprite-esercizi.js?v=4" defer></script>\n<script src="/js/trimestre-scheda-figure.js?v=3" defer></script>\n<script src="/js/main.js'
   );
 }
 

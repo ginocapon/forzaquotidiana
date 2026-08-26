@@ -270,16 +270,30 @@
 
 <symbol id="fig-doktor" viewBox="0 0 120 120"><title>Adduttori · macchina Doktor PRIMO</title>
   <path class="fx-floor" d="M10 112h100"/>
+  <path class="fx-frame" d="M38 96v16"/>
   <path class="fx-frame" d="M104 12v100"/>
-  <path class="fx-pad" d="M78 62h24v10H78z"/>
-  <path class="fx-pad" d="M40 40h16v10H40z"/>
-  <circle class="fx-head" cx="46" cy="26" r="8"/>
-  <path class="fx-body" d="M46 34v34"/>
-  <path class="fx-target" d="M40 78 36 96"/>
-  <path class="fx-body" d="M46 68 36 90 38 110"/>
-  <path class="fx-body" d="M46 68 66 76 84 66"/>
-  <path class="fx-body" d="M42 46 40 66M50 46 52 66"/>
-  <path class="fx-arrow" d="M18 62v30M13 68l5-6 5 6M13 86l5 6 5-6"/>
+  <rect class="fx-plate" x="96" y="24" width="12" height="8" rx="1.5"/>
+  <rect class="fx-plate" x="96" y="36" width="12" height="8" rx="1.5"/>
+  <rect class="fx-plate" x="96" y="48" width="12" height="8" rx="1.5"/>
+  <path class="fx-pad" d="M44 76h32v12H44z"/>
+  <path class="fx-pad" d="M50 32h20v46H50z"/>
+  <path class="fx-pad" d="M12 66h14v12H12z" transform="rotate(-16 19 72)"/>
+  <path class="fx-pad" d="M94 66h14v12H94z" transform="rotate(16 101 72)"/>
+  <path class="fx-frame" d="M26 76 44 82"/>
+  <path class="fx-frame" d="M94 76 76 82"/>
+  <circle class="fx-head" cx="60" cy="24" r="8"/>
+  <path class="fx-body" d="M52 44 34 70"/>
+  <path class="fx-body" d="M68 44 86 70"/>
+  <path class="fx-body" d="M54 68 60 78"/>
+  <path class="fx-body" d="M66 68 60 78"/>
+  <path class="fx-body" d="M54 78 20 100"/>
+  <path class="fx-body" d="M66 78 100 100"/>
+  <path class="fx-target" d="M38 80 32 92"/>
+  <path class="fx-target" d="M82 80 88 92"/>
+  <path class="fx-ghost" d="M54 78 50 98"/>
+  <path class="fx-ghost" d="M66 78 70 98"/>
+  <path class="fx-arrow" d="M16 94c12-4 18 2 22 8M16 88l10 2-2-8"/>
+  <path class="fx-arrow" d="M104 94c-12-4-18 2-22 8M104 88l-10 2 2-8"/>
 </symbol>
 
 <symbol id="fig-bulgarian" viewBox="0 0 120 120"><title>Bulgarian split squat</title>
