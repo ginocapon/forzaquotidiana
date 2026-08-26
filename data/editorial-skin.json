@@ -12,7 +12,10 @@
       "promesse estetiche",
       "inventare kg o PR",
       "coaching commerciale",
-      "link a /allenamenti/sessioni/ nel corpo articolo"
+      "link a /allenamenti/sessioni/ nel corpo articolo",
+      "sezione Trasparenza totale o Riepilogo secco",
+      "disclaimer legali ripetuti su brand terzi nel corpo o nel box Risposta breve",
+      "FAQ tipo Gino è pagato da X"
     ],
     "required_links": ["/diario/", "/allenamenti/", "/chi-sono/"],
     "dedication": "Ginevra"
@@ -24,7 +27,9 @@
     "faq_min": 5,
     "title_max": 60,
     "meta_max": 160,
-    "aeo_box_label": "Risposta breve"
+    "aeo_box_label": "Risposta breve",
+    "aeo_box_max_sentences": 3,
+    "aeo_box_style": "Diretto, 2-3 frasi, niente boilerplate legale né affiliazioni"
   },
   "reference_articles": [
     "diario/demolition-men-universita-vita-57-anni/index.html",

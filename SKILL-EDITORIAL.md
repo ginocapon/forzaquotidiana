@@ -62,6 +62,16 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 - Internal links min 3: `/diario/`, `/allenamenti/`, `/chi-sono/`
 - Path: `diario/{slug}/index.html` — slug con `-57-anni` quando pertinente
 
+### Box «Risposta breve» — regola aggiornata (BLOCCANTE)
+
+- **2–3 frasi massimo**, tono diretto; prima persona nelle riflessioni
+- Risponde al titolo in modo scorrevole — **non** paragrafo legale né elenco difese
+- **Vietato nel box e nel corpo:** affiliazioni, codici sconto, «zero interesse commerciale», «spezzare una lancia», ripetizioni difensive su brand terzi
+- **Vietato in qualsiasi articolo:** sezione H2 «Trasparenza totale», «Riepilogo secco» o equivalenti riassunti legali
+- **Titoli H1 diretti** — niente parentesi difensive tipo «(senza venderti nulla)»
+- Menzioni brand terzi: elogio genuino nel corpo; disclaimer minimo solo nel footer `.disclaimer` (opinione personale, non consulenza medica)
+- FAQ: domande sul **contenuto**, non «Gino è pagato da X?»
+
 ## Indice diario — miniatura obbligatoria (BLOCCANTE)
 
 Ogni nuovo articolo in `diario/index.html` deve usare la **card con thumb a sinistra** (come gli articoli dal 11 agosto in poi):
