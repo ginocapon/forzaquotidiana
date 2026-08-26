@@ -791,6 +791,56 @@
         "fatigue_atl": 20,
         "date": "2026-08-24"
       }
+    },
+    {
+      "id": "2026-08-25-scheda-2",
+      "date": "2026-08-25",
+      "time": "14:31",
+      "datetime": "2026-08-25T14:31",
+      "scheda": 2,
+      "month": "2026-08",
+      "durata_sec": 4449,
+      "durata": "01:14:09",
+      "recupero_sec": 2847,
+      "recupero": "47:27",
+      "gruppi": 26,
+      "fc_media": 111,
+      "fc_max": 146,
+      "calorie": 567,
+      "carico": 66,
+      "duration_corrected": false,
+      "calorie_asterisk": false,
+      "carico_asterisk": false,
+      "tecnica": {
+        "consistenza": "L'intervallo di movimento è per lo più uniforme, con piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "I movimenti sono per lo più fluidi con pause minori",
+        "rhythm": "Tempi di movimento coerenti con un ritmo uniforme",
+        "speed_decay": "Decadimento della velocità ragionevole con buona efficacia dell'allenamento"
+      },
+      "readiness": {
+        "hybridcharge_wake": 29,
+        "sleep_score": 66,
+        "sleep_duration": "6:25",
+        "sleep_duration_label": "Medio",
+        "sleep_deep": "0:52",
+        "sleep_deep_label": "Leggero",
+        "effort_day_pct": 96,
+        "hrv": 45,
+        "hrv_label": "Buono",
+        "hrv_baseline": 42,
+        "resting_hr": 48,
+        "resting_hr_label": "Ottimale",
+        "sleep_window": "23:48–07:07"
+      },
+      "note": "Scheda 2 martedì — 26 serie in 74 min, carico 66. HybridCharge 29 basso ma HRV 45 Buono. TSB −6,0 Ottimale (CTL 25 / ATL 31) dopo S1 lunedì.",
+      "tsb": {
+        "value": -6.0,
+        "label": "Ottimale",
+        "fitness_ctl": 25,
+        "fatigue_atl": 31,
+        "date": "2026-08-25"
+      }
     }
   ]
 }

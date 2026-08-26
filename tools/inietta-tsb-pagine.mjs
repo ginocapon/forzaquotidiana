@@ -31,6 +31,7 @@ const SESSION_PAGES = [
   { file: "allenamenti/sessioni/2026-08-20-scheda-1/index.html", date: "2026-08-20" },
   { file: "allenamenti/sessioni/2026-08-21-scheda-2/index.html", date: "2026-08-21" },
   { file: "allenamenti/sessioni/2026-08-24-scheda-1/index.html", date: "2026-08-24" },
+  { file: "allenamenti/sessioni/2026-08-25-scheda-2/index.html", date: "2026-08-25" },
 ];
 
 const MONTH_KEYS = ["2026-06", "2026-07", "2026-08"];
