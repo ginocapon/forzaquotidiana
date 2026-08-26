@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-16",
+  "updated": "2026-08-26",
   "max_per_week": 3,
   "items": [
     {
@@ -212,7 +212,7 @@
     {
       "id": "disc-1786886087428-1e95",
       "slug": "many-years-apart-think-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "many years apart think",
@@ -222,12 +222,24 @@
       "target_week": "2026-08-16",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "How many years apart do you think?🫡"
+      "trending_title": "How many years apart do you think?🫡",
+      "paths": {
+        "html": "diario/many-years-apart-think-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/many-years-apart-think-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/many-years-apart-think-fig1.webp",
+          "img/diario/2026-08-26/many-years-apart-think-fig2.webp"
+        ]
+      },
+      "title_draft": "Quanti anni di differenza? Il meme Reddit",
+      "meta_draft": "Parodia goliardica sul trend Reddit foto giovane vs oggi — autenticità vs aspettative social. Gino 57 anni.",
+      "h1_draft": "Quanti anni di differenza? Il meme Reddit mi chiede il conto (a 57)",
+      "published_date": "2026-08-26"
     },
     {
       "id": "disc-1786886087428-wyr0",
       "slug": "check-weeks-natural-viking-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "check weeks natural viking",
@@ -237,7 +249,19 @@
       "target_week": "2026-08-16",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Check-In: 2 Weeks Out from OCB Natural Viking"
+      "trending_title": "Check-In: 2 Weeks Out from OCB Natural Viking",
+      "paths": {
+        "html": "diario/check-weeks-natural-viking-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/check-weeks-natural-viking-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/check-weeks-natural-viking-fig1.webp",
+          "img/diario/2026-08-26/check-weeks-natural-viking-fig2.webp"
+        ]
+      },
+      "title_draft": "Check-in da gara: due settimane al Viking",
+      "meta_draft": "Parodia del check-in pre-gara bodybuilding: Gino dilettante fa peaking col telecomando. Finizione cartoon.",
+      "h1_draft": "Check-in da gara Natural Viking — peaking sul divano (a 57 anni)",
+      "published_date": "2026-08-26"
     },
     {
       "id": "disc-1786886087428-14o1",
@@ -257,7 +281,7 @@
     {
       "id": "prop-creatina-dossier-2026-08",
       "slug": "creatina-meme-universita-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "creatina culturismo meme",
@@ -277,7 +301,63 @@
         "FAQ con disclaimer medico",
         "Newsletter"
       ],
-      "notes": "Integrare dossier scientifico utente ago 2026; collegare a proteine-shake-universita-57-anni"
+      "notes": "Integrare dossier scientifico utente ago 2026; collegare a proteine-shake-universita-57-anni",
+      "paths": {
+        "html": "diario/creatina-meme-universita-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/creatina-meme-universita-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/creatina-meme-universita-fig1.webp",
+          "img/diario/2026-08-26/creatina-meme-universita-tablet-notte.webp"
+        ]
+      },
+      "meta_draft": "Satira goliardica su meme creatina + sintesi scientifica prudente — zero vendita integratori. Gino Capon 57 anni.",
+      "h1_draft": "La mia laurea in Creatina Applicata (con esame notturno al tablet)",
+      "published_date": "2026-08-26"
+    },
+    {
+      "id": "disc-1787760013082-bkd1",
+      "slug": "former-olympia-hadi-choopan-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "former olympia hadi choopan",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issu",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-26",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issues."
+    },
+    {
+      "id": "disc-1787760013083-u90n",
+      "slug": "months-lifting-natural-place-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "months lifting natural place",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: 8 months lifting natural 3rd place Npc men’s physique",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-26",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "8 months lifting natural 3rd place Npc men’s physique"
+    },
+    {
+      "id": "disc-1787760013083-wtxi",
+      "slug": "when-want-compete-start-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "when want compete start",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: When did “I want to compete” start meaning “I need to take steroids”?",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-26",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "When did “I want to compete” start meaning “I need to take steroids”?"
     }
   ]
 }
