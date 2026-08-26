@@ -80,22 +80,21 @@ function addToDiarioIndex(item, publishDate) {
   let html = fs.readFileSync(indexPath, "utf8");
   const groupId = monthGroupId(publishDate);
   const groupTitle = monthGroupTitle(publishDate);
-  const thumb = diarioThumbSrc(item);
-  const thumbBlock = thumb
-    ? `
-              <span class="diario-list__thumb" aria-hidden="true">
-                <img src="${thumb}" alt="" width="120" height="120" loading="lazy">
+  const thumbSrc = diarioThumbSrc(item);
+  const thumbBlock = thumbSrc
+    ? `              <span class="diario-list__thumb" aria-hidden="true">
+                <img src="${thumbSrc}" alt="" width="120" height="120" loading="lazy">
               </span>
               <span class="diario-list__body">`
-    : `
-              <span class="diario-list__body">`;
-  const thumbClose = thumb ? "\n              </span>" : "";
+    : `              <span class="diario-list__body">`;
+  const bodyClose = thumbSrc ? "\n              </span>" : "";
   const listItem = `
           <li>
-            <a class="diario-list__link" href="/diario/${item.slug}/">${thumbBlock}
-              <div class="diario-list__meta"><time datetime="${publishDate}">${monthLabelIt(publishDate)}</time> · ${item.fiction ? "Goliardia" : "Riflessione"}</div>
-              <h3 class="diario-list__title">${item.title_draft || item.h1_draft || item.slug}</h3>
-              <p class="diario-list__excerpt">${item.meta_draft?.slice(0, 120) || item.intent || ""}</p>${thumbClose}
+            <a class="diario-list__link" href="/diario/${item.slug}/">
+${thumbBlock}
+                <div class="diario-list__meta"><time datetime="${publishDate}">${monthLabelIt(publishDate)}</time> · ${item.fiction ? "Goliardia" : "Riflessione"}</div>
+                <h3 class="diario-list__title">${item.title_draft || item.h1_draft || item.slug}</h3>
+                <p class="diario-list__excerpt">${item.meta_draft?.slice(0, 120) || item.intent || ""}</p>${bodyClose}
             </a>
           </li>`;
 

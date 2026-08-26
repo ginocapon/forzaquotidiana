@@ -62,13 +62,33 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 - Internal links min 3: `/diario/`, `/allenamenti/`, `/chi-sono/`
 - Path: `diario/{slug}/index.html` — slug con `-57-anni` quando pertinente
 
+## Indice diario — miniatura obbligatoria (BLOCCANTE)
+
+Ogni nuovo articolo in `diario/index.html` deve usare la **card con thumb a sinistra** (come gli articoli dal 11 agosto in poi):
+
+```html
+<a class="diario-list__link" href="/diario/{slug}/">
+  <span class="diario-list__thumb" aria-hidden="true">
+    <img src="../img/diario/YYYY-MM-DD/{slug-base}-fig1.webp" alt="" width="120" height="120" loading="lazy">
+  </span>
+  <span class="diario-list__body">
+    <div class="diario-list__meta">…</div>
+    <h3 class="diario-list__title">…</h3>
+    <p class="diario-list__excerpt">…</p>
+  </span>
+</a>
+```
+
+- **Thumb:** prima figura (`paths.figures[0]`) o hero se manca fig1 — stesso file WebP già in articolo.
+- **NO** marchio «Foto AI» sul thumb (eccezione `.diario-list__thumb` in `main.js` e regole trasparenza).
+- `node tools/editorial-weekly.mjs run --publish` inserisce la miniatura via `addToDiarioIndex()` — verificare visivamente `/diario/` prima del commit.
+
 ## Immagini — stile goliardico (BLOCCANTE)
 
 | Asset | Path | Spec |
 |-------|------|------|
 | Hero | `img/diario/YYYY-MM-DD/{slug}-hero.webp` | 1900×900, 19:9, <150KiB target |
 | Figura 1–2 | `img/diario/YYYY-MM-DD/{slug}-*.webp` | Fumetto, surreal, JoJo/manga light |
-| **Miniatura indice** | `paths.figures[0]` → `diario/index.html` | **Obbligatoria** — `.diario-list__thumb` 120×120, fig1 (o hero fallback). NO marchio Foto AI sul thumb (`main.js` lo salta). |
 
 **Brief visivo:** Gino cartoon stropicciato ma dignitoso; palette scura sito; umorismo italiano; NO stock palestra identico; NO riuso hero altri articoli.
 
@@ -99,7 +119,7 @@ Oppure usa il comando Cursor: **venerdi-editoriale** (file `.cursor/commands/ven
 1. Legge questa skill + `data/editorial-skin.json` + `data/editorial-image-skin.json`
 2. `node tools/editorial-weekly.mjs run --friday` — trend RSS, keyword, max 3 in `scheduled`
 3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (stile skin, disclosure IA)
-4. `node tools/editorial-weekly.mjs run --publish` — index **con miniatura fig1**, sitemap, llms.txt, check GEO/AEO
+4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt, check GEO/AEO
 5. Commit e push
 
 ### Cron GitHub (opzionale, alle 07:00)
