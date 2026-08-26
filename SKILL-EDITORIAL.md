@@ -68,6 +68,7 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 |-------|------|------|
 | Hero | `img/diario/YYYY-MM-DD/{slug}-hero.webp` | 1900×900, 19:9, <150KiB target |
 | Figura 1–2 | `img/diario/YYYY-MM-DD/{slug}-*.webp` | Fumetto, surreal, JoJo/manga light |
+| **Miniatura indice** | `paths.figures[0]` → `diario/index.html` | **Obbligatoria** — `.diario-list__thumb` 120×120, fig1 (o hero fallback). NO marchio Foto AI sul thumb (`main.js` lo salta). |
 
 **Brief visivo:** Gino cartoon stropicciato ma dignitoso; palette scura sito; umorismo italiano; NO stock palestra identico; NO riuso hero altri articoli.
 
@@ -98,7 +99,7 @@ Oppure usa il comando Cursor: **venerdi-editoriale** (file `.cursor/commands/ven
 1. Legge questa skill + `data/editorial-skin.json` + `data/editorial-image-skin.json`
 2. `node tools/editorial-weekly.mjs run --friday` — trend RSS, keyword, max 3 in `scheduled`
 3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (stile skin, disclosure IA)
-4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt, check GEO/AEO
+4. `node tools/editorial-weekly.mjs run --publish` — index **con miniatura fig1**, sitemap, llms.txt, check GEO/AEO
 5. Commit e push
 
 ### Cron GitHub (opzionale, alle 07:00)
