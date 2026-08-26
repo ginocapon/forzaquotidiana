@@ -39,11 +39,11 @@ for (let n = 1; n <= 4; n++) {
 }
 
 // Aggiorna CSS e aggiungi script figure trimestre
-html = html.replace(/styles\.css\?v=\d+/, "styles.css?v=51");
+html = html.replace(/styles\.css\?v=\d+/, "styles.css?v=55");
 if (!html.includes("sprite-esercizi.js")) {
   html = html.replace(
     '<script src="/js/main.js',
-    '<script src="/admin/js/sprite-esercizi.js?v=1" defer></script>\n<script src="/js/trimestre-scheda-figure.js?v=1" defer></script>\n<script src="/js/main.js'
+    '<script src="/admin/js/sprite-esercizi.js?v=2" defer></script>\n<script src="/js/trimestre-scheda-figure.js?v=2" defer></script>\n<script src="/js/main.js'
   );
 }
 

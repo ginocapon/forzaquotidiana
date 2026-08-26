@@ -18,8 +18,8 @@ const FIGURE_PANEL = `    <section class="session-panel" aria-labelledby="figure
 
 `;
 
-const SCRIPTS = `    <script src="/admin/js/sprite-esercizi.js?v=1" defer></script>
-    <script src="/js/sessione-scheda-figure.js?v=1" defer></script>
+const SCRIPTS = `    <script src="/admin/js/sprite-esercizi.js?v=2" defer></script>
+    <script src="/js/sessione-scheda-figure.js?v=2" defer></script>
 `;
 
 const EQUIPMENT_IMG = /technogym|leg-press|leg-extension|leg-curl|panca-scott|multipower-sala|adduttori-poster|stacco-omega-poster/i;

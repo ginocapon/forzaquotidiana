@@ -91,7 +91,7 @@ function renderMonthPanel(monthKey) {
 function ensureScript(html) {
   let out = html;
   if (out.includes("styles.css?v=")) {
-    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=51");
+    out = out.replace(/styles\.css\?v=\d+/, "styles.css?v=55");
   }
   if (out.includes("training-load-chart.js")) {
     out = out.replace(/training-load-chart\.js\?v=\d+/, "training-load-chart.js?v=3");
