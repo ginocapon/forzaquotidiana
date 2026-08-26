@@ -1,22 +1,36 @@
-# Venerdì editoriale — 3 articoli goliardici
+# Venerdì editoriale — 2 tecnici + 1 goliardico
 
-Genera e pubblica i **3 articoli del diario** della settimana. **Nessuna API OpenAI** — usa Cursor + skin del sito.
+Genera e pubblica i **3 articoli del diario** della settimana da trend **RSS r/bodybuilding**. **Nessuna API OpenAI** — usa Cursor + skin del sito.
+
+## Mix obbligatorio
+
+| # | Tipo | Immagini |
+|---|------|----------|
+| 1–2 | **Tecnico** — italiano, serio, zero parodia | Illustrazioni performance bodybuilding (`style_serio`) |
+| 3 | **Goliardico** — parodia, schema attuale | Fumetto JoJo (`style_goliardico`) |
 
 ## Istruzioni per l'agente
 
 1. Leggi `SKILL-EDITORIAL.md`, `data/editorial-skin.json`, `data/editorial-image-skin.json`
 2. Esegui: `node tools/editorial-weekly.mjs run --friday`
 3. Per **ogni** articolo in coda `scheduled` (max 3):
-   - Scrivi `diario/{slug}/index.html` (template come articoli esistenti in `data/editorial-skin.json` → `reference_articles`)
-   - Genera hero + 2 figure WebP in `img/diario/YYYY-MM-DD/` (stile fumetto JoJo, `data-ai="generated"`, marchio **Foto AI** sull'immagine, disclosure in figcaption)
-   - Rispetta: numeri solo da `data/my-stats.json`, banner goliardia, CTA newsletter
-   - **Indice diario:** ogni voce in `/diario/` con miniatura 120×120 a sinistra (fig1 o hero) — vedi `SKILL-EDITORIAL.md` § Indice diario
+   - **Tecnico:** badge `Tecnico`, NO banner goliardia, trend RSS tradotto/adattato in italiano
+   - **Goliardico:** badge `Goliardia`, banner `.banner-goliardia`, satira sullo stesso trend pool
+   - Scrivi `diario/{slug}/index.html` (template da `reference_articles` in skin)
+   - Genera hero + 2 figure WebP in `img/diario/YYYY-MM-DD/` con skin corretta
+   - Risposta breve: 2–3 frasi dirette · numeri solo da `data/my-stats.json`
+   - **Indice diario:** card con thumb 120×120 a sinistra
 4. Esegui: `node tools/editorial-weekly.mjs run --publish`
-5. Verifica `/diario/` — tutte le card devono avere thumb come gli articoli del 16 agosto
-6. Commit, push, PR se necessario
+5. Commit e push
 
 ## Comando utente (copia-incolla)
 
 ```
-Venerdì editoriale: genera e pubblica i 3 articoli goliardici del diario secondo la skin.
+Venerdì editoriale: genera e pubblica i 3 articoli del diario (2 tecnici + 1 goliardico) secondo la skin RSS bodybuilding.
+```
+
+## Prova singola (fuori venerdì)
+
+```
+Editoriale prova: 1 articolo tecnico da trend RSS bodybuilding — solo serio, italiano, immagini performance.
 ```

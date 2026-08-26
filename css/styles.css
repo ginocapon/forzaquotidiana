@@ -1741,6 +1741,8 @@ article.hub-card:hover {
   color: var(--muted);
 }
 .entry__type--rif { color: #d4a855; }
+.entry__type--tec { color: #5eb8d4; }
+.entry__type--goliardia { color: #e09070; }
 .entry__type--all { color: #e07060; }
 
 .entry h2 {

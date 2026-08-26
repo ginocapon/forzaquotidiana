@@ -43,7 +43,17 @@ function phase0() {
   return ctx;
 }
 
+function diarioTypeLabel(item) {
+  if (item.fiction || item.tone === "goliardico") return "Goliardia";
+  if (item.tone === "tecnico") return "Tecnico";
+  return "Riflessione";
+}
+
 function prioritize(queue, max = 3) {
+  const mix = readJson("data/editorial-skin.json")?.weekly_mix || { serio: 2, goliardico: 1 };
+  const needSerio = mix.serio ?? 2;
+  const needGoliardia = mix.goliardico ?? 1;
+
   const today = todayISO();
   const weekEnd = new Date();
   weekEnd.setDate(weekEnd.getDate() + 7);
@@ -58,12 +68,24 @@ function prioritize(queue, max = 3) {
     .filter((i) => i.status === "proposed")
     .sort((a, b) => (b.discovery_score || 0) - (a.discovery_score || 0));
 
+  const isGoliardia = (i) => i.fiction || i.tone === "goliardico";
+  const isSerio = (i) => !isGoliardia(i);
+
+  let serioN = picked.filter(isSerio).length;
+  let goliardiaN = picked.filter(isGoliardia).length;
+
   for (const p of proposed) {
     if (picked.length >= max) break;
+    if (picked.some((x) => x.slug === p.slug)) continue;
     const sameMuscle = picked.some((x) => x.muscle_group && x.muscle_group === p.muscle_group);
-    const sameCluster = picked.filter((x) => x.cluster === p.cluster).length >= 2;
-    if (sameMuscle || sameCluster) continue;
+    if (sameMuscle) continue;
+
+    if (isSerio(p) && serioN >= needSerio) continue;
+    if (isGoliardia(p) && goliardiaN >= needGoliardia) continue;
+
     picked.push(p);
+    if (isSerio(p)) serioN += 1;
+    if (isGoliardia(p)) goliardiaN += 1;
   }
 
   return picked.slice(0, max);
@@ -92,7 +114,7 @@ function addToDiarioIndex(item, publishDate) {
           <li>
             <a class="diario-list__link" href="/diario/${item.slug}/">
 ${thumbBlock}
-                <div class="diario-list__meta"><time datetime="${publishDate}">${monthLabelIt(publishDate)}</time> · ${item.fiction ? "Goliardia" : "Riflessione"}</div>
+                <div class="diario-list__meta"><time datetime="${publishDate}">${monthLabelIt(publishDate)}</time> · ${diarioTypeLabel(item)}</div>
                 <h3 class="diario-list__title">${item.title_draft || item.h1_draft || item.slug}</h3>
                 <p class="diario-list__excerpt">${item.meta_draft?.slice(0, 120) || item.intent || ""}</p>${bodyClose}
             </a>
@@ -129,7 +151,7 @@ function addToLlmsTxt(item, publishDate) {
   const llmsPath = path.join(REPO_ROOT, "llms.txt");
   let txt = fs.readFileSync(llmsPath, "utf8");
   if (txt.includes(`/diario/${item.slug}/`)) return;
-  const label = item.fiction ? "Goliardia" : "Riflessione";
+  const label = diarioTypeLabel(item);
   const d = `${publishDate.slice(8, 10)}/${publishDate.slice(5, 7)}`;
   const line = `- [${label} ${d} ${item.title_draft || item.h1_draft || item.slug}](https://forzaquotidiana.it/diario/${item.slug}/): ${(item.meta_draft || item.intent || "").slice(0, 120)} (immagini IA se goliardia)\n`;
   txt = txt.replace("## Contenuto recente\n", `## Contenuto recente\n${line}`);
@@ -348,7 +370,8 @@ async function runPipeline() {
   console.log(`Report: ${path.relative(REPO_ROOT, reportPath)}`);
 
   if (doFriday) {
-    console.log("\n=== BRIEFING AGENTE (venerdì — nessuna API esterna) ===");
+    console.log("\n=== BRIEFING AGENTE (venerdì — 2 tecnici + 1 goliardico) ===");
+    console.log("Mix: 2 articoli tecnici (RSS bodybuilding, italiano) + 1 goliardico");
     console.log("Skin testo: data/editorial-skin.json");
     console.log("Skin immagini: data/editorial-image-skin.json");
     console.log("Dopo HTML + WebP per ogni slug: node tools/editorial-weekly.mjs run --publish\n");

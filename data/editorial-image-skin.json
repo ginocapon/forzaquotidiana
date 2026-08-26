@@ -1,6 +1,17 @@
 {
-  "version": 2,
-  "style_prefix": "Italian comic manga illustration, JoJo-inspired surreal humor, dark warm palette (#1a1410 background tones), mature man age 57 messy hair white shirt, NOT photorealistic stock gym photo, NOT generic bodybuilder poster",
+  "version": 3,
+  "style_goliardico": {
+    "style_prefix": "Italian comic manga illustration, JoJo-inspired surreal humor, dark warm palette (#1a1410 background tones), mature man age 57 messy hair white shirt, NOT photorealistic stock gym photo, NOT generic bodybuilder poster",
+    "disclosure": "Scena di finzione / immagine elaborata — etichetta IA obbligatoria",
+    "data_ai": "generated",
+    "figcaption_note": "Immagine generata o abbellita con intelligenza artificiale"
+  },
+  "style_serio": {
+    "style_prefix": "Technical bodybuilding performance illustration, sports science editorial diagram, dark charcoal background #1a1410, anatomical training focus, volume/intensity/periodization visual language, teal and amber accent lines, dramatic gym lighting, NOT cartoon, NOT manga, NOT JoJo, NOT photorealistic stock photo, NOT influencer physique poster",
+    "disclosure": "Illustrazione tecnica editoriale — etichetta IA obbligatoria",
+    "data_ai": "illustrative",
+    "figcaption_note": "Illustrazione tecnica editoriale generata con IA"
+  },
   "hero": {
     "aspect": "19:9",
     "width": 1600,
@@ -11,12 +22,12 @@
     "width": 1200,
     "max_kb": 280
   },
-  "disclosure": "Scena di finizione / immagine elaborata — etichetta IA obbligatoria",
   "watermark": {
     "text": "Foto AI",
     "required": true,
     "method": "HTML/CSS .ai-photo-wrap + .ai-photo-mark (main.js per pagine esistenti; render-diario-html per nuovi articoli)",
     "legal_ref": "Regolamento (UE) 2024/1689 art. 50 — riconoscibilità contenuti sintetici"
   },
-  "negative": "no text overlay in source file (marchio applicato in pagina), no duplicate of existing gym stock photos, no realistic celebrity face"
+  "negative": "no text overlay in source file (marchio applicato in pagina), no duplicate of existing gym stock photos, no realistic celebrity face",
+  "legacy_style_prefix": "Italian comic manga illustration, JoJo-inspired surreal humor, dark warm palette (#1a1410 background tones), mature man age 57 messy hair white shirt, NOT photorealistic stock gym photo, NOT generic bodybuilder poster"
 }

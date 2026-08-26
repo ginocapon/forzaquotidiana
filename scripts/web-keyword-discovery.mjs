@@ -62,17 +62,39 @@ function scoreGap(gap, existing) {
   return Math.max(0, gap.score - penalty);
 }
 
+function isExcludedTrendTitle(title) {
+  return /daily discussion|newbie tuesday|megathread|up for two days/i.test(title);
+}
+
+function slugFromKw(kw, suffix = "-57-anni") {
+  return kw.replace(/\s+/g, "-").replace(/[^a-z0-9-]/gi, "").slice(0, 44) + suffix;
+}
+
 async function main() {
   const gaps = loadWebSources();
   const trending = await fetchTrendingTopics();
-  for (const t of trending.slice(0, 8)) {
+  const usableTrends = trending.filter((t) => !isExcludedTrendTitle(t.title));
+
+  for (const t of usableTrends.slice(0, 6)) {
     gaps.push({
       kw: t.kw,
-      cluster: "goliardia-culturismo",
-      intent: `Angolo goliardico su trend: ${t.title.slice(0, 80)}`,
+      cluster: "tecnico-bodybuilding",
+      intent: `Articolo tecnico in italiano su trend bodybuilding: ${t.title.slice(0, 100)}`,
       score: t.score,
       trending_title: t.title,
       source: t.source,
+      tone: "tecnico",
+      fiction: false,
+    });
+    gaps.push({
+      kw: `${t.kw} parodia`,
+      cluster: "goliardia-culturismo",
+      intent: `Parodia goliardica su trend: ${t.title.slice(0, 100)}`,
+      score: t.score * 0.92,
+      trending_title: t.title,
+      source: t.source,
+      tone: "goliardico",
+      fiction: true,
     });
   }
   const existing = existingKeywords();
@@ -110,17 +132,23 @@ async function main() {
     if (!dup && queue.items.filter((i) => i.status === "proposed").length < 6) {
       queue.items.push({
         id: `disc-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`,
-        slug: r.kw.replace(/\s+/g, "-").slice(0, 40) + "-57-anni",
+        slug: slugFromKw(r.kw),
         status: "proposed",
-        tone: r.cluster?.startsWith("goliardia") ? "goliardico" : "tecnico",
-        fiction: r.cluster?.startsWith("goliardia"),
+        tone: r.tone || (r.cluster?.startsWith("goliardia") ? "goliardico" : "tecnico"),
+        fiction: r.fiction ?? r.cluster?.startsWith("goliardia"),
         kw_primary: r.kw,
         cluster: r.cluster,
         intent: r.intent,
         discovery_score: r.discovery_score,
         target_week: todayISO(),
-        hero_brief: "Fumetto surreale goliardico — palette scura JoJo-light",
-        hero_concept: "comic surreal, NO stock palestra",
+        hero_brief:
+          r.tone === "tecnico" || r.cluster?.startsWith("tecnico")
+            ? "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto"
+            : "Fumetto surreale goliardico — palette scura JoJo-light",
+        hero_concept:
+          r.tone === "tecnico" || r.cluster?.startsWith("tecnico")
+            ? "technical sports science diagram"
+            : "comic surreal, NO stock palestra",
         trending_title: r.trending_title || null,
       });
     }

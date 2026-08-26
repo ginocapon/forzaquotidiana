@@ -1,11 +1,20 @@
 {
-  "version": 1,
+  "version": 2,
   "brand": "La Forza Quotidiana",
   "author": "Gino Capon",
+  "weekly_mix": {
+    "total": 3,
+    "serio": 2,
+    "goliardico": 1,
+    "rss_primary": "https://www.reddit.com/r/bodybuilding/.rss",
+    "rss_fallback": "https://www.reddit.com/r/Fitness/.rss",
+    "language": "it",
+    "exclude_title_patterns": ["daily discussion", "newbie tuesday", "megathread"]
+  },
   "voice": {
     "persona": "Uomo 57 anni, papà di Ginevra, dilettante autentico da oltre dieci anni, lavoro e famiglia",
     "tone_goliardico": "Satira calda, autoironia, riferimenti a Demolition Men, Ken il Poeta, Teken il Guerriero, Cartovità — mai hype da influencer",
-    "tone_tecnico": "Chiaro, numeri solo se in my-stats.json, niente bro-science",
+    "tone_tecnico": "Chiaro, performance e periodizzazione, numeri solo se in my-stats.json, niente bro-science, niente parodia",
     "forbidden": [
       "vendita integratori",
       "link affiliati",
@@ -15,7 +24,8 @@
       "link a /allenamenti/sessioni/ nel corpo articolo",
       "sezione Trasparenza totale o Riepilogo secco",
       "disclaimer legali ripetuti su brand terzi nel corpo o nel box Risposta breve",
-      "FAQ tipo Gino è pagato da X"
+      "FAQ tipo Gino è pagato da X",
+      "parodia negli articoli tecnici"
     ],
     "required_links": ["/diario/", "/allenamenti/", "/chi-sono/"],
     "dedication": "Ginevra"
@@ -31,9 +41,16 @@
     "aeo_box_max_sentences": 3,
     "aeo_box_style": "Diretto, 2-3 frasi, niente boilerplate legale né affiliazioni"
   },
-  "reference_articles": [
-    "diario/demolition-men-universita-vita-57-anni/index.html",
-    "diario/ken-poeta-indomito-volonta-57-anni/index.html",
-    "diario/proteine-shake-universita-57-anni/index.html"
-  ]
+  "reference_articles": {
+    "goliardico": [
+      "diario/demolition-men-universita-vita-57-anni/index.html",
+      "diario/ken-poeta-indomito-volonta-57-anni/index.html",
+      "diario/proteine-shake-universita-57-anni/index.html"
+    ],
+    "tecnico": [
+      "diario/overtraining-recupero-50-anni-57-anni/index.html",
+      "diario/blocco-1-ipertrofia-accumulo-settembre-2026/index.html",
+      "diario/gareggiare-natural-senza-farmaci-57-anni/index.html"
+    ]
+  }
 }

@@ -20,9 +20,14 @@ function escJson(s) {
 export function renderDiarioHtml(article, item, paths, publishDate) {
   const slug = item.slug;
   const base = `https://forzaquotidiana.it/diario/${slug}/`;
-  const fiction = item.fiction !== false;
-  const section = fiction ? "Goliardia" : "Riflessione";
-  const typeClass = fiction ? "entry__type--goliardia" : "entry__type--rif";
+  const fiction = item.fiction !== false && item.tone !== "tecnico";
+  const isTecnico = item.tone === "tecnico" || (!fiction && item.cluster?.startsWith("tecnico"));
+  const section = fiction ? "Goliardia" : isTecnico ? "Tecnico" : "Riflessione";
+  const typeClass = fiction ? "entry__type--goliardia" : isTecnico ? "entry__type--tec" : "entry__type--rif";
+  const dataAi = fiction ? "generated" : "illustrative";
+  const figNote = fiction
+    ? "Immagine generata o abbellita con intelligenza artificiale"
+    : "Illustrazione tecnica editoriale generata con IA";
   const heroUrl = `/${paths.hero}`;
   const heroFile = paths.hero.split("/").pop();
 
@@ -46,10 +51,10 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
     return `
     <figure class="article-figure">
       <span class="ai-photo-wrap">
-        <img src="/${rel}" alt="${esc(fig.alt)}" width="1200" height="800" loading="lazy" data-ai="generated">
+        <img src="/${rel}" alt="${esc(fig.alt)}" width="1200" height="800" loading="lazy" data-ai="${dataAi}">
         <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
       </span>
-      <figcaption>${esc(fig.caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> Immagine elaborata / scena di finzione · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
+      <figcaption>${esc(fig.caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> ${figNote} · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
     </figure>`;
   }).join("\n");
 
@@ -163,10 +168,10 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
 
     <figure class="article-figure article-figure--hero">
       <span class="ai-photo-wrap">
-        <img src="/${paths.hero}" alt="${esc(article.hero_alt)}" width="1600" height="760" loading="eager" data-ai="generated">
+        <img src="/${paths.hero}" alt="${esc(article.hero_alt)}" width="1600" height="760" loading="eager" data-ai="${dataAi}">
         <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
       </span>
-      <figcaption>${esc(article.hero_caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> Immagine generata o abbellita con intelligenza artificiale · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
+      <figcaption>${esc(article.hero_caption)} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> ${figNote} · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
     </figure>
 
     ${bodySections}
@@ -184,7 +189,7 @@ ${faqHtml}
     </aside>
 
     <aside class="disclaimer">
-      <p>${fiction ? "Contenuto goliardico e riflessione personale, non consulenza medica né nutrizionale." : "Riflessione personale, non consulenza medica."} Per salute e allenamento consulta professionisti qualificati.</p>
+      <p>${fiction ? "Contenuto goliardico e riflessione personale, non consulenza medica né nutrizionale." : isTecnico ? "Articolo tecnico-divulgativo, non consulenza medica né prescrizione farmacologica." : "Riflessione personale, non consulenza medica."} Per salute e allenamento consulta professionisti qualificati.</p>
     </aside>
 
     <p><a href="/diario/">← Torna al Diario</a></p>

@@ -22,10 +22,19 @@ function loadImageSkin() {
   return readJson("data/editorial-image-skin.json");
 }
 
-function referenceExcerpt() {
+function imageSkinForItem(item, imgSkin) {
+  const serio = item.tone === "tecnico" || item.cluster?.startsWith("tecnico");
+  return serio ? imgSkin.style_serio || imgSkin : imgSkin.style_goliardico || imgSkin;
+}
+
+function referenceExcerpt(item) {
   const skin = loadSkin();
+  const refs = item?.tone === "tecnico" || item?.fiction === false
+    ? skin.reference_articles?.tecnico || skin.reference_articles
+    : skin.reference_articles?.goliardico || skin.reference_articles;
+  const list = Array.isArray(refs) ? refs : Object.values(refs || {}).flat();
   const chunks = [];
-  for (const rel of skin.reference_articles || []) {
+  for (const rel of list) {
     const p = path.join(REPO_ROOT, rel);
     if (!fs.existsSync(p)) continue;
     const html = fs.readFileSync(p, "utf8");
@@ -82,11 +91,16 @@ Slug: ${item.slug}
 Brief hero: ${item.hero_brief || item.hero_concept}
 
 Esempio tono dal sito:
-${referenceExcerpt()}
+${referenceExcerpt(item)}
 
 Angolo trending settimana: ${item.trending_title || "n/a"}`;
 
   return chatJson(system, user);
+}
+
+function resolveImageSkin(item) {
+  const imgSkin = loadImageSkin();
+  return imageSkinForItem(item, imgSkin);
 }
 
 function pngToWebp(pngPath, webpPath, w, h, quality = 62) {
@@ -100,8 +114,9 @@ function pngToWebp(pngPath, webpPath, w, h, quality = 62) {
   fs.unlinkSync(pngPath);
 }
 
-async function generateImages(item, article, paths, imgSkin) {
-  const prefix = imgSkin.style_prefix;
+async function generateImages(item, article, paths, imgSkinFull) {
+  const imgSkin = imageSkinForItem(item, imgSkinFull);
+  const prefix = imgSkin.style_prefix || imgSkinFull.legacy_style_prefix || imgSkinFull.style_prefix;
   const prompts = article.image_prompts || {};
   const tmpDir = path.join(REPO_ROOT, "guardian/memory/tmp-images");
   fs.mkdirSync(tmpDir, { recursive: true });

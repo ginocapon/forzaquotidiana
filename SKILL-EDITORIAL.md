@@ -1,31 +1,42 @@
 ---
 name: forzaquotidiana-editorial-goliardia
 description: >-
-  Pipeline editoriale settimanale — 3 articoli diario goliardici, culturismo
-  dilettante, newsletter only, zero vendita. Sequenza CONTEXT→…→NEXT CHECK.
+  Pipeline editoriale settimanale — venerdì: 2 articoli tecnici + 1 goliardico
+  da trend RSS bodybuilding, newsletter only, zero vendita.
 ---
 
-# SKILL-EDITORIAL — Culturismo goliardico (newsletter only)
+# SKILL-EDITORIAL — Venerdì: 2 tecnici + 1 goliardico
 
-> **Quando caricare:** generazione articoli diario, venerdì editoriale, discovery keyword, immagini fumetto/surreali.
+> **Quando caricare:** generazione articoli diario, venerdì editoriale, discovery RSS bodybuilding, immagini tecniche o fumetto.
 >
 > **Entry point:** `node tools/editorial-weekly.mjs run [--friday|--generate|--publish|--autopilot]`
->
-> **NON ricreare Guardian** — usa `guardian/` esistente + questa skill.
 
 ## Obiettivo unico
 
 - Aumentare **visite organiche** e **iscrizioni newsletter**
 - **ZERO** vendita, prodotti, funnel aggressivo, sponsor integratori
 
+## Mix settimanale (BLOCCANTE — dal venerdì 29/08/2026)
+
+Ogni venerdì, da **RSS r/bodybuilding** (+ r/Fitness fallback):
+
+| # | Tipo | Quantità | Lingua | Tono | Immagini |
+|---|------|----------|--------|------|----------|
+| 1–2 | **Serio / tecnico** | 2 | **Italiano** | Chiaro, performance, zero parodia | Illustrazioni **tecniche** bodybuilding (periodizzazione, volume, ipertrofia) — `style_serio` in `editorial-image-skin.json` |
+| 3 | **Goliardico** | 1 | Italiano | Satira calda, schema attuale | Fumetto surreale JoJo — `style_goliardico` |
+
+- **Escludere** da candidati seri: Daily Discussion Thread, Newbie Tuesday, megathread generici
+- Badge articolo serio: `entry__type--tec` → **Tecnico** · niente `.banner-goliardia`
+- Badge goliardia: `entry__type--goliardia` → **Goliardia** · banner obbligatorio
+
 ## Regole bloccanti
 
 1. **Numeri** (kg, PR, %): solo da `data/my-stats.json` o fonte verificabile — mai inventare.
-2. **Finzione/goliardia:** banner `.banner-goliardia` + disclaimer; non fingere cronaca reale.
-3. **Immagini:** 1 hero 19:9 WebP + ≥2 figure **nuove** per articolo; hash unico in `img/`; stile **fumetto surreale** quando generate da IA; **marchio «Foto AI»** sull’immagine (`.ai-photo-mark`) + didascalia «Immagine elaborata / scena di finzione» + `data-ai="generated"` + `.ai-badge` + link `/trasparenza-ai/`.
+2. **Finzione/goliardia:** solo l’articolo #3 — banner `.banner-goliardia` + disclaimer; non fingere cronaca reale.
+3. **Immagini:** 1 hero 19:9 WebP + ≥2 figure **nuove** per articolo; stile da `tone` (`tecnico` → `style_serio`, `goliardico` → `style_goliardico`); **marchio «Foto AI»** + `data-ai` + link `/trasparenza-ai/`.
 4. **Anti-doppioni:** `node scripts/check-doppioni.mjs` prima di pubblicare.
-5. **CTA:** solo newsletter (`from=articolo-{slug}`), dopo ~40% scroll o fine articolo — template `templates/partials/newsletter-cta-diario.html`.
-6. **Autonomia:** GREEN = discovery/bozze/report · YELLOW = publish HTML se GEO≥8 · RED = DNS/email/DB.
+5. **CTA:** solo newsletter (`from=articolo-{slug}`).
+6. **Autonomia:** GREEN = discovery/bozze · YELLOW = publish se GEO≥8 · RED = DNS/email/DB.
 
 ## Sequenza obbligatoria
 
@@ -55,7 +66,8 @@ Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-q
 
 ## FASE 5 — ACT contenuto (per articolo)
 
-- 1500–2500 parole utili; tono da queue (`goliardico` | `tecnico` | `riflessione`)
+- 1500–2500 parole utili; tono da queue (`tecnico` | `goliardico` | `riflessione`)
+- **Serio:** niente parodia, niente università immaginaria, niente meme Reddit — traduzione/adattamento **in italiano** del trend RSS
 - Title ≤60, meta ≤160, H1 ≠ title
 - 8–12 H2/H3; box iniziale «Risposta breve» (AEO)
 - FAQ 4–6 + JSON-LD FAQPage + BlogPosting + Person
@@ -93,24 +105,26 @@ Ogni nuovo articolo in `diario/index.html` deve usare la **card con thumb a sini
 - **NO** marchio «Foto AI» sul thumb (eccezione `.diario-list__thumb` in `main.js` e regole trasparenza).
 - `node tools/editorial-weekly.mjs run --publish` inserisce la miniatura via `addToDiarioIndex()` — verificare visivamente `/diario/` prima del commit.
 
-## Immagini — stile goliardico (BLOCCANTE)
+## Immagini — due skin (BLOCCANTE)
+
+| Tono | Skin JSON | Stile |
+|------|-----------|-------|
+| `tecnico` | `style_serio` | Performance, periodizzazione, diagrammi bodybuilding — **NO fumetto** |
+| `goliardico` | `style_goliardico` | Fumetto surreale JoJo/manga light |
 
 | Asset | Path | Spec |
 |-------|------|------|
-| Hero | `img/diario/YYYY-MM-DD/{slug}-hero.webp` | 1900×900, 19:9, <150KiB target |
-| Figura 1–2 | `img/diario/YYYY-MM-DD/{slug}-*.webp` | Fumetto, surreal, JoJo/manga light |
+| Hero | `img/diario/YYYY-MM-DD/{slug-base}-hero.webp` | 1600×760, 19:9, <180KiB |
+| Figura 1–2 | `img/diario/YYYY-MM-DD/{slug-base}-fig*.webp` | 1200px larghezza |
 
-**Brief visivo:** Gino cartoon stropicciato ma dignitoso; palette scura sito; umorismo italiano; NO stock palestra identico; NO riuso hero altri articoli.
+**Serio:** `data-ai="illustrative"` · didascalia «Illustrazione tecnica editoriale»
+**Goliardia:** `data-ai="generated"` · didascalia «Scena di finzione / immagine elaborata»
 
-**IA:** `data-ai="generated"` + marchio visivo **«Foto AI»** (`.ai-photo-wrap` / `.ai-photo-mark`) + `.fig-credit` con `.ai-badge` + link `/trasparenza-ai/`. Vedi `data/editorial-image-skin.json` → `watermark`.
+Template banner goliardia: `templates/partials/banner-goliardia.html` — **solo** articolo #3
 
-Template banner: `templates/partials/banner-goliardia.html`
+## Prova articolo tecnico (26/08/2026)
 
-## Articolo pianificato — creatina (prossimo venerdì)
-
-Slug: `creatina-meme-universita-57-anni` · bozza scientifica: `data/editorial-drafts/creatina-dossier-scientifico-2026-08.md`
-
-Angolo: parodia «Facoltà di Creatina Applicata» + sintesi prudente del dossier (meta-analisi 2024–2026, tabella verdetto, **zero vendita**). Collegare a `proteine-shake-universita-57-anni`. Immagini **elaborate da zero** con marchio Foto AI.
+Slug: `gareggiare-natural-senza-farmaci-57-anni` · trend RSS «compete = steroids» · **primo test** linea 2+1 (solo serio oggi; venerdì tutti e 3)
 
 ## Venerdì mattina — comando utente → agente (modalità consigliata)
 
@@ -119,17 +133,17 @@ Angolo: parodia «Facoltà di Creatina Applicata» + sintesi prudente del dossie
 ### Cosa scrivi (copia-incolla)
 
 ```
-Venerdì editoriale: genera e pubblica i 3 articoli goliardici del diario secondo la skin.
+Venerdì editoriale: genera e pubblica i 3 articoli del diario (2 tecnici + 1 goliardico) secondo la skin RSS bodybuilding.
 ```
 
-Oppure usa il comando Cursor: **venerdi-editoriale** (file `.cursor/commands/venerdi-editoriale.md`).
+Oppure usa il comando Cursor: **venerdi-editoriale**.
 
 ### Cosa fa l’agente (automatico)
 
 1. Legge questa skill + `data/editorial-skin.json` + `data/editorial-image-skin.json`
-2. `node tools/editorial-weekly.mjs run --friday` — trend RSS, keyword, max 3 in `scheduled`
-3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (stile skin, disclosure IA)
-4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt, check GEO/AEO
+2. `node tools/editorial-weekly.mjs run --friday` — trend RSS r/bodybuilding, coda **2 tecnico + 1 goliardico**
+3. Per ogni slug: HTML in `diario/{slug}/` + 3 WebP in `img/diario/YYYY-MM-DD/` (skin seria o goliardica)
+4. `node tools/editorial-weekly.mjs run --publish` — index, sitemap, llms.txt
 5. Commit e push
 
 ### Cron GitHub (opzionale, alle 07:00)
