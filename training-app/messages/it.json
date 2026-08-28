@@ -1,0 +1,166 @@
+{
+  "home": {
+    "greeting": "Ciao, {name}",
+    "yourTrainingPlans": "I tuoi programmi",
+    "noPlans": "Non hai ancora un programma assegnato. Contatta il coach.",
+    "seriesPrefix": "Serie",
+    "repsPrefix": "Rip.",
+    "durationPrefix": "Tempo",
+    "restPrefix": "Recupero (s)",
+    "profileTitle": "Il tuo profilo",
+    "profileAge": "Età",
+    "profileWeight": "Peso",
+    "profileHeight": "Altezza",
+    "profileExperience": "Esperienza",
+    "profileFocus": "Focus",
+    "profileGoals": "Obiettivi",
+    "yearsOld": "{age} anni",
+    "kgUnit": "{value} kg",
+    "cmUnit": "{value} cm"
+  },
+  "exercise": {
+    "video": "▶ video",
+    "addSet": "aggiungi serie",
+    "duplicateSet": "Duplica ultima serie",
+    "addNote": "nota",
+    "noteLabel": "Nota:",
+    "editNote": "Modifica nota",
+    "notePlaceholder": "nota per l'esercizio",
+    "saveNote": "Salva",
+    "cancelNote": "Annulla",
+    "setLabel": "Serie {number}",
+    "editSet": "Modifica serie",
+    "deleteSet": "Elimina serie"
+  },
+  "session": {
+    "noteLabel": "Nota allenamento:",
+    "addNote": "nota allenamento",
+    "editNote": "Modifica nota",
+    "notePlaceholder": "nota per l'intera sessione",
+    "saveNote": "Salva",
+    "cancelNote": "Annulla"
+  },
+  "seriesForm": {
+    "note": "Nota",
+    "notePlaceholder": "nota",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "bodyweightActive": "corpo libero ✕",
+    "bodyweightTitle": "Corpo libero",
+    "atLeastOneValue": "Inserisci almeno un valore"
+  },
+  "login": {
+    "title": "Accedi",
+    "subtitle": "Inserisci le credenziali fornite dal coach.",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Password",
+    "loggingIn": "Accesso in corso…",
+    "button": "Entra",
+    "invalidCredentials": "E-mail o password non validi.",
+    "genericError": "Qualcosa è andato storto. Riprova.",
+    "brandTagline": "Allenamento personalizzato · Forza Quotidiana"
+  },
+  "nav": {
+    "logout": "Esci",
+    "mainNav": "Navigazione principale",
+    "training": "Allenamento",
+    "progress": "Progressi"
+  },
+  "workout": {
+    "activeContext": "Contesto attivo"
+  },
+  "restTimer": {
+    "title": "Recupero",
+    "skip": "Salta timer"
+  },
+  "verification": {
+    "title": "Verifica allenamento",
+    "subtitle": "Confronto tra programma ed esecuzione",
+    "completion": "Completamento",
+    "volumeKg": "Volume (kg × rip.)",
+    "volumePct": "Volume eseguito",
+    "detailsToggle": "Dettaglio per esercizio",
+    "setsLine": "Serie: {actual}/{planned}",
+    "weightLine": "Carico medio: {actual} / {planned} kg",
+    "load": "Carico",
+    "reps": "Ripetizioni",
+    "progression": {
+      "progress": "Trend positivo: carichi o ripetizioni in aumento rispetto al target.",
+      "maintain": "Esecuzione in linea con il programma.",
+      "regress": "Alcuni esercizi sotto il target: valuta recupero e sonno.",
+      "mixed": "Progressione mista: alcuni esercizi ok, altri da rivedere."
+    },
+    "suggestions": {
+      "incomplete_sets": "Serie incomplete rispetto al programma. Completa le serie mancanti o adatta il piano con il coach.",
+      "low_volume": "Volume inferiore al previsto. Verifica recupero, sonno e difficoltà del programma.",
+      "ready_for_load": "Hai raggiunto le ripetizioni previste con buon margine. Nel prossimo allenamento puoi valutare un aumento del carico.",
+      "rir_high": "RIR più alto del target: il carico potrebbe essere leggero per l'obiettivo attuale.",
+      "session_incomplete": "Allenamento completato sotto il 90%: valuta se ridurre il volume o recuperare meglio.",
+      "session_low_volume": "Volume totale sotto l'85% del previsto. Controlla fatica accumulata e alimentazione."
+    }
+  },
+  "progress": {
+    "title": "I tuoi progressi",
+    "subtitle": "Andamento allenamenti, volume e record personali",
+    "stats": {
+      "totalSessions": "Sessioni totali",
+      "thisMonth": "Questo mese",
+      "avgCompletion": "Completamento medio",
+      "totalVolume": "Volume cumulato",
+      "volumeHint": "kg × ripetizioni"
+    },
+    "weeklyFrequency": "Frequenza settimanale",
+    "activeWeeks": "{count} settimane attive nel periodo",
+    "volumeTrend": "Volume ultime sessioni",
+    "bodyWeightTrend": "Andamento peso corporeo",
+    "personalRecords": "Record personali (e1RM stimato)",
+    "recentSessions": "Sessioni recenti",
+    "sessionVolume": "{volume} kg×rip.",
+    "completionShort": "complet.",
+    "noSessionsYet": "Nessuna sessione registrata. Completa un allenamento per vedere i progressi.",
+    "logWeight": "Registra peso",
+    "weightKg": "Peso (kg)",
+    "weightNote": "Nota",
+    "weightNotePlaceholder": "es. a digiuno, post-workout",
+    "saveWeight": "Salva peso",
+    "weightInvalid": "Inserisci un peso valido tra 20 e 300 kg.",
+    "weightSaveError": "Impossibile salvare il peso. Riprova.",
+    "exportReport": "Esporta report (PDF)"
+  },
+  "programs": {
+    "catalogTitle": "Programmi di allenamento",
+    "catalogSubtitle": "Programmi pronti — acquisto sicuro con Stripe, piano assegnato automaticamente dopo il pagamento.",
+    "emptyCatalog": "Nessun programma pubblicato al momento. Torna presto.",
+    "featured": "In evidenza",
+    "durationWeeks": "{count} settimane",
+    "viewProgram": "Dettagli",
+    "backToCatalog": "Tutti i programmi",
+    "buyNow": "Acquista ora",
+    "checkoutLoading": "Reindirizzamento a Stripe…",
+    "checkoutHint": "Dopo il pagamento il programma viene clonato sul tuo account. Se non hai ancora credenziali, controlla l'e-mail usata in checkout.",
+    "checkoutError": "Impossibile avviare il checkout. Riprova o contatta il coach.",
+    "successTitle": "Pagamento completato",
+    "successSubtitle": "Il tuo programma è in fase di assegnazione.",
+    "successBody": "Se avevi già un account, accedi per vedere il piano. Se è il tuo primo acquisto, il coach ti invierà le credenziali (o controlla l'ordine in admin).",
+    "goToLogin": "Vai al login",
+    "goToTraining": "Vai all'allenamento"
+  },
+  "share": {
+    "expiredOrInvalid": "Questo link è scaduto o non è valido.",
+    "expiresOn": "Valido fino al: {date}",
+    "noPlan": "Nessun programma da mostrare.",
+    "planSection": "Programma",
+    "resultsSection": "Risultati",
+    "session": "Sessione",
+    "noResults": "Nessun risultato registrato.",
+    "set": "Serie",
+    "kg": "kg",
+    "reps": "Rip.",
+    "rir": "RIR",
+    "duration": "Tempo",
+    "seriesPrefix": "Serie",
+    "repsPrefix": "Rip.",
+    "durationPrefix": "Tempo",
+    "restPrefix": "Recupero (s)"
+  }
+}

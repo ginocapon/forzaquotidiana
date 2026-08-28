@@ -1,0 +1,10 @@
+{
+  "appBaseUrl": "https://training.forzaquotidiana.it",
+  "status": "beta",
+  "paths": {
+    "programs": "/programmi",
+    "login": "/login",
+    "progress": "/progress",
+    "admin": "/admin"
+  }
+}
