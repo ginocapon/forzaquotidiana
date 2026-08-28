@@ -1,5 +1,5 @@
 {
-  "appBaseUrl": "https://training.forzaquotidiana.it",
+  "appBaseUrl": "https://forza-training.vercel.app",
   "status": "beta",
   "paths": {
     "programs": "/programmi",
