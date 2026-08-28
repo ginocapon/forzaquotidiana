@@ -8,3 +8,11 @@ img/schede/scheda-pdf-preview.png
 guardian/reports/
 guardian/memory/events.jsonl
 guardian/memory/last-runs.json
+training-app/node_modules/
+training-app/.next/
+training-app/out/
+training-app/.env
+training-app/.env*.local
+training-app/media/
+training-app/.yarn/
+training-app/.vercel

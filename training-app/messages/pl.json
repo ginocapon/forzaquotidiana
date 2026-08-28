@@ -1,0 +1,166 @@
+{
+  "home": {
+    "greeting": "Cześć, {name}",
+    "yourTrainingPlans": "Twoje plany treningowe",
+    "noPlans": "Nie masz jeszcze przypisanego planu. Skontaktuj się z trenerem.",
+    "seriesPrefix": "Serie",
+    "repsPrefix": "Powt.",
+    "durationPrefix": "Czas",
+    "restPrefix": "Przerwa (s)",
+    "profileTitle": "Twój profil",
+    "profileAge": "Wiek",
+    "profileWeight": "Waga",
+    "profileHeight": "Wzrost",
+    "profileExperience": "Doświadczenie",
+    "profileFocus": "Cel",
+    "profileGoals": "Cele",
+    "yearsOld": "{age} lat",
+    "kgUnit": "{value} kg",
+    "cmUnit": "{value} cm"
+  },
+  "exercise": {
+    "video": "▶ wideo",
+    "addSet": "dodaj serię",
+    "duplicateSet": "Duplikuj ostatnią serię",
+    "addNote": "notatka",
+    "noteLabel": "Notatka:",
+    "editNote": "Edytuj notatkę",
+    "notePlaceholder": "notatka do całego ćwiczenia",
+    "saveNote": "Zapisz",
+    "cancelNote": "Anuluj",
+    "setLabel": "Seria {number}",
+    "editSet": "Edytuj serię",
+    "deleteSet": "Usuń serię"
+  },
+  "restTimer": {
+    "title": "Przerwa",
+    "skip": "Pomiń timer"
+  },
+  "verification": {
+    "title": "Weryfikacja treningu",
+    "subtitle": "Plan vs wykonanie",
+    "completion": "Ukończenie",
+    "volumeKg": "Objętość (kg × powt.)",
+    "volumePct": "Wykonany wolumen",
+    "detailsToggle": "Szczegóły ćwiczeń",
+    "setsLine": "Serie: {actual}/{planned}",
+    "weightLine": "Średni ciężar: {actual} / {planned} kg",
+    "load": "Ciężar",
+    "reps": "Powtórzenia",
+    "progression": {
+      "progress": "Trend pozytywny: więcej niż w planie.",
+      "maintain": "Wykonanie zgodne z planem.",
+      "regress": "Część ćwiczeń poniżej planu — sprawdź regenerację.",
+      "mixed": "Mieszana progresja między ćwiczeniami."
+    },
+    "suggestions": {
+      "incomplete_sets": "Mniej serii niż w planie.",
+      "low_volume": "Objętość poniżej planu.",
+      "ready_for_load": "Osiągnięto cel powtórzeń — rozważ zwiększenie ciężaru.",
+      "rir_high": "RIR wyższy niż w planie.",
+      "session_incomplete": "Trening poniżej 90% ukończenia.",
+      "session_low_volume": "Całkowita objętość poniżej 85% planu."
+    }
+  },
+  "session": {
+    "noteLabel": "Notatka do treningu:",
+    "addNote": "notatka do treningu",
+    "editNote": "Edytuj notatkę",
+    "notePlaceholder": "notatka do całego treningu",
+    "saveNote": "Zapisz",
+    "cancelNote": "Anuluj"
+  },
+  "seriesForm": {
+    "note": "Notatka",
+    "notePlaceholder": "notatka",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "bodyweightActive": "masa własna ✕",
+    "bodyweightTitle": "Masa własnego ciała",
+    "atLeastOneValue": "Podaj co najmniej jedną wartość"
+  },
+  "login": {
+    "title": "Zaloguj się",
+    "subtitle": "Wpisz dane otrzymane od trenera.",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Hasło",
+    "loggingIn": "Logowanie…",
+    "button": "Zaloguj",
+    "invalidCredentials": "Nieprawidłowy e-mail lub hasło.",
+    "genericError": "Coś poszło nie tak. Spróbuj ponownie.",
+    "brandTagline": "Trening personalny · Forza Quotidiana"
+  },
+  "nav": {
+    "logout": "Wyloguj",
+    "mainNav": "Nawigacja",
+    "training": "Trening",
+    "progress": "Postępy"
+  },
+  "workout": {
+    "activeContext": "Aktywny kontekst"
+  },
+  "progress": {
+    "title": "Twoje postępy",
+    "subtitle": "Trendy treningowe, objętość i rekordy",
+    "stats": {
+      "totalSessions": "Sesje łącznie",
+      "thisMonth": "Ten miesiąc",
+      "avgCompletion": "Śr. ukończenie",
+      "totalVolume": "Objętość łączna",
+      "volumeHint": "kg × powt."
+    },
+    "weeklyFrequency": "Częstotliwość tygodniowa",
+    "activeWeeks": "{count} aktywnych tygodni",
+    "volumeTrend": "Objętość — ostatnie sesje",
+    "bodyWeightTrend": "Trend masy ciała",
+    "personalRecords": "Rekordy osobiste (szac. 1RM)",
+    "recentSessions": "Ostatnie sesje",
+    "sessionVolume": "{volume} kg×powt.",
+    "completionShort": "ukoń.",
+    "noSessionsYet": "Brak zapisanych sesji.",
+    "logWeight": "Zapisz masę ciała",
+    "weightKg": "Masa (kg)",
+    "weightNote": "Notatka",
+    "weightNotePlaceholder": "np. na czczo",
+    "saveWeight": "Zapisz",
+    "weightInvalid": "Podaj masę od 20 do 300 kg.",
+    "weightSaveError": "Nie udało się zapisać masy.",
+    "exportReport": "Eksportuj raport (PDF)"
+  },
+  "programs": {
+    "catalogTitle": "Programy treningowe",
+    "catalogSubtitle": "Gotowe programy — płatność Stripe, plan przypisywany automatycznie po zakupie.",
+    "emptyCatalog": "Brak opublikowanych programów.",
+    "featured": "Polecane",
+    "durationWeeks": "{count} tygodni",
+    "viewProgram": "Szczegóły",
+    "backToCatalog": "Wszystkie programy",
+    "buyNow": "Kup teraz",
+    "checkoutLoading": "Przekierowanie do Stripe…",
+    "checkoutHint": "Po płatności program zostanie sklonowany na Twoje konto.",
+    "checkoutError": "Nie udało się rozpocząć płatności.",
+    "successTitle": "Płatność zakończona",
+    "successSubtitle": "Program jest przypisywany.",
+    "successBody": "Jeśli masz konto, zaloguj się. Przy pierwszym zakupie trener prześle dane logowania.",
+    "goToLogin": "Przejdź do logowania",
+    "goToTraining": "Przejdź do treningu"
+  },
+  "share": {
+    "expiredOrInvalid": "Ten link wygasł lub jest nieprawidłowy.",
+    "expiresOn": "Ważny do: {date}",
+    "noPlan": "Brak planu do wyświetlenia.",
+    "planSection": "Plan treningowy",
+    "resultsSection": "Wyniki",
+    "session": "Sesja",
+    "noResults": "Brak zapisanych wyników.",
+    "set": "Seria",
+    "kg": "kg",
+    "reps": "Powt.",
+    "rir": "RIR",
+    "duration": "Czas",
+    "seriesPrefix": "Serie",
+    "repsPrefix": "Powt.",
+    "durationPrefix": "Czas",
+    "restPrefix": "Przerwa (s)"
+  }
+}

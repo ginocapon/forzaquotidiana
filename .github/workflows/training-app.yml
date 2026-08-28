@@ -1,0 +1,63 @@
+name: Training App CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'training-app/**'
+      - '.github/workflows/training-app.yml'
+  pull_request:
+    paths:
+      - 'training-app/**'
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: training-app
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: training
+          POSTGRES_PASSWORD: training
+          POSTGRES_DB: training
+        ports:
+          - 55432:5432
+        options: >-
+          --health-cmd "pg_isready -U training -d training"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgresql://training:training@localhost:55432/training
+      PAYLOAD_SECRET: ci-build-secret-minimum-32-characters-long
+      NEXT_PUBLIC_BASE_URL: http://localhost:3000
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Migrate and build
+        run: |
+          yarn payload migrate
+          yarn build
+
+      - name: Unit tests
+        run: |
+          node --import=tsx/esm --test \
+            src/modules/training/progress/compute-progress-dashboard.test.ts \
+            src/modules/training/verification/compute-workout-verification.test.ts
