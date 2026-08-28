@@ -17,8 +17,8 @@ alwaysApply: true
 
 | Se il task riguarda… | Leggi SOLO | Non caricare |
 |---------------------|------------|--------------|
-| **Upload foto Zepp / WhatsApp JPEG in repo** | `.cursor/rules/foto-sessione-upload.mdc` + `SKILL-PERFORMANCE.md` | Non lasciare JPEG WhatsApp; layout 4 agosto |
-| Sessione, TSB, Zepp, Amazfit, layout pro v3 | `SKILL-PERFORMANCE.md` + `SKILL.md` righe 511–763 (§4) | Resto SKILL, LANDING, Guardian |
+| **Upload foto Zepp / WhatsApp JPEG in repo** | `.cursor/rules/foto-sessione-upload.mdc` + `.cursor/rules/sessione-guile-monitoraggio.mdc` + `SKILL-PERFORMANCE.md` | Non lasciare JPEG WhatsApp; layout 4 agosto |
+| Sessione, TSB, Zepp, Amazfit, layout pro v3, Guile, monitoraggio | `SKILL-PERFORMANCE.md` + `.cursor/rules/sessione-guile-monitoraggio.mdc` + `docs/PROMPT-MONITORAGGIO-SPORTIVO.md` | Resto SKILL, LANDING, Guardian |
 | Nuova scheda trimestre / hub allenamenti | `SKILL.md` righe 98–147, 481–510, 1089–1112 | PERFORMANCE intero se non serve Zepp |
 | Diario / articolo riflessione | `SKILL.md` righe 114–147, 922–978 | §3 cardiaco, admin |
 | Newsletter, iscritti, PDF, GAS, GDPR | `SKILL.md` righe 800–920 (§5a) + `SKILL-VENERDI.md` | §4 sessioni |

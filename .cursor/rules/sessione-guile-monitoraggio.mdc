@@ -1,0 +1,38 @@
+---
+description: Sessioni allenamento — Guile IA, cruscotto monitoraggio, layout permanente
+alwaysApply: false
+globs:
+  - allenamenti/sessioni/**
+  - img/allenamenti/**
+  - tools/upgrade-sessioni-guile.mjs
+  - tools/processa-foto-upload.mjs
+  - SKILL-PERFORMANCE.md
+---
+
+# Sessione Guile + monitoraggio sportivo (permanente)
+
+## Quando si attiva
+
+Nuova sessione, upload foto Zepp/dashboard, richiesta «aggiorna allenamenti», cruscotto Excel o grafici longitudinali.
+
+## Obblighi (stesso turno)
+
+1. **Verifica visiva upload** — JPEG WhatsApp devono essere screenshot Zepp. Meme/mappe/social → scartare, avvisare Gino.
+2. **≥3 illustrazioni IA** Guile-style → WebP in `img/allenamenti/guile/` con etichetta AI completa.
+3. **Cruscotto monitoraggio** se Gino fornisce Excel/PNG:
+   - Copiare grafici in `img/allenamenti/monitoraggio/YYYY-MM-DD/`
+   - Excel in `data/monitoraggio/`
+   - Tabella sintetica + 3–5 osservazioni (protocollo `docs/PROMPT-MONITORAGGIO-SPORTIVO.md`)
+4. **Pagina sessione** — marker `<!-- GUILE-START -->` / `<!-- GUILE-END -->`, `session-page--guile`, `session-guile.js`.
+5. **JSON** — `performance-sessions.json` + `node tools/aggiorna-training-load.mjs` + `inietta-tsb-pagine.mjs` (nuova riga in lista).
+6. **Batch** — `node tools/upgrade-sessioni-guile.mjs` se cambia template Guile.
+
+## Layout ordine body
+
+TSB → Guile (IA) → Monitoraggio (se dati) → Nota → Programma → Log → Readiness → Metabolico
+
+Screenshot Zepp = documentali (no IA). Illustrazioni Guile = sempre IA.
+
+## Non inventare
+
+Solo valori da Zepp, Excel dashboard o chat Gino. Segnalare dati mancanti (es. serie/gruppi senza riepilogo).

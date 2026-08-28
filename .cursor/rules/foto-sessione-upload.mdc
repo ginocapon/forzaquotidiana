@@ -9,7 +9,7 @@ Quando Gino carica JPEG WhatsApp (GitHub *Add files via upload*, cartella `allen
 
 ## Obbligo
 
-1. **Identificare visivamente** ogni scatto (non fidarsi del nome WhatsApp né dell’ordine file).
+1. **Identificare visivamente** ogni scatto (non fidarsi del nome WhatsApp né dell’ordine file). Se **non** è Zepp (meme, mappe, social) → **non** processare; usare cruscotto Excel/grafici e avvisare Gino.
 2. **Radrizzare** con `sharp().rotate()` — molti JPEG WhatsApp arrivano ruotati 90°: controllare **sempre** il WebP prima di metterlo in pagina (riepilogo, zone FC, ecc.).
 3. `node tools/processa-foto-upload.mjs` → WebP in `img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-{slug}.webp` · **eliminare JPEG e cartella upload**.
 4. Mettere le foto **dentro** `/allenamenti/sessioni/YYYY-MM-DD-scheda-N/` — layout fisso:

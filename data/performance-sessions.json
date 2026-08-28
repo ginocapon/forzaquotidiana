@@ -841,6 +841,64 @@
         "fatigue_atl": 31,
         "date": "2026-08-25"
       }
+    },
+    {
+      "id": "2026-08-28-scheda-3",
+      "date": "2026-08-28",
+      "time": "14:20",
+      "datetime": "2026-08-28T14:20",
+      "scheda": 3,
+      "month": "2026-08",
+      "durata_sec": 2969,
+      "durata": "00:49:29",
+      "recupero_sec": 2174,
+      "recupero": "36:14",
+      "gruppi": 22,
+      "fc_media": 106,
+      "fc_max": 145,
+      "calorie": 347,
+      "carico": 49,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 12.33,
+        "intensiva": 25.85,
+        "aerobica": 9.43,
+        "anaerobica": 1.83,
+        "vo2max": 0
+      },
+      "readiness": {
+        "hrv": 46,
+        "hrv_label": "Buono",
+        "hrv_baseline": 42,
+        "hrv_delta_pct": 9.5,
+        "resting_hr": 53,
+        "sleep_duration": "7:30",
+        "sleep_deep": "0:54",
+        "sleep_rem": "2:18",
+        "sleep_wake": "1:19",
+        "sleep_wake_events": 7,
+        "sleep_regularity_pct": 79,
+        "resp_rate_sleep": 13
+      },
+      "note": "Scheda 3 giovedì 14:20 — 22 serie in 49:29, carico 49, 347 kcal, recupero 36:14. HRV 46 (+9,5% vs baseline 42), FC riposo 53. TSB −2,3 Bilanciato (CTL 24 / ATL 27). Riepilogo Zepp + cruscotto monitoraggio.",
+      "tsb": {
+        "value": -2.3,
+        "label": "Bilanciato",
+        "fitness_ctl": 24.4,
+        "fatigue_atl": 26.7,
+        "date": "2026-08-28"
+      },
+      "monitoring": {
+        "source": "Monitoraggio_sportivo_dashboard_2026-08-28.xlsx",
+        "recovery_status": "intermedio",
+        "charts": [
+          "monitoraggio/2026-08-28/hrv-trend.png",
+          "monitoraggio/2026-08-28/fc-riposo-trend.png",
+          "monitoraggio/2026-08-28/sonno-notte.png",
+          "monitoraggio/2026-08-28/zone-fc-sessione.png"
+        ]
+      }
     }
   ]
 }

@@ -269,8 +269,39 @@ const data = fs.readFileSync('path/to/assets/...png');
 fs.writeFileSync('img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-tipo.png', data);
 ```
 
+## PERMANENTE — Spirito Guile + cruscotto monitoraggio
+
+**Regola:** ogni pagina sessione include **≥3 illustrazioni IA** stile arcade (Guile-inspired) + pannello monitoraggio quando Gino fornisce dashboard/Excel/grafici.
+
+### Flusso obbligatorio (sessione nuova)
+
+1. Dati numerici: screenshot Zepp **oppure** `Monitoraggio_sportivo_dashboard_*.xlsx` + grafici PNG.
+2. **≥3 immagini IA** Guile → `img/allenamenti/guile/` (WebP). Sessione del giorno: prefisso `YYYY-MM-DD-scheda-N-*`; set per scheda: `guile-scheda-N-{hero,2,3}.webp`.
+3. Trasparenza AI: `data-ai="generated"`, `.ai-photo-wrap` + `.ai-photo-mark` + `.fig-credit` (vedi `.cursor/rules/ai-trasparenza.mdc`).
+4. Pagina sessione — ordine aggiornato:
+   - TSB SVG
+   - **GUILE** (`<!-- GUILE-START -->` … `<!-- GUILE-END -->`)
+   - **Monitoraggio** (se dashboard: tabella + grafici in `img/allenamenti/monitoraggio/YYYY-MM-DD/`)
+   - Nota · programma · log · readiness · metabolico
+5. `body.session-page--guile` + `<script src="/js/session-guile.js">`.
+6. Batch allineamento: `node tools/upgrade-sessioni-guile.mjs`.
+7. Protocollo analisi: `docs/PROMPT-MONITORAGGIO-SPORTIVO.md` (estrazione, baseline 7/28 gg, recovery a convergenza, no diagnosi).
+
+### Verifica upload WhatsApp
+
+Prima di `processa-foto-upload.mjs`: **identificare visivamente** ogni JPEG. Se non sono screenshot Zepp (meme, mappe, social), **non** processarli — segnalare a Gino e usare dashboard/cruscotto.
+
+### Tool
+
+| Comando | Uso |
+|---------|-----|
+| `node tools/upgrade-sessioni-guile.mjs` | Inietta pannello Guile + script in tutte le sessioni |
+| `node tools/inietta-tsb-pagine.mjs` | Aggiorna modulo TSB (aggiungere nuova sessione alla lista) |
+| `node tools/aggiorna-training-load.mjs` | Dopo `performance-sessions.json` |
+
 ## Riferimenti
 
 - Layout HTML/CSS: `SKILL.md` § Formato pagina sessione
-- Esempio completo: `/allenamenti/sessioni/2026-07-21-scheda-2/`
-- CSS: `.amazfit-gallery`, `.amazfit-data`, `.phone-shot` in `styles.css?v=15`
+- Esempio completo: `/allenamenti/sessioni/2026-08-04-scheda-2/` · monitoraggio: `/allenamenti/sessioni/2026-08-28-scheda-3/`
+- Regola permanente: `.cursor/rules/sessione-guile-monitoraggio.mdc`
+- CSS: `.guile-strip`, `.monitor-panel` in `styles.css`

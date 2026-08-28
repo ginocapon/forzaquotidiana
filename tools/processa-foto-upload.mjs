@@ -74,6 +74,24 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "2026-08-28-scheda-3": {
+    date: "2026-08-28",
+    scheda: 3,
+    files: {
+      "WhatsApp Image 2026-08-28 at 16.44.34.jpeg": "riepilogo",
+      "WhatsApp Image 2026-08-28 at 16.44.34(1).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-08-28 at 16.44.34(2).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-08-28 at 16.44.34(3).jpeg": "tecnica",
+      "WhatsApp Image 2026-08-28 at 16.44.34(4).jpeg": "valutazione",
+      "WhatsApp Image 2026-08-28 at 16.44.35.jpeg": "tsb",
+      "WhatsApp Image 2026-08-28 at 16.44.35(1).jpeg": "hrv",
+      "WhatsApp Image 2026-08-28 at 16.44.35(2).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-08-28 at 16.44.35(3).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-08-28 at 16.44.35(4).jpeg": "readiness-panoramica",
+      "WhatsApp Image 2026-08-28 at 16.44.35(5).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-08-28 at 16.44.35(6).jpeg": "sonno-score",
+    },
+  },
   "foto allenamento 25 agosto": {
     date: "2026-08-25",
     scheda: 2,
@@ -163,9 +181,17 @@ function buildSlugMap(files, dirName) {
   return map;
 }
 
+function findSessionUploadDirs() {
+  const base = join(REPO, "allenamenti/sessioni");
+  if (!existsSync(base)) return [];
+  return readdirSync(base, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && rasterFiles(join(base, d.name)).length > 0)
+    .map((d) => join(base, d.name));
+}
+
 function findUploadDirs() {
   if (UPLOAD_ARG) return [join(REPO, UPLOAD_ARG)];
-  const dirs = [];
+  const dirs = [...findSessionUploadDirs()];
   for (const parent of [join(REPO, "allenamenti"), join(REPO, "img/allenamenti")]) {
     if (!existsSync(parent)) continue;
     for (const name of readdirSync(parent)) {

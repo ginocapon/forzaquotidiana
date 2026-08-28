@@ -4892,3 +4892,173 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   font-weight: 700;
 }
 
+/* ── Sessioni Guile + cruscotto monitoraggio ── */
+.session-page--guile .session-hero {
+  position: relative;
+  overflow: hidden;
+}
+.guile-flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 42%, rgba(72, 160, 120, 0.14) 50%, transparent 58%);
+  transform: translateX(-120%);
+  animation: guile-sonic-sweep 7s ease-in-out infinite;
+}
+@keyframes guile-sonic-sweep {
+  0%, 78% { transform: translateX(-120%); opacity: 0; }
+  82% { opacity: 1; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+.guile-panel,
+.monitor-panel {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.guile-panel.is-guile-visible,
+.monitor-panel.is-guile-visible {
+  opacity: 1;
+  transform: none;
+}
+.guile-panel__lead {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.guile-strip {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .guile-strip { grid-template-columns: repeat(3, 1fr); }
+}
+.guile-card {
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  animation: guile-card-in 0.65s ease forwards;
+  animation-delay: calc(0.12s + var(--guile-i, 0) * 0.14s);
+  animation-play-state: paused;
+}
+.guile-panel.is-guile-visible .guile-card {
+  animation-play-state: running;
+}
+@keyframes guile-card-in {
+  to { opacity: 1; transform: none; }
+}
+.guile-card__frame {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(72, 160, 120, 0.35);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+.guile-card__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+.guile-card figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+.guile-panel__credit {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+}
+.session-panel--guile {
+  border-color: rgba(72, 160, 120, 0.25);
+}
+.session-page--guile .session-kpis__item {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.session-page--guile .session-kpis__item.is-guile-visible:nth-child(odd) {
+  animation: guile-kpi-pulse 4s ease-in-out infinite;
+}
+@keyframes guile-kpi-pulse {
+  0%, 100% { box-shadow: none; }
+  50% { box-shadow: 0 0 0 2px rgba(72, 160, 120, 0.25); }
+}
+.monitor-panel__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.monitor-panel__status--ok {
+  color: #1a6b4a;
+  background: rgba(72, 160, 120, 0.18);
+  border: 1px solid rgba(72, 160, 120, 0.4);
+}
+.monitor-panel__status--watch {
+  color: #9a5a12;
+  background: rgba(201, 120, 58, 0.15);
+  border: 1px solid rgba(201, 120, 58, 0.35);
+}
+.monitor-table-wrap {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+.monitor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.monitor-table th,
+.monitor-table td {
+  padding: 0.55rem 0.65rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.monitor-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.monitor-charts {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 1.25rem 0;
+}
+@media (min-width: 720px) {
+  .monitor-charts { grid-template-columns: repeat(2, 1fr); }
+}
+.monitor-chart {
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.monitor-chart img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.monitor-chart figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.monitor-observations {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+.monitor-observations li + li {
+  margin-top: 0.45rem;
+}
+

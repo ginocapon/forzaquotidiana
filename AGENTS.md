@@ -16,7 +16,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 
 | Task | File |
 |------|------|
-| Nuova sessione allenamento | `SKILL-PERFORMANCE.md`, `SKILL.md` §4 (righe 481–763) |
+| Nuova sessione allenamento | `SKILL-PERFORMANCE.md`, `.cursor/rules/sessione-guile-monitoraggio.mdc`, `docs/PROMPT-MONITORAGGIO-SPORTIVO.md` |
 | **Foto Zepp caricate su GitHub** | `.cursor/rules/foto-sessione-upload.mdc` — WebP, identificazione visiva, TSB + riepilogo + grafico FC **solo a tutta larghezza**, card dati raggruppate |
 | Articolo diario | `SKILL.md` §0c + §5b |
 | Newsletter / iscritti | `SKILL.md` §5a, `SKILL-VENERDI.md` |
