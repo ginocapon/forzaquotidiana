@@ -868,20 +868,33 @@
         "vo2max": 0
       },
       "readiness": {
+        "hybridcharge_wake": 52,
+        "sleep_score": 76,
+        "sleep_duration": "7:30",
+        "sleep_duration_label": "Ottimale",
+        "sleep_deep": "0:54",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "2:18",
+        "effort_day_pct": 100,
         "hrv": 46,
-        "hrv_label": "Buono",
+        "hrv_label": "Ottimale",
         "hrv_baseline": 42,
         "hrv_delta_pct": 9.5,
         "resting_hr": 53,
-        "sleep_duration": "7:30",
-        "sleep_deep": "0:54",
-        "sleep_rem": "2:18",
+        "resting_hr_label": "Ottimale",
         "sleep_wake": "1:19",
         "sleep_wake_events": 7,
         "sleep_regularity_pct": 79,
         "resp_rate_sleep": 13
       },
-      "note": "Scheda 3 giovedì 14:20 — 22 serie in 49:29, carico 49, 347 kcal, recupero 36:14. HRV 46 (+9,5% vs baseline 42), FC riposo 53. TSB −2,3 Bilanciato (CTL 24 / ATL 27). Riepilogo Zepp + cruscotto monitoraggio.",
+      "tecnica": {
+        "consistenza": "Intervallo di movimento molto uniforme",
+        "stability": "Movimenti stabili — radar alto",
+        "continuity": "Flusso regolare tra le serie",
+        "rhythm": "Tempi coerenti per tutta la seduta",
+        "speed_decay": "Decadimento velocità contenuto — buona efficacia"
+      },
+      "note": "Scheda 3 giovedì 14:20 — 22 serie in 49:29, carico 49, 347 kcal, recupero 36:14. HRV 46 Ottimale, HybridCharge 52. Export Zepp completo + cruscotto monitoraggio.",
       "tsb": {
         "value": -2.3,
         "label": "Bilanciato",
