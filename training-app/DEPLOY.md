@@ -61,14 +61,55 @@ Aggiorna `data/training-app.json` → `appBaseUrl` con l’URL Vercel. Push su `
 
 ## 4. Sviluppo locale
 
+### Windows (PowerShell)
+
+```powershell
+cd $HOME\forzaquotidiana\training-app
+copy .env.example .env -Force
+notepad .env
+```
+
+Compila `.env`:
+
+1. **DATABASE_URL** — Supabase → *Project Settings → Database → Connection string* → **URI** → scheda **Direct** (porta **5432**). Copia tutta la riga e incollala dopo `DATABASE_URL=` (niente virgolette, niente `[YOUR-PASSWORD]`).
+2. **PAYLOAD_SECRET** — almeno 32 caratteri (es. `forza-training-dev-secret-2026-min-32-chars`).
+3. Password con caratteri speciali (`@`, `#`, `%`…)? Codifica in URL (`@` → `%40`).
+
+Verifica e migrate:
+
+```powershell
+corepack yarn check-env
+corepack yarn payload migrate
+```
+
+Se `yarn dev` dice che la porta 3000 è occupata:
+
+```powershell
+taskkill /PID 21188 /F
+corepack yarn dev
+```
+
+(Sostituisci `21188` con il PID indicato da Next.js.)
+
+### Linux / macOS
+
 ```bash
 cd training-app
 cp .env.example .env
 # DATABASE_URL = URI Supabase (direct 5432) oppure Docker locale:
 # docker compose up -d
 # DATABASE_URL=postgresql://training:training@localhost:55432/training
-yarn install && yarn payload migrate && yarn dev
+yarn install && yarn check-env && yarn payload migrate && yarn dev
 ```
+
+### Errore `Invalid URL` su migrate
+
+| Causa | Fix |
+|-------|-----|
+| Placeholder `[PASSWORD]` o `.env.example` non compilato | Incolla URI reale da Supabase |
+| Virgolette `"..."` attorno all’URL | Rimuovi le virgolette |
+| `@` o `#` nella password | URL-encode la password |
+| Riga spezzata / spazio finale | Una sola riga, senza spazi |
 
 ## CI
 

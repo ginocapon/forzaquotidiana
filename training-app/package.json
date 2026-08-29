@@ -13,6 +13,7 @@
     "seed:export": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" tsx src/scripts/export-seed.ts",
     "seed": "cross-env NODE_OPTIONS=\"--no-deprecation --import=tsx/esm\" tsx src/scripts/seed.ts",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
+    "check-env": "node scripts/check-env.mjs",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation tsx node_modules/payload/bin.js --disable-transpile",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "install-skills": "sh scripts/install-skills.sh",
