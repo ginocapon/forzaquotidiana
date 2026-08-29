@@ -20,12 +20,13 @@ if (Test-Path $lock) {
   Write-Host "Rimosso lock .next/dev" -ForegroundColor Yellow
 }
 
-# 3. Avvia Postgres Docker (se Docker c'è)
+# 3. Avvia Postgres Docker (obbligatorio se DATABASE_URL usa localhost:55432)
 if (Get-Command docker -ErrorAction SilentlyContinue) {
-  docker compose up -d 2>$null
-  if ($LASTEXITCODE -eq 0) { Write-Host "Postgres Docker OK" -ForegroundColor Green }
+  Write-Host "Avvio Postgres Docker..." -ForegroundColor Cyan
+  docker compose up -d
+  Start-Sleep -Seconds 2
 } else {
-  Write-Host "Docker non trovato — uso DATABASE_URL dal .env" -ForegroundColor Yellow
+  Write-Host "Docker non trovato — verifica DATABASE_URL nel .env" -ForegroundColor Yellow
 }
 
 # 4. Avvia app

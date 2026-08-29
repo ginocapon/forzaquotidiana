@@ -63,4 +63,15 @@ if (!secret || secret.length < 32) {
   fail('PAYLOAD_SECRET mancante o < 32 caratteri. Esempio: una frase lunga o 32+ caratteri random.')
 }
 
+if (vars.NEXT_PUBLIC_BASE_URL && /STRIPE_|DATABASE_|PAYLOAD_/i.test(vars.NEXT_PUBLIC_BASE_URL)) {
+  fail(
+    'NEXT_PUBLIC_BASE_URL attaccato ad altra riga nel .env (manca a capo).\n' +
+      'Esegui: .\\fix-env.ps1  oppure riscrivi .env con una variabile per riga.',
+  )
+}
+
+if (Object.keys(vars).some((k) => k.includes('=') || k.startsWith('http'))) {
+  fail('.env malformato — ogni variabile deve essere su una riga: NOME=valore')
+}
+
 console.log('✅ .env OK — puoi eseguire: corepack yarn payload migrate')
