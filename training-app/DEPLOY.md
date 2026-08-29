@@ -33,8 +33,9 @@ GRANT ALL ON SCHEMA public TO public;
    - In alternativa, elimina manualmente le tabelle da *Table Editor*.
 4. **Connection string** → *Project Settings → Database → Connection string*:
    - Scegli **URI**
-   - Per **Vercel/serverless**: usa **Transaction pooler** (porta **6543**, `?pgbouncer=true`)
-   - Per **migrate locale**: puoi usare **Direct** (porta **5432**)
+   - **Windows / rete senza IPv6:** NON usare Direct (`db.xxx.supabase.co`) — risolve solo IPv6 → errore `ENOTFOUND`. Usa **Session pooler** (porta **5432**, host `aws-0-….pooler.supabase.com`).
+   - Per **Vercel/serverless**: **Transaction pooler** (porta **6543**, `?pgbouncer=true`)
+   - Per **migrate locale**: **Session pooler** (5432) oppure Docker locale
 5. Copia la stringa in `DATABASE_URL` (sostituisci `[YOUR-PASSWORD]`).
 
 Payload usa **solo Postgres** — non serve configurare Supabase Auth, Realtime o Storage per questa app.
