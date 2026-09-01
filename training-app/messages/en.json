@@ -1,0 +1,166 @@
+{
+  "home": {
+    "greeting": "Hey, {name}",
+    "yourTrainingPlans": "Your training plans",
+    "noPlans": "You don't have a plan assigned yet. Contact your coach.",
+    "seriesPrefix": "Sets",
+    "repsPrefix": "Reps",
+    "durationPrefix": "Time",
+    "restPrefix": "Rest(s)",
+    "profileTitle": "Your profile",
+    "profileAge": "Age",
+    "profileWeight": "Weight",
+    "profileHeight": "Height",
+    "profileExperience": "Experience",
+    "profileFocus": "Focus",
+    "profileGoals": "Goals",
+    "yearsOld": "{age} years",
+    "kgUnit": "{value} kg",
+    "cmUnit": "{value} cm"
+  },
+  "exercise": {
+    "video": "▶ video",
+    "addSet": "add set",
+    "duplicateSet": "Duplicate last set",
+    "addNote": "note",
+    "noteLabel": "Note:",
+    "editNote": "Edit note",
+    "notePlaceholder": "note for the whole exercise",
+    "saveNote": "Save",
+    "cancelNote": "Cancel",
+    "setLabel": "Set {number}",
+    "editSet": "Edit set",
+    "deleteSet": "Delete set"
+  },
+  "restTimer": {
+    "title": "Rest",
+    "skip": "Skip timer"
+  },
+  "verification": {
+    "title": "Workout check",
+    "subtitle": "Planned vs executed",
+    "completion": "Completion",
+    "volumeKg": "Volume (kg × reps)",
+    "volumePct": "Volume done",
+    "detailsToggle": "Per-exercise details",
+    "setsLine": "Sets: {actual}/{planned}",
+    "weightLine": "Avg load: {actual} / {planned} kg",
+    "load": "Load",
+    "reps": "Reps",
+    "progression": {
+      "progress": "Positive trend: load or reps above target.",
+      "maintain": "Execution matches the plan.",
+      "regress": "Some exercises below target — review recovery.",
+      "mixed": "Mixed progression across exercises."
+    },
+    "suggestions": {
+      "incomplete_sets": "Fewer sets than planned. Finish missing sets or adjust with your coach.",
+      "low_volume": "Volume below plan. Check recovery, sleep, and program difficulty.",
+      "ready_for_load": "You hit the rep target comfortably. Consider increasing load next session.",
+      "rir_high": "RIR higher than target — load may be too light for the current goal.",
+      "session_incomplete": "Session below 90% completion.",
+      "session_low_volume": "Total volume below 85% of plan."
+    }
+  },
+  "session": {
+    "noteLabel": "Workout note:",
+    "addNote": "workout note",
+    "editNote": "Edit note",
+    "notePlaceholder": "note for the whole workout",
+    "saveNote": "Save",
+    "cancelNote": "Cancel"
+  },
+  "seriesForm": {
+    "note": "Note",
+    "notePlaceholder": "note",
+    "save": "Save",
+    "cancel": "Cancel",
+    "bodyweightActive": "bodyweight ✕",
+    "bodyweightTitle": "Bodyweight",
+    "atLeastOneValue": "Enter at least one value"
+  },
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Enter the credentials provided by your coach.",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Password",
+    "loggingIn": "Signing in…",
+    "button": "Sign in",
+    "invalidCredentials": "Invalid e-mail or password.",
+    "genericError": "Something went wrong. Please try again.",
+    "brandTagline": "Personal training · Forza Quotidiana"
+  },
+  "nav": {
+    "logout": "Sign out",
+    "mainNav": "Main navigation",
+    "training": "Training",
+    "progress": "Progress"
+  },
+  "workout": {
+    "activeContext": "Active context"
+  },
+  "progress": {
+    "title": "Your progress",
+    "subtitle": "Training trends, volume and personal records",
+    "stats": {
+      "totalSessions": "Total sessions",
+      "thisMonth": "This month",
+      "avgCompletion": "Avg completion",
+      "totalVolume": "Total volume",
+      "volumeHint": "kg × reps"
+    },
+    "weeklyFrequency": "Weekly frequency",
+    "activeWeeks": "{count} active weeks in range",
+    "volumeTrend": "Volume — recent sessions",
+    "bodyWeightTrend": "Body weight trend",
+    "personalRecords": "Personal records (est. 1RM)",
+    "recentSessions": "Recent sessions",
+    "sessionVolume": "{volume} kg×reps",
+    "completionShort": "done",
+    "noSessionsYet": "No sessions logged yet. Complete a workout to see progress.",
+    "logWeight": "Log body weight",
+    "weightKg": "Weight (kg)",
+    "weightNote": "Note",
+    "weightNotePlaceholder": "e.g. fasted, post-workout",
+    "saveWeight": "Save weight",
+    "weightInvalid": "Enter a valid weight between 20 and 300 kg.",
+    "weightSaveError": "Could not save weight. Please try again.",
+    "exportReport": "Export report (PDF)"
+  },
+  "programs": {
+    "catalogTitle": "Training programs",
+    "catalogSubtitle": "Ready-made programs — secure Stripe checkout, plan assigned automatically after payment.",
+    "emptyCatalog": "No published programs yet. Check back soon.",
+    "featured": "Featured",
+    "durationWeeks": "{count} weeks",
+    "viewProgram": "Details",
+    "backToCatalog": "All programs",
+    "buyNow": "Buy now",
+    "checkoutLoading": "Redirecting to Stripe…",
+    "checkoutHint": "After payment the program is cloned to your account. If you don't have credentials yet, use the checkout email.",
+    "checkoutError": "Could not start checkout. Try again or contact your coach.",
+    "successTitle": "Payment complete",
+    "successSubtitle": "Your program is being assigned.",
+    "successBody": "If you already have an account, log in to see your plan. For first-time buyers, your coach will share credentials (or check the order in admin).",
+    "goToLogin": "Go to login",
+    "goToTraining": "Go to training"
+  },
+  "share": {
+    "expiredOrInvalid": "This link has expired or is invalid.",
+    "expiresOn": "Valid until: {date}",
+    "noPlan": "No plan to display.",
+    "planSection": "Training plan",
+    "resultsSection": "Results",
+    "session": "Session",
+    "noResults": "No results recorded yet.",
+    "set": "Set",
+    "kg": "kg",
+    "reps": "Reps",
+    "rir": "RIR",
+    "duration": "Time",
+    "seriesPrefix": "Sets",
+    "repsPrefix": "Reps",
+    "durationPrefix": "Time",
+    "restPrefix": "Rest(s)"
+  }
+}

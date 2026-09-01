@@ -25,6 +25,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 | Venerdì | `SKILL-VENERDI.md` |
 | SEO nuova pagina | `SKILL.md` §8, `scripts/validate-page.js` |
 | UI / hero | `SKILL-LANDING.md`, `SKILL.md` §0.1 |
+| **App Personal trainer (Payload)** | `training-app/DEPLOY.md`, `data/supabase-forza-training.json`, `/personal-trainer/` |
 
 ## Guardian (entry point unico)
 

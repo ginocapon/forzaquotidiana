@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Personal trainer — piattaforma coach e atleti | La Forza Quotidiana</title>
+<meta name="description" content="Area Personal trainer di La Forza Quotidiana: programmi, tracking live, progressi e vendita schede — per coach e clienti.">
+<link rel="canonical" href="https://forzaquotidiana.it/personal-trainer/">
+<meta property="og:url" content="https://forzaquotidiana.it/personal-trainer/">
+<meta property="og:title" content="Personal trainer — La Forza Quotidiana">
+<meta property="og:description" content="Piattaforma allenamento: piani, log sessioni, progressi e programmi in vendita.">
+<meta property="og:image" content="https://forzaquotidiana.it/img/hero/gino-locker-disciplina.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/css/styles.css?v=64">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://forzaquotidiana.it/"},
+{"@type":"ListItem","position":2,"name":"Personal trainer","item":"https://forzaquotidiana.it/personal-trainer/"}]}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/">La Forza Quotidiana<small>Gino Capon</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-principale">Menu</button>
+    <nav class="site-nav" id="nav-principale" aria-label="Principale">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/chi-sono/">Chi sono</a></li>
+        <li><a href="/allenamenti/">Allenamenti</a></li>
+        <li><a href="/personal-trainer/" aria-current="page">Personal trainer</a></li>
+        <li><a href="/admin/" data-nav="schede">Schede</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto">
+  <section class="section">
+    <div class="wrap prose prose--wide" id="pt-hub">
+      <p class="tagline">Personal trainer <span class="badge" data-pt-status>Beta</span></p>
+      <h1>Piattaforma coach · app atleta</h1>
+      <p class="lead">Oltre al diario pubblico e alle schede PDF, qui vive l’app di allenamento personalizzato: piani, tracking live (serie, RIR, recupero), progressi e catalogo programmi.</p>
+      <p>Il sito che stai leggendo resta su GitHub Pages; l’app gira su server Node (cartella <code>training-app/</code> nel repo). Collegamento configurato in <code>data/training-app.json</code>.</p>
+
+      <div class="btn-row" style="margin-top:1.5rem">
+        <a class="btn btn-primary" data-app-link="programs" href="https://forza-training.vercel.app/programmi">Programmi</a>
+        <a class="btn btn-ghost" data-app-link="login" href="https://forza-training.vercel.app/login">Area atleta</a>
+        <a class="btn btn-ghost" data-app-link="progress" href="https://forza-training.vercel.app/progress">Progressi</a>
+      </div>
+
+      <section class="section section--tight" aria-labelledby="pt-features">
+        <h2 id="pt-features">Cosa include</h2>
+        <ul>
+          <li><strong>Coach (admin)</strong> — piani, microcicli, verifica programma vs eseguito, alert completamento, export report.</li>
+          <li><strong>Atleta</strong> — login, scheda live, timer recupero, dashboard progressi, peso corporeo.</li>
+          <li><strong>Vendita</strong> — catalogo <em>Programmi</em>, checkout Stripe, clone automatico del piano dopo pagamento.</li>
+        </ul>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="pt-dev">
+        <h2 id="pt-dev">Sviluppo locale</h2>
+        <pre><code>cd training-app
+cp .env.example .env   # DATABASE_URL, PAYLOAD_SECRET
+yarn install &amp;&amp; yarn payload migrate
+yarn dev               # http://localhost:3000</code></pre>
+        <p>Documentazione tecnica: <code>training-app/README.md</code> · codice sorgente esteso da <a href="https://github.com/codee-sh/payload-training-app" rel="noopener noreferrer">payload-training-app</a> (MIT).</p>
+      </section>
+
+      <p><a href="/allenamenti/">← Torna agli Allenamenti pubblici</a> · <a href="/diario/">Diario</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>© <span id="y"></span> La Forza Quotidiana · Gino Capon</p></div>
+</footer>
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="/js/vendor/lenis.min.js" defer></script>
+<script src="/js/smooth-scroll.js?v=2" defer></script>
+<script src="/js/main.js?v=25" defer></script>
+<script src="/js/cookie-consent.js?v=4" defer></script>
+<script src="/js/personal-trainer.js?v=1" defer></script>
+</body>
+</html>

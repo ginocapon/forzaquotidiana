@@ -1,0 +1,8 @@
+{
+  "projectRef": "ieeriszlalrsbfsnarih",
+  "dashboardUrl": "https://supabase.com/dashboard/project/ieeriszlalrsbfsnarih",
+  "apiUrl": "https://ieeriszlalrsbfsnarih.supabase.co",
+  "previousUse": "raasautomazioni",
+  "newUse": "forza-training-app (Payload CMS PostgreSQL)",
+  "notes": "Solo riferimento pubblico. DATABASE_URL e password restano in .env / secret Vercel — mai in git."
+}

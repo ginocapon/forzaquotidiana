@@ -1,0 +1,111 @@
+import type { CollectionConfig } from 'payload'
+import { isAdmin, adminOrOwnByClient } from '../../access'
+import { TRAINING_FOCUS_OPTIONS } from '@/modules/training/clients/constants'
+
+export const Plans: CollectionConfig = {
+  slug: 'plans',
+  admin: {
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'client', 'status', 'updatedAt'],
+    group: 'Training plan',
+  },
+  access: {
+    create: isAdmin,
+    read: adminOrOwnByClient,
+    update: isAdmin,
+    delete: isAdmin,
+  },
+  // Keep an audit trail of every change (no drafts — publish workflow unchanged).
+  versions: true,
+  fields: [
+    {
+      name: 'client',
+      type: 'relationship',
+      relationTo: 'clients',
+      label: 'Client (plan owner)',
+      admin: {
+        position: 'sidebar',
+        condition: (_, siblingData) => !siblingData?.isTemplate,
+      },
+    },
+    {
+      name: 'isTemplate',
+      type: 'checkbox',
+      defaultValue: false,
+      label: 'Template plan',
+      admin: {
+        position: 'sidebar',
+        description: 'Template plans have no client and can be sold via program products',
+      },
+    },
+    {
+      name: 'status',
+      type: 'select',
+      label: 'Status',
+      defaultValue: 'active',
+      admin: { position: 'sidebar' },
+      options: [
+        { label: 'Active', value: 'active' },
+        { label: 'Paused', value: 'paused' },
+        { label: 'Completed', value: 'completed' },
+      ],
+    },
+    {
+      name: 'trainingType',
+      type: 'select',
+      label: 'Training type',
+      options: [...TRAINING_FOCUS_OPTIONS],
+      admin: {
+        position: 'sidebar',
+        description: 'Primary focus of this plan (for filtering and future analytics)',
+      },
+    },
+    {
+      type: 'row',
+      fields: [
+        {
+          name: 'startDate',
+          type: 'date',
+          label: 'Start date',
+          admin: { width: '50%', date: { pickerAppearance: 'dayOnly' } },
+        },
+        {
+          name: 'endDate',
+          type: 'date',
+          label: 'End date',
+          admin: { width: '50%', date: { pickerAppearance: 'dayOnly' } },
+        },
+      ],
+    },
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      label: 'Plan name',
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      label: 'Description',
+    },
+    {
+      name: 'source',
+      type: 'text',
+      label: 'Source (file)',
+      admin: { description: 'Where the plan was imported from' },
+    },
+    {
+      name: 'microcyclesNavigation',
+      type: 'ui',
+      label: '',
+      admin: {
+        components: {
+          Field: {
+            path: '@/modules/training/admin/training-navigation/training-navigation',
+            exportName: 'PlanMicrocycles',
+          },
+        },
+      },
+    },
+  ],
+}

@@ -1,0 +1,10 @@
+{
+  "appBaseUrl": "https://forza-training.vercel.app",
+  "status": "beta",
+  "paths": {
+    "programs": "/programmi",
+    "login": "/login",
+    "progress": "/progress",
+    "admin": "/admin"
+  }
+}
