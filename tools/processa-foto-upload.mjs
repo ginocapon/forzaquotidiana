@@ -74,6 +74,23 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "allenamento 31 agosto": {
+    date: "2026-08-31",
+    scheda: 4,
+    files: {
+      "WhatsApp Image 2026-09-01 at 16.29.13.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-01 at 16.29.29.jpeg": "tecnica",
+      "WhatsApp Image 2026-09-01 at 16.29.29 (1).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-09-01 at 16.29.29 (2).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-09-01 at 16.29.29 (3).jpeg": "tsb",
+      "WhatsApp Image 2026-09-01 at 16.29.30.jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-01 at 16.29.30 (1).jpeg": "hrv",
+      "WhatsApp Image 2026-09-01 at 16.29.30 (2).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-01 at 16.29.30 (3).jpeg": "readiness-panoramica",
+      "WhatsApp Image 2026-09-01 at 16.29.30 (4).jpeg": "readiness-dettaglio",
+      "WhatsApp Image 2026-09-01 at 16.29.30 (5).jpeg": "readiness-metriche",
+    },
+  },
   "2026-08-28-scheda-3": {
     date: "2026-08-28",
     scheda: 3,

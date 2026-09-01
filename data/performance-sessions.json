@@ -912,6 +912,72 @@
           "monitoraggio/2026-08-28/zone-fc-sessione.png"
         ]
       }
+    },
+    {
+      "id": "2026-08-31-scheda-4",
+      "date": "2026-08-31",
+      "time": "15:40",
+      "datetime": "2026-08-31T15:40",
+      "scheda": 4,
+      "month": "2026-08",
+      "durata_sec": 3078,
+      "durata": "00:51:18",
+      "recupero_sec": 2248,
+      "recupero": "37:28",
+      "gruppi": 19,
+      "fc_media": 125,
+      "fc_max": 150,
+      "calorie": 476,
+      "carico": 159,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 2.25,
+        "intensiva": 9.6,
+        "aerobica": 19.08,
+        "anaerobica": 19.67,
+        "vo2max": 0.68
+      },
+      "effect": {
+        "aerobic": 4.5,
+        "aerobic_label": "Eccellente",
+        "anaerobic": 2.5,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "hybridcharge_wake": 74,
+        "hybridcharge_label": "Discreto",
+        "sleep_duration": "6:06",
+        "sleep_duration_label": "Medio",
+        "sleep_deep": "1:02",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "0:50",
+        "sleep_wake": "0:12",
+        "sleep_wake_events": 4,
+        "sleep_regularity_pct": 39,
+        "nap_duration": "0:19",
+        "hrv": 45,
+        "hrv_label": "Ottimale",
+        "hrv_baseline": 42,
+        "resting_hr": 48,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 79
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento molto uniforme — radar alto",
+        "stability": "Movimenti stabili per tutta la seduta",
+        "continuity": "Flusso regolare tra le serie",
+        "rhythm": "Tempi coerenti nonostante FC elevata",
+        "speed_decay": "Decadimento velocità moderato — carico cardio alto"
+      },
+      "note": "Scheda 4 domenica 15:40 — 19 serie in 51:18, carico 159 (picco trimestre), FC 125/150. Anaerobico 19:40 + aerobico 4,5 Eccellente. HRV 45 Ottimale, sonno 6:06 Medio, HybridCharge 74.",
+      "tsb": {
+        "value": 0,
+        "label": "Bilanciato",
+        "fitness_ctl": 22,
+        "fatigue_atl": 22,
+        "date": "2026-08-31"
+      }
     }
   ]
 }
