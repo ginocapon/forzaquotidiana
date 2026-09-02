@@ -76,6 +76,24 @@
         "2026-08-31-scheda-4"
       ],
       "in_trimestre": true
+    },
+    {
+      "month": "2026-09",
+      "label": "settembre 2026",
+      "sessioni_totali": 1,
+      "sessioni_con_export": 1,
+      "durata_totale_sec": 3892,
+      "durata_totale": "01:04:52",
+      "fc_media": 120,
+      "calorie_totale": 564,
+      "calorie_asterisk": false,
+      "carico_medio": 114,
+      "carico_asterisk": false,
+      "gruppi_medio": 26,
+      "sessioni_ids": [
+        "2026-09-01-b1"
+      ],
+      "in_trimestre": false
     }
   ],
   "charts": {
@@ -220,6 +238,26 @@
         22,
         19
       ]
+    },
+    "2026-09": {
+      "labels": [
+        "01 set S2"
+      ],
+      "durata_min": [
+        65
+      ],
+      "fc_media": [
+        120
+      ],
+      "calorie": [
+        564
+      ],
+      "carico": [
+        114
+      ],
+      "gruppi": [
+        26
+      ]
     }
   },
   "years": {
@@ -229,7 +267,8 @@
       "months": [
         "2026-06",
         "2026-07",
-        "2026-08"
+        "2026-08",
+        "2026-09"
       ]
     }
   }

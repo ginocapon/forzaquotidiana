@@ -64,7 +64,7 @@ function renderGuilePanel(slug, scheda) {
   return `
     <section class="session-panel session-panel--guile guile-panel" aria-labelledby="guile-${slug}">
       <span class="session-panel__label" id="guile-${slug}">Spirito Guile · umorismo pro</span>
-      <p class="guile-panel__lead">Tre illustrazioni generate con IA — estetica arcade, tono professionale con ironia controllata. Non sostituiscono gli export Zepp: colorano la pagina.</p>
+      <p class="guile-panel__lead">Tre illustrazioni IA — <strong>almeno una fotorealistica</strong> con esercizio e viso di Gino, le altre stile arcade Guile. Gli export Zepp restano la fonte numerica.</p>
       <div class="guile-strip guile-strip--${scheda}" aria-label="Galleria illustrazioni Guile-style">
 ${cards}
       </div>

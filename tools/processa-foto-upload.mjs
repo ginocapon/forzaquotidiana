@@ -74,6 +74,26 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "allenamento 1-09-2026": {
+    date: "2026-09-01",
+    codice: "b1",
+    scheda: 2,
+    skip: ["WhatsApp Image 2026-09-02 at 10.43.12 (6).jpeg"],
+    files: {
+      "WhatsApp Image 2026-09-02 at 10.39.42.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-02 at 10.43.12.jpeg": "tsb",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (1).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (2).jpeg": "hrv",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (3).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (4).jpeg": "readiness-panoramica",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (5).jpeg": "readiness-dettaglio",
+      "WhatsApp Image 2026-09-02 at 10.43.12 (7).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-09-02 at 10.43.13.jpeg": "valutazione",
+      "WhatsApp Image 2026-09-02 at 10.43.13 (1).jpeg": "tecnica",
+      "WhatsApp Image 2026-09-02 at 10.43.13 (2).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-09-02 at 10.43.13 (3).jpeg": "fc-grafico",
+    },
+  },
   "allenamento 31 agosto": {
     date: "2026-08-31",
     scheda: 4,
@@ -149,7 +169,8 @@ const ROOT_FILES = {
   "WhatsApp Image 2026-08-17 at 23.16.21(2).jpeg": { date: "2026-08-17", scheda: 1, slug: "tecnica" },
 };
 
-function destName(date, scheda, slug) {
+function destName(date, scheda, slug, codice) {
+  if (codice) return `${date}-${String(codice).toLowerCase()}-${slug}.webp`;
   return `${date}-scheda-${scheda}-${slug}.webp`;
 }
 
@@ -179,10 +200,13 @@ function buildSlugMap(files, dirName) {
   if (batch.files) {
     for (const [whatsapp, slugOrMeta] of Object.entries(batch.files)) {
       if (typeof slugOrMeta === "string") {
-        map[whatsapp] = { dest: destName(batch.date, batch.scheda, slugOrMeta), slug: slugOrMeta };
+        map[whatsapp] = {
+          dest: destName(batch.date, batch.scheda, slugOrMeta, batch.codice),
+          slug: slugOrMeta,
+        };
       } else {
         map[whatsapp] = {
-          dest: destName(slugOrMeta.date, slugOrMeta.scheda, slugOrMeta.slug),
+          dest: destName(slugOrMeta.date, slugOrMeta.scheda, slugOrMeta.slug, slugOrMeta.codice ?? batch.codice),
           slug: slugOrMeta.slug,
         };
       }
@@ -193,7 +217,10 @@ function buildSlugMap(files, dirName) {
   const sorted = files.filter((f) => !skip.has(f)).sort();
   const slugs = batch.slugs || [];
   for (let i = 0; i < sorted.length && i < slugs.length; i++) {
-    map[sorted[i]] = { dest: destName(batch.date, batch.scheda, slugs[i]), slug: slugs[i] };
+    map[sorted[i]] = {
+      dest: destName(batch.date, batch.scheda, slugs[i], batch.codice),
+      slug: slugs[i],
+    };
   }
   return map;
 }
@@ -276,8 +303,8 @@ function lookupMapped(file) {
   for (const batch of Object.values(KNOWN_BATCHES)) {
     const hit = batch.files?.[file];
     if (!hit) continue;
-    if (typeof hit === "string") return { date: batch.date, scheda: batch.scheda, slug: hit };
-    return hit;
+    if (typeof hit === "string") return { date: batch.date, scheda: batch.scheda, slug: hit, codice: batch.codice };
+    return { ...hit, codice: hit.codice ?? batch.codice };
   }
   return null;
 }
@@ -292,7 +319,7 @@ async function processLooseWhatsApp(dir, label) {
       console.warn("SKIP (no slug, identifica visivamente):", join(dir, file));
       continue;
     }
-    await convertOne(join(dir, file), destName(mapped.date, mapped.scheda, mapped.slug), mapped.slug);
+    await convertOne(join(dir, file), destName(mapped.date, mapped.scheda, mapped.slug, mapped.codice), mapped.slug);
   }
 }
 

@@ -978,6 +978,74 @@
         "fatigue_atl": 22,
         "date": "2026-08-31"
       }
+    },
+    {
+      "id": "2026-09-01-b1",
+      "date": "2026-09-01",
+      "time": "14:16",
+      "datetime": "2026-09-01T14:16",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-09",
+      "durata_sec": 3892,
+      "durata": "01:04:52",
+      "recupero_sec": 2844,
+      "recupero": "47:24",
+      "gruppi": 26,
+      "fc_media": 120,
+      "fc_max": 155,
+      "calorie": 564,
+      "carico": 114,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 2.0,
+        "intensiva": 24.45,
+        "aerobica": 24.23,
+        "anaerobica": 11.22,
+        "vo2max": 2.93
+      },
+      "effect": {
+        "aerobic": 3.6,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.6,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "hybridcharge_wake": 59,
+        "hybridcharge_label": "Basso",
+        "sleep_duration": "7:20",
+        "sleep_duration_label": "Buono",
+        "sleep_deep": "1:03",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "0:43",
+        "sleep_wake": "1:13",
+        "sleep_wake_events": 7,
+        "sleep_regularity_pct": 38,
+        "nap_duration": "0:34",
+        "hrv": 33,
+        "hrv_label": "Fai attenzione",
+        "hrv_baseline": 42,
+        "resting_hr": 54,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 102
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Flusso per lo più fluido con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento moderato — effetto allenamento accettabile"
+      },
+      "note": "B1 lunedì 14:16 — avvio Blocco 1 (saltata sessione sett. prec., non A1). 26 serie in 01:04:52, carico 114, FC 120/155. HRV 33 sotto baseline, HybridCharge 59 Basso, sonno 7:20 Buono.",
+      "tsb": {
+        "value": -1,
+        "label": "Bilanciato",
+        "fitness_ctl": 26,
+        "fatigue_atl": 27,
+        "date": "2026-09-01"
+      }
     }
   ]
 }

@@ -276,7 +276,9 @@ fs.writeFileSync('img/allenamenti/amazfit/YYYY-MM-DD-scheda-N-tipo.png', data);
 ### Flusso obbligatorio (sessione nuova)
 
 1. Dati numerici: screenshot Zepp **oppure** `Monitoraggio_sportivo_dashboard_*.xlsx` + grafici PNG.
-2. **≥3 immagini IA** Guile → `img/allenamenti/guile/` (WebP). Sessione del giorno: prefisso `YYYY-MM-DD-scheda-N-*`; set per scheda: `guile-scheda-N-{hero,2,3}.webp`.
+2. **≥3 immagini IA** Guile → `img/allenamenti/guile/` (WebP). Sessione del giorno: prefisso `YYYY-MM-DD-scheda-N-*` o `YYYY-MM-DD-a1-*` (Blocco 1); set per scheda: `guile-scheda-N-{hero,2,3}.webp`.
+   - **Mix obbligatorio (permanente):** tra le 3 illustrazioni, **almeno 1 fotorealistica** dell’esercizio della seduta in palestra, con **viso riconoscibile di Gino** (usare `admin/img/gino-schede-hero.webp` o altra foto documentale come reference in `GenerateImage`). Le altre 2 restano stile arcade Guile — umorismo pro, non sostituiscono Zepp.
+   - Prompt realistico: esercizio coerente con scheda (A1 panca inclinata, B1 pressa…), luce palestra, 57 anni, natural, niente supereroi.
 3. Trasparenza AI: `data-ai="generated"`, `.ai-photo-wrap` + `.ai-photo-mark` + `.fig-credit` (vedi `.cursor/rules/ai-trasparenza.mdc`).
 4. Pagina sessione — ordine aggiornato:
    - TSB SVG

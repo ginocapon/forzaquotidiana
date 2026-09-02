@@ -19,6 +19,8 @@ Nuova sessione, upload foto Zepp/dashboard, richiesta «aggiorna allenamenti», 
 
 1. **Verifica visiva upload** — JPEG WhatsApp devono essere screenshot Zepp. Meme/mappe/social → scartare, avvisare Gino.
 2. **≥3 illustrazioni IA** Guile-style → WebP in `img/allenamenti/guile/` con etichetta AI completa.
+   - **Mix obbligatorio:** almeno **1 su 3 fotorealistica** — esercizio reale della seduta (panca, pressa, lento…), palestra credibile, **viso riconoscibile di Gino** (riferimento `admin/img/gino-schede-hero.webp` o foto documentali repo). Le altre 2 possono restare arcade/cartoon Guile-inspired.
+   - Nome file sessione: `YYYY-MM-DD-{a1|scheda-N}-realistic.webp` + 2 illustrazioni stilizzate.
 3. **Cruscotto monitoraggio** se Gino fornisce Excel/PNG:
    - Copiare grafici in `img/allenamenti/monitoraggio/YYYY-MM-DD/`
    - Excel in `data/monitoraggio/`
