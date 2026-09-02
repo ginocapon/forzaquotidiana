@@ -40,7 +40,13 @@ Ogni venerdì, da **RSS r/bodybuilding** (+ r/Fitness fallback):
 
 ## Sequenza obbligatoria
 
-`CONTEXT → OBSERVE → VERIFY → ASSUMPTIONS → PREMORTEM → ANTI-DOPPIONI → PRIORITIZE (max 3) → ACT → VERIFY AGAIN → LEARN → NEXT CHECK`
+`CONTEXT → OBSERVE → VERIFY → ASSUMPTIONS → PREMORTEM → ANTI-DOPPIONI → **CONTINUITÀ (editorial-memory)** → PRIORITIZE (max 3) → ACT → VERIFY AGAIN → LEARN → NEXT CHECK`
+
+**Continuità (BLOCCANTE pre-scrittura):**
+1. Leggi `SKILL-MEMORIA-PROGRESSI.md` + `data/editorial-memory.json`
+2. `node tools/build-editorial-memory.mjs` se memoria >7 giorni o dopo publish precedente
+3. Se cluster già ≥2 negli ultimi 8 → altro angolo o `update_reason` in coda
+4. `node tools/build-editorial-memory.mjs --check eq-XXX` opzionale prima di scrivere
 
 ## Comandi (unici entry point)
 
@@ -62,19 +68,19 @@ node guardian/scripts/guardian.mjs run --job weekly_editorial
 
 ## FASE 0 — CONTEXT
 
-Leggere: `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-queue.json`, `data/my-stats.json`, `guardian/reports/guardian-latest.md`.
+Leggere: `SKILL-MEMORIA-PROGRESSI.md`, `data/editorial-memory.json`, `guardian/AGENT.md`, `guardian/policy/autonomy.yaml`, `data/editorial-queue.json`, `data/my-stats.json`, `guardian/reports/guardian-latest.md`.
 
 ## FASE 5 — ACT contenuto (per articolo)
 
 - 1500–2500 parole utili; tono da queue (`tecnico` | `goliardico` | `riflessione`)
 - **Serio:** niente parodia, niente università immaginaria, niente meme Reddit — traduzione/adattamento **in italiano** del trend RSS
 - Title ≤60, meta ≤160, H1 ≠ title
-- 8–12 H2/H3; box iniziale «Risposta breve» (AEO)
+- 8–12 H2/H3; box iniziale «Sintesi Articolo» (AEO)
 - FAQ 4–6 + JSON-LD FAQPage + BlogPosting + Person
 - Internal links min 3: `/diario/`, `/allenamenti/`, `/chi-sono/`
 - Path: `diario/{slug}/index.html` — slug con `-57-anni` quando pertinente
 
-### Box «Risposta breve» — regola aggiornata (BLOCCANTE)
+### Box «Sintesi Articolo» — regola aggiornata (BLOCCANTE)
 
 - **2–3 frasi massimo**, tono diretto; prima persona nelle riflessioni
 - Risponde al titolo in modo scorrevole — **non** paragrafo legale né elenco difese
@@ -171,6 +177,8 @@ Con `OPENAI_API_KEY` in GitHub Actions il cron può generare tutto senza agente 
 | File | Ruolo |
 |------|-------|
 | `data/editorial-queue.json` | Coda proposed/scheduled/published |
+| `data/editorial-memory.json` | Ultimi 8 publish, saturazione cluster, risks |
+| `SKILL-MEMORIA-PROGRESSI.md` | KPI, log, prossimi passi, trigger `"FQ"` |
 | `data/editorial-skin.json` | Voce, struttura, articoli riferimento (autopilot) |
 | `data/editorial-image-skin.json` | Stile immagini fumetto/surreale (autopilot) |
 | `data/my-stats.json` | Solo numeri reali |
@@ -180,5 +188,6 @@ Con `OPENAI_API_KEY` in GitHub Actions il cron può generare tutto senza agente 
 ## Output fine run
 
 - Fino a 3 articoli in `diario/` (o `needs_generation` in queue)
+- `data/editorial-memory.json` rigenerato (`node tools/build-editorial-memory.mjs`)
 - `guardian/reports/weekly-{date}.md`
 - Lista esplicita: REALE vs FINIZIONE vs IMMAGINE IA

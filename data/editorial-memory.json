@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "generated": "2026-09-02",
+  "window_size": 8,
+  "cluster_cap": 2,
+  "mix_rule": {
+    "tecnico": 2,
+    "goliardico": 1,
+    "per_week": 3
+  },
+  "site_snapshot": {
+    "diario_catalog_count": 23,
+    "sessions_documented": 21,
+    "site_stats_updated": "2026-08-26"
+  },
+  "tone_balance_last_window": {
+    "tecnico": 1,
+    "goliardico": 5,
+    "riflessione": 2
+  },
+  "cluster_saturation": {
+    "tecnico-natural": 1,
+    "riflessione-vita": 2,
+    "goliardia-nutrizione": 1,
+    "goliardia-culturismo": 4
+  },
+  "recent": [
+    {
+      "slug": "gareggiare-natural-senza-farmaci-57-anni",
+      "published_date": "2026-08-26",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-natural",
+      "kw_primary": null,
+      "intent": null,
+      "fiction": false,
+      "source": "index"
+    },
+    {
+      "slug": "serate-project-invictus-lettura-57-anni",
+      "published_date": "2026-08-26",
+      "tone": "riflessione",
+      "tone_label": "Riflessione",
+      "cluster": "riflessione-vita",
+      "kw_primary": null,
+      "intent": null,
+      "fiction": false,
+      "source": "index"
+    },
+    {
+      "slug": "creatina-meme-universita-57-anni",
+      "published_date": "2026-08-26",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-nutrizione",
+      "kw_primary": "creatina culturismo meme",
+      "intent": "Satira Facoltà di Creatina + sintesi scientifica dossier agosto 2026 — zero vendita",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "check-weeks-natural-viking-57-anni",
+      "published_date": "2026-08-26",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "check weeks natural viking",
+      "intent": "Angolo goliardico su trend: Check-In: 2 Weeks Out from OCB Natural Viking",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "many-years-apart-think-57-anni",
+      "published_date": "2026-08-26",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "many years apart think",
+      "intent": "Angolo goliardico su trend: How many years apart do you think?🫡",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "daily-discussion-thread-july-57-anni",
+      "published_date": "2026-08-16",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "daily discussion thread july",
+      "intent": "Angolo goliardico su trend: Daily Discussion Thread - July 04, 2026 (up for two days)",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "bodybuilding-everybody-wants-bodybuilder-57-anni",
+      "published_date": "2026-08-16",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "bodybuilding everybody wants bodybuilder",
+      "intent": "Angolo goliardico su trend: Bodybuilding - everybody wants to be a bodybuilder",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "overtraining-recupero-50-anni-57-anni",
+      "published_date": "2026-08-16",
+      "tone": "riflessione",
+      "tone_label": "Riflessione",
+      "cluster": "riflessione-vita",
+      "kw_primary": "overtraining recupero 50 anni",
+      "intent": "recupero natural maturo",
+      "fiction": false,
+      "source": "queue+index"
+    }
+  ],
+  "risks": [
+    "Cluster `riflessione-vita` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
+    "Cluster `goliardia-culturismo` già 4/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
+    "Troppa goliardia negli ultimi 8 (5) — priorità 2 tecnici + 1 goliardico al prossimo venerdì",
+    "Trend Reddit/culturismo saturo — preferire tecnico natural o riflessione vita"
+  ]
+}
