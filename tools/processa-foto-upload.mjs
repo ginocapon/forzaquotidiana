@@ -96,7 +96,8 @@ const KNOWN_BATCHES = {
   },
   "allenamento 31 agosto": {
     date: "2026-08-31",
-    scheda: 4,
+    codice: "a1",
+    scheda: 1,
     files: {
       "WhatsApp Image 2026-09-01 at 16.29.13.jpeg": "riepilogo",
       "WhatsApp Image 2026-09-01 at 16.29.29.jpeg": "tecnica",

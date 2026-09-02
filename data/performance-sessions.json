@@ -914,11 +914,13 @@
       }
     },
     {
-      "id": "2026-08-31-scheda-4",
+      "id": "2026-08-31-a1",
       "date": "2026-08-31",
       "time": "15:40",
       "datetime": "2026-08-31T15:40",
-      "scheda": 4,
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
       "month": "2026-08",
       "durata_sec": 3078,
       "durata": "00:51:18",
@@ -970,7 +972,7 @@
         "rhythm": "Tempi coerenti nonostante FC elevata",
         "speed_decay": "Decadimento velocità moderato — carico cardio alto"
       },
-      "note": "Scheda 4 domenica 15:40 — 19 serie in 51:18, carico 159 (picco trimestre), FC 125/150. Anaerobico 19:40 + aerobico 4,5 Eccellente. HRV 45 Ottimale, sonno 6:06 Medio, HybridCharge 74.",
+      "note": "A1 domenica 15:40 — rotazione saltata (non S4). 19 serie in 51:18, carico 159, FC 125/150. Map pettorali/dorsali. HRV 45, sonno 6:06. Anticipo Blocco 1.",
       "tsb": {
         "value": 0,
         "label": "Bilanciato",
