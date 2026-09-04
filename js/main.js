@@ -90,14 +90,16 @@
     var cells = links.map(function (item) {
       var cur = item.current ? " aria-current=\"page\"" : "";
       return "<a href=\"" + item.href + "\"" + cur + ">" +
-        "<span class=\"fq-overlay-num\">" + item.num + "</span> " + item.label +
-        "<img class=\"fq-overlay-preview\" src=\"" + item.preview + "\" alt=\"\" width=\"78\" height=\"52\" loading=\"lazy\">" +
+        "<img class=\"fq-overlay-bg\" src=\"" + item.preview + "\" alt=\"\" loading=\"lazy\">" +
+        "<span class=\"fq-overlay-shade\" aria-hidden=\"true\"></span>" +
+        "<span class=\"fq-overlay-num\">" + item.num + "</span>" +
+        "<span class=\"fq-overlay-label\">" + item.label + "</span>" +
         "</a>";
     }).join("");
 
     overlay.innerHTML =
       "<div class=\"fq-overlay-bar\">" +
-        "<a class=\"fq-overlay-bar__brand\" href=\"/\">La Forza Quotidiana</a>" +
+        "<a class=\"fq-overlay-bar__brand\" href=\"/\"><span class=\"fq-overlay-mark\" aria-hidden=\"true\"></span> La Forza Quotidiana</a>" +
         "<button class=\"fq-overlay-close\" type=\"button\" id=\"fq-close-menu\">Chiudi <span aria-hidden=\"true\">×</span></button>" +
       "</div>" +
       "<nav class=\"fq-overlay-nav\" aria-label=\"Sezioni\">" + cells + "</nav>" +
@@ -111,7 +113,7 @@
 
     openBtn.setAttribute("aria-controls", "fq-overlay");
     if (!openBtn.querySelector(".fq-menu-dots")) {
-      openBtn.innerHTML = "Menu <span class=\"fq-menu-dots\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span>";
+      openBtn.innerHTML = "Menu <span class=\"fq-menu-dots\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>";
     }
 
     var closeBtn = document.getElementById("fq-close-menu");
