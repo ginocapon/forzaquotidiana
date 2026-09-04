@@ -1,6 +1,6 @@
 {
   "_nota": "Solo numeri verificabili — NON inventare. Rigenerare con: node tools/sync-my-stats.mjs",
-  "updated": "2026-08-26",
+  "updated": "2026-09-04",
   "sources": [
     "data/gino-profile.json",
     "data/site-stats.json",
@@ -37,7 +37,7 @@
     "stacco-omega_max": 60,
     "squat-multipower_max": 60
   },
-  "diario_articles": 21,
+  "diario_articles": 26,
   "iscritti_newsletter": null,
   "claims_allowed": [
     "età cronologica da birth_date",

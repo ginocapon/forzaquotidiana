@@ -114,7 +114,7 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
 {"@type":"ListItem","position":2,"name":"Diario","item":"https://forzaquotidiana.it/diario/"},
 {"@type":"ListItem","position":3,"name":${escJson(article.breadcrumb || article.h1)},"item":"${base}"}]}
 </script>
-<link rel="stylesheet" href="/css/styles.css?v=59">
+<link rel="stylesheet" href="/css/styles.css?v=69">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -163,7 +163,7 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
 
     ${banner}
     <div class="article-lead">
-      <p><strong>${esc(article.aeo_label || "Risposta breve")}.</strong> ${article.aeo_lead}</p>
+      <p><strong>${esc(article.aeo_label || "Sintesi Articolo")}.</strong> ${article.aeo_lead}</p>
     </div>
 
     <figure class="article-figure article-figure--hero">
@@ -202,7 +202,7 @@ ${faqHtml}
     <p><small>© Gino Capon · <a href="/privacy/">Privacy</a> · <a href="/trasparenza-ai/">Trasparenza AI</a></small></p>
   </div>
 </footer>
-<script src="/js/main.js?v=1" defer></script>
+<script src="/js/main.js?v=29" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/newsletter.js?v=5" defer></script>
 </body>

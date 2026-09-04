@@ -1,7 +1,7 @@
 {
   "_nota": "Età biologica da crediti Zepp verificati + profilo 10+ anni palestra. Non dato clinico. node tools/aggiorna-bio-age.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
-  "updated": "2026-08-26",
+  "updated": "2026-09-04",
   "chronological_age": 57,
   "biological_age": 51.8,
   "offset_years": 5.2,
@@ -23,15 +23,15 @@
   },
   "dati_zepp": {
     "ctl_zepp": 25,
-    "fc_media_pesata": 110,
+    "fc_media_pesata": 111,
     "effetto_aerobico_medio": 3,
     "effetto_anaerobico_medio": 2.2,
     "effetto_anaerobico_picco": 3.6,
-    "carico_medio": 75,
-    "gruppi_medi": 25,
-    "sessioni_complete": 17,
-    "sessioni_documentate": 17,
-    "tecnica_media": 1
+    "carico_medio": 80,
+    "gruppi_medi": 24,
+    "sessioni_complete": 20,
+    "sessioni_documentate": 20,
+    "tecnica_media": 0.9
   },
   "timeline": [
     {
@@ -175,6 +175,30 @@
       "age": 51.8,
       "offset": 5.2,
       "sessions": 17,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-08-28",
+      "age": 51.8,
+      "offset": 5.2,
+      "sessions": 18,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-08-31",
+      "age": 51.8,
+      "offset": 5.2,
+      "sessions": 19,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-01",
+      "age": 51.8,
+      "offset": 5.2,
+      "sessions": 20,
       "ctl": 25,
       "maturity": 1
     }

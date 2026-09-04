@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-26",
+  "updated": "2026-09-04",
   "max_per_week": 3,
   "items": [
     {
@@ -21,7 +21,7 @@
       "meta_draft": "Satira goliardica su miti whey e bro-science — zero vendita integratori. Gino Capon, culturismo dilettante e umorismo a fumetti.",
       "h1_draft": "La mia laurea triennale in Scienze dello Shake (con onore in bro-science)",
       "outline": [
-        "Risposta breve AEO",
+        "Sintesi Articolo AEO",
         "Miti shake",
         "Bro-science vs realtà",
         "FAQ",
@@ -55,7 +55,7 @@
       "meta_draft": "Parodia goliardica sul giorno dopo leg day a 57 anni — scale, ascensori e dignità. Finzione visiva, costanza vera.",
       "h1_draft": "Leg day e l'ascensore che mi giudica: sopravvivenza a 57 anni",
       "outline": [
-        "Risposta breve",
+        "Sintesi Articolo",
         "Boss ascensore",
         "Costanza vs dramma",
         "FAQ"
@@ -88,7 +88,7 @@
       "meta_draft": "Satira sul selfie da specchio in palestra — finzione a fumetti, zero influencer. Gino 57 anni, diario autentico.",
       "h1_draft": "Lo specchio che mi dà due versioni: Teken il Guerriero e l'uomo stropicciato",
       "outline": [
-        "Risposta breve",
+        "Sintesi Articolo",
         "Doppio specchio",
         "Autenticità",
         "FAQ"
@@ -140,7 +140,8 @@
       "discovery_score": 0.72,
       "target_week": "2026-08-11",
       "hero_brief": "Da definire — stile fumetto surreale goliardico",
-      "hero_concept": "comic surreal, NO stock palestra"
+      "hero_concept": "comic surreal, NO stock palestra",
+      "notes": "Duplicato di clean-halo-kettlebell-spalle-a-57-anni — stesso angolo mobilità spalle, non schedulare."
     },
     {
       "id": "prop-1786450039791-vxn",
@@ -266,17 +267,29 @@
     {
       "id": "disc-1786886087428-14o1",
       "slug": "weeks-into-mass-phase-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "weeks into mass phase",
-      "cluster": "goliardia-culturismo",
-      "intent": "Angolo goliardico su trend: 4 weeks into the mass phase",
+      "cluster": "goliardia-allenamento",
+      "intent": "Satira goliardica sul trend mass phase — pasta, divano, autoironia",
       "discovery_score": 0.85,
-      "target_week": "2026-08-16",
+      "target_week": "2026-09-04",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "4 weeks into the mass phase"
+      "trending_title": "4 weeks into the mass phase",
+      "paths": {
+        "html": "diario/weeks-into-mass-phase-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/weeks-into-mass-phase-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/weeks-into-mass-phase-fig1.webp",
+          "img/diario/2026-09-04/weeks-into-mass-phase-fig2.webp"
+        ]
+      },
+      "title_draft": "Quattro settimane in mass phase: pasta e divano",
+      "meta_draft": "Satira goliardica «4 weeks into the mass phase»: Gino 57 anni, mass phase = rigatoni e telecomando. Finzione cartoon, costanza vera in Allenamenti — zero coaching.",
+      "h1_draft": "Quattro settimane in mass phase: la mia bulk sul divano (a 57 anni)",
+      "published_date": "2026-09-04"
     },
     {
       "id": "prop-creatina-dossier-2026-08",
@@ -295,7 +308,7 @@
       "hero_brief": "Aula universitaria cartoon — lavagna con tabella evidenze creatina, Gino stropicciato professore, stile JoJo goliardico",
       "hero_concept": "comic surreal, palette scura, parodia meme integratori",
       "outline": [
-        "Risposta breve AEO (sintesi prudente creatina)",
+        "Sintesi Articolo AEO (sintesi prudente creatina)",
         "Facoltà immaginaria goliardica",
         "Box scientifico da dossier (tabella verdetto)",
         "FAQ con disclaimer medico",
@@ -358,6 +371,74 @@
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
       "trending_title": "When did “I want to compete” start meaning “I need to take steroids”?"
+    },
+    {
+      "id": "batch-2026-09-04-volume-mass-",
+      "slug": "volume-mass-phase-natural-57-anni",
+      "status": "published",
+      "hero_brief": "Fumetto surreale — palette scura, NO stock palestra",
+      "hero_concept": "comic surreal JoJo-light",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-natural",
+      "kw_primary": "mass phase volume natural",
+      "target_week": "2026-09-04",
+      "discovery_score": 0.82,
+      "intent": "Volume in mass phase per natural maturo — numeri verificati, zero bro-science",
+      "trending_title": "4 weeks into the mass phase",
+      "paths": {
+        "html": "diario/volume-mass-phase-natural-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/volume-mass-phase-natural-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/volume-mass-phase-natural-fig1.webp",
+          "img/diario/2026-09-04/volume-mass-phase-natural-fig2.webp"
+        ]
+      },
+      "title_draft": "Volume in mass phase natural a 57 anni",
+      "meta_draft": "Mass phase e volume per natural maturo: Gino Capon 57 anni, CTL 25 ATL 31 TSB -6 al 25 agosto. Dieci anni dal 2016, sessioni documentate — riflessione tecnica, non coaching.",
+      "h1_draft": "Volume in mass phase natural: cosa regolo a 57 anni senza farmaci",
+      "published_date": "2026-09-04"
+    },
+    {
+      "id": "batch-2026-09-04-blocco1-prim",
+      "slug": "blocco1-prime-settimane-settembre-57-anni",
+      "status": "published",
+      "hero_brief": "Fumetto surreale — palette scura, NO stock palestra",
+      "hero_concept": "comic surreal JoJo-light",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-natural",
+      "kw_primary": "blocco 1 ipertrofia settembre",
+      "target_week": "2026-09-04",
+      "discovery_score": 0.8,
+      "intent": "Prime settimane Blocco 1 ipertrofia accumulo — lettura carico e adattamento maturo",
+      "paths": {
+        "html": "diario/blocco1-prime-settimane-settembre-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/blocco1-prime-settimane-settembre-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/blocco1-prime-settimane-settembre-fig1.webp",
+          "img/diario/2026-09-04/blocco1-prime-settimane-settembre-fig2.webp"
+        ]
+      },
+      "title_draft": "Blocco 1: prime settimane di settembre a 57",
+      "meta_draft": "Prime settimane Blocco 1 ipertrofia settembre 2026: Gino 57 anni, split A1-B1-A2-B2, CTL 25 ATL 31 TSB -6. Adattamento maturo, sessioni documentate — diario tecnico.",
+      "h1_draft": "Blocco 1, prime settimane di settembre: adattamento a 57 anni",
+      "published_date": "2026-09-04"
+    },
+    {
+      "id": "disc-1788517249894-xzjd",
+      "slug": "competing-timeline-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "competing timeline",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: Competing timeline",
+      "discovery_score": 0.55,
+      "target_week": "2026-09-04",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Competing timeline"
     }
   ]
 }

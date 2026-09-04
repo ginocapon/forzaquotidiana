@@ -54,38 +54,51 @@ function prioritize(queue, max = 3) {
   const needSerio = mix.serio ?? 2;
   const needGoliardia = mix.goliardico ?? 1;
 
-  const today = todayISO();
-  const weekEnd = new Date();
-  weekEnd.setDate(weekEnd.getDate() + 7);
-  const weekEndStr = weekEnd.toISOString().slice(0, 10);
+  const memoryPath = path.join(REPO_ROOT, "data/editorial-memory.json");
+  const memory = fs.existsSync(memoryPath) ? readJson("data/editorial-memory.json") : null;
+  const clusterCap = memory?.cluster_cap ?? 2;
+  const saturation = memory?.cluster_saturation || {};
 
-  const scheduled = (queue.items || [])
-    .filter((i) => i.status === "scheduled" && i.target_week <= weekEndStr)
-    .sort((a, b) => (a.target_week || "").localeCompare(b.target_week || ""));
-
-  let picked = [...scheduled];
-  const proposed = (queue.items || [])
-    .filter((i) => i.status === "proposed")
-    .sort((a, b) => (b.discovery_score || 0) - (a.discovery_score || 0));
+  const candidates = (queue.items || [])
+    .filter((i) => i.status === "scheduled" || i.status === "proposed")
+    .sort((a, b) => {
+      const ds = (b.discovery_score || 0) - (a.discovery_score || 0);
+      if (ds) return ds;
+      if (a.status === "scheduled" && b.status !== "scheduled") return -1;
+      if (b.status === "scheduled" && a.status !== "scheduled") return 1;
+      return 0;
+    });
 
   const isGoliardia = (i) => i.fiction || i.tone === "goliardico";
   const isSerio = (i) => !isGoliardia(i);
+  const isSaturated = (i) => (saturation[i.cluster] || 0) >= clusterCap;
+  const hasAltSerio = () =>
+    candidates.some((c) => isSerio(c) && !isSaturated(c) && !picked.some((x) => x.slug === c.slug));
+  const hasAltGoliardia = () =>
+    candidates.some((c) => isGoliardia(c) && !isSaturated(c) && !picked.some((x) => x.slug === c.slug));
 
-  let serioN = picked.filter(isSerio).length;
-  let goliardiaN = picked.filter(isGoliardia).length;
+  const picked = [];
+  let serioN = 0;
+  let goliardiaN = 0;
 
-  for (const p of proposed) {
-    if (picked.length >= max) break;
+  for (const p of candidates) {
+    if (serioN >= needSerio) break;
+    if (!isSerio(p)) continue;
     if (picked.some((x) => x.slug === p.slug)) continue;
     const sameMuscle = picked.some((x) => x.muscle_group && x.muscle_group === p.muscle_group);
     if (sameMuscle) continue;
-
-    if (isSerio(p) && serioN >= needSerio) continue;
-    if (isGoliardia(p) && goliardiaN >= needGoliardia) continue;
-
+    if (isSaturated(p) && hasAltSerio()) continue;
     picked.push(p);
-    if (isSerio(p)) serioN += 1;
-    if (isGoliardia(p)) goliardiaN += 1;
+    serioN += 1;
+  }
+
+  for (const p of candidates) {
+    if (goliardiaN >= needGoliardia) break;
+    if (!isGoliardia(p)) continue;
+    if (picked.some((x) => x.slug === p.slug)) continue;
+    if (isSaturated(p) && hasAltGoliardia()) continue;
+    picked.push(p);
+    goliardiaN += 1;
   }
 
   return picked.slice(0, max);
@@ -127,12 +140,15 @@ ${thumbBlock}
       `$1${listItem}`
     );
   } else {
-    const insertBefore = `<h2 class="diario-month-group__title" id="agosto-2026">`;
+    const monthAnchor = html.match(/<h2 class="diario-month-group__title"/);
+    const insertAt = monthAnchor ? monthAnchor.index : html.indexOf('<ul class="diario-list');
     const newGroup = `        <h2 class="diario-month-group__title" id="${groupId}">${groupTitle}</h2>
         <ul class="diario-list diario-month-group">${listItem}
         </ul>
         `;
-    html = html.replace(insertBefore, newGroup + insertBefore);
+    if (insertAt >= 0) {
+      html = html.slice(0, insertAt) + newGroup + html.slice(insertAt);
+    }
   }
   fs.writeFileSync(indexPath, html);
 }

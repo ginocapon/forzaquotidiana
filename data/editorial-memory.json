@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated": "2026-09-02",
+  "generated": "2026-09-04",
   "window_size": 8,
   "cluster_cap": 2,
   "mix_rule": {
@@ -9,22 +9,56 @@
     "per_week": 3
   },
   "site_snapshot": {
-    "diario_catalog_count": 23,
+    "diario_catalog_count": 26,
     "sessions_documented": 21,
-    "site_stats_updated": "2026-08-26"
+    "site_stats_updated": "2026-09-04"
   },
   "tone_balance_last_window": {
-    "tecnico": 1,
-    "goliardico": 5,
-    "riflessione": 2
+    "tecnico": 3,
+    "goliardico": 4,
+    "riflessione": 1
   },
   "cluster_saturation": {
-    "tecnico-natural": 1,
-    "riflessione-vita": 2,
+    "goliardia-allenamento": 1,
+    "tecnico-natural": 3,
+    "riflessione-vita": 1,
     "goliardia-nutrizione": 1,
-    "goliardia-culturismo": 4
+    "goliardia-culturismo": 2
   },
   "recent": [
+    {
+      "slug": "weeks-into-mass-phase-57-anni",
+      "published_date": "2026-09-04",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-allenamento",
+      "kw_primary": "weeks into mass phase",
+      "intent": "Satira goliardica sul trend mass phase — pasta, divano, autoironia",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "blocco1-prime-settimane-settembre-57-anni",
+      "published_date": "2026-09-04",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-natural",
+      "kw_primary": "blocco 1 ipertrofia settembre",
+      "intent": "Prime settimane Blocco 1 ipertrofia accumulo — lettura carico e adattamento maturo",
+      "fiction": false,
+      "source": "queue+index"
+    },
+    {
+      "slug": "volume-mass-phase-natural-57-anni",
+      "published_date": "2026-09-04",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-natural",
+      "kw_primary": "mass phase volume natural",
+      "intent": "Volume in mass phase per natural maturo — numeri verificati, zero bro-science",
+      "fiction": false,
+      "source": "queue+index"
+    },
     {
       "slug": "gareggiare-natural-senza-farmaci-57-anni",
       "published_date": "2026-08-26",
@@ -79,45 +113,10 @@
       "intent": "Angolo goliardico su trend: How many years apart do you think?🫡",
       "fiction": true,
       "source": "queue+index"
-    },
-    {
-      "slug": "daily-discussion-thread-july-57-anni",
-      "published_date": "2026-08-16",
-      "tone": "goliardico",
-      "tone_label": "Goliardia",
-      "cluster": "goliardia-culturismo",
-      "kw_primary": "daily discussion thread july",
-      "intent": "Angolo goliardico su trend: Daily Discussion Thread - July 04, 2026 (up for two days)",
-      "fiction": true,
-      "source": "queue+index"
-    },
-    {
-      "slug": "bodybuilding-everybody-wants-bodybuilder-57-anni",
-      "published_date": "2026-08-16",
-      "tone": "goliardico",
-      "tone_label": "Goliardia",
-      "cluster": "goliardia-culturismo",
-      "kw_primary": "bodybuilding everybody wants bodybuilder",
-      "intent": "Angolo goliardico su trend: Bodybuilding - everybody wants to be a bodybuilder",
-      "fiction": true,
-      "source": "queue+index"
-    },
-    {
-      "slug": "overtraining-recupero-50-anni-57-anni",
-      "published_date": "2026-08-16",
-      "tone": "riflessione",
-      "tone_label": "Riflessione",
-      "cluster": "riflessione-vita",
-      "kw_primary": "overtraining recupero 50 anni",
-      "intent": "recupero natural maturo",
-      "fiction": false,
-      "source": "queue+index"
     }
   ],
   "risks": [
-    "Cluster `riflessione-vita` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
-    "Cluster `goliardia-culturismo` già 4/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
-    "Troppa goliardia negli ultimi 8 (5) — priorità 2 tecnici + 1 goliardico al prossimo venerdì",
-    "Trend Reddit/culturismo saturo — preferire tecnico natural o riflessione vita"
+    "Cluster `tecnico-natural` già 3/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
+    "Cluster `goliardia-culturismo` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente"
   ]
 }
