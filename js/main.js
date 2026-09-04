@@ -10,7 +10,7 @@
     toggle = document.querySelector(".nav-toggle");
     nav = document.querySelector(".site-nav");
   }
-  if (toggle) initMobileOverlay(toggle, mobileMq);
+  if (toggle) initOverlayMenu(toggle, mobileMq);
 
   var ul = nav && nav.querySelector("ul");
   if (ul) {
@@ -73,7 +73,7 @@
     body.insertBefore(header, body.firstChild);
   }
 
-  function initMobileOverlay(openBtn, mq) {
+  function initOverlayMenu(openBtn, mq) {
     if (!openBtn || document.getElementById("fq-overlay")) return;
 
     var path = location.pathname;
@@ -149,7 +149,6 @@
     }
 
     function openMenu() {
-      if (!mq.matches) return;
       menuOpen = true;
       peekAcc = 0;
       lastFocus = document.activeElement;
@@ -183,7 +182,6 @@
     }
 
     openBtn.addEventListener("click", function (e) {
-      if (!mq.matches) return;
       e.preventDefault();
       if (menuOpen) closeMenu();
       else openMenu();
@@ -214,7 +212,7 @@
     });
 
     function onWheel(e) {
-      if (!menuOpen || !mq.matches) return;
+      if (!menuOpen) return;
       e.preventDefault();
       scrollPage(e.deltaY);
       onPeekDelta(e.deltaY);
@@ -226,7 +224,7 @@
       if (e.touches[0]) lastTouchY = e.touches[0].clientY;
     }, { passive: true });
     overlay.addEventListener("touchmove", function (e) {
-      if (!menuOpen || !mq.matches || lastTouchY == null || !e.touches[0]) return;
+      if (!menuOpen || lastTouchY == null || !e.touches[0]) return;
       var y = e.touches[0].clientY;
       var dy = lastTouchY - y;
       lastTouchY = y;
@@ -236,7 +234,7 @@
     }, { passive: false });
 
     mq.addEventListener("change", function () {
-      if (!mq.matches) closeMenu();
+      if (menuOpen) closeMenu();
     });
   }
 })();

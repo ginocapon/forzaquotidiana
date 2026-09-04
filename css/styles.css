@@ -5096,15 +5096,196 @@ body.site-shell :is(main, .site-footer) {
   transition: transform 0.7s var(--fq-overlay-ease), filter 0.7s ease;
 }
 
-.fq-overlay-dim,
-.fq-overlay { display: none; }
+/* Overlay menu — mobile + desktop */
+body.site-shell .fq-overlay-dim {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.85s var(--fq-overlay-ease), visibility 0.85s, background 0.7s, backdrop-filter 0.7s;
+}
+body.site-shell .fq-overlay-dim.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+body.site-shell.is-peeking .fq-overlay-dim {
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+body.site-shell .fq-overlay {
+  display: flex;
+  position: fixed;
+  z-index: 120;
+  flex-direction: column;
+  background: rgba(14, 14, 14, 0.78);
+  backdrop-filter: blur(8px) saturate(1.1);
+  border: 1px solid var(--fq-overlay-line);
+  transform: translateY(-8%) scale(0.96);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform 0.9s var(--fq-overlay-ease), opacity 0.7s ease, visibility 0.7s, background 0.6s;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body.site-shell .fq-overlay.is-open {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+body.site-shell.is-peeking .fq-overlay {
+  background: rgba(16, 16, 16, 0.5);
+  transform: scale(0.985);
+}
+
+.fq-overlay-bar {
+  background-image: url("/img/ui/noise.png"), linear-gradient(180deg, #9a5824 0%, var(--fq-bronze) 100%);
+  background-size: 180px, auto;
+  background-blend-mode: overlay, normal;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  min-height: 48px;
+  flex: none;
+}
+.fq-overlay-bar__brand,
+.fq-overlay-close {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  padding: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  font-family: var(--font);
+}
+.fq-overlay-bar__brand:hover,
+.fq-overlay-close:hover { color: var(--fq-gold); }
+.fq-overlay-mark {
+  width: 11px;
+  height: 12px;
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  flex-shrink: 0;
+}
+.fq-overlay-close span { font-size: 1.15rem; margin-left: 0.15rem; line-height: 1; }
+
+.fq-overlay-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+.fq-overlay-nav a {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.85rem 0.9rem;
+  min-height: 118px;
+  border-right: 1px solid var(--fq-overlay-line);
+  border-bottom: 1px solid var(--fq-overlay-line);
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.fq-overlay-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--fq-cell-photo);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.35s ease, filter 0.25s;
+}
+.fq-overlay-nav a:nth-child(3n) { border-right: 0; }
+.fq-overlay-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.28) 100%);
+  pointer-events: none;
+  transition: background 0.25s;
+}
+.fq-overlay-num {
+  position: relative;
+  z-index: 2;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--fq-silver);
+}
+.fq-overlay-label {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  font-weight: 650;
+  font-size: clamp(0.72rem, 3.2vw, 0.88rem);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+.fq-overlay-nav a[aria-current="page"] .fq-overlay-num { color: var(--fq-gold); }
+.fq-overlay-nav a:is(:active, :focus-visible, :hover) { color: #fff; }
+.fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq-overlay-shade {
+  background: rgba(201, 120, 58, 0.55);
+}
+.fq-overlay-nav a:is(:active, :focus-visible, :hover)::before {
+  transform: scale(1.06);
+  filter: contrast(1.08) saturate(1.15);
+}
+.fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq-overlay-num { color: #fff; }
+
+.fq-overlay-foot {
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1px solid var(--fq-overlay-line);
+  flex: none;
+}
+.fq-overlay-foot p {
+  margin: 0;
+  font-size: clamp(0.9rem, 4vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.fq-overlay-meta {
+  margin: 0.35rem 0 0 !important;
+  font-size: 0.62rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fq-silver) !important;
+}
 
 @media (min-width: 901px) {
   body.site-shell .site-header {
     position: sticky;
     top: 0;
-    left: auto;
-    right: auto;
+    z-index: 90;
     background: rgba(12, 12, 12, 0.92);
     border-bottom: 1px solid var(--line);
   }
@@ -5115,10 +5296,71 @@ body.site-shell :is(main, .site-footer) {
     backdrop-filter: none;
     padding: 0.85rem 0;
     min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
   }
   body.site-shell .site-header .logo::before { content: none; }
   body.site-shell .site-header .logo small { display: block; }
-  body.site-shell .nav-toggle { display: none !important; }
+
+  body.site-shell .site-nav,
+  body.site-shell .site-nav.is-open { display: none !important; }
+
+  body.site-shell .nav-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.65rem;
+    margin-left: auto;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: var(--text);
+    padding: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  body.site-shell .nav-toggle:hover { color: var(--fq-gold); }
+  body.site-shell .fq-menu-dots {
+    display: grid;
+    grid-template-columns: repeat(3, 4px);
+    gap: 3px;
+  }
+  body.site-shell .fq-menu-dots i {
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    display: block;
+  }
+
+  body.site-shell .fq-overlay {
+    left: 50%;
+    right: auto;
+    top: 24px;
+    bottom: 24px;
+    width: min(1120px, calc(100vw - 48px));
+    max-height: calc(100vh - 48px);
+    transform: translateX(-50%) translateY(-6%) scale(0.96);
+  }
+  body.site-shell .fq-overlay.is-open {
+    transform: translateX(-50%);
+  }
+  body.site-shell.is-peeking .fq-overlay {
+    transform: translateX(-50%) scale(0.985);
+  }
+  body.site-shell .fq-overlay-nav a {
+    min-height: clamp(160px, 22vh, 220px);
+  }
+  body.site-shell .fq-overlay-label {
+    font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  }
+  body.site-shell .fq-overlay-foot p {
+    font-size: 1.05rem;
+  }
 }
 
 @media (max-width: 900px) {
@@ -5200,200 +5442,28 @@ body.site-shell :is(main, .site-footer) {
   body.site-shell .site-nav,
   body.site-shell .site-nav.is-open { display: none !important; }
 
-  .fq-overlay-dim {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 110;
-    background: rgba(0, 0, 0, 0.16);
-    backdrop-filter: blur(3px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.85s var(--fq-overlay-ease), visibility 0.85s, background 0.7s, backdrop-filter 0.7s;
-  }
-  .fq-overlay-dim.is-open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-  body.site-shell.is-peeking .fq-overlay-dim {
-    background: rgba(0, 0, 0, 0.12);
-    backdrop-filter: blur(8px);
-  }
-
-  .fq-overlay {
-    display: flex;
-    position: fixed;
-    z-index: 120;
+  body.site-shell .fq-overlay {
     left: 10px;
     right: 10px;
     top: 10px;
     bottom: 10px;
+    width: auto;
     max-width: none;
-    margin-inline: auto;
-    height: auto;
-    max-height: none;
-    flex-direction: column;
-    background: rgba(14, 14, 14, 0.78);
-    backdrop-filter: blur(8px) saturate(1.1);
-    border: 1px solid var(--fq-overlay-line);
     transform: translateY(-8%) scale(0.96);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: transform 0.9s var(--fq-overlay-ease), opacity 0.7s ease, visibility 0.7s, background 0.6s;
-    overflow: hidden;
-    overscroll-behavior: none;
   }
-  .fq-overlay.is-open {
+  body.site-shell .fq-overlay.is-open {
     transform: none;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
   }
   body.site-shell.is-peeking .fq-overlay {
-    background: rgba(16, 16, 16, 0.5);
     transform: scale(0.985);
   }
 
-  .fq-overlay-bar {
-    background-image: url("/img/ui/noise.png"), linear-gradient(180deg, #9a5824 0%, var(--fq-bronze) 100%);
-    background-size: 180px, auto;
-    background-blend-mode: overlay, normal;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.65rem 1rem;
-    min-height: 48px;
-    flex: none;
-  }
-  .fq-overlay-bar__brand,
-  .fq-overlay-close {
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    background: none;
-    border: 0;
-    padding: 0;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    cursor: pointer;
-    font-family: var(--font);
-  }
-  .fq-overlay-mark {
-    width: 11px;
-    height: 12px;
-    border-left: 2px solid currentColor;
-    border-right: 2px solid currentColor;
-    flex-shrink: 0;
-  }
-  .fq-overlay-close span { font-size: 1.15rem; margin-left: 0.15rem; line-height: 1; }
-
-  .fq-overlay-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-  }
-  .fq-overlay-nav a {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0.85rem 0.9rem;
-    min-height: 118px;
-    border-right: 1px solid var(--fq-overlay-line);
-    border-bottom: 1px solid var(--fq-overlay-line);
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .fq-overlay-nav a::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background-image: var(--fq-cell-photo);
-    background-size: cover;
-    background-position: center;
-    transform: scale(1);
-    transition: transform 0.35s ease, filter 0.25s;
-  }
-  .fq-overlay-nav a:nth-child(3n) { border-right: 0; }
-  .fq-overlay-shade {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.28) 100%);
-    pointer-events: none;
-    transition: background 0.25s;
-  }
-  .fq-overlay-num {
-    position: relative;
-    z-index: 2;
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--fq-silver);
-  }
-  .fq-overlay-label {
-    position: relative;
-    z-index: 2;
-    margin-top: auto;
-    font-weight: 650;
-    font-size: clamp(0.72rem, 3.2vw, 0.88rem);
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    line-height: 1.2;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
-  }
-  .fq-overlay-nav a[aria-current="page"] .fq-overlay-num { color: var(--fq-gold); }
-  .fq-overlay-nav a:active,
-  .fq-overlay-nav a:focus-visible {
-    color: #fff;
-  }
-  .fq-overlay-nav a:active .fq-overlay-shade,
-  .fq-overlay-nav a:focus-visible .fq-overlay-shade {
-    background: rgba(201, 120, 58, 0.55);
-  }
-  .fq-overlay-nav a:active::before,
-  .fq-overlay-nav a:focus-visible::before {
-    transform: scale(1.06);
-    filter: contrast(1.08) saturate(1.15);
-  }
-  .fq-overlay-nav a:active .fq-overlay-num,
-  .fq-overlay-nav a:focus-visible .fq-overlay-num { color: #fff; }
-
-  .fq-overlay-foot {
-    padding: 0.85rem 1rem 1rem;
-    border-top: 1px solid var(--fq-overlay-line);
-    flex: none;
-  }
-  .fq-overlay-foot p {
-    margin: 0;
-    font-size: clamp(0.9rem, 4vw, 1.15rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text);
-  }
-  .fq-overlay-meta {
-    margin: 0.35rem 0 0 !important;
-    font-size: 0.62rem !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--fq-silver) !important;
+  @media (max-width: 520px) {
+    .fq-overlay-nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .fq-overlay-nav a:nth-child(3n) { border-right: 1px solid var(--fq-overlay-line); }
+    .fq-overlay-nav a:nth-child(2n) { border-right: 0; }
   }
 }
 
@@ -5402,8 +5472,7 @@ body.theme-diario .fq-overlay-bar {
   background-size: 180px, auto;
   background-blend-mode: overlay, normal;
 }
-body.theme-diario .fq-overlay-nav a:active .fq-overlay-shade,
-body.theme-diario .fq-overlay-nav a:focus-visible .fq-overlay-shade {
+body.theme-diario .fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq-overlay-shade {
   background: rgba(212, 168, 85, 0.72);
 }
 body.theme-chi-sono .fq-overlay-bar {
@@ -5411,8 +5480,7 @@ body.theme-chi-sono .fq-overlay-bar {
   background-size: 180px, auto;
   background-blend-mode: overlay, normal;
 }
-body.theme-chi-sono .fq-overlay-nav a:active .fq-overlay-shade,
-body.theme-chi-sono .fq-overlay-nav a:focus-visible .fq-overlay-shade {
+body.theme-chi-sono .fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq-overlay-shade {
   background: rgba(176, 188, 200, 0.65);
 }
 body.theme-allenamenti .fq-overlay-bar {
@@ -5420,8 +5488,7 @@ body.theme-allenamenti .fq-overlay-bar {
   background-size: 180px, auto;
   background-blend-mode: overlay, normal;
 }
-body.theme-allenamenti .fq-overlay-nav a:active .fq-overlay-shade,
-body.theme-allenamenti .fq-overlay-nav a:focus-visible .fq-overlay-shade {
+body.theme-allenamenti .fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq-overlay-shade {
   background: rgba(224, 112, 96, 0.68);
 }
 

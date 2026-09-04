@@ -32,7 +32,7 @@ const html = `<!DOCTYPE html>
 <meta name="twitter:description" content="50 min, 22 serie, carico 100, FC 122/147, aerobico 3,3 Buono.">
 <meta name="twitter:image" content="https://forzaquotidiana.it/img/allenamenti/amazfit/2026-09-04-a2-riepilogo.webp">
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
-<link rel="stylesheet" href="/css/styles.css?v=69">
+<link rel="stylesheet" href="/css/styles.css?v=70">
 </head>
 <body class="theme-allenamenti session-page--guile" data-trimestre-url="/admin/">
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -298,7 +298,7 @@ const html = `<!DOCTYPE html>
 <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 <script src="/js/vendor/lenis.min.js" defer></script>
 <script src="/js/smooth-scroll.js?v=2" defer></script>
-<script src="/js/main.js?v=29" defer></script>
+<script src="/js/main.js?v=30" defer></script>
 <script src="/js/session-guile.js?v=1" defer></script>
 <script src="/js/cookie-consent.js?v=4" defer></script>
 <script src="/js/training-load-chart.js?v=3" defer></script>
