@@ -58,6 +58,18 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
     </figure>`;
   }).join("\n");
 
+  const fotoNote = "Immagine fotorealistica generata con intelligenza artificiale";
+  const realisticBlock = paths.realistic
+    ? `
+    <figure class="article-figure">
+      <span class="ai-photo-wrap">
+        <img src="/${paths.realistic}" alt="${esc(article.realistic_alt || article.hero_alt)}" width="1200" height="800" loading="lazy" data-ai="generated" class="diario-photo--fotoreal">
+        <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
+      </span>
+      <figcaption>${esc(article.realistic_caption || "Palestra · Fotoreal")} · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> ${fotoNote} · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
+    </figure>`
+    : "";
+
   const faqHtml = (article.faq || [])
     .map(
       (f) => `      <details>
@@ -75,6 +87,7 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
 
   const imagesLd = [
     `https://forzaquotidiana.it/${paths.hero}`,
+    ...(paths.realistic ? [`https://forzaquotidiana.it/${paths.realistic}`] : []),
     ...(paths.figures || []).map((f) => `https://forzaquotidiana.it/${f}`),
   ];
 
@@ -175,6 +188,7 @@ export function renderDiarioHtml(article, item, paths, publishDate) {
     </figure>
 
     ${bodySections}
+    ${realisticBlock}
     ${figures}
 
     <div class="faq">

@@ -18,7 +18,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 |------|------|
 | Nuova sessione allenamento | `SKILL-PERFORMANCE.md`, `.cursor/rules/sessione-guile-monitoraggio.mdc`, `docs/PROMPT-MONITORAGGIO-SPORTIVO.md` |
 | **Foto Zepp caricate su GitHub** | `.cursor/rules/foto-sessione-upload.mdc` — WebP, identificazione visiva, TSB + riepilogo + grafico FC **solo a tutta larghezza**, card dati raggruppate |
-| Articolo diario | `SKILL.md` §0c + §5b |
+| Articolo diario | `SKILL.md` §0c + §5b + `.cursor/rules/diario-foto-fotoreal.mdc` |
 | Newsletter / iscritti | `SKILL.md` §5a, `SKILL-VENERDI.md` |
 | Check salute / premortem | `node guardian/scripts/guardian.mjs run` → `guardian/reports/guardian-latest.md` |
 | **Editoriale venerdì (3 articoli diario)** | Comando: *«Venerdì editoriale: genera e pubblica i 3 articoli»* → `SKILL-EDITORIAL.md` + `SKILL-MEMORIA-PROGRESSI.md` + `data/editorial-memory.json` + `.cursor/commands/venerdi-editoriale.md` |

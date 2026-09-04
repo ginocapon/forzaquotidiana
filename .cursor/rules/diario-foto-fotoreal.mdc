@@ -1,0 +1,55 @@
+---
+description: Diario/blog — mix immagini IA con almeno 1 fotorealistica (persona/esercizio reale)
+alwaysApply: false
+globs:
+  - diario/**
+  - img/diario/**
+  - tools/generate-diario-assets.mjs
+  - tools/render-diario-html.mjs
+  - SKILL-EDITORIAL.md
+  - data/editorial-image-skin.json
+---
+
+# Diario — mix fotorealistico IA (permanente)
+
+Stessa logica delle sessioni Guile (`SKILL-PERFORMANCE.md`, `.cursor/rules/sessione-guile-monitoraggio.mdc`), estesa a **ogni articolo diario/blog**.
+
+## Obbligo (BLOCCANTE)
+
+In ogni post pubblicato (`diario/*/index.html`), nel corpo articolo:
+
+1. **Almeno 1 immagine** con persona credibile o esercizio palestra reale — **non solo cartoon/diagramma**.
+2. Preferenza: **IA fotorealistica** (`data-ai="generated"`, classe `.diario-photo--fotoreal`, file `*-realistic.webp`).
+3. **Viso riconoscibile di Gino** quando il soggetto è lui — reference `admin/img/gino-schede-hero.webp` o foto documentali repo.
+4. Le altre figure possono restare cartoon (`style_goliardico`) o tecniche (`style_serio`).
+
+## Eccezioni (soddisfano il requisito senza `-realistic.webp`)
+
+- **Foto documentale reale** di Gino (JPEG/WebP senza `data-ai`) — es. selfie palestra, spogliatoio, mare.
+- Non sostituire foto reali con cartoon: il mix resta «almeno una persona reale».
+
+## Markup fotoreal
+
+```html
+<figure class="article-figure">
+  <span class="ai-photo-wrap">
+    <img src="/img/diario/YYYY-MM-DD/{slug-base}-realistic.webp" alt="Gino Capon in palestra — … fotorealistica" width="1200" height="800" loading="lazy" data-ai="generated" class="diario-photo--fotoreal">
+    <span class="ai-photo-mark" aria-hidden="true">Foto AI</span>
+  </span>
+  <figcaption>… · <span class="fig-credit"><span class="ai-badge" aria-hidden="true">IA</span> Immagine fotorealistica generata con IA · <a href="/trasparenza-ai/">Trasparenza</a></span></figcaption>
+</figure>
+```
+
+## Pipeline
+
+- Skin: `data/editorial-image-skin.json` → `style_fotoreal`
+- Generazione: `tools/generate-diario-assets.mjs` produce `{base}-realistic.webp` oltre hero + 2 figure stilizzate
+- Verifica: `node scripts/audit-diario-photoreal.mjs` prima di publish/commit
+- Batch retroattivo: `node tools/add-diario-photoreal.mjs --slug SLUG`
+
+## Prompt fotoreal (linee guida)
+
+- Palestra Technogym credibile, luce naturale, 57 anni, fisico natural/dilettante
+- Esercizio **coerente** con titolo articolo (panca, pressa, kettlebell halo, lettura serale in camera…)
+- **NO** cartoon, manga, JoJo, diagrammi SVG, volti stock generici
+- Nome file: `{slug-base}-realistic.webp` in `img/diario/YYYY-MM-DD/`

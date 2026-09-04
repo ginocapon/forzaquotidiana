@@ -34,6 +34,7 @@ Ogni venerdì, da **RSS r/bodybuilding** (+ r/Fitness fallback):
 1. **Numeri** (kg, PR, %): solo da `data/my-stats.json` o fonte verificabile — mai inventare.
 2. **Finzione/goliardia:** solo l’articolo #3 — banner `.banner-goliardia` + disclaimer; non fingere cronaca reale.
 3. **Immagini:** 1 hero 19:9 WebP + ≥2 figure **nuove** per articolo; stile da `tone` (`tecnico` → `style_serio`, `goliardico` → `style_goliardico`); **marchio «Foto AI»** + `data-ai` + link `/trasparenza-ai/`.
+   - **Mix fotoreal (BLOCCANTE — come sessioni Guile):** nel corpo articolo, **almeno 1** immagine IA **fotorealistica** — esercizio palestra credibile o persona apparentemente vera (viso Gino riconoscibile se lui è il soggetto). File `{slug-base}-realistic.webp`, `data-ai="generated"`, classe `.diario-photo--fotoreal`. Le altre figure restano cartoon/tecniche. **Eccezione:** foto documentale reale di Gino (senza `data-ai`) soddisfa il requisito «persona reale». Regola: `.cursor/rules/diario-foto-fotoreal.mdc`.
 4. **Anti-doppioni:** `node scripts/check-doppioni.mjs` prima di pubblicare.
 5. **CTA:** solo newsletter (`from=articolo-{slug}`).
 6. **Autonomia:** GREEN = discovery/bozze · YELLOW = publish se GEO≥8 · RED = DNS/email/DB.
@@ -62,6 +63,7 @@ node tools/editorial-weekly.mjs run --autopilot   # opzionale: richiede OPENAI_A
 node tools/generate-diario-assets.mjs --slug SLUG # singolo articolo
 node scripts/geo-aeo-formula.mjs --slug SLUG
 node scripts/verify-article-hero.mjs --slug SLUG
+node scripts/audit-diario-photoreal.mjs --slug SLUG
 node scripts/validate-page.js --file diario/SLUG/index.html
 node guardian/scripts/guardian.mjs run --job weekly_editorial
 ```
@@ -111,20 +113,25 @@ Ogni nuovo articolo in `diario/index.html` deve usare la **card con thumb a sini
 - **NO** marchio «Foto AI» sul thumb (eccezione `.diario-list__thumb` in `main.js` e regole trasparenza).
 - `node tools/editorial-weekly.mjs run --publish` inserisce la miniatura via `addToDiarioIndex()` — verificare visivamente `/diario/` prima del commit.
 
-## Immagini — due skin (BLOCCANTE)
+## Immagini — tre skin + mix fotoreal (BLOCCANTE)
 
 | Tono | Skin JSON | Stile |
 |------|-----------|-------|
 | `tecnico` | `style_serio` | Performance, periodizzazione, diagrammi bodybuilding — **NO fumetto** |
 | `goliardico` | `style_goliardico` | Fumetto surreale JoJo/manga light |
+| **Mix obbligatorio** | `style_fotoreal` | **≥1 fotoreal** per articolo — esercizio/persona credibile, viso Gino se soggetto |
 
 | Asset | Path | Spec |
 |-------|------|------|
 | Hero | `img/diario/YYYY-MM-DD/{slug-base}-hero.webp` | 1600×760, 19:9, <180KiB |
-| Figura 1–2 | `img/diario/YYYY-MM-DD/{slug-base}-fig*.webp` | 1200px larghezza |
+| Figura 1–2 | `img/diario/YYYY-MM-DD/{slug-base}-fig*.webp` | 1200px larghezza — cartoon o tecnico |
+| **Fotoreal** | `img/diario/YYYY-MM-DD/{slug-base}-realistic.webp` | 1200px — **obbligatoria** salvo foto documentale reale |
 
-**Serio:** `data-ai="illustrative"` · didascalia «Illustrazione tecnica editoriale»
-**Goliardia:** `data-ai="generated"` · didascalia «Scena di finzione / immagine elaborata»
+**Serio (stilizzato):** `data-ai="illustrative"` · didascalia «Illustrazione tecnica editoriale»
+**Goliardia (cartoon):** `data-ai="generated"` · didascalia «Scena di finzione / immagine elaborata»
+**Fotoreal:** `data-ai="generated"` + `.diario-photo--fotoreal` · didascalia «Immagine fotorealistica generata con IA»
+
+Verifica pre-publish: `node scripts/audit-diario-photoreal.mjs`
 
 Template banner goliardia: `templates/partials/banner-goliardia.html` — **solo** articolo #3
 

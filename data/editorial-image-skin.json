@@ -12,6 +12,15 @@
     "data_ai": "illustrative",
     "figcaption_note": "Illustrazione tecnica editoriale generata con IA"
   },
+  "style_fotoreal": {
+    "style_prefix": "Photorealistic editorial fitness photography, mature Italian man age 57 messy dark hair light stubble white or grey t-shirt, recognizable face consistent with reference, real Technogym gym environment, natural gym lighting, documentary training photo, natural amateur physique NOT bodybuilder stage lean, NOT cartoon, NOT manga, NOT illustration, NOT anime, NOT JoJo",
+    "disclosure": "Immagine fotorealistica generata con IA — etichetta obbligatoria",
+    "data_ai": "generated",
+    "figcaption_note": "Immagine fotorealistica generata con intelligenza artificiale",
+    "reference": "admin/img/gino-schede-hero.webp",
+    "filename_suffix": "-realistic.webp",
+    "html_class": "diario-photo--fotoreal"
+  },
   "hero": {
     "aspect": "19:9",
     "width": 1600,

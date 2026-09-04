@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "reference": "admin/img/gino-schede-hero.webp",
+  "items": [
+    {
+      "slug": "10-giorni-riposo-forza-57-anni",
+      "date": "2026-08-07",
+      "prompt": "Mature Italian man age 57 on beach lounge chair stretching legs after rest week, photorealistic vacation fitness recovery, natural sunlight, relaxed but athletic, white t-shirt",
+      "alt": "Gino Capon su lettino in spiaggia — recupero attivo fotorealistico dopo dieci giorni di riposo",
+      "caption": "Recupero · Riposo programmato"
+    },
+    {
+      "slug": "allenare-pensieri-positivi-57-anni",
+      "date": "2026-07-25",
+      "prompt": "Mature man 57 in gym doing light dumbbell curl with calm focused expression, photorealistic Technogym gym, positive mindset training, natural physique amateur",
+      "alt": "Gino Capon in palestra con manubri leggeri — allenare i pensieri positivi, fotorealistico",
+      "caption": "Mente e corpo · Palestra reale"
+    },
+    {
+      "slug": "blocco-1-ipertrofia-accumulo-settembre-2026",
+      "date": "2026-07-30",
+      "prompt": "Mature man 57 reviewing training notebook beside barbell rack in gym, photorealistic periodization planning, Technogym environment",
+      "alt": "Gino Capon in palestra con quaderno periodizzazione Blocco 1 — fotorealistico",
+      "caption": "Blocco 1 · Accumulo"
+    },
+    {
+      "slug": "blocco1-prime-settimane-settembre-57-anni",
+      "date": "2026-09-04",
+      "prompt": "Mature natural bodybuilder age 57 doing incline bench press in gym, photorealistic, first weeks of hypertrophy block, Technogym",
+      "alt": "Gino Capon alla panca inclinata — prime settimane Blocco 1 ipertrofia, fotorealistico",
+      "caption": "Blocco 1 · Prime settimane"
+    },
+    {
+      "slug": "bodybuilding-everybody-wants-bodybuilder-57-anni",
+      "date": "2026-08-16",
+      "prompt": "Mature amateur man 57 doing cable triceps pushdown in real gym mirror reflection, photorealistic, everyday gym not stage bodybuilder",
+      "alt": "Gino Capon al cavo tricipiti in palestra — dilettante autentico, fotorealistico",
+      "caption": "Palestra reale · Dilettante"
+    },
+    {
+      "slug": "check-weeks-natural-viking-57-anni",
+      "date": "2026-08-26",
+      "prompt": "Mature man 57 on couch with meal prep containers and gym bag nearby, photorealistic home scene, natural lighting, amateur athlete not stage lean",
+      "alt": "Gino Capon sul divano con meal prep — check-in natural dilettante, fotorealistico",
+      "caption": "Check-in · Natural dilettante"
+    },
+    {
+      "slug": "clean-halo-kettlebell-spalle-a-57-anni",
+      "date": "2026-07-23",
+      "prompt": "Mature man 57 performing kettlebell halo exercise around head in gym, 8kg kettlebell, photorealistic Technogym, shoulder mobility",
+      "alt": "Gino Capon esegue Clean Halo con kettlebell 8 kg — fotorealistico",
+      "caption": "Clean Halo · Esercizio reale"
+    },
+    {
+      "slug": "creatina-meme-universita-57-anni",
+      "date": "2026-08-26",
+      "prompt": "Mature man 57 in gym drinking water from shaker after workout, photorealistic, creatine supplement context, natural gym lighting",
+      "alt": "Gino Capon in palestra con shaker post allenamento — fotorealistico",
+      "caption": "Post sessione · Shaker"
+    },
+    {
+      "slug": "daily-discussion-thread-july-57-anni",
+      "date": "2026-08-16",
+      "prompt": "Mature man 57 between office desk and gym bag, photorealistic work-life-gym balance, tired but determined expression",
+      "alt": "Gino Capon tra lavoro e palestra — daily life fotorealistico",
+      "caption": "Vita quotidiana · Lavoro e gym"
+    },
+    {
+      "slug": "gareggiare-natural-senza-farmaci-57-anni",
+      "date": "2026-08-26",
+      "prompt": "Mature natural athlete 57 doing barbell row in gym, photorealistic, no enhanced physique, Technogym, focused training",
+      "alt": "Gino Capon al rematore con bilanciere — natural senza farmaci, fotorealistico",
+      "caption": "Natural · Rematore"
+    },
+    {
+      "slug": "ken-poeta-indomito-volonta-57-anni",
+      "date": "2026-08-05",
+      "prompt": "Mature Italian man 57 white shirt sunglasses standing resilient outdoors near ruins, photorealistic portrait, determined expression, wind in hair",
+      "alt": "Gino Capon ritratto fotorealistico — volontà indomita, camicia bianca",
+      "caption": "Volontà · Ritratto reale"
+    },
+    {
+      "slug": "leg-day-ascensore-57-anni",
+      "date": "2026-08-11",
+      "prompt": "Mature man 57 exhausted after leg day sitting on gym leg press machine, photorealistic, sore legs humor, Technogym",
+      "alt": "Gino Capon in pressa dopo leg day — gambe stanche, fotorealistico",
+      "caption": "Leg day · Pressa"
+    },
+    {
+      "slug": "many-years-apart-think-57-anni",
+      "date": "2026-08-26",
+      "prompt": "Mature man 57 taking gym mirror selfie, photorealistic, same man today not young bodybuilder, natural amateur physique",
+      "alt": "Gino Capon selfie specchio palestra oggi — fotorealistico",
+      "caption": "Specchio · Oggi"
+    },
+    {
+      "slug": "mirror-gym-selfie-epica-57-anni",
+      "date": "2026-08-11",
+      "prompt": "Mature man 57 gym mirror selfie tired expression after workout, photorealistic, yellow gym walls, smartwatch, authentic amateur",
+      "alt": "Gino Capon selfie specchio palestra stropicciato — fotorealistico",
+      "caption": "Selfie · Realtà palestra"
+    },
+    {
+      "slug": "overtraining-recupero-50-anni-57-anni",
+      "date": "2026-08-16",
+      "prompt": "Mature man 57 resting on gym bench checking fitness watch HRV recovery, photorealistic, overtraining recovery theme",
+      "alt": "Gino Capon in palestra controlla recupero su smartwatch — fotorealistico",
+      "caption": "Recupero · HRV"
+    },
+    {
+      "slug": "proteine-shake-universita-57-anni",
+      "date": "2026-08-11",
+      "prompt": "Mature man 57 in gym holding protein shaker, photorealistic, amused expression, post workout, Technogym background",
+      "alt": "Gino Capon in palestra con shaker proteico — fotorealistico",
+      "caption": "Shaker · Palestra"
+    },
+    {
+      "slug": "reggere-scatti-vita-sport-57-anni",
+      "date": "2026-07-31",
+      "prompt": "Mature man 57 doing dynamic warm-up stretch in gym before training, photorealistic, life sprints metaphor, athletic readiness",
+      "alt": "Gino Capon riscaldamento dinamico in palestra — fotorealistico",
+      "caption": "Scatto · Riscaldamento"
+    },
+    {
+      "slug": "serate-project-invictus-lettura-57-anni",
+      "date": "2026-08-26",
+      "copy_from": "img/diario/2026-08-26/serate-project-invictus-lettura-fig1.webp",
+      "alt": "Gino Capon lettura serale al tablet — fotorealistico",
+      "caption": "Lettura serale · Fotoreal"
+    },
+    {
+      "slug": "viaggio-ritroso-tempo-allenamento-57-anni",
+      "date": "2026-08-02",
+      "prompt": "Mature man 57 in modern gym doing timeless barbell squat, photorealistic, contrast young energy vs experienced athlete, Technogym",
+      "alt": "Gino Capon squat con bilanciere — tempo e costanza, fotorealistico",
+      "caption": "Costanza · Squat"
+    },
+    {
+      "slug": "volume-mass-phase-natural-57-anni",
+      "date": "2026-09-04",
+      "prompt": "Mature natural lifter 57 doing seated dumbbell shoulder press, photorealistic mass phase training, moderate surplus athlete look",
+      "alt": "Gino Capon lento manubri in mass phase natural — fotorealistico",
+      "caption": "Mass phase · Lento"
+    },
+    {
+      "slug": "weeks-into-mass-phase-57-anni",
+      "date": "2026-09-04",
+      "prompt": "Mature man 57 eating balanced post-workout meal at kitchen table with gym clothes, photorealistic mass phase nutrition, not cartoon",
+      "alt": "Gino Capon pasto post workout a casa — mass phase fotorealistico",
+      "caption": "Mass phase · Pasto reale"
+    }
+  ]
+}

@@ -139,6 +139,7 @@ Il diario deve restare **semplice e fruibile**:
 ```
 
 - **Non** mischiare log palestra nell’indice diario.
+- **Mix fotoreal IA (BLOCCANTE):** in ogni articolo, nel corpo, **almeno 1** immagine con persona credibile o esercizio palestra reale — preferibilmente IA fotorealistica (`*-realistic.webp`, `.diario-photo--fotoreal`, viso Gino riconoscibile). Stessa regola delle sessioni Guile (`SKILL-PERFORMANCE.md`). Cartoon/diagrammi da soli **non** bastano. Eccezione: foto documentale reale di Gino (senza `data-ai`). Dettaglio: `.cursor/rules/diario-foto-fotoreal.mdc` · `SKILL-EDITORIAL.md`.
 
 ---
 
