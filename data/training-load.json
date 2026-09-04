@@ -1055,12 +1055,12 @@
     {
       "date": "2026-09-04",
       "label": "04/09",
-      "load": 0,
-      "ctl": 26.6,
-      "atl": 31.7,
-      "tsb": -5.1,
+      "load": 100,
+      "ctl": 24,
+      "atl": 28,
+      "tsb": -4,
       "status": "Bilanciato",
-      "session": false
+      "session": true
     },
     {
       "date": "2026-09-05",
