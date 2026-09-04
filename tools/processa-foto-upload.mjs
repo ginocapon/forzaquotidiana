@@ -305,10 +305,11 @@ async function processDir(uploadDir) {
     await convertOne(src, entry.dest, entry.slug);
   }
   const leftover = rasterFiles(uploadDir);
+  const hasIndex = existsSync(join(uploadDir, "index.html"));
   const others = existsSync(uploadDir)
-    ? readdirSync(uploadDir).filter((f) => f !== "README.md" && !f.startsWith("."))
+    ? readdirSync(uploadDir).filter((f) => f !== "README.md" && f !== "index.html" && !f.startsWith("."))
     : [];
-  if (!leftover.length && others.length === 0) {
+  if (!leftover.length && others.length === 0 && !hasIndex) {
     try {
       rmSync(uploadDir, { recursive: true });
       console.log("Rimossa cartella upload:", uploadDir);
