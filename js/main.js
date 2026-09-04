@@ -1,19 +1,16 @@
 (function () {
   var body = document.body;
-  var isAdmin = body.classList.contains("admin-page") || body.classList.contains("schede-peso");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
   var mobileMq = window.matchMedia("(max-width: 900px)");
 
-  if (!isAdmin) {
-    body.classList.add("site-shell");
-    initMobileOverlay(toggle, mobileMq);
-  } else if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    });
+  body.classList.add("site-shell");
+  if (!toggle) {
+    injectSiteHeader();
+    toggle = document.querySelector(".nav-toggle");
+    nav = document.querySelector(".site-nav");
   }
+  if (toggle) initMobileOverlay(toggle, mobileMq);
 
   var ul = nav && nav.querySelector("ul");
   if (ul) {
@@ -24,12 +21,12 @@
     var spec = [
       { href: "/", label: "Home", match: function (p) { return p === "/" || p === "/index.html"; } },
       { href: "/chi-sono/", label: "Chi sono", match: function (p) { return p.indexOf("/chi-sono") === 0; } },
-      { href: "/allenamenti/", label: "Allenamenti", match: function (p) { return p.indexOf("/allenamenti") === 0; } },
+      { href: "/allenamenti/", label: "Allenamenti", match: function (p) { return p.indexOf("/allenamenti") === 0 && p.indexOf("/allenamenti/schede-peso") !== 0; } },
       {
         href: "/admin/",
         label: "Schede",
         dataNav: "schede",
-        match: function (p) { return p.indexOf("/admin") === 0; }
+        match: function (p) { return p.indexOf("/admin") === 0 || p.indexOf("/allenamenti/schede-peso") === 0; }
       }
     ];
     var path = location.pathname;
@@ -61,6 +58,21 @@
     wrap.appendChild(mark);
   });
 
+  function injectSiteHeader() {
+    if (document.querySelector(".site-header")) return;
+    var header = document.createElement("header");
+    header.className = "site-header no-print";
+    header.innerHTML =
+      "<div class=\"wrap\">" +
+        "<a class=\"logo\" href=\"/\">La Forza Quotidiana<small>Gino Capon</small></a>" +
+        "<button class=\"nav-toggle\" type=\"button\" aria-expanded=\"false\" aria-controls=\"fq-overlay\">Menu</button>" +
+        "<nav class=\"site-nav\" id=\"nav-principale\" aria-label=\"Principale\" hidden>" +
+          "<ul></ul>" +
+        "</nav>" +
+      "</div>";
+    body.insertBefore(header, body.firstChild);
+  }
+
   function initMobileOverlay(openBtn, mq) {
     if (!openBtn || document.getElementById("fq-overlay")) return;
 
@@ -69,9 +81,9 @@
       { href: "/", label: "Home", num: "[01]", preview: "/img/hero/gino-locker-disciplina.webp", current: path === "/" || path === "/index.html" },
       { href: "/chi-sono/", label: "Chi sono", num: "[02]", preview: "/img/chi-sono/gino-affari.webp", current: path.indexOf("/chi-sono") === 0 },
       { href: "/diario/", label: "Diario", num: "[03]", preview: "/img/allenamenti/hub/diario.webp", current: path.indexOf("/diario") === 0 },
-      { href: "/allenamenti/", label: "Allenamenti", num: "[04]", preview: "/img/allenamenti/hub/allenamenti.webp", current: path.indexOf("/allenamenti") === 0 },
+      { href: "/allenamenti/", label: "Allenamenti", num: "[04]", preview: "/img/allenamenti/hub/allenamenti.webp", current: path.indexOf("/allenamenti") === 0 && path.indexOf("/allenamenti/schede-peso") !== 0 },
       { href: "/personal-trainer/", label: "Personal trainer", num: "[05]", preview: "/img/allenamenti/hub/sessioni.webp", current: path.indexOf("/personal-trainer") === 0 },
-      { href: "/admin/", label: "Schede", num: "[06]", preview: "/img/allenamenti/hub/trimestre.webp", current: path.indexOf("/admin") === 0 }
+      { href: "/admin/", label: "Schede", num: "[06]", preview: "/img/allenamenti/hub/trimestre.webp", current: path.indexOf("/admin") === 0 || path.indexOf("/allenamenti/schede-peso") === 0 }
     ];
 
     var dim = document.createElement("div");

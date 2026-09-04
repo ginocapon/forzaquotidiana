@@ -5425,6 +5425,19 @@ body.theme-allenamenti .fq-overlay-nav a:focus-visible .fq-overlay-shade {
   background: rgba(224, 112, 96, 0.68);
 }
 
+@media (max-width: 900px) {
+  body.site-shell .schede-peso-toolbar.no-print,
+  body.site-shell .metodo-print-toolbar.no-print,
+  body.site-shell .admin-pdf-toolbar.no-print {
+    margin-top: 68px;
+  }
+  body.site-shell.fq-menu-open .schede-peso-toolbar.no-print,
+  body.site-shell.fq-menu-open .metodo-print-toolbar.no-print,
+  body.site-shell.fq-menu-open .admin-pdf-toolbar.no-print {
+    margin-top: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fq-overlay,
   .fq-overlay-dim,
