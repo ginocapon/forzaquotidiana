@@ -1,8 +1,7 @@
 (function () {
-  var isDiario = document.body.classList.contains("theme-diario");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
-  if (!isDiario && toggle && nav) {
+  if (toggle && nav) {
     toggle.addEventListener("click", function () {
       var open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
@@ -40,8 +39,6 @@
     });
   }
 
-  if (isDiario) initDiarioOverlay(toggle);
-
   /* Marchio «Foto AI» su immagini data-ai (AI Act UE).
      Esclusi i thumb dell’indice diario: troppo piccoli, il testo non si legge. */
   document.querySelectorAll('img[data-ai]').forEach(function (img) {
@@ -58,155 +55,4 @@
     wrap.appendChild(img);
     wrap.appendChild(mark);
   });
-
-  function initDiarioOverlay(openBtn) {
-    if (document.getElementById("fq-overlay")) return;
-
-    var path = location.pathname;
-    var links = [
-      { href: "/", label: "Home", num: "[01]", preview: "/img/hero/gino-locker-disciplina.webp", current: path === "/" || path === "/index.html" },
-      { href: "/chi-sono/", label: "Chi sono", num: "[02]", preview: "/img/chi-sono/gino-affari.webp", current: path.indexOf("/chi-sono") === 0 },
-      { href: "/diario/", label: "Diario", num: "[03]", preview: "/img/chi-sono/gino-affari.webp", current: path.indexOf("/diario") === 0 },
-      { href: "/allenamenti/", label: "Allenamenti", num: "[04]", preview: "/img/allenamenti/hub/allenamenti.webp", current: path.indexOf("/allenamenti") === 0 },
-      { href: "/personal-trainer/", label: "Personal trainer", num: "[05]", preview: "/img/allenamenti/hub/sessioni.webp", current: path.indexOf("/personal-trainer") === 0 }
-    ];
-
-    var dim = document.createElement("div");
-    dim.className = "fq-overlay-dim";
-    dim.id = "fq-overlay-dim";
-    dim.setAttribute("aria-hidden", "true");
-
-    var overlay = document.createElement("div");
-    overlay.className = "fq-overlay";
-    overlay.id = "fq-overlay";
-    overlay.setAttribute("role", "dialog");
-    overlay.setAttribute("aria-modal", "true");
-    overlay.setAttribute("aria-label", "Menu");
-    overlay.setAttribute("aria-hidden", "true");
-
-    var cells = links.map(function (item) {
-      var cur = item.current ? " aria-current=\"page\"" : "";
-      return "<a href=\"" + item.href + "\"" + cur + ">" +
-        "<span class=\"fq-overlay-num\">" + item.num + "</span> " + item.label +
-        "<img class=\"fq-overlay-preview\" src=\"" + item.preview + "\" alt=\"\" width=\"78\" height=\"52\">" +
-        "</a>";
-    }).join("");
-
-    overlay.innerHTML =
-      "<div class=\"fq-overlay-bar\">" +
-        "<a class=\"fq-overlay-bar__brand\" href=\"/\">La Forza Quotidiana</a>" +
-        "<button class=\"fq-overlay-close\" type=\"button\" id=\"fq-close-menu\">Chiudi <span aria-hidden=\"true\">×</span></button>" +
-      "</div>" +
-      "<nav class=\"fq-overlay-nav\" aria-label=\"Sezioni\">" + cells + "</nav>" +
-      "<div class=\"fq-overlay-foot\">" +
-        "<p>Per Ginevra</p>" +
-        "<p class=\"fq-overlay-meta\">Treviso — lascito di un papà presente</p>" +
-      "</div>";
-
-    document.body.appendChild(dim);
-    document.body.appendChild(overlay);
-
-    if (openBtn) {
-      openBtn.setAttribute("aria-controls", "fq-overlay");
-      if (!openBtn.querySelector(".fq-menu-dots")) {
-        openBtn.innerHTML = "Menu <span class=\"fq-menu-dots\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></span>";
-      }
-    }
-
-    var closeBtn = document.getElementById("fq-close-menu");
-    var menuOpen = false;
-    var peekAcc = 0;
-    var lastTouchY = null;
-    var lastFocus = null;
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function scrollPage(dy) {
-      if (window.lenis && typeof window.lenis.scrollTo === "function") {
-        var now = typeof window.lenis.scroll === "number" ? window.lenis.scroll : window.scrollY;
-        window.lenis.scrollTo(now + dy, { immediate: true });
-      } else {
-        window.scrollBy(0, dy);
-      }
-    }
-
-    function openMenu() {
-      menuOpen = true;
-      peekAcc = 0;
-      lastFocus = document.activeElement;
-      document.body.classList.add("fq-menu-open");
-      document.body.classList.remove("is-peeking");
-      dim.setAttribute("aria-hidden", "false");
-      overlay.setAttribute("aria-hidden", "false");
-      dim.classList.add("is-open");
-      overlay.classList.add("is-open");
-      if (openBtn) openBtn.setAttribute("aria-expanded", "true");
-      if (closeBtn) closeBtn.focus();
-    }
-
-    function closeMenu() {
-      menuOpen = false;
-      peekAcc = 0;
-      document.body.classList.remove("fq-menu-open");
-      document.body.classList.remove("is-peeking");
-      dim.classList.remove("is-open");
-      overlay.classList.remove("is-open");
-      dim.setAttribute("aria-hidden", "true");
-      overlay.setAttribute("aria-hidden", "true");
-      if (openBtn) openBtn.setAttribute("aria-expanded", "false");
-      if (lastFocus && lastFocus.focus) lastFocus.focus();
-    }
-
-    function onPeekDelta(dy) {
-      if (reduce) return;
-      peekAcc += Math.abs(dy);
-      if (peekAcc > 48) document.body.classList.add("is-peeking");
-    }
-
-    if (openBtn) openBtn.addEventListener("click", openMenu);
-    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-    dim.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", function (e) {
-      if (!menuOpen) return;
-      if (e.key === "Escape") {
-        e.preventDefault();
-        closeMenu();
-        return;
-      }
-      if (e.key !== "Tab") return;
-      var focusable = overlay.querySelectorAll("a[href], button");
-      if (!focusable.length) return;
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    });
-
-    function onWheel(e) {
-      if (!menuOpen) return;
-      e.preventDefault();
-      scrollPage(e.deltaY);
-      onPeekDelta(e.deltaY);
-    }
-    overlay.addEventListener("wheel", onWheel, { passive: false });
-    dim.addEventListener("wheel", onWheel, { passive: false });
-
-    overlay.addEventListener("touchstart", function (e) {
-      if (e.touches[0]) lastTouchY = e.touches[0].clientY;
-    }, { passive: true });
-    overlay.addEventListener("touchmove", function (e) {
-      if (!menuOpen || lastTouchY == null || !e.touches[0]) return;
-      var y = e.touches[0].clientY;
-      var dy = lastTouchY - y;
-      lastTouchY = y;
-      e.preventDefault();
-      scrollPage(dy);
-      onPeekDelta(dy);
-    }, { passive: false });
-  }
 })();
