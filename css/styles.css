@@ -5080,7 +5080,7 @@ body.site-shell::after {
   background-image: url("/img/ui/noise.png");
   background-repeat: repeat;
   background-size: 256px;
-  opacity: 0.22;
+  opacity: 0.28;
   mix-blend-mode: overlay;
 }
 body.site-shell.fq-menu-open .site-header {
@@ -5099,7 +5099,7 @@ body.site-shell :is(main, .site-footer) {
 .fq-overlay-dim,
 .fq-overlay { display: none; }
 
-@media (min-width: 721px) {
+@media (min-width: 901px) {
   body.site-shell .site-header {
     position: sticky;
     top: 0;
@@ -5121,7 +5121,7 @@ body.site-shell :is(main, .site-footer) {
   body.site-shell .nav-toggle { display: none !important; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   body.site-shell .site-header {
     position: fixed;
     top: 14px;
@@ -5311,30 +5311,30 @@ body.site-shell :is(main, .site-footer) {
     flex-direction: column;
     justify-content: space-between;
     padding: 0.85rem 0.9rem;
-    min-height: 108px;
+    min-height: 118px;
     border-right: 1px solid var(--fq-overlay-line);
     border-bottom: 1px solid var(--fq-overlay-line);
-    color: var(--text);
+    color: #fff;
     text-decoration: none;
     transition: color 0.2s;
   }
-  .fq-overlay-nav a:nth-child(3n) { border-right: 0; }
-  .fq-overlay-bg {
+  .fq-overlay-nav a::before {
+    content: "";
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     z-index: 0;
-    opacity: 0.68;
-    filter: grayscale(0.2) contrast(1.12) brightness(0.72);
-    transition: opacity 0.25s, filter 0.25s, transform 0.35s ease;
+    background-image: var(--fq-cell-photo);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1);
+    transition: transform 0.35s ease, filter 0.25s;
   }
+  .fq-overlay-nav a:nth-child(3n) { border-right: 0; }
   .fq-overlay-shade {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.42) 52%, rgba(0, 0, 0, 0.55) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.12) 48%, rgba(0, 0, 0, 0.28) 100%);
     pointer-events: none;
     transition: background 0.25s;
   }
@@ -5364,13 +5364,12 @@ body.site-shell :is(main, .site-footer) {
   }
   .fq-overlay-nav a:active .fq-overlay-shade,
   .fq-overlay-nav a:focus-visible .fq-overlay-shade {
-    background: rgba(201, 120, 58, 0.62);
+    background: rgba(201, 120, 58, 0.55);
   }
-  .fq-overlay-nav a:active .fq-overlay-bg,
-  .fq-overlay-nav a:focus-visible .fq-overlay-bg {
-    opacity: 0.95;
-    filter: grayscale(0) contrast(1.15) brightness(0.88);
-    transform: scale(1.04);
+  .fq-overlay-nav a:active::before,
+  .fq-overlay-nav a:focus-visible::before {
+    transform: scale(1.06);
+    filter: contrast(1.08) saturate(1.15);
   }
   .fq-overlay-nav a:active .fq-overlay-num,
   .fq-overlay-nav a:focus-visible .fq-overlay-num { color: #fff; }
@@ -5430,7 +5429,7 @@ body.theme-allenamenti .fq-overlay-nav a:focus-visible .fq-overlay-shade {
   .fq-overlay,
   .fq-overlay-dim,
   body.site-shell :is(main, .site-footer),
-  .fq-overlay-bg {
+  .fq-overlay-nav a::before {
     transition: none;
   }
 }

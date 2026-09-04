@@ -3,7 +3,7 @@
   var isAdmin = body.classList.contains("admin-page") || body.classList.contains("schede-peso");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.querySelector(".site-nav");
-  var mobileMq = window.matchMedia("(max-width: 720px)");
+  var mobileMq = window.matchMedia("(max-width: 900px)");
 
   if (!isAdmin) {
     body.classList.add("site-shell");
@@ -87,10 +87,14 @@
     overlay.setAttribute("aria-label", "Menu");
     overlay.setAttribute("aria-hidden", "true");
 
+    links.forEach(function (item) {
+      var img = new Image();
+      img.src = item.preview;
+    });
+
     var cells = links.map(function (item) {
       var cur = item.current ? " aria-current=\"page\"" : "";
-      return "<a href=\"" + item.href + "\"" + cur + ">" +
-        "<img class=\"fq-overlay-bg\" src=\"" + item.preview + "\" alt=\"\" loading=\"lazy\">" +
+      return "<a href=\"" + item.href + "\"" + cur + " style=\"--fq-cell-photo:url('" + item.preview + "')\">" +
         "<span class=\"fq-overlay-shade\" aria-hidden=\"true\"></span>" +
         "<span class=\"fq-overlay-num\">" + item.num + "</span>" +
         "<span class=\"fq-overlay-label\">" + item.label + "</span>" +
@@ -166,11 +170,11 @@
       if (peekAcc > 48) document.body.classList.add("is-peeking");
     }
 
-    openBtn.addEventListener("click", function () {
-      if (mq.matches) {
-        if (menuOpen) closeMenu();
-        else openMenu();
-      }
+    openBtn.addEventListener("click", function (e) {
+      if (!mq.matches) return;
+      e.preventDefault();
+      if (menuOpen) closeMenu();
+      else openMenu();
     });
 
     if (closeBtn) closeBtn.addEventListener("click", closeMenu);
