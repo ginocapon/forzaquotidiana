@@ -74,6 +74,44 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "206-09-05-scheda-4": {
+    date: "2026-09-05",
+    codice: "b2",
+    scheda: 4,
+    files: {
+      "WhatsApp Image 2026-09-07 at 09.03.54.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-07 at 09.02.49.jpeg": "tsb",
+      "WhatsApp Image 2026-09-07 at 09.02.49 (1).jpeg": "sonno-fc",
+      "WhatsApp Image 2026-09-07 at 09.02.49 (3).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-07 at 09.02.50.jpeg": "readiness-settimana",
+      "WhatsApp Image 2026-09-07 at 09.02.50 (1).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-07 at 09.04.28.jpeg": "tecnica",
+      "WhatsApp Image 2026-09-07 at 09.04.28 (1).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-09-07 at 09.04.28 (2).jpeg": "fc-grafico",
+    },
+    skip: ["WhatsApp Image 2026-09-07 at 09.02.49 (2).jpeg"],
+  },
+  "scheda 04-09-2026  a2": {
+    date: "2026-09-04",
+    codice: "a2",
+    scheda: 3,
+    files: {
+      "WhatsApp Image 2026-09-04 at 14.03.30.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-04 at 14.07.36.jpeg": "tsb",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (1).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (2).jpeg": "sonno-score",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (3).jpeg": "readiness-settimana",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (4).jpeg": "hrv",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (5).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (6).jpeg": "hybridcharge-analisi",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (7).jpeg": "readiness-panoramica",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (8).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (9).jpeg": "readiness-dettaglio",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (10).jpeg": "tecnica",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (11).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-09-04 at 14.07.36 (12).jpeg": "zone-effetto",
+    },
+  },
   "allenamento 1-09-2026": {
     date: "2026-09-01",
     codice: "b1",
@@ -92,29 +130,6 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-09-02 at 10.43.13 (1).jpeg": "tecnica",
       "WhatsApp Image 2026-09-02 at 10.43.13 (2).jpeg": "zone-effetto",
       "WhatsApp Image 2026-09-02 at 10.43.13 (3).jpeg": "fc-grafico",
-    },
-  },
-  "scheda 04-09-2026  a2": {
-    date: "2026-09-04",
-    codice: "a2",
-    scheda: 1,
-    skip: [
-      "WhatsApp Image 2026-09-04 at 14.07.36 (3).jpeg",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (6).jpeg",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (9).jpeg",
-    ],
-    files: {
-      "WhatsApp Image 2026-09-04 at 14.03.30.jpeg": "riepilogo",
-      "WhatsApp Image 2026-09-04 at 14.07.36.jpeg": "tsb",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (1).jpeg": "sonno-metriche",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (2).jpeg": "sonno-score",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (4).jpeg": "hrv",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (5).jpeg": "hybridcharge",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (7).jpeg": "readiness-panoramica",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (8).jpeg": "readiness-metriche",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (10).jpeg": "valutazione",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (11).jpeg": "fc-grafico",
-      "WhatsApp Image 2026-09-04 at 14.07.36 (12).jpeg": "zone-effetto",
     },
   },
   "allenamento 31 agosto": {
@@ -307,16 +322,20 @@ async function processDir(uploadDir) {
     await convertOne(src, entry.dest, entry.slug);
   }
   const leftover = rasterFiles(uploadDir);
+  const hasIndex = existsSync(join(uploadDir, "index.html"));
   const others = existsSync(uploadDir)
-    ? readdirSync(uploadDir).filter((f) => f !== "README.md" && !f.startsWith("."))
+    ? readdirSync(uploadDir).filter((f) => f !== "README.md" && f !== "index.html" && !f.startsWith("."))
     : [];
-  if (!leftover.length && others.length === 0) {
+  const isSessionFolder = /allenamenti[/\\]sessioni[/\\]/i.test(uploadDir);
+  if (!leftover.length && others.length === 0 && !hasIndex && !isSessionFolder) {
     try {
       rmSync(uploadDir, { recursive: true });
       console.log("Rimossa cartella upload:", uploadDir);
     } catch {
       /* keep */
     }
+  } else if (isSessionFolder && !hasIndex) {
+    console.log("Cartella sessione conservata (pubblica index.html qui):", uploadDir);
   } else {
     console.log("Cartella non vuota — verifica mapping:", others.join(", ") || leftover.join(", "));
   }
