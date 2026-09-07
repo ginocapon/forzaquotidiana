@@ -1115,6 +1115,66 @@
         "fatigue_atl": 28,
         "date": "2026-09-04"
       }
+    },
+    {
+      "id": "2026-09-05-b2",
+      "date": "2026-09-05",
+      "time": "11:36",
+      "datetime": "2026-09-05T11:36",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-09",
+      "durata_sec": 4310,
+      "durata": "01:11:50",
+      "recupero_sec": 3308,
+      "recupero": "55:08",
+      "gruppi": 22,
+      "fc_media": 121,
+      "fc_max": 156,
+      "calorie": 637,
+      "carico": 134,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 1.05,
+        "intensiva": 20.63,
+        "aerobica": 33.27,
+        "anaerobica": 14.45,
+        "vo2max": 2.38
+      },
+      "effect": {
+        "aerobic": 3.7,
+        "aerobic_label": "Buono",
+        "anaerobic": 3.2,
+        "anaerobic_label": "Buono"
+      },
+      "readiness": {
+        "hybridcharge_wake": 37,
+        "hybridcharge_label": "Basso",
+        "sleep_duration": "4:43",
+        "sleep_duration_label": "Attenzione",
+        "sleep_nap": "1:21",
+        "sleep_nap_window": "15:17–16:38",
+        "hrv": 55,
+        "hrv_label": "Buono",
+        "resting_hr": 52
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento uniforme, fluttuazioni minime",
+        "stability": "Movimenti stabili con lievi scosse occasionali",
+        "continuity": "Flusso fluido, pause brevi",
+        "rhythm": "Tempi coerenti, ritmo regolare",
+        "speed_decay": "Decadimento moderato — accettabile per ipertrofia"
+      },
+      "note": "B2 sabato 11:36 — chiusura settimana 1 Blocco 1. 22 serie in 71:50, carico 134, FC 121/156. Sonno 4:43 Attenzione, HRV 55, HybridCharge 37 Basso.",
+      "tsb": {
+        "value": -10,
+        "label": "Ottimale",
+        "fitness_ctl": 30,
+        "fatigue_atl": 40,
+        "date": "2026-09-05"
+      }
     }
   ]
 }

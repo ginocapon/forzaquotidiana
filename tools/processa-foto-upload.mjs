@@ -74,6 +74,23 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "206-09-05-scheda-4": {
+    date: "2026-09-05",
+    codice: "b2",
+    scheda: 4,
+    files: {
+      "WhatsApp Image 2026-09-07 at 09.03.54.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-07 at 09.02.49.jpeg": "tsb",
+      "WhatsApp Image 2026-09-07 at 09.02.49 (1).jpeg": "sonno-fc",
+      "WhatsApp Image 2026-09-07 at 09.02.49 (3).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-07 at 09.02.50.jpeg": "readiness-settimana",
+      "WhatsApp Image 2026-09-07 at 09.02.50 (1).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-07 at 09.04.28.jpeg": "tecnica",
+      "WhatsApp Image 2026-09-07 at 09.04.28 (1).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-09-07 at 09.04.28 (2).jpeg": "fc-grafico",
+    },
+    skip: ["WhatsApp Image 2026-09-07 at 09.02.49 (2).jpeg"],
+  },
   "scheda 04-09-2026  a2": {
     date: "2026-09-04",
     codice: "a2",
@@ -309,13 +326,16 @@ async function processDir(uploadDir) {
   const others = existsSync(uploadDir)
     ? readdirSync(uploadDir).filter((f) => f !== "README.md" && f !== "index.html" && !f.startsWith("."))
     : [];
-  if (!leftover.length && others.length === 0 && !hasIndex) {
+  const isSessionFolder = /allenamenti[/\\]sessioni[/\\]/i.test(uploadDir);
+  if (!leftover.length && others.length === 0 && !hasIndex && !isSessionFolder) {
     try {
       rmSync(uploadDir, { recursive: true });
       console.log("Rimossa cartella upload:", uploadDir);
     } catch {
       /* keep */
     }
+  } else if (isSessionFolder && !hasIndex) {
+    console.log("Cartella sessione conservata (pubblica index.html qui):", uploadDir);
   } else {
     console.log("Cartella non vuota — verifica mapping:", others.join(", ") || leftover.join(", "));
   }
