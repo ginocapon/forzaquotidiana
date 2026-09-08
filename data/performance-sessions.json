@@ -1177,6 +1177,73 @@
         "fatigue_atl": 40,
         "date": "2026-09-05"
       }
+    },
+    {
+      "id": "2026-09-07-a1",
+      "date": "2026-09-07",
+      "time": "14:53",
+      "datetime": "2026-09-07T14:53",
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
+      "month": "2026-09",
+      "durata_sec": 5689,
+      "durata": "01:34:49",
+      "recupero_sec": 3213,
+      "recupero": "53:33",
+      "gruppi": 27,
+      "fc_media": 130,
+      "fc_max": 160,
+      "calorie": 944,
+      "carico": 299,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0.12,
+        "intensiva": 10.55,
+        "aerobica": 34.27,
+        "anaerobica": 41.83,
+        "vo2max": 8.02
+      },
+      "effect": {
+        "aerobic": 4.9,
+        "aerobic_label": "Eccellente",
+        "anaerobic": 4.1,
+        "anaerobic_label": "Eccellente"
+      },
+      "readiness": {
+        "hybridcharge_wake": 61,
+        "hybridcharge_label": "Discreto",
+        "sleep_duration": "6:31",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "0:54",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:34",
+        "sleep_wake": "0:19",
+        "sleep_wake_events": 4,
+        "sleep_regularity_pct": 58,
+        "hrv": 47,
+        "hrv_label": "Ottimale",
+        "hrv_baseline": 43,
+        "resting_hr": 48,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 67
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento molto uniforme — radar alto",
+        "stability": "Movimenti molto stabili",
+        "continuity": "Flusso per lo più fluido",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento moderato — carico cardio elevato"
+      },
+      "note": "A1 lunedì 14:53 — petto · schiena · spalle Blocco 1 settimana 2. 27 serie in 01:34:49, carico 299, FC 130/160. HRV 47 Ottimale, HybridCharge 61, sonno 6:31. TSB -15 Ottimale (CTL 38 / ATL 53).",
+      "tsb": {
+        "value": -15,
+        "label": "Ottimale",
+        "fitness_ctl": 38,
+        "fatigue_atl": 53,
+        "date": "2026-09-07"
+      }
     }
   ]
 }
