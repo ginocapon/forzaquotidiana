@@ -1244,6 +1244,59 @@
         "fatigue_atl": 53,
         "date": "2026-09-07"
       }
+    },
+    {
+      "id": "2026-09-08-b1",
+      "date": "2026-09-08",
+      "time": "12:51",
+      "datetime": "2026-09-08T12:51",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-09",
+      "durata_sec": 4944,
+      "durata": "01:22:24",
+      "recupero_sec": 2689,
+      "recupero": "44:49",
+      "gruppi": 23,
+      "fc_media": 116,
+      "calorie": 679,
+      "carico": 127,
+      "duration_corrected": false,
+      "partial": true,
+      "readiness": {
+        "hybridcharge_wake": 42,
+        "hybridcharge_label": "Discreto",
+        "sleep_duration": "5:23",
+        "sleep_duration_label": "Fai attenzione",
+        "sleep_deep": "0:47",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:28",
+        "sleep_wake": "0:09",
+        "sleep_wake_events": 4,
+        "sleep_regularity_pct": 60,
+        "hrv": 43,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 53,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 107
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Movimenti per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
+      },
+      "note": "B1 martedì 12:51 — gambe · polpacci · braccia Blocco 1 settimana 2. 23 serie in 01:22:24, carico 127, FC media 116. Sonno 5:23 corto, HRV 43 in baseline, TSB -14 Ottimale (CTL 42 / ATL 56). Export parziale: mancano grafico FC e zone.",
+      "tsb": {
+        "value": -14,
+        "label": "Ottimale",
+        "fitness_ctl": 42,
+        "fatigue_atl": 56,
+        "date": "2026-09-08"
+      }
     }
   ]
 }

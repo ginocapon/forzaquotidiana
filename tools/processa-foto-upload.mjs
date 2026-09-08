@@ -74,6 +74,28 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-08-25 at 11.10.30 (5).jpeg": "fc-grafico",
     },
   },
+  "2026-09-08-scheda-2": {
+    date: "2026-09-08",
+    codice: "b1",
+    scheda: 2,
+    files: {
+      "WhatsApp Image 2026-09-08 at 19.41.30.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-08 at 19.44.29.jpeg": "tsb",
+      "WhatsApp Image 2026-09-08 at 19.44.30.jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (1).jpeg": "readiness-settimana",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (2).jpeg": "hrv",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (4).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (5).jpeg": "readiness-dettaglio",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (6).jpeg": "hybridcharge",
+      "WhatsApp Image 2026-09-08 at 19.44.31.jpeg": "valutazione",
+      "WhatsApp Image 2026-09-08 at 19.44.31 (1).jpeg": "tecnica",
+    },
+    skip: [
+      "WhatsApp Image 2026-09-08 at 19.44.29 (1).jpeg",
+      "WhatsApp Image 2026-09-08 at 19.44.29 (2).jpeg",
+      "WhatsApp Image 2026-09-08 at 19.44.30 (3).jpeg",
+    ],
+  },
   "2026-09-07-scheda-1": {
     date: "2026-09-07",
     codice: "a1",
