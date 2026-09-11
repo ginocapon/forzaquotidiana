@@ -1207,6 +1207,7 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | Hub anni | `admin/data/hub-periodizzazione.json` |
 | Dati macrociclo | `admin/data/macrociclo-2026-2027.json` |
 | **Blocco 1 dettaglio** (fonte di verità sett. 2026) | `admin/data/blocco-1-fase1.json` |
+| **Fasi 2–4 rotazione esercizi** | `admin/data/fasi-2-3-4.json` |
 | **Mappa esercizi** (figure SVG) | `/admin/mappa-esercizi/` |
 | Catalogo esercizi + figure | `admin/data/esercizi-catalogo.json` + `admin/img/esercizi-sprite.svg` |
 | Sync Blocco 1 → macrociclo | `node tools/sync-blocco1-macrociclo.mjs` |
