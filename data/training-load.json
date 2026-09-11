@@ -1,7 +1,7 @@
 {
   "_nota": "CTL/ATL/TSB da carico Zepp (EWM 42/7 gg). overrides per snapshot Zepp verificati. node tools/aggiorna-training-load.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
-  "updated": "2026-09-08",
+  "updated": "2026-09-11",
   "zones": [
     {
       "id": "rilassato",
@@ -1125,30 +1125,30 @@
     {
       "date": "2026-09-11",
       "label": "11/09",
-      "load": 0,
-      "ctl": 33.6,
-      "atl": 46.6,
-      "tsb": -13,
+      "load": 54,
+      "ctl": 34.9,
+      "atl": 53.8,
+      "tsb": -18.9,
       "status": "Ottimale",
-      "session": false
+      "session": true
     },
     {
       "date": "2026-09-12",
       "label": "12/09",
       "load": 0,
-      "ctl": 32.8,
-      "atl": 40.4,
-      "tsb": -7.6,
-      "status": "Bilanciato",
+      "ctl": 34.1,
+      "atl": 46.6,
+      "tsb": -12.6,
+      "status": "Ottimale",
       "session": false
     },
     {
       "date": "2026-09-13",
       "label": "13/09",
       "load": 0,
-      "ctl": 32.1,
-      "atl": 35,
-      "tsb": -3,
+      "ctl": 33.3,
+      "atl": 40.4,
+      "tsb": -7.2,
       "status": "Bilanciato",
       "session": false
     },
@@ -1156,9 +1156,9 @@
       "date": "2026-09-14",
       "label": "14/09",
       "load": 0,
-      "ctl": 31.3,
-      "atl": 30.4,
-      "tsb": 0.9,
+      "ctl": 32.5,
+      "atl": 35,
+      "tsb": -2.6,
       "status": "Bilanciato",
       "session": false
     },
@@ -1166,9 +1166,9 @@
       "date": "2026-09-15",
       "label": "15/09",
       "load": 0,
-      "ctl": 30.6,
-      "atl": 26.3,
-      "tsb": 4.3,
+      "ctl": 31.7,
+      "atl": 30.4,
+      "tsb": 1.3,
       "status": "Bilanciato",
       "session": false
     },
@@ -1176,19 +1176,19 @@
       "date": "2026-09-16",
       "label": "16/09",
       "load": 0,
-      "ctl": 29.8,
-      "atl": 22.8,
-      "tsb": 7,
-      "status": "Energetico",
+      "ctl": 31,
+      "atl": 26.3,
+      "tsb": 4.6,
+      "status": "Bilanciato",
       "session": false
     },
     {
       "date": "2026-09-17",
       "label": "17/09",
       "load": 0,
-      "ctl": 29.1,
-      "atl": 19.8,
-      "tsb": 9.4,
+      "ctl": 30.2,
+      "atl": 22.8,
+      "tsb": 7.4,
       "status": "Energetico",
       "session": false
     },
@@ -1196,9 +1196,9 @@
       "date": "2026-09-18",
       "label": "18/09",
       "load": 0,
-      "ctl": 28.5,
-      "atl": 17.1,
-      "tsb": 11.3,
+      "ctl": 29.5,
+      "atl": 19.8,
+      "tsb": 9.7,
       "status": "Energetico",
       "session": false
     },
@@ -1206,9 +1206,9 @@
       "date": "2026-09-19",
       "label": "19/09",
       "load": 0,
-      "ctl": 27.8,
-      "atl": 14.9,
-      "tsb": 12.9,
+      "ctl": 28.8,
+      "atl": 17.2,
+      "tsb": 11.7,
       "status": "Energetico",
       "session": false
     },
@@ -1216,9 +1216,9 @@
       "date": "2026-09-20",
       "label": "20/09",
       "load": 0,
-      "ctl": 27.1,
-      "atl": 12.9,
-      "tsb": 14.3,
+      "ctl": 28.2,
+      "atl": 14.9,
+      "tsb": 13.3,
       "status": "Energetico",
       "session": false
     },
@@ -1226,9 +1226,49 @@
       "date": "2026-09-21",
       "label": "21/09",
       "load": 0,
-      "ctl": 26.5,
+      "ctl": 27.5,
+      "atl": 12.9,
+      "tsb": 14.6,
+      "status": "Energetico",
+      "session": false
+    },
+    {
+      "date": "2026-09-22",
+      "label": "22/09",
+      "load": 0,
+      "ctl": 26.8,
       "atl": 11.2,
-      "tsb": 15.3,
+      "tsb": 15.7,
+      "status": "Rilassato",
+      "session": false
+    },
+    {
+      "date": "2026-09-23",
+      "label": "23/09",
+      "load": 0,
+      "ctl": 26.2,
+      "atl": 9.7,
+      "tsb": 16.5,
+      "status": "Rilassato",
+      "session": false
+    },
+    {
+      "date": "2026-09-24",
+      "label": "24/09",
+      "load": 0,
+      "ctl": 25.6,
+      "atl": 8.4,
+      "tsb": 17.2,
+      "status": "Rilassato",
+      "session": false
+    },
+    {
+      "date": "2026-09-25",
+      "label": "25/09",
+      "load": 0,
+      "ctl": 25,
+      "atl": 7.3,
+      "tsb": 17.7,
       "status": "Rilassato",
       "session": false
     }
@@ -1394,6 +1434,13 @@
       "tsb": -45.5,
       "status": "Ottimale",
       "load": 299
+    },
+    "2026-09-11": {
+      "ctl": 34.9,
+      "atl": 53.8,
+      "tsb": -18.9,
+      "status": "Ottimale",
+      "load": 54
     }
   },
   "sessions": [
@@ -1488,6 +1535,10 @@
     {
       "date": "2026-09-07",
       "id": "2026-09-07-a1"
+    },
+    {
+      "date": "2026-09-11",
+      "id": "2026-09-11-a2"
     }
   ]
 }

@@ -80,14 +80,14 @@
     {
       "month": "2026-09",
       "label": "settembre 2026",
-      "sessioni_totali": 5,
-      "sessioni_con_export": 4,
-      "durata_totale_sec": 16888,
-      "durata_totale": "04:41:28",
-      "fc_media": 124,
-      "calorie_totale": 2591,
+      "sessioni_totali": 6,
+      "sessioni_con_export": 5,
+      "durata_totale_sec": 21894,
+      "durata_totale": "06:04:54",
+      "fc_media": 120,
+      "calorie_totale": 3198,
       "calorie_asterisk": false,
-      "carico_medio": 162,
+      "carico_medio": 140,
       "carico_asterisk": false,
       "gruppi_medio": 24,
       "sessioni_ids": [
@@ -95,7 +95,8 @@
         "2026-09-04-a2",
         "2026-09-05-b2",
         "2026-09-07-a1",
-        "2026-09-08-b1"
+        "2026-09-08-b1",
+        "2026-09-11-a2"
       ],
       "in_trimestre": false
     }
@@ -248,37 +249,43 @@
         "01 set S2",
         "04 set S1",
         "05 set S4",
-        "07 set S1"
+        "07 set S1",
+        "11 set S3"
       ],
       "durata_min": [
         65,
         50,
         72,
-        95
+        95,
+        83
       ],
       "fc_media": [
         120,
         122,
         121,
-        130
+        130,
+        108
       ],
       "calorie": [
         564,
         446,
         637,
-        944
+        944,
+        607
       ],
       "carico": [
         114,
         100,
         134,
-        299
+        299,
+        54
       ],
       "gruppi": [
         26,
         22,
         22,
-        27
+        27,
+        23
       ]
     }
   },
