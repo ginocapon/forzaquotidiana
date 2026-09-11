@@ -1,4 +1,44 @@
 {
+  "Panca piana con bilanciere": {
+    "figura": "fig-press-piano",
+    "primario": "Petto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Sdraiato su panca, piedi a terra, scapole addotte e depresse.",
+    "movimento": "Discesa controllata al petto, spinta verticale senza rimbalzo.",
+    "errori": "Stacco spalle; lock aggressivo; rimbalzo sul petto."
+  },
+  "Panca inclinata con bilanciere": {
+    "figura": "fig-press-incl",
+    "primario": "Petto alto",
+    "secondario": "Deltoidi anteriori, tricipiti",
+    "setup": "Panca 30°, scapole addotte, piedi a terra.",
+    "movimento": "Discesa al petto alto, gomiti ~45°, spinta controllata.",
+    "errori": "Inclinazione eccessiva; rimbalzo in basso."
+  },
+  "Trazioni a presa larga": {
+    "figura": "fig-trazioni",
+    "primario": "Gran dorsale",
+    "secondario": "Bicipiti, romboidi",
+    "setup": "Presa larga prona, petto alto, core attivo.",
+    "movimento": "Tira il petto verso la sbarra, discesa controllata; aggiungi lastre se serve.",
+    "errori": "Kipping; ROM incompleto; slancio col busto."
+  },
+  "Lento avanti con manubri seduto": {
+    "figura": "fig-lento",
+    "primario": "Deltoidi anteriori",
+    "secondario": "Tricipiti",
+    "setup": "Schiena appoggiata, core attivo, manubri all'altezza spalle.",
+    "movimento": "Spinta sopra la testa, discesa fino alle orecchie.",
+    "errori": "Inarcamento lombare; slancio col busto."
+  },
+  "Stacco rumeno con bilanciere": {
+    "figura": "fig-rdl",
+    "primario": "Femorali, glutei",
+    "secondario": "Lombare",
+    "setup": "Schiena neutra, bilanciere vicino alle gambe, ginocchia morbide.",
+    "movimento": "Hip hinge fino a stiramento femorali, risalita spingendo il bacino.",
+    "errori": "Arrotondare la schiena; flettere troppo le ginocchia."
+  },
   "Panca inclinata con manubri": {
     "figura": "fig-press-incl",
     "primario": "Petto alto",

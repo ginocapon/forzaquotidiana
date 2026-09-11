@@ -1258,9 +1258,9 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 | # | Fase | Durata | Periodo | Obiettivo |
 |---|------|--------|---------|-----------|
 | 1 | **Ipertrofia accumulo** | **13 sett.** | Set–Nov 2026 | Soft start sett. 1–2 · accumulo 8–12 · deload sett. 13 |
-| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | Tensione 1–6 · forza 7–12 · deload 13 |
-| 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | +2,5 kg fondamentali · volume ↑ sett. 9–12 · deload 13 |
-| 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | Mantenimento estivo 10–12 rep, RIR 2–3 |
+| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | **Nuovo schema** (~30% esercizi): panca piana, squat mp, lat neutra · tensione → forza · deload 13 |
+| 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | **Terzo schema** (~30% esercizi): inclinata bb, pressa, hip thrust · volume ↑ sett. 9–12 · deload 13 |
+| 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | **Quarto schema** estivo: macchine, affondi, plank · 10–12 rep RIR 2–3 · deload leggero 13 |
 
 **Totale:** **4 fasi** · 52 settimane · deload incorporato (niente 9 micro-fasi)
 
@@ -1289,7 +1289,7 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 
 1. **Non accorciare** un mesociclo sotto **12 settimane** per Gino senza motivo (infortunio, viaggio lungo).
 2. **Deload** = settimana 13 di ogni fase di lavoro (−40% volume) — non saltare.
-3. **Stessi esercizi** per tutta la fase; cambia solo serie/reps/RIR/peso.
+3. **Stessi esercizi per tutta la singola fase** (13 sett.); **rotazione ~25–35% esercizi** a ogni cambio fase (Fase 1 invariata · Fasi 2–4 in `admin/data/fasi-2-3-4.json`). Dentro la fase cambiano serie/reps/RIR/peso.
 4. **Progressione:** quando 2 sessioni consecutive al limite superiore reps con RIR target → +2,5–5 kg sul movimento *.
 5. **Log reale** resta in `/allenamenti/sessioni/` — l’admin è prototipo/mappa, non sostituisce il log.
 6. **PDF stampabile:** margini stampa **8 mm** (non minimi); fascia **Osservazioni** in alto; non tagliare il bordo inferiore.
@@ -1333,7 +1333,7 @@ Stampa: **A4 verticale**, margini **8 mm**, «Salva come PDF» dal browser. Test
 | Nuove figure SVG | Aggiungi symbol in `admin/img/esercizi-sprite.svg` + voce in `esercizi-catalogo.json` |
 | Articolo strategia (diario) | `/diario/blocco-1-ipertrofia-accumulo-settembre-2026/` — riflessione, non log |
 
-**Ragionamento schede:** 13 settimane stesso schema → adattamento (1–2) → accumulo (3–6) → intensificazione (7–10) → picco (11–12) → deload (13). A settimana 14 si riparte con Blocco 2 sostituendo ~20–30% esercizi.
+**Ragionamento schede:** Fase 1 — 13 settimane stesso schema → adattamento (1–2) → accumulo → picco → deload (13). **A ogni nuova fase (2, 3, 4)** nuovo schema A1–B2 con ~25–35% esercizi diversi (fonte `admin/data/fasi-2-3-4.json`; rigenera con `node tools/genera-macrociclo.mjs`).
 
 ### 8.10 Errori da evitare
 

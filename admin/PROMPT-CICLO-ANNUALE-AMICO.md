@@ -79,7 +79,7 @@ COSA DEVI CONSEGNARE (ordine)
 VINCOLI PERIODIZZAZIONE (non violare senza motivo esplicito)
 - Mesociclo ~12–13 settimane (modello maturo), NON 3–6 sett. tipo advanced young
 - Deload = ultima settimana di ogni fase (−40% volume) — obbligatorio
-- Stessi esercizi per tutta la fase; cambiano serie/reps/RIR/peso
+- Stessi esercizi per tutta la singola fase (13 sett.); **rotazione ~25–35% esercizi** a ogni cambio fase (vedi admin/data/fasi-2-3-4.json)
 - Kettlebell sempre ULTIMO esercizio della sessione (finisher), mai in apertura
 - ~55% volume lower (gambe+polpacci) se si ribilancia: tools/rebalance-macrociclo-55.mjs dopo genera-macrociclo
 - Admin = prototipo/mappa: NON pubblicare in sitemap; NON linkare da hub pubblico /allenamenti/ salvo richiesta esplicita

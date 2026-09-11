@@ -26,8 +26,8 @@
       "ciclo": "tensione-forza",
       "nome": "Fase 2 · Tensione + forza",
       "durata": "13 settimane",
-      "obiettivo": "Tensione 6–8 (sett. 1–6) → forza 4–6 (7–12) → deload 13",
-      "motivo": "Alza i kg sugli * usando la base costruita in fase 1",
+      "obiettivo": "Nuovo schema (~30% esercizi): tensione 6–8 → forza 4–6 → deload 13",
+      "motivo": "Alza i kg con fondamentali da forza (panca piana, squat mp, lat neutra, trap bar) — angoli diversi dal Blocco 1",
       "deload": true
     },
     {
@@ -35,8 +35,8 @@
       "ciclo": "ipertrofia-classica-ii",
       "nome": "Fase 3 · Ipertrofia II",
       "durata": "13 settimane",
-      "obiettivo": "Secondo accumulo + saturazione volume sett. 9–12 → deload 13",
-      "motivo": "Riconverti la forza nuova in volume e densità muscolare",
+      "obiettivo": "Terzo schema (~30% esercizi): secondo accumulo + saturazione volume sett. 9–12 → deload 13",
+      "motivo": "Riconverti la forza in massa con inclinata bb, pressa, hip thrust, affondi Doktor — terzo set di angoli dell'anno",
       "deload": true
     },
     {
@@ -44,9 +44,9 @@
       "ciclo": "ricondizionamento",
       "nome": "Fase 4 · Ricondizionamento",
       "durata": "13 settimane",
-      "obiettivo": "Mantenimento 10–12 rep, RIR 2–3, fino a fine anno",
-      "motivo": "Arrivi fresco al macrociclo successivo senza mesi di stop",
-      "deload": false
+      "obiettivo": "Quarto schema estivo: macchine guidate, 10–12 rep, RIR 2–3 → deload leggero sett. 13",
+      "motivo": "Mantenimento con chest press, affondi camminati, plank — arrivi fresco al macrociclo successivo",
+      "deload": true
     }
   ],
   "eserciziBase": {
