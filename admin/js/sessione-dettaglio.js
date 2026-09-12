@@ -299,6 +299,6 @@
 
   window.fqSessioneDettaglio = {
     renderBlocco1Session: renderBlocco1Session,
-    BLOCCO1_ID: "ipertrofia-accumulo"
+    renderBloccoSession: renderBlocco1Session
   };
 })();

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "nota": "Mappa fase macrociclo → JSON dettaglio (stesso schema blocco-1-fase1.json). Fase 1 in esecuzione — non rigenerare da tools/genera-blocchi-2-3-4.mjs.",
+  "blocchi": {
+    "ipertrofia-accumulo": "blocco-1-fase1.json",
+    "tensione-forza": "blocco-2-fase2.json",
+    "ipertrofia-classica-ii": "blocco-3-fase3.json",
+    "ricondizionamento": "blocco-4-fase4.json"
+  }
+}

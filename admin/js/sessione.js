@@ -5,9 +5,7 @@
   "use strict";
 
   var MACRO_URL = "/admin/data/macrociclo-2026-2027.json";
-  var BLOCCO1_URL = "/admin/data/blocco-1-fase1.json";
   var CATALOGO_URL = "/admin/data/esercizi-catalogo.json";
-  var BLOCCO1_ID = "ipertrofia-accumulo";
 
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
@@ -107,9 +105,10 @@
       return;
     }
 
-    if (faseId === BLOCCO1_ID && window.fqSessioneDettaglio) {
+    var bloccoUrl = window.fqBlocchi && window.fqBlocchi.urlFor(faseId);
+    if (bloccoUrl && window.fqSessioneDettaglio) {
       Promise.all([
-        fetch(BLOCCO1_URL).then(function (r) { return r.json(); }),
+        fetch(bloccoUrl).then(function (r) { return r.json(); }),
         fetch(CATALOGO_URL).then(function (r) { return r.json(); })
       ])
         .then(function (res) {

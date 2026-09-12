@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Sincronizza Fase 1 del macrociclo da admin/data/blocco-1-fase1.json
+ * Per fasi 2–4: node tools/sync-blocco-macrociclo.mjs --all
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";

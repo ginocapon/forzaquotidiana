@@ -5,7 +5,6 @@
   "use strict";
 
   var HUB_URL = "/admin/data/hub-periodizzazione.json";
-  var BLOCCO1_URL = "/admin/data/blocco-1-fase1.json";
 
   function el(tag, attrs, children) {
     var node = document.createElement(tag);
@@ -168,13 +167,14 @@
     }
 
     var article = el("article", { className: "scheda-a4 scheda-a4--admin" });
-    var tipo = (fase.id === "ipertrofia-accumulo" && blocco && blocco.tipo)
+    var useBlocco = blocco && blocco.id === fase.id && blocco.sessioni;
+    var tipo = (useBlocco && blocco.tipo)
       ? blocco.tipo
       : String(fase.nome || "Periodizzazione").replace(/^Fase\s*\d+\s*[·•]\s*/i, "").toUpperCase();
-    var sessioni = (fase.id === "ipertrofia-accumulo" && blocco && blocco.sessioni)
+    var sessioni = useBlocco
       ? blocco.sessioni
       : (blocco && blocco.sessioni ? mergeSessions(blocco, fase) : fase.sessioni);
-    var waveNote = hasWaveReps(fase.sessioni);
+    var waveNote = hasWaveReps(useBlocco ? blocco.sessioni : fase.sessioni);
 
     var head = el("header", { className: "scheda-a4__head" });
     head.innerHTML =
@@ -241,25 +241,25 @@
       return;
     }
 
-    Promise.all([
-      fetch(HUB_URL).then(function (r) { return r.json(); }),
-      fetch(BLOCCO1_URL).then(function (r) { return r.json(); })
-    ])
-      .then(function (pair) {
-        var hub = pair[0];
-        var blocco = pair[1];
+    fetch(HUB_URL).then(function (r) { return r.json(); })
+      .then(function (hub) {
         var anno = hub.anni.find(function (a) { return a.id === annoId; }) || hub.anni[0];
-        return fetch(anno.macrocicloUrl).then(function (r) { return r.json(); }).then(function (macro) {
-          return { macro: macro, blocco: blocco };
-        });
+        return fetch(anno.macrocicloUrl).then(function (r) { return r.json(); });
       })
-      .then(function (pack) {
-        var fase = pack.macro.fasi.find(function (f) { return f.id === faseId; });
+      .then(function (macro) {
+        var fase = macro.fasi.find(function (f) { return f.id === faseId; });
         if (!fase) {
           root.innerHTML = "<p>Fase non trovata. <a href=\"/admin/prototipi/periodizzazione/\">Hub</a></p>";
           return;
         }
-        render(pack.macro, fase, root, pack.blocco);
+        var bloccoUrl = window.fqBlocchi && window.fqBlocchi.urlFor(faseId);
+        if (!bloccoUrl) {
+          render(macro, fase, root, null);
+          return;
+        }
+        return fetch(bloccoUrl).then(function (r) { return r.json(); }).then(function (blocco) {
+          render(macro, fase, root, blocco);
+        });
       })
       .catch(function (err) {
         root.innerHTML = "<p>Errore: " + err.message + "</p>";

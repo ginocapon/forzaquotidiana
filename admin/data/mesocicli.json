@@ -26,27 +26,30 @@
       "ciclo": "tensione-forza",
       "nome": "Fase 2 · Tensione + forza",
       "durata": "13 settimane",
-      "obiettivo": "Nuovo schema (~30% esercizi): tensione 6–8 → forza 4–6 → deload 13",
-      "motivo": "Alza i kg con fondamentali da forza (panca piana, squat mp, lat neutra, trap bar) — angoli diversi dal Blocco 1",
-      "deload": true
+      "obiettivo": "Rotazione ~30% esercizi · sett. 1–2 RIR 3–2 · 3–6 tensione 6–8 · 7–12 forza 4–6 · 13 deload −40%",
+      "motivo": "Fondamentali da forza (panca piana, squat mp, trazioni) + parametri Project Invictus — angoli diversi dal Blocco 1",
+      "deload": true,
+      "fonte": "admin/data/blocco-2-fase2.json"
     },
     {
       "successione": 3,
       "ciclo": "ipertrofia-classica-ii",
       "nome": "Fase 3 · Ipertrofia II",
       "durata": "13 settimane",
-      "obiettivo": "Terzo schema (~30% esercizi): secondo accumulo + saturazione volume sett. 9–12 → deload 13",
-      "motivo": "Riconverti la forza in massa con inclinata bb, pressa, hip thrust, affondi Doktor — terzo set di angoli dell'anno",
-      "deload": true
+      "obiettivo": "Terzo schema ~30% · accumulo 8–12 rep · sett. 9 scarico −25% · 10–12 +1 serie * · 13 deload",
+      "motivo": "Inclinata bb, pressa, hip thrust, affondi — Project Invictus: periodizzazione ondulata e deload obbligatorio",
+      "deload": true,
+      "fonte": "admin/data/blocco-3-fase3.json"
     },
     {
       "successione": 4,
       "ciclo": "ricondizionamento",
       "nome": "Fase 4 · Ricondizionamento",
       "durata": "13 settimane",
-      "obiettivo": "Quarto schema estivo: macchine guidate, 10–12 rep, RIR 2–3 → deload leggero sett. 13",
-      "motivo": "Mantenimento con chest press, affondi camminati, plank — arrivi fresco al macrociclo successivo",
-      "deload": true
+      "obiettivo": "Quarto schema estivo · 10–12 rep · RIR 2–3 · volume ridotto · sett. 13 transizione leggera",
+      "motivo": "Chest press, affondi, plank — mantieni frequenza senza peaking (Project Invictus)",
+      "deload": true,
+      "fonte": "admin/data/blocco-4-fase4.json"
     }
   ],
   "eserciziBase": {
