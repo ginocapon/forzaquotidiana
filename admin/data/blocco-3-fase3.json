@@ -10,7 +10,7 @@
   "durataSeduta": "85-95 minuti",
   "guida": "Dopo Fase 2 (carichi alti), riabbassa l’intensità relativa e torna al classico 8 rep sui fondamentali * (Project Invictus: convertire forza in massa). Terzo schema: inclinata bb, pressa, hip thrust. Accumulo volume sett. 10–12 (+1 serie sui *). Deload sett. 13.",
   "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
-  "rotazioneDaFase1": null,
+  "rotazioneDaFase1": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, B2",
   "periodizzazione": [
     {
       "fase": "Reintroduzione",
@@ -108,7 +108,7 @@
     "glutei": 11,
     "polpacci": 16,
     "bicipitiDiretti": 7,
-    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+    "note": "Volume PI invariato vs Fase 1. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 3 — ipertrofia II + rotazione",
@@ -171,32 +171,37 @@
       ]
     },
     "regoleRirECedimento": {
-      "principio": "Il RIR stampato sulla scheda è il target nelle settimane 6–8. NON significa cedimento su tutte le serie: nella maggior parte del blocco lavori con 1–3 rep di riserva. Il cedimento tecnico è eccezione, non regola.",
+      "principio": "Rientro 8 rep sui * post-forza (PI ipertrofia). RIR 2 sett. 1–5, RIR 1 sett. 6–8 e 10–12. Cedimento solo su isolamento, mai sui * salvo ultima serie sett. 10–12.",
       "fondamentali": [
-        "Esercizi con * : Panca inclinata A1, Pressa B1, Lento avanti A2, Trap Bar B2",
+        "Esercizi con * : Panca inclinata bb A1, Pressa B1, Lento avanti A2, Rematore/Trazioni A2, Hip thrust B2",
         "Settimane 1–8: nessuna serie a cedimento sui fondamentali",
-        "Settimane 10–12: solo l’ultima serie di ogni fondamentale può andare a RIR 0–1",
-        "Settimana 13: RIR 4–5, mai cedimento"
+        "Settimane 10–12: +1 serie sui * · ultima serie opz. RIR 0–1",
+        "Settimana 13: deload −40% · RIR 4–5"
       ],
       "isolamento": [
-        "Alzate, croci, leg extension, leg curl, curl: ultime serie più vicine al cedimento tecnico",
-        "Leg Extension B1: RIR 0–1 solo ultimo set (anche in sett. 6–8)",
-        "Polpacci e Halo: RIR 1, stop prima del cedimento tranne drop set polpacci B1"
+        "Leg extension B1: cedimento tecnico ultime 2 serie (sett. 6–8)",
+        "Croci, alzate, leg curl, curl Scott: ultima serie vicina al cedimento se forma OK",
+        "Polpacci drop B1: drop set invariato · Halo: finisher, RIR 1"
       ],
       "tabellaCedimento": [
         {
-          "periodo": "Sett. 1–8",
-          "fondamentali": "Mai cedimento",
-          "isolamento": "Ultima serie vicina al cedimento tecnico (se forma OK)"
+          "periodo": "Sett. 1–5",
+          "fondamentali": "RIR 2 · 8 rep sui *",
+          "isolamento": "RIR 2, niente cedimento sui *"
+        },
+        {
+          "periodo": "Sett. 6–8",
+          "fondamentali": "RIR 1 · progressione kg",
+          "isolamento": "Cedimento tecnico isolamento OK"
         },
         {
           "periodo": "Sett. 9",
-          "fondamentali": "Mai cedimento (scarico)",
+          "fondamentali": "Scarico −25% serie",
           "isolamento": "RIR 2, niente cedimento"
         },
         {
           "periodo": "Sett. 10–12",
-          "fondamentali": "Solo ultima serie * a RIR 0–1",
+          "fondamentali": "+1 serie sui * · ultima opz. RIR 0–1",
           "isolamento": "Ultima serie a cedimento tecnico"
         },
         {
@@ -248,22 +253,22 @@
       {
         "gruppo": "Petto",
         "serie": 7,
-        "note": "Tutto in A1 (panca inclinata + croci)"
+        "note": "A1 inclinata bb + croci"
       },
       {
         "gruppo": "Schiena",
         "serie": 14,
-        "note": "A1 lat+rematore · A2 lat+rematore/trazioni"
+        "note": "A1 lat larga + pulley · A2 rematore/trazioni * + lat neutra"
       },
       {
         "gruppo": "Spalle anteriori",
         "serie": 12,
-        "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto"
+        "note": "6 lento (A1 manubri + A2 bb *) + overlap pressing"
       },
       {
         "gruppo": "Spalle laterali",
         "serie": 6,
-        "note": "A1 alzate 3 · A2 alzate 3"
+        "note": "A1 + A2 alzate manubri"
       },
       {
         "gruppo": "Deltoide posteriore",
@@ -272,33 +277,28 @@
       },
       {
         "gruppo": "Quadricipiti",
-        "serie": 12,
-        "note": "B1 pressa+extension 8 · B2 squat 4"
-      },
-      {
-        "gruppo": "Adduttori",
-        "serie": 4,
-        "note": "B1 adduttori · macchina Doktor PRIMO"
+        "serie": 16,
+        "note": "B1 pressa * + extension · B2 affondi Doktor"
       },
       {
         "gruppo": "Femorali",
         "serie": 16,
-        "note": "B1 rumeno+leg curl · B2 leg curl+trap bar"
+        "note": "B1 RDL + leg curl · B2 leg curl + RDL"
       },
       {
         "gruppo": "Glutei",
         "serie": 11,
-        "note": "B2 squat 4 + hip thrust 3 (+ overlap adduttori B1)"
+        "note": "B2 hip thrust * + overlap adduttori/affondi"
       },
       {
         "gruppo": "Polpacci",
         "serie": 16,
-        "note": "4 serie per sessione (standing, drop, seduto, multipower)"
+        "note": "4 serie per sessione"
       },
       {
         "gruppo": "Bicipiti diretti",
         "serie": 7,
-        "note": "B1 curl Scott 4 · B2 curl martello 3"
+        "note": "B1 Scott · B2 martello"
       }
     ],
     "volumePerSeduta": [
@@ -405,17 +405,17 @@
           "note": "Stretch pettorale — rientra per pump e connessione mente-muscolo"
         },
         {
-          "nome": "Lento avanti con bilanciere",
+          "nome": "Lento avanti con manubri seduto",
           "gruppo": "Spalle",
           "serie": 3,
           "ripetizioni": "8-10",
           "tempo": "3-1-X-1",
           "recupero": "90 sec",
-          "progressione": "Deltoide anteriore",
+          "progressione": "Deltoide anteriore — manubri seduto in A1",
           "rir": "1-2",
           "figura": "fig-lento",
           "progressionePrincipale": false,
-          "note": "Deltoide anteriore"
+          "note": "Deltoide anteriore — manubri seduto in A1 · lento bb resta * in A2"
         },
         {
           "nome": "Alzate laterali con manubri",
@@ -554,14 +554,14 @@
           "nome": "Pressa a 45°",
           "gruppo": "Quadricipiti",
           "serie": 4,
-          "ripetizioni": "10",
+          "ripetizioni": "8",
           "tempo": "3-1-X-1",
           "recupero": "120 sec",
           "progressione": "Progressione principale *",
           "rir": "1-2",
           "figura": "fig-pressa",
           "progressionePrincipale": true,
-          "note": "Esercizio principale gambe accosciata — rientra pressa dopo squat-forza Fase 2 · Sett. 9–12: +1 serie · Sett. 13: deload"
+          "note": "Esercizio principale gambe accosciata — 8 rep PI post-forza · Sett. 10–12: +1 serie · Sett. 13: deload"
         },
         {
           "nome": "Leg extension",

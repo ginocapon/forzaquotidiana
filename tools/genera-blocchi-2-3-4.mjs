@@ -44,6 +44,11 @@ const FIGURA_BY_KEY = {
   martello: "fig-curl-mart",
   halo: "fig-halo",
   reverse: "fig-reverse-pec",
+  "pec deck": "fig-chest",
+  "face pull": "fig-reverse-pec",
+  "pull-through": "fig-hip",
+  pushdown: "fig-pushdown",
+  tricip: "fig-pushdown",
   affond: "fig-lunge",
   plank: "fig-plank",
 };
@@ -172,6 +177,53 @@ const META = {
         { settimane: "13", intensita: "RIR 4-5", volume: "−40%", nota: "Deload" },
       ],
     },
+    valutazioneProgramma: {
+      petto: 7,
+      schiena: 14,
+      spalleAnteriori: 12,
+      spalleLaterali: 6,
+      deltoidePosteriore: 3,
+      quadricipiti: 16,
+      femorali: 16,
+      glutei: 11,
+      polpacci: 16,
+      bicipitiDiretti: 7,
+      note: "Volume PI invariato vs Fase 1. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *.",
+    },
+    regoleRirECedimento: {
+      principio:
+        "Rientro 8 rep sui * post-forza (PI ipertrofia). RIR 2 sett. 1–5, RIR 1 sett. 6–8 e 10–12. Cedimento solo su isolamento, mai sui * salvo ultima serie sett. 10–12.",
+      fondamentali: [
+        "Esercizi con * : Panca inclinata bb A1, Pressa B1, Lento avanti A2, Rematore/Trazioni A2, Hip thrust B2",
+        "Settimane 1–8: nessuna serie a cedimento sui fondamentali",
+        "Settimane 10–12: +1 serie sui * · ultima serie opz. RIR 0–1",
+        "Settimana 13: deload −40% · RIR 4–5",
+      ],
+      isolamento: [
+        "Leg extension B1: cedimento tecnico ultime 2 serie (sett. 6–8)",
+        "Croci, alzate, leg curl, curl Scott: ultima serie vicina al cedimento se forma OK",
+        "Polpacci drop B1: drop set invariato · Halo: finisher, RIR 1",
+      ],
+      tabellaCedimento: [
+        { periodo: "Sett. 1–5", fondamentali: "RIR 2 · 8 rep sui *", isolamento: "RIR 2, niente cedimento sui *" },
+        { periodo: "Sett. 6–8", fondamentali: "RIR 1 · progressione kg", isolamento: "Cedimento tecnico isolamento OK" },
+        { periodo: "Sett. 9", fondamentali: "Scarico −25% serie", isolamento: "RIR 2, niente cedimento" },
+        { periodo: "Sett. 10–12", fondamentali: "+1 serie sui * · ultima opz. RIR 0–1", isolamento: "Ultima serie a cedimento tecnico" },
+        { periodo: "Sett. 13", fondamentali: "RIR 4–5", isolamento: "RIR 4–5, zero cedimento" },
+      ],
+    },
+    volumeSettimanaleFinale: [
+      { gruppo: "Petto", serie: 7, note: "A1 inclinata bb + croci" },
+      { gruppo: "Schiena", serie: 14, note: "A1 lat larga + pulley · A2 rematore/trazioni * + lat neutra" },
+      { gruppo: "Spalle anteriori", serie: 12, note: "6 lento (A1 manubri + A2 bb *) + overlap pressing" },
+      { gruppo: "Spalle laterali", serie: 6, note: "A1 + A2 alzate manubri" },
+      { gruppo: "Deltoide posteriore", serie: 3, note: "A2 reverse pec deck" },
+      { gruppo: "Quadricipiti", serie: 16, note: "B1 pressa * + extension · B2 affondi Doktor" },
+      { gruppo: "Femorali", serie: 16, note: "B1 RDL + leg curl · B2 leg curl + RDL" },
+      { gruppo: "Glutei", serie: 11, note: "B2 hip thrust * + overlap adduttori/affondi" },
+      { gruppo: "Polpacci", serie: 16, note: "4 serie per sessione" },
+      { gruppo: "Bicipiti diretti", serie: 7, note: "B1 Scott · B2 martello" },
+    ],
   },
   ricondizionamento: {
     file: "blocco-4-fase4.json",
@@ -200,6 +252,52 @@ const META = {
         { settimane: "13", intensita: "RIR 3", volume: "−20% opz.", nota: "Transizione" },
       ],
     },
+    valutazioneProgramma: {
+      petto: 6,
+      schiena: 14,
+      spalleAnteriori: 8,
+      spalleLaterali: 4,
+      deltoidePosteriore: 5,
+      quadricipiti: 11,
+      femorali: 9,
+      glutei: 6,
+      polpacci: 14,
+      bicipitiDiretti: 3,
+      tricipiti: 3,
+      note: "Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking.",
+    },
+    regoleRirECedimento: {
+      principio:
+        "Blocco estivo: RIR 2–3 costante, frequenza > intensità. Zero cedimento sui fondamentali · niente progressione kg obbligatoria.",
+      fondamentali: [
+        "Esercizi con * : Chest press A1, Pressa B1, Rematore bb A2, Squat multipower B2",
+        "Settimane 1–12: RIR 2–3 · mai cedimento · carichi moderati",
+        "Settimana 13: transizione leggera · RIR 3 · −20% volume opzionale",
+      ],
+      isolamento: [
+        "Pec deck, alzate, leg curl: RIR 2–3 · stop 2 rep prima del cedimento",
+        "Polpacci: serie lineari (no drop set) · Halo leggero come finisher",
+        "Plank B2: mantenimento core al posto di hinge pesante",
+      ],
+      tabellaCedimento: [
+        { periodo: "Sett. 1–8", fondamentali: "RIR 2–3 · mantieni kg", isolamento: "Mai cedimento" },
+        { periodo: "Sett. 9–12", fondamentali: "RIR 2–3 · zero peaking", isolamento: "Opz. −1 serie se caldo/fatica" },
+        { periodo: "Sett. 13", fondamentali: "RIR 3 · transizione", isolamento: "Volume ridotto opz." },
+      ],
+    },
+    volumeSettimanaleFinale: [
+      { gruppo: "Petto", serie: 6, note: "A1 chest press * + pec deck" },
+      { gruppo: "Schiena", serie: 14, note: "A1 trazioni + face pull · A2 rematore * + lat larga" },
+      { gruppo: "Spalle anteriori", serie: 8, note: "A1 lento manubri seduto + overlap chest press" },
+      { gruppo: "Spalle laterali", serie: 4, note: "A1 manubri · A2 cavi" },
+      { gruppo: "Deltoide posteriore", serie: 5, note: "A1 face pull · A2 alzate posteriori" },
+      { gruppo: "Quadricipiti", serie: 11, note: "B1 pressa * + extension · B2 squat *" },
+      { gruppo: "Femorali", serie: 9, note: "B1 + B2 leg curl" },
+      { gruppo: "Glutei", serie: 6, note: "B1 pull-through · B2 affondi camminati" },
+      { gruppo: "Polpacci", serie: 14, note: "Serie ridotte vs Fase 3 · no drop set" },
+      { gruppo: "Bicipiti diretti", serie: 3, note: "B1 curl EZ" },
+      { gruppo: "Tricipiti", serie: 3, note: "B2 pushdown cavi" },
+    ],
   },
 };
 
@@ -307,14 +405,25 @@ for (const faseSrc of fasiSrc.fasi) {
     durataSeduta: meta.durataSeduta,
     guida: faseSrc.guida,
     schedaIntro: faseSrc.schedaIntro,
-    rotazioneDaFase1: faseSrc.rotazioneDaFase1 || faseSrc.rotazione || null,
+    rotazioneDaFase1:
+      faseSrc.rotazioneDaFase1 ||
+      faseSrc.rotazioneDaFase2 ||
+      faseSrc.rotazioneDaFase3 ||
+      faseSrc.rotazione ||
+      null,
     periodizzazione: meta.periodizzazione,
     recuperi: template.recuperi,
     regoleBlocco: meta.regoleBlocco,
-    valutazioneProgramma: template.valutazioneProgramma,
+    valutazioneProgramma: meta.valutazioneProgramma || template.valutazioneProgramma,
     guidaOperativa: {
       ...clone(template.guidaOperativa),
       ...meta.guidaOperativa,
+      ...(meta.regoleRirECedimento && {
+        regoleRirECedimento: meta.regoleRirECedimento,
+      }),
+      ...(meta.volumeSettimanaleFinale && {
+        volumeSettimanaleFinale: meta.volumeSettimanaleFinale,
+      }),
     },
     sessioni: sessionsFromFase(faseSrc),
   };

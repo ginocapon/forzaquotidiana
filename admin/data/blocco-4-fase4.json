@@ -10,7 +10,7 @@
   "durataSeduta": "70-80 minuti",
   "guida": "Estate e viaggi: priorità a movimenti sicuri, tecnica e frequenza senza spingere il SNC. Quarto set di esercizi dell’anno — non è un blocco di crescita. Deload sett. 13 (−30% volume) per ripartire freschi a settembre.",
   "schedaIntro": "4 allenamenti/settimana. Schema estivo semplificato — macchine e carichi moderati. Nessuna corsa ai PR. Sett. 13: deload leggero.",
-  "rotazioneDaFase1": null,
+  "rotazioneDaFase1": "~25% esercizi sostituiti · focus macchine guidate e volume ridotto",
   "periodizzazione": [
     {
       "fase": "Mantenimento",
@@ -76,17 +76,18 @@
     ]
   },
   "valutazioneProgramma": {
-    "petto": 7,
+    "petto": 6,
     "schiena": 14,
-    "spalleAnteriori": 12,
-    "spalleLaterali": 6,
-    "deltoidePosteriore": 3,
-    "quadricipiti": 16,
-    "femorali": 16,
-    "glutei": 11,
-    "polpacci": 16,
-    "bicipitiDiretti": 7,
-    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+    "spalleAnteriori": 8,
+    "spalleLaterali": 4,
+    "deltoidePosteriore": 5,
+    "quadricipiti": 11,
+    "femorali": 9,
+    "glutei": 6,
+    "polpacci": 14,
+    "bicipitiDiretti": 3,
+    "tricipiti": 3,
+    "note": "Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 4 — ricondizionamento estivo",
@@ -149,38 +150,32 @@
       ]
     },
     "regoleRirECedimento": {
-      "principio": "Il RIR stampato sulla scheda è il target nelle settimane 6–8. NON significa cedimento su tutte le serie: nella maggior parte del blocco lavori con 1–3 rep di riserva. Il cedimento tecnico è eccezione, non regola.",
+      "principio": "Blocco estivo: RIR 2–3 costante, frequenza > intensità. Zero cedimento sui fondamentali · niente progressione kg obbligatoria.",
       "fondamentali": [
-        "Esercizi con * : Panca inclinata A1, Pressa B1, Lento avanti A2, Trap Bar B2",
-        "Settimane 1–8: nessuna serie a cedimento sui fondamentali",
-        "Settimane 10–12: solo l’ultima serie di ogni fondamentale può andare a RIR 0–1",
-        "Settimana 13: RIR 4–5, mai cedimento"
+        "Esercizi con * : Chest press A1, Pressa B1, Rematore bb A2, Squat multipower B2",
+        "Settimane 1–12: RIR 2–3 · mai cedimento · carichi moderati",
+        "Settimana 13: transizione leggera · RIR 3 · −20% volume opzionale"
       ],
       "isolamento": [
-        "Alzate, croci, leg extension, leg curl, curl: ultime serie più vicine al cedimento tecnico",
-        "Leg Extension B1: RIR 0–1 solo ultimo set (anche in sett. 6–8)",
-        "Polpacci e Halo: RIR 1, stop prima del cedimento tranne drop set polpacci B1"
+        "Pec deck, alzate, leg curl: RIR 2–3 · stop 2 rep prima del cedimento",
+        "Polpacci: serie lineari (no drop set) · Halo leggero come finisher",
+        "Plank B2: mantenimento core al posto di hinge pesante"
       ],
       "tabellaCedimento": [
         {
           "periodo": "Sett. 1–8",
-          "fondamentali": "Mai cedimento",
-          "isolamento": "Ultima serie vicina al cedimento tecnico (se forma OK)"
+          "fondamentali": "RIR 2–3 · mantieni kg",
+          "isolamento": "Mai cedimento"
         },
         {
-          "periodo": "Sett. 9",
-          "fondamentali": "Mai cedimento (scarico)",
-          "isolamento": "RIR 2, niente cedimento"
-        },
-        {
-          "periodo": "Sett. 10–12",
-          "fondamentali": "Solo ultima serie * a RIR 0–1",
-          "isolamento": "Ultima serie a cedimento tecnico"
+          "periodo": "Sett. 9–12",
+          "fondamentali": "RIR 2–3 · zero peaking",
+          "isolamento": "Opz. −1 serie se caldo/fatica"
         },
         {
           "periodo": "Sett. 13",
-          "fondamentali": "RIR 4–5",
-          "isolamento": "RIR 4–5, zero cedimento"
+          "fondamentali": "RIR 3 · transizione",
+          "isolamento": "Volume ridotto opz."
         }
       ]
     },
@@ -207,58 +202,58 @@
     "volumeSettimanaleFinale": [
       {
         "gruppo": "Petto",
-        "serie": 7,
-        "note": "Tutto in A1 (panca inclinata + croci)"
+        "serie": 6,
+        "note": "A1 chest press * + pec deck"
       },
       {
         "gruppo": "Schiena",
         "serie": 14,
-        "note": "A1 lat+rematore · A2 lat+rematore/trazioni"
+        "note": "A1 trazioni + face pull · A2 rematore * + lat larga"
       },
       {
         "gruppo": "Spalle anteriori",
-        "serie": 12,
-        "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto"
+        "serie": 8,
+        "note": "A1 lento manubri seduto + overlap chest press"
       },
       {
         "gruppo": "Spalle laterali",
-        "serie": 6,
-        "note": "A1 alzate 3 · A2 alzate 3"
+        "serie": 4,
+        "note": "A1 manubri · A2 cavi"
       },
       {
         "gruppo": "Deltoide posteriore",
-        "serie": 3,
-        "note": "A2 reverse pec deck"
+        "serie": 5,
+        "note": "A1 face pull · A2 alzate posteriori"
       },
       {
         "gruppo": "Quadricipiti",
-        "serie": 12,
-        "note": "B1 pressa+extension 8 · B2 squat 4"
-      },
-      {
-        "gruppo": "Adduttori",
-        "serie": 4,
-        "note": "B1 adduttori · macchina Doktor PRIMO"
+        "serie": 11,
+        "note": "B1 pressa * + extension · B2 squat *"
       },
       {
         "gruppo": "Femorali",
-        "serie": 16,
-        "note": "B1 rumeno+leg curl · B2 leg curl+trap bar"
+        "serie": 9,
+        "note": "B1 + B2 leg curl"
       },
       {
         "gruppo": "Glutei",
-        "serie": 11,
-        "note": "B2 squat 4 + hip thrust 3 (+ overlap adduttori B1)"
+        "serie": 6,
+        "note": "B1 pull-through · B2 affondi camminati"
       },
       {
         "gruppo": "Polpacci",
-        "serie": 16,
-        "note": "4 serie per sessione (standing, drop, seduto, multipower)"
+        "serie": 14,
+        "note": "Serie ridotte vs Fase 3 · no drop set"
       },
       {
         "gruppo": "Bicipiti diretti",
-        "serie": 7,
-        "note": "B1 curl Scott 4 · B2 curl martello 3"
+        "serie": 3,
+        "note": "B1 curl EZ"
+      },
+      {
+        "gruppo": "Tricipiti",
+        "serie": 3,
+        "note": "B2 pushdown cavi"
       }
     ],
     "volumePerSeduta": [
@@ -352,17 +347,17 @@
           "note": "Esercizio principale petto — macchina guidata, zero pressione articolare · mantenimento estivo"
         },
         {
-          "nome": "Croci ai cavi",
+          "nome": "Pec deck",
           "gruppo": "Petto",
           "serie": 2,
           "ripetizioni": "12-15",
-          "tempo": "2-1-3-1",
+          "tempo": "3-1-X-1",
           "recupero": "90 sec",
-          "progressione": "Pump leggero pettorale",
+          "progressione": "Isolamento petto guidato — sostituisce croci Fase 3",
           "rir": "2-3",
-          "figura": "fig-croci",
+          "figura": "fig-chest",
           "progressionePrincipale": false,
-          "note": "Pump leggero pettorale"
+          "note": "Isolamento petto guidato — sostituisce croci Fase 3 · pump leggero estivo"
         },
         {
           "nome": "Lento avanti con manubri seduto",
@@ -391,30 +386,30 @@
           "note": "Deltoide medio"
         },
         {
-          "nome": "Lat machine presa neutra",
+          "nome": "Trazioni a presa larga",
           "gruppo": "Schiena",
           "serie": 4,
           "ripetizioni": "10-12",
           "tempo": "3-1-X-1",
           "recupero": "120 sec",
-          "progressione": "Trazione verticale — ROM completo, niente cedimento",
+          "progressione": "Trazione verticale — rientra da Fase 2",
           "rir": "2-3",
-          "figura": "fig-lat",
+          "figura": "fig-pullup",
           "progressionePrincipale": false,
-          "note": "Trazione verticale — ROM completo, niente cedimento"
+          "note": "Trazione verticale — rientra da Fase 2 · assistite se serve, ROM completo"
         },
         {
-          "nome": "Pulley basso",
+          "nome": "Face pull ai cavi",
           "gruppo": "Schiena",
           "serie": 3,
-          "ripetizioni": "10-12",
+          "ripetizioni": "12-15",
           "tempo": "3-1-X-1",
-          "recupero": "120 sec",
-          "progressione": "Trazione orizzontale",
+          "recupero": "90 sec",
+          "progressione": "Deltoide posteriore e rotatori — sostituisce pulley basso Fase 3",
           "rir": "2-3",
-          "figura": "fig-generic",
+          "figura": "fig-reverse-pec",
           "progressionePrincipale": false,
-          "note": "Trazione orizzontale"
+          "note": "Deltoide posteriore e rotatori — sostituisce pulley basso Fase 3"
         },
         {
           "nome": "Polpacci in piedi (multipower)",
@@ -550,17 +545,17 @@
           "note": "Adduttori — squeeze moderato"
         },
         {
-          "nome": "Stacco rumeno con manubri",
-          "gruppo": "Femorali",
+          "nome": "Cable pull-through",
+          "gruppo": "Glutei",
           "serie": 3,
-          "ripetizioni": "10-12",
+          "ripetizioni": "12-15",
           "tempo": "3-1-X-1",
-          "recupero": "120 sec",
-          "progressione": "Catena posteriore leggera",
+          "recupero": "90 sec",
+          "progressione": "Hinge leggero cavi — sostituisce RDL manubri Fase 3",
           "rir": "2-3",
-          "figura": "fig-rdl",
+          "figura": "fig-hip",
           "progressionePrincipale": false,
-          "note": "Catena posteriore leggera"
+          "note": "Hinge leggero cavi — sostituisce RDL manubri Fase 3 · zero fatica SNC"
         },
         {
           "nome": "Curl bilanciere EZ",
@@ -662,7 +657,7 @@
       ],
       "esercizi": [
         {
-          "nome": "Lat machine presa larga",
+          "nome": "Rematore con bilanciere",
           "gruppo": "Schiena",
           "serie": 4,
           "ripetizioni": "10-12",
@@ -670,22 +665,22 @@
           "recupero": "120 sec",
           "progressione": "Progressione principale *",
           "rir": "2-3",
-          "figura": "fig-lat",
+          "figura": "fig-rematore",
           "progressionePrincipale": true,
-          "note": "Esercizio principale schiena — mantenimento, connessione mente-muscolo"
+          "note": "Esercizio principale schiena — carico moderato, connessione mente-muscolo"
         },
         {
-          "nome": "Rematore con bilanciere",
+          "nome": "Lat machine presa larga",
           "gruppo": "Schiena",
           "serie": 3,
           "ripetizioni": "10-12",
           "tempo": "3-1-X-1",
           "recupero": "120 sec",
-          "progressione": "Trazione orizzontale — carico moderato",
+          "progressione": "Trazione verticale complementare — angolo diverso dal rematore",
           "rir": "2-3",
-          "figura": "fig-rematore",
+          "figura": "fig-lat",
           "progressionePrincipale": false,
-          "note": "Trazione orizzontale — carico moderato"
+          "note": "Trazione verticale complementare — angolo diverso dal rematore"
         },
         {
           "nome": "Alzate laterali ai cavi",
@@ -701,17 +696,17 @@
           "note": "Deltoide medio"
         },
         {
-          "nome": "Reverse Pec Deck",
+          "nome": "Alzate posteriori manubri inclinato",
           "gruppo": "Spalle",
           "serie": 2,
           "ripetizioni": "12-15",
-          "tempo": "3-1-X-1",
+          "tempo": "2-1-3-1",
           "recupero": "60 sec",
-          "progressione": "Deltoide posteriore",
+          "progressione": "Deltoide posteriore — sostituisce reverse pec deck Fase 3",
           "rir": "2-3",
-          "figura": "fig-reverse-pec",
+          "figura": "fig-alzate",
           "progressionePrincipale": false,
-          "note": "Deltoide posteriore"
+          "note": "Deltoide posteriore — sostituisce reverse pec deck Fase 3"
         },
         {
           "nome": "Polpacci seduto",
@@ -900,17 +895,17 @@
           "note": "Core — sostituisce lavoro pesante hinge · mantenimento postura"
         },
         {
-          "nome": "Curl martello con manubri",
-          "gruppo": "Bicipiti",
+          "nome": "Pushdown tricipiti ai cavi",
+          "gruppo": "Tricipiti",
           "serie": 3,
           "ripetizioni": "10-12",
-          "tempo": "2-1-2-1",
+          "tempo": "3-1-X-1",
           "recupero": "60 sec",
-          "progressione": "Brachioradiale",
+          "progressione": "Tricipiti — sostituisce curl martello Fase 3",
           "rir": "2-3",
-          "figura": "fig-legcurl",
+          "figura": "fig-pushdown",
           "progressionePrincipale": false,
-          "note": "Brachioradiale"
+          "note": "Tricipiti — sostituisce curl martello Fase 3 · braccia bilanciate in estate"
         }
       ],
       "focusTecnico": {

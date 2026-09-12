@@ -367,7 +367,7 @@
               "note": "Stretch pettorale — rientra per pump e connessione mente-muscolo"
             },
             {
-              "nome": "Lento avanti con bilanciere",
+              "nome": "Lento avanti con manubri seduto",
               "gruppo": "Spalle",
               "serie": 3,
               "ripetizioni": "8-10",
@@ -375,7 +375,7 @@
               "recupero": "90 sec",
               "rir": "1-2",
               "progressione": false,
-              "note": "Deltoide anteriore"
+              "note": "Deltoide anteriore — manubri seduto in A1 · lento bb resta * in A2"
             },
             {
               "nome": "Alzate laterali con manubri",
@@ -441,12 +441,12 @@
               "nome": "Pressa a 45°",
               "gruppo": "Quadricipiti",
               "serie": 4,
-              "ripetizioni": "10",
+              "ripetizioni": "8",
               "peso": "—",
               "recupero": "120 sec",
               "rir": "1-2",
               "progressione": true,
-              "note": "Esercizio principale gambe accosciata — rientra pressa dopo squat-forza Fase 2 · Sett. 9–12: +1 serie · Sett. 13: deload"
+              "note": "Esercizio principale gambe accosciata — 8 rep PI post-forza · Sett. 10–12: +1 serie · Sett. 13: deload"
             },
             {
               "nome": "Leg extension",
@@ -689,7 +689,7 @@
               "note": "Esercizio principale petto — macchina guidata, zero pressione articolare · mantenimento estivo"
             },
             {
-              "nome": "Croci ai cavi",
+              "nome": "Pec deck",
               "gruppo": "Petto",
               "serie": 2,
               "ripetizioni": "12-15",
@@ -697,7 +697,7 @@
               "recupero": "90 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Pump leggero pettorale"
+              "note": "Isolamento petto guidato — sostituisce croci Fase 3 · pump leggero estivo"
             },
             {
               "nome": "Lento avanti con manubri seduto",
@@ -722,7 +722,7 @@
               "note": "Deltoide medio"
             },
             {
-              "nome": "Lat machine presa neutra",
+              "nome": "Trazioni a presa larga",
               "gruppo": "Schiena",
               "serie": 4,
               "ripetizioni": "10-12",
@@ -730,18 +730,18 @@
               "recupero": "120 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Trazione verticale — ROM completo, niente cedimento"
+              "note": "Trazione verticale — rientra da Fase 2 · assistite se serve, ROM completo"
             },
             {
-              "nome": "Pulley basso",
+              "nome": "Face pull ai cavi",
               "gruppo": "Schiena",
               "serie": 3,
-              "ripetizioni": "10-12",
+              "ripetizioni": "12-15",
               "peso": "—",
-              "recupero": "120 sec",
+              "recupero": "90 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Trazione orizzontale"
+              "note": "Deltoide posteriore e rotatori — sostituisce pulley basso Fase 3"
             },
             {
               "nome": "Polpacci in piedi (multipower)",
@@ -804,15 +804,15 @@
               "note": "Adduttori — squeeze moderato"
             },
             {
-              "nome": "Stacco rumeno con manubri",
-              "gruppo": "Femorali",
+              "nome": "Cable pull-through",
+              "gruppo": "Glutei",
               "serie": 3,
-              "ripetizioni": "10-12",
+              "ripetizioni": "12-15",
               "peso": "—",
-              "recupero": "120 sec",
+              "recupero": "90 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Catena posteriore leggera"
+              "note": "Hinge leggero cavi — sostituisce RDL manubri Fase 3 · zero fatica SNC"
             },
             {
               "nome": "Curl bilanciere EZ",
@@ -842,7 +842,7 @@
           "nome": "A2 · Schiena · Spalle · Polpacci",
           "esercizi": [
             {
-              "nome": "Lat machine presa larga",
+              "nome": "Rematore con bilanciere",
               "gruppo": "Schiena",
               "serie": 4,
               "ripetizioni": "10-12",
@@ -850,10 +850,10 @@
               "recupero": "120 sec",
               "rir": "2-3",
               "progressione": true,
-              "note": "Esercizio principale schiena — mantenimento, connessione mente-muscolo"
+              "note": "Esercizio principale schiena — carico moderato, connessione mente-muscolo"
             },
             {
-              "nome": "Rematore con bilanciere",
+              "nome": "Lat machine presa larga",
               "gruppo": "Schiena",
               "serie": 3,
               "ripetizioni": "10-12",
@@ -861,7 +861,7 @@
               "recupero": "120 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Trazione orizzontale — carico moderato"
+              "note": "Trazione verticale complementare — angolo diverso dal rematore"
             },
             {
               "nome": "Alzate laterali ai cavi",
@@ -875,7 +875,7 @@
               "note": "Deltoide medio"
             },
             {
-              "nome": "Reverse Pec Deck",
+              "nome": "Alzate posteriori manubri inclinato",
               "gruppo": "Spalle",
               "serie": 2,
               "ripetizioni": "12-15",
@@ -883,7 +883,7 @@
               "recupero": "60 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Deltoide posteriore"
+              "note": "Deltoide posteriore — sostituisce reverse pec deck Fase 3"
             },
             {
               "nome": "Polpacci seduto",
@@ -969,15 +969,15 @@
               "note": "Core — sostituisce lavoro pesante hinge · mantenimento postura"
             },
             {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
+              "nome": "Pushdown tricipiti ai cavi",
+              "gruppo": "Tricipiti",
               "serie": 3,
               "ripetizioni": "10-12",
               "peso": "—",
               "recupero": "60 sec",
               "rir": "2-3",
               "progressione": false,
-              "note": "Brachioradiale"
+              "note": "Tricipiti — sostituisce curl martello Fase 3 · braccia bilanciate in estate"
             }
           ]
         }
