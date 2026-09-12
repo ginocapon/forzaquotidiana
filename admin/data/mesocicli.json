@@ -26,7 +26,7 @@
       "ciclo": "tensione-forza",
       "nome": "Fase 2 · Tensione + forza",
       "durata": "13 settimane",
-      "obiettivo": "PI forza: carichi alti solo sui * · sett. 1–6 tensione 6–8 → sett. 7–12 forza 4–6 → sett. 13 deload −40%",
+      "obiettivo": "PI forza: sui * 6–8 → 5–6 → 5 → **4 rep** (sett. 11–12 picco) → sett. 13 deload −40%",
       "motivo": "Unico blocco annuale con intensità massima sui * (panca piana, squat mp, lat neutra, trap bar) — Project Invictus: rep ↓ kg ↑; Fase 3 rientra a 8 rep",
       "deload": true,
       "fonte": "admin/data/blocco-2-fase2.json"

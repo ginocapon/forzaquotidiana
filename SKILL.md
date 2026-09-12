@@ -1262,7 +1262,7 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 | # | Fase | Durata | Periodo | Obiettivo | Carico (PI) |
 |---|------|--------|---------|-----------|-------------|
 | 1 | **Ipertrofia accumulo** | **13 sett.** | Set–Nov 2026 | Soft start · accumulo 8–12 rep · deload sett. 13 | Moderato |
-| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | ~30% esercizi nuovi · 6–8 → **4–6 rep sui *** · deload 13 | **Alto sui * (unico blocco)** |
+| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | ~30% esercizi · sui *: 6–8 → 5 → **4 rep** (sett. 11–12) · deload 13 | **Alto sui * (unico blocco)** |
 | 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | ~30% esercizi · **8 rep sui *** · +1 serie sett. 10–12 · deload 13 | Moderato post-forza |
 | 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | Quarto schema estivo · 10–12 rep RIR 2–3 · deload leggero 13 | Mantenimento |
 
@@ -1358,16 +1358,16 @@ Stampa: **A4 verticale**, margini **8 mm**, «Salva come PDF» dal browser. Test
 | Fase | Tipo PI | Rep fondamentali \* | Carico | Allineamento |
 |------|---------|----------------------|--------|--------------|
 | **1 · Accumulo** | Ipertrofia volume | 8–12 | Moderato, RIR 2→1 | ✅ Accumulo volume, deload sett. 13 |
-| **2 · Tensione + forza** | Tensione meccanica → forza | 6–8 (sett. 1–6) → **4–6** (sett. 7–12) | **Progressione kg alta** sui * | ✅ Carichi alti solo qui; accessori restano 6–8 |
+| **2 · Tensione + forza** | Tensione meccanica → forza | 6–8 → 5–6 → 5 → **4 rep** (sett. 11–12 picco PI) | **Progressione kg alta** sui * | ✅ Picco a 4 rep sui *; accessori restano 6–8 |
 | **3 · Ipertrofia II** | Ipertrofia post-forza | **8** sui * (+ 10–12 accessori) | **Moderato** — riuso forza acquisita | ✅ “Tornare all’8” + +1 serie sett. 10–12 (accumulo PI) |
 | **4 · Ricondizionamento** | Mantenimento | 10–12 | Basso-moderato, RIR 2–3 | ✅ Nessun peaking; frequenza > intensità |
 
 **Adattamenti PI per profilo Gino (57 anni, natural, mesocicli 13 sett.):**
 
 - PI usa mesocicli **~4 settimane**; noi **13 settimane** (modello trimestre + deload sett. 13) — coerente con §8.3 Israetel/Helms per intermedio maturo.
-- Picco forza PI esemplificativo: **3×3 @ 90%**. Noi: **4×4–6 @ RIR 1–2** sui 4 fondamentali * — meno estremo, più sostenibile articolarmente.
+- Picco forza PI esemplificativo: **3×3 @ 90%** (4 sett.). Noi (13 sett., 57 anni): **4×4 @ RIR 1–2** sett. 11–12 sui 4 fondamentali * — progressione esplicita 6–8 → 5–6 → 5 → **4 rep**.
 - **Non** replicare 1RM test o volume accessorio da powerlifter (`mesocicli.json` → `forza` è teoria generica, non scheda Gino).
-- Fase 2: solo **panca piana, squat MP (B1), lat neutra (A2), trap bar (B2)** scendono a 4–6 rep; isolamento e polpacci **non** seguono il range forza.
+- Fase 2: solo **panca piana, squat MP (B1), lat neutra (A2), trap bar (B2)** seguono la scala rep fino a **4**; isolamento e polpacci restano 6–8 (o 10–12 per polpacci).
 
 **Se si modifica la Fase 2:** rispettare la sequenza PI **accumulo ipertrofia → blocco carichi alti sui * → rientro 8 rep in Fase 3**. Opzionale (più fedele al picco PI): sett. 9–12 fondamentali * con **meno serie e rep più basse** (es. 4→3 serie mantenendo 4–6 rep) invece di tenere 4 serie fisse per tutto il blocco.
 
