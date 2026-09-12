@@ -26,8 +26,8 @@
       "ciclo": "tensione-forza",
       "nome": "Fase 2 · Tensione + forza",
       "durata": "13 settimane",
-      "obiettivo": "Rotazione ~30% esercizi · sett. 1–2 RIR 3–2 · 3–6 tensione 6–8 · 7–12 forza 4–6 · 13 deload −40%",
-      "motivo": "Fondamentali da forza (panca piana, squat mp, trazioni) + parametri Project Invictus — angoli diversi dal Blocco 1",
+      "obiettivo": "PI forza: carichi alti solo sui * · sett. 1–6 tensione 6–8 → sett. 7–12 forza 4–6 → sett. 13 deload −40%",
+      "motivo": "Unico blocco annuale con intensità massima sui * (panca piana, squat mp, lat neutra, trap bar) — Project Invictus: rep ↓ kg ↑; Fase 3 rientra a 8 rep",
       "deload": true,
       "fonte": "admin/data/blocco-2-fase2.json"
     },
@@ -36,8 +36,8 @@
       "ciclo": "ipertrofia-classica-ii",
       "nome": "Fase 3 · Ipertrofia II",
       "durata": "13 settimane",
-      "obiettivo": "Terzo schema ~30% · accumulo 8–12 rep · sett. 9 scarico −25% · 10–12 +1 serie * · 13 deload",
-      "motivo": "Inclinata bb, pressa, hip thrust, affondi — Project Invictus: periodizzazione ondulata e deload obbligatorio",
+      "obiettivo": "PI ipertrofia post-forza: **8 rep** sui * · carico moderato · sett. 9 scarico −25% · 10–12 +1 serie * · 13 deload",
+      "motivo": "Rientro carico dopo Fase 2 — inclinata bb, pressa, hip thrust — Project Invictus: convertire forza in massa, accumulo volume",
       "deload": true,
       "fonte": "admin/data/blocco-3-fase3.json"
     },

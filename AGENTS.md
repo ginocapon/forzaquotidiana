@@ -25,6 +25,7 @@ Crescita **newsletter** (PDF scheda gratuita) → audience per prodotti futuri. 
 | **Piano settimanale / `"FQ"`** | `SKILL-MEMORIA-PROGRESSI.md` + `SKILL-VENERDI.md` |
 | Venerdì | `SKILL-VENERDI.md` |
 | SEO nuova pagina | `SKILL.md` §8, `scripts/validate-page.js` |
+| **Admin mesocicli / PI forza-ipertrofia** | `SKILL.md` §8 + **§8.12**, `admin/data/fasi-2-3-4.json`, `tools/genera-blocchi-2-3-4.mjs` |
 | UI / hero | `SKILL-LANDING.md`, `SKILL.md` §0.1 |
 | **App Personal trainer (Payload)** | `training-app/DEPLOY.md`, `data/supabase-forza-training.json`, `/personal-trainer/` |
 

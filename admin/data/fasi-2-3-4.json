@@ -1,14 +1,14 @@
 {
-  "_nota": "Fonte rotazione esercizi fasi 2–4. Fase 1 resta in blocco-1-fase1.json (~25–35% esercizi nuovi per fase, split A1–B2 invariato). Rigenera: node tools/genera-macrociclo.mjs",
+  "_nota": "Fonte rotazione esercizi fasi 2–4. Fase 1 resta in blocco-1-fase1.json (~25–35% esercizi nuovi per fase, split A1–B2 invariato). Periodizzazione PI: Fase 2 = unico blocco carichi alti sui * · Fase 3 = rientro 8 rep. Rigenera: node tools/genera-blocchi-2-3-4.mjs && node tools/sync-blocco-macrociclo.mjs --all",
   "fasi": [
     {
       "id": "tensione-forza",
       "nome": "Fase 2 · Tensione + Forza",
       "settimane": 13,
       "rir": "1-2",
-      "obiettivo": "13 settimane: sett. 1–6 tensione (6–8 rep), sett. 7–12 forza (4–6 rep), sett. 13 deload. Nuovo schema A1–B2 (~30% esercizi vs Fase 1): fondamentali più adatti al carico, recuperi lunghi, niente superset.",
-      "guida": "Blocco forza dopo l’accumulo. Rotazione esercizi rispetto al Blocco 1: panca piana al posto dell’inclinata, squat multipower come fondamentale gambe accosciata, trazioni come progressione dorsale in A2. Stessi movimenti per 13 settimane; cambiano rep, RIR e kg. Deload sett. 13 obbligatorio.",
-      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Schema nuovo rispetto al Blocco 1: ~30% esercizi diversi.",
+      "obiettivo": "13 settimane · PI forza: unico blocco annuale con carichi alti sui *. Sett. 1–6 tensione 6–8 rep → sett. 7–12 forza 4–6 rep sui * → sett. 13 deload. ~30% esercizi nuovi vs Fase 1.",
+      "guida": "Blocco forza dopo l’accumulo (Project Invictus: intensità ↑, rep ↓ sui fondamentali). Rotazione vs Blocco 1: panca piana (A1), squat multipower * (B1), lat neutra * (A2), trap bar * (B2). Solo i 4 fondamentali * scendono a 4–6 rep sett. 7–12; accessori restano 6–8. Deload sett. 13 obbligatorio prima di Fase 3 (rientro 8 rep).",
+      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Unico mesociclo dell’anno con progressione kg massima sui * — sett. 7–12: 4–6 rep, RIR 1–2, recuperi 150–180 s. Schema ~30% diverso dal Blocco 1.",
       "rotazioneDaFase1": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, A2",
       "sessioni": {
         "a1": {
@@ -336,9 +336,9 @@
       "nome": "Fase 3 · Ipertrofia II",
       "settimane": 13,
       "rir": "1-2",
-      "obiettivo": "Secondo blocco ipertrofico 13 settimane. Nuovo schema (~30% esercizi vs Fase 2). Carichi +2,5 kg sui fondamentali vs Fase 1. Sett. 9–12 saturazione volume (+1 serie sui multi *). Sett. 13 deload.",
-      "guida": "Riconverti la forza in massa con angoli e stimoli diversi dal Blocco 1 e 2. Terzo schema dell’anno: inclinata bilanciere, pressa, hip thrust in progressione. Stessi esercizi per 13 settimane dentro la fase.",
-      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Schema nuovo vs Fase 2. Gli esercizi con * progredisci sul carico. Sett. 9–12: +1 serie sui fondamentali *.",
+      "obiettivo": "13 settimane · PI ipertrofia post-forza: rientro **8 rep** sui * e carico moderato. ~30% esercizi nuovi vs Fase 2. Sett. 9 scarico −25% · sett. 10–12 +1 serie sui * · sett. 13 deload.",
+      "guida": "Dopo Fase 2 (carichi alti), riabbassa l’intensità relativa e torna al classico 8 rep sui fondamentali * (Project Invictus: convertire forza in massa). Terzo schema: inclinata bb, pressa, hip thrust. Accumulo volume sett. 10–12 (+1 serie sui *). Deload sett. 13.",
+      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
       "rotazioneDaFase2": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, B2",
       "sessioni": {
         "a1": {

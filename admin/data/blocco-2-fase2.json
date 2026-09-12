@@ -8,8 +8,8 @@
   "settimane": 13,
   "frequenza": "4 allenamenti/settimana",
   "durataSeduta": "80-90 minuti",
-  "guida": "Blocco forza dopo l’accumulo. Rotazione esercizi rispetto al Blocco 1: panca piana al posto dell’inclinata, squat multipower come fondamentale gambe accosciata, trazioni come progressione dorsale in A2. Stessi movimenti per 13 settimane; cambiano rep, RIR e kg. Deload sett. 13 obbligatorio.",
-  "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Schema nuovo rispetto al Blocco 1: ~30% esercizi diversi.",
+  "guida": "Blocco forza dopo l’accumulo (Project Invictus: intensità ↑, rep ↓ sui fondamentali). Rotazione vs Blocco 1: panca piana (A1), squat multipower * (B1), lat neutra * (A2), trap bar * (B2). Solo i 4 fondamentali * scendono a 4–6 rep sett. 7–12; accessori restano 6–8. Deload sett. 13 obbligatorio prima di Fase 3 (rientro 8 rep).",
+  "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Unico mesociclo dell’anno con progressione kg massima sui * — sett. 7–12: 4–6 rep, RIR 1–2, recuperi 150–180 s. Schema ~30% diverso dal Blocco 1.",
   "rotazioneDaFase1": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, A2",
   "periodizzazione": [
     {
@@ -79,12 +79,13 @@
       "Recuperi 150–180 s sui fondamentali"
     ],
     "sett10_12": [
-      "RIR 1-2 · forza 4–6 rep",
-      "Ultima serie * a RIR 0–1 se tecnica OK"
+      "RIR 1-2 · forza 4–6 rep sui *",
+      "Ultima serie * a RIR 0–1 se tecnica OK",
+      "Unico blocco annuale con carichi massimi (PI)"
     ],
     "sett13": [
       "Deload −40% · RIR 4-5",
-      "Obbligatorio prima di Fase 3"
+      "Obbligatorio prima di Fase 3 (rientro 8 rep)"
     ]
   },
   "valutazioneProgramma": {
@@ -102,7 +103,7 @@
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 2 — tensione, forza, rotazione",
-    "sintesi": "Schema A1–B2 con ~30% esercizi diversi dal Blocco 1 (panca piana, squat mp, trazioni…). Stessi movimenti per 13 settimane; cambiano rep, RIR e kg. Parametri Project Invictus: deload sett. 13.",
+    "sintesi": "Unico mesociclo annuale con carichi alti sui * (PI forza). Schema ~30% diverso dal Blocco 1: panca piana, squat mp, lat neutra, trap bar. Fondamentali *: 6–8 rep sett. 1–6 → 4–6 rep sett. 7–12. Accessori 6–8. Deload sett. 13.",
     "distribuzioneSettimanale": {
       "schema": "Upper / Lower alternato · 4 giorni + 3 riposi",
       "consigliata": [

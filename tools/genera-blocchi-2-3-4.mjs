@@ -119,13 +119,13 @@ const META = {
       sett1_2: ["RIR 3-2 · 6–8 rep · rotazione esercizi vs Blocco 1", "Trova kg di lavoro post-deload"],
       sett3_6: ["RIR 2 · tensione meccanica 6–8 rep", "Progressione sui *"],
       sett7_10: ["RIR 2 · transizione 5–6 rep poi 4–6 sui *", "Recuperi 150–180 s sui fondamentali"],
-      sett10_12: ["RIR 1-2 · forza 4–6 rep", "Ultima serie * a RIR 0–1 se tecnica OK"],
-      sett13: ["Deload −40% · RIR 4-5", "Obbligatorio prima di Fase 3"],
+      sett10_12: ["RIR 1-2 · forza 4–6 rep sui *", "Ultima serie * a RIR 0–1 se tecnica OK", "Unico blocco annuale con carichi massimi (PI)"],
+      sett13: ["Deload −40% · RIR 4-5", "Obbligatorio prima di Fase 3 (rientro 8 rep)"],
     },
     guidaOperativa: {
       titolo: "Metodo Blocco 2 — tensione, forza, rotazione",
       sintesi:
-        "Schema A1–B2 con ~30% esercizi diversi dal Blocco 1 (panca piana, squat mp, trazioni…). Stessi movimenti per 13 settimane; cambiano rep, RIR e kg. Parametri Project Invictus: deload sett. 13.",
+        "Unico mesociclo annuale con carichi alti sui * (PI forza). Schema ~30% diverso dal Blocco 1: panca piana, squat mp, lat neutra, trap bar. Fondamentali *: 6–8 rep sett. 1–6 → 4–6 rep sett. 7–12. Accessori 6–8. Deload sett. 13.",
       periodizzazioneIntensita: [
         { settimane: "1-2", intensita: "RIR 3-2", volume: "100%", nota: "Adattamento" },
         { settimane: "3-6", intensita: "RIR 2", volume: "100%", nota: "Tensione 6–8" },
@@ -149,7 +149,7 @@ const META = {
       { fase: "Deload", settimane: "13", rir: "4-5", obiettivo: "−40% pre-estate" },
     ],
     regoleBlocco: {
-      sett1_2: ["RIR 2 · 8–10 rep · inclinata bb, pressa, hip thrust (rotazione vs Fase 2)", "Partenza +2,5 kg sui * vs fine Fase 1 se possibile"],
+      sett1_2: ["RIR 2 · **8 rep** sui * · carico moderato post-forza (PI)", "Inclinata bb, pressa, hip thrust — rotazione vs Fase 2"],
       sett3_5: ["RIR 2 · progressione rep e kg", "Isolamento: cedimento tecnico solo se forma OK"],
       sett6_8: ["RIR 1 · target scheda", "Fondamentali *: +kg se tetto rep ×2 sedute"],
       sett9: ["Scarico −25% serie", "RIR 2"],
@@ -159,7 +159,7 @@ const META = {
     guidaOperativa: {
       titolo: "Metodo Blocco 3 — ipertrofia II + rotazione",
       sintesi:
-        "Terzo schema annuale (~30% esercizi nuovi). Riconverti la forza in volume 8–12 rep. Sett. 10–12 saturazione (+1 serie sui *). Project Invictus: scarico sett. 9, deload sett. 13.",
+        "Post-forza (PI ipertrofia): rientro **8 rep** sui * e carico moderato — converti la forza in massa. Terzo schema ~30% nuovo. Sett. 10–12 +1 serie sui * (accumulo volume). Scarico sett. 9, deload sett. 13.",
       periodizzazioneIntensita: [
         { settimane: "1-2", intensita: "RIR 2", volume: "100%", nota: "Reintroduzione" },
         { settimane: "3-5", intensita: "RIR 2", volume: "100%", nota: "Accumulo" },

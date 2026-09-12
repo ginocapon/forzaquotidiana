@@ -8,8 +8,8 @@
   "settimane": 13,
   "frequenza": "4 allenamenti/settimana",
   "durataSeduta": "85-95 minuti",
-  "guida": "Riconverti la forza in massa con angoli e stimoli diversi dal Blocco 1 e 2. Terzo schema dell’anno: inclinata bilanciere, pressa, hip thrust in progressione. Stessi esercizi per 13 settimane dentro la fase.",
-  "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Schema nuovo vs Fase 2. Gli esercizi con * progredisci sul carico. Sett. 9–12: +1 serie sui fondamentali *.",
+  "guida": "Dopo Fase 2 (carichi alti), riabbassa l’intensità relativa e torna al classico 8 rep sui fondamentali * (Project Invictus: convertire forza in massa). Terzo schema: inclinata bb, pressa, hip thrust. Accumulo volume sett. 10–12 (+1 serie sui *). Deload sett. 13.",
+  "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
   "rotazioneDaFase1": null,
   "periodizzazione": [
     {
@@ -73,8 +73,8 @@
   ],
   "regoleBlocco": {
     "sett1_2": [
-      "RIR 2 · 8–10 rep · inclinata bb, pressa, hip thrust (rotazione vs Fase 2)",
-      "Partenza +2,5 kg sui * vs fine Fase 1 se possibile"
+      "RIR 2 · **8 rep** sui * · carico moderato post-forza (PI)",
+      "Inclinata bb, pressa, hip thrust — rotazione vs Fase 2"
     ],
     "sett3_5": [
       "RIR 2 · progressione rep e kg",
@@ -112,7 +112,7 @@
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 3 — ipertrofia II + rotazione",
-    "sintesi": "Terzo schema annuale (~30% esercizi nuovi). Riconverti la forza in volume 8–12 rep. Sett. 10–12 saturazione (+1 serie sui *). Project Invictus: scarico sett. 9, deload sett. 13.",
+    "sintesi": "Post-forza (PI ipertrofia): rientro **8 rep** sui * e carico moderato — converti la forza in massa. Terzo schema ~30% nuovo. Sett. 10–12 +1 serie sui * (accumulo volume). Scarico sett. 9, deload sett. 13.",
     "distribuzioneSettimanale": {
       "schema": "Upper / Lower alternato · 4 giorni + 3 riposi",
       "consigliata": [

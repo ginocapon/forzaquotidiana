@@ -32,7 +32,7 @@ Usa questo indice con `.cursor/rules/skill-router.mdc`. Leggi **solo** le righe 
 | §8 SEO/GEO/AEO | 979–1087 | Title, sitemap, GSC |
 | §6 Checklist trimestre | 1089–1112 | Pubblicazione Q |
 | §7 Roadmap | 1114–1123 | Trimestri futuri |
-| §8 Admin periodizzazione | 1125–1278 | Macrociclo, PDF palestra |
+| §8 Admin periodizzazione | 1125–1355 | Macrociclo, PDF palestra, **§8.12 Project Invictus** |
 
 ## Stima risparmio token
 

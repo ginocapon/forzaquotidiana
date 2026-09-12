@@ -1208,10 +1208,13 @@ Ripetere struttura §1–§6 identica; aggiornare solo contenuti e log.
 | Dati macrociclo | `admin/data/macrociclo-2026-2027.json` |
 | **Blocco 1 dettaglio** (fonte di verità sett. 2026) | `admin/data/blocco-1-fase1.json` |
 | **Fasi 2–4 rotazione esercizi** | `admin/data/fasi-2-3-4.json` |
+| **Blocchi 2–4 dettaglio** | `admin/data/blocco-2-fase2.json` … `blocco-4-fase4.json` · mappa `blocchi-index.json` |
 | **Mappa esercizi** (figure SVG) | `/admin/mappa-esercizi/` |
 | Catalogo esercizi + figure | `admin/data/esercizi-catalogo.json` + `admin/img/esercizi-sprite.svg` |
 | Sync Blocco 1 → macrociclo | `node tools/sync-blocco1-macrociclo.mjs` |
+| **Genera blocchi 2–4 + sync** | `node tools/genera-blocchi-2-3-4.mjs` → `node tools/sync-blocco-macrociclo.mjs --all` |
 | Teoria generica (archivio) | `admin/data/mesocicli.json` — vecchie schede/pdf → redirect all’hub |
+| **Periodizzazione PI (carico/rep)** | §8.12 — Fase 2 carichi alti sui * · Fase 3 rientro 8 rep |
 | Rigenera macrociclo | `node tools/genera-macrociclo.mjs` + `rebalance-macrociclo-55.mjs` |
 
 - `noindex` + `robots.txt` → `Disallow: /admin/`
@@ -1256,12 +1259,12 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 
 **Inizio:** 1 settembre 2026 · **Fine:** 31 agosto 2027 · **Peso partenza:** 67,0 kg
 
-| # | Fase | Durata | Periodo | Obiettivo |
-|---|------|--------|---------|-----------|
-| 1 | **Ipertrofia accumulo** | **13 sett.** | Set–Nov 2026 | Soft start sett. 1–2 · accumulo 8–12 · deload sett. 13 |
-| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | **Nuovo schema** (~30% esercizi): panca piana, squat mp, lat neutra · tensione → forza · deload 13 |
-| 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | **Terzo schema** (~30% esercizi): inclinata bb, pressa, hip thrust · volume ↑ sett. 9–12 · deload 13 |
-| 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | **Quarto schema** estivo: macchine, affondi, plank · 10–12 rep RIR 2–3 · deload leggero 13 |
+| # | Fase | Durata | Periodo | Obiettivo | Carico (PI) |
+|---|------|--------|---------|-----------|-------------|
+| 1 | **Ipertrofia accumulo** | **13 sett.** | Set–Nov 2026 | Soft start · accumulo 8–12 rep · deload sett. 13 | Moderato |
+| 2 | **Tensione + Forza** | **13 sett.** | Dic 2026–Mar 2027 | ~30% esercizi nuovi · 6–8 → **4–6 rep sui *** · deload 13 | **Alto sui * (unico blocco)** |
+| 3 | **Ipertrofia II** | **13 sett.** | Mar–Mag 2027 | ~30% esercizi · **8 rep sui *** · +1 serie sett. 10–12 · deload 13 | Moderato post-forza |
+| 4 | **Ricondizionamento** | **13 sett.** | Giu–Ago 2027 | Quarto schema estivo · 10–12 rep RIR 2–3 · deload leggero 13 | Mantenimento |
 
 **Totale:** **4 fasi** · 52 settimane · deload incorporato (niente 9 micro-fasi)
 
@@ -1334,7 +1337,41 @@ Stampa: **A4 verticale**, margini **8 mm**, «Salva come PDF» dal browser. Test
 | Nuove figure SVG | Aggiungi symbol in `admin/img/esercizi-sprite.svg` + voce in `esercizi-catalogo.json` |
 | Articolo strategia (diario) | `/diario/blocco-1-ipertrofia-accumulo-settembre-2026/` — riflessione, non log |
 
-**Ragionamento schede:** Fase 1 — 13 settimane stesso schema → adattamento (1–2) → accumulo → picco → deload (13). **A ogni nuova fase (2, 3, 4)** nuovo schema A1–B2 con ~25–35% esercizi diversi (fonte `admin/data/fasi-2-3-4.json`; rigenera con `node tools/genera-macrociclo.mjs`).
+**Ragionamento schede:** Fase 1 — 13 settimane stesso schema → adattamento (1–2) → accumulo → picco → deload (13). **A ogni nuova fase (2, 3, 4)** nuovo schema A1–B2 con ~25–35% esercizi diversi (fonte `admin/data/fasi-2-3-4.json`; rigenera con `node tools/genera-blocchi-2-3-4.mjs` + `node tools/sync-blocco-macrociclo.mjs --all`).
+
+### 8.12 Project Invictus — carico, rep e mesocicli (riferimento operativo)
+
+**Fonti PI (pubbliche):** [Mesociclo di allenamento](https://www.projectinvictus.it/mesociclo-di-allenamento/) · [Ipertrofia — guida completa](https://www.projectinvictus.it/ipertrofia-muscolare-la-guida-completa/) · template teorico in `admin/data/mesocicli.json` (`forza`, `ipertrofia-tensione-meccanica`, ecc.).
+
+**Principio PI (sintesi):**
+
+| Tipo mesociclo | Cosa modula | Fondamentali | Accessori |
+|----------------|-------------|--------------|-----------|
+| **Forza** | Intensità ↑, rep ↓ | Carichi alti, poche rep (es. 6×6 @75% → 3×3 @90% sullo squat) · recuperi 3'+ | Volume ridotto — non competono col lift principale |
+| **Ipertrofia** | Volume ↑, carico moderato | ~**2/3 del lavoro in 6–12 rep** @ 70–85% 1RM, RIR 2–3 | Resto: serie pesanti basse (1–5) o pump alte (15+) |
+| **Logica di scrittura** | Si parte dalla **fine** del mesociclo (picco forza o volume massimo) e si torna indietro settimana per settimana | | |
+
+**Regola d’oro per Gino:** nel macrociclo annuale **un solo blocco punta ai carichi massimi sui fondamentali \*** (Fase 2). Le fasi ipertrofiche **riabbassano il carico relativo** e tornano al **classico 8 rep** (range 8–12) per convertire la forza in massa e accumulare volume.
+
+**Mapping macrociclo 2026–2027 → principi PI:**
+
+| Fase | Tipo PI | Rep fondamentali \* | Carico | Allineamento |
+|------|---------|----------------------|--------|--------------|
+| **1 · Accumulo** | Ipertrofia volume | 8–12 | Moderato, RIR 2→1 | ✅ Accumulo volume, deload sett. 13 |
+| **2 · Tensione + forza** | Tensione meccanica → forza | 6–8 (sett. 1–6) → **4–6** (sett. 7–12) | **Progressione kg alta** sui * | ✅ Carichi alti solo qui; accessori restano 6–8 |
+| **3 · Ipertrofia II** | Ipertrofia post-forza | **8** sui * (+ 10–12 accessori) | **Moderato** — riuso forza acquisita | ✅ “Tornare all’8” + +1 serie sett. 10–12 (accumulo PI) |
+| **4 · Ricondizionamento** | Mantenimento | 10–12 | Basso-moderato, RIR 2–3 | ✅ Nessun peaking; frequenza > intensità |
+
+**Adattamenti PI per profilo Gino (57 anni, natural, mesocicli 13 sett.):**
+
+- PI usa mesocicli **~4 settimane**; noi **13 settimane** (modello trimestre + deload sett. 13) — coerente con §8.3 Israetel/Helms per intermedio maturo.
+- Picco forza PI esemplificativo: **3×3 @ 90%**. Noi: **4×4–6 @ RIR 1–2** sui 4 fondamentali * — meno estremo, più sostenibile articolarmente.
+- **Non** replicare 1RM test o volume accessorio da powerlifter (`mesocicli.json` → `forza` è teoria generica, non scheda Gino).
+- Fase 2: solo **panca piana, squat MP (B1), lat neutra (A2), trap bar (B2)** scendono a 4–6 rep; isolamento e polpacci **non** seguono il range forza.
+
+**Se si modifica la Fase 2:** rispettare la sequenza PI **accumulo ipertrofia → blocco carichi alti sui * → rientro 8 rep in Fase 3**. Opzionale (più fedele al picco PI): sett. 9–12 fondamentali * con **meno serie e rep più basse** (es. 4→3 serie mantenendo 4–6 rep) invece di tenere 4 serie fisse per tutto il blocco.
+
+**Rigenerazione dati:** `admin/data/fasi-2-3-4.json` (rotazione esercizi) + `tools/genera-blocchi-2-3-4.mjs` (parametri PI da `blocco-1-fase1.json`) → `blocco-2/3/4-fase*.json`.
 
 ### 8.10 Errori da evitare
 

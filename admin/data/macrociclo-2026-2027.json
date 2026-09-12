@@ -5,7 +5,7 @@
     "fine": "2027-08-31",
     "descrizione": "Periodizzazione annuale 52 settimane su split A1-B1-A2-B2 (4 sessioni/settimana). **4 fasi macro da ~13 settimane**. Focus ~55% volume serie su gambe+polpacci (priorità lower). Deload = ultima settimana di ogni fase. **Pesi da definire** dopo test massimali.",
     "frequenza": "4 sessioni/settimana",
-    "lineeGuida": "4 fasi × ~13 sett. · ~55% serie lower (gambe+polpacci) · Deload sett. 13 · Cambio schema ogni ~3 mesi · Pesi blank fino a 1RM/serie"
+    "lineeGuida": "4 fasi × ~13 sett. · ~55% serie lower (gambe+polpacci) · Fase 2 carichi alti sui * (PI forza) · Fase 3 rientro 8 rep (PI ipertrofia) · Deload sett. 13 · Cambio schema ogni ~3 mesi · Pesi blank fino a 1RM/serie"
   },
   "fasi": [
     {
@@ -372,9 +372,9 @@
       "fine": "2027-03-01",
       "settimane": 13,
       "rir": "sett. 1-2: 3-2 · sett. 3-6: 2 · sett. 7-8: 2 · sett. 9-12: 1-2 · sett. 13: 4-5",
-      "obiettivo": "4 allenamenti/settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Schema nuovo rispetto al Blocco 1: ~30% esercizi diversi.",
-      "guida": "Blocco forza dopo l’accumulo. Rotazione esercizi rispetto al Blocco 1: panca piana al posto dell’inclinata, squat multipower come fondamentale gambe accosciata, trazioni come progressione dorsale in A2. Stessi movimenti per 13 settimane; cambiano rep, RIR e kg. Deload sett. 13 obbligatorio.",
-      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Gli esercizi con * sono i principali — progredisci sul carico quando fai il tetto di rep col RIR target per 2 uscite di fila. Schema nuovo rispetto al Blocco 1: ~30% esercizi diversi.",
+      "obiettivo": "4 allenamenti/settimana (A1, B1, A2, B2). Unico mesociclo dell’anno con progressione kg massima sui * — sett. 7–12: 4–6 rep, RIR 1–2, recuperi 150–180 s. Schema ~30% diverso dal Blocco 1.",
+      "guida": "Blocco forza dopo l’accumulo (Project Invictus: intensità ↑, rep ↓ sui fondamentali). Rotazione vs Blocco 1: panca piana (A1), squat multipower * (B1), lat neutra * (A2), trap bar * (B2). Solo i 4 fondamentali * scendono a 4–6 rep sett. 7–12; accessori restano 6–8. Deload sett. 13 obbligatorio prima di Fase 3 (rientro 8 rep).",
+      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Unico mesociclo dell’anno con progressione kg massima sui * — sett. 7–12: 4–6 rep, RIR 1–2, recuperi 150–180 s. Schema ~30% diverso dal Blocco 1.",
       "rotazione": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, A2",
       "sessioni": {
         "a1": {
@@ -730,9 +730,9 @@
       "fine": "2027-05-31",
       "settimane": 13,
       "rir": "sett. 1-2: 2 · sett. 3-5: 2 · sett. 6-8: 1 · sett. 9: 2 · sett. 10-12: 1 · sett. 13: 4-5",
-      "obiettivo": "4 allenamenti/settimana (A1, B1, A2, B2). Schema nuovo vs Fase 2. Gli esercizi con * progredisci sul carico. Sett. 9–12: +1 serie sui fondamentali *.",
-      "guida": "Riconverti la forza in massa con angoli e stimoli diversi dal Blocco 1 e 2. Terzo schema dell’anno: inclinata bilanciere, pressa, hip thrust in progressione. Stessi esercizi per 13 settimane dentro la fase.",
-      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Schema nuovo vs Fase 2. Gli esercizi con * progredisci sul carico. Sett. 9–12: +1 serie sui fondamentali *.",
+      "obiettivo": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
+      "guida": "Dopo Fase 2 (carichi alti), riabbassa l’intensità relativa e torna al classico 8 rep sui fondamentali * (Project Invictus: convertire forza in massa). Terzo schema: inclinata bb, pressa, hip thrust. Accumulo volume sett. 10–12 (+1 serie sui *). Deload sett. 13.",
+      "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
       "rotazione": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, B2",
       "sessioni": {
         "a1": {

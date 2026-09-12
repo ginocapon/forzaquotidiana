@@ -28,7 +28,7 @@ alwaysApply: true
 | **«Cosa fare» / piano settimanale / trigger `"FQ"`** | `SKILL-MEMORIA-PROGRESSI.md` + `SKILL-VENERDI.md` + `guardian/reports/guardian-latest.md` | SKILL monolitico |
 | Hero, landing, palette, Panel Relief | `SKILL-LANDING.md` + `SKILL.md` righe 47–96 (§0.1) | §3–4 performance |
 | SEO, sitemap, meta, validate-page | `SKILL.md` righe 979–1087 + `scripts/validate-page.js` | Admin, trimestre |
-| Admin / periodizzazione / macrociclo | `SKILL.md` righe 1125–1278 (§8) | Diario, landing |
+| Admin / periodizzazione / macrociclo / PI forza-ipertrofia | `SKILL.md` righe 1125–1385 (§8 + **§8.12 PI**) + `admin/data/fasi-2-3-4.json` | Diario, landing |
 | Fix CSS generico / bug minore | File toccati + regole §0.1 se UI | SKILL intero |
 | Domanda informativa breve | Risposta diretta; indice se serve un dettaglio | Tutti gli skill |
 
