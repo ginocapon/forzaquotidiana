@@ -112,7 +112,16 @@
         fetch(CATALOGO_URL).then(function (r) { return r.json(); })
       ])
         .then(function (res) {
-          window.fqSessioneDettaglio.renderBlocco1Session(res[0], sessionKey, res[1], root);
+          var blocco = res[0];
+          var periodo = params.get("periodo");
+          if (window.fqPeriodi && window.fqPeriodi.hasPeriodi(blocco) && !periodo) {
+            var def = window.fqPeriodi.defaultId(blocco);
+            var u = new URL(window.location.href);
+            u.searchParams.set("periodo", def);
+            window.location.replace(u.pathname + u.search);
+            return;
+          }
+          window.fqSessioneDettaglio.renderBlocco1Session(blocco, sessionKey, res[1], root);
         })
         .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
       return;

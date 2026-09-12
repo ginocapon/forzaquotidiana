@@ -1373,6 +1373,8 @@ Stampa: **A4 verticale**, margini **8 mm**, «Salva come PDF» dal browser. Test
 
 **Rigenerazione dati:** `admin/data/fasi-2-3-4.json` (rotazione esercizi) + `tools/genera-blocchi-2-3-4.mjs` (parametri PI da `blocco-1-fase1.json`) → `blocco-2/3/4-fase*.json`.
 
+**Fase 2 · schede per periodo rep (solo `tensione-forza`):** 4 periodi × 4 sedute = **16 schede** + **4 PDF riassunto A1–B2** (uno per periodo). URL: `?ciclo=tensione-forza&periodo=sett-11-12&sessione=a1` · riassunto: `/admin/prototipi/periodizzazione/fase/?fase=tensione-forza&periodo=sett-11-12`. Periodi: `sett-1-6` (6–8) · `sett-7-8` (5–6) · `sett-9-10` (5) · `sett-11-12` (**4 rep**). Fasi 1, 3, 4 restano 4 schede + 1 riassunto ciascuna.
+
 ### 8.10 Errori da evitare
 
 | Errore | Perché è sbagliato |

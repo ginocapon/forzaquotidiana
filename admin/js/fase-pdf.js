@@ -143,11 +143,15 @@
     return out;
   }
 
-  function render(macro, fase, root, blocco) {
+  function render(macro, fase, root, blocco, periodo) {
     root.innerHTML = "";
-    document.title = "PDF · " + fase.nome + " | Scheda";
+    var titleSuffix = periodo ? " · " + periodo.label : "";
+    document.title = "PDF · " + fase.nome + titleSuffix + " | Scheda";
     var titleEl = document.getElementById("fase-pdf-title");
-    if (titleEl) titleEl.textContent = "PDF riassunto A1–B2 · " + fase.nome;
+    if (titleEl) {
+      titleEl.textContent = "PDF riassunto A1–B2 · " + fase.nome +
+        (periodo ? " · sett. " + periodo.settimane + " · " + periodo.repFondamentali + " rep *" : "");
+    }
     var dl = document.getElementById("fase-pdf-download");
     if (dl) {
       var files = {
@@ -171,19 +175,24 @@
     var tipo = (useBlocco && blocco.tipo)
       ? blocco.tipo
       : String(fase.nome || "Periodizzazione").replace(/^Fase\s*\d+\s*[·•]\s*/i, "").toUpperCase();
-    var sessioni = useBlocco
-      ? blocco.sessioni
-      : (blocco && blocco.sessioni ? mergeSessions(blocco, fase) : fase.sessioni);
-    var waveNote = hasWaveReps(useBlocco ? blocco.sessioni : fase.sessioni);
+    var sessioni = periodo && periodo.sessioni
+      ? periodo.sessioni
+      : (useBlocco
+        ? blocco.sessioni
+        : (blocco && blocco.sessioni ? mergeSessions(blocco, fase) : fase.sessioni));
+    var waveNote = !periodo && hasWaveReps(useBlocco ? blocco.sessioni : fase.sessioni);
 
     var head = el("header", { className: "scheda-a4__head" });
     head.innerHTML =
       "<div class=\"scheda-a4__head-main\"><strong>Scheda allenamento</strong> · " + tipo + "</div>" +
-      "<div class=\"scheda-a4__head-period\"><span class=\"scheda-a4__badge\">" + fase.settimane + " sett.</span> <strong>" + fase.nome + "</strong></div>" +
+      "<div class=\"scheda-a4__head-period\"><span class=\"scheda-a4__badge\">" +
+      (periodo ? periodo.settimane + " sett." : fase.settimane + " sett.") +
+      "</span> <strong>" + fase.nome + (periodo ? " · " + periodo.label : "") + "</strong></div>" +
       "<div class=\"scheda-a4__head-meta\">" +
       "<span><strong>Atleta:</strong> _______________</span>" +
       "<span><strong>Periodo:</strong> " + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + "</span>" +
-      "<span><strong>RIR:</strong> " + (fase.rir || "1") + "</span>" +
+      "<span><strong>RIR:</strong> " + (periodo ? periodo.rir : (fase.rir || "1")) + "</span>" +
+      (periodo ? "<span><strong>Rep *:</strong> " + periodo.repFondamentali + "</span>" : "") +
       "<span><strong>Settimana:</strong> Lun A1 · Mar B1 · Gio A2 · Sab B2</span>" +
       "</div>";
     article.appendChild(head);
@@ -191,9 +200,11 @@
     var oss = el("div", { className: "scheda-a4__osservazioni scheda-a4__intro-fase" });
     oss.innerHTML =
       "<div class=\"scheda-a4__osservazioni-label\">Osservazioni / note</div>" +
-      (waveNote
-        ? "<p class=\"scheda-a4__intro-text\">Sui movimenti *: sett. 1–6 range in tabella, sett. 7–12 range più basso, sett. 13 deload (−40% volume).</p>"
-        : "<p class=\"scheda-a4__intro-text\">________________________________________________________________</p>");
+      (periodo
+        ? "<p class=\"scheda-a4__intro-text\">" + periodo.sintesi.replace(/\*\*/g, "") + "</p>"
+        : waveNote
+          ? "<p class=\"scheda-a4__intro-text\">Sui movimenti *: sett. 1–6 range in tabella, sett. 7–12 range più basso, sett. 13 deload (−40% volume).</p>"
+          : "<p class=\"scheda-a4__intro-text\">________________________________________________________________</p>");
     article.appendChild(oss);
 
     var grid = el("div", { className: "scheda-a4__grid" });
@@ -236,6 +247,7 @@
     var params = new URLSearchParams(window.location.search);
     var annoId = params.get("anno") || "2026-2027";
     var faseId = params.get("fase");
+    var periodoId = params.get("periodo");
     if (!faseId) {
       root.innerHTML = "<p>Parametro <code>fase</code> mancante. <a href=\"/admin/prototipi/periodizzazione/\">Torna all’hub</a></p>";
       return;
@@ -254,11 +266,16 @@
         }
         var bloccoUrl = window.fqBlocchi && window.fqBlocchi.urlFor(faseId);
         if (!bloccoUrl) {
-          render(macro, fase, root, null);
+          render(macro, fase, root, null, null);
           return;
         }
         return fetch(bloccoUrl).then(function (r) { return r.json(); }).then(function (blocco) {
-          render(macro, fase, root, blocco);
+          var periodo = null;
+          if (window.fqPeriodi && window.fqPeriodi.hasPeriodi(blocco)) {
+            periodo = window.fqPeriodi.get(blocco, periodoId) ||
+              window.fqPeriodi.get(blocco, window.fqPeriodi.defaultId(blocco));
+          }
+          render(macro, fase, root, blocco, periodo);
         });
       })
       .catch(function (err) {

@@ -40,7 +40,7 @@
     });
   }
 
-  function renderFasi(macro, annoId, periodoId, root) {
+  function renderFasi(macro, annoId, periodoId, root, blocchiById) {
     root.innerHTML = "";
     if (!macro || !macro.fasi || !macro.fasi.length) {
       root.appendChild(el("p", { text: "Nessuna fase in questo macrociclo." }));
@@ -76,38 +76,67 @@
         html: "<strong>Obiettivo operativo:</strong> " + fase.obiettivo
       }));
 
-      var days = el("ul", { className: "perio-fase-card__days" });
-      ["a1", "b1", "a2", "b2"].forEach(function (key) {
-        var s = fase.sessioni[key];
-        if (!s) return;
-        var li = el("li");
-        var link = el("a", {
-          href: "/admin/sessione/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=" + key + "&anno=" + encodeURIComponent(annoId),
-          text: key.toUpperCase() + " — " + s.nome + " (" + s.esercizi.length + " es.)"
+      var blocco = blocchiById && blocchiById[fase.id];
+      if (window.fqPeriodi && blocco && window.fqPeriodi.hasPeriodi(blocco)) {
+        window.fqPeriodi.list(blocco).forEach(function (periodo) {
+          var periodBlock = el("div", { className: "perio-fase-periodo" });
+          periodBlock.appendChild(el("h4", {
+            text: periodo.label + " · rep * " + periodo.repFondamentali
+          }));
+          var days = el("ul", { className: "perio-fase-card__days" });
+          ["a1", "b1", "a2", "b2"].forEach(function (key) {
+            var s = periodo.sessioni[key];
+            if (!s) return;
+            var li = el("li");
+            li.appendChild(el("a", {
+              href: window.fqPeriodi.sessionUrl(fase.id, key, periodo.id, annoId),
+              text: key.toUpperCase() + " — " + s.nome + " (" + s.esercizi.length + " es.)"
+            }));
+            days.appendChild(li);
+          });
+          periodBlock.appendChild(days);
+          periodBlock.appendChild(el("a", {
+            className: "btn btn-primary btn-sm",
+            href: window.fqPeriodi.fasePdfUrl(fase.id, periodo.id, annoId),
+            target: "_blank",
+            rel: "noopener",
+            text: "PDF riassunto A1–B2 · sett. " + periodo.settimane
+          }));
+          card.appendChild(periodBlock);
         });
-        li.appendChild(link);
-        days.appendChild(li);
-      });
-      card.appendChild(days);
+      } else {
+        var days = el("ul", { className: "perio-fase-card__days" });
+        ["a1", "b1", "a2", "b2"].forEach(function (key) {
+          var s = fase.sessioni[key];
+          if (!s) return;
+          var li = el("li");
+          li.appendChild(el("a", {
+            href: "/admin/sessione/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=" + key + "&anno=" + encodeURIComponent(annoId),
+            text: key.toUpperCase() + " — " + s.nome + " (" + s.esercizi.length + " es.)"
+          }));
+          days.appendChild(li);
+        });
+        card.appendChild(days);
 
-      var actions = el("div", { className: "perio-fase-card__actions" });
-      var pdfUrl =
-        "/admin/prototipi/periodizzazione/fase/?anno=" + encodeURIComponent(annoId) +
-        "&periodo=" + encodeURIComponent(periodoId) +
-        "&fase=" + encodeURIComponent(fase.id);
-      actions.appendChild(el("a", {
-        className: "btn btn-primary",
-        href: pdfUrl,
-        target: "_blank",
-        rel: "noopener",
-        text: "PDF riassunto A1–B2 · Fase " + (i + 1)
-      }));
-      actions.appendChild(el("a", {
-        className: "btn btn-ghost",
-        href: "/admin/sessione/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=a1",
-        text: "Apri A1 online"
-      }));
-      card.appendChild(actions);
+        var actions = el("div", { className: "perio-fase-card__actions" });
+        var pdfUrl =
+          "/admin/prototipi/periodizzazione/fase/?anno=" + encodeURIComponent(annoId) +
+          "&periodo=" + encodeURIComponent(periodoId) +
+          "&fase=" + encodeURIComponent(fase.id);
+        actions.appendChild(el("a", {
+          className: "btn btn-primary",
+          href: pdfUrl,
+          target: "_blank",
+          rel: "noopener",
+          text: "PDF riassunto A1–B2 · Fase " + (i + 1)
+        }));
+        actions.appendChild(el("a", {
+          className: "btn btn-ghost",
+          href: "/admin/sessione/?ciclo=" + encodeURIComponent(fase.id) + "&sessione=a1",
+          text: "Apri A1 online"
+        }));
+        card.appendChild(actions);
+      }
 
       root.appendChild(card);
     });
@@ -150,19 +179,34 @@
       grid.innerHTML = "<p class=\"perio-loading\">Caricamento schede…</p>";
 
       var url = anno.macrocicloUrl;
-      var done = function (macro) {
-        renderFasi(macro, anno.id, periodo.id, grid);
+      var blocchiCache = macroCache[url + ":blocchi"];
+
+      var done = function (macro, blocchiById) {
+        renderFasi(macro, anno.id, periodo.id, grid, blocchiById || {});
       };
 
       if (macroCache[url]) {
-        done(macroCache[url]);
+        done(macroCache[url], blocchiCache);
         return;
       }
-      fetch(url)
-        .then(function (r) { return r.json(); })
-        .then(function (macro) {
-          macroCache[url] = macro;
-          done(macro);
+      Promise.all([
+        fetch(url).then(function (r) { return r.json(); }),
+        fetch("/admin/data/blocchi-index.json").then(function (r) { return r.json(); }).catch(function () { return { blocchi: {} }; })
+      ])
+        .then(function (res) {
+          var macro = res[0];
+          var index = res[1];
+          var ids = Object.keys(index.blocchi || {});
+          return Promise.all(ids.map(function (id) {
+            return fetch("/admin/data/" + index.blocchi[id]).then(function (r) { return r.json(); })
+              .then(function (b) { return { id: id, blocco: b }; });
+          })).then(function (pairs) {
+            var blocchiById = {};
+            pairs.forEach(function (p) { blocchiById[p.id] = p.blocco; });
+            macroCache[url] = macro;
+            macroCache[url + ":blocchi"] = blocchiById;
+            done(macro, blocchiById);
+          });
         })
         .catch(function (err) {
           grid.innerHTML = "<p class=\"admin-error\">Errore: " + err.message + "</p>";

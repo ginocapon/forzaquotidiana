@@ -76,13 +76,15 @@
       sett3_5: "Settimane 3-5",
       sett3_6: "Settimane 3-6",
       sett6_8: "Settimane 6-8",
+      sett7_8: "Settimane 7-8",
       sett7_10: "Settimane 7-10",
       sett9: "Settimana 9",
+      sett9_10: "Settimane 9-10",
       sett10_12: "Settimane 10-12",
       sett11_12: "Settimane 11-12",
       sett13: "Settimana 13"
     };
-    var order = ["sett1_2", "sett3_5", "sett3_6", "sett6_8", "sett7_10", "sett9", "sett10_12", "sett11_12", "sett13"];
+    var order = ["sett1_2", "sett3_5", "sett3_6", "sett6_8", "sett7_8", "sett7_10", "sett9", "sett9_10", "sett10_12", "sett11_12", "sett13"];
     order.forEach(function (key) {
       if (!regole[key] || !labels[key]) return;
       var card = el("div", { className: "admin-regole-card card" });
@@ -158,45 +160,83 @@
     return grid;
   }
 
-  function querySuffix() {
-    var anno = new URLSearchParams(window.location.search).get("anno");
-    return anno ? "&anno=" + encodeURIComponent(anno) : "";
+  function urlParams() {
+    return new URLSearchParams(window.location.search);
   }
 
-  function sessionHref(bloccoId, sessionKey) {
-    return "/admin/sessione/?ciclo=" + encodeURIComponent(bloccoId) +
-      "&sessione=" + sessionKey + querySuffix();
+  function queryContext() {
+    var params = urlParams();
+    return {
+      anno: params.get("anno"),
+      periodo: params.get("periodo")
+    };
+  }
+
+  function sessionHref(bloccoId, sessionKey, periodoId, anno) {
+    if (window.fqPeriodi) {
+      return window.fqPeriodi.sessionUrl(bloccoId, sessionKey, periodoId, anno);
+    }
+    var q = "ciclo=" + encodeURIComponent(bloccoId) + "&sessione=" + sessionKey;
+    if (periodoId) q += "&periodo=" + encodeURIComponent(periodoId);
+    if (anno) q += "&anno=" + encodeURIComponent(anno);
+    return "/admin/sessione/?" + q;
   }
 
   function renderBlocco1Session(blocco, sessionKey, catalogo, root) {
-    var s = blocco.sessioni[sessionKey];
+    var ctx = queryContext();
+    var periodo = window.fqPeriodi && window.fqPeriodi.get(blocco, ctx.periodo);
+    var sessioni = window.fqPeriodi
+      ? window.fqPeriodi.resolveSessioni(blocco, ctx.periodo)
+      : blocco.sessioni;
+    var s = sessioni[sessionKey];
     if (!s) {
       root.innerHTML = "<p>Sessione non trovata.</p>";
       return;
     }
 
     root.innerHTML = "";
-    document.title = s.codice + " – " + blocco.codice + " | Admin";
+    document.title = s.codice + " – " + blocco.codice +
+      (periodo ? " · " + periodo.label : "") + " | Admin";
 
     var nav = el("nav", { className: "admin-breadcrumb" });
     nav.innerHTML =
       "<a href=\"/admin/\">Dashboard</a> · " +
       "<a href=\"/admin/prototipi/periodizzazione/#schede-hub\">Periodizzazione</a> · " +
+      (periodo ? "<strong>" + periodo.label + "</strong> · " : "") +
       "<strong>" + s.codice + " – " + blocco.codice + "</strong>";
     root.appendChild(nav);
 
+    if (periodo) {
+      var periodBanner = el("div", { className: "admin-periodo-banner card no-print" });
+      periodBanner.innerHTML =
+        "<p><strong>" + periodo.label + "</strong> · Rep sui *: <strong>" + periodo.repFondamentali + "</strong> · RIR " + periodo.rir + "</p>" +
+        "<p class=\"admin-periodo-banner__sintesi\">" + periodo.sintesi + "</p>";
+      root.appendChild(periodBanner);
+    }
+
     var head = el("header", { className: "admin-session-head admin-session-head--blocco" });
     head.innerHTML =
-      "<p class=\"tagline\">" + blocco.tipo + " · " + formatDate(blocco.inizio) + " – " + formatDate(blocco.fine) + "</p>" +
+      "<p class=\"tagline\">" + blocco.tipo + " · " + formatDate(blocco.inizio) + " – " + formatDate(blocco.fine) +
+      (periodo ? " · <strong>" + periodo.settimane + " sett.</strong>" : "") + "</p>" +
       "<h1>" + s.codice + " – " + blocco.codice + "</h1>" +
       "<p class=\"lead\">" + s.nome + " · " + blocco.durataSeduta + " · " + blocco.frequenza + "</p>";
     root.appendChild(head);
 
+    var fasePdf = window.fqPeriodi
+      ? window.fqPeriodi.fasePdfUrl(blocco.id, ctx.periodo, ctx.anno)
+      : "/admin/prototipi/periodizzazione/fase/?fase=" + encodeURIComponent(blocco.id);
+    var sessionPdf = window.fqPeriodi
+      ? window.fqPeriodi.sessionPdfUrl(blocco.id, sessionKey, ctx.periodo, ctx.anno)
+      : "/admin/sessione/pdf/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + sessionKey;
+
     var actions = el("div", { className: "admin-session-actions no-print" });
     actions.innerHTML =
-      "<a class=\"btn btn-primary\" href=\"/admin/metodo-blocco1/pdf/\">PDF metodo blocco</a>" +
-      "<a class=\"btn btn-primary\" href=\"/admin/sessione/pdf/?ciclo=" + encodeURIComponent(blocco.id) + "&sessione=" + sessionKey + querySuffix() + "\" target=\"_blank\">Stampa scheda con spiegazioni</a>" +
-      "<a class=\"btn btn-ghost\" href=\"/admin/prototipi/periodizzazione/fase/?fase=" + encodeURIComponent(blocco.id) + "\" target=\"_blank\">PDF fase completa A1–B2</a>" +
+      (blocco.id === "ipertrofia-accumulo"
+        ? "<a class=\"btn btn-primary\" href=\"/admin/metodo-blocco1/pdf/\">PDF metodo blocco</a>"
+        : "") +
+      "<a class=\"btn btn-primary\" href=\"" + sessionPdf + "\" target=\"_blank\">Stampa scheda con spiegazioni</a>" +
+      "<a class=\"btn btn-primary\" href=\"" + fasePdf + "\" target=\"_blank\">PDF riassunto A1–B2" +
+      (periodo ? " · " + periodo.settimane : "") + "</a>" +
       "<a class=\"btn btn-ghost\" href=\"/admin/mappa-esercizi/\">Mappa esercizi</a>";
     root.appendChild(actions);
 
@@ -253,12 +293,19 @@
     root.appendChild(renderDiario(s.esercizi));
 
     var shared = el("section", { className: "admin-section admin-section--shared" });
-    if (blocco.guidaOperativa) {
+    if (periodo) {
+      shared.appendChild(el("h2", { text: "Regole · " + periodo.label }));
+      shared.appendChild(renderRegole(periodo.regoleBlocco));
+      shared.appendChild(el("h3", { text: "Contesto blocco completo" }));
+      shared.appendChild(el("p", { text: blocco.guida || blocco.schedaIntro || "" }));
+    } else if (blocco.guidaOperativa) {
       shared.appendChild(el("h2", { text: "Come usare il blocco" }));
       shared.appendChild(el("p", {
         html: blocco.guidaOperativa.sintesi +
-          " <a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/pdf/\">PDF / Stampa metodo →</a> · " +
-          "<a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/\">Guida online</a>"
+          (blocco.id === "ipertrofia-accumulo"
+            ? " <a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/pdf/\">PDF / Stampa metodo →</a> · " +
+              "<a class=\"btn btn-ghost btn-sm\" href=\"/admin/metodo-blocco1/\">Guida online</a>"
+            : "")
       }));
       if (blocco.guidaOperativa.periodizzazioneIntensita) {
         shared.appendChild(el("h3", { text: "Periodizzazione 13 settimane" }));
@@ -270,6 +317,8 @@
           "scheda-table"
         ));
       }
+      shared.appendChild(el("h3", { text: "Regole del blocco" }));
+      shared.appendChild(renderRegole(blocco.regoleBlocco));
     } else {
       shared.appendChild(el("h2", { text: "Periodizzazione del blocco (13 settimane)" }));
       shared.appendChild(renderTable(
@@ -277,19 +326,32 @@
         blocco.periodizzazione.map(function (p) { return [p.fase, p.settimane, p.obiettivo]; }),
         "scheda-table"
       ));
+      shared.appendChild(el("h3", { text: "Regole del blocco" }));
+      shared.appendChild(renderRegole(blocco.regoleBlocco));
     }
-    shared.appendChild(el("h3", { text: "Regole del blocco" }));
-    shared.appendChild(renderRegole(blocco.regoleBlocco));
-    if (blocco.guida) {
+    if (!periodo && blocco.guida) {
       shared.appendChild(el("h3", { text: "Perché questo blocco" }));
       shared.appendChild(el("p", { text: blocco.guida }));
     }
     root.appendChild(shared);
 
+    if (window.fqPeriodi && window.fqPeriodi.hasPeriodi(blocco)) {
+      var periodNav = el("nav", { className: "admin-periodo-nav no-print" });
+      periodNav.appendChild(el("span", { className: "admin-periodo-nav__label", text: "Periodo rep:" }));
+      window.fqPeriodi.list(blocco).forEach(function (p) {
+        periodNav.appendChild(el("a", {
+          href: sessionHref(blocco.id, sessionKey, p.id, ctx.anno),
+          className: periodo && p.id === periodo.id ? "is-active" : "",
+          text: p.settimane + " (" + p.repFondamentali + ")"
+        }));
+      });
+      root.appendChild(periodNav);
+    }
+
     var links = el("nav", { className: "admin-session-nav" });
     ["a1", "b1", "a2", "b2"].forEach(function (k) {
       links.appendChild(el("a", {
-        href: sessionHref(blocco.id, k),
+        href: sessionHref(blocco.id, k, ctx.periodo, ctx.anno),
         className: k === sessionKey ? "is-active" : "",
         text: k.toUpperCase()
       }));

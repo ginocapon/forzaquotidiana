@@ -68,10 +68,14 @@
     return log;
   }
 
-  function adaptBloccoToFase(blocco) {
+  function adaptBloccoToFase(blocco, periodoId) {
+    var srcSessioni = window.fqPeriodi
+      ? window.fqPeriodi.resolveSessioni(blocco, periodoId)
+      : blocco.sessioni;
+    var periodo = window.fqPeriodi && window.fqPeriodi.get(blocco, periodoId);
     var sessioni = {};
     ["a1", "b1", "a2", "b2"].forEach(function (key) {
-      var s = blocco.sessioni[key];
+      var s = srcSessioni[key];
       if (!s) return;
       sessioni[key] = {
         nome: s.codice + " · " + s.nome,
@@ -92,18 +96,20 @@
       };
     });
     return {
-      nome: blocco.nome,
+      nome: blocco.nome + (periodo ? " · " + periodo.label : ""),
       inizio: blocco.inizio,
       fine: blocco.fine,
-      settimane: blocco.settimane,
-      rir: "sett. 6–8: RIR 1 · vedi /admin/metodo-blocco1/pdf/",
-      obiettivo: blocco.schedaIntro,
+      settimane: periodo ? periodo.settimane + " sett." : blocco.settimane,
+      rir: periodo ? periodo.rir : (blocco.id === "ipertrofia-accumulo"
+        ? "sett. 6–8: RIR 1 · vedi /admin/metodo-blocco1/pdf/"
+        : blocco.schedaIntro),
+      obiettivo: periodo ? periodo.sintesi : blocco.schedaIntro,
       sessioni: sessioni
     };
   }
 
-  function renderPdf(macro, catalogo, faseId, sessionKey, root, blocco) {
-    var fase = blocco ? adaptBloccoToFase(blocco) : findFase(macro, faseId);
+  function renderPdf(macro, catalogo, faseId, sessionKey, root, blocco, periodoId) {
+    var fase = blocco ? adaptBloccoToFase(blocco, periodoId) : findFase(macro, faseId);
     if (!fase || !fase.sessioni[sessionKey]) {
       root.innerHTML = "<p>Sessione non trovata.</p>";
       return;
@@ -200,6 +206,7 @@
     var params = new URLSearchParams(window.location.search);
     var faseId = params.get("ciclo");
     var sessionKey = (params.get("sessione") || "a1").toLowerCase();
+    var periodoId = params.get("periodo");
 
     if (!faseId) {
       root.innerHTML = "<p>Parametro ciclo mancante. <a href=\"/admin/\">Dashboard</a></p>";
@@ -217,7 +224,13 @@
         fetch(bloccoUrl).then(function (r) { return r.json(); }),
         fetch(CATALOGO_URL).then(function (r) { return r.json(); })
       ])
-        .then(function (res) { renderPdf(null, res[1], faseId, sessionKey, root, res[0]); })
+        .then(function (res) {
+          var blocco = res[0];
+          if (window.fqPeriodi && window.fqPeriodi.hasPeriodi(blocco) && !periodoId) {
+            periodoId = window.fqPeriodi.defaultId(blocco);
+          }
+          renderPdf(null, res[1], faseId, sessionKey, root, blocco, periodoId);
+        })
         .catch(function (err) { root.innerHTML = "<p>Errore: " + err.message + "</p>"; });
       return;
     }

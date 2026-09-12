@@ -203,6 +203,93 @@ const META = {
   },
 };
 
+const PERIODI_FORZA = [
+  {
+    id: "sett-1-6",
+    label: "Tensione · sett. 1–6",
+    settimane: "1-6",
+    repFondamentali: "6-8",
+    rir: "3-2 → 2 (da sett. 3)",
+    sintesi:
+      "Adattamento post Fase 1 e tensione meccanica. Fondamentali * a 6–8 rep, RIR 3–2 poi 2. Trova i kg di lavoro.",
+    regoleKeys: ["sett1_2", "sett3_6"],
+  },
+  {
+    id: "sett-7-8",
+    label: "Transizione · sett. 7–8",
+    settimane: "7-8",
+    repFondamentali: "5-6",
+    rir: "2",
+    sintesi: "Passaggio verso la forza: fondamentali * a 5–6 rep, recuperi 150–180 s.",
+    regoleKeys: ["sett7_8"],
+  },
+  {
+    id: "sett-9-10",
+    label: "Forza · sett. 9–10",
+    settimane: "9-10",
+    repFondamentali: "5",
+    rir: "1-2",
+    sintesi: "Forza intermedia: 5 rep sui * · aumenta kg se completi tutte le serie col RIR target.",
+    regoleKeys: ["sett9_10"],
+  },
+  {
+    id: "sett-11-12",
+    label: "Picco forza · sett. 11–12",
+    settimane: "11-12",
+    repFondamentali: "4",
+    rir: "1-2",
+    sintesi: "Picco PI: **4 rep** sui * a carico massimo del blocco. Ultima serie * opz. RIR 0–1.",
+    regoleKeys: ["sett11_12"],
+  },
+];
+
+function stripWaveReps(raw) {
+  const s = String(raw || "");
+  if (!s.includes("→")) return s;
+  const m = s.match(/^([^(→]+)/);
+  return m ? m[1].trim() : s.split("→").pop().trim().replace(/\s·.*/, "").trim();
+}
+
+function cloneSessioniForPeriod(blocco, repStar) {
+  const out = {};
+  for (const key of ["a1", "b1", "a2", "b2"]) {
+    const s = blocco.sessioni[key];
+    if (!s) continue;
+    out[key] = {
+      codice: s.codice,
+      nome: s.nome,
+      priorita: s.priorita,
+      esercizi: s.esercizi.map((ex) => ({
+        ...ex,
+        ripetizioni: ex.progressionePrincipale ? repStar : stripWaveReps(ex.ripetizioni),
+      })),
+      focusTecnico: s.focusTecnico,
+      volumeSeduta: s.volumeSeduta,
+      notaComplementare: s.notaComplementare,
+    };
+  }
+  return out;
+}
+
+function buildPeriodiForza(blocco, regoleBlocco) {
+  return PERIODI_FORZA.map((def) => {
+    const regole = {};
+    def.regoleKeys.forEach((k) => {
+      if (regoleBlocco[k]) regole[k] = regoleBlocco[k];
+    });
+    return {
+      id: def.id,
+      label: def.label,
+      settimane: def.settimane,
+      repFondamentali: def.repFondamentali,
+      rir: def.rir,
+      sintesi: def.sintesi,
+      regoleBlocco: regole,
+      sessioni: cloneSessioniForPeriod(blocco, def.repFondamentali),
+    };
+  });
+}
+
 for (const faseSrc of fasiSrc.fasi) {
   const meta = META[faseSrc.id];
   if (!meta) continue;
@@ -231,6 +318,10 @@ for (const faseSrc of fasiSrc.fasi) {
     },
     sessioni: sessionsFromFase(faseSrc),
   };
+
+  if (faseSrc.id === "tensione-forza") {
+    b.periodi = buildPeriodiForza(b, meta.regoleBlocco);
+  }
 
   writeFileSync(join(ADMIN, meta.file), JSON.stringify(b, null, 2) + "\n");
   console.log("OK", meta.file, "←", faseSrc.id);

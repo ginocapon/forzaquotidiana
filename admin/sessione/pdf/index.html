@@ -28,14 +28,17 @@
   var p = new URLSearchParams(location.search);
   var back = document.getElementById("pdf-back-link");
   if (back && p.get("ciclo")) {
-    back.href = "/admin/sessione/?ciclo=" + encodeURIComponent(p.get("ciclo")) + "&sessione=" + (p.get("sessione") || "a1");
+    var href = "/admin/sessione/?ciclo=" + encodeURIComponent(p.get("ciclo")) + "&sessione=" + (p.get("sessione") || "a1");
+    if (p.get("periodo")) href += "&periodo=" + encodeURIComponent(p.get("periodo"));
+    back.href = href;
     back.textContent = "Scheda online";
   }
 })();
 </script>
 <script src="/js/main.js?v=30" defer></script>
 <script src="/admin/js/blocchi-map.js?v=1" defer></script>
+<script src="/admin/js/blocco-periodi.js?v=1" defer></script>
 <script src="/admin/js/sprite-esercizi.js?v=4" defer></script>
-<script src="/admin/js/sessione-pdf.js?v=6" defer></script>
+<script src="/admin/js/sessione-pdf.js?v=7" defer></script>
 </body>
 </html>
