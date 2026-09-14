@@ -1365,6 +1365,74 @@
         "fatigue_atl": 47,
         "date": "2026-09-11"
       }
+    },
+    {
+      "id": "2026-09-12-scheda-4",
+      "date": "2026-09-12",
+      "time": "13:12",
+      "datetime": "2026-09-12T13:12",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-09",
+      "durata_sec": 3798,
+      "durata": "01:03:18",
+      "recupero_sec": 2743,
+      "recupero": "45:43",
+      "gruppi": 24,
+      "fc_media": 125,
+      "fc_max": 161,
+      "calorie": 590,
+      "carico": 236,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 5.97,
+        "intensiva": 5.17,
+        "aerobica": 18.5,
+        "anaerobica": 21.9,
+        "vo2max": 7.75
+      },
+      "effect": {
+        "aerobic": 4.3,
+        "aerobic_label": "Eccellente",
+        "anaerobic": 4.1,
+        "anaerobic_label": "Eccellente"
+      },
+      "readiness": {
+        "hybridcharge_wake": 25,
+        "hybridcharge_label": "Basso",
+        "sleep_duration": "6:21",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "1:22",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:54",
+        "sleep_wake": "1:39",
+        "sleep_wake_events": 8,
+        "sleep_regularity_pct": 56,
+        "nap_duration": "0:33",
+        "hrv": 46,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 49,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 80
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Movimenti per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
+      },
+      "note": "B2 sabato 13:12 — chiusura settimana 2 Blocco 1. 24 serie in 01:03:18, carico 236, FC 125/161. Readiness 12/09: sonno 6:21, HRV 46, TSB -11 Ottimale (CTL 36 / ATL 47). Foto posa reale in pagina.",
+      "tsb": {
+        "value": -11,
+        "label": "Ottimale",
+        "fitness_ctl": 36,
+        "fatigue_atl": 47,
+        "date": "2026-09-12"
+      }
     }
   ]
 }
