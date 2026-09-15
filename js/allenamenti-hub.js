@@ -73,6 +73,7 @@
 
   function schedaLabel(s) {
     if (s.scheda_label) return s.scheda_label;
+    if (s.codice) return String(s.codice).toUpperCase();
     if (s.schede && s.schede.length) {
       return s.schede.map(function (n) { return "S" + n; }).join(" + ");
     }
