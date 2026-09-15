@@ -1433,6 +1433,77 @@
         "fatigue_atl": 47,
         "date": "2026-09-12"
       }
+    },
+    {
+      "id": "2026-09-14-a1",
+      "date": "2026-09-14",
+      "time": "13:09",
+      "datetime": "2026-09-14T13:09",
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
+      "month": "2026-09",
+      "durata_sec": 3396,
+      "durata": "00:56:36",
+      "recupero_sec": 2539,
+      "recupero": "42:19",
+      "gruppi": 24,
+      "fc_media": 130,
+      "fc_max": 156,
+      "calorie": 558,
+      "carico": 174,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0,
+        "intensiva": 3.22,
+        "aerobica": 27.38,
+        "anaerobica": 23.85,
+        "vo2max": 2.1
+      },
+      "effect": {
+        "aerobic": 3.6,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.8,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "hybridcharge_wake": 75,
+        "hybridcharge_label": "Discreto",
+        "sleep_score": 78,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "7:17",
+        "sleep_duration_label": "Buono",
+        "sleep_deep": "1:03",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "2:17",
+        "sleep_rem_label": "Leggero",
+        "sleep_wake": "0:18",
+        "sleep_wake_events": 4,
+        "sleep_regularity_pct": 81,
+        "nap_duration": "0:45",
+        "hrv": 56,
+        "hrv_label": "Ottimale",
+        "hrv_baseline": 43,
+        "resting_hr": 48,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 82
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Movimenti per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
+      },
+      "note": "A1 domenica 13:09 — petto · schiena · spalle Blocco 1 settimana 3. 24 serie in 56 min, carico 174, FC 130/156. Sonno 7:17 Buono, HRV 56 Ottimale, HybridCharge 75, TSB -2 Bilanciato (CTL 41 / ATL 43).",
+      "tsb": {
+        "value": -2,
+        "label": "Bilanciato",
+        "fitness_ctl": 41,
+        "fatigue_atl": 43,
+        "date": "2026-09-14"
+      }
     }
   ]
 }
