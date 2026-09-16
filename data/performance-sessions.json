@@ -1504,6 +1504,73 @@
         "fatigue_atl": 43,
         "date": "2026-09-14"
       }
+    },
+    {
+      "id": "2026-09-15-b1",
+      "date": "2026-09-15",
+      "time": "16:11",
+      "datetime": "2026-09-15T16:11",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-09",
+      "durata_sec": 4439,
+      "durata": "01:13:59",
+      "recupero_sec": 2988,
+      "recupero": "49:48",
+      "gruppi": 29,
+      "fc_media": 117,
+      "fc_max": 156,
+      "calorie": 616,
+      "carico": 107,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0.97,
+        "intensiva": 30.9,
+        "aerobica": 33.88,
+        "anaerobica": 6.75,
+        "vo2max": 1.43
+      },
+      "effect": {
+        "aerobic": 3.2,
+        "aerobic_label": "Buono",
+        "anaerobic": 3.1,
+        "anaerobic_label": "Buono"
+      },
+      "readiness": {
+        "hybridcharge_wake": 58,
+        "hybridcharge_label": "Discreto",
+        "sleep_duration": "7:07",
+        "sleep_duration_label": "Buono",
+        "sleep_deep": "1:04",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:24",
+        "sleep_wake": "0:11",
+        "sleep_wake_events": 4,
+        "sleep_regularity_pct": 81,
+        "hrv": 36,
+        "hrv_label": "Attenzione",
+        "hrv_baseline": 43,
+        "resting_hr": 53,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 103
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Movimenti per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
+      },
+      "note": "B1 martedì 16:11 — avvio settimana 3 Blocco 1. 29 serie in 01:13:59, carico 107, FC 117/156. Sonno 7:07 Buono, HRV 36 sotto baseline, TSB -1 Bilanciato (CTL 44 / ATL 45).",
+      "tsb": {
+        "value": -1,
+        "label": "Bilanciato",
+        "fitness_ctl": 44,
+        "fatigue_atl": 45,
+        "date": "2026-09-15"
+      }
     }
   ]
 }
