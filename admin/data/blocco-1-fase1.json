@@ -305,12 +305,12 @@
           "serie": 4,
           "ripetizioni": "Drop",
           "tempo": "2-1-X-1",
-          "recupero": "60 sec",
+          "recupero": "90 sec",
           "progressione": "Stessa sequenza drop finché completi tutte le serie pulite",
           "rir": "1",
           "figura": "fig-polpacci",
           "progressionePrincipale": false,
-          "note": "Multipower: es. 140→110→80 kg senza pausa tra i cali · 4×25 totali."
+          "note": "Multipower: es. 140→110→80 kg senza pausa tra i cali · 4×25 totali · 90 sec tra un drop set e il successivo."
         },
         {
           "nome": "Pressa",
@@ -410,7 +410,8 @@
         "Polpacci drop set": [
           "✓ Drop senza pausa tra i cali",
           "✓ ROM completo",
-          "✓ Nessun rimbalzo"
+          "✓ Nessun rimbalzo",
+          "✓ 90 sec di recupero tra un drop set completo e il successivo"
         ]
       },
       "volumeSeduta": [

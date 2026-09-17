@@ -340,8 +340,8 @@
     "primario": "Gastrocnemio",
     "secondario": "Soleo",
     "setup": "Multipower, piedi su rialzo.",
-    "movimento": "4 serie drop senza pausa tra i cali (es. 140→110→80 kg).",
-    "errori": "ROM incompleto; pausa tra i drop."
+    "movimento": "4 serie drop senza pausa tra i cali (es. 140→110→80 kg). Recupero 90 sec tra un drop set completo e il successivo.",
+    "errori": "ROM incompleto; pausa tra i drop; recupero troppo corto tra le serie drop."
   },
   "Pressa": {
     "figura": "fig-pressa",
