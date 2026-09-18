@@ -106,7 +106,7 @@
       { "giorno": "Lunedì", "sessione": "a1", "codice": "A1", "focus": "Petto · Schiena · Spalle · Polpacci" },
       { "giorno": "Martedì", "sessione": "b1", "codice": "B1", "focus": "Gambe accosciata · Polpacci · Braccia" },
       { "giorno": "Mercoledì", "tipo": "riposo", "label": "Riposo" },
-      { "giorno": "Giovedì", "sessione": "a2", "codice": "A2", "focus": "Schiena · Spalle · Polpacci · Halo" },
+      { "giorno": "Giovedì", "sessione": "a2", "codice": "A2", "focus": "Schiena · Petto · Spalle · Polpacci · Halo" },
       { "giorno": "Venerdì", "tipo": "riposo", "label": "Riposo" },
       { "giorno": "Sabato", "sessione": "b2", "codice": "B2", "focus": "Gambe anca · Bicipiti" },
       { "giorno": "Domenica", "tipo": "riposo", "label": "Riposo" }
@@ -169,8 +169,8 @@
       {
         "sessione": "a2",
         "codice": "A2",
-        "titolo": "Schiena · Spalle · Polpacci · Halo",
-        "muscoli": ["Schiena", "Spalle", "Polpacci"],
+        "titolo": "Schiena · Petto · Spalle · Polpacci · Halo",
+        "muscoli": ["Schiena", "Petto", "Spalle", "Polpacci"],
         "figura": "fig-lat",
         "fase": "ipertrofia-accumulo"
       },
