@@ -4842,11 +4842,23 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   color: var(--muted);
 }
 .readiness-line--hr-max { stroke: #e85d5d; stroke-width: 2.75; }
+.readiness-line--hr-media { stroke: #c9783a; stroke-width: 2.5; }
 .readiness-line--hr-min { stroke: #e8a04a; stroke-width: 2.25; stroke-dasharray: 6 4; }
+.readiness-line--sleep-h { stroke: #8b9cff; stroke-width: 2.5; }
+.readiness-line--hrv { stroke: #5fd4a4; stroke-width: 2.5; }
+.readiness-line--tsb { stroke: #b07cff; stroke-width: 2.5; }
 .readiness-dot--hr-max { fill: #e85d5d; }
+.readiness-dot--hr-media { fill: #c9783a; }
 .readiness-dot--hr-min { fill: #e8a04a; }
+.readiness-dot--sleep-h { fill: #8b9cff; }
+.readiness-dot--hrv { fill: #5fd4a4; }
+.readiness-dot--tsb { fill: #b07cff; }
 .readiness-legend.readiness-line--hr-max { color: #e85d5d; }
+.readiness-legend.readiness-line--hr-media { color: #c9783a; }
 .readiness-legend.readiness-line--hr-min { color: #e8a04a; }
+.readiness-legend.readiness-line--sleep-h { color: #8b9cff; }
+.readiness-legend.readiness-line--hrv { color: #5fd4a4; }
+.readiness-legend.readiness-line--tsb { color: #b07cff; }
 
 .readiness-chart__pager {
   display: flex;

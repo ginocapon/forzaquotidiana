@@ -26,8 +26,9 @@ Nuova sessione, upload foto Zepp/dashboard, richiesta «aggiorna allenamenti», 
    - Excel in `data/monitoraggio/`
    - Tabella sintetica + 3–5 osservazioni (protocollo `docs/PROMPT-MONITORAGGIO-SPORTIVO.md`)
 4. **Pagina sessione** — marker `<!-- GUILE-START -->` / `<!-- GUILE-END -->`, `session-page--guile`, `session-guile.js`.
-5. **JSON** — `performance-sessions.json` + `node tools/aggiorna-training-load.mjs` + `inietta-tsb-pagine.mjs` (nuova riga in lista).
-6. **Batch** — `node tools/upgrade-sessioni-guile.mjs` se cambia template Guile.
+5. **JSON** — `performance-sessions.json` con blocco **`readiness`** (sonno, HRV, HybridCharge) + **`tsb`** · poi `aggiorna-performance.mjs` (→ wellness-trends) · `aggiorna-training-load.mjs` · `inietta-tsb-pagine.mjs`.
+6. **Grafici hub** — verificare `/allenamenti/#performance-corporea` (sonno, HRV, TSB, FC). Audit: `node tools/aggiorna-wellness-trends.mjs --audit`.
+7. **Batch** — `node tools/upgrade-sessioni-guile.mjs` se cambia template Guile.
 
 ## Layout ordine body
 

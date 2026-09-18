@@ -159,6 +159,16 @@ const KNOWN_BATCHES = {
     },
     skip: ["WhatsApp Image 2026-09-08 at 19.31.56 (2).jpeg"],
   },
+  "sessione-2026-09-18-a2": {
+    date: "2026-09-18",
+    codice: "a2",
+    scheda: 3,
+    files: {
+      "WhatsApp Image 2026-09-18 at 16.06.01.jpeg": "riepilogo",
+      "WhatsApp Image 2026-09-18 at 16.06.02.jpeg": "fc-grafico",
+      "WhatsApp Image 2026-09-18 at 16.06.03.jpeg": "tecnica",
+    },
+  },
   "sessione-2026-09-15-2": {
     date: "2026-09-15",
     codice: "b1",

@@ -6,6 +6,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO = dirname(__dirname);
@@ -142,3 +143,4 @@ const out = {
 
 writeFileSync(monthlyPath, JSON.stringify(out, null, 2) + "\n");
 console.log("OK ->", monthlyPath);
+spawnSync("node", ["tools/aggiorna-wellness-trends.mjs"], { cwd: REPO, stdio: "inherit" });

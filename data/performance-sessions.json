@@ -1571,6 +1571,64 @@
         "fatigue_atl": 45,
         "date": "2026-09-15"
       }
+    },
+    {
+      "id": "2026-09-18-a2",
+      "date": "2026-09-18",
+      "time": "12:55",
+      "datetime": "2026-09-18T12:55",
+      "codice": "A2",
+      "blocco": 1,
+      "scheda": 3,
+      "month": "2026-09",
+      "durata_sec": 3734,
+      "durata": "01:02:14",
+      "recupero_sec": 2627,
+      "recupero": "43:47",
+      "gruppi": 25,
+      "fc_media": 115,
+      "fc_max": 151,
+      "calorie": 507,
+      "carico": 105,
+      "duration_corrected": false,
+      "partial": false,
+      "readiness": {
+        "hybridcharge_wake": 60,
+        "hybridcharge_post": 26,
+        "hybridcharge_label": "Discreto",
+        "sleep_score": 69,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:23",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "1:24",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:24",
+        "sleep_rem_label": "Leggero",
+        "sleep_wake": "0:35",
+        "sleep_wake_events": 5,
+        "sleep_regularity_pct": 90,
+        "hrv": 37,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 52,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 82
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Movimenti per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti con ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
+      },
+      "note": "A2 venerdì 12:55 — petto · schiena · spalle, recupero slot giovedì settimana 3 Blocco 1. 25 serie in 01:02:14, carico 105, FC 115/151. Sonno 6:23, HRV 37 Buono, HybridCharge 60→26 post workout, TSB -1 Bilanciato (CTL 38 / ATL 39). Export parziale: mancano screenshot readiness/TSB/zone.",
+      "tsb": {
+        "value": -1,
+        "label": "Bilanciato",
+        "fitness_ctl": 38,
+        "fatigue_atl": 39,
+        "date": "2026-09-18"
+      }
     }
   ]
 }

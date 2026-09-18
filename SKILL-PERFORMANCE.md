@@ -40,10 +40,11 @@ Dopo ogni sessione Gino invia **screenshot Zepp** via chat/WhatsApp. Tipicamente
 3. Aggiorna **`data/performance-sessions.json`** — voce sessione con tutti i campi numerici.
 4. Compila pagina sessione — blocco `.metabolic-block` (ordine sotto).
 5. Scrivi **`.metabolic-note`** — analisi 2–3 frasi (zona dominante, FC max, legame con esercizi).
-6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `data/performance-monthly.json`.
+6. Esegui **`node tools/aggiorna-performance.mjs`** → rigenera `performance-monthly.json` + **`wellness-trends.json`**.
 7. Esegui **`node tools/aggiorna-training-load.mjs`** → rigenera `data/training-load.json` (CTL/ATL/TSB).
-8. Verifica tabella + grafici in trimestre `#statistiche` + modulo TSB.
-9. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
+8. Verifica hub **`/allenamenti/#performance-corporea`** — grafici sonno, HRV, TSB, FC (`js/readiness-chart.js`).
+9. Verifica tabella + grafici in trimestre `#statistiche` + modulo TSB.
+10. Aggiorna excerpt in `/allenamenti/sessioni/` se cambiano metriche chiave.
 
 ## BLOCCANTE — foto upload → pagina (come il 4 agosto)
 
@@ -164,6 +165,26 @@ Dopo ogni nuova sessione: `node tools/aggiorna-training-load.mjs` (rigenera JSON
 | `duration_corrected` | bool | se anomalia device | `false` |
 | `calorie_asterisk`, `carico_asterisk` | bool | se sovrastima | `false` |
 | `partial` | bool | export incompleto | — |
+| `readiness` | object | se export sonno/HRV | vedi sotto |
+| `tsb` | object | snapshot TSB giorno | `value`, `label`, `fitness_ctl`, `fatigue_atl` |
+
+### Readiness (obbligatorio se screenshot sonno/HRV/TSB in pagina)
+
+```json
+"readiness": {
+  "sleep_duration": "7:07",
+  "sleep_duration_label": "Buono",
+  "hrv": 36,
+  "hrv_label": "Attenzione",
+  "hrv_baseline": 43,
+  "hybridcharge_wake": 58,
+  "resting_hr": 53,
+  "effort_day": 103
+},
+"tsb": { "value": -1, "label": "Bilanciato", "fitness_ctl": 44, "fatigue_atl": 45, "date": "2026-09-15" }
+```
+
+Alimenta grafici hub: durata sonno · HRV · TSB · FC media/max. Tool: `node tools/aggiorna-wellness-trends.mjs --audit`.
 
 \* Se device gonfiato: `duration_corrected: true`, durata reale in `durata`, grezzo in `durata_device`.
 
@@ -198,6 +219,17 @@ Breve paragrafo che interpreta i dati — esempio 21/07:
 > Sessione gambe-bicipiti ~1h29 · dominanza zona intensiva (61%) coerente con pressa 140 kg e recuperi tra set. FC max 138 bpm in chiusura sessione.
 
 Includere: durata percepita, zona % dominante, legame con esercizi/pesi, picchi FC se rilevanti.
+
+## Grafici wellness — hub `/allenamenti/`
+
+Dopo ogni sessione con readiness Zepp:
+
+1. Compilare `readiness` + `tsb` in `performance-sessions.json` (numeri da screenshot, mai inventati).
+2. `node tools/aggiorna-performance.mjs` (include wellness-trends).
+3. Verificare **`#performance-corporea`**: 5 grafici a finestra 15 gg — **durata sonno**, **HRV**, **TSB (grado riposo)**, HybridCharge/punteggio sonno, **FC** media/max/min.
+4. `node tools/aggiorna-wellness-trends.mjs --audit` — fallisce se gap readiness su sessioni non-`partial`.
+
+File: `data/wellness-trends.json` · JS: `js/readiness-chart.js`.
 
 ## Statistiche mensili e grafici
 
