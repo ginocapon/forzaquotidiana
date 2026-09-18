@@ -129,6 +129,31 @@ const META = {
       sett11_12: ["RIR 1-2 · **4 rep** sui * (picco PI)", "Ultima serie * a RIR 0–1 se tecnica OK", "Carico massimo dell’anno sui fondamentali"],
       sett13: ["Deload −40% · RIR 4-5", "Obbligatorio prima di Fase 3 (rientro 8 rep)"],
     },
+    valutazioneProgramma: {
+      petto: 11,
+      schiena: 14,
+      spalleAnteriori: 12,
+      spalleLaterali: 6,
+      deltoidePosteriore: 3,
+      quadricipiti: 16,
+      femorali: 16,
+      glutei: 11,
+      polpacci: 16,
+      bicipitiDiretti: 7,
+      note: "Petto 2×/sett. (A1 piana * + chest press · A2 inclinata 4×6-8). Fondamentali *: piana A1, squat B1, lat neutra A2, trap bar B2. Picco 4 rep sett. 11–12.",
+    },
+    volumeSettimanaleFinale: [
+      { gruppo: "Petto", serie: 11, note: "A1 piana * + chest press · A2 inclinata 4×6-8" },
+      { gruppo: "Schiena", serie: 14, note: "A1 trazioni + rematore · A2 lat neutra * + pulley" },
+      { gruppo: "Spalle anteriori", serie: 12, note: "6 lento (A1 bb + A2 manubri) + overlap pressing petto" },
+      { gruppo: "Spalle laterali", serie: 6, note: "A1 cavi · A2 manubri" },
+      { gruppo: "Deltoide posteriore", serie: 3, note: "A2 reverse pec deck" },
+      { gruppo: "Quadricipiti", serie: 16, note: "B1 squat * + extension · B2 pressa + affondi" },
+      { gruppo: "Femorali", serie: 16, note: "B1 RDL bb + leg curl · B2 leg curl + trap bar *" },
+      { gruppo: "Glutei", serie: 11, note: "B2 trap bar * + hip thrust (+ overlap adduttori B1)" },
+      { gruppo: "Polpacci", serie: 16, note: "4 serie per sessione" },
+      { gruppo: "Bicipiti diretti", serie: 7, note: "B1 curl EZ · B2 martello" },
+    ],
     guidaOperativa: {
       titolo: "Metodo Blocco 2 — tensione, forza, rotazione",
       sintesi:
@@ -178,7 +203,7 @@ const META = {
       ],
     },
     valutazioneProgramma: {
-      petto: 7,
+      petto: 11,
       schiena: 14,
       spalleAnteriori: 12,
       spalleLaterali: 6,
@@ -188,7 +213,7 @@ const META = {
       glutei: 11,
       polpacci: 16,
       bicipitiDiretti: 7,
-      note: "Volume PI invariato vs Fase 1. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *.",
+      note: "Petto 2×/sett. (A1 inclinata bb + croci · A2 piana 4×8). Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *.",
     },
     regoleRirECedimento: {
       principio:
@@ -213,7 +238,7 @@ const META = {
       ],
     },
     volumeSettimanaleFinale: [
-      { gruppo: "Petto", serie: 7, note: "A1 inclinata bb + croci" },
+      { gruppo: "Petto", serie: 11, note: "A1 inclinata bb + croci · A2 piana 4×8" },
       { gruppo: "Schiena", serie: 14, note: "A1 lat larga + pulley · A2 rematore/trazioni * + lat neutra" },
       { gruppo: "Spalle anteriori", serie: 12, note: "6 lento (A1 manubri + A2 bb *) + overlap pressing" },
       { gruppo: "Spalle laterali", serie: 6, note: "A1 + A2 alzate manubri" },
@@ -253,7 +278,7 @@ const META = {
       ],
     },
     valutazioneProgramma: {
-      petto: 6,
+      petto: 10,
       schiena: 14,
       spalleAnteriori: 8,
       spalleLaterali: 4,
@@ -264,7 +289,7 @@ const META = {
       polpacci: 14,
       bicipitiDiretti: 3,
       tricipiti: 3,
-      note: "Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking.",
+      note: "Petto 2×/sett. estivo (A1 chest press + pec deck · A2 chest press 4×8). Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking.",
     },
     regoleRirECedimento: {
       principio:
@@ -286,7 +311,7 @@ const META = {
       ],
     },
     volumeSettimanaleFinale: [
-      { gruppo: "Petto", serie: 6, note: "A1 chest press * + pec deck" },
+      { gruppo: "Petto", serie: 10, note: "A1 chest press * + pec deck · A2 chest press 4×8" },
       { gruppo: "Schiena", serie: 14, note: "A1 trazioni + face pull · A2 rematore * + lat larga" },
       { gruppo: "Spalle anteriori", serie: 8, note: "A1 lento manubri seduto + overlap chest press" },
       { gruppo: "Spalle laterali", serie: 4, note: "A1 manubri · A2 cavi" },

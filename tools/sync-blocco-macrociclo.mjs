@@ -71,7 +71,7 @@ const allFiles = Object.values(index.blocchi).map((f) => join(ADMIN, f));
 
 let files = [];
 if (args.includes("--all")) {
-  files = allFiles.filter((f) => !f.includes("blocco-1-fase1"));
+  files = allFiles;
 } else if (args.includes("--file")) {
   files = [join(REPO, args[args.indexOf("--file") + 1])];
 } else {

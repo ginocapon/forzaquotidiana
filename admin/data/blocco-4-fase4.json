@@ -76,7 +76,7 @@
     ]
   },
   "valutazioneProgramma": {
-    "petto": 6,
+    "petto": 10,
     "schiena": 14,
     "spalleAnteriori": 8,
     "spalleLaterali": 4,
@@ -87,7 +87,7 @@
     "polpacci": 14,
     "bicipitiDiretti": 3,
     "tricipiti": 3,
-    "note": "Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking."
+    "note": "Petto 2×/sett. estivo (A1 chest press + pec deck · A2 chest press 4×8). Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 4 — ricondizionamento estivo",
@@ -117,7 +117,7 @@
           "giorno": "Giovedì",
           "sessione": "A2",
           "tipo": "Upper",
-          "focus": "Schiena · Spalle · Polpacci seduto · Halo"
+          "focus": "Petto inclinata · Schiena · Spalle · Polpacci seduto · Halo"
         },
         {
           "giorno": "Venerdì",
@@ -202,8 +202,8 @@
     "volumeSettimanaleFinale": [
       {
         "gruppo": "Petto",
-        "serie": 6,
-        "note": "A1 chest press * + pec deck"
+        "serie": 10,
+        "note": "A1 chest press * + pec deck · A2 chest press 4×8"
       },
       {
         "gruppo": "Schiena",
@@ -267,7 +267,7 @@
       },
       {
         "sessione": "A2",
-        "petto": 0,
+        "petto": 4,
         "schiena": 7,
         "spalleAnt": 6,
         "spalleLat": 3,
@@ -632,7 +632,7 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena · Spalle · Polpacci",
+      "nome": "Petto · Schiena · Spalle · Polpacci",
       "priorita": [
         {
           "stelle": 5,
@@ -641,6 +641,10 @@
         {
           "stelle": 5,
           "muscolo": "Deltoide laterale"
+        },
+        {
+          "stelle": 4,
+          "muscolo": "Petto"
         },
         {
           "stelle": 4,
@@ -668,6 +672,19 @@
           "figura": "fig-rematore",
           "progressionePrincipale": true,
           "note": "Esercizio principale schiena — carico moderato, connessione mente-muscolo"
+        },
+        {
+          "nome": "Chest press convergente",
+          "gruppo": "Petto",
+          "serie": 4,
+          "ripetizioni": "8",
+          "tempo": "3-1-X-1",
+          "recupero": "120 sec",
+          "progressione": "Secondo stimolo petto settimanale — macchina guidata, 4×8 mantenimento estivo",
+          "rir": "2-3",
+          "figura": "fig-chest",
+          "progressionePrincipale": false,
+          "note": "Secondo stimolo petto settimanale — macchina guidata, 4×8 mantenimento estivo · complementare al chest press * di A1"
         },
         {
           "nome": "Lat machine presa larga",
@@ -742,6 +759,12 @@
           "✓ Spinta verticale senza slancio col busto",
           "✓ Discesa controllata fino all'altezza clavicole"
         ],
+        "Panca inclinata manubri": [
+          "✓ Panca 30°, piedi a terra, scapole addotte e depresse",
+          "✓ Discesa ai manubri al livello clavicole, gomiti ~45°",
+          "✓ Spinta in alto senza far toccare i pesi in cima",
+          "✓ 4×6-8 con RIR 1 — secondo stimolo petto della settimana (accessori, no *)"
+        ],
         "Alzate laterali": [
           "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
           "✓ Discesa lenta 3 sec — niente slancio",
@@ -785,6 +808,10 @@
           "serie": 7
         },
         {
+          "muscolo": "Petto alto",
+          "serie": 4
+        },
+        {
           "muscolo": "Deltoide anteriore",
           "serie": 4
         },
@@ -801,7 +828,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+      "notaComplementare": "A2: lento avanti in progressione, panca inclinata 4×6-8 (secondo stimolo petto), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 (inclinata * + croci) copri petto 2×/sett. e 14 serie dorsali."
     },
     "b2": {
       "codice": "B2",
@@ -968,7 +995,7 @@
           "serie": 3
         }
       ],
-      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
     }
   }
 }
