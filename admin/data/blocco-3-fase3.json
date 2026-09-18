@@ -138,7 +138,7 @@
           "giorno": "Giovedì",
           "sessione": "A2",
           "tipo": "Upper",
-          "focus": "Schiena · Spalle · Polpacci seduto · Halo"
+          "focus": "Schiena · Petto · Spalle · Polpacci seduto · Halo"
         },
         {
           "giorno": "Venerdì",
@@ -312,7 +312,7 @@
       },
       {
         "sessione": "A2",
-        "petto": 0,
+        "petto": 4,
         "schiena": 7,
         "spalleAnt": 6,
         "spalleLat": 3,
@@ -677,11 +677,15 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena* · Spalle* · Polpacci",
+      "nome": "Schiena* · Petto · Spalle* · Polpacci",
       "priorita": [
         {
           "stelle": 5,
           "muscolo": "Dorsali"
+        },
+        {
+          "stelle": 4,
+          "muscolo": "Petto"
         },
         {
           "stelle": 5,
@@ -713,6 +717,19 @@
           "figura": "fig-lento",
           "progressionePrincipale": true,
           "note": "Esercizio principale spalle — progressione a carico fisso · rientra lento in progressione · Sett. 9–12: +1 serie · Sett. 13: deload"
+        },
+        {
+          "nome": "Panca piana con manubri",
+          "gruppo": "Petto",
+          "serie": 4,
+          "ripetizioni": "8",
+          "tempo": "3-1-X-1",
+          "recupero": "120 sec",
+          "progressione": "Richiamo petto A2 — angolo piatto manubri, complementare alla inclinata bb di A1",
+          "rir": "1-2",
+          "figura": "fig-press-incl",
+          "progressionePrincipale": false,
+          "note": "Richiamo petto A2 — angolo piatto manubri, complementare alla inclinata bb di A1 · seconda seduta upper/settimana"
         },
         {
           "nome": "Rematore con bilanciere / Trazioni",
@@ -800,6 +817,12 @@
           "✓ Spinta verticale senza slancio col busto",
           "✓ Discesa controllata fino all'altezza clavicole"
         ],
+        "Chest press convergente": [
+          "✓ Scapole addotte e depresse sullo schienale",
+          "✓ Spinta convergente — squeeze 1 sec in chiusura",
+          "✓ Discesa controllata fino allo stretch petto, no rimbalzo",
+          "✓ Secondo richiamo petto settimanale — angolo diverso da A1"
+        ],
         "Alzate laterali": [
           "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
           "✓ Discesa lenta 3 sec — niente slancio",
@@ -843,6 +866,10 @@
           "serie": 7
         },
         {
+          "muscolo": "Petto",
+          "serie": 4
+        },
+        {
           "muscolo": "Deltoide anteriore",
           "serie": 4
         },
@@ -859,7 +886,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+      "notaComplementare": "A2: lento avanti in progressione, richiamo petto con chest press convergente (4×6–8), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 le due upper coprono 14 serie dorsali e 11 serie petto — frequenza petto 2×/settimana."
     },
     "b2": {
       "codice": "B2",
@@ -1026,7 +1053,7 @@
           "serie": 3
         }
       ],
-      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
     }
   }
 }

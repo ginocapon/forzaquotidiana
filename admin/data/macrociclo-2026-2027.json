@@ -20,7 +20,7 @@
       "schedaIntro": "4 allenamenti/settimana (A1–B1–A2–B2). Schema: Lun A1 · Mar B1 · Gio A2 · Sab B2. Metodo completo stampabile: /admin/metodo-blocco1/pdf/ · Gli esercizi con * progredisci quando completi il tetto rep col RIR target per 2 sedute di fila.",
       "sessioni": {
         "a1": {
-          "nome": "A1 · Petto* · Schiena · Spalle · Polpacci",
+          "nome": "A1 · Petto · Schiena · Spalle · Polpacci",
           "esercizi": [
             {
               "nome": "Panca inclinata manubri",
@@ -32,7 +32,7 @@
               "rir": "2→1",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "4×8 poi + · Progressione principale · panca 30°, scapole addotte, gomiti ~45°."
+              "note": "4×8 poi +2 kg · Progressione principale · panca 30°, scapole addotte, gomiti ~45°."
             },
             {
               "nome": "Croci ai cavi",
@@ -56,19 +56,19 @@
               "rir": "1-2",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "+ quando completi 2×8 con RIR 1 · Volume moderato deltoide anteriore — evita sovraccarico rispetto al petto."
+              "note": "+2,5 kg quando completi 2×8 con RIR 1 · Volume moderato deltoide anteriore — evita sovraccarico rispetto al petto."
             },
             {
               "nome": "Alzate laterali",
               "gruppo": "Deltoide laterale",
-              "serie": 2,
+              "serie": 3,
               "ripetizioni": "12-15",
               "peso": "—",
               "recupero": "60 sec",
               "rir": "1",
               "tempo": "2-1-3-1",
               "progressione": false,
-              "note": "+ quando completi 3×15 con RIR 1 · Priorità deltoide laterale. Discesa lenta, niente slancio col busto."
+              "note": "+1 kg quando completi 3×15 con RIR 1 · Priorità deltoide laterale. Discesa lenta, niente slancio col busto."
             },
             {
               "nome": "Lat machine",
@@ -109,7 +109,7 @@
           ]
         },
         "b1": {
-          "nome": "B1 · Gambe accosciata* · Braccia",
+          "nome": "B1 · Gambe accosciata · Polpacci · Braccia",
           "esercizi": [
             {
               "nome": "Polpacci drop set",
@@ -121,7 +121,7 @@
               "rir": "1",
               "tempo": "2-1-X-1",
               "progressione": false,
-              "note": "Stessa sequenza drop finché completi tutte le serie pulite · Multipower: es. carichi da definire senza pausa tra i cali · 4×25 totali."
+              "note": "Stessa sequenza drop finché completi tutte le serie pulite · Multipower: es. 140→110→80 kg senza pausa tra i cali · 4×25 totali."
             },
             {
               "nome": "Pressa",
@@ -169,7 +169,7 @@
               "rir": "1",
               "tempo": "3-1-2-1",
               "progressione": false,
-              "note": "+ quando completi 3×10 con RIR 1 · Stacco rumeno con manubri · schiena neutra, stretch femorali."
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Stacco rumeno con manubri · schiena neutra, stretch femorali."
             },
             {
               "nome": "Curl Scott",
@@ -181,12 +181,12 @@
               "rir": "1",
               "tempo": "2-1-2-1",
               "progressione": false,
-              "note": "+ quando completi 4×10 con RIR 1 · Panca Scott curva · gomiti fermi sul supporto."
+              "note": "+2,5 kg quando completi 4×10 con RIR 1 · Panca Scott curva · gomiti fermi sul supporto."
             },
             {
               "nome": "Leg Curl",
               "gruppo": "Femorali",
-              "serie": 4,
+              "serie": 3,
               "ripetizioni": "10-12",
               "peso": "—",
               "recupero": "90 sec",
@@ -198,7 +198,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Polpacci",
+          "nome": "A2 · Schiena · Petto · Spalle · Polpacci",
           "esercizi": [
             {
               "nome": "Lento avanti bilanciere",
@@ -210,7 +210,19 @@
               "rir": "2→1",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "+ quando completi 4×8 con RIR 1 · Progressione principale A2 · gomiti leggermente flessi, barra davanti al viso, no slancio col busto."
+              "note": "+2,5 kg quando completi 4×8 con RIR 1 · Progressione principale A2 · gomiti leggermente flessi, barra davanti al viso, no slancio col busto."
+            },
+            {
+              "nome": "Chest press convergente",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "tempo": "3-1-X-1",
+              "progressione": false,
+              "note": "+5% quando completi 4×8 con RIR 1 · Richiamo petto A2 — angolo convergente, complementare alla inclinata di A1 · seconda seduta upper/settimana."
             },
             {
               "nome": "Alzate laterali",
@@ -222,7 +234,7 @@
               "rir": "1",
               "tempo": "2-1-3-1",
               "progressione": false,
-              "note": "+ quando completi 3×15 con RIR 1 · Priorità deltoide laterale. Discesa lenta, niente slancio col busto."
+              "note": "+1 kg quando completi 3×15 con RIR 1 · Priorità deltoide laterale. Discesa lenta, niente slancio col busto."
             },
             {
               "nome": "Lat machine",
@@ -287,7 +299,7 @@
           ]
         },
         "b2": {
-          "nome": "B2 · Gambe anca* · Braccia",
+          "nome": "B2 · Gambe dominante anca · Bicipiti",
           "esercizi": [
             {
               "nome": "Polpacci multipower",
@@ -335,7 +347,7 @@
               "rir": "1",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "+2,5- quando completi 4×8 con RIR 1 · Progressione principale B2 · stacco omega, schiena neutra, spinta col bacino."
+              "note": "+2,5-5 kg quando completi 4×8 con RIR 1 · Progressione principale B2 · stacco omega, schiena neutra, spinta col bacino."
             },
             {
               "nome": "Hip Thrust",
@@ -347,7 +359,7 @@
               "rir": "1",
               "tempo": "2-1-X-1",
               "progressione": false,
-              "note": "+ quando completi 3×10 con RIR 1 · Dominante anca — pausa 1-2 sec in alto, mento al petto, squeeze glutei."
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Dominante anca — pausa 1-2 sec in alto, mento al petto, squeeze glutei."
             },
             {
               "nome": "Curl Martello",
@@ -359,7 +371,7 @@
               "rir": "1",
               "tempo": "3-1-2-1",
               "progressione": false,
-              "note": "+ quando completi 3×10 con RIR 1 · Presa neutra, gomiti fermi · brachiale e brachioradiale."
+              "note": "+2,5 kg quando completi 3×10 con RIR 1 · Presa neutra, gomiti fermi · brachiale e brachioradiale."
             }
           ]
         }
@@ -556,7 +568,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle · Polpacci",
+          "nome": "A2 · Schiena* · Petto · Spalle · Polpacci",
           "esercizi": [
             {
               "nome": "Lat machine presa neutra",
@@ -581,6 +593,18 @@
               "tempo": "3-1-X-1",
               "progressione": false,
               "note": "Trazione orizzontale cavi — sostituisce rematore/trazioni alternati · Trazione orizzontale cavi — sostituisce rematore/trazioni alternati"
+            },
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "tempo": "3-1-X-1",
+              "progressione": false,
+              "note": "Richiamo petto A2 — angolo inclinato, complementare alla piana di A1 · Richiamo petto A2 — angolo inclinato, complementare alla piana di A1 · seconda seduta upper/settimana"
             },
             {
               "nome": "Lento avanti con manubri seduto",
@@ -763,7 +787,7 @@
               "note": "Stretch pettorale — rientra per pump e connessione mente-muscolo · Stretch pettorale — rientra per pump e connessione mente-muscolo"
             },
             {
-              "nome": "Lento avanti con bilanciere",
+              "nome": "Lento avanti con manubri seduto",
               "gruppo": "Spalle",
               "serie": 3,
               "ripetizioni": "8-10",
@@ -772,7 +796,7 @@
               "rir": "1-2",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Deltoide anteriore · Deltoide anteriore"
+              "note": "Deltoide anteriore — manubri seduto in A1 · Deltoide anteriore — manubri seduto in A1 · lento bb resta * in A2"
             },
             {
               "nome": "Alzate laterali con manubri",
@@ -843,13 +867,13 @@
               "nome": "Pressa a 45°",
               "gruppo": "Quadricipiti",
               "serie": 4,
-              "ripetizioni": "10",
+              "ripetizioni": "8",
               "peso": "—",
               "recupero": "120 sec",
               "rir": "1-2",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "Progressione principale * · Esercizio principale gambe accosciata — rientra pressa dopo squat-forza Fase 2 · Sett. 9–12: +1 serie · Sett. 13: deload"
+              "note": "Progressione principale * · Esercizio principale gambe accosciata — 8 rep PI post-forza · Sett. 10–12: +1 serie · Sett. 13: deload"
             },
             {
               "nome": "Leg extension",
@@ -914,7 +938,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Polpacci",
+          "nome": "A2 · Schiena* · Petto · Spalle* · Polpacci",
           "esercizi": [
             {
               "nome": "Lento avanti con bilanciere",
@@ -927,6 +951,18 @@
               "tempo": "3-1-X-1",
               "progressione": true,
               "note": "Progressione principale * · Esercizio principale spalle — progressione a carico fisso · rientra lento in progressione · Sett. 9–12: +1 serie · Sett. 13: deload"
+            },
+            {
+              "nome": "Panca piana con manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "tempo": "3-1-X-1",
+              "progressione": false,
+              "note": "Richiamo petto A2 — angolo piatto manubri, complementare alla inclinata bb di A1 · Richiamo petto A2 — angolo piatto manubri, complementare alla inclinata bb di A1 · seconda seduta upper/settimana"
             },
             {
               "nome": "Rematore con bilanciere / Trazioni",
@@ -1109,16 +1145,16 @@
               "note": "Progressione principale * · Esercizio principale petto — macchina guidata, zero pressione articolare · mantenimento estivo"
             },
             {
-              "nome": "Croci ai cavi",
+              "nome": "Pec deck",
               "gruppo": "Petto",
               "serie": 2,
               "ripetizioni": "12-15",
               "peso": "—",
               "recupero": "90 sec",
               "rir": "2-3",
-              "tempo": "2-1-3-1",
+              "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Pump leggero pettorale · Pump leggero pettorale"
+              "note": "Isolamento petto guidato — sostituisce croci Fase 3 · Isolamento petto guidato — sostituisce croci Fase 3 · pump leggero estivo"
             },
             {
               "nome": "Lento avanti con manubri seduto",
@@ -1145,7 +1181,7 @@
               "note": "Deltoide medio · Deltoide medio"
             },
             {
-              "nome": "Lat machine presa neutra",
+              "nome": "Trazioni a presa larga",
               "gruppo": "Schiena",
               "serie": 4,
               "ripetizioni": "10-12",
@@ -1154,19 +1190,19 @@
               "rir": "2-3",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Trazione verticale — ROM completo, niente cedimento · Trazione verticale — ROM completo, niente cedimento"
+              "note": "Trazione verticale — rientra da Fase 2 · Trazione verticale — rientra da Fase 2 · assistite se serve, ROM completo"
             },
             {
-              "nome": "Pulley basso",
+              "nome": "Face pull ai cavi",
               "gruppo": "Schiena",
               "serie": 3,
-              "ripetizioni": "10-12",
+              "ripetizioni": "12-15",
               "peso": "—",
-              "recupero": "120 sec",
+              "recupero": "90 sec",
               "rir": "2-3",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Trazione orizzontale · Trazione orizzontale"
+              "note": "Deltoide posteriore e rotatori — sostituisce pulley basso Fase 3 · Deltoide posteriore e rotatori — sostituisce pulley basso Fase 3"
             },
             {
               "nome": "Polpacci in piedi (multipower)",
@@ -1234,16 +1270,16 @@
               "note": "Adduttori — squeeze moderato · Adduttori — squeeze moderato"
             },
             {
-              "nome": "Stacco rumeno con manubri",
-              "gruppo": "Femorali",
+              "nome": "Cable pull-through",
+              "gruppo": "Glutei",
               "serie": 3,
-              "ripetizioni": "10-12",
+              "ripetizioni": "12-15",
               "peso": "—",
-              "recupero": "120 sec",
+              "recupero": "90 sec",
               "rir": "2-3",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Catena posteriore leggera · Catena posteriore leggera"
+              "note": "Hinge leggero cavi — sostituisce RDL manubri Fase 3 · Hinge leggero cavi — sostituisce RDL manubri Fase 3 · zero fatica SNC"
             },
             {
               "nome": "Curl bilanciere EZ",
@@ -1272,10 +1308,10 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena · Spalle · Polpacci",
+          "nome": "A2 · Schiena · Petto · Spalle · Polpacci",
           "esercizi": [
             {
-              "nome": "Lat machine presa larga",
+              "nome": "Rematore con bilanciere",
               "gruppo": "Schiena",
               "serie": 4,
               "ripetizioni": "10-12",
@@ -1284,10 +1320,22 @@
               "rir": "2-3",
               "tempo": "3-1-X-1",
               "progressione": true,
-              "note": "Progressione principale * · Esercizio principale schiena — mantenimento, connessione mente-muscolo"
+              "note": "Progressione principale * · Esercizio principale schiena — carico moderato, connessione mente-muscolo"
             },
             {
-              "nome": "Rematore con bilanciere",
+              "nome": "Croci ai cavi",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "10-12",
+              "peso": "—",
+              "recupero": "90 sec",
+              "rir": "2-3",
+              "tempo": "2-1-3-1",
+              "progressione": false,
+              "note": "Richiamo petto A2 — stretch e pump leggero, complementare al chest press di A1 · Richiamo petto A2 — stretch e pump leggero, complementare al chest press di A1 · seconda seduta upper/settimana"
+            },
+            {
+              "nome": "Lat machine presa larga",
               "gruppo": "Schiena",
               "serie": 3,
               "ripetizioni": "10-12",
@@ -1296,7 +1344,7 @@
               "rir": "2-3",
               "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Trazione orizzontale — carico moderato · Trazione orizzontale — carico moderato"
+              "note": "Trazione verticale complementare — angolo diverso dal rematore · Trazione verticale complementare — angolo diverso dal rematore"
             },
             {
               "nome": "Alzate laterali ai cavi",
@@ -1311,16 +1359,16 @@
               "note": "Deltoide medio · Deltoide medio"
             },
             {
-              "nome": "Reverse Pec Deck",
+              "nome": "Alzate posteriori manubri inclinato",
               "gruppo": "Spalle",
               "serie": 2,
               "ripetizioni": "12-15",
               "peso": "—",
               "recupero": "60 sec",
               "rir": "2-3",
-              "tempo": "3-1-X-1",
+              "tempo": "2-1-3-1",
               "progressione": false,
-              "note": "Deltoide posteriore · Deltoide posteriore"
+              "note": "Deltoide posteriore — sostituisce reverse pec deck Fase 3 · Deltoide posteriore — sostituisce reverse pec deck Fase 3"
             },
             {
               "nome": "Polpacci seduto",
@@ -1412,16 +1460,16 @@
               "note": "Core — sostituisce lavoro pesante hinge · Core — sostituisce lavoro pesante hinge · mantenimento postura"
             },
             {
-              "nome": "Curl martello con manubri",
-              "gruppo": "Bicipiti",
+              "nome": "Pushdown tricipiti ai cavi",
+              "gruppo": "Tricipiti",
               "serie": 3,
               "ripetizioni": "10-12",
               "peso": "—",
               "recupero": "60 sec",
               "rir": "2-3",
-              "tempo": "2-1-2-1",
+              "tempo": "3-1-X-1",
               "progressione": false,
-              "note": "Brachioradiale · Brachioradiale"
+              "note": "Tricipiti — sostituisce curl martello Fase 3 · Tricipiti — sostituisce curl martello Fase 3 · braccia bilanciate in estate"
             }
           ]
         }

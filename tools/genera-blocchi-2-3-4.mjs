@@ -26,6 +26,7 @@ const FIGURA_BY_KEY = {
   inclinata: "fig-press-incl",
   croci: "fig-croci",
   chest: "fig-chest",
+  convergente: "fig-chest-converg",
   lento: "fig-lento",
   alzate: "fig-alzate",
   lat: "fig-lat",

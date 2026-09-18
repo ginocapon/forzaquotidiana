@@ -80,7 +80,7 @@
         { "giorno": "Lunedì", "sessione": "A1", "tipo": "Upper", "focus": "Petto · Schiena · Spalle · Polpacci in piedi" },
         { "giorno": "Martedì", "sessione": "B1", "tipo": "Lower", "focus": "Gambe accosciata · Polpacci drop · Braccia" },
         { "giorno": "Mercoledì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero completo o camminata leggera" },
-        { "giorno": "Giovedì", "sessione": "A2", "tipo": "Upper", "focus": "Schiena · Spalle · Polpacci seduto · Halo" },
+        { "giorno": "Giovedì", "sessione": "A2", "tipo": "Upper", "focus": "Schiena · Petto · Spalle · Polpacci seduto · Halo" },
         { "giorno": "Venerdì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" },
         { "giorno": "Sabato", "sessione": "B2", "tipo": "Lower", "focus": "Gambe dominante anca · Bicipiti" },
         { "giorno": "Domenica", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" }
@@ -125,7 +125,7 @@
       { "settimane": "13", "intensita": "RIR 4-5", "volume": "−40%", "nota": "Deload obbligatorio" }
     ],
     "volumeSettimanaleFinale": [
-      { "gruppo": "Petto", "serie": 7, "note": "Tutto in A1 (panca inclinata + croci)" },
+      { "gruppo": "Petto", "serie": 11, "note": "A1 panca inclinata + croci (7) · A2 chest press convergente (4)" },
       { "gruppo": "Schiena", "serie": 14, "note": "A1 lat+rematore · A2 lat+rematore/trazioni" },
       { "gruppo": "Spalle anteriori", "serie": 12, "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto" },
       { "gruppo": "Spalle laterali", "serie": 6, "note": "A1 alzate 3 · A2 alzate 3" },
@@ -139,7 +139,7 @@
     ],
     "volumePerSeduta": [
       { "sessione": "A1", "petto": 7, "schiena": 7, "spalleAnt": 6, "spalleLat": 3, "polpacci": 4 },
-      { "sessione": "A2", "petto": 0, "schiena": 7, "spalleAnt": 6, "spalleLat": 3, "deltoPost": 3, "polpacci": 4 },
+      { "sessione": "A2", "petto": 4, "schiena": 7, "spalleAnt": 6, "spalleLat": 3, "deltoPost": 3, "polpacci": 4 },
       { "sessione": "B1", "quad": 12, "femorali": 6, "polpacci": 4, "bicipiti": 4, "glutei": 4 },
       { "sessione": "B2", "quad": 4, "femorali": 7, "glutei": 7, "polpacci": 4, "bicipiti": 3 }
     ],
@@ -287,7 +287,7 @@
         { "muscolo": "Deltoide anteriore", "serie": 2 },
         { "muscolo": "Polpacci", "serie": 4 }
       ],
-      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2: richiamo petto (chest press), lento avanti in progressione, deltoide posteriore e polpacci seduto — frequenza petto 2×/settimana."
     },
     "b1": {
       "codice": "B1",
@@ -424,9 +424,10 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena · Spalle · Polpacci",
+      "nome": "Schiena · Petto · Spalle · Polpacci",
       "priorita": [
         { "stelle": 5, "muscolo": "Dorsali" },
+        { "stelle": 4, "muscolo": "Petto" },
         { "stelle": 5, "muscolo": "Deltoide laterale" },
         { "stelle": 4, "muscolo": "Deltoide anteriore" },
         { "stelle": 4, "muscolo": "Deltoide posteriore" },
@@ -445,6 +446,19 @@
           "figura": "fig-lento",
           "progressionePrincipale": true,
           "note": "Progressione principale A2 · gomiti leggermente flessi, barra davanti al viso, no slancio col busto."
+        },
+        {
+          "nome": "Chest press convergente",
+          "gruppo": "Petto",
+          "serie": 4,
+          "ripetizioni": "6-8",
+          "tempo": "3-1-X-1",
+          "recupero": "120 sec",
+          "progressione": "+5% quando completi 4×8 con RIR 1",
+          "rir": "1-2",
+          "figura": "fig-chest-converg",
+          "progressionePrincipale": false,
+          "note": "Richiamo petto A2 — angolo convergente, complementare alla inclinata di A1 · seconda seduta upper/settimana."
         },
         {
           "nome": "Alzate laterali",
@@ -532,6 +546,12 @@
           "✓ Spinta verticale senza slancio col busto",
           "✓ Discesa controllata fino all'altezza clavicole"
         ],
+        "Chest press convergente": [
+          "✓ Scapole addotte e depresse sullo schienale",
+          "✓ Spinta convergente — squeeze 1 sec in chiusura",
+          "✓ Discesa controllata fino allo stretch petto, no rimbalzo",
+          "✓ Secondo richiamo petto settimanale — angolo diverso da A1"
+        ],
         "Alzate laterali": [
           "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
           "✓ Discesa lenta 3 sec — niente slancio",
@@ -571,12 +591,13 @@
       },
       "volumeSeduta": [
         { "muscolo": "Dorsali", "serie": 7 },
+        { "muscolo": "Petto", "serie": 4 },
         { "muscolo": "Deltoide anteriore", "serie": 4 },
         { "muscolo": "Deltoide laterale", "serie": 3 },
         { "muscolo": "Deltoide posteriore", "serie": 3 },
         { "muscolo": "Polpacci", "serie": 4 }
       ],
-      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+      "notaComplementare": "A2: lento avanti in progressione, richiamo petto con chest press convergente (4×6–8), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 le due upper coprono 14 serie dorsali e 11 serie petto — frequenza petto 2×/settimana."
     },
     "b2": {
       "codice": "B2",
@@ -713,7 +734,7 @@
         { "muscolo": "Glutei", "serie": 3 },
         { "muscolo": "Bicipiti", "serie": 3 }
       ],
-      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
     }
   }
 }
