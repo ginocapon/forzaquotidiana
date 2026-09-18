@@ -138,7 +138,7 @@
           "giorno": "Giovedì",
           "sessione": "A2",
           "tipo": "Upper",
-          "focus": "Petto piana · Schiena · Spalle · Polpacci seduto · Halo"
+          "focus": "Petto inclinata · Schiena · Spalle · Polpacci seduto · Halo"
         },
         {
           "giorno": "Venerdì",
@@ -817,11 +817,11 @@
           "✓ Spinta verticale senza slancio col busto",
           "✓ Discesa controllata fino all'altezza clavicole"
         ],
-        "Panca piana con manubri": [
-          "✓ Panca piana, piedi a terra, scapole addotte e depresse",
-          "✓ Discesa ai manubri al livello sterno, gomiti ~45°",
+        "Panca inclinata manubri": [
+          "✓ Panca 30°, piedi a terra, scapole addotte e depresse",
+          "✓ Discesa ai manubri al livello clavicole, gomiti ~45°",
           "✓ Spinta in alto senza far toccare i pesi in cima",
-          "✓ 4×6-8 con RIR 1 — secondo stimolo petto della settimana"
+          "✓ 4×6-8 con RIR 1 — secondo stimolo petto della settimana (accessori, no *)"
         ],
         "Alzate laterali": [
           "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
@@ -866,7 +866,7 @@
           "serie": 7
         },
         {
-          "muscolo": "Petto",
+          "muscolo": "Petto alto",
           "serie": 4
         },
         {
@@ -886,7 +886,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A2: lento avanti in progressione, panca piana 4×6-8 (secondo stimolo petto), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 (inclinata + croci) copri petto 2×/sett. e 14 serie dorsali."
+      "notaComplementare": "A2: lento avanti in progressione, panca inclinata 4×6-8 (secondo stimolo petto), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 (inclinata * + croci) copri petto 2×/sett. e 14 serie dorsali."
     },
     "b2": {
       "codice": "B2",

@@ -69,7 +69,7 @@
     "glutei": 11,
     "polpacci": 16,
     "bicipitiDiretti": 7,
-    "note": "Volume settimanale efficace A1–B2. Petto 2×/sett. (A1 inclinata+croci · A2 piana 4×6-8). Spalle anteriori = 6 serie lento diretto + overlap pressing petto. Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+    "note": "Volume settimanale efficace A1–B2. Petto 2×/sett. (A1 inclinata * + croci · A2 inclinata 4×6-8). Spalle anteriori = 6 serie lento diretto + overlap pressing petto. Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 1 — come usare le 4 schede",
@@ -80,7 +80,7 @@
         { "giorno": "Lunedì", "sessione": "A1", "tipo": "Upper", "focus": "Petto · Schiena · Spalle · Polpacci in piedi" },
         { "giorno": "Martedì", "sessione": "B1", "tipo": "Lower", "focus": "Gambe accosciata · Polpacci drop · Braccia" },
         { "giorno": "Mercoledì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero completo o camminata leggera" },
-        { "giorno": "Giovedì", "sessione": "A2", "tipo": "Upper", "focus": "Petto piana · Schiena · Spalle · Polpacci seduto · Halo" },
+        { "giorno": "Giovedì", "sessione": "A2", "tipo": "Upper", "focus": "Petto inclinata · Schiena · Spalle · Polpacci seduto · Halo" },
         { "giorno": "Venerdì", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" },
         { "giorno": "Sabato", "sessione": "B2", "tipo": "Lower", "focus": "Gambe dominante anca · Bicipiti" },
         { "giorno": "Domenica", "sessione": "Riposo", "tipo": "—", "focus": "Recupero" }
@@ -125,7 +125,7 @@
       { "settimane": "13", "intensita": "RIR 4-5", "volume": "−40%", "nota": "Deload obbligatorio" }
     ],
     "volumeSettimanaleFinale": [
-      { "gruppo": "Petto", "serie": 11, "note": "A1 panca inclinata + croci · A2 panca piana 4×6-8" },
+      { "gruppo": "Petto", "serie": 11, "note": "A1 panca inclinata * + croci · A2 panca inclinata 4×6-8" },
       { "gruppo": "Schiena", "serie": 14, "note": "A1 lat+rematore · A2 lat+rematore/trazioni" },
       { "gruppo": "Spalle anteriori", "serie": 12, "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto" },
       { "gruppo": "Spalle laterali", "serie": 6, "note": "A1 alzate 3 · A2 alzate 3" },
@@ -448,17 +448,17 @@
           "note": "Progressione principale A2 · gomiti leggermente flessi, barra davanti al viso, no slancio col busto."
         },
         {
-          "nome": "Panca piana con manubri",
-          "gruppo": "Petto",
+          "nome": "Panca inclinata manubri",
+          "gruppo": "Petto alto",
           "serie": 4,
           "ripetizioni": "6-8",
           "tempo": "3-1-X-1",
           "recupero": "120 sec",
           "progressione": "4×8 poi +2 kg",
           "rir": "1",
-          "figura": "fig-press-flat",
+          "figura": "fig-press-incl",
           "progressionePrincipale": false,
-          "note": "Secondo stimolo petto settimanale — angolo piatto complementare all’inclinata di A1 · scapole addotte, gomiti ~45°."
+          "note": "Secondo stimolo petto settimanale — 4×6-8, stesso angolo A1 ma accessori (no *) · scapole addotte, gomiti ~45°."
         },
         {
           "nome": "Alzate laterali",
@@ -546,11 +546,11 @@
           "✓ Spinta verticale senza slancio col busto",
           "✓ Discesa controllata fino all'altezza clavicole"
         ],
-        "Panca piana con manubri": [
-          "✓ Panca piana, piedi a terra, scapole addotte e depresse",
-          "✓ Discesa ai manubri al livello sterno, gomiti ~45°",
+        "Panca inclinata manubri": [
+          "✓ Panca 30°, piedi a terra, scapole addotte e depresse",
+          "✓ Discesa ai manubri al livello clavicole, gomiti ~45°",
           "✓ Spinta in alto senza far toccare i pesi in cima",
-          "✓ 4×6-8 con RIR 1 — secondo stimolo petto della settimana"
+          "✓ 4×6-8 con RIR 1 — secondo stimolo petto della settimana (accessori, no *)"
         ],
         "Alzate laterali": [
           "✓ Gomiti leggermente flessi, alza fino all'altezza spalle",
@@ -591,13 +591,13 @@
       },
       "volumeSeduta": [
         { "muscolo": "Dorsali", "serie": 7 },
-        { "muscolo": "Petto", "serie": 4 },
+        { "muscolo": "Petto alto", "serie": 4 },
         { "muscolo": "Deltoide anteriore", "serie": 4 },
         { "muscolo": "Deltoide laterale", "serie": 3 },
         { "muscolo": "Deltoide posteriore", "serie": 3 },
         { "muscolo": "Polpacci", "serie": 4 }
       ],
-      "notaComplementare": "A2: lento avanti in progressione, panca piana 4×6-8 (secondo stimolo petto), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 (inclinata + croci) copri petto 2×/sett. e 14 serie dorsali."
+      "notaComplementare": "A2: lento avanti in progressione, panca inclinata 4×6-8 (secondo stimolo petto), dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Con A1 (inclinata * + croci) copri petto 2×/sett. e 14 serie dorsali."
     },
     "b2": {
       "codice": "B2",

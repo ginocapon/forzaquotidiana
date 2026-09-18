@@ -31,8 +31,16 @@
   function sessionSummary(sessione) {
     var prog = sessione.esercizi.filter(function (e) { return e.progressione || e.progressionePrincipale; });
     var main = prog.length ? prog[0] : sessione.esercizi[0];
+    if (!main) return "";
     var peso = (!main.peso || main.peso === "—" || main.peso === "-") ? "kg TBD" : main.peso;
-    return main ? main.nome + " · " + peso + " · " + main.serie + "×" + main.ripetizioni : "";
+    var line = main.nome + " · " + peso + " · " + main.serie + "×" + main.ripetizioni;
+    var petto = sessione.esercizi.filter(function (e) {
+      return /petto/i.test(e.gruppo || "") || /panca|croci|chest press|pec deck/i.test(e.nome || "");
+    });
+    if (petto.length && petto[0].nome !== main.nome) {
+      line += " · " + petto[0].nome + " " + petto[0].serie + "×" + petto[0].ripetizioni;
+    }
+    return line;
   }
 
   function renderSessionGrid(fase, periodo, blocco) {
