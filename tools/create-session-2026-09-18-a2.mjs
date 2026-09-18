@@ -62,7 +62,7 @@ const html = `<!DOCTYPE html>
         <time class="session-hero__time" datetime="2026-09-18T12:55">18 settembre 2026 · ore 12:55 · venerdì</time>
       </div>
       <h1>Petto · schiena · spalle — A2 settimana 3</h1>
-      <p class="session-hero__sub">62 min, carico 105, FC 115/151, 507 kcal — 25 serie · HRV 37 Buono · TSB -1 Bilanciato · HybridCharge 60→26</p>
+      <p class="session-hero__sub">62 min, carico 105, FC 115/151, 507 kcal — 25 serie · aerobico 3,1 Buono · sforzo 82/68 · TSB -1 Bilanciato</p>
       <dl class="session-kpis" aria-label="Metriche principali sessione">
         <div class="session-kpis__item session-kpis__item--accent"><dt>Durata</dt><dd>01:02:14</dd></div>
         <div class="session-kpis__item"><dt>FC media</dt><dd>115</dd></div>
@@ -117,13 +117,73 @@ const html = `<!DOCTYPE html>
     <section class="session-panel" aria-labelledby="nota-sessione">
       <span class="session-panel__label" id="nota-sessione">Nota di Gino</span>
       <p class="session-note"><strong>A2</strong> venerdì mezzogiorno <strong>12:55</strong> — petto · schiena · spalle, recupero dello slot giovedì in settimana 3. <strong>25 serie</strong> in <strong>01:02:14</strong>, recupero <strong>43:47</strong>, carico <strong>105</strong> — densità più alta dell'A2 dell'11/09 (54) ma seduta più corta.</p>
-      <p class="session-note">Profilo cardio: FC media <strong>115</strong>, max <strong>151</strong> — picco anaerobico in chiusura. Readiness discreta: sonno <strong>6:23</strong> (5 risvegli), HRV <strong>37</strong> sotto baseline 43, HybridCharge <strong>60</strong> al risveglio → <strong>26</strong> post workout. TSB <strong>-1 Bilanciato</strong> (CTL 38 / ATL 39). Focus Zepp: <em>Ripristina</em>.</p>
+      <p class="session-note">Profilo cardio più intenso dell'A2 dell'11/09 (FC max 151 vs 137, carico 105 vs 54): <strong>27 min in zona aerobica</strong> e <strong>9 min anaerobica</strong>, effetto aerobico <strong>3,1 Buono</strong>. Readiness discreta: sonno <strong>6:23</strong> (5 risvegli, FC notturna 55), HRV <strong>37</strong> sotto baseline 43, carico sforzo <strong>82</strong> su obiettivo 68. HybridCharge <strong>60</strong> → <strong>26</strong> post workout (−10 punti analisi). TSB <strong>-1 Bilanciato</strong> (CTL 38 / ATL 39). Focus Zepp: <em>Ripristina</em>.</p>
     </section>
 
     <section class="session-panel session-panel--readiness" aria-labelledby="readiness-title">
       <span class="session-panel__label">Readiness · sonno · HRV</span>
       <h2 id="readiness-title">Metriche giornata · Zepp · 18/09</h2>
       <p class="session-panel__intro">Sonno <strong>6:23 Normale</strong> (score 69), regolarità <strong>90% Ottimale</strong>, HRV <strong>37 Buono</strong>, FC riposo <strong>52 Ottimale</strong>, HybridCharge <strong>60 Discreto</strong> → <strong>26</strong> post sessione. TSB <strong>-1,0 Bilanciato</strong>.</p>
+
+      <div class="amazfit-tsb-hero" aria-label="Modulo TSB — 18 settembre">
+        <figure class="phone-shot phone-shot--landscape phone-shot--solo">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-tsb.webp" alt="Modulo TSB Zepp — CTL 38 ATL 39 TSB -1 Bilanciato, 18 settembre" width="1024" height="473" loading="eager" fetchpriority="high">
+          </div>
+          <figcaption>TSB · 18/09 · Bilanciato · CTL 38 · ATL 39</figcaption>
+        </figure>
+      </div>
+
+      <div class="amazfit-gallery" aria-label="Screenshot Zepp — readiness 18 settembre">
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-hybridcharge.webp" alt="HybridCharge 18 settembre — risveglio 60 Discreto, allenamento 12:55-13:58" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>HybridCharge 60 → 26 post workout</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-hybridcharge-analisi.webp" alt="Analisi HybridCharge — −10 punti post allenamento muscolare" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Analisi HC · −10 punti workout</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-readiness-panoramica.webp" alt="Panoramica 18 settembre — sonno 69, sforzo 100%, carico 82" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Panoramica · sforzo 100% · HC 27</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-readiness-metriche.webp" alt="Metriche 18 settembre — carico sforzo 82, sonno 6:23, HRV 37" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Carico sforzo 82 · sonno 6:23 · fitness 38</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-hrv.webp" alt="HRV 18 settembre — 37 ms Buono, baseline 43" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>HRV 37 · Buono · sotto baseline</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-sonno-score.webp" alt="Sonno score 18 settembre — 69 Normale" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Score sonno 69 · Normale</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-sonno-metriche.webp" alt="Sonno 18 settembre — 6:23, profondo 1:24, REM 1:24, veglia 0:35" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Sonno 6:23 · regolarità 90%</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-sonno-fc.webp" alt="FC sonno 18 settembre — media 55 bpm, 23:56-06:54" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>FC sonno 55 · 6:58 a letto</figcaption>
+        </figure>
+      </div>
 
       <div class="amazfit-data" aria-label="Dati readiness estratti">
         <div class="amazfit-card amazfit-card--wide">
@@ -142,8 +202,9 @@ const html = `<!DOCTYPE html>
             <div class="amazfit-card__cell amazfit-card__cell--highlight"><strong>6:23</strong><span>Durata · Normale</span></div>
             <div class="amazfit-card__cell"><strong>90%</strong><span>Regolarità · Ottimale</span></div>
             <div class="amazfit-card__cell"><strong>1:24</strong><span>Profondo · Leggero</span></div>
-            <div class="amazfit-card__cell"><strong>60</strong><span>HybridCharge risveglio</span></div>
-            <div class="amazfit-card__cell"><strong>82</strong><span>Carico sforzo giorno</span></div>
+            <div class="amazfit-card__cell"><strong>69</strong><span>Score sonno · Normale</span></div>
+            <div class="amazfit-card__cell"><strong>55</strong><span>FC sonno · bpm</span></div>
+            <div class="amazfit-card__cell"><strong>82</strong><span>Carico sforzo / 68</span></div>
           </div>
         </div>
         <div class="amazfit-card">
@@ -156,7 +217,6 @@ const html = `<!DOCTYPE html>
           </div>
         </div>
       </div>
-      <p class="session-note">Screenshot readiness (TSB, sonno, HRV, HybridCharge) in aggiornamento — numeri da export Zepp 18/09 ore 16:03.</p>
     </section>
 
     <section class="session-panel session-panel--metabolic">
@@ -186,9 +246,21 @@ const html = `<!DOCTYPE html>
       <div class="amazfit-gallery" aria-label="Screenshot Zepp — tecnica 18 settembre">
         <figure class="phone-shot">
           <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-zone-effetto.webp" alt="Zone FC 18 settembre — effetto aerobico e anaerobico" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Zone FC · effetto allenamento</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
             <img src="/img/allenamenti/amazfit/2026-09-18-a2-tecnica.webp" alt="Muscoli petto/deltoidi e radar tecnica — A2" width="390" height="844" loading="lazy">
           </div>
           <figcaption>Muscoli + radar tecnica</figcaption>
+        </figure>
+        <figure class="phone-shot">
+          <div class="phone-shot__frame">
+            <img src="/img/allenamenti/amazfit/2026-09-18-a2-readiness-dettaglio.webp" alt="Dettaglio metriche 18 settembre — carico sforzo 82, TSB -1, sonno 6:23" width="390" height="844" loading="lazy">
+          </div>
+          <figcaption>Dettaglio metriche giornata</figcaption>
         </figure>
       </div>
 
@@ -212,16 +284,29 @@ const html = `<!DOCTYPE html>
           </div>
         </div>
         <div class="amazfit-card amazfit-card--wide">
+          <p class="amazfit-card__title">Zone cardiache · minuti</p>
+          <div class="amazfit-card__grid">
+            <div class="amazfit-card__cell"><strong>10:17</strong><span>Leggera · 81–96</span></div>
+            <div class="amazfit-card__cell"><strong>15:47</strong><span>Intensiva · 97–113</span></div>
+            <div class="amazfit-card__cell"><strong>26:55</strong><span>Aerobica · 114–129</span></div>
+            <div class="amazfit-card__cell"><strong>9:01</strong><span>Anaerobica · 130–145</span></div>
+            <div class="amazfit-card__cell"><strong>0:11</strong><span>VO₂ max · 146+</span></div>
+          </div>
+        </div>
+        <div class="amazfit-card amazfit-card--wide">
+          <p class="amazfit-card__title">Effetto allenamento · Zepp</p>
+          <div class="amazfit-card__grid">
+            <div class="amazfit-card__cell amazfit-card__cell--highlight"><strong>3,1</strong><span>Aerobico · Buono</span></div>
+            <div class="amazfit-card__cell"><strong>2,6</strong><span>Anaerobico · Medio</span></div>
+          </div>
+        </div>
+        <div class="amazfit-card amazfit-card--wide">
           <p class="amazfit-card__title">Muscoli usati · map Zepp</p>
           <p><strong>Primari:</strong> petto, dorsali superiori. <strong>Secondari:</strong> deltoidi anteriori, trapezio, tricipiti. Coerente con A2 upper body — petto e spalle dominanti.</p>
         </div>
-        <div class="amazfit-card amazfit-card--wide">
-          <p class="amazfit-card__title">Valutazione movimento · radar</p>
-          <p>Stabilità e continuità alte, consistenza e ritmo uniformi, speed decay ragionevole — profilo tecnico solido su 25 serie.</p>
-        </div>
       </div>
 
-      <p class="metabolic-note"><strong>Valutazione conclusiva.</strong> Seduta <strong>A2</strong> venerdì (<strong>62 min</strong>, <strong>25 serie</strong>), carico <strong>105</strong> — upper denso con FC max 151 in chiusura. Recupero tra set 44 min. Sonno corto (6:23) con risvegli; HRV 37 sotto baseline. Weekend da dedicare al recupero prima del B2 sabato.</p>
+      <p class="metabolic-note"><strong>Analisi.</strong> Rispetto all'A2 dell'11/09: stessa durata di sonno (~6:20) ma seduta più corta (62 vs 83 min) e <strong>carico quasi raddoppiato</strong> (105 vs 54). FC media +7 bpm, max +14 bpm — più tempo in aerobica (+3 min) e anaerobica (+8 min), effetto aerobico salito da 2,5 Medio a <strong>3,1 Buono</strong>. Il grafico FC mostra salita progressiva con picchi 140+ negli ultimi 20 min (superset petto/spalle). Carico sforzo giornaliero <strong>82</strong> (+14 vs obiettivo 68): venerdì intenso nonostante TSB Bilanciato. Sonno 6:23 con 5 risvegli e profondo leggero; HRV 37 ancora sotto baseline 43. HybridCharge crolla a 26 post workout — Zepp suggerisce <em>Ripristina</em>. Priorità weekend: sonno e idratazione prima del B2.</p>
 
       <article class="hr-log hr-log--elevated" data-session="2026-09-18T12:55" data-duration-corrected="false">
         <div class="hr-metrics">
@@ -241,7 +326,7 @@ const html = `<!DOCTYPE html>
       <a href="/admin/">A2 · Blocco 1 admin</a>
       <a href="/allenamenti/sessioni/2026-09-15-b1/">← B1 · 15 settembre</a>
     </nav>
-    <p class="session-meta-footer">Ultimo aggiornamento: 18 settembre 2026 · export Zepp parziale (riepilogo, FC, tecnica)</p>
+    <p class="session-meta-footer">Ultimo aggiornamento: 18 settembre 2026 · export Zepp completo</p>
   </div>
 </main>
 

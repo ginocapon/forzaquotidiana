@@ -53,6 +53,9 @@ for (const s of data.sessions || []) {
     tsb_label: tsb.label ?? null,
     ctl: tsb.fitness_ctl ?? null,
     atl: tsb.fatigue_atl ?? null,
+    effort_day: r.effort_day ?? null,
+    effort_goal: r.effort_goal ?? null,
+    sleep_hr_night: r.sleep_hr_night ?? null,
   };
   points.push(point);
 

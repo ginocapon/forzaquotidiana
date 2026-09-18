@@ -84,7 +84,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-17-scheda-2",
@@ -103,7 +106,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-20-scheda-1",
@@ -122,7 +128,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-21-scheda-2",
@@ -141,7 +150,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-23-scheda-3",
@@ -160,7 +172,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-24-scheda-4",
@@ -179,7 +194,10 @@
       "tsb": null,
       "tsb_label": null,
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-27",
@@ -198,7 +216,10 @@
       "tsb": -3,
       "tsb_label": "Bilanciato",
       "ctl": 34,
-      "atl": 37
+      "atl": 37,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-28-scheda-2",
@@ -217,7 +238,10 @@
       "tsb": -7,
       "tsb_label": "Bilanciato",
       "ctl": 34.9,
-      "atl": 41.9
+      "atl": 41.9,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-30-scheda-3",
@@ -236,7 +260,10 @@
       "tsb": -2,
       "tsb_label": "Bilanciato",
       "ctl": 33,
-      "atl": 35
+      "atl": 35,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-07-31-scheda-4",
@@ -255,7 +282,10 @@
       "tsb": -2,
       "tsb_label": "Bilanciato",
       "ctl": 37,
-      "atl": 39
+      "atl": 39,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-03-scheda-1",
@@ -274,7 +304,10 @@
       "tsb": 0.8,
       "tsb_label": "Bilanciato",
       "ctl": 36.2,
-      "atl": 35.4
+      "atl": 35.4,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-04-scheda-2",
@@ -293,7 +326,10 @@
       "tsb": 3,
       "tsb_label": "Bilanciato",
       "ctl": 36,
-      "atl": 33
+      "atl": 33,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-17-scheda-1",
@@ -312,7 +348,10 @@
       "tsb": 4,
       "tsb_label": "Bilanciato",
       "ctl": 15,
-      "atl": 11
+      "atl": 11,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-18-scheda-2",
@@ -331,7 +370,10 @@
       "tsb": -1,
       "tsb_label": "Bilanciato",
       "ctl": null,
-      "atl": null
+      "atl": null,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-20-scheda-1",
@@ -350,7 +392,10 @@
       "tsb": -5,
       "tsb_label": "Bilanciato",
       "ctl": 18,
-      "atl": 23
+      "atl": 23,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-21-scheda-2",
@@ -369,7 +414,10 @@
       "tsb": -8,
       "tsb_label": "Ottimale",
       "ctl": 22,
-      "atl": 30
+      "atl": 30,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-24-scheda-1",
@@ -388,7 +436,10 @@
       "tsb": -1,
       "tsb_label": "Bilanciato",
       "ctl": 19,
-      "atl": 20
+      "atl": 20,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-25-scheda-2",
@@ -407,7 +458,10 @@
       "tsb": -6,
       "tsb_label": "Ottimale",
       "ctl": 25,
-      "atl": 31
+      "atl": 31,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-28-scheda-3",
@@ -426,7 +480,10 @@
       "tsb": -2.3,
       "tsb_label": "Bilanciato",
       "ctl": 24.4,
-      "atl": 26.7
+      "atl": 26.7,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-08-31-a1",
@@ -445,7 +502,10 @@
       "tsb": 0,
       "tsb_label": "Bilanciato",
       "ctl": 22,
-      "atl": 22
+      "atl": 22,
+      "effort_day": 79,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-01-b1",
@@ -464,7 +524,10 @@
       "tsb": -1,
       "tsb_label": "Bilanciato",
       "ctl": 26,
-      "atl": 27
+      "atl": 27,
+      "effort_day": 102,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-04-a2",
@@ -483,7 +546,10 @@
       "tsb": -4,
       "tsb_label": "Bilanciato",
       "ctl": 24,
-      "atl": 28
+      "atl": 28,
+      "effort_day": 54,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-05-b2",
@@ -502,7 +568,10 @@
       "tsb": -10,
       "tsb_label": "Ottimale",
       "ctl": 30,
-      "atl": 40
+      "atl": 40,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-07-a1",
@@ -521,7 +590,10 @@
       "tsb": -15,
       "tsb_label": "Ottimale",
       "ctl": 38,
-      "atl": 53
+      "atl": 53,
+      "effort_day": 67,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-08-b1",
@@ -540,7 +612,10 @@
       "tsb": -14,
       "tsb_label": "Ottimale",
       "ctl": 42,
-      "atl": 56
+      "atl": 56,
+      "effort_day": 107,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-11-a2",
@@ -559,7 +634,10 @@
       "tsb": -11,
       "tsb_label": "Ottimale",
       "ctl": 36,
-      "atl": 47
+      "atl": 47,
+      "effort_day": 80,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-12-scheda-4",
@@ -578,7 +656,10 @@
       "tsb": -11,
       "tsb_label": "Ottimale",
       "ctl": 36,
-      "atl": 47
+      "atl": 47,
+      "effort_day": 80,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-14-a1",
@@ -597,7 +678,10 @@
       "tsb": -2,
       "tsb_label": "Bilanciato",
       "ctl": 41,
-      "atl": 43
+      "atl": 43,
+      "effort_day": 82,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-15-b1",
@@ -616,7 +700,10 @@
       "tsb": -1,
       "tsb_label": "Bilanciato",
       "ctl": 44,
-      "atl": 45
+      "atl": 45,
+      "effort_day": 103,
+      "effort_goal": null,
+      "sleep_hr_night": null
     },
     {
       "id": "2026-09-18-a2",
@@ -635,7 +722,10 @@
       "tsb": -1,
       "tsb_label": "Bilanciato",
       "ctl": 38,
-      "atl": 39
+      "atl": 39,
+      "effort_day": 82,
+      "effort_goal": 68,
+      "sleep_hr_night": 55
     }
   ]
 }

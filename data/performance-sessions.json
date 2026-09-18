@@ -1592,6 +1592,19 @@
       "carico": 105,
       "duration_corrected": false,
       "partial": false,
+      "zones_min": {
+        "leggera": 10.28,
+        "intensiva": 15.78,
+        "aerobica": 26.92,
+        "anaerobica": 9.02,
+        "vo2max": 0.18
+      },
+      "effect": {
+        "aerobic": 3.1,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.6,
+        "anaerobic_label": "Medio"
+      },
       "readiness": {
         "hybridcharge_wake": 60,
         "hybridcharge_post": 26,
@@ -1607,12 +1620,15 @@
         "sleep_wake": "0:35",
         "sleep_wake_events": 5,
         "sleep_regularity_pct": 90,
+        "sleep_hr_night": 55,
         "hrv": 37,
         "hrv_label": "Buono",
         "hrv_baseline": 43,
         "resting_hr": 52,
         "resting_hr_label": "Ottimale",
-        "effort_day": 82
+        "effort_day": 82,
+        "effort_goal": 68,
+        "strain_load": 82
       },
       "tecnica": {
         "consistenza": "Intervallo di movimento per lo più uniforme, piccole fluttuazioni",
@@ -1621,7 +1637,7 @@
         "rhythm": "Tempi coerenti con ritmo uniforme",
         "speed_decay": "Decadimento ragionevole con buona efficacia dell'allenamento"
       },
-      "note": "A2 venerdì 12:55 — petto · schiena · spalle, recupero slot giovedì settimana 3 Blocco 1. 25 serie in 01:02:14, carico 105, FC 115/151. Sonno 6:23, HRV 37 Buono, HybridCharge 60→26 post workout, TSB -1 Bilanciato (CTL 38 / ATL 39). Export parziale: mancano screenshot readiness/TSB/zone.",
+      "note": "A2 venerdì 12:55 — petto · schiena · spalle, recupero slot giovedì settimana 3 Blocco 1. 25 serie in 01:02:14, carico 105, FC 115/151, effetto aerobico 3,1 Buono. Sonno 6:23 (5 risvegli), HRV 37 Buono, sforzo 82/68, HybridCharge 60→26, TSB -1 Bilanciato (CTL 38 / ATL 39).",
       "tsb": {
         "value": -1,
         "label": "Bilanciato",

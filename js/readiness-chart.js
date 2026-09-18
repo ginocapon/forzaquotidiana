@@ -485,6 +485,20 @@
           return p.tsb + (p.tsb_label ? " " + p.tsb_label : "");
         }
       }) +
+      renderScalarChart(points, state.windowStart, {
+        title: "Carico di sforzo · giornata",
+        lead: "Punteggio Zepp (obiettivo ~68): allenamento + attività quotidiana. Sopra l'obiettivo = giornata intensa.",
+        key: "effort",
+        label: "Sforzo",
+        lineClass: "readiness-line--effort",
+        dotClass: "readiness-dot--effort",
+        yMin: 0,
+        yMax: 120,
+        tickStep: 20,
+        formatVal: function (p) {
+          return p.effort + " / 68";
+        }
+      }) +
       renderReadinessChart(points, state.windowStart) +
       renderHrChart(points, state.windowStart) +
       note;
