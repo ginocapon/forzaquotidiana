@@ -66,7 +66,22 @@ function rebalance(sessioni) {
     if (halo >= 0) s.a2.esercizi.splice(halo, 0, polp);
     else s.a2.esercizi.push(polp);
   }
-  s.a2.nome = "A2 · Schiena* · Spalle* · Polpacci";
+  if (!s.a2.esercizi.some((e) => /panca|chest press|petto|pec deck|croci/i.test(e.nome))) {
+    const pancaA2 = {
+      nome: "Panca inclinata manubri",
+      gruppo: "Petto",
+      serie: 4,
+      ripetizioni: "8",
+      peso: "—",
+      recupero: "150 sec",
+      rir: "1-2",
+      tecnica: null,
+      progressione: false,
+      note: "Frequenza petto 2×/settimana — non rimuovere da A2",
+    };
+    s.a2.esercizi.unshift(pancaA2);
+  }
+  s.a2.nome = "A2 · Schiena* · Petto · Spalle · Polpacci";
 
   const curl = s.b1.esercizi.find((e) => /Leg curl/i.test(e.nome));
   if (curl) curl.serie = 4;

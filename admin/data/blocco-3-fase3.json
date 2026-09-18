@@ -7,7 +7,7 @@
   "fine": "2027-05-31",
   "settimane": 13,
   "frequenza": "4 allenamenti/settimana",
-  "durataSeduta": "85-95 minuti",
+  "durataSeduta": "90-105 minuti",
   "guida": "Dopo Fase 2 (carichi alti), riabbassa l’intensità relativa e torna al classico 8 rep sui fondamentali * (Project Invictus: convertire forza in massa). Terzo schema: inclinata bb, pressa, hip thrust. Accumulo volume sett. 10–12 (+1 serie sui *). Deload sett. 13.",
   "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Fondamentali * a 8 rep — carico moderato, non massimale. Sett. 10–12: +1 serie sui * per accumulo volume PI.",
   "rotazioneDaFase1": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, B2",
@@ -98,9 +98,9 @@
     ]
   },
   "valutazioneProgramma": {
-    "petto": 7,
+    "petto": 11,
     "schiena": 14,
-    "spalleAnteriori": 12,
+    "spalleAnteriori": 14,
     "spalleLaterali": 6,
     "deltoidePosteriore": 3,
     "quadricipiti": 16,
@@ -108,7 +108,7 @@
     "glutei": 11,
     "polpacci": 16,
     "bicipitiDiretti": 7,
-    "note": "Volume PI invariato vs Fase 1. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *."
+    "note": "Petto 2×/settimana: A1 inclinata bb * + croci · A2 chest press 4×8. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 3 — ipertrofia II + rotazione",
@@ -138,7 +138,7 @@
           "giorno": "Giovedì",
           "sessione": "A2",
           "tipo": "Upper",
-          "focus": "Schiena · Spalle · Polpacci seduto · Halo"
+          "focus": "Petto · Schiena · Spalle · Polpacci seduto · Halo"
         },
         {
           "giorno": "Venerdì",
@@ -252,8 +252,8 @@
     "volumeSettimanaleFinale": [
       {
         "gruppo": "Petto",
-        "serie": 7,
-        "note": "A1 inclinata bb + croci"
+        "serie": 11,
+        "note": "A1 inclinata bb * + croci · A2 chest press 4×8"
       },
       {
         "gruppo": "Schiena",
@@ -312,7 +312,7 @@
       },
       {
         "sessione": "A2",
-        "petto": 0,
+        "petto": 4,
         "schiena": 7,
         "spalleAnt": 6,
         "spalleLat": 3,
@@ -513,7 +513,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+      "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
     },
     "b1": {
       "codice": "B1",
@@ -677,7 +677,7 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena* · Spalle* · Polpacci",
+      "nome": "Schiena* · Spalle* · Petto · Polpacci",
       "priorita": [
         {
           "stelle": 5,
@@ -686,6 +686,10 @@
         {
           "stelle": 5,
           "muscolo": "Deltoide laterale"
+        },
+        {
+          "stelle": 4,
+          "muscolo": "Petto alto"
         },
         {
           "stelle": 4,
@@ -701,6 +705,19 @@
         }
       ],
       "esercizi": [
+        {
+          "nome": "Chest press convergente",
+          "gruppo": "Petto",
+          "serie": 4,
+          "ripetizioni": "8",
+          "tempo": "3-1-X-1",
+          "recupero": "120 sec",
+          "progressione": "Frequenza petto 2×/settimana — macchina in A2 mentre A1 ha inclinata bb *",
+          "rir": "1-2",
+          "figura": "fig-chest",
+          "progressionePrincipale": false,
+          "note": "Frequenza petto 2×/settimana — macchina in A2 mentre A1 ha inclinata bb * · 4×8"
+        },
         {
           "nome": "Lento avanti con bilanciere",
           "gruppo": "Spalle",
@@ -794,6 +811,12 @@
         }
       ],
       "focusTecnico": {
+        "Panca inclinata manubri": [
+          "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+          "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+          "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+          "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+        ],
         "Lento avanti bilanciere": [
           "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
           "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -843,6 +866,10 @@
           "serie": 7
         },
         {
+          "muscolo": "Petto alto",
+          "serie": 4
+        },
+        {
           "muscolo": "Deltoide anteriore",
           "serie": 4
         },
@@ -859,7 +886,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+      "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
     },
     "b2": {
       "codice": "B2",
@@ -1026,7 +1053,7 @@
           "serie": 3
         }
       ],
-      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
     }
   }
 }

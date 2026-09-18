@@ -7,7 +7,7 @@
   "fine": "2027-03-01",
   "settimane": 13,
   "frequenza": "4 allenamenti/settimana",
-  "durataSeduta": "80-90 minuti",
+  "durataSeduta": "90-100 minuti",
   "guida": "Blocco forza (PI: si progetta dal picco indietro). Rotazione vs Blocco 1: panca piana (A1), squat mp * (B1), lat neutra * (A2), trap bar * (B2). Fondamentali *: sett. 11–12 = **4 rep** a carico massimo del blocco. Accessori 6–8. Deload sett. 13 prima di Fase 3 (8 rep).",
   "schedaIntro": "4 allenamenti/settimana (A1, B1, A2, B2). Unico mesociclo con kg massimi sui * — picco **4 rep** sett. 11–12 (PI forza). RIR 1–2, recuperi 150–180 s sui fondamentali.",
   "rotazioneDaFase1": "~30% esercizi sostituiti · fondamentali * cambiati su A1, B1, A2",
@@ -99,9 +99,9 @@
     ]
   },
   "valutazioneProgramma": {
-    "petto": 7,
+    "petto": 11,
     "schiena": 14,
-    "spalleAnteriori": 12,
+    "spalleAnteriori": 14,
     "spalleLaterali": 6,
     "deltoidePosteriore": 3,
     "quadricipiti": 16,
@@ -109,7 +109,7 @@
     "glutei": 11,
     "polpacci": 16,
     "bicipitiDiretti": 7,
-    "note": "Volume settimanale efficace A1–B2. Spalle anteriori = 6 serie lento diretto + 6 da pressing petto (panca+croci). Femorali e glutei includono overlap da adduttori, squat e trap bar. Polpacci: 4 serie per sessione. Deload sett. 13 non incluso."
+    "note": "Petto 2×/settimana: A1 piana * + chest press · A2 inclinata manubri 4×6-8. Fondamentali *: piana A1, squat mp B1, lat neutra A2, trap bar B2. Picco 4 rep sett. 11–12."
   },
   "guidaOperativa": {
     "titolo": "Metodo Blocco 2 — tensione, forza, rotazione",
@@ -139,7 +139,7 @@
           "giorno": "Giovedì",
           "sessione": "A2",
           "tipo": "Upper",
-          "focus": "Schiena · Spalle · Polpacci seduto · Halo"
+          "focus": "Petto · Schiena · Spalle · Polpacci seduto · Halo"
         },
         {
           "giorno": "Venerdì",
@@ -248,23 +248,23 @@
     "volumeSettimanaleFinale": [
       {
         "gruppo": "Petto",
-        "serie": 7,
-        "note": "Tutto in A1 (panca inclinata + croci)"
+        "serie": 11,
+        "note": "A1 piana * + chest press · A2 inclinata manubri 4×6-8"
       },
       {
         "gruppo": "Schiena",
         "serie": 14,
-        "note": "A1 lat+rematore · A2 lat+rematore/trazioni"
+        "note": "A1 lat+rematore · A2 lat neutra * + pulley"
       },
       {
         "gruppo": "Spalle anteriori",
-        "serie": 12,
-        "note": "6 lento diretto (A1+A2) + 6 volume efficace da pressing petto"
+        "serie": 14,
+        "note": "Lento A2 + overlap pressing"
       },
       {
         "gruppo": "Spalle laterali",
         "serie": 6,
-        "note": "A1 alzate 3 · A2 alzate 3"
+        "note": "A1 + A2 alzate"
       },
       {
         "gruppo": "Deltoide posteriore",
@@ -273,33 +273,28 @@
       },
       {
         "gruppo": "Quadricipiti",
-        "serie": 12,
-        "note": "B1 pressa+extension 8 · B2 squat 4"
-      },
-      {
-        "gruppo": "Adduttori",
-        "serie": 4,
-        "note": "B1 adduttori · macchina Doktor PRIMO"
+        "serie": 16,
+        "note": "B1 squat mp * + pressa · B2 squat"
       },
       {
         "gruppo": "Femorali",
         "serie": 16,
-        "note": "B1 rumeno+leg curl · B2 leg curl+trap bar"
+        "note": "B1 rumeno+curl · B2 trap bar * + curl"
       },
       {
         "gruppo": "Glutei",
         "serie": 11,
-        "note": "B2 squat 4 + hip thrust 3 (+ overlap adduttori B1)"
+        "note": "B2 hip thrust + overlap"
       },
       {
         "gruppo": "Polpacci",
         "serie": 16,
-        "note": "4 serie per sessione (standing, drop, seduto, multipower)"
+        "note": "4 serie per sessione"
       },
       {
         "gruppo": "Bicipiti diretti",
         "serie": 7,
-        "note": "B1 curl Scott 4 · B2 curl martello 3"
+        "note": "B1 curl · B2 martello"
       }
     ],
     "volumePerSeduta": [
@@ -313,7 +308,7 @@
       },
       {
         "sessione": "A2",
-        "petto": 0,
+        "petto": 4,
         "schiena": 7,
         "spalleAnt": 6,
         "spalleLat": 3,
@@ -514,7 +509,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+      "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
     },
     "b1": {
       "codice": "B1",
@@ -678,7 +673,7 @@
     },
     "a2": {
       "codice": "A2",
-      "nome": "Schiena* · Spalle · Polpacci",
+      "nome": "Schiena* · Petto · Spalle · Polpacci",
       "priorita": [
         {
           "stelle": 5,
@@ -687,6 +682,10 @@
         {
           "stelle": 5,
           "muscolo": "Deltoide laterale"
+        },
+        {
+          "stelle": 4,
+          "muscolo": "Petto alto"
         },
         {
           "stelle": 4,
@@ -702,6 +701,19 @@
         }
       ],
       "esercizi": [
+        {
+          "nome": "Panca inclinata manubri",
+          "gruppo": "Petto",
+          "serie": 4,
+          "ripetizioni": "6-8",
+          "tempo": "3-1-X-1",
+          "recupero": "150 sec",
+          "progressione": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana *",
+          "rir": "1-2",
+          "figura": "fig-press-incl",
+          "progressionePrincipale": false,
+          "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+        },
         {
           "nome": "Lat machine presa neutra",
           "gruppo": "Schiena",
@@ -795,6 +807,12 @@
         }
       ],
       "focusTecnico": {
+        "Panca inclinata manubri": [
+          "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+          "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+          "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+          "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+        ],
         "Lento avanti bilanciere": [
           "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
           "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -844,6 +862,10 @@
           "serie": 7
         },
         {
+          "muscolo": "Petto alto",
+          "serie": 4
+        },
+        {
           "muscolo": "Deltoide anteriore",
           "serie": 4
         },
@@ -860,7 +882,7 @@
           "serie": 4
         }
       ],
-      "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+      "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
     },
     "b2": {
       "codice": "B2",
@@ -1027,7 +1049,7 @@
           "serie": 3
         }
       ],
-      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+      "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
     }
   },
   "periodi": [
@@ -1210,7 +1232,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+          "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
         },
         "b1": {
           "codice": "B1",
@@ -1374,7 +1396,7 @@
         },
         "a2": {
           "codice": "A2",
-          "nome": "Schiena* · Spalle · Polpacci",
+          "nome": "Schiena* · Petto · Spalle · Polpacci",
           "priorita": [
             {
               "stelle": 5,
@@ -1383,6 +1405,10 @@
             {
               "stelle": 5,
               "muscolo": "Deltoide laterale"
+            },
+            {
+              "stelle": 4,
+              "muscolo": "Petto alto"
             },
             {
               "stelle": 4,
@@ -1398,6 +1424,19 @@
             }
           ],
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "tempo": "3-1-X-1",
+              "recupero": "150 sec",
+              "progressione": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana *",
+              "rir": "1-2",
+              "figura": "fig-press-incl",
+              "progressionePrincipale": false,
+              "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+            },
             {
               "nome": "Lat machine presa neutra",
               "gruppo": "Schiena",
@@ -1491,6 +1530,12 @@
             }
           ],
           "focusTecnico": {
+            "Panca inclinata manubri": [
+              "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+              "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+              "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+              "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+            ],
             "Lento avanti bilanciere": [
               "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
               "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -1540,6 +1585,10 @@
               "serie": 7
             },
             {
+              "muscolo": "Petto alto",
+              "serie": 4
+            },
+            {
               "muscolo": "Deltoide anteriore",
               "serie": 4
             },
@@ -1556,7 +1605,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+          "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
         },
         "b2": {
           "codice": "B2",
@@ -1723,7 +1772,7 @@
               "serie": 3
             }
           ],
-          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
         }
       }
     },
@@ -1902,7 +1951,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+          "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
         },
         "b1": {
           "codice": "B1",
@@ -2066,7 +2115,7 @@
         },
         "a2": {
           "codice": "A2",
-          "nome": "Schiena* · Spalle · Polpacci",
+          "nome": "Schiena* · Petto · Spalle · Polpacci",
           "priorita": [
             {
               "stelle": 5,
@@ -2075,6 +2124,10 @@
             {
               "stelle": 5,
               "muscolo": "Deltoide laterale"
+            },
+            {
+              "stelle": 4,
+              "muscolo": "Petto alto"
             },
             {
               "stelle": 4,
@@ -2090,6 +2143,19 @@
             }
           ],
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "tempo": "3-1-X-1",
+              "recupero": "150 sec",
+              "progressione": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana *",
+              "rir": "1-2",
+              "figura": "fig-press-incl",
+              "progressionePrincipale": false,
+              "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+            },
             {
               "nome": "Lat machine presa neutra",
               "gruppo": "Schiena",
@@ -2183,6 +2249,12 @@
             }
           ],
           "focusTecnico": {
+            "Panca inclinata manubri": [
+              "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+              "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+              "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+              "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+            ],
             "Lento avanti bilanciere": [
               "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
               "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -2232,6 +2304,10 @@
               "serie": 7
             },
             {
+              "muscolo": "Petto alto",
+              "serie": 4
+            },
+            {
               "muscolo": "Deltoide anteriore",
               "serie": 4
             },
@@ -2248,7 +2324,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+          "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
         },
         "b2": {
           "codice": "B2",
@@ -2415,7 +2491,7 @@
               "serie": 3
             }
           ],
-          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
         }
       }
     },
@@ -2594,7 +2670,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+          "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
         },
         "b1": {
           "codice": "B1",
@@ -2758,7 +2834,7 @@
         },
         "a2": {
           "codice": "A2",
-          "nome": "Schiena* · Spalle · Polpacci",
+          "nome": "Schiena* · Petto · Spalle · Polpacci",
           "priorita": [
             {
               "stelle": 5,
@@ -2767,6 +2843,10 @@
             {
               "stelle": 5,
               "muscolo": "Deltoide laterale"
+            },
+            {
+              "stelle": 4,
+              "muscolo": "Petto alto"
             },
             {
               "stelle": 4,
@@ -2782,6 +2862,19 @@
             }
           ],
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "tempo": "3-1-X-1",
+              "recupero": "150 sec",
+              "progressione": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana *",
+              "rir": "1-2",
+              "figura": "fig-press-incl",
+              "progressionePrincipale": false,
+              "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+            },
             {
               "nome": "Lat machine presa neutra",
               "gruppo": "Schiena",
@@ -2875,6 +2968,12 @@
             }
           ],
           "focusTecnico": {
+            "Panca inclinata manubri": [
+              "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+              "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+              "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+              "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+            ],
             "Lento avanti bilanciere": [
               "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
               "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -2924,6 +3023,10 @@
               "serie": 7
             },
             {
+              "muscolo": "Petto alto",
+              "serie": 4
+            },
+            {
               "muscolo": "Deltoide anteriore",
               "serie": 4
             },
@@ -2940,7 +3043,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+          "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
         },
         "b2": {
           "codice": "B2",
@@ -3107,7 +3210,7 @@
               "serie": 3
             }
           ],
-          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
         }
       }
     },
@@ -3287,7 +3390,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A1 enfatizza petto alto e dorsali con angoli classici. Si complementa con A2 che sposta il focus su lento avanti in progressione, deltoide posteriore e polpacci seduto — stessa base dorsale, angoli spalle diversi."
+          "notaComplementare": "A1 enfatizza petto alto (inclinata * 6-8 + croci) e dorsali. A2 ripete la panca inclinata a 4×8 per frequenza: il petto non resta una sola volta a settimana."
         },
         "b1": {
           "codice": "B1",
@@ -3451,7 +3554,7 @@
         },
         "a2": {
           "codice": "A2",
-          "nome": "Schiena* · Spalle · Polpacci",
+          "nome": "Schiena* · Petto · Spalle · Polpacci",
           "priorita": [
             {
               "stelle": 5,
@@ -3460,6 +3563,10 @@
             {
               "stelle": 5,
               "muscolo": "Deltoide laterale"
+            },
+            {
+              "stelle": 4,
+              "muscolo": "Petto alto"
             },
             {
               "stelle": 4,
@@ -3475,6 +3582,19 @@
             }
           ],
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "tempo": "3-1-X-1",
+              "recupero": "150 sec",
+              "progressione": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana *",
+              "rir": "1-2",
+              "figura": "fig-press-incl",
+              "progressionePrincipale": false,
+              "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+            },
             {
               "nome": "Lat machine presa neutra",
               "gruppo": "Schiena",
@@ -3568,6 +3688,12 @@
             }
           ],
           "focusTecnico": {
+            "Panca inclinata manubri": [
+              "✓ Stesso setup di A1 — panca 30°, piedi a terra, scapole addotte",
+              "✓ 4×8 volume (non è il *): se completi 4×8 con RIR target, +2 kg",
+              "✓ Se 4×8 è pesante: 4×6 stesso kg, poi risali a 8",
+              "✓ Prima del lento — petto fresco, deltoide anteriore già un po’ caldo"
+            ],
             "Lento avanti bilanciere": [
               "✓ Progressione principale — RIR 2 nelle prime settimane, poi 1",
               "✓ Gomiti leggermente flessi, barra davanti al viso",
@@ -3617,6 +3743,10 @@
               "serie": 7
             },
             {
+              "muscolo": "Petto alto",
+              "serie": 4
+            },
+            {
               "muscolo": "Deltoide anteriore",
               "serie": 4
             },
@@ -3633,7 +3763,7 @@
               "serie": 4
             }
           ],
-          "notaComplementare": "A2 è la scheda che cambierei meno: lento avanti in progressione, dorsali con lat e rematore/trazioni, equilibrio spalle e polpacci seduto. Il petto resta concentrato in A1; insieme le due sessioni upper coprono 14 serie dorsali e 7 serie petto."
+          "notaComplementare": "A2 apre con panca inclinata 4×8 (frequenza petto, non è il *): il pettorale si allena due volte a settimana, non solo in A1. Poi lento avanti in progressione, dorsali, equilibrio spalle e polpacci seduto. Insieme A1+A2: 14 serie dorsali e 11 serie petto."
         },
         "b2": {
           "codice": "B2",
@@ -3800,7 +3930,7 @@
               "serie": 3
             }
           ],
-          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 7 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
+          "notaComplementare": "B2 è la sessione dominante anca: trap bar in progressione, squat multipower, hip thrust e leg curl. Complementa B1 (pattern accosciato): insieme coprono quad + femorali + glutei + polpacci ad alta frequenza. Valutazione programma completo A1-B2: 11 petto, 14 dorsali, 16 quadricipiti, 13 femorali, 16 polpacci, 7 bicipiti — ~60% volume lower."
         }
       }
     }

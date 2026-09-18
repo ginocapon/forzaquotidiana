@@ -1,5 +1,5 @@
 {
-  "_nota": "Fonte rotazione esercizi fasi 2–4. Fase 1 resta in blocco-1-fase1.json (~25–35% esercizi nuovi per fase, split A1–B2 invariato). Periodizzazione PI: Fase 2 = unico blocco carichi alti sui * · Fase 3 = rientro 8 rep. Rigenera: node tools/genera-blocchi-2-3-4.mjs && node tools/sync-blocco-macrociclo.mjs --all",
+  "_nota": "Fonte rotazione esercizi fasi 2–4. Fase 1 resta in blocco-1-fase1.json (~25–35% esercizi nuovi per fase, split A1–B2 invariato). A2 ha sempre un pressing petto (frequenza 2×/settimana). Periodizzazione PI: Fase 2 = unico blocco carichi alti sui * · Fase 3 = rientro 8 rep. Rigenera: node tools/genera-blocchi-2-3-4.mjs && node tools/sync-blocco-macrociclo.mjs --all",
   "fasi": [
     {
       "id": "tensione-forza",
@@ -176,8 +176,19 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle · Polpacci",
+          "nome": "A2 · Schiena* · Petto · Spalle · Polpacci",
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "peso": "—",
+              "recupero": "150 sec",
+              "rir": "1-2",
+              "progressione": false,
+              "note": "Frequenza petto 2×/settimana — inclinata in A2 mentre A1 va di piana * · 4×6-8 accessorio, non è il *"
+            },
             {
               "nome": "Lat machine presa neutra",
               "gruppo": "Schiena",
@@ -507,8 +518,19 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Polpacci",
+          "nome": "A2 · Schiena* · Spalle* · Petto · Polpacci",
           "esercizi": [
+            {
+              "nome": "Chest press convergente",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "progressione": false,
+              "note": "Frequenza petto 2×/settimana — macchina in A2 mentre A1 ha inclinata bb * · 4×8"
+            },
             {
               "nome": "Lento avanti con bilanciere",
               "gruppo": "Spalle",
@@ -839,8 +861,19 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena · Spalle · Polpacci",
+          "nome": "A2 · Schiena · Petto · Spalle · Polpacci",
           "esercizi": [
+            {
+              "nome": "Panca inclinata manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "10-12",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "2-3",
+              "progressione": false,
+              "note": "Frequenza petto 2×/settimana — inclinata leggera estiva · A1 resta chest press macchina *"
+            },
             {
               "nome": "Rematore con bilanciere",
               "gruppo": "Schiena",

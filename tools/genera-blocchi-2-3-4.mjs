@@ -112,7 +112,7 @@ const META = {
     file: "blocco-2-fase2.json",
     codice: "BLOCCO 2",
     tipo: "TENSIONE • FORZA",
-    durataSeduta: "80-90 minuti",
+    durataSeduta: "90-100 minuti",
     periodizzazione: [
       { fase: "Adattamento", settimane: "1-2", rir: "3-2", obiettivo: "Transizione post-deload Fase 1" },
       { fase: "Tensione meccanica", settimane: "3-6", rir: "2", obiettivo: "6–8 rep · progressione kg" },
@@ -142,12 +142,37 @@ const META = {
         { settimane: "13", intensita: "RIR 4-5", volume: "−40%", nota: "Deload" },
       ],
     },
+    valutazioneProgramma: {
+      petto: 11,
+      schiena: 14,
+      spalleAnteriori: 14,
+      spalleLaterali: 6,
+      deltoidePosteriore: 3,
+      quadricipiti: 16,
+      femorali: 16,
+      glutei: 11,
+      polpacci: 16,
+      bicipitiDiretti: 7,
+      note: "Petto 2×/settimana: A1 piana * + chest press · A2 inclinata manubri 4×6-8. Fondamentali *: piana A1, squat mp B1, lat neutra A2, trap bar B2. Picco 4 rep sett. 11–12.",
+    },
+    volumeSettimanaleFinale: [
+      { gruppo: "Petto", serie: 11, note: "A1 piana * + chest press · A2 inclinata manubri 4×6-8" },
+      { gruppo: "Schiena", serie: 14, note: "A1 lat+rematore · A2 lat neutra * + pulley" },
+      { gruppo: "Spalle anteriori", serie: 14, note: "Lento A2 + overlap pressing" },
+      { gruppo: "Spalle laterali", serie: 6, note: "A1 + A2 alzate" },
+      { gruppo: "Deltoide posteriore", serie: 3, note: "A2 reverse pec deck" },
+      { gruppo: "Quadricipiti", serie: 16, note: "B1 squat mp * + pressa · B2 squat" },
+      { gruppo: "Femorali", serie: 16, note: "B1 rumeno+curl · B2 trap bar * + curl" },
+      { gruppo: "Glutei", serie: 11, note: "B2 hip thrust + overlap" },
+      { gruppo: "Polpacci", serie: 16, note: "4 serie per sessione" },
+      { gruppo: "Bicipiti diretti", serie: 7, note: "B1 curl · B2 martello" },
+    ],
   },
   "ipertrofia-classica-ii": {
     file: "blocco-3-fase3.json",
     codice: "BLOCCO 3",
     tipo: "IPERTROFIA II • ACCUMULO",
-    durataSeduta: "85-95 minuti",
+    durataSeduta: "90-105 minuti",
     periodizzazione: [
       { fase: "Reintroduzione", settimane: "1-2", rir: "2", obiettivo: "8–10 rep · terzo schema esercizi" },
       { fase: "Accumulo", settimane: "3-5", rir: "2", obiettivo: "Volume stabile" },
@@ -178,9 +203,9 @@ const META = {
       ],
     },
     valutazioneProgramma: {
-      petto: 7,
+      petto: 11,
       schiena: 14,
-      spalleAnteriori: 12,
+      spalleAnteriori: 14,
       spalleLaterali: 6,
       deltoidePosteriore: 3,
       quadricipiti: 16,
@@ -188,7 +213,7 @@ const META = {
       glutei: 11,
       polpacci: 16,
       bicipitiDiretti: 7,
-      note: "Volume PI invariato vs Fase 1. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *.",
+      note: "Petto 2×/settimana: A1 inclinata bb * + croci · A2 chest press 4×8. Fondamentali *: inclinata bb A1, pressa B1, lento bb + rematore/trazioni A2, hip thrust B2. Sett. 10–12 +1 serie sui *.",
     },
     regoleRirECedimento: {
       principio:
@@ -213,7 +238,7 @@ const META = {
       ],
     },
     volumeSettimanaleFinale: [
-      { gruppo: "Petto", serie: 7, note: "A1 inclinata bb + croci" },
+      { gruppo: "Petto", serie: 11, note: "A1 inclinata bb * + croci · A2 chest press 4×8" },
       { gruppo: "Schiena", serie: 14, note: "A1 lat larga + pulley · A2 rematore/trazioni * + lat neutra" },
       { gruppo: "Spalle anteriori", serie: 12, note: "6 lento (A1 manubri + A2 bb *) + overlap pressing" },
       { gruppo: "Spalle laterali", serie: 6, note: "A1 + A2 alzate manubri" },
@@ -229,7 +254,7 @@ const META = {
     file: "blocco-4-fase4.json",
     codice: "BLOCCO 4",
     tipo: "RICONDIZIONAMENTO • ESTIVO",
-    durataSeduta: "70-80 minuti",
+    durataSeduta: "80-90 minuti",
     periodizzazione: [
       { fase: "Mantenimento", settimane: "1-8", rir: "2-3", obiettivo: "10–12 rep · macchine guidate" },
       { fase: "Mantenimento attivo", settimane: "9-12", rir: "2-3", obiettivo: "Flessibilità calendario estivo" },
@@ -253,9 +278,9 @@ const META = {
       ],
     },
     valutazioneProgramma: {
-      petto: 6,
+      petto: 10,
       schiena: 14,
-      spalleAnteriori: 8,
+      spalleAnteriori: 10,
       spalleLaterali: 4,
       deltoidePosteriore: 5,
       quadricipiti: 11,
@@ -264,7 +289,7 @@ const META = {
       polpacci: 14,
       bicipitiDiretti: 3,
       tricipiti: 3,
-      note: "Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking.",
+      note: "Petto 2×/settimana: A1 chest press * + pec deck · A2 inclinata manubri 4×10-12. Volume ~85% vs Fase 3 — mantenimento estivo. Fondamentali *: chest press A1, pressa B1, rematore A2, squat MP B2. Nessun peaking.",
     },
     regoleRirECedimento: {
       principio:
@@ -286,7 +311,7 @@ const META = {
       ],
     },
     volumeSettimanaleFinale: [
-      { gruppo: "Petto", serie: 6, note: "A1 chest press * + pec deck" },
+      { gruppo: "Petto", serie: 10, note: "A1 chest press * + pec deck · A2 inclinata manubri 4×10-12" },
       { gruppo: "Schiena", serie: 14, note: "A1 trazioni + face pull · A2 rematore * + lat larga" },
       { gruppo: "Spalle anteriori", serie: 8, note: "A1 lento manubri seduto + overlap chest press" },
       { gruppo: "Spalle laterali", serie: 4, note: "A1 manubri · A2 cavi" },

@@ -1253,6 +1253,8 @@ MICROCICLO  = settimana (4 sessioni A1-B1-A2-B2)
 
 \* = esercizio principale con progressione a carico fisso e schema RIR.
 
+**Frequenza petto (non togliere):** A2 include **sempre** un pressing pettorale. Blocco 1: panca inclinata manubri **4×8** (se pesante: 4×6). Senza questo il petto resta 1×/settimana solo in A1. Blocchi 2–4: altro angolo (inclinata, chest press) ma stessa regola di frequenza.
+
 **Finisher kettlebell (regola fissa):** Catch Ball in A1, Clean Halo in A2 — **sempre ultimo esercizio**, mai all’inizio.
 
 ### 8.5 Macrociclo 2026–2027 (52 settimane)
@@ -1287,6 +1289,7 @@ Usare come riferimento per ipotizzare carichi nel macrociclo. Aggiornare da log 
 | B2 | Leg curl | 45 kg |
 | B2 | Polpacci multipower | 80 kg |
 | B2 | Curl martello | 18 kg/manubrio |
+| A1/A2 | Panca inclinata manubri | Q3: 20–30 kg · A1 4×6-8 * · A2 4×8 |
 | A1/A2 | Catch Ball / Clean Halo | 8 kg kettlebell |
 
 ### 8.7 Regole modifica mesociclo
