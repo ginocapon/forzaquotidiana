@@ -176,7 +176,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle · Polpacci",
+          "nome": "A2 · Petto · Schiena* · Spalle · Polpacci",
           "esercizi": [
             {
               "nome": "Lat machine presa neutra",
@@ -199,6 +199,17 @@
               "rir": "1-2",
               "progressione": false,
               "note": "Trazione orizzontale cavi — sostituisce rematore/trazioni alternati"
+            },
+            {
+              "nome": "Panca inclinata con manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "6-8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "progressione": false,
+              "note": "Secondo stimolo petto settimanale — inclinata complementare alla piana * di A1 · 4×6-8 accessori, niente cedimento in blocco forza"
             },
             {
               "nome": "Lento avanti con manubri seduto",
@@ -507,7 +518,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena* · Spalle* · Polpacci",
+          "nome": "A2 · Petto · Schiena* · Spalle* · Polpacci",
           "esercizi": [
             {
               "nome": "Lento avanti con bilanciere",
@@ -519,6 +530,17 @@
               "rir": "1-2",
               "progressione": true,
               "note": "Esercizio principale spalle — progressione a carico fisso · rientra lento in progressione · Sett. 9–12: +1 serie · Sett. 13: deload"
+            },
+            {
+              "nome": "Panca piana con manubri",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "1-2",
+              "progressione": false,
+              "note": "Secondo stimolo petto settimanale — piana complementare all’inclinata bb * di A1 · 4×8 post-forza"
             },
             {
               "nome": "Rematore con bilanciere / Trazioni",
@@ -839,7 +861,7 @@
           ]
         },
         "a2": {
-          "nome": "A2 · Schiena · Spalle · Polpacci",
+          "nome": "A2 · Petto · Schiena · Spalle · Polpacci",
           "esercizi": [
             {
               "nome": "Rematore con bilanciere",
@@ -851,6 +873,17 @@
               "rir": "2-3",
               "progressione": true,
               "note": "Esercizio principale schiena — carico moderato, connessione mente-muscolo"
+            },
+            {
+              "nome": "Chest press convergente",
+              "gruppo": "Petto",
+              "serie": 4,
+              "ripetizioni": "8",
+              "peso": "—",
+              "recupero": "120 sec",
+              "rir": "2-3",
+              "progressione": false,
+              "note": "Secondo stimolo petto settimanale — macchina guidata, 4×8 mantenimento estivo · complementare al chest press * di A1"
             },
             {
               "nome": "Lat machine presa larga",
