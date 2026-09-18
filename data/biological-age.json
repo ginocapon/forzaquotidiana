@@ -1,11 +1,11 @@
 {
   "_nota": "Età biologica da crediti Zepp verificati + profilo 10+ anni palestra. Non dato clinico. node tools/aggiorna-bio-age.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
-  "updated": "2026-09-04",
+  "updated": "2026-09-18",
   "chronological_age": 57,
-  "biological_age": 51.8,
-  "offset_years": 5.2,
-  "delta_vs_chrono": 5.2,
+  "biological_age": 51.2,
+  "offset_years": 5.8,
+  "delta_vs_chrono": 5.8,
   "trend": "in miglioramento",
   "methodology": {
     "modello": "crediti per pilastro",
@@ -16,21 +16,21 @@
   },
   "crediti_anni": {
     "storia_palestra": 2.5,
-    "fitness_ctl": 0.2,
-    "cardio": 0.6,
+    "fitness_ctl": 1.3,
+    "cardio": 0.5,
     "forza": 1,
     "trimestre_documentato": 0.9
   },
   "dati_zepp": {
-    "ctl_zepp": 25,
-    "fc_media_pesata": 111,
+    "ctl_zepp": 41,
+    "fc_media_pesata": 114,
     "effetto_aerobico_medio": 3,
     "effetto_anaerobico_medio": 2.2,
     "effetto_anaerobico_picco": 3.6,
-    "carico_medio": 80,
+    "carico_medio": 100,
     "gruppi_medi": 24,
-    "sessioni_complete": 20,
-    "sessioni_documentate": 20,
+    "sessioni_complete": 27,
+    "sessioni_documentate": 27,
     "tecnica_media": 0.9
   },
   "timeline": [
@@ -200,6 +200,62 @@
       "offset": 5.2,
       "sessions": 20,
       "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-04",
+      "age": 51.8,
+      "offset": 5.2,
+      "sessions": 21,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-05",
+      "age": 51.9,
+      "offset": 5.1,
+      "sessions": 22,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-07",
+      "age": 51.9,
+      "offset": 5.1,
+      "sessions": 23,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-11",
+      "age": 51.9,
+      "offset": 5.1,
+      "sessions": 24,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-12",
+      "age": 51.9,
+      "offset": 5.1,
+      "sessions": 25,
+      "ctl": 25,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-14",
+      "age": 51.2,
+      "offset": 5.8,
+      "sessions": 26,
+      "ctl": 41,
+      "maturity": 1
+    },
+    {
+      "date": "2026-09-15",
+      "age": 51.2,
+      "offset": 5.8,
+      "sessions": 27,
+      "ctl": 41,
       "maturity": 1
     }
   ]

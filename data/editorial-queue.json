@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-04",
+  "updated": "2026-09-18",
   "max_per_week": 3,
   "items": [
     {
@@ -330,17 +330,30 @@
     {
       "id": "disc-1787760013082-bkd1",
       "slug": "former-olympia-hadi-choopan-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "former olympia hadi choopan",
       "cluster": "goliardia-culturismo",
-      "intent": "Angolo goliardico su trend: Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issu",
+      "intent": "Parodia goliardica su ritiro Olympia per visto — distanza pro vs dilettante 57enne",
       "discovery_score": 0.85,
-      "target_week": "2026-08-26",
+      "target_week": "2026-09-18",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issues."
+      "trending_title": "Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issues.",
+      "paths": {
+        "html": "diario/former-olympia-hadi-choopan-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/former-olympia-hadi-choopan-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/former-olympia-hadi-choopan-fig1.webp",
+          "img/diario/2026-09-18/former-olympia-hadi-choopan-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/former-olympia-hadi-choopan-realistic.webp"
+      },
+      "title_draft": "Hadi Choopan e il visto negato",
+      "meta_draft": "Satira goliardica: Hadi Choopan ritira Mr. Olympia per visto. Gino 57 anni al bancone immigrazione della palestra. Finzione cartoon, costanza vera.",
+      "h1_draft": "Mr. Olympia annullato dal visto: quando anche Hadi Choopan non passa il controllo",
+      "published_date": "2026-09-18"
     },
     {
       "id": "disc-1787760013083-u90n",
@@ -428,17 +441,88 @@
     {
       "id": "disc-1788517249894-xzjd",
       "slug": "competing-timeline-57-anni",
-      "status": "proposed",
+      "status": "published",
+      "published_date": "2026-09-18",
       "tone": "tecnico",
       "fiction": false,
       "kw_primary": "competing timeline",
       "cluster": "tecnico-bodybuilding",
-      "intent": "Articolo tecnico in italiano su trend bodybuilding: Competing timeline",
+      "intent": "Timeline gara natural maturo — differenza prep vs ipertrofia lunga, numeri verificati",
       "discovery_score": 0.55,
-      "target_week": "2026-09-04",
+      "target_week": "2026-09-18",
       "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
       "hero_concept": "technical sports science diagram",
-      "trending_title": "Competing timeline"
+      "trending_title": "Competing timeline",
+      "paths": {
+        "html": "diario/competing-timeline-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/competing-timeline-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/competing-timeline-fig1.webp",
+          "img/diario/2026-09-18/competing-timeline-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/competing-timeline-realistic.webp"
+      },
+      "title_draft": "Timeline gara natural a 57 anni",
+      "meta_draft": "Competing timeline per natural maturo: Gino 57 anni, CTL 41 ATL 43 TSB -2. Prep vs ipertrofia lunga — riflessione tecnica, non coaching gara.",
+      "h1_draft": "Competing timeline: quanto tempo serve davvero (e cosa non copio)"
+    },
+    {
+      "id": "batch-2026-09-18-first-show-p",
+      "slug": "first-show-prep-timeline-57-anni",
+      "status": "published",
+      "published_date": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance — NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-bodybuilding",
+      "kw_primary": "first show prep timeline",
+      "target_week": "2026-09-18",
+      "discovery_score": 0.85,
+      "intent": "Prima gara e prep a 40+ settimane — lettura matura per natural over 50, zero prescrizione",
+      "trending_title": "Ways to go from first show (40ish weeks) but leaning out now to make first prep a little more pleasant",
+      "paths": {
+        "html": "diario/first-show-prep-timeline-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/first-show-prep-timeline-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/first-show-prep-timeline-fig1.webp",
+          "img/diario/2026-09-18/first-show-prep-timeline-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/first-show-prep-timeline-realistic.webp"
+      },
+      "title_draft": "Prima gara: prep a 40 settimane a 57",
+      "meta_draft": "First show prep timeline: Gino 57 anni natural legge trend 40 settimane. Lean out, mesocicli, TSB -2 — riflessione tecnica dilettante, non coaching gara.",
+      "h1_draft": "Prima gara e 40 settimane di prep: cosa capisco (senza salire sul palco)"
+    },
+    {
+      "id": "disc-1789739671824-mj7h",
+      "slug": "update-another-show-another-57-anni",
+      "status": "needs_generation",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "update another show another",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: Update: Did another show, won another overall, went into offseason. Now: 8.5 weeks post show, 14lbs ",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Update: Did another show, won another overall, went into offseason. Now: 8.5 weeks post show, 14lbs up. Prep starts in 16 weeks. Full sending this One"
+    },
+    {
+      "id": "disc-1789739671824-nybt",
+      "slug": "freakout-friday-weekly-rant-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "freakout friday weekly rant",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026"
     }
   ]
 }

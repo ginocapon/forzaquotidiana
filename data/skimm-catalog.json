@@ -25,6 +25,11 @@
       "label": "Tecnico · natural 40-65",
       "hub_links": ["/allenamenti/", "/diario/"],
       "tone": "tecnico"
+    },
+    "tecnico-bodybuilding": {
+      "label": "Tecnico · bodybuilding / gara / periodizzazione",
+      "hub_links": ["/allenamenti/", "/diario/", "/chi-sono/"],
+      "tone": "tecnico"
     }
   },
   "blocked_overlap_threshold": 0.55
