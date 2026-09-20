@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+<style>
+.fx-floor{fill:none;stroke:var(--fx-frame,#6f6a64);stroke-width:3;stroke-linecap:round}
+.fx-frame{fill:none;stroke:var(--fx-frame,#6f6a64);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.fx-support{fill:var(--fx-pad,#3a3632);stroke:var(--fx-frame,#6f6a64);stroke-width:2.5;stroke-linejoin:round}
+.fx-equip{fill:none;stroke:var(--fx-equip,#a89f95);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.fx-bottle{fill:var(--fx-equip,#a89f95);stroke:var(--fx-frame,#6f6a64);stroke-width:2}
+.fx-body{fill:none;stroke:var(--fx-body,#f4efe6);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.fx-head{fill:var(--fx-body,#f4efe6)}
+.fx-target{fill:none;stroke:var(--fx-target,#c9783a);stroke-width:10;stroke-linecap:round;opacity:.95}
+.fx-arrow{fill:none;stroke:var(--fx-target,#c9783a);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</defs>
+
+<symbol id="fig-camminata" viewBox="0 0 120 120"><title>Camminata sostenuta</title>
+  <path class="fx-floor" d="M8 108h104"/>
+  <circle class="fx-head" cx="72" cy="28" r="8"/>
+  <path class="fx-body" d="M68 36 58 58"/>
+  <path class="fx-body" d="M58 58 48 82 42 106"/>
+  <path class="fx-body" d="M58 58 78 78 88 106"/>
+  <path class="fx-body" d="M64 42 82 36"/>
+  <path class="fx-arrow" d="M18 72h28M40 66l6 6-6 6"/>
+  <path class="fx-target" d="M58 70 68 70"/>
+</symbol>
+
+<symbol id="fig-squat-libero" viewBox="0 0 120 120"><title>Squat a corpo libero</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <circle class="fx-head" cx="60" cy="34" r="8"/>
+  <path class="fx-body" d="M60 42v18"/>
+  <path class="fx-body" d="M60 60 44 78 36 96"/>
+  <path class="fx-body" d="M60 60 76 78 84 96"/>
+  <path class="fx-body" d="M52 48 38 52M68 48 82 52"/>
+  <path class="fx-target" d="M48 72 72 72"/>
+  <path class="fx-arrow" d="M96 52v28M91 58l5-6 5 6M91 74l5 6 5-6"/>
+</symbol>
+
+<symbol id="fig-affondo-assistito" viewBox="0 0 120 120"><title>Affondo assistito</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <path class="fx-frame" d="M18 24v88"/>
+  <path class="fx-support" d="M14 40h10v8H14z"/>
+  <circle class="fx-head" cx="58" cy="30" r="8"/>
+  <path class="fx-body" d="M58 38 52 56"/>
+  <path class="fx-body" d="M52 56 44 78 40 108"/>
+  <path class="fx-body" d="M52 56 78 88 86 108"/>
+  <path class="fx-body" d="M48 44 24 48"/>
+  <path class="fx-target" d="M62 78 74 88"/>
+  <path class="fx-arrow" d="M96 64 84 78 72 88"/>
+</symbol>
+
+<symbol id="fig-ponte-glutei" viewBox="0 0 120 120"><title>Ponte glutei</title>
+  <path class="fx-floor" d="M10 88h100"/>
+  <path class="fx-support" d="M22 88h76v8H22z"/>
+  <circle class="fx-head" cx="34" cy="72" r="7"/>
+  <path class="fx-body" d="M40 76 52 64 68 64 80 76"/>
+  <path class="fx-body" d="M52 64 48 88"/>
+  <path class="fx-body" d="M68 64 72 88"/>
+  <path class="fx-target" d="M52 58 68 58"/>
+  <path class="fx-arrow" d="M60 48v12M55 52l5-6 5 6"/>
+</symbol>
+
+<symbol id="fig-slancio-posteriore" viewBox="0 0 120 120"><title>Slancio posteriore gamba</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <path class="fx-support" d="M52 88h16v24H52z"/>
+  <circle class="fx-head" cx="56" cy="28" r="8"/>
+  <path class="fx-body" d="M56 36 54 58"/>
+  <path class="fx-body" d="M54 58 50 88 48 108"/>
+  <path class="fx-body" d="M54 58 62 88 64 108"/>
+  <path class="fx-body" d="M54 62 24 68"/>
+  <path class="fx-body" d="M54 62 88 52 96 44"/>
+  <path class="fx-target" d="M82 48 96 42"/>
+  <path class="fx-arrow" d="M100 38 88 44 82 52"/>
+</symbol>
+
+<symbol id="fig-crunch-semplice" viewBox="0 0 120 120"><title>Crunch addome semplice</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <path class="fx-support" d="M24 88h72v10H24z"/>
+  <circle class="fx-head" cx="72" cy="58" r="8"/>
+  <path class="fx-body" d="M66 64 48 78 36 88"/>
+  <path class="fx-body" d="M48 78 48 96 44 108"/>
+  <path class="fx-body" d="M48 78 68 88 76 108"/>
+  <path class="fx-target" d="M52 72 64 72"/>
+  <path class="fx-arrow" d="M72 48 60 56 52 68"/>
+</symbol>
+
+<symbol id="fig-push-facilitato" viewBox="0 0 120 120"><title>Push-up facilitato</title>
+  <path class="fx-frame" d="M14 18v94"/>
+  <path class="fx-floor" d="M10 112h100"/>
+  <circle class="fx-head" cx="78" cy="38" r="8"/>
+  <path class="fx-body" d="M72 44 48 58"/>
+  <path class="fx-body" d="M48 58 38 72 34 88"/>
+  <path class="fx-body" d="M48 58 68 72 74 88"/>
+  <path class="fx-body" d="M44 60 28 52"/>
+  <path class="fx-target" d="M44 58 56 58"/>
+  <path class="fx-arrow" d="M88 52 76 58 68 66"/>
+</symbol>
+
+<symbol id="fig-alzate-bottiglie" viewBox="0 0 120 120"><title>Alzate laterali con bottiglie</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <rect class="fx-bottle" x="22" y="44" width="8" height="22" rx="2"/>
+  <rect class="fx-bottle" x="90" y="44" width="8" height="22" rx="2"/>
+  <circle class="fx-head" cx="60" cy="32" r="8"/>
+  <path class="fx-body" d="M60 40v34"/>
+  <path class="fx-body" d="M60 48 26 46M60 48 94 46"/>
+  <path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/>
+  <path class="fx-target" d="M28 46 28 46"/>
+  <circle class="fx-target" cx="28" cy="47" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/>
+  <circle class="fx-target" cx="92" cy="47" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/>
+  <path class="fx-arrow" d="M34 58 26 46 18 58M86 58 94 46 102 58"/>
+</symbol>
+
+<symbol id="fig-curl-bottiglie" viewBox="0 0 120 120"><title>Curl bicipiti con bottiglie</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <rect class="fx-bottle" x="34" y="52" width="8" height="24" rx="2"/>
+  <rect class="fx-bottle" x="78" y="52" width="8" height="24" rx="2"/>
+  <circle class="fx-head" cx="60" cy="30" r="8"/>
+  <path class="fx-body" d="M60 38v36"/>
+  <path class="fx-body" d="M60 48 38 68M60 48 82 68"/>
+  <path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/>
+  <path class="fx-target" d="M38 62 38 62"/>
+  <circle class="fx-target" cx="38" cy="63" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/>
+  <path class="fx-arrow" d="M38 78 38 62 38 46"/>
+</symbol>
+
+<symbol id="fig-tricipiti-bottiglia" viewBox="0 0 120 120"><title>Estensione tricipiti con bottiglia</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <rect class="fx-bottle" x="56" y="18" width="8" height="28" rx="2"/>
+  <circle class="fx-head" cx="60" cy="38" r="8"/>
+  <path class="fx-body" d="M60 46v28"/>
+  <path class="fx-body" d="M60 52 44 34M60 52 76 34"/>
+  <path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/>
+  <path class="fx-target" d="M44 30 76 30"/>
+  <path class="fx-arrow" d="M60 56v18M55 62l5-6 5 6M55 68l5 6 5-6"/>
+</symbol>
+
+<symbol id="fig-rematore-bottiglie" viewBox="0 0 120 120"><title>Rematore con bottiglie</title>
+  <path class="fx-floor" d="M10 112h100"/>
+  <rect class="fx-bottle" x="28" y="58" width="8" height="22" rx="2"/>
+  <rect class="fx-bottle" x="84" y="58" width="8" height="22" rx="2"/>
+  <circle class="fx-head" cx="60" cy="52" r="8"/>
+  <path class="fx-body" d="M60 60 58 78"/>
+  <path class="fx-body" d="M58 78 52 92 48 108"/>
+  <path class="fx-body" d="M58 78 66 92 70 108"/>
+  <path class="fx-body" d="M56 64 32 58M56 64 88 58"/>
+  <path class="fx-target" d="M48 62 72 62"/>
+  <path class="fx-arrow" d="M32 58 48 62 64 58"/>
+</symbol>
+
+</svg>
