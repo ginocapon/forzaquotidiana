@@ -1719,6 +1719,72 @@
         "fatigue_atl": 40,
         "date": "2026-09-19"
       }
+    },
+    {
+      "id": "2026-09-21-a1",
+      "date": "2026-09-21",
+      "time": "13:05",
+      "datetime": "2026-09-21T13:05",
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
+      "month": "2026-09",
+      "durata_sec": 3075,
+      "durata": "00:51:15",
+      "recupero_sec": 2259,
+      "recupero": "37:39",
+      "gruppi": 23,
+      "fc_media": 126,
+      "fc_max": 158,
+      "calorie": 480,
+      "carico": 139,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0.68,
+        "intensiva": 11.47,
+        "aerobica": 19.05,
+        "anaerobica": 16.05,
+        "vo2max": 3.97
+      },
+      "effect": {
+        "aerobic": 3.4,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.7,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_duration": "5:11",
+        "sleep_duration_label": "Medio",
+        "sleep_bedtime": "02:35",
+        "sleep_wake_time": "07:46",
+        "sleep_hr_night": 54,
+        "hrv": 53,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 53,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 42,
+        "hybridcharge_label": "Basso",
+        "effort_day": 82,
+        "effort_goal": 150,
+        "strain_load": 82
+      },
+      "tecnica": {
+        "consistenza": "Intervallo uniforme — radar alto",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento contenuto"
+      },
+      "note": "A1 lunedì 13:05 — petto · schiena · spalle, avvio settimana 4 Blocco 1. 23 serie in 00:51:15, carico 139, FC 126/158, effetto aerobico 3,4 Buono. Sonno notte dom-lun ~5:11 (02:35–07:46), HRV 53 da trend domenica, sforzo 82/150. TSB +2 Bilanciato (CTL 39 / ATL 37). Export readiness parziale: mancano screenshot sonno/HRV giornalieri.",
+      "tsb": {
+        "value": 2,
+        "label": "Bilanciato",
+        "fitness_ctl": 39,
+        "fatigue_atl": 37,
+        "date": "2026-09-21"
+      }
     }
   ]
 }

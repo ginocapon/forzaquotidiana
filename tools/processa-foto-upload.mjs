@@ -159,6 +159,27 @@ const KNOWN_BATCHES = {
     },
     skip: ["WhatsApp Image 2026-09-08 at 19.31.56 (2).jpeg"],
   },
+  "scheda allenamento 21-09-26": {
+    date: "2026-09-21",
+    codice: "a1",
+    scheda: 1,
+    files: {
+      "WhatsApp Image 2026-09-21 at 19.46.28.jpeg": "tsb",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (5).jpeg": "readiness-panoramica",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (4).jpeg": "readiness-dettaglio",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (1).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (7).jpeg": "zone-effetto",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (6).jpeg": "tecnica",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (8).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (8) riepilogo.jpeg": "riepilogo",
+    },
+    skip: [
+      "WhatsApp Image 2026-09-21 at 19.46.28 (1).jpeg",
+      "WhatsApp Image 2026-09-21 at 19.46.29.jpeg",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (2).jpeg",
+      "WhatsApp Image 2026-09-21 at 19.46.29 (3).jpeg",
+    ],
+  },
   "sessione 19-09-2026": {
     date: "2026-09-19",
     codice: "b2",
