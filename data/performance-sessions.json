@@ -1645,6 +1645,80 @@
         "fatigue_atl": 39,
         "date": "2026-09-18"
       }
+    },
+    {
+      "id": "2026-09-19-b2",
+      "date": "2026-09-19",
+      "time": "10:56",
+      "datetime": "2026-09-19T10:56",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-09",
+      "durata_sec": 4079,
+      "durata": "01:07:59",
+      "recupero_sec": 2880,
+      "recupero": "48:00",
+      "gruppi": 20,
+      "fc_media": 117,
+      "fc_max": 160,
+      "calorie": 570,
+      "carico": 124,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 3.8,
+        "intensiva": 22.42,
+        "aerobica": 30.17,
+        "anaerobica": 8.95,
+        "vo2max": 1.23
+      },
+      "effect": {
+        "aerobic": 3.3,
+        "aerobic_label": "Buono",
+        "anaerobic": 3.4,
+        "anaerobic_label": "Buono"
+      },
+      "readiness": {
+        "hybridcharge_wake": 48,
+        "hybridcharge_post": 8,
+        "hybridcharge_label": "Basso",
+        "sleep_score": 57,
+        "sleep_score_label": "Fai attenzione",
+        "sleep_duration": "6:00",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "0:56",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:34",
+        "sleep_rem_label": "Leggero",
+        "sleep_wake": "2:02",
+        "sleep_wake_events": 6,
+        "sleep_regularity_pct": 90,
+        "sleep_hr_night": 55,
+        "hrv": 41,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 52,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 127,
+        "effort_goal": 83,
+        "strain_load": 127
+      },
+      "tecnica": {
+        "consistenza": "Intervallo di movimento uniforme",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento minimo — radar pieno"
+      },
+      "note": "B2 sabato 10:56 — chiusura settimana 3 Blocco 1. 20 serie in 01:07:59, carico 124, FC 117/160, effetto aerobico 3,3 Buono. Sonno 6:00 (score 57, 6 risvegli), HRV 41 Buono, sforzo 127/83, HybridCharge 48→8, TSB 0 Bilanciato (CTL 40 / ATL 40).",
+      "tsb": {
+        "value": 0,
+        "label": "Bilanciato",
+        "fitness_ctl": 40,
+        "fatigue_atl": 40,
+        "date": "2026-09-19"
+      }
     }
   ]
 }

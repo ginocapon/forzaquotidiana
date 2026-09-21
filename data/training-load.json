@@ -1,7 +1,7 @@
 {
   "_nota": "CTL/ATL/TSB da carico Zepp (EWM 42/7 gg). overrides per snapshot Zepp verificati. node tools/aggiorna-training-load.mjs",
   "trimestre": "trimestre-giugno-luglio-agosto-2026",
-  "updated": "2026-09-18",
+  "updated": "2026-09-21",
   "zones": [
     {
       "id": "rilassato",
@@ -113,6 +113,13 @@
       "tsb": -1,
       "status": "Bilanciato",
       "source": "Screenshot Zepp Modulo allenamento TSB 18/09"
+    },
+    "2026-09-19": {
+      "ctl": 40,
+      "atl": 40,
+      "tsb": 0,
+      "status": "Bilanciato",
+      "source": "Screenshot Zepp Modulo allenamento TSB 19/09"
     }
   },
   "timeline": [
@@ -1219,30 +1226,30 @@
     {
       "date": "2026-09-19",
       "label": "19/09",
-      "load": 0,
-      "ctl": 37.1,
-      "atl": 33.8,
-      "tsb": 3.3,
+      "load": 124,
+      "ctl": 40,
+      "atl": 40,
+      "tsb": 0,
       "status": "Bilanciato",
-      "session": false
+      "session": true
     },
     {
       "date": "2026-09-20",
       "label": "20/09",
       "load": 0,
-      "ctl": 36.2,
-      "atl": 29.3,
-      "tsb": 6.9,
-      "status": "Energetico",
+      "ctl": 39.1,
+      "atl": 34.7,
+      "tsb": 4.4,
+      "status": "Bilanciato",
       "session": false
     },
     {
       "date": "2026-09-21",
       "label": "21/09",
       "load": 0,
-      "ctl": 35.4,
-      "atl": 25.4,
-      "tsb": 10,
+      "ctl": 38.1,
+      "atl": 30.1,
+      "tsb": 8.1,
       "status": "Energetico",
       "session": false
     },
@@ -1250,9 +1257,9 @@
       "date": "2026-09-22",
       "label": "22/09",
       "load": 0,
-      "ctl": 34.5,
-      "atl": 22,
-      "tsb": 12.5,
+      "ctl": 37.2,
+      "atl": 26.1,
+      "tsb": 11.2,
       "status": "Energetico",
       "session": false
     },
@@ -1260,9 +1267,9 @@
       "date": "2026-09-23",
       "label": "23/09",
       "load": 0,
-      "ctl": 33.7,
-      "atl": 19.1,
-      "tsb": 14.6,
+      "ctl": 36.4,
+      "atl": 22.6,
+      "tsb": 13.8,
       "status": "Energetico",
       "session": false
     },
@@ -1270,9 +1277,9 @@
       "date": "2026-09-24",
       "label": "24/09",
       "load": 0,
-      "ctl": 32.9,
-      "atl": 16.6,
-      "tsb": 16.4,
+      "ctl": 35.5,
+      "atl": 19.6,
+      "tsb": 15.9,
       "status": "Rilassato",
       "session": false
     },
@@ -1280,9 +1287,9 @@
       "date": "2026-09-25",
       "label": "25/09",
       "load": 0,
-      "ctl": 32.2,
-      "atl": 14.3,
-      "tsb": 17.8,
+      "ctl": 34.7,
+      "atl": 17,
+      "tsb": 17.7,
       "status": "Rilassato",
       "session": false
     },
@@ -1290,9 +1297,9 @@
       "date": "2026-09-26",
       "label": "26/09",
       "load": 0,
-      "ctl": 31.4,
-      "atl": 12.4,
-      "tsb": 19,
+      "ctl": 33.9,
+      "atl": 14.7,
+      "tsb": 19.1,
       "status": "Rilassato",
       "session": false
     },
@@ -1300,9 +1307,9 @@
       "date": "2026-09-27",
       "label": "27/09",
       "load": 0,
-      "ctl": 30.7,
-      "atl": 10.8,
-      "tsb": 19.9,
+      "ctl": 33.1,
+      "atl": 12.8,
+      "tsb": 20.3,
       "status": "Rilassato",
       "session": false
     },
@@ -1310,9 +1317,9 @@
       "date": "2026-09-28",
       "label": "28/09",
       "load": 0,
-      "ctl": 29.9,
-      "atl": 9.3,
-      "tsb": 20.6,
+      "ctl": 32.3,
+      "atl": 11.1,
+      "tsb": 21.2,
       "status": "Rilassato",
       "session": false
     },
@@ -1320,9 +1327,9 @@
       "date": "2026-09-29",
       "label": "29/09",
       "load": 0,
-      "ctl": 29.2,
-      "atl": 8.1,
-      "tsb": 21.1,
+      "ctl": 31.5,
+      "atl": 9.6,
+      "tsb": 21.9,
       "status": "Rilassato",
       "session": false
     },
@@ -1330,9 +1337,9 @@
       "date": "2026-09-30",
       "label": "30/09",
       "load": 0,
-      "ctl": 28.6,
-      "atl": 7,
-      "tsb": 21.5,
+      "ctl": 30.8,
+      "atl": 8.3,
+      "tsb": 22.5,
       "status": "Rilassato",
       "session": false
     },
@@ -1340,9 +1347,9 @@
       "date": "2026-10-01",
       "label": "01/10",
       "load": 0,
-      "ctl": 27.9,
-      "atl": 6.1,
-      "tsb": 21.8,
+      "ctl": 30.1,
+      "atl": 7.2,
+      "tsb": 22.9,
       "status": "Rilassato",
       "session": false
     },
@@ -1350,9 +1357,19 @@
       "date": "2026-10-02",
       "label": "02/10",
       "load": 0,
-      "ctl": 27.2,
-      "atl": 5.3,
-      "tsb": 22,
+      "ctl": 29.4,
+      "atl": 6.2,
+      "tsb": 23.1,
+      "status": "Rilassato",
+      "session": false
+    },
+    {
+      "date": "2026-10-03",
+      "label": "03/10",
+      "load": 0,
+      "ctl": 28.7,
+      "atl": 5.4,
+      "tsb": 23.2,
       "status": "Rilassato",
       "session": false
     }
@@ -1553,6 +1570,13 @@
       "tsb": -1,
       "status": "Bilanciato",
       "load": 105
+    },
+    "2026-09-19": {
+      "ctl": 40,
+      "atl": 40,
+      "tsb": 0,
+      "status": "Bilanciato",
+      "load": 124
     }
   },
   "sessions": [
@@ -1667,6 +1691,10 @@
     {
       "date": "2026-09-18",
       "id": "2026-09-18-a2"
+    },
+    {
+      "date": "2026-09-19",
+      "id": "2026-09-19-b2"
     }
   ]
 }
