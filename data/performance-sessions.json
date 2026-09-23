@@ -1785,6 +1785,80 @@
         "fatigue_atl": 37,
         "date": "2026-09-21"
       }
+    },
+    {
+      "id": "2026-09-22-b1",
+      "date": "2026-09-22",
+      "time": "12:53",
+      "datetime": "2026-09-22T12:53",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-09",
+      "durata_sec": 4058,
+      "durata": "01:07:38",
+      "recupero_sec": 3051,
+      "recupero": "50:51",
+      "gruppi": 28,
+      "fc_media": 111,
+      "fc_max": 157,
+      "calorie": 515,
+      "carico": 91,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 8.52,
+        "intensiva": 22.85,
+        "aerobica": 19.53,
+        "anaerobica": 8.95,
+        "vo2max": 1.23
+      },
+      "effect": {
+        "aerobic": 3.0,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.6,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "hybridcharge_wake": 75,
+        "hybridcharge_post": 20,
+        "hybridcharge_label": "Discreto",
+        "sleep_score": 76,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "7:22",
+        "sleep_duration_label": "Buono",
+        "sleep_deep": "1:35",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:37",
+        "sleep_rem_label": "Leggero",
+        "sleep_wake": "0:59",
+        "sleep_wake_events": 7,
+        "sleep_regularity_pct": 73,
+        "sleep_hr_night": 54,
+        "hrv": 40,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 51,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 99,
+        "effort_goal": 104,
+        "strain_load": 103
+      },
+      "tecnica": {
+        "consistenza": "Intervallo uniforme — radar alto",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento minimo — radar pieno"
+      },
+      "note": "B1 martedì 12:53 — gambe accosciata · polpacci · braccia, settimana 4 Blocco 1. 28 serie in 01:07:38, carico 91, FC 111/157, effetto aerobico 3,0 Buono. Sonno 7:22 Buono (score 76, 7 risvegli), HRV 40 Buono, HybridCharge 75→20, sforzo 103/104. TSB +4 Bilanciato (CTL 40 / ATL 36).",
+      "tsb": {
+        "value": 4,
+        "label": "Bilanciato",
+        "fitness_ctl": 40,
+        "fatigue_atl": 36,
+        "date": "2026-09-22"
+      }
     }
   ]
 }
