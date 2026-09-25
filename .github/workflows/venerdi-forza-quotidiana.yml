@@ -1,17 +1,64 @@
-name: Venerdì — checklist Forza Quotidiana
+name: Venerdì — Forza Quotidiana
 
 on:
   schedule:
-    # Venerdì 07:00 UTC = 09:00 CEST
-    - cron: '0 7 * * 5'
+    # Venerdì 06:00 UTC = 08:00 CEST — editoriale + checklist nello stesso run
+    - cron: '0 6 * * 5'
   workflow_dispatch:
+    inputs:
+      autopilot:
+        description: 'Editoriale autopilot (richiede OPENAI_API_KEY)'
+        type: boolean
+        default: false
 
 permissions:
-  issues: write
   contents: read
+  issues: write
 
 jobs:
-  friday-checklist:
+  editorial:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Prepara coda editoriale
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EDITORIAL_API_KEY: ${{ secrets.EDITORIAL_API_KEY }}
+          EDITORIAL_LLM_MODEL: ${{ vars.EDITORIAL_MODEL || 'gpt-4o-mini' }}
+          EDITORIAL_IMAGE_MODEL: ${{ vars.EDITORIAL_IMAGE_MODEL || 'dall-e-3' }}
+        run: |
+          if [ "${{ inputs.autopilot }}" = "true" ] && [ -n "$OPENAI_API_KEY$EDITORIAL_API_KEY" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+            node tools/editorial-weekly.mjs run --autopilot
+          else
+            node tools/editorial-weekly.mjs run --generate
+          fi
+
+      - name: Commit coda e report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/editorial-queue.json data/editorial-weekly-report.md
+          if [ "${{ inputs.autopilot }}" = "true" ]; then
+            git add diario/ img/diario/ sitemap.xml llms.txt diario/index.html
+          fi
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica da committare"
+          else
+            git commit -m "editorial: coda settimanale $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  checklist:
+    needs: editorial
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -43,10 +90,12 @@ jobs:
           script: |
             const d = new Date().toISOString().slice(0, 10);
             const probeOk = '${{ steps.probe.outputs.probe_ok }}' === 'true';
+            const editorialOk = '${{ needs.editorial.result }}' === 'success';
             const title = `Venerdì Forza Quotidiana — checklist ${d}`;
             const body = `## Checklist settimanale
 
             **Probe sito:** ${probeOk ? 'ok' : 'verifica manuale consigliata'}
+            **Editoriale CI:** ${editorialOk ? 'ok' : 'fallito — vedi job editorial nel workflow Venerdì'}
 
             ### Newsletter (Foglio Google — NON GitHub)
             - [ ] Apri [Foglio iscritti](https://docs.google.com/spreadsheets/d/1i7QgrgJuO_OR076jnl2vN7KLbY_TdPHIrZXfSqjGDxA/edit)
@@ -59,10 +108,14 @@ jobs:
             - [ ] \`sitemap.xml\` e \`llms.txt\` aggiornati
             - [ ] Sessione allenamento pubblicata (se allenato)
             - [ ] Scheda A4 allineata al trimestre
-            - [ ] Aggiorna conteggi: \`node tools/sync-newsletter-stats.mjs\` + \`node tools/aggiorna-site-stats.mjs\`
+            - [ ] \`npm run venerdi:crono\` o commit feed/stats se locale
+
+            ### Editoriale
+            - [ ] Leggi \`data/editorial-weekly-report.md\` (premortem settimanale)
+            - [ ] Genera 3 articoli scheduled → \`.cursor/commands/venerdi-editoriale.md\`
 
             ### SKILL
-            - [ ] Leggi \`SKILL-VENERDI.md\` e applica migliorie a \`SKILL.md\` se serve
+            - [ ] Leggi \`SKILL-VENERDI.md\`
 
             ---
             *Issue automatica — chiudi quando completato.*`;

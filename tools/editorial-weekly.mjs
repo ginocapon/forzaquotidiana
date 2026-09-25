@@ -214,7 +214,8 @@ function refillProposedQueue(queue) {
 
 function writeWeeklyReport(data) {
   const d = todayISO();
-  const mdPath = path.join(REPO_ROOT, `guardian/reports/weekly-${d}.md`);
+  const mdPath = path.join(REPO_ROOT, "data/editorial-weekly-report.md");
+  const archivePath = path.join(REPO_ROOT, `guardian/reports/weekly-${d}.md`);
   fs.mkdirSync(path.dirname(mdPath), { recursive: true });
   let md = `# Weekly editorial — ${d}\n\n`;
   md += `## Obiettivo\nVisite organiche + iscrizioni newsletter. Zero vendita.\n\n`;
@@ -227,6 +228,12 @@ function writeWeeklyReport(data) {
   md += `\n## Premortem\n${data.premortem}\n`;
   md += `\n## Prossimo check\nVenerdì 07:00 — discovery + max 3 articoli\n`;
   fs.writeFileSync(mdPath, md);
+  try {
+    fs.mkdirSync(path.dirname(archivePath), { recursive: true });
+    fs.writeFileSync(archivePath, md);
+  } catch {
+    /* guardian/reports può essere gitignored in locale */
+  }
   return mdPath;
 }
 
