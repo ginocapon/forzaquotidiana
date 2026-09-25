@@ -4,12 +4,12 @@
 Visite organiche + iscrizioni newsletter. Zero vendita.
 
 ## Articoli
-- **creatina-meme-universita-57-anni** · kw: creatina culturismo meme · GEO: pending · scheduled
+- **months-lifting-natural-place-57-anni** · kw: months lifting natural place · GEO: verified · published
   - Finzione: sì · Immagini IA: sì (disclosure)
-- **many-years-apart-think-57-anni** · kw: many years apart think · GEO: pending · scheduled
+- **when-want-compete-start-57-anni** · kw: when want compete start · GEO: verified · published
   - Finzione: sì · Immagini IA: sì (disclosure)
-- **check-weeks-natural-viking-57-anni** · kw: check weeks natural viking · GEO: pending · scheduled
-  - Finzione: sì · Immagini IA: sì (disclosure)
+- **freakout-friday-weekly-rant-57-anni** · kw: freakout friday weekly rant · GEO: verified · published
+  - Finzione: no · Immagini IA: sì (disclosure)
 
 ## Assunzioni
 - Angoli goliardici non saturano keyword esistenti

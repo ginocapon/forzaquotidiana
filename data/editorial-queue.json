@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-18",
+  "updated": "2026-09-25",
   "max_per_week": 3,
   "items": [
     {
@@ -358,32 +358,54 @@
     {
       "id": "disc-1787760013083-u90n",
       "slug": "months-lifting-natural-place-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "months lifting natural place",
       "cluster": "goliardia-culturismo",
       "intent": "Angolo goliardico su trend: 8 months lifting natural 3rd place Npc men’s physique",
       "discovery_score": 0.85,
-      "target_week": "2026-08-26",
+      "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "8 months lifting natural 3rd place Npc men’s physique"
+      "trending_title": "8 months lifting natural 3rd place Npc men’s physique",
+      "title_draft": "Otto mesi e terzo posto NPC: satira da 57 anni",
+      "meta_draft": "Parodia goliardica del trend «8 months lifting natural 3rd place» — Gino con 10 anni di palestra, finzione cartoon, costanza vera.",
+      "paths": {
+        "html": "diario/months-lifting-natural-place-57-anni/index.html",
+        "hero": "img/diario/2026-09-25/months-lifting-natural-place-hero.webp",
+        "figures": [
+          "img/diario/2026-09-25/months-lifting-natural-place-fig1.webp",
+          "img/diario/2026-09-25/months-lifting-natural-place-fig2.webp"
+        ]
+      },
+      "published_date": "2026-09-25"
     },
     {
       "id": "disc-1787760013083-wtxi",
       "slug": "when-want-compete-start-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "when want compete start",
       "cluster": "goliardia-culturismo",
       "intent": "Angolo goliardico su trend: When did “I want to compete” start meaning “I need to take steroids”?",
       "discovery_score": 0.85,
-      "target_week": "2026-08-26",
+      "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "When did “I want to compete” start meaning “I need to take steroids”?"
+      "trending_title": "When did “I want to compete” start meaning “I need to take steroids”?",
+      "title_draft": "«Voglio gareggiare» e la slide degli steroidi",
+      "meta_draft": "Satira sul thread «when I want to compete started meaning steroids» — dilettante maturo, zero palco, umorismo italiano.",
+      "paths": {
+        "html": "diario/when-want-compete-start-57-anni/index.html",
+        "hero": "img/diario/2026-09-25/when-want-compete-start-hero.webp",
+        "figures": [
+          "img/diario/2026-09-25/when-want-compete-start-fig1.webp",
+          "img/diario/2026-09-25/when-want-compete-start-fig2.webp"
+        ]
+      },
+      "published_date": "2026-09-25"
     },
     {
       "id": "batch-2026-09-04-volume-mass-",
@@ -512,17 +534,88 @@
     {
       "id": "disc-1789739671824-nybt",
       "slug": "freakout-friday-weekly-rant-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "tecnico",
       "fiction": false,
       "kw_primary": "freakout friday weekly rant",
-      "cluster": "tecnico-bodybuilding",
+      "cluster": "tecnico-natural",
       "intent": "Articolo tecnico in italiano su trend bodybuilding: FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026",
       "discovery_score": 0.85,
-      "target_week": "2026-09-18",
+      "target_week": "2026-09-25",
       "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
       "hero_concept": "technical sports science diagram",
-      "trending_title": "FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026"
+      "trending_title": "FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026",
+      "title_draft": "Freakout Friday: rant settimanale e premortem del venerdì",
+      "meta_draft": "FREAKOUT FRIDAY su Reddit tradotto in premortem Gary Klein per newsletter e crescita forzaquotidiana.it — rant tecnico, non coaching.",
+      "paths": {
+        "html": "diario/freakout-friday-weekly-rant-57-anni/index.html",
+        "hero": "img/diario/2026-09-25/freakout-friday-weekly-rant-hero.webp",
+        "figures": [
+          "img/diario/2026-09-25/freakout-friday-weekly-rant-fig1.webp",
+          "img/diario/2026-09-25/freakout-friday-weekly-rant-fig2.webp"
+        ]
+      },
+      "published_date": "2026-09-25"
+    },
+    {
+      "id": "disc-1790333245973-5sj1",
+      "slug": "prediction-krizo-will-shock-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "prediction krizo will shock",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: My Prediction: Krizo Will Shock the Olympia 🔥",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-25",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "My Prediction: Krizo Will Shock the Olympia 🔥"
+    },
+    {
+      "id": "disc-1790333497742-vmtr",
+      "slug": "anyone-know-olympia-streaming-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "anyone know olympia streaming",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Anyone know how Mr. Olympia streaming works?",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-25",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Anyone know how Mr. Olympia streaming works?"
+    },
+    {
+      "id": "disc-1790333497742-rh3a",
+      "slug": "olympia-press-conference-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "olympia press conference",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Olympia Press conference",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-25",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Olympia Press conference"
+    },
+    {
+      "id": "disc-1790333497742-7lvr",
+      "slug": "wesley-vissers-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "wesley vissers",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: Wesley Vissers",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-25",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Wesley Vissers"
     }
   ]
 }
