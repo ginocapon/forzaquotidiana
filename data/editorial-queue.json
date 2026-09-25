@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-16",
+  "updated": "2026-09-18",
   "max_per_week": 3,
   "items": [
     {
@@ -21,7 +21,7 @@
       "meta_draft": "Satira goliardica su miti whey e bro-science — zero vendita integratori. Gino Capon, culturismo dilettante e umorismo a fumetti.",
       "h1_draft": "La mia laurea triennale in Scienze dello Shake (con onore in bro-science)",
       "outline": [
-        "Risposta breve AEO",
+        "Sintesi Articolo AEO",
         "Miti shake",
         "Bro-science vs realtà",
         "FAQ",
@@ -55,7 +55,7 @@
       "meta_draft": "Parodia goliardica sul giorno dopo leg day a 57 anni — scale, ascensori e dignità. Finzione visiva, costanza vera.",
       "h1_draft": "Leg day e l'ascensore che mi giudica: sopravvivenza a 57 anni",
       "outline": [
-        "Risposta breve",
+        "Sintesi Articolo",
         "Boss ascensore",
         "Costanza vs dramma",
         "FAQ"
@@ -88,7 +88,7 @@
       "meta_draft": "Satira sul selfie da specchio in palestra — finzione a fumetti, zero influencer. Gino 57 anni, diario autentico.",
       "h1_draft": "Lo specchio che mi dà due versioni: Teken il Guerriero e l'uomo stropicciato",
       "outline": [
-        "Risposta breve",
+        "Sintesi Articolo",
         "Doppio specchio",
         "Autenticità",
         "FAQ"
@@ -140,7 +140,8 @@
       "discovery_score": 0.72,
       "target_week": "2026-08-11",
       "hero_brief": "Da definire — stile fumetto surreale goliardico",
-      "hero_concept": "comic surreal, NO stock palestra"
+      "hero_concept": "comic surreal, NO stock palestra",
+      "notes": "Duplicato di clean-halo-kettlebell-spalle-a-57-anni — stesso angolo mobilità spalle, non schedulare."
     },
     {
       "id": "prop-1786450039791-vxn",
@@ -212,7 +213,7 @@
     {
       "id": "disc-1786886087428-1e95",
       "slug": "many-years-apart-think-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "many years apart think",
@@ -222,12 +223,24 @@
       "target_week": "2026-08-16",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "How many years apart do you think?🫡"
+      "trending_title": "How many years apart do you think?🫡",
+      "paths": {
+        "html": "diario/many-years-apart-think-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/many-years-apart-think-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/many-years-apart-think-fig1.webp",
+          "img/diario/2026-08-26/many-years-apart-think-fig2.webp"
+        ]
+      },
+      "title_draft": "Quanti anni di differenza? Il meme Reddit",
+      "meta_draft": "Parodia goliardica sul trend Reddit foto giovane vs oggi — autenticità vs aspettative social. Gino 57 anni.",
+      "h1_draft": "Quanti anni di differenza? Il meme Reddit mi chiede il conto (a 57)",
+      "published_date": "2026-08-26"
     },
     {
       "id": "disc-1786886087428-wyr0",
       "slug": "check-weeks-natural-viking-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "check weeks natural viking",
@@ -237,27 +250,51 @@
       "target_week": "2026-08-16",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Check-In: 2 Weeks Out from OCB Natural Viking"
+      "trending_title": "Check-In: 2 Weeks Out from OCB Natural Viking",
+      "paths": {
+        "html": "diario/check-weeks-natural-viking-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/check-weeks-natural-viking-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/check-weeks-natural-viking-fig1.webp",
+          "img/diario/2026-08-26/check-weeks-natural-viking-fig2.webp"
+        ]
+      },
+      "title_draft": "Check-in da gara: due settimane al Viking",
+      "meta_draft": "Parodia del check-in pre-gara bodybuilding: Gino dilettante fa peaking col telecomando. Finizione cartoon.",
+      "h1_draft": "Check-in da gara Natural Viking — peaking sul divano (a 57 anni)",
+      "published_date": "2026-08-26"
     },
     {
       "id": "disc-1786886087428-14o1",
       "slug": "weeks-into-mass-phase-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "weeks into mass phase",
-      "cluster": "goliardia-culturismo",
-      "intent": "Angolo goliardico su trend: 4 weeks into the mass phase",
+      "cluster": "goliardia-allenamento",
+      "intent": "Satira goliardica sul trend mass phase — pasta, divano, autoironia",
       "discovery_score": 0.85,
-      "target_week": "2026-08-16",
+      "target_week": "2026-09-04",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "4 weeks into the mass phase"
+      "trending_title": "4 weeks into the mass phase",
+      "paths": {
+        "html": "diario/weeks-into-mass-phase-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/weeks-into-mass-phase-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/weeks-into-mass-phase-fig1.webp",
+          "img/diario/2026-09-04/weeks-into-mass-phase-fig2.webp"
+        ]
+      },
+      "title_draft": "Quattro settimane in mass phase: pasta e divano",
+      "meta_draft": "Satira goliardica «4 weeks into the mass phase»: Gino 57 anni, mass phase = rigatoni e telecomando. Finzione cartoon, costanza vera in Allenamenti — zero coaching.",
+      "h1_draft": "Quattro settimane in mass phase: la mia bulk sul divano (a 57 anni)",
+      "published_date": "2026-09-04"
     },
     {
       "id": "prop-creatina-dossier-2026-08",
       "slug": "creatina-meme-universita-57-anni",
-      "status": "proposed",
+      "status": "published",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "creatina culturismo meme",
@@ -271,13 +308,221 @@
       "hero_brief": "Aula universitaria cartoon — lavagna con tabella evidenze creatina, Gino stropicciato professore, stile JoJo goliardico",
       "hero_concept": "comic surreal, palette scura, parodia meme integratori",
       "outline": [
-        "Risposta breve AEO (sintesi prudente creatina)",
+        "Sintesi Articolo AEO (sintesi prudente creatina)",
         "Facoltà immaginaria goliardica",
         "Box scientifico da dossier (tabella verdetto)",
         "FAQ con disclaimer medico",
         "Newsletter"
       ],
-      "notes": "Integrare dossier scientifico utente ago 2026; collegare a proteine-shake-universita-57-anni"
+      "notes": "Integrare dossier scientifico utente ago 2026; collegare a proteine-shake-universita-57-anni",
+      "paths": {
+        "html": "diario/creatina-meme-universita-57-anni/index.html",
+        "hero": "img/diario/2026-08-26/creatina-meme-universita-hero.webp",
+        "figures": [
+          "img/diario/2026-08-26/creatina-meme-universita-fig1.webp",
+          "img/diario/2026-08-26/creatina-meme-universita-tablet-notte.webp"
+        ]
+      },
+      "meta_draft": "Satira goliardica su meme creatina + sintesi scientifica prudente — zero vendita integratori. Gino Capon 57 anni.",
+      "h1_draft": "La mia laurea in Creatina Applicata (con esame notturno al tablet)",
+      "published_date": "2026-08-26"
+    },
+    {
+      "id": "disc-1787760013082-bkd1",
+      "slug": "former-olympia-hadi-choopan-57-anni",
+      "status": "published",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "former olympia hadi choopan",
+      "cluster": "goliardia-culturismo",
+      "intent": "Parodia goliardica su ritiro Olympia per visto — distanza pro vs dilettante 57enne",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-18",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "Former Mr. Olympia Hadi Choopan withdraws from 2026 Mr. Olympia due to Visa issues.",
+      "paths": {
+        "html": "diario/former-olympia-hadi-choopan-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/former-olympia-hadi-choopan-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/former-olympia-hadi-choopan-fig1.webp",
+          "img/diario/2026-09-18/former-olympia-hadi-choopan-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/former-olympia-hadi-choopan-realistic.webp"
+      },
+      "title_draft": "Hadi Choopan e il visto negato",
+      "meta_draft": "Satira goliardica: Hadi Choopan ritira Mr. Olympia per visto. Gino 57 anni al bancone immigrazione della palestra. Finzione cartoon, costanza vera.",
+      "h1_draft": "Mr. Olympia annullato dal visto: quando anche Hadi Choopan non passa il controllo",
+      "published_date": "2026-09-18"
+    },
+    {
+      "id": "disc-1787760013083-u90n",
+      "slug": "months-lifting-natural-place-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "months lifting natural place",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: 8 months lifting natural 3rd place Npc men’s physique",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-26",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "8 months lifting natural 3rd place Npc men’s physique"
+    },
+    {
+      "id": "disc-1787760013083-wtxi",
+      "slug": "when-want-compete-start-57-anni",
+      "status": "proposed",
+      "tone": "goliardico",
+      "fiction": true,
+      "kw_primary": "when want compete start",
+      "cluster": "goliardia-culturismo",
+      "intent": "Angolo goliardico su trend: When did “I want to compete” start meaning “I need to take steroids”?",
+      "discovery_score": 0.85,
+      "target_week": "2026-08-26",
+      "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
+      "hero_concept": "comic surreal, NO stock palestra",
+      "trending_title": "When did “I want to compete” start meaning “I need to take steroids”?"
+    },
+    {
+      "id": "batch-2026-09-04-volume-mass-",
+      "slug": "volume-mass-phase-natural-57-anni",
+      "status": "published",
+      "hero_brief": "Fumetto surreale — palette scura, NO stock palestra",
+      "hero_concept": "comic surreal JoJo-light",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-natural",
+      "kw_primary": "mass phase volume natural",
+      "target_week": "2026-09-04",
+      "discovery_score": 0.82,
+      "intent": "Volume in mass phase per natural maturo — numeri verificati, zero bro-science",
+      "trending_title": "4 weeks into the mass phase",
+      "paths": {
+        "html": "diario/volume-mass-phase-natural-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/volume-mass-phase-natural-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/volume-mass-phase-natural-fig1.webp",
+          "img/diario/2026-09-04/volume-mass-phase-natural-fig2.webp"
+        ]
+      },
+      "title_draft": "Volume in mass phase natural a 57 anni",
+      "meta_draft": "Mass phase e volume per natural maturo: Gino Capon 57 anni, CTL 25 ATL 31 TSB -6 al 25 agosto. Dieci anni dal 2016, sessioni documentate — riflessione tecnica, non coaching.",
+      "h1_draft": "Volume in mass phase natural: cosa regolo a 57 anni senza farmaci",
+      "published_date": "2026-09-04"
+    },
+    {
+      "id": "batch-2026-09-04-blocco1-prim",
+      "slug": "blocco1-prime-settimane-settembre-57-anni",
+      "status": "published",
+      "hero_brief": "Fumetto surreale — palette scura, NO stock palestra",
+      "hero_concept": "comic surreal JoJo-light",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-natural",
+      "kw_primary": "blocco 1 ipertrofia settembre",
+      "target_week": "2026-09-04",
+      "discovery_score": 0.8,
+      "intent": "Prime settimane Blocco 1 ipertrofia accumulo — lettura carico e adattamento maturo",
+      "paths": {
+        "html": "diario/blocco1-prime-settimane-settembre-57-anni/index.html",
+        "hero": "img/diario/2026-09-04/blocco1-prime-settimane-settembre-hero.webp",
+        "figures": [
+          "img/diario/2026-09-04/blocco1-prime-settimane-settembre-fig1.webp",
+          "img/diario/2026-09-04/blocco1-prime-settimane-settembre-fig2.webp"
+        ]
+      },
+      "title_draft": "Blocco 1: prime settimane di settembre a 57",
+      "meta_draft": "Prime settimane Blocco 1 ipertrofia settembre 2026: Gino 57 anni, split A1-B1-A2-B2, CTL 25 ATL 31 TSB -6. Adattamento maturo, sessioni documentate — diario tecnico.",
+      "h1_draft": "Blocco 1, prime settimane di settembre: adattamento a 57 anni",
+      "published_date": "2026-09-04"
+    },
+    {
+      "id": "disc-1788517249894-xzjd",
+      "slug": "competing-timeline-57-anni",
+      "status": "published",
+      "published_date": "2026-09-18",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "competing timeline",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Timeline gara natural maturo — differenza prep vs ipertrofia lunga, numeri verificati",
+      "discovery_score": 0.55,
+      "target_week": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Competing timeline",
+      "paths": {
+        "html": "diario/competing-timeline-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/competing-timeline-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/competing-timeline-fig1.webp",
+          "img/diario/2026-09-18/competing-timeline-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/competing-timeline-realistic.webp"
+      },
+      "title_draft": "Timeline gara natural a 57 anni",
+      "meta_draft": "Competing timeline per natural maturo: Gino 57 anni, CTL 41 ATL 43 TSB -2. Prep vs ipertrofia lunga — riflessione tecnica, non coaching gara.",
+      "h1_draft": "Competing timeline: quanto tempo serve davvero (e cosa non copio)"
+    },
+    {
+      "id": "batch-2026-09-18-first-show-p",
+      "slug": "first-show-prep-timeline-57-anni",
+      "status": "published",
+      "published_date": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance — NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-bodybuilding",
+      "kw_primary": "first show prep timeline",
+      "target_week": "2026-09-18",
+      "discovery_score": 0.85,
+      "intent": "Prima gara e prep a 40+ settimane — lettura matura per natural over 50, zero prescrizione",
+      "trending_title": "Ways to go from first show (40ish weeks) but leaning out now to make first prep a little more pleasant",
+      "paths": {
+        "html": "diario/first-show-prep-timeline-57-anni/index.html",
+        "hero": "img/diario/2026-09-18/first-show-prep-timeline-hero.webp",
+        "figures": [
+          "img/diario/2026-09-18/first-show-prep-timeline-fig1.webp",
+          "img/diario/2026-09-18/first-show-prep-timeline-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-09-18/first-show-prep-timeline-realistic.webp"
+      },
+      "title_draft": "Prima gara: prep a 40 settimane a 57",
+      "meta_draft": "First show prep timeline: Gino 57 anni natural legge trend 40 settimane. Lean out, mesocicli, TSB -2 — riflessione tecnica dilettante, non coaching gara.",
+      "h1_draft": "Prima gara e 40 settimane di prep: cosa capisco (senza salire sul palco)"
+    },
+    {
+      "id": "disc-1789739671824-mj7h",
+      "slug": "update-another-show-another-57-anni",
+      "status": "needs_generation",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "update another show another",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: Update: Did another show, won another overall, went into offseason. Now: 8.5 weeks post show, 14lbs ",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Update: Did another show, won another overall, went into offseason. Now: 8.5 weeks post show, 14lbs up. Prep starts in 16 weeks. Full sending this One"
+    },
+    {
+      "id": "disc-1789739671824-nybt",
+      "slug": "freakout-friday-weekly-rant-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "freakout friday weekly rant",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026",
+      "discovery_score": 0.85,
+      "target_week": "2026-09-18",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026"
     }
   ]
 }
