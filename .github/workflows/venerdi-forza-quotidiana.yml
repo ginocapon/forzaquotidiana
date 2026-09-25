@@ -33,9 +33,9 @@ jobs:
           done
           echo "probe_ok=$ok" >> "$GITHUB_OUTPUT"
 
-      - name: Guardian weekly strategy
+      - name: Crono venerdì (premortem + feed + stats)
         continue-on-error: true
-        run: node guardian/scripts/guardian.mjs run --job weekly_strategy
+        run: node tools/crono-venerdi.mjs
 
       - name: Apri issue checklist venerdì
         uses: actions/github-script@v7

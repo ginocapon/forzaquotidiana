@@ -44,6 +44,46 @@ function countSessionsDocumented() {
   return sessions.filter((s) => s.zones && !s.partial).length;
 }
 
+function latestDiarioFromIndex() {
+  const indexPath = join(DIARIO_DIR, "index.html");
+  if (!existsSync(indexPath)) return null;
+  const html = readFileSync(indexPath, "utf8");
+  const m = html.match(
+    /<a class="diario-list__link" href="(\/diario\/[^"]+\/)">[\s\S]*?<time datetime="([^"]+)">[\s\S]*?<h3 class="diario-list__title">([^<]+)<\/h3>/
+  );
+  if (!m) return null;
+  return {
+    type: "diario",
+    date: m[2],
+    url: `https://forzaquotidiana.it${m[1]}`,
+    title: m[3].trim(),
+  };
+}
+
+function latestSessionFromJson() {
+  if (!existsSync(SESSIONS_PATH)) return null;
+  const { sessions = [] } = JSON.parse(readFileSync(SESSIONS_PATH, "utf8"));
+  const complete = sessions.filter((s) => s.zones && !s.partial && s.date);
+  if (!complete.length) return null;
+  const s = complete.reduce((a, b) => (a.date >= b.date ? a : b));
+  const slug = s.id;
+  return {
+    type: "sessione",
+    date: s.date,
+    url: `https://forzaquotidiana.it/allenamenti/sessioni/${slug}/`,
+    title: `Sessione ${s.date}${s.scheda ? ` · Scheda ${s.scheda}` : ""}`,
+  };
+}
+
+function pickLatestContent() {
+  const d = latestDiarioFromIndex();
+  const s = latestSessionFromJson();
+  if (!d && !s) return null;
+  if (!d) return s;
+  if (!s) return d;
+  return d.date >= s.date ? d : s;
+}
+
 const profile = JSON.parse(readFileSync(PROFILE_PATH, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
 const chrono = chronologicalAge(profile.birth_date);
@@ -58,6 +98,8 @@ if (existsSync(OUT_PATH)) {
   }
 }
 
+const latest = pickLatestContent();
+
 const out = {
   _nota:
     "Conteggi pubblici (no email). Aggiornato da tools/aggiorna-site-stats.mjs. Età cronologica: compleanno 27 gennaio.",
@@ -68,6 +110,10 @@ const out = {
   training_years: training,
   diario_articles: countDiarioArticles(),
   sessions_documented: countSessionsDocumented(),
+  latest_content_date: latest?.date ?? null,
+  latest_content_type: latest?.type ?? null,
+  latest_content_url: latest?.url ?? null,
+  latest_content_title: latest?.title ?? null,
   iscritti_totali: prev.iscritti_totali ?? null,
   accessi_scheda_settimana: prev.accessi_scheda_settimana ?? null,
   ultimo_controllo: prev.ultimo_controllo ?? null,

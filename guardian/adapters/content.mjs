@@ -78,6 +78,23 @@ export function checkContent(repoRoot) {
     });
   }
 
+  const feedPath = join(repoRoot, "feed.xml");
+  if (!existsSync(feedPath)) {
+    failures.push({
+      category: "seo",
+      event: "feed.xml mancante",
+      probability: 0.25,
+      impact: 0.35,
+      detectability: 1,
+      controllability: 0.95,
+      signal: "file assente",
+      action_level: "yellow",
+      suggested_action: "node tools/genera-feed.mjs (o npm run venerdi:crono)",
+    });
+  } else {
+    verified.push("feed.xml presente (Atom diario + sessioni)");
+  }
+
   const llmsPath = join(repoRoot, "llms.txt");
   if (!existsSync(llmsPath)) {
     failures.push({

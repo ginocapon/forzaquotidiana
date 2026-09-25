@@ -62,5 +62,21 @@
       el.textContent =
         data.training_years + "+ anni palestra · equilibrio lavoro-famiglia-sport";
     }
+    if (key === "latest-content") {
+      if (!data.latest_content_url || !data.latest_content_date) return;
+      var d = data.latest_content_date;
+      var label =
+        d.slice(8, 10) + "/" + d.slice(5, 7) + "/" + d.slice(0, 4);
+      var kind = data.latest_content_type === "sessione" ? "Sessione" : "Diario";
+      el.innerHTML =
+        "Ultimo aggiornamento: <a href=\"" +
+        data.latest_content_url +
+        "\">" +
+        kind +
+        " · " +
+        label +
+        "</a>";
+      el.hidden = false;
+    }
   }
 })();

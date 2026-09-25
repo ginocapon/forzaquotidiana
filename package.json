@@ -8,6 +8,7 @@
     "pdf:fase": "node tools/genera-pdf-fase.mjs",
     "editorial:friday": "node tools/editorial-weekly.mjs run --friday",
     "newsletter:sync": "node tools/sync-newsletter-stats.mjs",
+    "venerdi:crono": "node tools/crono-venerdi.mjs",
     "ai:watermark": "node scripts/apply-ai-photo-watermark.mjs",
     "ai:watermark:check": "node scripts/apply-ai-photo-watermark.mjs --check",
     "editorial:generate": "node tools/editorial-weekly.mjs run --generate",

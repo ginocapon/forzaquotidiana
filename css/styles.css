@@ -1078,6 +1078,16 @@ body.theme-allenamenti .disclaimer {
   color: var(--muted);
   letter-spacing: 0.02em;
 }
+.hero__fresh {
+  margin: 0.45rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.hero__fresh a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .hero__trust::before {
   content: "✓";
   display: inline-flex;

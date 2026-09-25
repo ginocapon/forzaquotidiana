@@ -71,11 +71,24 @@ Ogni venerdì l’agente (o tu) può aggiungere in `SKILL.md` §5a o checklist:
 
 Non duplicare: una riga in **SKILL.md**, dettaglio in **NEWSLETTER-SETUP.md** se tecnico.
 
-### 6. Aggiorna conteggi sito (obbligatorio se contenuti nuovi)
+### 6. Crono venerdì (premortem + SEO freschezza)
+
+Un solo comando dopo nuovi contenuti o ogni venerdì:
+
+```bash
+node tools/crono-venerdi.mjs
+```
+
+Esegue: Guardian `weekly_strategy` (premortem) · `aggiorna-site-stats` · sync `llms.txt` sessioni · `feed.xml` Atom · tentativo sync newsletter.
+
+### 7. Aggiorna conteggi sito (obbligatorio se contenuti nuovi)
+
+Se non usi il crono, manualmente:
 
 ```bash
 node tools/sync-newsletter-stats.mjs   # iscritti da GAS (dopo deploy ?action=stats)
 node tools/aggiorna-site-stats.mjs     # diario, sessioni, età biologica
+node tools/genera-feed.mjs             # feed.xml per discovery organica
 ```
 
 Aggiorna `data/site-stats.json` (anni palestra, articoli diario, sessioni Zepp, età cronologica, **iscritti_totali** da sync GAS) e ricalcola `data/biological-age.json`.
