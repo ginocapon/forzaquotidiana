@@ -1933,6 +1933,59 @@
         "fatigue_atl": 33,
         "date": "2026-09-25"
       }
+    },
+    {
+      "id": "2026-09-26-b2",
+      "date": "2026-09-26",
+      "time": "11:35",
+      "datetime": "2026-09-26T11:35",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-09",
+      "durata_sec": 3416,
+      "durata": "00:56:56",
+      "recupero_sec": 2614,
+      "recupero": "43:34",
+      "gruppi": 15,
+      "fc_media": 127,
+      "fc_max": 160,
+      "calorie": 544,
+      "carico": 185,
+      "duration_corrected": false,
+      "partial": false,
+      "readiness_incomplete": true,
+      "zones_min": {
+        "leggera": 1.02,
+        "intensiva": 9.92,
+        "aerobica": 22.1,
+        "anaerobica": 18.85,
+        "vo2max": 5.0
+      },
+      "effect": {
+        "aerobic": 3.6,
+        "aerobic_label": "Buono",
+        "anaerobic": 3.6,
+        "anaerobic_label": "Buono"
+      },
+      "readiness": {
+        "tsb_pre_note": "Modulo TSB in export etichetta 25/09 — valori pre-sessione; post B2 carico 185"
+      },
+      "tecnica": {
+        "consistenza": "Intervallo uniforme — radar alto",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento moderato — radar ampio"
+      },
+      "note": "B2 sabato 11:35 — chiusura settimana 4 Blocco 1, gambe anca + core. 15 serie in 00:56:56, carico 185, FC 127/160, effetto aerobico/anaerobico 3,6 Buono. Export readiness incompleto (mancano tab sonno/HRV/sforzo 26/09; scartati duplicati 25/09).",
+      "tsb": {
+        "value": 2,
+        "label": "Bilanciato",
+        "fitness_ctl": 35,
+        "fatigue_atl": 33,
+        "date": "2026-09-26"
+      }
     }
   ]
 }

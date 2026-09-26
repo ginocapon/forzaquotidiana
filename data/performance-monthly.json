@@ -80,7 +80,7 @@
     {
       "month": "2026-09",
       "label": "settembre 2026",
-      "sessioni_totali": 14,
+      "sessioni_totali": 15,
       "sessioni_con_export": 13,
       "durata_totale_sec": 52245,
       "durata_totale": "14:30:45",
@@ -104,7 +104,8 @@
         "2026-09-19-b2",
         "2026-09-21-a1",
         "2026-09-22-b1",
-        "2026-09-25-a2"
+        "2026-09-25-a2",
+        "2026-09-26-b2"
       ],
       "in_trimestre": false
     }

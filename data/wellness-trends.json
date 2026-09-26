@@ -1,9 +1,9 @@
 {
   "updated": "2026-09-26",
   "source": "data/performance-sessions.json",
-  "sessions_total": 34,
+  "sessions_total": 35,
   "sessions_with_readiness": 21,
-  "sessions_with_tsb": 28,
+  "sessions_with_tsb": 29,
   "gaps": [
     {
       "id": "2026-07-16-scheda-1",
@@ -64,6 +64,10 @@
     {
       "id": "2026-09-08-b1",
       "issue": "export parziale"
+    },
+    {
+      "id": "2026-09-26-b2",
+      "issue": "readiness incompleto: sonno, hrv"
     }
   ],
   "points": [
@@ -814,6 +818,28 @@
       "effort_day": 100,
       "effort_goal": 90,
       "sleep_hr_night": 48
+    },
+    {
+      "id": "2026-09-26-b2",
+      "date": "2026-09-26",
+      "codice": "B2",
+      "partial": false,
+      "fc_media": 127,
+      "fc_max": 160,
+      "sleep_min": null,
+      "sleep_duration": null,
+      "sleep_score": null,
+      "hrv": null,
+      "hrv_label": null,
+      "hybridcharge_wake": null,
+      "resting_hr": null,
+      "tsb": 2,
+      "tsb_label": "Bilanciato",
+      "ctl": 35,
+      "atl": 33,
+      "effort_day": null,
+      "effort_goal": null,
+      "sleep_hr_night": null
     }
   ]
 }
