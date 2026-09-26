@@ -1859,6 +1859,80 @@
         "fatigue_atl": 36,
         "date": "2026-09-22"
       }
+    },
+    {
+      "id": "2026-09-25-a2",
+      "date": "2026-09-25",
+      "time": "13:10",
+      "datetime": "2026-09-25T13:10",
+      "codice": "A2",
+      "blocco": 1,
+      "scheda": 3,
+      "month": "2026-09",
+      "durata_sec": 3772,
+      "durata": "01:02:52",
+      "recupero_sec": 2789,
+      "recupero": "46:29",
+      "gruppi": 24,
+      "fc_media": 118,
+      "fc_max": 148,
+      "calorie": 529,
+      "carico": 108,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 4.13,
+        "intensiva": 20.45,
+        "aerobica": 27.95,
+        "anaerobica": 10.13,
+        "vo2max": 0.17
+      },
+      "effect": {
+        "aerobic": 3.1,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.3,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "hybridcharge_wake": 70,
+        "hybridcharge_post": 15,
+        "hybridcharge_label": "Discreto",
+        "sleep_score": 57,
+        "sleep_score_label": "Fai attenzione",
+        "sleep_duration": "5:00",
+        "sleep_duration_label": "Fai attenzione",
+        "sleep_deep": "0:49",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:17",
+        "sleep_rem_label": "Leggero",
+        "sleep_bedtime": "01:47",
+        "sleep_wake_time": "06:47",
+        "sleep_regularity_pct": 63,
+        "sleep_hr_night": 48,
+        "hrv": 46,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 48,
+        "resting_hr_label": "Ottimale",
+        "effort_day": 100,
+        "effort_goal": 90,
+        "strain_load": 103
+      },
+      "tecnica": {
+        "consistenza": "Intervallo uniforme — radar alto",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento moderato"
+      },
+      "note": "A2 venerdì 13:10 — petto · schiena · spalle, chiusura settimana 4 Blocco 1. 24 serie in 01:02:52, carico 108, FC 118/148, effetto aerobico 3,1 Buono. Sonno 5:00 (01:47–06:47, score 57), HRV 46 Buono, HybridCharge 70→15, sforzo 103/90. TSB +2 Bilanciato (CTL 35 / ATL 33).",
+      "tsb": {
+        "value": 2,
+        "label": "Bilanciato",
+        "fitness_ctl": 35,
+        "fatigue_atl": 33,
+        "date": "2026-09-25"
+      }
     }
   ]
 }
