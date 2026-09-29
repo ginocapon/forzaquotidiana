@@ -1986,6 +1986,81 @@
         "fatigue_atl": 33,
         "date": "2026-09-26"
       }
+    },
+    {
+      "id": "2026-09-29-a1",
+      "date": "2026-09-29",
+      "time": "14:26",
+      "datetime": "2026-09-29T14:26",
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
+      "month": "2026-09",
+      "durata_sec": 3213,
+      "durata": "00:53:33",
+      "recupero_sec": 2333,
+      "recupero": "38:53",
+      "gruppi": 23,
+      "fc_media": 126,
+      "fc_max": 152,
+      "calorie": 507,
+      "carico": 152,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0.55,
+        "intensiva": 10.25,
+        "aerobica": 19.97,
+        "anaerobica": 21.05,
+        "vo2max": 1.7
+      },
+      "effect": {
+        "aerobic": 3.4,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.5,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_score": 61,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "5:57",
+        "sleep_duration_label": "Fai attenzione",
+        "sleep_deep": "1:14",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:33",
+        "sleep_wake": "0:09",
+        "sleep_wake_events": 2,
+        "sleep_regularity_pct": 64,
+        "sleep_bedtime": "01:19",
+        "sleep_wake_time": "07:25",
+        "sleep_hr_night": 52,
+        "hrv": 39,
+        "hrv_label": "Buono",
+        "hrv_baseline": 42,
+        "resting_hr": 49,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 75,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_post": 35,
+        "hybridcharge_delta": -13,
+        "effort_day": 105,
+        "effort_goal": 97
+      },
+      "tecnica": {
+        "consistenza": "Intervallo uniforme",
+        "stability": "Movimenti stabili",
+        "continuity": "Movimenti fluidi",
+        "rhythm": "Ritmo uniforme",
+        "speed_decay": "Decadimento moderato"
+      },
+      "note": "A1 martedì 14:26 — petto · schiena · spalle, avvio settimana 5 Blocco 1 post-recupero B2. 23 serie in 00:53:33, carico 152, FC 126/152, effetto aerobico 3,4 Buono. Sonno 5:57 (01:19–07:25, score 61), HRV 39 Buono, HybridCharge 75→35 (−13). TSB +4 Bilanciato (CTL 35 / ATL 31).",
+      "tsb": {
+        "value": 4,
+        "label": "Bilanciato",
+        "fitness_ctl": 35,
+        "fatigue_atl": 31,
+        "date": "2026-09-29"
+      }
     }
   ]
 }
