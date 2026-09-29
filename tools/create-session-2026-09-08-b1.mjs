@@ -198,18 +198,8 @@ const html = `<!DOCTYPE html>
     <section class="metabolic-block" aria-labelledby="metabolic-title">
       <h2 id="metabolic-title">Dati metabolici · Amazfit</h2>
       <p class="metabolic-block__device"><strong>Amazfit Active 2 NFC</strong> · sync app Zepp · Allenamento muscolare</p>
-      <p class="amazfit-gallery__lead">Export Zepp — 8 settembre ore 12:51, <strong>23 serie</strong>. Riepilogo a tutta larghezza · export parziale (mancano grafico FC e zone).</p>
-
-      <div class="amazfit-riepilogo-hero" aria-label="Resoconto Zepp — 8 settembre">
-        <figure class="phone-shot phone-shot--full phone-shot--solo">
-          <div class="phone-shot__frame">
-            <img src="/img/allenamenti/amazfit/2026-09-08-b1-riepilogo.webp" alt="Riepilogo Zepp 8 settembre B1 — 23 serie, 679 kcal, FC 116, durata 01:22:24, carico 127" width="390" height="430" loading="eager" fetchpriority="high">
-          </div>
-          <figcaption>Riepilogo · 01:22:24 · 23 serie · carico 127 · 679 kcal</figcaption>
-        </figure>
-      </div>
-
-      <div class="amazfit-gallery" aria-label="Screenshot Zepp — tecnica 8 settembre">
+      <p class="amazfit-gallery__lead">Export Zepp — 8 settembre ore 12:51, <strong>23 serie</strong>. Export parziale (mancano grafico FC e zone).</p>
+<div class="amazfit-gallery" aria-label="Screenshot Zepp — tecnica 8 settembre">
         <figure class="phone-shot">
           <div class="phone-shot__frame">
             <img src="/img/allenamenti/amazfit/2026-09-08-b1-tecnica.webp" alt="Muscoli bicipiti/femorali e radar tecnica — B1 leg day" width="390" height="844" loading="lazy">

@@ -95,8 +95,7 @@ Dettaglio: `.cursor/rules/foto-sessione-upload.mdc`.
 .metabolic-block
 ├── h2 + device
 ├── .amazfit-gallery__lead
-├── .amazfit-riepilogo-hero (o .phone-shot--full)   ← riepilogo Zepp SOLO, in primo piano
-├── .amazfit-fc-hero                                ← grafico FC SOLO (mai in griglia ¼)
+├── .amazfit-fc-hero                                ← schermata Zepp completa (metriche + FC), in primo piano
 ├── .amazfit-gallery                                ← zone · tecnica · valutazione (portrait)
 ├── .amazfit-data                                   ← card dati raggruppate (riepilogo, zone, tecnica, TSB)
 ├── .metabolic-note
@@ -105,8 +104,7 @@ Dettaglio: `.cursor/rules/foto-sessione-upload.mdc`.
 
 **Regola layout (bloccante):**
 - **Modulo TSB** (readiness): `.amazfit-tsb-hero` — screenshot landscape **da solo**, 100% larghezza.
-- **Riepilogo Zepp** (metabolico): **sempre in primo piano**, riga dedicata — mai in griglia ¼.
-- **Grafico FC**: `.amazfit-fc-hero` — **da solo**, mai accanto ad altre foto.
+- **Grafico FC / resoconto completo**: `.amazfit-fc-hero` — screenshot Zepp dritto con metriche + curva FC; **da solo**, mai in griglia ¼. Non pubblicare il crop `-riepilogo` in pagina (spesso ruotato e duplicato delle card).
 - Portrait readiness (sonno, HRV, HybridCharge): `.amazfit-gallery` sotto TSB hero.
 - **WebP obbligatorio** — mai JPEG WhatsApp in repo; identificare ogni scatto visivamente; radrizzare con `sharp().rotate()` prima di pubblicare.
 

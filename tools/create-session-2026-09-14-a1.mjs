@@ -26,11 +26,11 @@ const html = `<!DOCTYPE html>
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://forzaquotidiana.it/allenamenti/sessioni/2026-09-14-a1/">
 <meta property="og:title" content="14 settembre 2026 — A1 · petto · schiena · spalle">
-<meta property="og:image" content="https://forzaquotidiana.it/img/allenamenti/amazfit/2026-09-14-a1-riepilogo.webp">
+<meta property="og:image" content="https://forzaquotidiana.it/img/allenamenti/amazfit/2026-09-14-a1-fc-grafico.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="14 settembre 2026 — A1 · upper Blocco 1">
 <meta name="twitter:description" content="57 min, 24 serie, carico 174, FC 130/156, aerobico 3,6 Buono · HRV 56 Ottimale.">
-<meta name="twitter:image" content="https://forzaquotidiana.it/img/allenamenti/amazfit/2026-09-14-a1-riepilogo.webp">
+<meta name="twitter:image" content="https://forzaquotidiana.it/img/allenamenti/amazfit/2026-09-14-a1-fc-grafico.webp">
 <link rel="preload" as="image" href="/img/allenamenti/session-hero-bg.webp">
 <link rel="stylesheet" href="/css/styles.css?v=70">
 </head>
@@ -232,21 +232,11 @@ const html = `<!DOCTYPE html>
     <section class="metabolic-block" aria-labelledby="metabolic-title">
       <h2 id="metabolic-title">Dati metabolici · Amazfit</h2>
       <p class="metabolic-block__device"><strong>Amazfit Active 2 NFC</strong> · sync app Zepp · Allenamento muscolare</p>
-      <p class="amazfit-gallery__lead">Export Zepp — 14 settembre ore 13:09, <strong>24 serie</strong>. Riepilogo e grafico FC a tutta larghezza.</p>
-
-      <div class="amazfit-riepilogo-hero" aria-label="Resoconto Zepp — 14 settembre">
+      <p class="amazfit-gallery__lead">Export Zepp — 14 settembre ore 13:09, <strong>24 serie</strong>. Grafico FC completo a tutta larghezza.</p>
+<div class="amazfit-fc-hero" aria-label="Grafico FC — 14 settembre">
         <figure class="phone-shot phone-shot--full phone-shot--solo">
           <div class="phone-shot__frame">
-            <img src="/img/allenamenti/amazfit/2026-09-14-a1-riepilogo.webp" alt="Riepilogo Zepp 14 settembre A1 — 24 serie, 558 kcal, FC 130, durata 56:36, carico 174" width="390" height="430" loading="eager" fetchpriority="high">
-          </div>
-          <figcaption>Riepilogo · 00:56:36 · 24 serie · carico 174 · 558 kcal</figcaption>
-        </figure>
-      </div>
-
-      <div class="amazfit-fc-hero" aria-label="Grafico FC — 14 settembre">
-        <figure class="phone-shot phone-shot--full phone-shot--solo">
-          <div class="phone-shot__frame">
-            <img src="/img/allenamenti/amazfit/2026-09-14-a1-fc-grafico.webp" alt="Grafico FC 14 settembre — media 130 max 156 bpm, 57 minuti" width="390" height="844" loading="lazy">
+            <img src="/img/allenamenti/amazfit/2026-09-14-a1-fc-grafico.webp" alt="Grafico FC 14 settembre — media 130 max 156 bpm, 57 minuti" width="390" height="844" loading="eager" fetchpriority="high">
           </div>
           <figcaption>Grafico FC · max 156 · 57 min</figcaption>
         </figure>
