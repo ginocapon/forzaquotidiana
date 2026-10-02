@@ -21,6 +21,25 @@ const UPLOAD_ARG = process.argv[2];
 
 /** Mapping esplicito per batch — estendere ad ogni nuova sessione dopo identificazione visiva */
 const KNOWN_BATCHES = {
+  "cardio 01-10-26": {
+    date: "2026-10-01",
+    codice: "cardio",
+    files: {
+      "WhatsApp Image 2026-10-02 at 11.59.31.jpeg": "tsb",
+      "WhatsApp Image 2026-10-02 at 11.59.31 (1).jpeg": "sforzo",
+      "WhatsApp Image 2026-10-02 at 11.59.31 (2).jpeg": "sonno-fc",
+      "WhatsApp Image 2026-10-02 at 11.59.32.jpeg": "sonno-respirazione",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (1).jpeg": "sonno-settimana",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (2).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (3).jpeg": "sonno-score",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (4).jpeg": "sonno-insight",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (5).jpeg": "hrv",
+      "WhatsApp Image 2026-10-02 at 11.59.32 (6).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-10-02 at 11.59.33.jpeg": "hybridcharge",
+      "WhatsApp Image 2026-10-02 at 11.59.33 (1).jpeg": "hybridcharge-analisi",
+      "WhatsApp Image 2026-10-02 at 11.59.33 (2).jpeg": "readiness-panoramica",
+    },
+  },
   "foto allenamento 17 agosto": {
     date: "2026-08-17",
     scheda: 1,

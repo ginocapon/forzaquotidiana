@@ -64,7 +64,7 @@ for (const s of data.sessions || []) {
     continue;
   }
   const missing = [];
-  if (s.fc_media == null) missing.push("fc_media");
+  if (s.fc_media == null && s.tipo !== "cardio") missing.push("fc_media");
   if (sleepMin == null && r.sleep_score == null) missing.push("sonno");
   if (r.hrv == null) missing.push("hrv");
   if (tsb.value == null) missing.push("tsb");

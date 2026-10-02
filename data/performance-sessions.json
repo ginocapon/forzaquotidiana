@@ -2136,6 +2136,60 @@
         "fatigue_atl": 41,
         "date": "2026-09-30"
       }
+    },
+    {
+      "id": "2026-10-01-cardio",
+      "date": "2026-10-01",
+      "time": "20:01",
+      "datetime": "2026-10-01T20:01",
+      "tipo": "cardio",
+      "codice": "CARDIO",
+      "scheda_label": "Cardio tapis",
+      "blocco": 1,
+      "month": "2026-10",
+      "durata_sec": 1260,
+      "durata": "00:21:00",
+      "distanza_km": 1.3,
+      "passo": "16:02/km",
+      "carico": 25,
+      "duration_corrected": false,
+      "partial": false,
+      "note_export": "Niente schermata workout FC/zone/tecnica — solo movimento + readiness Zepp",
+      "readiness": {
+        "sleep_score": 42,
+        "sleep_score_label": "Fai attenzione",
+        "sleep_duration": "1:38",
+        "sleep_duration_label": "Fai attenzione",
+        "sleep_deep": "0:32",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "0:35",
+        "sleep_wake": "0:00",
+        "sleep_wake_events": 0,
+        "sleep_regularity_pct": 50,
+        "sleep_bedtime": "01:27",
+        "sleep_wake_time": "03:05",
+        "sleep_naps": ["0:19", "0:49"],
+        "sleep_hr_night": 55,
+        "hrv": 38,
+        "hrv_label": "Buono",
+        "hrv_baseline": 42,
+        "resting_hr": 55,
+        "hybridcharge_wake": 26,
+        "hybridcharge_wake_label": "Basso",
+        "hybridcharge_post": 5,
+        "effort_day": 56,
+        "effort_goal": 27,
+        "hypopnea_h": 0.6,
+        "resp_rate": 11
+      },
+      "note": "Primo slot cardio tapis (giorno senza pesi) — giovedì 20:01 dopo B1 del 30/09. Camminata 1,30 km in 21:00, passo 16'02\"/km, carico Zepp +25. Sonno notturno solo 1:38 (01:27–03:05, score 42) + pisolini 0:19 e 0:49. HRV 38 Buono, HC 26→5, TSB −4,0 Bilanciato (CTL 37 / ATL 41). Export senza grafico FC/zone workout.",
+      "tsb": {
+        "value": -4,
+        "label": "Bilanciato",
+        "fitness_ctl": 37,
+        "fatigue_atl": 41,
+        "date": "2026-10-01"
+      }
     }
   ]
 }

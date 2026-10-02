@@ -110,6 +110,24 @@
         "2026-09-30-b1"
       ],
       "in_trimestre": false
+    },
+    {
+      "month": "2026-10",
+      "label": "ottobre 2026",
+      "sessioni_totali": 1,
+      "sessioni_con_export": 0,
+      "durata_totale_sec": 0,
+      "durata_totale": "—",
+      "fc_media": null,
+      "calorie_totale": null,
+      "calorie_asterisk": false,
+      "carico_medio": null,
+      "carico_asterisk": false,
+      "gruppi_medio": null,
+      "sessioni_ids": [
+        "2026-10-01-cardio"
+      ],
+      "in_trimestre": false
     }
   ],
   "charts": {
@@ -374,7 +392,8 @@
         "2026-06",
         "2026-07",
         "2026-08",
-        "2026-09"
+        "2026-09",
+        "2026-10"
       ]
     }
   }
