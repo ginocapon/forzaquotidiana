@@ -40,6 +40,17 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-10-02 at 11.59.33 (2).jpeg": "readiness-panoramica",
     },
   },
+  "2026-10-01-cardio": {
+    date: "2026-10-01",
+    codice: "cardio",
+    files: {
+      "WhatsApp Image 2026-10-02 at 12.13.23.jpeg": "zone-effetto",
+      "WhatsApp Image 2026-10-02 at 12.13.23 (1).jpeg": "gct",
+      "WhatsApp Image 2026-10-02 at 12.13.23 (2).jpeg": "tecnica",
+      "WhatsApp Image 2026-10-02 at 12.13.23 (3).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-10-02 at 12.13.23 (4).jpeg": "riepilogo",
+    },
+  },
   "foto allenamento 17 agosto": {
     date: "2026-08-17",
     scheda: 1,

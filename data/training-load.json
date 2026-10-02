@@ -1388,7 +1388,7 @@
     {
       "date": "2026-10-01",
       "label": "01/10",
-      "load": 25,
+      "load": 55,
       "ctl": 37,
       "atl": 41,
       "tsb": -4,
@@ -1787,7 +1787,7 @@
       "atl": 41,
       "tsb": -4,
       "status": "Bilanciato",
-      "load": 25
+      "load": 55
     }
   },
   "sessions": [
