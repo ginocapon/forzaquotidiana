@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-25",
+  "updated": "2026-10-02",
   "max_per_week": 3,
   "items": [
     {
@@ -146,7 +146,7 @@
     {
       "id": "prop-1786450039791-vxn",
       "slug": "rest-day-guerra-divano-57-anni",
-      "status": "proposed",
+      "status": "archived",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "rest day recupero palestra",
@@ -156,7 +156,8 @@
       "target_week": "2026-08-11",
       "discovery_score": 0.75,
       "hero_brief": "Fumetto surreale goliardico — palette scura, NO stock palestra",
-      "hero_concept": "comic surreal JoJo-light"
+      "hero_concept": "comic surreal JoJo-light",
+      "archived_reason": "Mix dal 2026-10-02: niente goliardia/ironia sui pezzi nuovi"
     },
     {
       "id": "disc-1786885742841-8p8c",
@@ -560,7 +561,7 @@
     {
       "id": "disc-1790333245973-5sj1",
       "slug": "prediction-krizo-will-shock-57-anni",
-      "status": "proposed",
+      "status": "archived",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "prediction krizo will shock",
@@ -570,12 +571,13 @@
       "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "My Prediction: Krizo Will Shock the Olympia 🔥"
+      "trending_title": "My Prediction: Krizo Will Shock the Olympia 🔥",
+      "archived_reason": "Mix dal 2026-10-02: niente goliardia/ironia sui pezzi nuovi"
     },
     {
       "id": "disc-1790333497742-vmtr",
       "slug": "anyone-know-olympia-streaming-57-anni",
-      "status": "proposed",
+      "status": "archived",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "anyone know olympia streaming",
@@ -585,12 +587,13 @@
       "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Anyone know how Mr. Olympia streaming works?"
+      "trending_title": "Anyone know how Mr. Olympia streaming works?",
+      "archived_reason": "Mix dal 2026-10-02: niente goliardia/ironia sui pezzi nuovi"
     },
     {
       "id": "disc-1790333497742-rh3a",
       "slug": "olympia-press-conference-57-anni",
-      "status": "proposed",
+      "status": "archived",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "olympia press conference",
@@ -600,12 +603,13 @@
       "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Olympia Press conference"
+      "trending_title": "Olympia Press conference",
+      "archived_reason": "Mix dal 2026-10-02: niente goliardia/ironia sui pezzi nuovi"
     },
     {
       "id": "disc-1790333497742-7lvr",
       "slug": "wesley-vissers-57-anni",
-      "status": "proposed",
+      "status": "archived",
       "tone": "goliardico",
       "fiction": true,
       "kw_primary": "wesley vissers",
@@ -615,7 +619,137 @@
       "target_week": "2026-09-25",
       "hero_brief": "Fumetto surreale goliardico — palette scura JoJo-light",
       "hero_concept": "comic surreal, NO stock palestra",
-      "trending_title": "Wesley Vissers"
+      "trending_title": "Wesley Vissers",
+      "archived_reason": "Mix dal 2026-10-02: niente goliardia/ironia sui pezzi nuovi"
+    },
+    {
+      "id": "batch-2026-10-02-cardio-tapis-r",
+      "slug": "cardio-tapis-riposo-attivo-57-anni",
+      "status": "published",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-cardio",
+      "kw_primary": "cardio tapis giorni riposo natural",
+      "target_week": "2026-10-02",
+      "discovery_score": 0.99,
+      "intent": "Primo slot tapis: zone FC, passo, recupero attivo dopo i pesi",
+      "hero_brief": "Illustrazione editoriale professionale, palette scura, niente fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Cardio tapis come riposo attivo",
+      "paths": {
+        "html": "diario/cardio-tapis-riposo-attivo-57-anni/index.html",
+        "hero": "img/diario/2026-10-02/cardio-tapis-riposo-attivo-hero.webp",
+        "figures": [
+          "img/diario/2026-10-02/cardio-tapis-riposo-attivo-fig1.webp",
+          "img/diario/2026-10-02/cardio-tapis-riposo-attivo-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-10-02/cardio-tapis-riposo-attivo-realistic.webp"
+      },
+      "title_draft": "Cardio tapis nei giorni di riposo",
+      "meta_draft": "Il 1 ottobre 2026 Gino (57) ha fatto 1,30 km sul tapis in 21': FC 123/135, zona aerobica 76%, carico 55. Riposo attivo, non corsa da record.",
+      "h1_draft": "Riposo attivo sul tapis: zone, passo e perché conta",
+      "published_date": "2026-10-02"
+    },
+    {
+      "id": "batch-2026-10-02-sonno-corto-al",
+      "slug": "sonno-corto-allenamento-maturo-57-anni",
+      "status": "published",
+      "tone": "tecnico",
+      "fiction": false,
+      "cluster": "tecnico-recupero",
+      "kw_primary": "sonno corto allenamento over 50",
+      "target_week": "2026-10-02",
+      "discovery_score": 0.98,
+      "intent": "Come regolare il carico dopo una notte breve, numeri Zepp 1 ottobre",
+      "hero_brief": "Illustrazione editoriale professionale, palette scura, niente fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Sonno corto e carico maturo",
+      "paths": {
+        "html": "diario/sonno-corto-allenamento-maturo-57-anni/index.html",
+        "hero": "img/diario/2026-10-02/sonno-corto-allenamento-maturo-hero.webp",
+        "figures": [
+          "img/diario/2026-10-02/sonno-corto-allenamento-maturo-fig1.webp",
+          "img/diario/2026-10-02/sonno-corto-allenamento-maturo-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-10-02/sonno-corto-allenamento-maturo-realistic.webp"
+      },
+      "title_draft": "Sonno corto e allenamento maturo",
+      "meta_draft": "Notte da 1:38 (score 42) il 1 ottobre 2026: HRV 38, HybridCharge 26→5. Gino 57 anni regola il carico con cardio leggero, non con i pesi pesanti.",
+      "h1_draft": "Quando la notte è corta: come regolare il carico",
+      "published_date": "2026-10-02"
+    },
+    {
+      "id": "batch-2026-10-02-camminare-gior",
+      "slug": "camminare-giorni-senza-pesi-57-anni",
+      "status": "published",
+      "tone": "riflessione",
+      "fiction": false,
+      "cluster": "riflessione-vita",
+      "kw_primary": "camminata giorni riposo palestra",
+      "target_week": "2026-10-02",
+      "discovery_score": 0.97,
+      "intent": "Rituale caldo e professionale nei giorni off",
+      "hero_brief": "Illustrazione editoriale professionale, palette scura, niente fumetto",
+      "hero_concept": "warm professional fitness editorial",
+      "trending_title": "Camminare nei giorni senza pesi",
+      "paths": {
+        "html": "diario/camminare-giorni-senza-pesi-57-anni/index.html",
+        "hero": "img/diario/2026-10-02/camminare-giorni-senza-pesi-hero.webp",
+        "figures": [
+          "img/diario/2026-10-02/camminare-giorni-senza-pesi-fig1.webp",
+          "img/diario/2026-10-02/camminare-giorni-senza-pesi-fig2.webp"
+        ],
+        "realistic": "img/diario/2026-10-02/camminare-giorni-senza-pesi-realistic.webp"
+      },
+      "title_draft": "Camminare nei giorni senza pesi",
+      "meta_draft": "Gino 57 anni: i giorni senza bilanciere non sono vuoti. Dopo la B1 del 30 settembre, il 1 ottobre ha camminato sul tapis. Rituale gentile, non punizione.",
+      "h1_draft": "I giorni senza bilanciere non sono giorni vuoti",
+      "published_date": "2026-10-02"
+    },
+    {
+      "id": "disc-1790949187581-xjrc",
+      "slug": "some-post-push-pics-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "some post push pics",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: Some post push day pics 5 weeks 2 days out of second show",
+      "discovery_score": 0.85,
+      "target_week": "2026-10-02",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Some post push day pics 5 weeks 2 days out of second show"
+    },
+    {
+      "id": "disc-1790949187581-qlaj",
+      "slug": "alright-enjoyed-interacting-subreddit-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "alright enjoyed interacting subreddit",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: Alright - I've enjoyed interacting on this subreddit so last update 2 Days out.",
+      "discovery_score": 0.85,
+      "target_week": "2026-10-02",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "Alright - I've enjoyed interacting on this subreddit so last update 2 Days out."
+    },
+    {
+      "id": "disc-1790949187581-sjox",
+      "slug": "days-canadian-nationals-57-anni",
+      "status": "proposed",
+      "tone": "tecnico",
+      "fiction": false,
+      "kw_primary": "days canadian nationals",
+      "cluster": "tecnico-bodybuilding",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: 3 Days Out Canadian Nationals",
+      "discovery_score": 0.85,
+      "target_week": "2026-10-02",
+      "hero_brief": "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
+      "hero_concept": "technical sports science diagram",
+      "trending_title": "3 Days Out Canadian Nationals"
     }
   ]
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Keyword discovery — culturismo goliardico
+ * Keyword discovery — culturismo dilettante, tono professionale
  * node scripts/web-keyword-discovery.mjs [--count 3] [--niche culturismo]
  */
 import fs from "node:fs";
@@ -87,14 +87,14 @@ async function main() {
       fiction: false,
     });
     gaps.push({
-      kw: `${t.kw} parodia`,
-      cluster: "goliardia-culturismo",
-      intent: `Parodia goliardica su trend: ${t.title.slice(0, 100)}`,
+      kw: `${t.kw} vita quotidiana`,
+      cluster: "riflessione-vita",
+      intent: `Riflessione calda e professionale sul tema: ${t.title.slice(0, 100)}`,
       score: t.score * 0.92,
       trending_title: t.title,
       source: t.source,
-      tone: "goliardico",
-      fiction: true,
+      tone: "riflessione",
+      fiction: false,
     });
   }
   const existing = existingKeywords();
@@ -142,13 +142,13 @@ async function main() {
         discovery_score: r.discovery_score,
         target_week: todayISO(),
         hero_brief:
-          r.tone === "tecnico" || r.cluster?.startsWith("tecnico")
-            ? "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto"
-            : "Fumetto surreale goliardico — palette scura JoJo-light",
+          r.tone === "riflessione" || r.cluster?.startsWith("riflessione")
+            ? "Illustrazione editoriale professionale, palette scura, niente fumetto"
+            : "Illustrazione tecnica performance bodybuilding — periodizzazione, volume, NO fumetto",
         hero_concept:
-          r.tone === "tecnico" || r.cluster?.startsWith("tecnico")
-            ? "technical sports science diagram"
-            : "comic surreal, NO stock palestra",
+          r.tone === "riflessione" || r.cluster?.startsWith("riflessione")
+            ? "warm professional fitness editorial"
+            : "technical sports science diagram",
         trending_title: r.trending_title || null,
       });
     }

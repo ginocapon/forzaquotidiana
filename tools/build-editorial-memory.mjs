@@ -56,9 +56,9 @@ function buildRisks(recent, clusterCounts, toneCounts) {
       );
     }
   }
-  if (toneCounts.goliardico >= 5) {
+  if (toneCounts.goliardico >= 3) {
     risks.push(
-      `Troppa goliardia negli ultimi ${WINDOW} (${toneCounts.goliardico}) — priorità 2 tecnici + 1 goliardico al prossimo venerdì`
+      `Goliardia residua in archivio recente (${toneCounts.goliardico}/${WINDOW}) — i pezzi nuovi restano 2 tecnici + 1 riflessione, tono caldo professionale`
     );
   }
   if (toneCounts.tecnico === 0) {
@@ -125,7 +125,7 @@ function buildMemory() {
     generated: new Date().toISOString().slice(0, 10),
     window_size: WINDOW,
     cluster_cap: CLUSTER_CAP,
-    mix_rule: { tecnico: 2, goliardico: 1, per_week: 3 },
+    mix_rule: { tecnico: 2, riflessione: 1, goliardico: 0, per_week: 3 },
     site_snapshot: {
       diario_catalog_count: merged.length,
       sessions_documented: sessions?.sessions?.length ?? null,

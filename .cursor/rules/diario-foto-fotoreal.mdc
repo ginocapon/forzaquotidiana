@@ -21,7 +21,7 @@ In ogni post pubblicato (`diario/*/index.html`), nel corpo articolo:
 1. **Almeno 1 immagine** con persona credibile o esercizio palestra reale — **non solo cartoon/diagramma**.
 2. Preferenza: **IA fotorealistica** (`data-ai="generated"`, classe `.diario-photo--fotoreal`, file `*-realistic.webp`).
 3. **Viso riconoscibile di Gino** quando il soggetto è lui — reference `admin/img/gino-schede-hero.webp` o foto documentali repo.
-4. Le altre figure possono restare cartoon (`style_goliardico`) o tecniche (`style_serio`).
+4. Le altre figure restano tecniche (`style_serio`). **Niente** fumetto JoJo / goliardia sui pezzi nuovi.
 
 ## Eccezioni (soddisfano il requisito senza `-realistic.webp`)
 

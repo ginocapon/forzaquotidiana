@@ -1,10 +1,11 @@
 {
   "version": 3,
   "style_goliardico": {
-    "style_prefix": "Italian comic manga illustration, JoJo-inspired surreal humor, dark warm palette (#1a1410 background tones), mature man age 57 messy hair white shirt, NOT photorealistic stock gym photo, NOT generic bodybuilder poster",
-    "disclosure": "Scena di finzione / immagine elaborata — etichetta IA obbligatoria",
-    "data_ai": "generated",
-    "figcaption_note": "Immagine generata o abbellita con intelligenza artificiale"
+    "_deprecated": "Non usare sui pezzi nuovi dal 2026-10-02. Archivio storico.",
+    "style_prefix": "Warm professional editorial fitness illustration, dark charcoal background, mature Italian man 57, kind documentary mood, NOT cartoon, NOT manga, NOT JoJo, NOT parody",
+    "disclosure": "Illustrazione editoriale — etichetta IA obbligatoria",
+    "data_ai": "illustrative",
+    "figcaption_note": "Illustrazione editoriale generata con IA"
   },
   "style_serio": {
     "style_prefix": "Technical bodybuilding performance illustration, sports science editorial diagram, dark charcoal background #1a1410, anatomical training focus, volume/intensity/periodization visual language, teal and amber accent lines, dramatic gym lighting, NOT cartoon, NOT manga, NOT JoJo, NOT photorealistic stock photo, NOT influencer physique poster",

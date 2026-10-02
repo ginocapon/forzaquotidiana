@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 /**
- * Adapter: coda editoriale goliardica
+ * Adapter: coda editoriale diario
  */
 export function checkEditorial(repoRoot) {
   const observations = [];

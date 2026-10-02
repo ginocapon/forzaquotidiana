@@ -23,15 +23,15 @@ function loadImageSkin() {
 }
 
 function imageSkinForItem(item, imgSkin) {
-  const serio = item.tone === "tecnico" || item.cluster?.startsWith("tecnico");
-  return serio ? imgSkin.style_serio || imgSkin : imgSkin.style_goliardico || imgSkin;
+  if (item.tone === "goliardico") return imgSkin.style_serio || imgSkin;
+  return imgSkin.style_serio || imgSkin;
 }
 
 function referenceExcerpt(item) {
   const skin = loadSkin();
-  const refs = item?.tone === "tecnico" || item?.fiction === false
+  const refs = item?.tone === "tecnico"
     ? skin.reference_articles?.tecnico || skin.reference_articles
-    : skin.reference_articles?.goliardico || skin.reference_articles;
+    : skin.reference_articles?.riflessione || skin.reference_articles?.tecnico || skin.reference_articles;
   const list = Array.isArray(refs) ? refs : Object.values(refs || {}).flat();
   const chunks = [];
   for (const rel of list) {

@@ -1,6 +1,6 @@
 {
   "_nota": "Solo numeri verificabili — NON inventare. Rigenerare con: node tools/sync-my-stats.mjs",
-  "updated": "2026-09-25",
+  "updated": "2026-10-02",
   "sources": [
     "data/gino-profile.json",
     "data/site-stats.json",
@@ -15,16 +15,16 @@
     "training_years": 10
   },
   "sessions": {
-    "documented_full": 15,
+    "documented_full": 16,
     "documented_partial": 2,
     "note": "Da performance-sessions.json"
   },
   "training_load": {
-    "ctl": 41,
-    "atl": 43,
-    "tsb": -2,
+    "ctl": 37,
+    "atl": 41,
+    "tsb": -4,
     "source": "data/training-load.json",
-    "as_of": "2026-09-14"
+    "as_of": "2026-10-01"
   },
   "weights_kg_verified": {
     "press-inclinata-manubri_max": 30,
@@ -37,7 +37,7 @@
     "stacco-omega_max": 60,
     "squat-multipower_max": 60
   },
-  "diario_articles": 33,
+  "diario_articles": 36,
   "iscritti_newsletter": null,
   "claims_allowed": [
     "età cronologica da birth_date",

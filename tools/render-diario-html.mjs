@@ -20,7 +20,7 @@ function escJson(s) {
 export function renderDiarioHtml(article, item, paths, publishDate) {
   const slug = item.slug;
   const base = `https://forzaquotidiana.it/diario/${slug}/`;
-  const fiction = item.fiction !== false && item.tone !== "tecnico";
+  const fiction = item.tone === "goliardico" || item.fiction === true;
   const isTecnico = item.tone === "tecnico" || (!fiction && item.cluster?.startsWith("tecnico"));
   const section = fiction ? "Goliardia" : isTecnico ? "Tecnico" : "Riflessione";
   const typeClass = fiction ? "entry__type--goliardia" : isTecnico ? "entry__type--tec" : "entry__type--rif";

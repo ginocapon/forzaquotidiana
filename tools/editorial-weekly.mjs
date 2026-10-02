@@ -44,15 +44,16 @@ function phase0() {
 }
 
 function diarioTypeLabel(item) {
-  if (item.fiction || item.tone === "goliardico") return "Goliardia";
+  if (item.tone === "goliardico" || item.fiction === true) return "Goliardia";
   if (item.tone === "tecnico") return "Tecnico";
   return "Riflessione";
 }
 
 function prioritize(queue, max = 3) {
-  const mix = readJson("data/editorial-skin.json")?.weekly_mix || { serio: 2, goliardico: 1 };
+  const mix = readJson("data/editorial-skin.json")?.weekly_mix || { serio: 2, riflessione: 1, goliardico: 0 };
   const needSerio = mix.serio ?? 2;
-  const needGoliardia = mix.goliardico ?? 1;
+  const needRif = mix.riflessione ?? 1;
+  const needGoliardia = mix.goliardico ?? 0;
 
   const memoryPath = path.join(REPO_ROOT, "data/editorial-memory.json");
   const memory = fs.existsSync(memoryPath) ? readJson("data/editorial-memory.json") : null;
@@ -69,8 +70,9 @@ function prioritize(queue, max = 3) {
       return 0;
     });
 
-  const isGoliardia = (i) => i.fiction || i.tone === "goliardico";
-  const isSerio = (i) => !isGoliardia(i);
+  const isGoliardia = (i) => i.tone === "goliardico" || i.fiction === true;
+  const isRiflessione = (i) => i.tone === "riflessione" && !isGoliardia(i);
+  const isSerio = (i) => i.tone === "tecnico" || (!isGoliardia(i) && !isRiflessione(i));
   const isSaturated = (i) => (saturation[i.cluster] || 0) >= clusterCap;
   const hasAltSerio = () =>
     candidates.some((c) => isSerio(c) && !isSaturated(c) && !picked.some((x) => x.slug === c.slug));
@@ -99,6 +101,16 @@ function prioritize(queue, max = 3) {
     if (isSaturated(p) && hasAltGoliardia()) continue;
     picked.push(p);
     goliardiaN += 1;
+  }
+
+  let rifN = 0;
+  for (const p of candidates) {
+    if (rifN >= needRif) break;
+    if (!isRiflessione(p)) continue;
+    if (picked.some((x) => x.slug === p.slug)) continue;
+    if (isSaturated(p)) continue;
+    picked.push(p);
+    rifN += 1;
   }
 
   return picked.slice(0, max);
@@ -169,8 +181,8 @@ function addToLlmsTxt(item, publishDate) {
   if (txt.includes(`/diario/${item.slug}/`)) return;
   const label = diarioTypeLabel(item);
   const d = `${publishDate.slice(8, 10)}/${publishDate.slice(5, 7)}`;
-  const line = `- [${label} ${d} ${item.title_draft || item.h1_draft || item.slug}](https://forzaquotidiana.it/diario/${item.slug}/): ${(item.meta_draft || item.intent || "").slice(0, 120)} (immagini IA se goliardia)\n`;
-  txt = txt.replace("## Contenuto recente\n", `## Contenuto recente\n${line}`);
+  const line = `- [${label} ${d} ${item.title_draft || item.h1_draft || item.slug}](https://forzaquotidiana.it/diario/${item.slug}/): ${(item.meta_draft || item.intent || "").slice(0, 120)} (immagini IA etichettate)\n`;
+  txt = txt.replace(/## Contenuto recente\r?\n/, `## Contenuto recente\n${line}`);
   fs.writeFileSync(llmsPath, txt);
 }
 
@@ -213,31 +225,31 @@ function refillProposedQueue(queue) {
 
   const seeds = [
     {
-      slug: "rest-day-guerra-divano-57-anni",
-      kw: "rest day recupero palestra",
-      cluster: "goliardia-allenamento",
-      tone: "goliardico",
-      fiction: true,
-      title: "Rest day: guerra sul divano",
-      intent: "satira riposo attivo vs divano",
+      slug: "camminare-giorni-senza-pesi-57-anni",
+      kw: "camminata giorni riposo palestra",
+      cluster: "riflessione-vita",
+      tone: "riflessione",
+      fiction: false,
+      title: "Camminare nei giorni senza pesi",
+      intent: "rituale caldo e professionale nei giorni off",
     },
     {
-      slug: "spotter-imaginario-57-anni",
-      kw: "spotter palestra amico",
-      cluster: "goliardia-culturismo",
-      tone: "goliardico",
-      fiction: true,
-      title: "Lo spotter immaginario",
-      intent: "umorismo su chi non ti aiuta mai in panca",
+      slug: "sonno-corto-allenamento-maturo-57-anni",
+      kw: "sonno corto allenamento over 50",
+      cluster: "tecnico-recupero",
+      tone: "tecnico",
+      fiction: false,
+      title: "Sonno corto e allenamento maturo",
+      intent: "come regolare il carico dopo una notte breve, numeri Zepp",
     },
     {
-      slug: "creatina-meme-universita-57-anni",
-      kw: "creatina culturismo meme",
-      cluster: "goliardia-nutrizione",
-      tone: "goliardico",
-      fiction: true,
-      title: "Facoltà di Creatina Applicata",
-      intent: "satira meme integratori senza vendita",
+      slug: "cardio-tapis-riposo-attivo-57-anni",
+      kw: "cardio tapis giorni riposo natural",
+      cluster: "tecnico-cardio",
+      tone: "tecnico",
+      fiction: false,
+      title: "Cardio sul tapis nei giorni senza pesi",
+      intent: "primo slot tapis: zone FC, passo, recupero attivo",
     },
   ];
 
@@ -257,8 +269,8 @@ function refillProposedQueue(queue) {
       title_draft: s.title,
       target_week: todayISO(),
       discovery_score: 0.75,
-      hero_brief: "Fumetto surreale goliardico — palette scura, NO stock palestra",
-      hero_concept: "comic surreal JoJo-light",
+      hero_brief: "Illustrazione editoriale professionale, palette scura, niente fumetto",
+      hero_concept: "warm professional fitness editorial",
     });
     used.add(s.slug);
     need -= 1;
@@ -301,7 +313,7 @@ async function runPipeline() {
 
   console.log("=== FASE 3 ASSUMPTIONS + PREMORTEM ===");
   const assumptions = [
-    "Angoli goliardici non saturano keyword esistenti",
+    "FAQ utili per chi si allena da natural dopo i 50",
     "FAQ risponde a query reali su culturismo dilettante 50+",
     "CTA newsletter dopo 40% scroll non invasiva",
   ];
@@ -386,8 +398,8 @@ async function runPipeline() {
   console.log(`Report: ${path.relative(REPO_ROOT, reportPath)}`);
 
   if (doFriday) {
-    console.log("\n=== BRIEFING AGENTE (venerdì — 2 tecnici + 1 goliardico) ===");
-    console.log("Mix: 2 articoli tecnici (RSS bodybuilding, italiano) + 1 goliardico");
+    console.log("\n=== BRIEFING AGENTE (venerdì — 2 tecnici + 1 riflessione) ===");
+    console.log("Mix: 2 articoli tecnici + 1 riflessione. Tono caldo, professionale, niente ironia.");
     console.log("Skin testo: data/editorial-skin.json");
     console.log("Skin immagini: data/editorial-image-skin.json");
     console.log("Dopo HTML + WebP per ogni slug: node tools/editorial-weekly.mjs run --publish\n");

@@ -59,8 +59,8 @@ node tools/generate-diario-assets.mjs <slug>
 
 ## Skin (Fede)
 
-- **Testo:** `data/editorial-skin.json` — tono goliardico, struttura H2, CTA newsletter, divieti
-- **Immagini:** `data/editorial-image-skin.json` — fumetto surreale, palette JoJo, WebP 1200px
+- **Testo:** `data/editorial-skin.json` — tono caldo professionale (2 tecnici + 1 riflessione), struttura H2, CTA newsletter, divieti
+- **Immagini:** `data/editorial-image-skin.json` — `style_serio` + fotoreal, WebP 1200px, niente fumetto JoJo sui pezzi nuovi
 - **Riferimenti:** slug in `referenceArticles` nel file skin
 
 Modifiche alla skin = modifiche al output automatico senza toccare il codice.

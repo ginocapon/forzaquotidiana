@@ -30,6 +30,16 @@
       "label": "Tecnico · bodybuilding / gara / periodizzazione",
       "hub_links": ["/allenamenti/", "/diario/", "/chi-sono/"],
       "tone": "tecnico"
+    },
+    "tecnico-cardio": {
+      "label": "Tecnico · cardio / riposo attivo",
+      "hub_links": ["/allenamenti/", "/diario/"],
+      "tone": "tecnico"
+    },
+    "tecnico-recupero": {
+      "label": "Tecnico · recupero / sonno",
+      "hub_links": ["/allenamenti/", "/diario/", "/chi-sono/"],
+      "tone": "tecnico"
     }
   },
   "blocked_overlap_threshold": 0.55

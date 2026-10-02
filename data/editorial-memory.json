@@ -1,17 +1,18 @@
 {
   "version": 1,
-  "generated": "2026-09-18",
+  "generated": "2026-10-02",
   "window_size": 8,
   "cluster_cap": 2,
   "mix_rule": {
     "tecnico": 2,
-    "goliardico": 1,
+    "riflessione": 1,
+    "goliardico": 0,
     "per_week": 3
   },
   "site_snapshot": {
-    "diario_catalog_count": 30,
-    "sessions_documented": 29,
-    "site_stats_updated": "2026-09-18"
+    "diario_catalog_count": 36,
+    "sessions_documented": 38,
+    "site_stats_updated": "2026-10-02"
   },
   "tone_balance_last_window": {
     "tecnico": 5,
@@ -19,13 +20,80 @@
     "riflessione": 1
   },
   "cluster_saturation": {
-    "tecnico-bodybuilding": 2,
-    "goliardia-culturismo": 1,
     "riflessione-vita": 1,
-    "goliardia-allenamento": 1,
-    "tecnico-natural": 3
+    "tecnico-recupero": 1,
+    "tecnico-cardio": 1,
+    "tecnico-natural": 1,
+    "goliardia-culturismo": 2,
+    "tecnico-bodybuilding": 2
   },
   "recent": [
+    {
+      "slug": "camminare-giorni-senza-pesi-57-anni",
+      "published_date": "2026-10-02",
+      "tone": "riflessione",
+      "tone_label": "Riflessione",
+      "cluster": "riflessione-vita",
+      "kw_primary": "camminata giorni riposo palestra",
+      "intent": "Rituale caldo e professionale nei giorni off",
+      "fiction": false,
+      "source": "queue+index"
+    },
+    {
+      "slug": "sonno-corto-allenamento-maturo-57-anni",
+      "published_date": "2026-10-02",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-recupero",
+      "kw_primary": "sonno corto allenamento over 50",
+      "intent": "Come regolare il carico dopo una notte breve, numeri Zepp 1 ottobre",
+      "fiction": false,
+      "source": "queue+index"
+    },
+    {
+      "slug": "cardio-tapis-riposo-attivo-57-anni",
+      "published_date": "2026-10-02",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-cardio",
+      "kw_primary": "cardio tapis giorni riposo natural",
+      "intent": "Primo slot tapis: zone FC, passo, recupero attivo dopo i pesi",
+      "fiction": false,
+      "source": "queue+index"
+    },
+    {
+      "slug": "freakout-friday-weekly-rant-57-anni",
+      "published_date": "2026-09-25",
+      "tone": "tecnico",
+      "tone_label": "Tecnico",
+      "cluster": "tecnico-natural",
+      "kw_primary": "freakout friday weekly rant",
+      "intent": "Articolo tecnico in italiano su trend bodybuilding: FREAKOUT FRIDAY (Weekly Rant Thread) - September 18, 2026",
+      "fiction": false,
+      "source": "queue+index"
+    },
+    {
+      "slug": "when-want-compete-start-57-anni",
+      "published_date": "2026-09-25",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "when want compete start",
+      "intent": "Angolo goliardico su trend: When did “I want to compete” start meaning “I need to take steroids”?",
+      "fiction": true,
+      "source": "queue+index"
+    },
+    {
+      "slug": "months-lifting-natural-place-57-anni",
+      "published_date": "2026-09-25",
+      "tone": "goliardico",
+      "tone_label": "Goliardia",
+      "cluster": "goliardia-culturismo",
+      "kw_primary": "months lifting natural place",
+      "intent": "Angolo goliardico su trend: 8 months lifting natural 3rd place Npc men’s physique",
+      "fiction": true,
+      "source": "queue+index"
+    },
     {
       "slug": "competing-timeline-57-anni",
       "published_date": "2026-09-18",
@@ -47,76 +115,10 @@
       "intent": "Prima gara e prep a 40+ settimane — lettura matura per natural over 50, zero prescrizione",
       "fiction": false,
       "source": "queue+index"
-    },
-    {
-      "slug": "former-olympia-hadi-choopan-57-anni",
-      "published_date": "2026-09-18",
-      "tone": "goliardico",
-      "tone_label": "Goliardia",
-      "cluster": "goliardia-culturismo",
-      "kw_primary": "former olympia hadi choopan",
-      "intent": "Parodia goliardica su ritiro Olympia per visto — distanza pro vs dilettante 57enne",
-      "fiction": true,
-      "source": "queue+index"
-    },
-    {
-      "slug": "selfie-spogliatoio-settimana-due-blocco1-57-anni",
-      "published_date": "2026-09-11",
-      "tone": "riflessione",
-      "tone_label": "Riflessione",
-      "cluster": "riflessione-vita",
-      "kw_primary": null,
-      "intent": null,
-      "fiction": false,
-      "source": "index"
-    },
-    {
-      "slug": "weeks-into-mass-phase-57-anni",
-      "published_date": "2026-09-04",
-      "tone": "goliardico",
-      "tone_label": "Goliardia",
-      "cluster": "goliardia-allenamento",
-      "kw_primary": "weeks into mass phase",
-      "intent": "Satira goliardica sul trend mass phase — pasta, divano, autoironia",
-      "fiction": true,
-      "source": "queue+index"
-    },
-    {
-      "slug": "blocco1-prime-settimane-settembre-57-anni",
-      "published_date": "2026-09-04",
-      "tone": "tecnico",
-      "tone_label": "Tecnico",
-      "cluster": "tecnico-natural",
-      "kw_primary": "blocco 1 ipertrofia settembre",
-      "intent": "Prime settimane Blocco 1 ipertrofia accumulo — lettura carico e adattamento maturo",
-      "fiction": false,
-      "source": "queue+index"
-    },
-    {
-      "slug": "volume-mass-phase-natural-57-anni",
-      "published_date": "2026-09-04",
-      "tone": "tecnico",
-      "tone_label": "Tecnico",
-      "cluster": "tecnico-natural",
-      "kw_primary": "mass phase volume natural",
-      "intent": "Volume in mass phase per natural maturo — numeri verificati, zero bro-science",
-      "fiction": false,
-      "source": "queue+index"
-    },
-    {
-      "slug": "gareggiare-natural-senza-farmaci-57-anni",
-      "published_date": "2026-08-26",
-      "tone": "tecnico",
-      "tone_label": "Tecnico",
-      "cluster": "tecnico-natural",
-      "kw_primary": null,
-      "intent": null,
-      "fiction": false,
-      "source": "index"
     }
   ],
   "risks": [
-    "Cluster `tecnico-bodybuilding` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
-    "Cluster `tecnico-natural` già 3/8 negli ultimi publish — variare angolo o fare refresh articolo esistente"
+    "Cluster `goliardia-culturismo` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente",
+    "Cluster `tecnico-bodybuilding` già 2/8 negli ultimi publish — variare angolo o fare refresh articolo esistente"
   ]
 }

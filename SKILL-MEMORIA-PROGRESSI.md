@@ -20,13 +20,13 @@ Dopo ogni publish diario: `node tools/build-editorial-memory.mjs` · opz. `--che
 
 ---
 
-## Stato sintetico (ultimo aggiornamento: 2 settembre 2026)
+## Stato sintetico (ultimo aggiornamento: 2 ottobre 2026)
 
 | KPI | Valore | Target | Note |
 |-----|--------|--------|------|
 | Guardian site_integrity | **ok** | ok | Report 26/08 |
-| Sessioni documentate | **21** | +1/sett. allenamento | Include A1 31/08, B1 01/09 Blocco 1 |
-| Articoli diario (catalogo) | **~23** | 3/sett. (2 tecnici + 1 goliardico) | Mix 2+1 dal 29/08 |
+| Sessioni documentate | **38** | +1/sett. allenamento | Include B1 30/09 e cardio tapis 1/10 |
+| Articoli diario (catalogo) | **36** | 3/sett. (2 tecnici + 1 riflessione) | Mix dal 2/10: niente goliardia nuova |
 | Newsletter iscritti | **n/d in repo** | crescita | Foglio Google — email **mai** in repo |
 | GA4 / GSC API | **assenti** | futuro | Stub Guardian — screenshot manuali |
 | Obiettivo business | newsletter → prodotti | ~12 mesi | PDF scheda gratuita oggi |
@@ -38,7 +38,7 @@ Dopo ogni publish diario: `node tools/build-editorial-memory.mjs` · opz. `--che
 ### Cosa fare — ordine di priorità
 
 0. **Trigger `"FQ"`** → §Prossimi passi + `SKILL-VENERDI.md` + `editorial-queue.json`
-0b. **Editoriale venerdì** → mix **2 tecnici + 1 goliardico** · leggi `data/editorial-memory.json` per saturazione cluster
+0b. **Editoriale venerdì** → mix **2 tecnici + 1 riflessione** · tono caldo professionale · niente ironia
 1. **SOSTENERE** (futuro con GSC) — refresh pagina con impressioni alte prima di nuovo articolo simile
 2. **1 modifica concreta/settimana** nel repo — mai solo teoria
 3. **Sessione allenamento** — foto Zepp → WebP → pagina pro v3 (regola upload permanente)
@@ -49,7 +49,7 @@ Dopo ogni publish diario: `node tools/build-editorial-memory.mjs` · opz. `--che
 - Non inventare **kg, PR, FC, TSB** — solo `data/my-stats.json`, JSON performance o foto Zepp
 - Non lasciare **JPEG WhatsApp** nel repo — `processa-foto-upload.mjs` + elimina upload
 - Non etichettare Scheda sbagliata per rotazione saltata — chiedere/confermare A1/B1 vs S1–S4
-- Non 3 articoli goliardici/settimana — max **1** goliardico; **2 tecnici** obbligatori
+- Non 3 articoli sarcastici/settimana — max **1 riflessione**; **2 tecnici**; **niente ironia**
 - Non ripetere cluster saturo (creatina + proteine + altro meme integratori) — vedi `editorial-memory.json` → `risks`
 - Non push/commit senza richiesta esplicita di Gino
 - Non confondere Forza Quotidiana con Righetto/index (immobiliare)
@@ -59,7 +59,7 @@ Dopo ogni publish diario: `node tools/build-editorial-memory.mjs` · opz. `--che
 | Frequenza | Azione | Dove |
 |-----------|--------|------|
 | **Post allenamento** | Sessione + JSON performance | `SKILL-PERFORMANCE.md` |
-| **Venerdì mattina** | 3 articoli diario (2+1) | `SKILL-EDITORIAL.md`, comando venerdi-editoriale |
+| **Venerdì mattina** | 3 articoli diario (2 tecnici + 1 riflessione) | `SKILL-EDITORIAL.md` |
 | **Venerdì ~30 min** | Checklist newsletter + sito | `SKILL-VENERDI.md` |
 | **Dopo publish diario** | `build-editorial-memory.mjs` | `data/editorial-memory.json` |
 | **Ogni 6 h** | Guardian heartbeat | CI `guardian-run.yml` |
@@ -92,7 +92,7 @@ Snapshot 2 set 2026 (ultimi 8 in catalogo):
 | tecnico-natural | **1** | ok — priorità 2 tecnici al venerdì |
 | riflessione-vita | **2** | ⚠ al limite — non aggiungere altro riflessione senza motivo |
 
-**Proposte in coda** (`editorial-queue.json`): molte goliardiche Reddit — filtrare con memoria prima di schedulare.
+**Proposte in coda** (`editorial-queue.json`): proposed goliardici archiviati il 2/10; mix nuovi pezzi 2 tecnici + 1 riflessione.
 
 ---
 
@@ -121,13 +121,13 @@ Snapshot 2 set 2026 (ultimi 8 in catalogo):
 | 29/08/2026 | Regola **2 tecnici + 1 goliardico** in SKILL-EDITORIAL | Mix venerdì bloccante |
 | 31/08/2026 | Sessione **A1** (non Scheda 4) — rotazione saltata | URL `/2026-08-31-a1/` |
 | 01/09/2026 | Sessione **B1** Blocco 1 lower | Guile realistic + arcade |
-| 02/09/2026 | **SKILL-MEMORIA-PROGRESSI.md** + `editorial-memory.json` + build script | Memoria da index/Righetto |
+| 02/10/2026 | Venerdì editoriale: tapis, sonno corto, camminare — tono caldo professionale, niente ironia | 3 articoli + skill mix 2 tecnici + 1 riflessione |
 
 ---
 
 ## Prossimi passi (per l'agente)
 
-1. **Prossimo venerdì editoriale:** 2 articoli **tecnici** (natural 50+, periodizzazione/ipertrofia) + 1 goliardico — cluster **non** goliardia-culturismo
+1. **Prossimo venerdì editoriale:** 2 articoli **tecnici** + 1 **riflessione** — tono caldo, professionale, niente ironia
 2. **`build-editorial-memory.mjs`** dopo ogni publish
 3. **Sessioni:** mantenere ritmo Blocco 1 (A1/B1 alternati)
 4. **Newsletter:** Gino aggiorna Foglio → `sync-newsletter-stats.mjs` quando chiede publish stats

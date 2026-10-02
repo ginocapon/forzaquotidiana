@@ -986,7 +986,7 @@ Ogni scheda deve indicare chiaramente:
 
 ## 5b. Editoriale Diario vs Allenamenti
 
-**Pipeline settimanale goliardica (3 articoli venerdì 07:00 CEST):** vedi `SKILL-EDITORIAL.md` — discovery, anti-doppioni, hero fumetto/surreale, newsletter only, zero vendita.
+**Pipeline settimanale (3 articoli venerdì):** vedi `SKILL-EDITORIAL.md` — 2 tecnici + 1 riflessione, tono caldo e professionale, niente ironia, newsletter only.
 
 **Separazione netta:**
 

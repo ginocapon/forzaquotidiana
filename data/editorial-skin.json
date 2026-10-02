@@ -5,7 +5,8 @@
   "weekly_mix": {
     "total": 3,
     "serio": 2,
-    "goliardico": 1,
+    "riflessione": 1,
+    "goliardico": 0,
     "rss_primary": "https://www.reddit.com/r/bodybuilding/.rss",
     "rss_fallback": "https://www.reddit.com/r/Fitness/.rss",
     "language": "it",
@@ -13,8 +14,9 @@
   },
   "voice": {
     "persona": "Uomo 57 anni, papà di Ginevra, dilettante autentico da oltre dieci anni, lavoro e famiglia",
-    "tone_goliardico": "Satira calda, autoironia, riferimenti a Demolition Men, Ken il Poeta, Teken il Guerriero, Cartovità — mai hype da influencer",
-    "tone_tecnico": "Chiaro, performance e periodizzazione, numeri solo se in my-stats.json, niente bro-science, niente parodia",
+    "tone_riflessione": "Caldo, simpatico, professionale — si può sorridere, mai ironia o parodia, mai prendere in giro il lettore",
+    "tone_tecnico": "Chiaro, utile, accogliente; numeri solo se in my-stats.json o Zepp; niente bro-science, niente ironia",
+    "tone_goliardico": "NON USARE sui pezzi nuovi (archivio storico). Sostituito da tone_riflessione.",
     "forbidden": [
       "vendita integratori",
       "link affiliati",
@@ -25,7 +27,8 @@
       "sezione Trasparenza totale o Riepilogo secco",
       "disclaimer legali ripetuti su brand terzi nel corpo o nel box Risposta breve",
       "FAQ tipo Gino è pagato da X",
-      "parodia negli articoli tecnici"
+      "parodia, ironia, satira, goliardia nei pezzi nuovi",
+      "università immaginaria, meme, JoJo, prendere in giro età o Reddit"
     ],
     "required_links": ["/diario/", "/allenamenti/", "/chi-sono/"],
     "dedication": "Ginevra"
@@ -42,10 +45,9 @@
     "aeo_box_style": "Diretto, 2-3 frasi, niente boilerplate legale né affiliazioni"
   },
   "reference_articles": {
-    "goliardico": [
-      "diario/demolition-men-universita-vita-57-anni/index.html",
-      "diario/ken-poeta-indomito-volonta-57-anni/index.html",
-      "diario/proteine-shake-universita-57-anni/index.html"
+    "riflessione": [
+      "diario/overtraining-recupero-50-anni-57-anni/index.html",
+      "diario/selfie-spogliatoio-settimana-due-blocco1-57-anni/index.html"
     ],
     "tecnico": [
       "diario/overtraining-recupero-50-anni-57-anni/index.html",
