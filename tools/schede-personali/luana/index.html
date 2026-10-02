@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programma di allenamento — Luana</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="luana-pdf.css">
+</head>
+<body class="luana-pdf">
+
+<div class="luana-toolbar no-print">
+  <div class="luana-toolbar__inner">
+    <p><strong>Programma allenamento · Luana · PDF</strong></p>
+    <button type="button" class="btn btn-primary" onclick="window.print()">Stampa / Salva PDF</button>
+  </div>
+</div>
+
+<!-- Sprite figure (inline per stampa/PDF) -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+<defs>
+<style>
+.fx-floor{fill:none;stroke:var(--fx-frame,#6f6a64);stroke-width:3;stroke-linecap:round}
+.fx-frame{fill:none;stroke:var(--fx-frame,#6f6a64);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+.fx-support{fill:var(--fx-pad,#3a3632);stroke:var(--fx-frame,#6f6a64);stroke-width:2.5;stroke-linejoin:round}
+.fx-bottle{fill:var(--fx-equip,#a89f95);stroke:var(--fx-frame,#6f6a64);stroke-width:2}
+.fx-body{fill:none;stroke:var(--fx-body,#f4efe6);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.fx-head{fill:var(--fx-body,#f4efe6)}
+.fx-target{fill:none;stroke:var(--fx-target,#c9783a);stroke-width:10;stroke-linecap:round;opacity:.95}
+.fx-arrow{fill:none;stroke:var(--fx-target,#c9783a);stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</defs>
+<symbol id="fig-camminata" viewBox="0 0 120 120"><path class="fx-floor" d="M8 108h104"/><circle class="fx-head" cx="72" cy="28" r="8"/><path class="fx-body" d="M68 36 58 58"/><path class="fx-body" d="M58 58 48 82 42 106"/><path class="fx-body" d="M58 58 78 78 88 106"/><path class="fx-body" d="M64 42 82 36"/><path class="fx-arrow" d="M18 72h28M40 66l6 6-6 6"/><path class="fx-target" d="M58 70 68 70"/></symbol>
+<symbol id="fig-squat-libero" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><circle class="fx-head" cx="60" cy="34" r="8"/><path class="fx-body" d="M60 42v18"/><path class="fx-body" d="M60 60 44 78 36 96"/><path class="fx-body" d="M60 60 76 78 84 96"/><path class="fx-body" d="M52 48 38 52M68 48 82 52"/><path class="fx-target" d="M48 72 72 72"/><path class="fx-arrow" d="M96 52v28M91 58l5-6 5 6M91 74l5 6 5-6"/></symbol>
+<symbol id="fig-affondo-assistito" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><path class="fx-frame" d="M18 24v88"/><path class="fx-support" d="M14 40h10v8H14z"/><circle class="fx-head" cx="58" cy="30" r="8"/><path class="fx-body" d="M58 38 52 56"/><path class="fx-body" d="M52 56 44 78 40 108"/><path class="fx-body" d="M52 56 78 88 86 108"/><path class="fx-body" d="M48 44 24 48"/><path class="fx-target" d="M62 78 74 88"/><path class="fx-arrow" d="M96 64 84 78 72 88"/></symbol>
+<symbol id="fig-ponte-glutei" viewBox="0 0 120 120"><path class="fx-floor" d="M10 88h100"/><path class="fx-support" d="M22 88h76v8H22z"/><circle class="fx-head" cx="34" cy="72" r="7"/><path class="fx-body" d="M40 76 52 64 68 64 80 76"/><path class="fx-body" d="M52 64 48 88"/><path class="fx-body" d="M68 64 72 88"/><path class="fx-target" d="M52 58 68 58"/><path class="fx-arrow" d="M60 48v12M55 52l5-6 5 6"/></symbol>
+<symbol id="fig-slancio-posteriore" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><path class="fx-support" d="M52 88h16v24H52z"/><circle class="fx-head" cx="56" cy="28" r="8"/><path class="fx-body" d="M56 36 54 58"/><path class="fx-body" d="M54 58 50 88 48 108"/><path class="fx-body" d="M54 58 62 88 64 108"/><path class="fx-body" d="M54 62 24 68"/><path class="fx-body" d="M54 62 88 52 96 44"/><path class="fx-target" d="M82 48 96 42"/><path class="fx-arrow" d="M100 38 88 44 82 52"/></symbol>
+<symbol id="fig-crunch-semplice" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><path class="fx-support" d="M24 88h72v10H24z"/><circle class="fx-head" cx="72" cy="58" r="8"/><path class="fx-body" d="M66 64 48 78 36 88"/><path class="fx-body" d="M48 78 48 96 44 108"/><path class="fx-body" d="M48 78 68 88 76 108"/><path class="fx-target" d="M52 72 64 72"/><path class="fx-arrow" d="M72 48 60 56 52 68"/></symbol>
+<symbol id="fig-push-facilitato" viewBox="0 0 120 120"><path class="fx-frame" d="M14 18v94"/><path class="fx-floor" d="M10 112h100"/><circle class="fx-head" cx="78" cy="38" r="8"/><path class="fx-body" d="M72 44 48 58"/><path class="fx-body" d="M48 58 38 72 34 88"/><path class="fx-body" d="M48 58 68 72 74 88"/><path class="fx-body" d="M44 60 28 52"/><path class="fx-target" d="M44 58 56 58"/><path class="fx-arrow" d="M88 52 76 58 68 66"/></symbol>
+<symbol id="fig-alzate-bottiglie" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><rect class="fx-bottle" x="22" y="44" width="8" height="22" rx="2"/><rect class="fx-bottle" x="90" y="44" width="8" height="22" rx="2"/><circle class="fx-head" cx="60" cy="32" r="8"/><path class="fx-body" d="M60 40v34"/><path class="fx-body" d="M60 48 26 46M60 48 94 46"/><path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/><circle class="fx-target" cx="28" cy="47" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/><circle class="fx-target" cx="92" cy="47" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/><path class="fx-arrow" d="M34 58 26 46 18 58M86 58 94 46 102 58"/></symbol>
+<symbol id="fig-curl-bottiglie" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><rect class="fx-bottle" x="34" y="52" width="8" height="24" rx="2"/><rect class="fx-bottle" x="78" y="52" width="8" height="24" rx="2"/><circle class="fx-head" cx="60" cy="30" r="8"/><path class="fx-body" d="M60 38v36"/><path class="fx-body" d="M60 48 38 68M60 48 82 68"/><path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/><circle class="fx-target" cx="38" cy="63" r="5" style="stroke:none;fill:var(--fx-target,#c9783a)"/><path class="fx-arrow" d="M38 78 38 62 38 46"/></symbol>
+<symbol id="fig-tricipiti-bottiglia" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><rect class="fx-bottle" x="56" y="18" width="8" height="28" rx="2"/><circle class="fx-head" cx="60" cy="38" r="8"/><path class="fx-body" d="M60 46v28"/><path class="fx-body" d="M60 52 44 34M60 52 76 34"/><path class="fx-body" d="M60 74 52 92 50 108M60 74 68 92 70 108"/><path class="fx-target" d="M44 30 76 30"/><path class="fx-arrow" d="M60 56v18M55 62l5-6 5 6M55 68l5 6 5-6"/></symbol>
+<symbol id="fig-rematore-bottiglie" viewBox="0 0 120 120"><path class="fx-floor" d="M10 112h100"/><rect class="fx-bottle" x="28" y="58" width="8" height="22" rx="2"/><rect class="fx-bottle" x="84" y="58" width="8" height="22" rx="2"/><circle class="fx-head" cx="60" cy="52" r="8"/><path class="fx-body" d="M60 60 58 78"/><path class="fx-body" d="M58 78 52 92 48 108"/><path class="fx-body" d="M58 78 66 92 70 108"/><path class="fx-body" d="M56 64 32 58M56 64 88 58"/><path class="fx-target" d="M48 62 72 62"/><path class="fx-arrow" d="M32 58 48 62 64 58"/></symbol>
+</svg>
+
+<!-- ═══ PAGINA 1 — Copertina e riepilogo ═══ -->
+<section class="luana-page luana-cover">
+  <header class="luana-cover__head">
+    <p class="luana-cover__brand">Programma di allenamento</p>
+    <h1 class="luana-cover__title">3 giorni a settimana<br>30' camminata + 30' esercizi</h1>
+    <p class="luana-cover__subtitle">Perdita graduale di peso · preservare la massa muscolare</p>
+    <p class="luana-cover__name">Luana</p>
+  </header>
+
+  <div class="luana-section">
+    <h2>Profilo di riferimento</h2>
+    <dl class="luana-profile-grid">
+      <dt>Peso indicativo</dt><dd>circa 60 kg</dd>
+      <dt>Altezza</dt><dd>165 cm</dd>
+      <dt>Età</dt><dd>40–45 anni</dd>
+      <dt>Obiettivo</dt><dd>Perdere 7–8 kg in 12 mesi, gradualmente</dd>
+      <dt>Frequenza</dt><dd>3 sedute/settimana (non consecutive)</dd>
+      <dt>Durata seduta</dt><dd>circa 60 minuti totali</dd>
+    </dl>
+  </div>
+
+  <div class="luana-section">
+    <h2>Struttura generale</h2>
+    <ul>
+      <li>3 sedute alla settimana, preferibilmente non consecutive (es. lunedì, mercoledì, venerdì).</li>
+      <li>Ogni seduta: <strong>30 min camminata</strong> + <strong>30 min esercizi</strong> a corpo libero.</li>
+      <li>Per spalle e braccia: bottiglie da 1,5 L come peso leggero.</li>
+      <li>Flessioni con progressione: muro → appoggio rialzato → ginocchia → completa (solo con buona tecnica).</li>
+      <li>Non serve arrivare al cedimento: priorità alla tecnica corretta.</li>
+      <li>Se compare dolore articolare vero o persistente, interrompere l'esercizio.</li>
+    </ul>
+  </div>
+
+  <div class="luana-kcal-box">
+    <h3>Stima del consumo calorico</h3>
+    <p style="font-size:8.5pt;color:#555;margin:0 0 2mm">Stime prudenti per il profilo indicato. Il consumo reale varia in base a velocità, intensità, pause e livello di allenamento.</p>
+    <table class="luana-table">
+      <thead>
+        <tr><th>Componente</th><th class="num">Durata</th><th class="num">Stima kcal</th><th>Riferimento</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Camminata sostenuta</td><td class="num">30 min</td><td class="num">100–130</td><td>115 kcal</td></tr>
+        <tr><td>Esercizi forza</td><td class="num">30 min</td><td class="num">100–140</td><td>115 kcal</td></tr>
+        <tr><td><strong>Totale seduta</strong></td><td class="num"><strong>60 min</strong></td><td class="num"><strong>200–270</strong></td><td><strong>≈ 230 kcal</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="luana-kcal-highlight">
+      <div class="luana-kcal-card">
+        <div class="luana-kcal-card__value">≈ 230</div>
+        <div class="luana-kcal-card__label">kcal per seduta<br>(media di riferimento)</div>
+      </div>
+      <div class="luana-kcal-card">
+        <div class="luana-kcal-card__value">≈ 690</div>
+        <div class="luana-kcal-card__label">kcal a settimana<br>(3 sedute × 230)</div>
+      </div>
+      <div class="luana-kcal-card">
+        <div class="luana-kcal-card__value">≈ 3.000</div>
+        <div class="luana-kcal-card__label">kcal al mese<br>(≈ 13 sedute · 4,33 sett.)</div>
+      </div>
+    </div>
+    <p style="font-size:8pt;color:#665522;margin:2mm 0 0"><strong>Se aumenti la frequenza:</strong> ogni seduta in più aggiunge circa 230 kcal. Con 4 sedute/settimana il consumo mensile sale indicativamente verso ≈ 4.000 kcal.</p>
+  </div>
+
+  <footer class="luana-footer">Preparato da Gino Capon · Uso personale · Settembre 2026</footer>
+</section>
+
+<!-- ═══ PAGINA 2 — Giorno A ═══ -->
+<section class="luana-page">
+  <div class="luana-day-head">
+    <h1>Giorno A — Gambe, glutei e addome</h1>
+    <p>Lunedì (o primo giorno della settimana)</p>
+    <span class="luana-day-kcal">Consumo stimato seduta: ≈ 230 kcal (range 220–250)</span>
+  </div>
+
+  <div class="luana-warmup">
+    <strong>Prima parte — 30 min camminata:</strong> passo sostenuto ma confortevole. Deve essere possibile parlare senza restare completamente senza fiato.
+    <svg viewBox="0 0 120 120" style="width:18mm;height:18mm;float:right;margin-left:2mm;--fx-body:#1a1a1a;--fx-equip:#5a7a68;--fx-frame:#7a9a88;--fx-pad:#d8e8de;--fx-target:#2d6a4f"><use href="#fig-camminata"/></svg>
+  </div>
+
+  <p style="font-size:9pt;font-weight:700;color:#2d6a4f;margin:0 0 2mm">Seconda parte — 30 min esercizi</p>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Squat a corpo libero"><use href="#fig-squat-libero"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Squat a corpo libero</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45–60 sec</span></div>
+      <p class="luana-ex__note">Piedi alla larghezza delle spalle. Scendi solo fin dove mantieni il controllo; ginocchia nella direzione dei piedi, schiena neutra. Risalita spingendo con i talloni.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Affondo assistito"><use href="#fig-affondo-assistito"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Affondo assistito</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>8–10 rip. per lato</span><span>Recupero 45–60 sec</span></div>
+      <p class="luana-ex__note">Tieni una parete o sedia stabile con una mano per equilibrio. Passo avanti controllato; scendi gradualmente aumentando la profondità solo se la tecnica resta buona.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Ponte glutei"><use href="#fig-ponte-glutei"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Ponte glutei</h3>
+      <div class="luana-ex__params"><span>3 serie</span><span>12–15 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Sdraiata supina, piedi a terra. Spingi con i talloni sollevando il bacino; contrae i glutei in alto senza inarcare eccessivamente la schiena. Discesa lenta.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Slancio posteriore"><use href="#fig-slancio-posteriore"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Slancio posteriore</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip. per lato</span><span>Recupero 30–45 sec</span></div>
+      <p class="luana-ex__note">In piedi, appoggio su sedia o muro. Bacino stabile; estendi la gamba indietro con movimento lento. Non inarcare la schiena.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Crunch addome"><use href="#fig-crunch-semplice"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Addome — variante semplice</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>8–12 rip.</span><span>Recupero 30–45 sec</span></div>
+      <p class="luana-ex__note">Crunch controllato: solleva le spalle da terra contrarrendo l'addome. Espirare durante lo sforzo. Non tirare il collo con le mani.</p>
+    </div>
+  </div>
+
+  <div class="luana-note-box">La stima calorica è indicativa e non deve essere usata per compensare automaticamente l'alimentazione.</div>
+</section>
+
+<!-- ═══ PAGINA 3 — Giorno B ═══ -->
+<section class="luana-page">
+  <div class="luana-day-head">
+    <h1>Giorno B — Petto, spalle, schiena e braccia</h1>
+    <p>Mercoledì (o secondo giorno)</p>
+    <span class="luana-day-kcal">Consumo stimato seduta: ≈ 230 kcal (range 220–250)</span>
+  </div>
+
+  <div class="luana-warmup">
+    <strong>Prima parte — 30 min camminata:</strong> passo sostenuto. Se le gambe sono affaticate dal giorno precedente, mantieni un ritmo moderato.
+  </div>
+
+  <p style="font-size:9pt;font-weight:700;color:#2d6a4f;margin:0 0 2mm">Seconda parte — 30 min esercizi · Bottiglie da 1,5 L</p>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Push-up facilitato"><use href="#fig-push-facilitato"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Push-up facilitato</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>8–12 rip.</span><span>Recupero 45–60 sec</span></div>
+      <p class="luana-ex__note"><strong>Progressione:</strong> ① muro → ② appoggio alto (tavolo/sedia) → ③ ginocchia → ④ completa. Parti dal livello che permette tecnica pulita; diminuisci l'altezza dell'appoggio solo quando 12 ripetizioni sono facili.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Alzate laterali"><use href="#fig-alzate-bottiglie"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Alzate laterali con bottiglie</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Bottiglie da 1,5 L, gomiti leggermente flessi. Solleva lateralmente fino circa all'altezza delle spalle; discesa lenta. Spalle lontane dalle orecchie.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Curl bicipiti"><use href="#fig-curl-bottiglie"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Curl bicipiti con bottiglie</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Gomiti vicini al busto, schiena dritta. Piega i gomiti portando le bottiglie verso le spalle; niente slanci col corpo.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Estensione tricipiti"><use href="#fig-tricipiti-bottiglia"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Estensione tricipiti con bottiglia</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Una sola bottiglia tenuta con entrambe le mani sopra la testa. Gomiti puntati verso l'alto; estendi le braccia senza inarcare la schiena. Usa una bottiglia se è più facile controllarla.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120" role="img" aria-label="Rematore"><use href="#fig-rematore-bottiglie"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Rematore con bottiglie</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Busto inclinato in avanti, schiena neutra (non arrotondata). Porta i gomiti indietro stringendo le scapole; movimento controllato senza slancio.</p>
+    </div>
+  </div>
+
+  <div class="luana-note-box">La stima calorica è indicativa e non deve essere usata per compensare automaticamente l'alimentazione.</div>
+</section>
+
+<!-- ═══ PAGINA 4 — Giorno C ═══ -->
+<section class="luana-page">
+  <div class="luana-day-head">
+    <h1>Giorno C — Full body</h1>
+    <p>Venerdì (o terzo giorno)</p>
+    <span class="luana-day-kcal">Consumo stimato seduta: ≈ 230 kcal (range 220–260)</span>
+  </div>
+
+  <div class="luana-warmup">
+    <strong>Prima parte — 30 min camminata:</strong> passo sostenuto e regolare.
+  </div>
+
+  <p style="font-size:9pt;font-weight:700;color:#2d6a4f;margin:0 0 2mm">Seconda parte — 30 min esercizi (circuito corpo intero)</p>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-squat-libero"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Squat a corpo libero</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 30–45 sec</span></div>
+      <p class="luana-ex__note">Controlla soprattutto la discesa: lenta e stabile.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-ponte-glutei"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Ponte glutei</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>12–15 rip.</span><span>Recupero 30–45 sec</span></div>
+      <p class="luana-ex__note">Pausa breve in alto mantenendo il controllo; contrae i glutei.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-push-facilitato"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Push-up facilitato</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>8–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Scegli la variante che consente tecnica pulita (vedi progressione Giorno B).</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-alzate-bottiglie"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Alzate laterali con bottiglie</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Spalle lontane dalle orecchie; discesa lenta.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-affondo-assistito"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Affondo assistito</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>8–10 rip. per lato</span><span>Recupero 45 sec</span></div>
+      <p class="luana-ex__note">Usa un appoggio stabile; lavora entro un'ampiezza controllabile.</p>
+    </div>
+  </div>
+
+  <div class="luana-ex">
+    <div class="luana-ex__fig"><svg viewBox="0 0 120 120"><use href="#fig-curl-bottiglie"/></svg></div>
+    <div>
+      <h3 class="luana-ex__name">Curl bicipiti con bottiglie</h3>
+      <div class="luana-ex__params"><span>2 serie</span><span>10–12 rip.</span><span>Recupero 30–45 sec</span></div>
+      <p class="luana-ex__note">Movimento lento e senza slancio.</p>
+    </div>
+  </div>
+
+  <div class="luana-note-box">La stima calorica è indicativa e non deve essere usata per compensare automaticamente l'alimentazione.</div>
+</section>
+
+<!-- ═══ PAGINA 5 — Facoltativo, progressione, riepilogo ═══ -->
+<section class="luana-page">
+  <div class="luana-section">
+    <h2>4° giorno facoltativo</h2>
+    <p>Il quarto giorno <strong>non è obbligatorio</strong>. Va aggiunto solo quando la settimana lo permette e il recupero è buono.</p>
+    <ul>
+      <li><strong>Opzione semplice:</strong> 30–40 min camminata a passo sostenuto (≈ 100–170 kcal).</li>
+      <li><strong>Opzione completa:</strong> 30–40 min camminata + 20–25 min circuito leggero.</li>
+      <li><strong>Circuito leggero:</strong> 2 serie di squat, ponte glutei, push-up facilitati, alzate laterali e curl (≈ 70–120 kcal).</li>
+    </ul>
+    <p><strong>Seduta facoltativa completa:</strong> circa 170–290 kcal. Con 4° giorno ogni settimana, il consumo mensile può salire da ≈ 3.000 a ≈ 4.000 kcal.</p>
+  </div>
+
+  <div class="luana-section">
+    <h2>Progressione — prime 12 settimane</h2>
+    <ol class="luana-progress-list">
+      <li><strong>Settimane 1–4:</strong> imparare bene i movimenti, senza arrivare al cedimento.</li>
+      <li><strong>Settimane 5–8:</strong> aumentare gradualmente le ripetizioni fino al limite alto indicato.</li>
+      <li><strong>Settimane 9–12:</strong> quando 12 ripetizioni sono facili e la tecnica è buona, aumentare leggermente la difficoltà della variante.</li>
+      <li><strong>Flessioni:</strong> passare alla variante successiva solo quando quella precedente è eseguita con controllo.</li>
+      <li><strong>Bottiglie:</strong> non aumentare il peso se provoca compensi o peggiora la tecnica.</li>
+    </ol>
+  </div>
+
+  <div class="luana-kcal-box">
+    <h3>Riepilogo calorico</h3>
+    <table class="luana-table">
+      <thead>
+        <tr><th>Programmazione</th><th class="num">Sedute</th><th>Consumo indicativo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3 giorni/settimana</td>
+          <td class="num">3</td>
+          <td><strong>≈ 690 kcal/settimana</strong> · <strong>≈ 3.000 kcal/mese</strong> (≈ 13 sedute)</td>
+        </tr>
+        <tr>
+          <td>Con 4° giorno ogni settimana</td>
+          <td class="num">4</td>
+          <td><strong>≈ 920 kcal/settimana</strong> · <strong>≈ 4.000 kcal/mese</strong></td>
+        </tr>
+        <tr>
+          <td>Se aumenti autonomamente (es. 5×/settimana)</td>
+          <td class="num">5</td>
+          <td><strong>≈ 1.150 kcal/settimana</strong> · moltiplica 230 kcal × n. sedute</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:8.5pt;color:#555;margin:2mm 0 0">Questi valori descrivono il solo consumo dell'attività programmata. Il dimagrimento effettivo dipende dal bilancio energetico complessivo, dall'alimentazione e dal movimento quotidiano.</p>
+  </div>
+
+  <div class="luana-section" style="margin-top:4mm">
+    <h2>Come leggere la scheda</h2>
+    <ul>
+      <li>Ogni esercizio ha un'illustrazione a sinistra e le indicazioni tecniche a destra.</li>
+      <li><strong>Serie × Ripetizioni:</strong> es. 2 × 10–12 = 2 serie da 10 a 12 ripetizioni ciascuna.</li>
+      <li><strong>Recupero:</strong> pausa tra una serie e la successiva dello stesso esercizio.</li>
+      <li>Completa tutti gli esercizi del giorno prima di passare al giorno successivo.</li>
+    </ul>
+  </div>
+
+  <footer class="luana-footer">Programma personalizzato per Luana · Preparato da Gino Capon · Settembre 2026</footer>
+</section>
+
+</body>
+</html>
