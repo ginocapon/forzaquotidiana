@@ -51,6 +51,33 @@ const KNOWN_BATCHES = {
       "WhatsApp Image 2026-10-02 at 12.13.23 (4).jpeg": "riepilogo",
     },
   },
+  "cardio 04-10-26": {
+    date: "2026-10-04",
+    codice: "cardio",
+    files: {
+      "WhatsApp Image 2026-10-04 at 23.13.01.jpeg": "tsb",
+      "WhatsApp Image 2026-10-04 at 23.13.01 (1).jpeg": "sforzo",
+      "WhatsApp Image 2026-10-04 at 23.13.01 (2).jpeg": "sonno-fc",
+      "WhatsApp Image 2026-10-04 at 23.13.02.jpeg": "sonno-respirazione",
+      "WhatsApp Image 2026-10-04 at 23.13.02 (2).jpeg": "sonno-metriche",
+      "WhatsApp Image 2026-10-04 at 23.13.02 (3).jpeg": "sonno-score",
+      "WhatsApp Image 2026-10-04 at 23.13.02 (4).jpeg": "sonno-insight",
+      "WhatsApp Image 2026-10-04 at 23.13.02 (5).jpeg": "hrv",
+      "WhatsApp Image 2026-10-04 at 23.13.02 (6).jpeg": "readiness-metriche",
+      "WhatsApp Image 2026-10-04 at 23.13.03.jpeg": "hybridcharge",
+      "WhatsApp Image 2026-10-04 at 23.13.03 (1).jpeg": "readiness-panoramica",
+    },
+  },
+  "2026-10-04-cardio": {
+    date: "2026-10-04",
+    codice: "cardio",
+    files: {
+      "WhatsApp Image 2026-10-04 at 23.14.01.jpeg": "zone-effetto",
+      "WhatsApp Image 2026-10-04 at 23.14.01 (1).jpeg": "gct",
+      "WhatsApp Image 2026-10-04 at 23.14.01 (2).jpeg": "fc-grafico",
+      "WhatsApp Image 2026-10-04 at 23.14.01 (3).jpeg": "riepilogo",
+    },
+  },
   "foto allenamento 17 agosto": {
     date: "2026-08-17",
     scheda: 1,

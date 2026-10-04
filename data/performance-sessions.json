@@ -2222,6 +2222,89 @@
         "fatigue_atl": 41,
         "date": "2026-10-01"
       }
+    },
+    {
+      "id": "2026-10-04-cardio",
+      "date": "2026-10-04",
+      "time": "19:32",
+      "datetime": "2026-10-04T19:32",
+      "tipo": "cardio",
+      "codice": "CARDIO",
+      "scheda_label": "Cardio tapis",
+      "blocco": 1,
+      "month": "2026-10",
+      "durata_sec": 975,
+      "durata": "00:16:15",
+      "distanza_km": 1.14,
+      "passo": "14:07/km",
+      "passo_best": "13:32/km",
+      "fc_media": 134,
+      "fc_max": 144,
+      "calorie": 168,
+      "carico": 68,
+      "carico_sforzo_giorno": 26,
+      "oscillazione_cm": 6.1,
+      "gct_ms": 381,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0,
+        "intensiva": 0,
+        "aerobica": 4.18,
+        "anaerobica": 12.02,
+        "vo2max": 0
+      },
+      "zones": {
+        "vo2": { "pct": 0, "time": "00:00" },
+        "anaerobica": { "pct": 74, "time": "12:01" },
+        "aerobica": { "pct": 25, "time": "04:11" },
+        "intensiva": { "pct": 0, "time": "00:00" },
+        "leggera": { "pct": 0, "time": "00:00" }
+      },
+      "effect": {
+        "aerobic": 2.6,
+        "aerobic_label": "Medio",
+        "anaerobic": 0.1,
+        "anaerobic_label": "Nessun effetto"
+      },
+      "splits": [
+        { "km": 1, "passo": "14:11", "fc": 133, "tempo": "14:11" },
+        { "km": 0.14, "passo": "13:43", "fc": 133, "tempo": "16:15" }
+      ],
+      "readiness": {
+        "sleep_score": 62,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:00",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "0:57",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:36",
+        "sleep_wake": "1:15",
+        "sleep_wake_events": 2,
+        "sleep_regularity_pct": 28,
+        "sleep_bedtime": "00:55",
+        "sleep_wake_time": "08:10",
+        "sleep_hr_night": 53,
+        "hrv": 42,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 52,
+        "hybridcharge_wake": 50,
+        "hybridcharge_wake_label": "Basso",
+        "hybridcharge_post": 15,
+        "effort_day": 42,
+        "effort_goal": 27,
+        "hypopnea_h": 3.3,
+        "resp_rate": 11
+      },
+      "note": "Cardio tapis domenica 19:32 — 1,14 km in 16:15, passo 14'07\" (best 13'32\"), FC 134/144, 168 kcal, carico 68. Anaerobica 74% vs aerobica 25%, effetto 2,6 Medio / 0,1 nessuno. Sonno 6:00 score 62, HRV 42, HC 50→15, TSB −3 Bilanciato (CTL 39 / ATL 42).",
+      "tsb": {
+        "value": -3,
+        "label": "Bilanciato",
+        "fitness_ctl": 39,
+        "fatigue_atl": 42,
+        "date": "2026-10-04"
+      }
     }
   ]
 }
