@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v45 · Dark + Panel Relief Gold + Section themes */
+/* La Forza Quotidiana — v72 · Dark + Panel Relief Gold + Section themes */
 @import url("/css/lenis.css?v=1");
 :root {
   --bg: #0c0c0c;
@@ -6,7 +6,9 @@
   --surface-2: #1f1f1f;
   --text: #f4efe6;
   --text-secondary: #ddd5c9;
+  --text-body: #ccc4b8;
   --muted: #a39a90;
+  --link-prose: #e8a86a;
   --accent: #c9783a;
   --color-primary: #c9783a;
   --color-accent-warm: #f0c090;
@@ -862,7 +864,7 @@ body.theme-allenamenti .disclaimer {
 }
 .hero .lead {
   max-width: 42ch;
-  color: #ddd5c9;
+  color: var(--text-secondary);
   margin: 0 0 1.5rem;
 }
 .hero .tagline {
@@ -901,7 +903,7 @@ body.theme-allenamenti .disclaimer {
 }
 .hero--portrait .hero__content p,
 .hero--portrait .hero__content .lead {
-  color: #ddd5c9;
+  color: var(--text-secondary);
   text-shadow:
     0 1px 16px rgba(0, 0, 0, 0.88),
     0 1px 3px rgba(0, 0, 0, 0.92);
@@ -955,7 +957,7 @@ body.theme-allenamenti .disclaimer {
   }
   .hero--wide-scene .hero__content p,
   .hero--wide-scene .hero__content .lead {
-    color: #ddd5c9;
+    color: var(--text-secondary);
     text-shadow: none;
   }
   .hero--wide-scene .tagline {
@@ -1011,7 +1013,7 @@ body.theme-allenamenti .disclaimer {
   }
   .hero--scene-trio .hero__content p,
   .hero--scene-trio .hero__content .lead {
-    color: #ddd5c9;
+    color: var(--text-secondary);
     text-shadow: none;
   }
   .hero--scene-trio .tagline {
@@ -1035,7 +1037,7 @@ body.theme-allenamenti .disclaimer {
 }
 .diario-intro-lead {
   max-width: 52ch;
-  color: #ddd5c9;
+  color: var(--text-secondary);
   margin: 0 0 1.5rem;
   line-height: 1.55;
 }
@@ -1348,7 +1350,7 @@ body.theme-allenamenti .disclaimer {
   font-size: clamp(1.35rem, 3vw, 1.85rem);
   margin: 0 0 1rem;
 }
-.section p { color: #ddd5c9; }
+.section p { color: var(--text-secondary); }
 
 .dedicatio {
   border-left: 3px solid var(--accent);
@@ -1752,7 +1754,7 @@ article.hub-card:hover {
 }
 .entry h2 a { color: inherit; text-decoration: none; }
 .entry h2 a:hover { color: var(--accent); }
-.entry__excerpt { margin: 0; color: #ccc4b8; font-size: 0.95rem; }
+.entry__excerpt { margin: 0; color: var(--text-body); font-size: 0.95rem; }
 
 /* Foto sparpagliate / polaroid */
 .collage {
@@ -1840,11 +1842,11 @@ article.hub-card:hover {
 .prose h2 { margin-top: 2rem; }
 .prose h3 { margin-top: 1.5rem; font-size: 1.1rem; }
 .prose a {
-  color: #e8a86a;
+  color: var(--link-prose);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.prose a:hover { color: #f0c090; }
+.prose a:hover { color: var(--color-accent-warm); }
 
 .scheda-tagline {
   color: var(--accent);
@@ -1855,7 +1857,7 @@ article.hub-card:hover {
 }
 
 .scheda-pillars { margin: 1.25rem 0 2rem; }
-.scheda-pillars .card p { color: #ccc4b8; }
+.scheda-pillars .card p { color: var(--text-body); }
 
 .scheda-full {
   margin: 2rem 0;
@@ -1911,7 +1913,7 @@ article.hub-card:hover {
 
 .scheda-rules {
   padding-left: 1.25rem;
-  color: #ddd5c9;
+  color: var(--text-secondary);
 }
 .scheda-rules li { margin-bottom: 0.5rem; }
 
@@ -1933,7 +1935,7 @@ article.hub-card:hover {
   font-weight: 700;
   color: var(--accent);
 }
-.rir-scale dd { margin: 0; color: #ccc4b8; font-size: 0.92rem; }
+.rir-scale dd { margin: 0; color: var(--text-body); font-size: 0.92rem; }
 
 .disclaimer {
   margin: 2rem 0;
@@ -2141,14 +2143,14 @@ article.hub-card:hover {
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.88rem;
-  color: #ccc4b8;
+  color: var(--text-body);
 }
 .exercise-card__exec li { margin-bottom: 0.35rem; }
 
 /* Figure esercizi — illustrazioni SVG (sprite esercizi-sprite.svg) */
 :root {
   --fx-body: #f4efe6;
-  --fx-equip: #a89f95;
+  --fx-equip: var(--muted);
   --fx-frame: #6f6a64;
   --fx-pad: #3a3632;
   --fx-target: #c9783a;
@@ -2191,7 +2193,7 @@ article.hub-card:hover {
   border-radius: 18px;
 }
 .hr-section h2 { margin-top: 0; }
-.hr-section__intro { color: #ccc4b8; font-size: 0.95rem; max-width: 65ch; }
+.hr-section__intro { color: var(--text-body); font-size: 0.95rem; max-width: 65ch; }
 
 .hr-log {
   margin: 1.25rem 0;
@@ -2263,7 +2265,7 @@ article.hub-card:hover {
 .hr-zone--aer i { --zone-color: #5cb85c; }
 .hr-zone--int i { --zone-color: #5bc0de; }
 .hr-zone--leg i { --zone-color: #9b7bb8; }
-.hr-zone__time { text-align: right; color: #ccc4b8; font-variant-numeric: tabular-nums; }
+.hr-zone__time { text-align: right; color: var(--text-body); font-variant-numeric: tabular-nums; }
 
 .hr-effects {
   display: grid;
@@ -2565,7 +2567,7 @@ article.hub-card:hover {
   margin: 1rem 0 0;
   padding: 0.75rem 1rem;
   font-size: 0.88rem;
-  color: #ccc4b8;
+  color: var(--text-body);
   background: rgba(0, 0, 0, 0.25);
   border-left: 3px solid var(--accent);
   border-radius: 0 10px 10px 0;
@@ -2577,7 +2579,7 @@ article.hub-card:hover {
 
 .session-note {
   margin: 0 0 1.5rem;
-  color: #ccc4b8;
+  color: var(--text-body);
   font-size: 0.95rem;
 }
 
@@ -2679,7 +2681,7 @@ body.theme-allenamenti .session-list-hero::after {
 }
 .session-hero__sub {
   margin: 0 0 1.15rem;
-  color: #ccc4b8;
+  color: var(--text-body);
   font-size: 0.94rem;
   max-width: 52ch;
 }
@@ -3251,7 +3253,7 @@ body.theme-allenamenti .session-card__badge {
 .tsb-module__fallback { color: var(--muted); margin: 0; }
 .session-panel--tsb .session-panel__label { color: #6eb5f0; }
 
-.month-stats td:last-child { color: #ccc4b8; }
+.month-stats td:last-child { color: var(--text-body); }
 
 .scheda-full { display: none; }
 
@@ -3261,7 +3263,7 @@ body.theme-allenamenti .session-card__badge {
   color: var(--muted);
   font-size: 0.88rem;
 }
-.site-footer a { color: #ccc4b8; }
+.site-footer a { color: var(--text-body); }
 
 /* ——— GDPR / Cookie ——— */
 .footer-legal {
@@ -3272,7 +3274,7 @@ body.theme-allenamenti .session-card__badge {
   background: none;
   border: none;
   font: inherit;
-  color: #ccc4b8;
+  color: var(--text-body);
   text-decoration: underline;
   cursor: pointer;
   /* Target minimo 24x24 px — WCAG 2.2 SC 2.5.8 */
@@ -3391,7 +3393,7 @@ body.theme-allenamenti .session-card__badge {
   margin: 0;
   flex: 1 1 280px;
   font-size: 0.88rem;
-  color: #ccc4b8;
+  color: var(--text-body);
   max-width: 720px;
 }
 .cookie-banner__text a { color: var(--accent); }
@@ -3450,7 +3452,7 @@ body.theme-allenamenti .session-card__badge {
   margin: 0.75rem 0;
   padding-left: 1.15rem;
   font-size: 0.9rem;
-  color: #ccc4b8;
+  color: var(--text-body);
 }
 .cookie-modal__legal { font-size: 0.85rem; margin: 0.75rem 0; }
 .cookie-modal__actions {
@@ -3497,7 +3499,7 @@ body.theme-allenamenti .session-card__badge {
   border: 1px solid rgba(30, 58, 82, 0.5);
   border-radius: 12px;
   font-size: 0.85rem;
-  color: #ccc4b8;
+  color: var(--text-body);
 }
 .privacy-content-notice p { margin: 0; }
 .privacy-content-notice a { color: var(--accent); }
@@ -3807,7 +3809,7 @@ body.theme-allenamenti .hero.allenamenti-hero .hero__overlay {
   line-height: 1.1;
   margin: 0.5rem 0 1rem;
 }
-.allenamenti-hero .lead { max-width: 52ch; color: #ccc4b8; }
+.allenamenti-hero .lead { max-width: 52ch; color: var(--text-body); }
 
 .photo-mosaic {
   display: grid;

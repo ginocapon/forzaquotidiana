@@ -14,14 +14,23 @@
 
   var ul = nav && nav.querySelector("ul");
   if (ul) {
-    /* Menu desktop: Home · Chi sono · Allenamenti · Schede (niente Diario in barra) */
-    var diarioLink = ul.querySelector('a[href="/diario/"]');
-    if (diarioLink && diarioLink.parentNode) diarioLink.parentNode.remove();
-
+    /* Menu desktop: Home · Chi sono · Diario · Allenamenti · Personal trainer · Schede */
     var spec = [
       { href: "/", label: "Home", match: function (p) { return p === "/" || p === "/index.html"; } },
       { href: "/chi-sono/", label: "Chi sono", match: function (p) { return p.indexOf("/chi-sono") === 0; } },
-      { href: "/allenamenti/", label: "Allenamenti", match: function (p) { return p.indexOf("/allenamenti") === 0 && p.indexOf("/allenamenti/schede-peso") !== 0; } },
+      { href: "/diario/", label: "Diario", match: function (p) { return p.indexOf("/diario") === 0; } },
+      {
+        href: "/allenamenti/",
+        label: "Allenamenti",
+        match: function (p) {
+          return p.indexOf("/allenamenti") === 0 && p.indexOf("/allenamenti/schede-peso") !== 0;
+        }
+      },
+      {
+        href: "/personal-trainer/",
+        label: "Personal trainer",
+        match: function (p) { return p.indexOf("/personal-trainer") === 0; }
+      },
       {
         href: "/admin/",
         label: "Schede",
