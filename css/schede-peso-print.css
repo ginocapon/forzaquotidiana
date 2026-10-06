@@ -169,7 +169,7 @@
 }
 .scheda-a4__quad th:nth-child(1),
 .scheda-a4__quad td:nth-child(1) {
-  width: 38%;
+  width: 30%;
   font-weight: 700;
   font-size: 12pt;
   line-height: 1.18;
@@ -180,7 +180,7 @@
 }
 .scheda-a4__quad th:nth-child(2),
 .scheda-a4__quad td:nth-child(2) {
-  width: 10%;
+  width: 18%;
   white-space: nowrap;
   font-weight: 700;
 }

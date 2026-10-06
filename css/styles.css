@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v73 · Dark + Panel Relief Gold + Section themes */
+/* La Forza Quotidiana — v74 · Dark + Panel Relief Gold + Section themes */
 @import url("/css/lenis.css?v=1");
 :root {
   --bg: #0c0c0c;
@@ -1909,7 +1909,7 @@ article.hub-card:hover {
 }
 .scheda-table th:nth-child(1),
 .scheda-table td:nth-child(1) {
-  width: 40%;
+  width: 32%;
   white-space: normal;
   overflow-wrap: anywhere;
   word-wrap: break-word;
@@ -1920,7 +1920,7 @@ article.hub-card:hover {
 }
 .scheda-table th:nth-child(2),
 .scheda-table td:nth-child(2) {
-  width: 12%;
+  width: 20%;
   white-space: nowrap;
 }
 .scheda-table th:nth-child(3),

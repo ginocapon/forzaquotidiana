@@ -100,7 +100,7 @@ body.admin-page.schede-peso {
 
 .scheda-a4--admin table th:nth-child(1),
 .scheda-a4--admin table td:nth-child(1) {
-  width: 34%;
+  width: 27%;
   font-weight: 700;
   font-size: 12pt;
   line-height: 1.18;
@@ -112,7 +112,7 @@ body.admin-page.schede-peso {
 
 .scheda-a4--admin table th:nth-child(2),
 .scheda-a4--admin table td:nth-child(2) {
-  width: 9%;
+  width: 16%;
   color: #111111;
   font-weight: 700;
   white-space: nowrap;
