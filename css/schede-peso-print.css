@@ -149,6 +149,7 @@
   border-collapse: collapse;
   flex: 1;
   font-size: 13pt;
+  table-layout: fixed;
 }
 .scheda-a4__quad th,
 .scheda-a4__quad td {
@@ -166,9 +167,22 @@
 .scheda-a4__quad td {
   background: #ffffff;
 }
+.scheda-a4__quad th:nth-child(1),
 .scheda-a4__quad td:nth-child(1) {
+  width: 38%;
   font-weight: 700;
-  font-size: 14pt;
+  font-size: 12pt;
+  line-height: 1.18;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  vertical-align: top;
+}
+.scheda-a4__quad th:nth-child(2),
+.scheda-a4__quad td:nth-child(2) {
+  width: 10%;
+  white-space: nowrap;
+  font-weight: 700;
 }
 /* Celle vuote kg / Note: crema scrivibile a penna (tabella 5 colonne riassuntiva) */
 .scheda-a4__quad td:nth-child(3),
@@ -176,10 +190,12 @@
   background: var(--scheda-cell);
   color: var(--scheda-cell-ink);
 }
-.scheda-a4__quad td:nth-child(2) { width: 11%; white-space: nowrap; font-weight: 700; }
-.scheda-a4__quad td:nth-child(3) { width: 8%; }
-.scheda-a4__quad td:nth-child(4) { width: 12%; }
-.scheda-a4__quad td:nth-child(5) { width: 12%; }
+.scheda-a4__quad th:nth-child(3),
+.scheda-a4__quad td:nth-child(3) { width: 7%; }
+.scheda-a4__quad th:nth-child(4),
+.scheda-a4__quad td:nth-child(4) { width: 10%; }
+.scheda-a4__quad th:nth-child(5),
+.scheda-a4__quad td:nth-child(5) { width: 8%; }
 .scheda-a4__filler {
   border-color: #ddd !important;
   background: #f7f4ee !important;

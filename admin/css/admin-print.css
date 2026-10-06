@@ -98,28 +98,46 @@ body.admin-page.schede-peso {
   color: #111111;
 }
 
+.scheda-a4--admin table th:nth-child(1),
 .scheda-a4--admin table td:nth-child(1) {
+  width: 34%;
   font-weight: 700;
-  font-size: 14pt;
+  font-size: 12pt;
+  line-height: 1.18;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  vertical-align: top;
 }
 
+.scheda-a4--admin table th:nth-child(2),
 .scheda-a4--admin table td:nth-child(2) {
+  width: 9%;
   color: #111111;
   font-weight: 700;
   white-space: nowrap;
 }
 
+.scheda-a4--admin table th:nth-child(3),
 .scheda-a4--admin table td:nth-child(3),
+.scheda-a4--admin table th:nth-child(4),
 .scheda-a4--admin table td:nth-child(4) {
+  width: 10%;
   background: #ffffff;
 }
 
-/* kg + reps + note: celle crema da compilare a penna */
+/* kg + reps + note: celle crema da compilare a penna (strette ma sufficienti a penna) */
+.scheda-a4--admin table th:nth-child(5),
 .scheda-a4--admin table td:nth-child(5),
+.scheda-a4--admin table th:nth-child(6),
 .scheda-a4--admin table td:nth-child(6),
+.scheda-a4--admin table th:nth-child(7),
 .scheda-a4--admin table td:nth-child(7) {
+  width: 6.5%;
+  min-width: 0;
   background: #fff8e8;
-  min-width: 11mm;
+  padding-left: 0.7mm;
+  padding-right: 0.7mm;
 }
 
 .scheda-a4--admin .scheda-a4__filler {

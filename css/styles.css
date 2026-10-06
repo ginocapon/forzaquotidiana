@@ -1,4 +1,4 @@
-/* La Forza Quotidiana — v72 · Dark + Panel Relief Gold + Section themes */
+/* La Forza Quotidiana — v73 · Dark + Panel Relief Gold + Section themes */
 @import url("/css/lenis.css?v=1");
 :root {
   --bg: #0c0c0c;
@@ -1892,12 +1892,14 @@ article.hub-card:hover {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.88rem;
+  table-layout: fixed;
 }
 .scheda-table th,
 .scheda-table td {
   padding: 0.55rem 0.45rem;
   text-align: left;
   border-bottom: 1px solid var(--line);
+  vertical-align: top;
 }
 .scheda-table th {
   color: var(--muted);
@@ -1905,10 +1907,34 @@ article.hub-card:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.scheda-table td:first-child {
+.scheda-table th:nth-child(1),
+.scheda-table td:nth-child(1) {
+  width: 40%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+}
+.scheda-table td:nth-child(1) {
   color: var(--accent);
   font-weight: 600;
-  width: 2rem;
+}
+.scheda-table th:nth-child(2),
+.scheda-table td:nth-child(2) {
+  width: 12%;
+  white-space: nowrap;
+}
+.scheda-table th:nth-child(3),
+.scheda-table td:nth-child(3) {
+  width: 9%;
+}
+.scheda-table th:nth-child(4),
+.scheda-table td:nth-child(4) {
+  width: 11%;
+}
+.scheda-table th:nth-child(5),
+.scheda-table td:nth-child(5) {
+  width: 28%;
+  white-space: normal;
 }
 
 .scheda-rules {
