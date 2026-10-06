@@ -259,3 +259,15 @@ body.admin-page.schede-peso {
     background: #fff8e8 !important;
   }
 }
+
+@media (max-width: 900px) {
+  .scheda-a4--admin table th:nth-child(1),
+  .scheda-a4--admin table td:nth-child(1) {
+    width: 24%;
+  }
+  .scheda-a4--admin table th:nth-child(2),
+  .scheda-a4--admin table td:nth-child(2) {
+    width: 18%;
+    min-width: 2.5rem;
+  }
+}
