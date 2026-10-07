@@ -2477,6 +2477,15 @@ article.hub-card:hover {
   max-width: 28rem;
   margin-inline: auto;
 }
+.amazfit-fc-hero .phone-shot--full .phone-shot__frame {
+  max-width: min(100%, 36rem);
+}
+.session-panel--readiness .amazfit-gallery,
+.session-panel--readiness .amazfit-data,
+.session-panel--readiness .amazfit-tsb-hero {
+  width: 100%;
+  max-width: none;
+}
 
 /* Riepilogo Zepp — in primo piano, riga dedicata */
 .amazfit-riepilogo-hero {
