@@ -2305,6 +2305,82 @@
         "fatigue_atl": 42,
         "date": "2026-10-04"
       }
+    },
+    {
+      "id": "2026-10-07-b1",
+      "date": "2026-10-07",
+      "time": "14:35",
+      "datetime": "2026-10-07T14:35",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-10",
+      "durata_sec": 3683,
+      "durata": "01:01:23",
+      "recupero_sec": 2540,
+      "recupero": "42:20",
+      "gruppi": 28,
+      "fc_media": 122,
+      "fc_max": 154,
+      "calorie": 550,
+      "carico": 122,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 1.45,
+        "intensiva": 14.48,
+        "aerobica": 31.58,
+        "anaerobica": 11.35,
+        "vo2max": 2.38
+      },
+      "effect": {
+        "aerobic": 3.2,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.5,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_score": 67,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:18",
+        "sleep_duration_label": "Medio",
+        "sleep_deep": "0:46",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:51",
+        "sleep_wake": "0:00",
+        "sleep_regularity_pct": 64,
+        "sleep_bedtime": "00:35",
+        "sleep_wake_time": "07:29",
+        "sleep_hr_night": 54,
+        "hrv": 40,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 53,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 63,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_post": 28,
+        "hybridcharge_delta": -13,
+        "effort_day": 93,
+        "effort_goal": 60,
+        "hypopnea_h": 1.4,
+        "resp_rate": 11
+      },
+      "tecnica": {
+        "consistenza": "Gamma quasi uniforme con stabilità eccezionale",
+        "stability": "Movimenti per lo più stabili con lievi scosse",
+        "continuity": "Per lo più fluidi con pause minori",
+        "rhythm": "Tempi coerenti, ritmo uniforme",
+        "speed_decay": "Decadimento ragionevole, buona efficacia"
+      },
+      "note": "B1 mercoledì 14:35 — gambe accosciata · polpacci · braccia, settimana 6 Blocco 1 dopo cardio 4/10. 28 serie in 01:01:23, carico 122, FC 122/154, effetto aerobico 3,2 Buono e anaerobico 2,5 Medio. Sonno 6:18 (00:35–07:29, score 67), HRV 40 Buono, HybridCharge 63→28 (−13). TSB −1,0 Bilanciato (CTL 41 / ATL 42). Sforzo 93/60 (100%).",
+      "tsb": {
+        "value": -1,
+        "label": "Bilanciato",
+        "fitness_ctl": 41,
+        "fatigue_atl": 42,
+        "date": "2026-10-07"
+      }
     }
   ]
 }
