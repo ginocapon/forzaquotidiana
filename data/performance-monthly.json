@@ -114,19 +114,20 @@
     {
       "month": "2026-10",
       "label": "ottobre 2026",
-      "sessioni_totali": 3,
-      "sessioni_con_export": 3,
-      "durata_totale_sec": 5918,
-      "durata_totale": "01:38:38",
-      "fc_media": 124,
-      "calorie_totale": 908,
+      "sessioni_totali": 4,
+      "sessioni_con_export": 4,
+      "durata_totale_sec": 9327,
+      "durata_totale": "02:35:27",
+      "fc_media": 123,
+      "calorie_totale": 1413,
       "calorie_asterisk": false,
-      "carico_medio": 82,
+      "carico_medio": 96,
       "carico_asterisk": false,
-      "gruppi_medio": 28,
+      "gruppi_medio": 26,
       "sessioni_ids": [
         "2026-10-01-cardio",
         "2026-10-04-cardio",
+        "2026-10-05-a1",
         "2026-10-07-b1"
       ],
       "in_trimestre": false
@@ -389,31 +390,37 @@
       "labels": [
         "01 ott Cardio tapis",
         "04 ott Cardio tapis",
+        "05 ott S1",
         "07 ott S2"
       ],
       "durata_min": [
         21,
         16,
+        57,
         61
       ],
       "fc_media": [
         123,
         134,
+        122,
         122
       ],
       "calorie": [
         190,
         168,
+        505,
         550
       ],
       "carico": [
         55,
         68,
+        138,
         122
       ],
       "gruppi": [
         null,
         null,
+        24,
         28
       ]
     }
