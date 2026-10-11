@@ -2460,6 +2460,73 @@
         "fatigue_atl": 42,
         "date": "2026-10-07"
       }
+    },
+    {
+      "id": "2026-10-09-a2",
+      "date": "2026-10-09",
+      "time": "16:41",
+      "datetime": "2026-10-09T16:41",
+      "codice": "A2",
+      "blocco": 1,
+      "scheda": 3,
+      "month": "2026-10",
+      "durata_sec": 4181,
+      "durata": "01:09:41",
+      "recupero_sec": 3065,
+      "recupero": "51:05",
+      "gruppi": 28,
+      "fc_media": 121,
+      "fc_max": 156,
+      "calorie": 616,
+      "carico": 131,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 2.1,
+        "intensiva": 17.25,
+        "aerobica": 34.83,
+        "anaerobica": 14.82,
+        "vo2max": 0.67
+      },
+      "effect": {
+        "aerobic": 3.3,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.6,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_score": 76,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "7:42",
+        "sleep_duration_label": "Ottimale",
+        "sleep_deep": "1:34",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:55",
+        "sleep_wake": "2:01",
+        "sleep_regularity_pct": 90,
+        "sleep_bedtime": "21:43",
+        "sleep_wake_time": "07:26",
+        "sleep_hr_night": 55,
+        "hrv": 36,
+        "hrv_label": "Fai attenzione",
+        "hrv_baseline": 43,
+        "resting_hr": 53,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 79,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_post": 26,
+        "effort_day": 95,
+        "effort_goal": 92,
+        "hypopnea_h": 2.2
+      },
+      "note": "A2 venerdì 16:41 — petto · schiena · spalle, settimana 6 Blocco 1. 28 serie in 01:09:41, carico 131, FC 121/156, effetto aerobico/anaerobico 3,3/2,6 Buono/Medio. Sonno 7:42 (21:43–07:26, score 76), HRV 36 (baseline 43), HybridCharge 79→26. TSB export −2,0 Bilanciato (CTL 41 / ATL 43). Sforzo 95/92 (100%).",
+      "tsb": {
+        "value": -2,
+        "label": "Bilanciato",
+        "fitness_ctl": 41,
+        "fatigue_atl": 43,
+        "date": "2026-10-09"
+      }
     }
   ]
 }

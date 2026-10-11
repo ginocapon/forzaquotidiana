@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-11",
   "source": "data/performance-sessions.json",
-  "sessions_total": 41,
-  "sessions_with_readiness": 27,
-  "sessions_with_tsb": 35,
+  "sessions_total": 42,
+  "sessions_with_readiness": 28,
+  "sessions_with_tsb": 36,
   "gaps": [
     {
       "id": "2026-07-16-scheda-1",
@@ -972,6 +972,28 @@
       "effort_day": 93,
       "effort_goal": 60,
       "sleep_hr_night": 54
+    },
+    {
+      "id": "2026-10-09-a2",
+      "date": "2026-10-09",
+      "codice": "A2",
+      "partial": false,
+      "fc_media": 121,
+      "fc_max": 156,
+      "sleep_min": 462,
+      "sleep_duration": "7:42",
+      "sleep_score": 76,
+      "hrv": 36,
+      "hrv_label": "Fai attenzione",
+      "hybridcharge_wake": 79,
+      "resting_hr": 53,
+      "tsb": -2,
+      "tsb_label": "Bilanciato",
+      "ctl": 41,
+      "atl": 43,
+      "effort_day": 95,
+      "effort_goal": 92,
+      "sleep_hr_night": 55
     }
   ]
 }
