@@ -2539,10 +2539,28 @@
       "month": "2026-10",
       "durata_sec": 3392,
       "durata": "00:56:32",
+      "recupero_sec": 2563,
+      "recupero": "42:43",
       "gruppi": 22,
       "fc_media": 124,
+      "fc_max": 155,
+      "calorie": 517,
+      "carico": 128,
       "duration_corrected": false,
-      "partial": true,
+      "partial": false,
+      "zones_min": {
+        "leggera": 0.83,
+        "intensiva": 14.55,
+        "aerobica": 22.6,
+        "anaerobica": 16.78,
+        "vo2max": 1.72
+      },
+      "effect": {
+        "aerobic": 3.3,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.8,
+        "anaerobic_label": "Medio"
+      },
       "readiness": {
         "sleep_score": 52,
         "sleep_score_label": "Fai attenzione",
@@ -2568,7 +2586,7 @@
         "effort_goal": 71,
         "hypopnea_h": 5.3
       },
-      "note": "B2 sabato 12:05 — allenamento muscolare, settimana 6 Blocco 1. 22 serie in 00:56:32, FC media 124. Export parziale: mancano calorie, FC max, carico, zone, effetto e muscoli del workout. Sonno 4:24 (02:23–06:55, score 52) più pisolino 0:43, HRV 45 Buono, HybridCharge 46→5. TSB export −3,0 Bilanciato (CTL 43 / ATL 46). Sforzo 110/71 (100%).",
+      "note": "B2 sabato 12:05 — allenamento muscolare, settimana 6 Blocco 1. 22 serie in 00:56:32, carico 128, FC 124/155, 517 kcal, effetto aerobico/anaerobico 3,3/2,8 Buono/Medio. Sonno 4:24 (02:23–06:55, score 52) più pisolino 0:43, HRV 45 Buono, HybridCharge 46→5. TSB export −3,0 Bilanciato (CTL 43 / ATL 46). Sforzo 110/71 (100%).",
       "tsb": {
         "value": -3,
         "label": "Bilanciato",

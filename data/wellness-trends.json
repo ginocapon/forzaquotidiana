@@ -68,10 +68,6 @@
     {
       "id": "2026-09-26-b2",
       "issue": "readiness incompleto: sonno, hrv"
-    },
-    {
-      "id": "2026-10-10-b2",
-      "issue": "export parziale"
     }
   ],
   "points": [
@@ -1003,9 +999,9 @@
       "id": "2026-10-10-b2",
       "date": "2026-10-10",
       "codice": "B2",
-      "partial": true,
+      "partial": false,
       "fc_media": 124,
-      "fc_max": null,
+      "fc_max": 155,
       "sleep_min": 264,
       "sleep_duration": "4:24",
       "sleep_score": 52,
