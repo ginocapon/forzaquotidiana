@@ -2527,6 +2527,55 @@
         "fatigue_atl": 43,
         "date": "2026-10-09"
       }
+    },
+    {
+      "id": "2026-10-10-b2",
+      "date": "2026-10-10",
+      "time": "12:05",
+      "datetime": "2026-10-10T12:05",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-10",
+      "durata_sec": 3392,
+      "durata": "00:56:32",
+      "gruppi": 22,
+      "fc_media": 124,
+      "duration_corrected": false,
+      "partial": true,
+      "readiness": {
+        "sleep_score": 52,
+        "sleep_score_label": "Fai attenzione",
+        "sleep_duration": "4:24",
+        "sleep_duration_label": "Fai attenzione",
+        "sleep_deep": "0:45",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:14",
+        "sleep_wake": "0:08",
+        "sleep_regularity_pct": 68,
+        "sleep_bedtime": "02:23",
+        "sleep_wake_time": "06:55",
+        "sleep_hr_night": 50,
+        "hrv": 45,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 49,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 46,
+        "hybridcharge_wake_label": "Basso",
+        "hybridcharge_post": 5,
+        "effort_day": 110,
+        "effort_goal": 71,
+        "hypopnea_h": 5.3
+      },
+      "note": "B2 sabato 12:05 — allenamento muscolare, settimana 6 Blocco 1. 22 serie in 00:56:32, FC media 124. Export parziale: mancano calorie, FC max, carico, zone, effetto e muscoli del workout. Sonno 4:24 (02:23–06:55, score 52) più pisolino 0:43, HRV 45 Buono, HybridCharge 46→5. TSB export −3,0 Bilanciato (CTL 43 / ATL 46). Sforzo 110/71 (100%).",
+      "tsb": {
+        "value": -3,
+        "label": "Bilanciato",
+        "fitness_ctl": 43,
+        "fatigue_atl": 46,
+        "date": "2026-10-10"
+      }
     }
   ]
 }

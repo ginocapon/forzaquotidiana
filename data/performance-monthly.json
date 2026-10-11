@@ -114,7 +114,7 @@
     {
       "month": "2026-10",
       "label": "ottobre 2026",
-      "sessioni_totali": 5,
+      "sessioni_totali": 6,
       "sessioni_con_export": 5,
       "durata_totale_sec": 13508,
       "durata_totale": "03:45:08",
@@ -129,7 +129,8 @@
         "2026-10-04-cardio",
         "2026-10-05-a1",
         "2026-10-07-b1",
-        "2026-10-09-a2"
+        "2026-10-09-a2",
+        "2026-10-10-b2"
       ],
       "in_trimestre": false
     }

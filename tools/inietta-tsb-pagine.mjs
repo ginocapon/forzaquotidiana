@@ -56,6 +56,7 @@ const SESSION_PAGES = [
   { file: "allenamenti/sessioni/2026-10-05-a1/index.html", date: "2026-10-05" },
   { file: "allenamenti/sessioni/2026-10-07-b1/index.html", date: "2026-10-07" },
   { file: "allenamenti/sessioni/2026-10-09-a2/index.html", date: "2026-10-09" },
+  { file: "allenamenti/sessioni/2026-10-10-b2/index.html", date: "2026-10-10" },
 ];
 
 const MONTH_KEYS = ["2026-06", "2026-07", "2026-08"];
