@@ -5575,3 +5575,44 @@ body.theme-allenamenti .fq-overlay-nav a:is(:active, :focus-visible, :hover) .fq
   }
 }
 
+
+/* Estetica allenamenti 2026-10-11 — leggibilita link, grafico TSB, gallerie su telefono */
+.session-hero__refs a {
+  color: #f0c090;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.session-hero__refs a:hover { color: #ffd9b0; }
+.tsb-module__status--ottimale { color: #8fb8ff; }
+.tsb-module__status--bilanciato { color: #8cc8f8; }
+.tsb-module__zones {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.tsb-module__legend {
+  margin-top: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 599px) {
+  .tsb-axis-y,
+  .tsb-axis-x { font-size: 19px; }
+  .tsb-module__zones { font-size: 0.62rem; }
+  .amazfit-gallery,
+  .guile-strip {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0.9rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.6rem;
+    margin-right: -0.5rem;
+  }
+  .amazfit-gallery .phone-shot,
+  .guile-strip .guile-card {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+  .guile-strip .guile-card { flex-basis: 78%; }
+}
