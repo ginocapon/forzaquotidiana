@@ -247,3 +247,67 @@
     });
   }
 })();
+
+/* Barra di navigazione mobile: Indietro · Sezione · Menu (pagine interne, solo telefono) */
+(function () {
+  var path = location.pathname.replace(/index\.html$/, "");
+  if (path === "/" || path === "") return;
+  if (document.querySelector(".fq-backbar")) return;
+
+  function parentOf(p) {
+    var parts = p.split("/").filter(Boolean);
+    parts.pop();
+    return parts.length ? "/" + parts.join("/") + "/" : "/";
+  }
+  var labels = {
+    "/diario/": "Diario",
+    "/allenamenti/": "Allenamenti",
+    "/allenamenti/sessioni/": "Sessioni",
+    "/admin/": "Schede",
+    "/personal-trainer/": "Personal trainer"
+  };
+  var up = parentOf(path);
+  var upLabel = labels[up] || (up === "/" ? "Home" : "Su");
+
+  var style = document.createElement("style");
+  style.textContent =
+    ".fq-backbar{display:none}" +
+    "@media (max-width:900px){" +
+    ".fq-backbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(14,14,14,.92);border-top:1px solid rgba(201,120,58,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}" +
+    ".fq-backbar a,.fq-backbar button{flex:1 1 0;min-height:44px;display:flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;font-weight:600;font-size:.9rem;line-height:1.1;color:#f4efe6;background:rgba(201,120,58,.14);border:1px solid rgba(201,120,58,.45);border-radius:999px;text-decoration:none;cursor:pointer;padding:0 10px}" +
+    ".fq-backbar a:active,.fq-backbar button:active{background:rgba(201,120,58,.35)}" +
+    "body.site-shell{padding-bottom:calc(64px + env(safe-area-inset-bottom))}" +
+    "}" +
+    "@media print{.fq-backbar{display:none!important}}";
+  document.head.appendChild(style);
+
+  var bar = document.createElement("nav");
+  bar.className = "fq-backbar no-print";
+  bar.setAttribute("aria-label", "Navigazione rapida");
+
+  var back = document.createElement("button");
+  back.type = "button";
+  back.innerHTML = "<span aria-hidden=\"true\">←</span> Indietro";
+  back.addEventListener("click", function () {
+    var sameSite = document.referrer && document.referrer.indexOf(location.origin) === 0;
+    if (sameSite && history.length > 1) history.back();
+    else location.href = up;
+  });
+  bar.appendChild(back);
+
+  var upLink = document.createElement("a");
+  upLink.href = up;
+  upLink.innerHTML = "<span aria-hidden=\"true\">↑</span> " + upLabel;
+  bar.appendChild(upLink);
+
+  var menu = document.createElement("button");
+  menu.type = "button";
+  menu.innerHTML = "<span aria-hidden=\"true\">☰</span> Menu";
+  menu.addEventListener("click", function () {
+    var t = document.querySelector(".nav-toggle");
+    if (t) t.click();
+  });
+  bar.appendChild(menu);
+
+  document.body.appendChild(bar);
+})();
