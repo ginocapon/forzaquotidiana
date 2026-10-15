@@ -1,0 +1,367 @@
+/* Programma allenamento Luana — PDF A4 portrait */
+:root {
+  --accent: #2d6a4f;
+  --accent-light: #40916c;
+  --accent-bg: #f0f7f4;
+  --text: #1a1a1a;
+  --muted: #555;
+  --border: #c5d9ce;
+  --fig-bg: #eef4f0;
+}
+
+* { box-sizing: border-box; }
+
+body.luana-pdf {
+  margin: 0;
+  background: #e8ece9;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.luana-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #1b4332;
+  color: #f4f7f5;
+  padding: 0.75rem 1rem;
+}
+.luana-toolbar__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.luana-toolbar p { margin: 0; font-size: 0.9rem; }
+.luana-toolbar .btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.luana-toolbar .btn-primary {
+  background: var(--accent-light);
+  color: #fff;
+}
+.luana-toolbar .btn-ghost {
+  background: transparent;
+  color: #d8f3dc;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.luana-page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 1rem auto;
+  padding: 10mm 12mm;
+  background: #fff;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.1);
+  page-break-after: always;
+  break-after: page;
+}
+.luana-page:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+.luana-cover {
+  display: flex;
+  flex-direction: column;
+  min-height: 277mm;
+}
+.luana-cover__head {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 4mm;
+  margin-bottom: 5mm;
+}
+.luana-cover__brand {
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 2mm;
+}
+.luana-cover__title {
+  margin: 0 0 2mm;
+  font-size: 22pt;
+  line-height: 1.15;
+  color: var(--text);
+}
+.luana-cover__subtitle {
+  margin: 0;
+  font-size: 12pt;
+  color: var(--muted);
+}
+.luana-cover__name {
+  display: inline-block;
+  margin-top: 3mm;
+  padding: 1.5mm 4mm;
+  background: var(--accent-bg);
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  font-size: 14pt;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.luana-section {
+  margin-bottom: 4mm;
+}
+.luana-section h2 {
+  margin: 0 0 2mm;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1mm;
+}
+.luana-section p,
+.luana-section li {
+  margin: 0 0 1.5mm;
+  font-size: 9.5pt;
+  color: var(--text);
+}
+.luana-section ul {
+  margin: 0;
+  padding-left: 5mm;
+}
+
+.luana-profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 4mm;
+  font-size: 9.5pt;
+  margin-bottom: 3mm;
+}
+.luana-profile-grid dt {
+  font-weight: 700;
+  color: var(--accent);
+}
+.luana-profile-grid dd {
+  margin: 0 0 1.5mm;
+}
+
+.luana-kcal-box {
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3mm;
+  margin: 3mm 0;
+}
+.luana-kcal-box h3 {
+  margin: 0 0 2mm;
+  font-size: 10pt;
+  color: var(--accent);
+}
+.luana-kcal-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3mm;
+  margin-top: 3mm;
+}
+.luana-kcal-card {
+  flex: 1;
+  min-width: 45mm;
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  padding: 3mm;
+  text-align: center;
+}
+.luana-kcal-card__value {
+  font-size: 18pt;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.luana-kcal-card__label {
+  font-size: 8pt;
+  color: var(--muted);
+  margin-top: 1mm;
+}
+
+table.luana-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9pt;
+  margin: 2mm 0;
+}
+table.luana-table th,
+table.luana-table td {
+  border: 1px solid var(--border);
+  padding: 1.5mm 2mm;
+  text-align: left;
+  vertical-align: top;
+}
+table.luana-table th {
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 8pt;
+}
+table.luana-table .num { text-align: center; white-space: nowrap; }
+
+.luana-day-head {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+  color: #fff;
+  padding: 3mm 4mm;
+  border-radius: 4px;
+  margin-bottom: 3mm;
+}
+.luana-day-head h1 {
+  margin: 0 0 1mm;
+  font-size: 14pt;
+}
+.luana-day-head p {
+  margin: 0;
+  font-size: 9pt;
+  opacity: 0.95;
+}
+.luana-day-kcal {
+  display: inline-block;
+  margin-top: 2mm;
+  padding: 1mm 3mm;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  font-size: 9pt;
+  font-weight: 700;
+}
+
+.luana-warmup {
+  background: #fafcf9;
+  border-left: 3px solid var(--accent-light);
+  padding: 2mm 3mm;
+  margin-bottom: 3mm;
+  font-size: 9pt;
+}
+.luana-warmup strong { color: var(--accent); }
+
+.luana-ex {
+  display: grid;
+  grid-template-columns: 34mm 1fr;
+  gap: 3mm;
+  padding: 2.5mm 0;
+  border-bottom: 1px solid var(--border);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  align-items: start;
+}
+.luana-ex:last-child { border-bottom: none; }
+
+.luana-ex__fig {
+  width: 34mm;
+  height: 34mm;
+  background: var(--fig-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  --fx-body: #1a1a1a;
+  --fx-equip: #5a7a68;
+  --fx-frame: #7a9a88;
+  --fx-pad: #d8e8de;
+  --fx-target: #2d6a4f;
+}
+.luana-ex__fig svg { width: 32mm; height: 32mm; }
+
+.luana-ex__name {
+  margin: 0 0 1mm;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--text);
+}
+.luana-ex__params {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm 2mm;
+  margin-bottom: 1.5mm;
+  font-size: 9pt;
+}
+.luana-ex__params span {
+  background: var(--accent-bg);
+  padding: 0.5mm 2mm;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.luana-ex__note {
+  margin: 0;
+  font-size: 8.5pt;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.luana-note-box {
+  margin-top: 3mm;
+  padding: 2mm 3mm;
+  background: #fffbf0;
+  border: 1px solid #e6d5a8;
+  border-radius: 3px;
+  font-size: 8pt;
+  color: #665522;
+}
+
+.luana-progress-list {
+  counter-reset: prog;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.luana-progress-list li {
+  counter-increment: prog;
+  padding-left: 6mm;
+  position: relative;
+  margin-bottom: 2mm;
+  font-size: 9pt;
+}
+.luana-progress-list li::before {
+  content: counter(prog);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4.5mm;
+  height: 4.5mm;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 7pt;
+  font-weight: 700;
+  text-align: center;
+  line-height: 4.5mm;
+}
+
+.luana-footer {
+  margin-top: auto;
+  padding-top: 4mm;
+  border-top: 1px solid var(--border);
+  font-size: 7.5pt;
+  color: #888;
+  text-align: center;
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 8mm; }
+  .no-print { display: none !important; }
+  body.luana-pdf { background: #fff; }
+  .luana-page {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .luana-page { width: 100%; padding: 1rem; }
+}
