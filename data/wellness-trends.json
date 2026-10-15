@@ -1,9 +1,9 @@
 {
-  "updated": "2026-10-13",
+  "updated": "2026-10-15",
   "source": "data/performance-sessions.json",
-  "sessions_total": 44,
-  "sessions_with_readiness": 30,
-  "sessions_with_tsb": 38,
+  "sessions_total": 45,
+  "sessions_with_readiness": 31,
+  "sessions_with_tsb": 39,
   "gaps": [
     {
       "id": "2026-07-16-scheda-1",
@@ -1038,6 +1038,28 @@
       "effort_day": 129,
       "effort_goal": 58,
       "sleep_hr_night": 53
+    },
+    {
+      "id": "2026-10-14-b1",
+      "date": "2026-10-14",
+      "codice": "B1",
+      "partial": false,
+      "fc_media": 120,
+      "fc_max": 160,
+      "sleep_min": 383,
+      "sleep_duration": "6:23",
+      "sleep_score": 67,
+      "hrv": 41,
+      "hrv_label": "Buono",
+      "hybridcharge_wake": 78,
+      "resting_hr": 52,
+      "tsb": -3,
+      "tsb_label": "Bilanciato",
+      "ctl": 44,
+      "atl": 47,
+      "effort_day": 106,
+      "effort_goal": 108,
+      "sleep_hr_night": 51
     }
   ]
 }

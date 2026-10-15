@@ -2667,6 +2667,71 @@
         "fatigue_atl": 51,
         "date": "2026-10-12"
       }
+    },
+    {
+      "id": "2026-10-14-b1",
+      "date": "2026-10-14",
+      "time": "12:50",
+      "datetime": "2026-10-14T12:50",
+      "codice": "B1",
+      "blocco": 1,
+      "scheda": 2,
+      "month": "2026-10",
+      "durata_sec": 3570,
+      "durata": "00:59:30",
+      "recupero_sec": 2774,
+      "recupero": "46:14",
+      "gruppi": 26,
+      "fc_media": 120,
+      "fc_max": 160,
+      "calorie": 517,
+      "carico": 136,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 4.13,
+        "intensiva": 18.32,
+        "aerobica": 23.12,
+        "anaerobica": 9.08,
+        "vo2max": 4.77
+      },
+      "effect": {
+        "aerobic": 3.3,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.9,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_score": 67,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:23",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "1:37",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:09",
+        "sleep_wake": "0:57",
+        "sleep_regularity_pct": 62,
+        "sleep_bedtime": "23:43",
+        "sleep_wake_time": "07:03",
+        "sleep_hr_night": 51,
+        "hrv": 41,
+        "hrv_label": "Buono",
+        "resting_hr": 52,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 78,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_post": 29,
+        "effort_day": 106,
+        "effort_goal": 108
+      },
+      "note": "B1 mercoledì 12:50 — allenamento muscolare, settimana 7 Blocco 1. 26 serie in 59:30 (recuperi 46:14), carico 136, FC 120/160, 517 kcal, effetto aerobico 3,3 Buono / anaerobico 2,9 Medio. Sonno 6:23 (23:43–07:03, score 67), HRV 41 Buono, FC riposo 52, HybridCharge 78→29. TSB Zepp −3,0 Bilanciato (CTL 44 / ATL 47). Sforzo 106/108 (98%).",
+      "tsb": {
+        "value": -3,
+        "label": "Bilanciato",
+        "fitness_ctl": 44,
+        "fatigue_atl": 47,
+        "date": "2026-10-14"
+      }
     }
   ]
 }
