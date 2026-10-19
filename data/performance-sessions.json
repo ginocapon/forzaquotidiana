@@ -2797,6 +2797,102 @@
         "fatigue_atl": 44,
         "date": "2026-10-16"
       }
+    },
+    {
+      "id": "2026-10-17-b2",
+      "date": "2026-10-17",
+      "time": "11:45",
+      "datetime": "2026-10-17T11:45",
+      "codice": "B2",
+      "blocco": 1,
+      "scheda": 4,
+      "month": "2026-10",
+      "durata_sec": 4782,
+      "durata": "01:19:41",
+      "recupero_sec": 4093,
+      "recupero": "01:08:13",
+      "gruppi": 24,
+      "fc_media": 120,
+      "fc_max": 156,
+      "calorie": 691,
+      "carico": 139,
+      "duration_corrected": false,
+      "partial": false,
+      "zones_min": {
+        "leggera": 3.1333333333333333,
+        "intensiva": 23.033333333333335,
+        "aerobica": 36.2,
+        "anaerobica": 14.016666666666667,
+        "vo2max": 2.7666666666666666
+      },
+      "zones": {
+        "leggera": {
+          "pct": 3,
+          "time": "03:08"
+        },
+        "intensiva": {
+          "pct": 28,
+          "time": "23:02"
+        },
+        "aerobica": {
+          "pct": 45,
+          "time": "36:12"
+        },
+        "anaerobica": {
+          "pct": 17,
+          "time": "14:01"
+        },
+        "vo2": {
+          "pct": 3,
+          "time": "02:46"
+        }
+      },
+      "effect": {
+        "aerobic": 3.3,
+        "aerobic_label": "Buono",
+        "anaerobic": 3.5,
+        "anaerobic_label": "Buono"
+      },
+      "readiness": {
+        "sleep_score": 61,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:17",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "1:37",
+        "sleep_deep_label": "Leggero",
+        "sleep_rem": "1:13",
+        "sleep_wake": "1:58",
+        "sleep_awakenings": 8,
+        "sleep_regularity_pct": 86,
+        "sleep_bedtime": "00:23",
+        "sleep_wake_time": "08:38",
+        "sleep_hr_night": 54,
+        "sleep_respiratory_rate": 11,
+        "sleep_hypopnea_per_h": 3.6,
+        "nap_duration": "0:45",
+        "nap_time": "21:44-22:29",
+        "hrv": 43,
+        "hrv_label": "Buono",
+        "hrv_baseline": 43,
+        "resting_hr": 52,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 61,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_min": 18,
+        "hybridcharge_max": 61,
+        "hybridcharge_snapshot": 25,
+        "hybridcharge_workout_delta": -15,
+        "effort_day": 108,
+        "effort_goal": 99
+      },
+      "note": "B2 sabato 17 ottobre 11:45, settimana 7. Codice B2 attribuito in continuità con il sabato precedente; non visibile in Zepp. 24 serie in 01:19:41, recuperi 01:08:13, carico 139, FC 120/156, 691 kcal. Sonno 6:17, HRV 43, FC riposo 52, TSB -3 Bilanciato. Nomi esercizi, ripetizioni e kg non disponibili. Radar senza punteggi numerici.",
+      "tsb": {
+        "value": -3,
+        "label": "Bilanciato",
+        "fitness_ctl": 46,
+        "fatigue_atl": 49,
+        "date": "2026-10-17"
+      }
     }
   ]
 }
