@@ -2893,6 +2893,99 @@
         "fatigue_atl": 49,
         "date": "2026-10-17"
       }
+    },
+    {
+      "id": "2026-10-19-a1",
+      "date": "2026-10-19",
+      "time": "13:05",
+      "datetime": "2026-10-19T13:05",
+      "codice": "A1",
+      "blocco": 1,
+      "scheda": 1,
+      "month": "2026-10",
+      "durata": "00:47:15",
+      "durata_sec": 2835,
+      "durata_device": "00:47:15.60",
+      "tempo_totale": "00:48:09.31",
+      "recupero": "34:31",
+      "recupero_sec": 2071,
+      "gruppi": 21,
+      "fc_media": 118,
+      "fc_max": 150,
+      "calorie": 400,
+      "carico": 91,
+      "duration_corrected": false,
+      "partial": false,
+      "zones": {
+        "leggera": {
+          "pct": 4,
+          "time": "02:01"
+        },
+        "intensiva": {
+          "pct": 36,
+          "time": "17:08"
+        },
+        "aerobica": {
+          "pct": 39,
+          "time": "18:44"
+        },
+        "anaerobica": {
+          "pct": 19,
+          "time": "09:16"
+        },
+        "vo2": {
+          "pct": 0,
+          "time": "00:03"
+        }
+      },
+      "zones_min": {
+        "leggera": 2.0166666666666666,
+        "intensiva": 17.133333333333333,
+        "aerobica": 18.733333333333334,
+        "anaerobica": 9.266666666666667,
+        "vo2max": 0.05
+      },
+      "effect": {
+        "aerobic": 3,
+        "aerobic_label": "Buono",
+        "anaerobic": 2.2,
+        "anaerobic_label": "Medio"
+      },
+      "readiness": {
+        "sleep_score": 68,
+        "sleep_score_label": "Normale",
+        "sleep_duration": "6:24",
+        "sleep_duration_label": "Normale",
+        "sleep_deep": "1:02",
+        "sleep_deep_pct": 16,
+        "sleep_rem": "1:27",
+        "sleep_rem_pct": 23,
+        "sleep_regularity_pct": 66,
+        "sleep_bedtime": "00:20",
+        "sleep_wake_time": "07:08",
+        "sleep_hr_night": 54,
+        "hrv": 35,
+        "hrv_label": "Fai attenzione",
+        "hrv_baseline": 43,
+        "resting_hr": 52,
+        "resting_hr_label": "Ottimale",
+        "hybridcharge_wake": 61,
+        "hybridcharge_wake_label": "Discreto",
+        "hybridcharge_snapshot": 31,
+        "hybridcharge_snapshot_time": "16:55",
+        "hybridcharge_workout_delta": -9,
+        "effort_day": 67,
+        "effort_goal": 96,
+        "effort_pct": 69
+      },
+      "tsb": {
+        "value": 3,
+        "label": "Bilanciato",
+        "fitness_ctl": 42,
+        "fatigue_atl": 39,
+        "date": "2026-10-19"
+      },
+      "note": "Lunedì 19 ottobre 13:05, 21 serie in 47:15,60. A1 settimana 8 attribuito in continuità con i lunedì precedenti e la mappa muscolare, non letto in Zepp. Carico 91, FC 118/150, 400 kcal. Sonno 6:24, HRV 35 su baseline 43, FC riposo 52, TSB +3 Bilanciato. Esercizi, ripetizioni, kg, RPE e sensazioni non disponibili. Radar senza punteggi numerici."
     }
   ]
 }

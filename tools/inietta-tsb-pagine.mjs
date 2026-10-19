@@ -14,6 +14,7 @@ const REPO = dirname(dirname(fileURLToPath(import.meta.url)));
 const data = JSON.parse(readFileSync(join(REPO, "data/training-load.json"), "utf8"));
 
 const SESSION_PAGES = [
+  { file: "allenamenti/sessioni/2026-10-19-a1/index.html", date: "2026-10-19" },
   { file: "allenamenti/sessioni/2026-10-17-b2/index.html", date: "2026-10-17" },
   { file: "allenamenti/sessioni/2026-07-16-scheda-1/index.html", date: "2026-07-16" },
   { file: "allenamenti/sessioni/2026-07-17-scheda-2/index.html", date: "2026-07-17" },
