@@ -87,8 +87,10 @@
       info.innerHTML = "<span class=\"admin-fase__num\">Fase " + (i + 1) + "</span><h3>" + fase.nome + "</h3><p class=\"admin-fase__dates\">" + formatDate(fase.inizio) + " – " + formatDate(fase.fine) + " · " + fase.settimane + " sett. · RIR " + fase.rir + "</p>";
       var side = el("div", { className: "admin-fase__side" });
       side.appendChild(el("p", { className: "admin-fase__obiettivo", html: fase.obiettivo }));
+      var btnRow = el("div", { className: "admin-fase__btnrow" });
+      side.appendChild(btnRow);
       if (!window.fqPeriodi || !blocco || !window.fqPeriodi.hasPeriodi(blocco)) {
-        side.appendChild(el("a", {
+        btnRow.appendChild(el("a", {
           className: "admin-fase__pdf",
           href: window.fqPeriodi
             ? window.fqPeriodi.fasePdfUrl(fase.id)
@@ -97,6 +99,16 @@
           rel: "noopener",
           title: "Riassunto stampabile delle quattro schede A1–B2",
           text: "PDF Fase " + (i + 1) + " · A1–B2"
+        }));
+      }
+      if (fase.id === "ipertrofia-accumulo") {
+        btnRow.appendChild(el("a", {
+          className: "admin-fase__pdf admin-fase__pdf--scarico",
+          href: "/admin/prototipi/periodizzazione/scarico-sett9/",
+          target: "_blank",
+          rel: "noopener",
+          title: "Schede della settimana 9 (26 ott - 1 nov): scarico parziale",
+          text: "Scarico sett. 9 · A1–B2"
         }));
       }
       head.appendChild(info);

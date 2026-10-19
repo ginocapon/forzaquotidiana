@@ -542,6 +542,9 @@
   white-space: nowrap;
 }
 .admin-fase__pdf:hover { filter: brightness(1.08); color: #fff; }
+.admin-fase__pdf--scarico { background: #2e9e55; }
+.admin-fase__btnrow { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: flex-end; }
+@media (max-width: 639px) { .admin-fase__btnrow { justify-content: flex-start; } }
 @media (max-width: 639px) {
   .admin-fase__side { align-items: flex-start; max-width: none; }
 }
